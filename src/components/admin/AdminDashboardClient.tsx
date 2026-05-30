@@ -111,10 +111,14 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   }
 
   async function promoteUser(userId: string, role: string) {
-    const supabase = createClient();
-    if (!supabase) return;
-    await supabase.from("profiles").update({ role }).eq("id", userId);
-    setUsers((prev) => prev.map((u) => u.id === userId ? { ...u, role } : u));
+    const res = await fetch("/api/admin/promote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId, role }),
+    });
+    if (res.ok) {
+      setUsers((prev) => prev.map((u) => u.id === userId ? { ...u, role } : u));
+    }
   }
 
   async function signOut() {

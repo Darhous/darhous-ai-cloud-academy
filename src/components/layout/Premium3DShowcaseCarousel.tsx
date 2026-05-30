@@ -246,14 +246,18 @@ export default function Premium3DShowcaseCarousel({ locale }: { locale: string }
   const touchStartX = useRef<number | null>(null);
   const total = showcaseItems.length;
 
+  // Respect prefers-reduced-motion
+  const prefersReducedMotion =
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   const next = useCallback(() => setActive((a) => (a + 1) % total), [total]);
   const prev = useCallback(() => setActive((a) => (a - 1 + total) % total), [total]);
 
   useEffect(() => {
-    if (isPaused) return;
-    const t = setInterval(next, 7000);
+    if (isPaused || prefersReducedMotion) return;
+    const t = setInterval(next, 6000);
     return () => clearInterval(t);
-  }, [isPaused, next]);
+  }, [isPaused, prefersReducedMotion, next]);
 
   const onTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;

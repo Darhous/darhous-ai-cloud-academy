@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionHeader from "@/components/ui/SectionHeader";
 import SocialLinksBar from "@/components/layout/SocialLinksBar";
 import ContactForm from "@/components/contact/ContactForm";
+import CommunitySignup from "@/components/community/CommunitySignup";
 import { Mail, Send } from "lucide-react";
 import { FaInstagram, FaLinkedinIn, FaFacebook, FaWhatsapp } from "react-icons/fa";
 
@@ -187,6 +188,9 @@ export default async function ContactPage({
               </div>
             </div>
           </div>
+
+          {/* Community Signup CTA */}
+          <CommunitySignup locale={locale} variant="compact" source="contact" />
         </div>
       </div>
     </div>

@@ -2,13 +2,25 @@ import { NextRequest } from "next/server";
 import { mentorModes } from "@/data/mentor";
 import type { MentorModeId } from "@/data/mentor";
 import type { MentorApiRequest } from "@/lib/mentor-context";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 const VALID_MODES: MentorModeId[] = ["ask", "prompt", "claude_code", "path", "tools", "project"];
 const MAX_MESSAGE_LENGTH = 4000;
 
-export const runtime = "edge"; // Edge runtime for faster streaming
+// Node runtime so we can use the shared in-memory rate limiter (server-only).
+export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {
+  // Rate limit: 10 requests per 60 seconds per IP
+  const ip = getClientIp(req);
+  const rl = checkRateLimit(`mentor-stream:${ip}`, { limit: 10, windowSec: 60 });
+  if (!rl.allowed) {
+    return new Response(
+      JSON.stringify({ error: `Too many requests. Please wait ${rl.resetInSec}s.` }),
+      { status: 429, headers: { "Content-Type": "application/json", "Retry-After": String(rl.resetInSec) } }
+    );
+  }
+
   if (!process.env.GEMINI_API_KEY) {
     return new Response(
       JSON.stringify({ error: "AI Mentor not configured", missingKey: true }),

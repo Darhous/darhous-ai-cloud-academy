@@ -8,6 +8,7 @@ import ToolCard from "@/components/cards/ToolCard";
 import ProjectCard from "@/components/cards/ProjectCard";
 import BlogCard from "@/components/cards/BlogCard";
 import Premium3DShowcaseCarousel from "@/components/layout/Premium3DShowcaseCarousel";
+import CommunitySignup from "@/components/community/CommunitySignup";
 import { courses } from "@/data/courses";
 import { tools } from "@/data/tools";
 import { projects } from "@/data/projects";
@@ -344,6 +345,11 @@ export default async function HomePage({
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Community Signup */}
+      <div className="container-xl">
+        <CommunitySignup locale={locale} variant="hero" source="home" />
       </div>
 
       {/* CTA */}

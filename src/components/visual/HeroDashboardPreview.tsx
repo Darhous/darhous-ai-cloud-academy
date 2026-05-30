@@ -42,10 +42,10 @@ export default function HeroDashboardPreview({ locale }: { locale: string }) {
             <span style={{ color: "var(--color-on-surface-variant)" }}> = client.messages.create(</span>
           </div>
           <div style={{ color: "var(--color-on-surface-variant)", paddingLeft: "16px" }}>
-            model=<span style={{ color: "var(--color-tertiary)" }}>"claude-opus-4-5"</span>,
+            model=<span style={{ color: "var(--color-tertiary)" }}>{'"'}claude-opus-4-5{'"'}</span>,
           </div>
           <div style={{ color: "var(--color-on-surface-variant)", paddingLeft: "16px" }}>
-            messages=[{"{"}role: <span style={{ color: "var(--color-tertiary)" }}>"user"</span>{"}"}]
+            messages=[{"{"}role: <span style={{ color: "var(--color-tertiary)" }}>{'"'}user{'"'}</span>{"}"}]
           </div>
           <div style={{ color: "var(--color-on-surface-variant)" }}>)</div>
           <div className="opacity-0 h-2" />

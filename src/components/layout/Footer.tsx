@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Bot } from "lucide-react";
 import SocialLinksBar from "./SocialLinksBar";
+import CommunitySignup from "@/components/community/CommunitySignup";
 
 interface FooterProps {
   locale: string;
@@ -84,7 +85,7 @@ export default function Footer({ locale }: FooterProps) {
         {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
 
-          {/* Brand */}
+          {/* Brand + Community Signup */}
           <div className="md:col-span-1">
             <Link
               href={`/${locale}`}
@@ -102,18 +103,7 @@ export default function Footer({ locale }: FooterProps) {
                 ? "منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود من الصفر حتى بناء مشاريع حقيقية."
                 : "A practical AI and Cloud learning platform from zero to real-world projects."}
             </p>
-            <a
-              href="mailto:ahmeddarhous@gmail.com"
-              className="inline-flex items-center gap-2 text-xs font-mono px-3 py-2 rounded-lg transition-opacity hover:opacity-80"
-              style={{
-                background: "rgba(142,213,255,0.07)",
-                border: "1px solid rgba(142,213,255,0.15)",
-                color: "var(--color-primary)",
-                textDecoration: "none",
-              }}
-            >
-              ✉️ ahmeddarhous@gmail.com
-            </a>
+            <CommunitySignup locale={locale} variant="footer" source="footer" />
           </div>
 
           {/* Quick Links */}

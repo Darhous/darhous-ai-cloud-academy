@@ -210,7 +210,7 @@ export default function StudentDashboardClient({ locale }: Props) {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         <StatCard icon={<Flame size={22} />} value={`${streak} ${streak === 1 ? (isAr ? "يوم" : "day") : (isAr ? "أيام" : "days")}`} labelAr="سلسلة التعلم 🔥" labelEn="Learning streak 🔥" color="#f97316" isAr={isAr} pulse={streak > 0} />
         <StatCard icon={<BookOpen size={22} />} value={startedCount} labelAr="دورات جارية" labelEn="Courses started" color="var(--color-primary)" isAr={isAr} />
         <StatCard icon={<Award size={22} />} value={completedCount} labelAr="دورات مكتملة" labelEn="Courses completed" color="#4ade80" isAr={isAr} />

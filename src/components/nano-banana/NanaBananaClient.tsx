@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Copy, Check, Bookmark, BookmarkCheck, Shield, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
+import CommunitySignup from "@/components/community/CommunitySignup";
 import {
   nanaBananaPrompts,
   nanaBananaCategories,
@@ -368,37 +369,9 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
         )}
       </section>
 
-      {/* ── CTA / Community signup ───────────────── */}
+      {/* ── Community Signup CTA ───────────────── */}
       <section className="container-xl pb-20">
-        <div
-          className="rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
-          style={{
-            background: "linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(139,92,246,0.08) 100%)",
-            border: "1px solid rgba(245,158,11,0.2)",
-          }}
-        >
-          <div className="absolute top-0 start-0 w-64 h-64 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%)", filter: "blur(60px)" }} />
-          <div className="relative z-10">
-            <div className="text-5xl mb-4">🍌</div>
-            <h2 className="font-display font-bold text-2xl md:text-3xl mb-3" style={{ color: "var(--color-on-surface)" }}>
-              {isAr
-                ? "ابقَ على اطّلاع بأحدث تريندات Nano Banana"
-                : "Stay updated with the latest Nano Banana trends"}
-            </h2>
-            <p className="text-sm mb-6 max-w-md mx-auto" style={{ color: "var(--color-on-surface-variant)" }}>
-              {isAr
-                ? "انضم إلى مجتمع درهوس واحصل على أحدث البرومبتات والتريندات مباشرة في بريدك."
-                : "Join the Darhous community and get the latest prompts and trends delivered to your inbox."}
-            </p>
-            <a
-              href={`/${locale}/contact`}
-              className="glow-button-primary text-white font-mono px-8 py-3 rounded-xl inline-flex items-center gap-2"
-            >
-              <Sparkles size={16} />
-              {isAr ? "انضم إلى المجتمع" : "Join the Community"}
-            </a>
-          </div>
-        </div>
+        <CommunitySignup locale={locale} variant="hero" source="nano-banana" />
       </section>
     </div>
   );
