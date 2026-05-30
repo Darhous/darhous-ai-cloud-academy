@@ -11,56 +11,56 @@ export default function Footer({ locale }: FooterProps) {
 
   const quickLinks = isAr
     ? [
-        { href: "/courses",  label: "الدورات" },
-        { href: "/paths",    label: "المسارات" },
-        { href: "/tools",    label: "أدوات AI" },
-        { href: "/claude",   label: "إتقان Claude" },
-        { href: "/cloud",    label: "أكاديمية الكلاود" },
-        { href: "/projects", label: "المشاريع" },
-        { href: "/prompts",  label: "مكتبة البرومبتات" },
-        { href: "/blog",     label: "المدونة" },
+        { href: "/courses",  label: "الدورات"            },
+        { href: "/paths",    label: "المسارات"            },
+        { href: "/tools",    label: "أدوات AI"            },
+        { href: "/claude",   label: "إتقان Claude"        },
+        { href: "/cloud",    label: "أكاديمية الكلاود"    },
+        { href: "/projects", label: "المشاريع"            },
+        { href: "/prompts",  label: "مكتبة البرومبتات"    },
+        { href: "/blog",     label: "المدونة"             },
       ]
     : [
-        { href: "/courses",  label: "Courses" },
-        { href: "/paths",    label: "Learning Paths" },
-        { href: "/tools",    label: "AI Tools" },
-        { href: "/claude",   label: "Claude Mastery" },
-        { href: "/cloud",    label: "Cloud Academy" },
-        { href: "/projects", label: "Projects" },
-        { href: "/prompts",  label: "Prompt Library" },
-        { href: "/blog",     label: "Blog" },
+        { href: "/courses",  label: "Courses"         },
+        { href: "/paths",    label: "Learning Paths"  },
+        { href: "/tools",    label: "AI Tools"        },
+        { href: "/claude",   label: "Claude Mastery"  },
+        { href: "/cloud",    label: "Cloud Academy"   },
+        { href: "/projects", label: "Projects"        },
+        { href: "/prompts",  label: "Prompt Library"  },
+        { href: "/blog",     label: "Blog"            },
       ];
 
   const aiStudioLinks = isAr
     ? [
-        { href: "/mentor",                label: "✨ مرشد AI" },
-        { href: "/prompt-studio",         label: "⚡ استوديو البرومبتات" },
-        { href: "/claude-code-generator", label: "🛠️ مولّد Claude Code" },
-        { href: "/tool-recommender",      label: "🔎 مرشّح الأدوات" },
-        { href: "/roadmap-generator",     label: "🗺️ مولّد خطط التعلم" },
-        { href: "/dashboard",             label: "📂 محفوظاتي" },
+        { href: "/mentor",                label: "✨ مرشد AI"               },
+        { href: "/prompt-studio",         label: "⚡ استوديو البرومبتات"    },
+        { href: "/claude-code-generator", label: "🛠️ مولّد Claude Code"     },
+        { href: "/tool-recommender",      label: "🔎 مرشّح الأدوات"         },
+        { href: "/roadmap-generator",     label: "🗺️ مولّد خطط التعلم"      },
+        { href: "/dashboard",             label: "📂 محفوظاتي"              },
       ]
     : [
-        { href: "/mentor",                label: "✨ AI Mentor" },
-        { href: "/prompt-studio",         label: "⚡ Prompt Studio" },
+        { href: "/mentor",                label: "✨ AI Mentor"             },
+        { href: "/prompt-studio",         label: "⚡ Prompt Studio"         },
         { href: "/claude-code-generator", label: "🛠️ Claude Code Generator" },
-        { href: "/tool-recommender",      label: "🔎 Tool Recommender" },
-        { href: "/roadmap-generator",     label: "🗺️ Roadmap Generator" },
-        { href: "/dashboard",             label: "📂 My Saved Items" },
+        { href: "/tool-recommender",      label: "🔎 Tool Recommender"      },
+        { href: "/roadmap-generator",     label: "🗺️ Roadmap Generator"     },
+        { href: "/dashboard",             label: "📂 My Saved Items"        },
       ];
 
   const moreLinks = isAr
     ? [
-        { href: "/glossary", label: "المسرد" },
-        { href: "/about",    label: "عن المنصة" },
-        { href: "/contact",  label: "تواصل معنا" },
-        { href: "/privacy",  label: "سياسة الخصوصية" },
-        { href: "/terms",    label: "شروط الخدمة" },
+        { href: "/glossary", label: "المسرد"             },
+        { href: "/about",    label: "عن المنصة"          },
+        { href: "/contact",  label: "تواصل معنا"         },
+        { href: "/privacy",  label: "سياسة الخصوصية"    },
+        { href: "/terms",    label: "شروط الخدمة"        },
       ]
     : [
-        { href: "/glossary", label: "Glossary" },
-        { href: "/about",    label: "About" },
-        { href: "/contact",  label: "Contact" },
+        { href: "/glossary", label: "Glossary"       },
+        { href: "/about",    label: "About"          },
+        { href: "/contact",  label: "Contact"        },
         { href: "/privacy",  label: "Privacy Policy" },
         { href: "/terms",    label: "Terms of Service" },
       ];
@@ -86,17 +86,16 @@ export default function Footer({ locale }: FooterProps) {
               style={{ color: "var(--color-primary)" }}
             >
               <Bot size={24} style={{ color: "var(--color-tertiary)" }} />
-              {isAr ? "درهوس AI" : "Darhous AI"}
+              {isAr ? "أكاديمية درهوس" : "Darhous AI"}
             </Link>
             <p
-              className="text-sm leading-relaxed mb-6"
+              className="text-sm leading-relaxed mb-5"
               style={{ color: "var(--color-on-surface-variant)" }}
             >
               {isAr
                 ? "منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود من الصفر حتى بناء مشاريع حقيقية."
                 : "A practical AI and Cloud learning platform from zero to real-world projects."}
             </p>
-            {/* Email CTA */}
             <a
               href="mailto:ahmeddarhous@gmail.com"
               className="inline-flex items-center gap-2 text-xs font-mono px-3 py-2 rounded-lg transition-opacity hover:opacity-80"
@@ -181,18 +180,18 @@ export default function Footer({ locale }: FooterProps) {
           </div>
         </div>
 
-        {/* Bottom strip */}
+        {/* Bottom center strip */}
         <div
-          className="pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-5"
+          className="pt-6 border-t flex flex-col items-center gap-4"
           style={{ borderColor: "rgba(255,255,255,0.05)" }}
         >
-          {/* Social icons */}
+          {/* Social icons — centered */}
           <SocialLinksBar locale={locale} variant="footer" />
 
-          {/* Credit */}
+          {/* Credit line */}
           <p
             className="text-xs font-mono text-center"
-            style={{ color: "var(--color-on-surface-variant)", opacity: 0.55 }}
+            style={{ color: "var(--color-on-surface-variant)", opacity: 0.5 }}
           >
             designed by{" "}
             <a

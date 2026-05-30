@@ -6,6 +6,7 @@ import { tools } from "@/data/tools";
 import { courses } from "@/data/courses";
 import { Clock, CalendarDays, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 import AskThisPageButton from "@/components/ui/AskThisPageButton";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 type Params = Promise<{ locale: string; slug: string }>;
 
@@ -74,13 +75,15 @@ export default async function BlogPostPage({ params }: { params: Params }) {
   return (
     <div className="container-xl py-12">
       <div className="max-w-4xl mx-auto flex flex-col gap-10">
-        {/* Back */}
-        <Link href={`/${locale}/blog`}
-          className="flex items-center gap-2 text-sm font-mono w-max transition-colors hover:opacity-80"
-          style={{ color: "var(--color-primary)" }}>
-          <BackChevron size={16} />
-          {isAr ? "المدونة" : "Blog"}
-        </Link>
+        {/* Breadcrumbs */}
+        <Breadcrumbs
+          locale={locale}
+          items={[
+            { labelAr: "الرئيسية", labelEn: "Home", href: `/${locale}` },
+            { labelAr: "المدونة",  labelEn: "Blog",  href: `/${locale}/blog` },
+            { labelAr: post.titleAr, labelEn: post.titleEn },
+          ]}
+        />
 
         {/* Hero */}
         <div className="text-center flex flex-col items-center gap-4">

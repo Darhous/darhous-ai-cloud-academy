@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import SectionHeader from "@/components/ui/SectionHeader";
 import SocialLinksBar from "@/components/layout/SocialLinksBar";
-import { Mail, Send, CheckCircle } from "lucide-react";
+import ContactSuccessModal from "@/components/contact/ContactSuccessModal";
+import { Mail, Send, Info } from "lucide-react";
 import { FaInstagram, FaLinkedinIn, FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -16,10 +17,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 const socialCards = [
-  { icon: FaInstagram,  labelAr: "إنستغرام",  labelEn: "Instagram", href: "https://www.instagram.com/darhous/",         color: "#E1306C", bg: "rgba(225,48,108,0.08)",  border: "rgba(225,48,108,0.22)" },
-  { icon: FaLinkedinIn, labelAr: "لينكد إن",  labelEn: "LinkedIn",  href: "https://www.linkedin.com/in/darhous/",        color: "#0A66C2", bg: "rgba(10,102,194,0.08)",   border: "rgba(10,102,194,0.22)" },
-  { icon: FaFacebook,   labelAr: "فيسبوك",    labelEn: "Facebook",  href: "https://www.facebook.com/ahmed.darhous",      color: "#1877F2", bg: "rgba(24,119,242,0.08)",   border: "rgba(24,119,242,0.22)" },
-  { icon: FaWhatsapp,   labelAr: "واتساب",    labelEn: "WhatsApp",  href: "https://wa.me/201030002331",                  color: "#25D366", bg: "rgba(37,211,102,0.08)",   border: "rgba(37,211,102,0.22)" },
+  { icon: FaInstagram,  labelAr: "إنستغرام",  labelEn: "Instagram", href: "https://www.instagram.com/darhous/",      color: "#E1306C", bg: "rgba(225,48,108,0.08)",  border: "rgba(225,48,108,0.22)" },
+  { icon: FaLinkedinIn, labelAr: "لينكد إن",  labelEn: "LinkedIn",  href: "https://www.linkedin.com/in/darhous/",     color: "#0A66C2", bg: "rgba(10,102,194,0.08)",   border: "rgba(10,102,194,0.22)" },
+  { icon: FaFacebook,   labelAr: "فيسبوك",    labelEn: "Facebook",  href: "https://www.facebook.com/ahmed.darhous",   color: "#1877F2", bg: "rgba(24,119,242,0.08)",   border: "rgba(24,119,242,0.22)" },
+  { icon: FaWhatsapp,   labelAr: "واتساب",    labelEn: "WhatsApp",  href: "https://wa.me/201030002331",               color: "#25D366", bg: "rgba(37,211,102,0.08)",   border: "rgba(37,211,102,0.22)" },
 ];
 
 export default async function ContactPage({
@@ -39,6 +40,9 @@ export default async function ContactPage({
 
   return (
     <div className="container-xl py-16 flex flex-col gap-14">
+      {/* Success popup modal (client component) */}
+      <ContactSuccessModal isSuccess={isSuccess} locale={locale} />
+
       <div className="text-center">
         <SectionHeader
           badge={isAr ? "تواصل معنا" : "Contact"}
@@ -77,10 +81,7 @@ export default async function ContactPage({
 
       {/* Social cards grid */}
       <div>
-        <h3
-          className="font-display font-bold text-xl mb-5"
-          style={{ color: "var(--color-on-surface)" }}
-        >
+        <h3 className="font-display font-bold text-xl mb-5" style={{ color: "var(--color-on-surface)" }}>
           {isAr ? "تواصل معنا الآن" : "Contact us now"}
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -94,14 +95,10 @@ export default async function ContactPage({
                 rel="noopener noreferrer"
                 aria-label={isAr ? item.labelAr : item.labelEn}
                 className="flex flex-col items-center gap-3 p-6 rounded-2xl transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
-                style={{
-                  background: item.bg,
-                  border: `1px solid ${item.border}`,
-                  textDecoration: "none",
-                }}
+                style={{ background: item.bg, border: `1px solid ${item.border}`, textDecoration: "none" }}
               >
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl"
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center"
                   style={{ background: `${item.color}18`, border: `1px solid ${item.color}30` }}
                 >
                   <Icon style={{ color: item.color, fontSize: "28px" }} />
@@ -118,7 +115,7 @@ export default async function ContactPage({
       {/* Main grid: form + info */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto w-full">
 
-        {/* Contact Form — FormSubmit.co */}
+        {/* Contact Form */}
         <div className="glass-card rounded-2xl p-8 flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-1">
             <div
@@ -132,28 +129,35 @@ export default async function ContactPage({
             </h2>
           </div>
 
-          {/* Success message */}
+          {/* Prominent FormSubmit activation note */}
+          <div
+            className="flex items-start gap-3 px-4 py-3.5 rounded-xl"
+            style={{
+              background: "rgba(251,191,36,0.07)",
+              border: "1px solid rgba(251,191,36,0.25)",
+            }}
+          >
+            <Info size={16} style={{ color: "#fbbf24", flexShrink: 0, marginTop: "2px" }} />
+            <p className="text-xs leading-relaxed" style={{ color: "rgba(251,191,36,0.9)" }}>
+              {isAr
+                ? "ملاحظة: عند أول رسالة فقط قد يطلب نظام الإرسال تأكيد البريد الإلكتروني لتفعيل استقبال الرسائل. تحقق من بريدك الإلكتروني بعد إرسال أول رسالة."
+                : "Note: On the first message only, the email delivery service may require email confirmation to activate message delivery. Check your inbox after sending the first message."}
+            </p>
+          </div>
+
+          {/* Inline success banner (in addition to modal) */}
           {isSuccess && (
             <div
               className="flex items-center gap-3 px-4 py-3 rounded-xl"
               style={{ background: "rgba(74,222,128,0.1)", border: "1px solid rgba(74,222,128,0.25)" }}
             >
-              <CheckCircle size={18} style={{ color: "#4ade80", flexShrink: 0 }} />
+              <span className="text-xl">✅</span>
               <p className="text-sm" style={{ color: "#4ade80" }}>
                 {isAr
                   ? "تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا."
                   : "Your message was sent successfully! We'll get back to you soon."}
               </p>
             </div>
-          )}
-
-          {/* Note about first-time activation */}
-          {!isSuccess && (
-            <p className="text-xs" style={{ color: "var(--color-on-surface-variant)", opacity: 0.7 }}>
-              {isAr
-                ? "ملاحظة: أول رسالة قد تتطلب تأكيد إيميل من FormSubmit. تحقق من بريدك الإلكتروني بعد الإرسال."
-                : "Note: The first message may require an email confirmation from FormSubmit. Check your inbox after sending."}
-            </p>
           )}
 
           <form
@@ -167,7 +171,7 @@ export default async function ContactPage({
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_next" value={successRedirect} />
             {/* Honeypot anti-spam */}
-            <input type="text" name="_honey" style={{ display: "none" }} />
+            <input type="text" name="_honey" style={{ display: "none" }} aria-hidden="true" />
 
             <div>
               <label className="block text-sm font-mono mb-2" style={{ color: "var(--color-on-surface-variant)" }}>

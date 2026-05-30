@@ -7,6 +7,7 @@ import { prompts } from "@/data/prompts";
 import Badge from "@/components/ui/Badge";
 import { CheckCircle2, XCircle, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import AskThisPageButton from "@/components/ui/AskThisPageButton";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 type Params = Promise<{ locale: string; slug: string }>;
 
@@ -58,6 +59,15 @@ export default async function ToolDetailPage({ params }: { params: Params }) {
 
   return (
     <div className="container-xl py-12 flex flex-col gap-10">
+      {/* Breadcrumbs */}
+      <Breadcrumbs
+        locale={locale}
+        items={[
+          { labelAr: "الرئيسية", labelEn: "Home", href: `/${locale}` },
+          { labelAr: "الأدوات",  labelEn: "AI Tools", href: `/${locale}/tools` },
+          { labelAr: tool.name,  labelEn: tool.name },
+        ]}
+      />
       {/* Back */}
       <Link
         href={`/${locale}/tools`}

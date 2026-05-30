@@ -7,6 +7,7 @@ import { tools } from "@/data/tools";
 import Badge from "@/components/ui/Badge";
 import { ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 import AskThisPageButton from "@/components/ui/AskThisPageButton";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 type Params = Promise<{ locale: string; slug: string }>;
 
@@ -45,13 +46,15 @@ export default async function ProjectDetailPage({ params }: { params: Params }) 
 
   return (
     <div className="container-xl py-12 flex flex-col gap-10">
-      {/* Back */}
-      <Link href={`/${locale}/projects`}
-        className="flex items-center gap-2 text-sm font-mono w-max transition-colors hover:opacity-80"
-        style={{ color: "var(--color-primary)" }}>
-        <BackChevron size={16} />
-        {isAr ? "مكتبة المشاريع" : "Projects Library"}
-      </Link>
+      {/* Breadcrumbs */}
+      <Breadcrumbs
+        locale={locale}
+        items={[
+          { labelAr: "الرئيسية", labelEn: "Home", href: `/${locale}` },
+          { labelAr: "المشاريع", labelEn: "Projects", href: `/${locale}/projects` },
+          { labelAr: project.titleAr, labelEn: project.titleEn },
+        ]}
+      />
 
       {/* Hero */}
       <div

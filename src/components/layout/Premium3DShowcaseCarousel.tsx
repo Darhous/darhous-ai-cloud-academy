@@ -316,11 +316,16 @@ export default function Premium3DShowcaseCarousel({ locale }: { locale: string }
                 color: "var(--color-primary)",
               }}
             >
-              ✦ {isAr ? "AI Studio — أدوات المنصة" : "AI Studio — Platform Tools"}
+              ✦ {isAr ? "منصة درهوس الذكية" : "The Darhous AI Experience"}
             </div>
             <h2 className="font-display font-bold text-2xl md:text-3xl" style={{ color: "var(--color-on-surface)" }}>
-              {isAr ? "استكشف أدوات الذكاء الاصطناعي" : "Explore AI Tools"}
+              {isAr ? "استكشف منصة درهوس الذكية" : "Explore the Darhous AI Experience"}
             </h2>
+            <p className="text-sm mt-1" style={{ color: "var(--color-on-surface-variant)" }}>
+              {isAr
+                ? "كل أدوات التعلم، البرومبتات، Claude، الكلاود، والمشاريع في تجربة واحدة."
+                : "All learning tools, prompts, Claude, cloud, and projects in one intelligent experience."}
+            </p>
           </div>
           {/* Arrows */}
           <div className="hidden sm:flex items-center gap-2">

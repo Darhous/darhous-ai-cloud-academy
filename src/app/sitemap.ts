@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   const toolEntries = locales.flatMap((locale) =>
-    tools.slice(0, 20).map((t) => ({
+    tools.map((t) => ({
       url: `${BASE_URL}/${locale}/tools/${t.id}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,

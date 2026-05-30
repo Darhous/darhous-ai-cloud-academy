@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import FeaturedShowcaseCarousel from "@/components/layout/FeaturedShowcaseCarousel";
 import CommandPaletteProvider from "@/components/features/CommandPaletteProvider";
 import MentorFloatingButton from "@/components/mentor/MentorFloatingButton";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 import { locales } from "@/lib/i18n";
 import { getDir } from "@/lib/utils";
+
+const BASE_URL = "https://darhous-ai-cloud-academy.vercel.app";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -34,7 +36,7 @@ export async function generateMetadata({
     keywords: isAr
       ? ["ذكاء اصطناعي", "كلاود", "claude", "تعلم آلة", "برمجة", "دورات", "أكاديمية"]
       : ["AI", "Cloud", "Claude", "Machine Learning", "Arabic AI", "Courses", "Academy"],
-    metadataBase: new URL("https://darhous-ai-cloud-academy.vercel.app"),
+    metadataBase: new URL(BASE_URL),
     openGraph: {
       type: "website",
       locale: isAr ? "ar_AR" : "en_US",
@@ -43,10 +45,19 @@ export async function generateMetadata({
       description: isAr
         ? "منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود"
         : "A practical AI and Cloud learning platform",
+      images: [
+        {
+          url: `${BASE_URL}/og-image.svg`,
+          width: 1200,
+          height: 630,
+          alt: isAr ? "أكاديمية درهوس للذكاء الاصطناعي والكلاود" : "Darhous AI Cloud Academy",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: isAr ? "أكاديمية درهوس للذكاء الاصطناعي" : "Darhous AI Cloud Academy",
+      images: [`${BASE_URL}/og-image.svg`],
     },
     robots: { index: true, follow: true },
   };
@@ -66,6 +77,48 @@ export default async function LocaleLayout({
   }
 
   const dir = getDir(locale);
+  const isAr = locale === "ar";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${BASE_URL}/#website`,
+        url: BASE_URL,
+        name: isAr ? "أكاديمية درهوس للذكاء الاصطناعي والكلاود" : "Darhous AI Cloud Academy",
+        description: isAr
+          ? "منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود"
+          : "A practical AI and Cloud learning platform",
+        inLanguage: [isAr ? "ar" : "en"],
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${BASE_URL}/${locale}/tools?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "EducationalOrganization",
+        "@id": `${BASE_URL}/#organization`,
+        name: isAr ? "أكاديمية درهوس للذكاء الاصطناعي والكلاود" : "Darhous AI Cloud Academy",
+        url: BASE_URL,
+        logo: `${BASE_URL}/og-image.svg`,
+        contactPoint: {
+          "@type": "ContactPoint",
+          email: "ahmeddarhous@gmail.com",
+          contactType: "customer support",
+        },
+        sameAs: [
+          "https://www.instagram.com/darhous/",
+          "https://www.linkedin.com/in/darhous/",
+          "https://www.facebook.com/ahmed.darhous",
+        ],
+      },
+    ],
+  };
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
@@ -73,27 +126,16 @@ export default async function LocaleLayout({
         {/* Inline theme init — prevents flash of wrong theme on refresh */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-(function(){
-  try {
-    var t = localStorage.getItem('theme') || 'dark';
-    if (t === 'light') {
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
-    } else {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    }
-  } catch(e) {
-    document.documentElement.classList.add('dark');
-  }
-})();
-            `.trim(),
+            __html: `(function(){try{var t=localStorage.getItem('theme')||'dark';if(t==='light'){document.documentElement.classList.add('light');document.documentElement.classList.remove('dark');}else{document.documentElement.classList.add('dark');document.documentElement.classList.remove('light');}}catch(e){document.documentElement.classList.add('dark');}})();`,
           }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body dir={dir} className="bg-grid-overlay min-h-screen flex flex-col" suppressHydrationWarning>
-        {/* Fixed full-viewport ambient orbs — matching Stitch design */}
+        {/* Fixed full-viewport ambient orbs */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
           <div
             className="absolute top-[-10%] right-[-5%] rounded-full"
@@ -125,12 +167,12 @@ export default async function LocaleLayout({
         </div>
 
         <Navbar locale={locale} />
-        <div style={{ paddingTop: "64px" }}>
-          <FeaturedShowcaseCarousel locale={locale} />
-        </div>
         <CommandPaletteProvider locale={locale} />
         <MentorFloatingButton locale={locale} />
-        <main className="flex-1 relative z-10">{children}</main>
+        <ScrollToTop />
+        <main className="flex-1 relative z-10" style={{ paddingTop: "64px" }}>
+          {children}
+        </main>
         <Footer locale={locale} />
       </body>
     </html>

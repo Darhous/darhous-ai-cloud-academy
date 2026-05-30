@@ -9,13 +9,13 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 1.4.0 — Polish & Production Wave |
+| **Version** | 1.5.0 — Global Layout Unification + Premium Visual Upgrade |
 | **Status** | ✅ Live on Vercel |
 | **Build** | ✅ Passing — 225 static pages, 0 TypeScript errors |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Branch** | `main` |
-| **Last Commit** | feat: v1.4.0 polish — carousel, privacy/terms, UI fixes |
+| **Last Commit** | feat: v1.5.0 — global layout unification and premium visual upgrade |
 | **Last Updated** | 2026-05-30 |
 
 ---
@@ -431,6 +431,58 @@ git push
 ### Improvements
 - Prompt Studio: Prompt Quality Checklist (5 criteria: Role, Context, Constraints, Format, Validation)
 - Roadmap Generator: Timeline visual header + improved result display
+
+---
+
+## ✅ v1.5.0 Changes (Global Layout Unification + Premium Visual Upgrade — 2026-05-30)
+
+### Layout Changes
+- **FeaturedShowcaseCarousel removed from global layout** — no longer appears on every page; was noisy and repetitive
+- **TopShowcaseBar.tsx deleted** — was unused (not imported anywhere)
+- **`[locale]/layout.tsx`**: removed compact carousel, added `paddingTop: 64px` to `<main>`, added ScrollToTop, added OG image metadata, added JSON-LD structured data (WebSite + EducationalOrganization)
+- **FeaturedShowcaseCarousel.tsx** still exists but is now unused — can be deleted in future cleanup
+
+### Navbar (src/components/layout/Navbar.tsx)
+- Removed "الدورات/Courses" from main nav (still accessible via /courses URL)
+- Replaced "✨ المرشد" direct link with **AI Studio dropdown**
+- AI Studio dropdown contains: AI Mentor, Prompt Studio, Claude Code Generator, Tool Recommender, Roadmap Generator
+- Dropdown opens on hover (desktop) and accordion on mobile
+- `isStudioActive` highlights AI Studio when on any /mentor /prompt-studio /claude-code-generator /tool-recommender /roadmap-generator
+- "تسجيل الدخول" removed completely — Dashboard Soon button remains
+- Removed old `signin` key usage from translations
+
+### Footer (src/components/layout/Footer.tsx)
+- Bottom strip redesigned: **centered layout** (flex-col items-center)
+- Social icons SocialLinksBar centered in bottom strip
+- Credit line centered: `designed by Ahmed Darhous ©` with mailto link
+- Old "جميع الحقوق محفوظة" copyright string removed
+- Stale `ar.json` keys (`signin`, `copyright`) removed
+
+### New Components
+- `src/components/ui/Breadcrumbs.tsx` — reusable breadcrumb nav, RTL/LTR aware, accessible
+- `src/components/ui/ScrollToTop.tsx` — floating scroll-to-top button, appears at 400px scroll, positioned above MentorFloatingButton
+- `src/components/contact/ContactSuccessModal.tsx` — popup modal when form is submitted (?sent=1), auto-closes in 6s, has progress bar
+
+### Contact Page (src/app/[locale]/contact/page.tsx)
+- FormSubmit activation note made **prominent** (amber box with Info icon, not tiny text)
+- Success modal (ContactSuccessModal) renders as popup overlay when ?sent=1
+- Inline success banner also kept below modal for accessibility
+
+### Breadcrumbs Added To
+- `src/app/[locale]/courses/[slug]/page.tsx` — Home > Courses > Course Name
+- `src/app/[locale]/tools/[slug]/page.tsx` — Home > AI Tools > Tool Name
+- `src/app/[locale]/projects/[slug]/page.tsx` — Home > Projects > Project Name
+- `src/app/[locale]/blog/[slug]/page.tsx` — Home > Blog > Post Name
+
+### Premium 3D Carousel (src/components/layout/Premium3DShowcaseCarousel.tsx)
+- Section header updated: "استكشف منصة درهوس الذكية" / "Explore the Darhous AI Experience"
+- Subtitle added: explains all tools in one experience
+
+### SEO & Open Graph
+- `public/og-image.svg` created — 1200×630, dark premium gradient, bilingual
+- Layout metadata updated: `openGraph.images` and `twitter.images` now reference og-image.svg
+- JSON-LD added: WebSite + EducationalOrganization schema
+- `src/app/sitemap.ts` fixed: all tools included (was `tools.slice(0,20)`, now `tools`)
 
 ---
 

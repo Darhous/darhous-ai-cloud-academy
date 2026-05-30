@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bot, Search, Menu, X } from "lucide-react";
+import { Bot, Search, Menu, X, ChevronDown } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 
@@ -14,33 +14,71 @@ interface NavbarProps {
 const navItems = {
   ar: [
     { href: "",          label: "الرئيسية" },
-    { href: "/courses",  label: "الدورات"  },
     { href: "/paths",    label: "المسارات" },
     { href: "/tools",    label: "الأدوات"  },
     { href: "/claude",   label: "Claude"   },
-    { href: "/cloud",    label: "الكلاود"  },
     { href: "/projects", label: "المشاريع" },
     { href: "/blog",     label: "المدونة"  },
-    { href: "/mentor",   label: "✨ المرشد" },
   ],
   en: [
-    { href: "",          label: "Home"      },
-    { href: "/courses",  label: "Courses"   },
-    { href: "/paths",    label: "Paths"     },
-    { href: "/tools",    label: "Tools"     },
-    { href: "/claude",   label: "Claude"    },
-    { href: "/cloud",    label: "Cloud"     },
-    { href: "/projects", label: "Projects"  },
-    { href: "/blog",     label: "Blog"      },
-    { href: "/mentor",   label: "✨ Mentor"  },
+    { href: "",          label: "Home"     },
+    { href: "/paths",    label: "Paths"    },
+    { href: "/tools",    label: "Tools"    },
+    { href: "/claude",   label: "Claude"   },
+    { href: "/projects", label: "Projects" },
+    { href: "/blog",     label: "Blog"     },
   ],
 };
 
+const aiStudioItems = {
+  ar: [
+    { href: "/mentor",                icon: "✨", label: "مساعد درهوس الذكي" },
+    { href: "/prompt-studio",         icon: "⚡", label: "استوديو البرومبتات" },
+    { href: "/claude-code-generator", icon: "🛠️", label: "مولّد Claude Code" },
+    { href: "/tool-recommender",      icon: "🔎", label: "مرشّح الأدوات"    },
+    { href: "/roadmap-generator",     icon: "🗺️", label: "مولّد خطط التعلم" },
+  ],
+  en: [
+    { href: "/mentor",                icon: "✨", label: "AI Mentor"             },
+    { href: "/prompt-studio",         icon: "⚡", label: "Prompt Studio"         },
+    { href: "/claude-code-generator", icon: "🛠️", label: "Claude Code Generator" },
+    { href: "/tool-recommender",      icon: "🔎", label: "Tool Recommender"      },
+    { href: "/roadmap-generator",     icon: "🗺️", label: "Roadmap Generator"     },
+  ],
+};
+
+const AI_STUDIO_PATHS = [
+  "/mentor", "/prompt-studio", "/claude-code-generator",
+  "/tool-recommender", "/roadmap-generator",
+];
+
 export default function Navbar({ locale }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [studioOpen, setStudioOpen] = useState(false);
+  const [mobileStudioOpen, setMobileStudioOpen] = useState(false);
+  const studioRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const items = navItems[locale as "ar" | "en"] ?? navItems.en;
+  const studioItems = aiStudioItems[locale as "ar" | "en"] ?? aiStudioItems.en;
   const isAr = locale === "ar";
+
+  // Close studio dropdown on outside click
+  useEffect(() => {
+    function onOutside(e: MouseEvent) {
+      if (studioRef.current && !studioRef.current.contains(e.target as Node)) {
+        setStudioOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onOutside);
+    return () => document.removeEventListener("mousedown", onOutside);
+  }, []);
+
+  // Close dropdowns on route change
+  useEffect(() => {
+    setMobileOpen(false);
+    setStudioOpen(false);
+    setMobileStudioOpen(false);
+  }, [pathname]);
 
   function isActive(href: string) {
     const full = `/${locale}${href}`;
@@ -48,11 +86,15 @@ export default function Navbar({ locale }: NavbarProps) {
     return pathname.startsWith(full);
   }
 
+  const isStudioActive = AI_STUDIO_PATHS.some((p) =>
+    pathname.startsWith(`/${locale}${p}`)
+  );
+
   return (
     <nav
       className="fixed top-0 w-full z-50"
       style={{
-        background: "rgba(17,19,24,0.78)",
+        background: "rgba(17,19,24,0.82)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
         borderBottom: "1px solid rgba(255,255,255,0.06)",
@@ -76,7 +118,7 @@ export default function Navbar({ locale }: NavbarProps) {
           </span>
         </Link>
 
-        {/* Desktop Nav — centered */}
+        {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-0.5">
           {items.map((item) => {
             const active = isActive(item.href);
@@ -104,7 +146,6 @@ export default function Navbar({ locale }: NavbarProps) {
                 }}
               >
                 {item.label}
-                {/* Active underline */}
                 {active && (
                   <span
                     className="absolute bottom-1 left-3 right-3 h-0.5 rounded-full"
@@ -114,15 +155,100 @@ export default function Navbar({ locale }: NavbarProps) {
               </Link>
             );
           })}
+
+          {/* AI Studio Dropdown */}
+          <div ref={studioRef} className="relative">
+            <button
+              onClick={() => setStudioOpen((v) => !v)}
+              onMouseEnter={() => setStudioOpen(true)}
+              className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              style={{
+                color: isStudioActive ? "var(--color-tertiary)" : "var(--color-on-surface-variant)",
+                background: isStudioActive ? "rgba(60,224,251,0.06)" : "transparent",
+                fontWeight: isStudioActive ? 600 : 400,
+              }}
+            >
+              AI Studio
+              <ChevronDown
+                size={13}
+                style={{
+                  transition: "transform 0.2s",
+                  transform: studioOpen ? "rotate(180deg)" : "rotate(0deg)",
+                  color: "var(--color-tertiary)",
+                }}
+              />
+              {isStudioActive && (
+                <span
+                  className="absolute bottom-1 left-3 right-3 h-0.5 rounded-full"
+                  style={{ background: "var(--color-tertiary)" }}
+                />
+              )}
+            </button>
+
+            {studioOpen && (
+              <div
+                className="absolute top-full mt-1.5 rounded-2xl overflow-hidden"
+                style={{
+                  [isAr ? "right" : "left"]: 0,
+                  width: "220px",
+                  background: "rgba(17,19,24,0.97)",
+                  border: "1px solid rgba(60,224,251,0.15)",
+                  boxShadow: "0 12px 40px rgba(0,0,0,0.4), 0 0 0 0.5px rgba(60,224,251,0.1)",
+                  backdropFilter: "blur(20px)",
+                }}
+                onMouseLeave={() => setStudioOpen(false)}
+              >
+                <div className="p-1.5">
+                  <div
+                    className="px-3 py-2 text-[10px] font-mono tracking-widest uppercase"
+                    style={{ color: "var(--color-tertiary)", opacity: 0.7 }}
+                  >
+                    AI Studio
+                  </div>
+                  {studioItems.map((item) => {
+                    const active = pathname.startsWith(`/${locale}${item.href}`);
+                    return (
+                      <Link
+                        key={item.href}
+                        href={`/${locale}${item.href}`}
+                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm transition-all duration-150"
+                        style={{
+                          color: active ? "var(--color-tertiary)" : "var(--color-on-surface-variant)",
+                          background: active ? "rgba(60,224,251,0.08)" : "transparent",
+                          textDecoration: "none",
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!active) {
+                            (e.currentTarget as HTMLElement).style.background = "rgba(60,224,251,0.06)";
+                            (e.currentTarget as HTMLElement).style.color = "var(--color-on-surface)";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!active) {
+                            (e.currentTarget as HTMLElement).style.background = "transparent";
+                            (e.currentTarget as HTMLElement).style.color = "var(--color-on-surface-variant)";
+                          }
+                        }}
+                      >
+                        <span className="text-base leading-none w-5 text-center">{item.icon}</span>
+                        <span className="font-medium">{item.label}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Actions */}
         <div className="flex items-center gap-1.5 flex-shrink-0">
-          {/* Search hint (desktop) — triggers command palette */}
+          {/* Search hint */}
           <button
             onClick={() => {
-              const e = new KeyboardEvent("keydown", { key: "k", ctrlKey: true, bubbles: true });
-              window.dispatchEvent(e);
+              window.dispatchEvent(
+                new KeyboardEvent("keydown", { key: "k", ctrlKey: true, bubbles: true })
+              );
             }}
             className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono cursor-pointer transition-all hover:opacity-80 hover:scale-105"
             style={{
@@ -181,7 +307,7 @@ export default function Navbar({ locale }: NavbarProps) {
         <div
           className="lg:hidden border-t"
           style={{
-            background: "rgba(17,19,24,0.96)",
+            background: "rgba(17,19,24,0.98)",
             backdropFilter: "blur(20px)",
             borderColor: "rgba(255,255,255,0.06)",
           }}
@@ -197,8 +323,7 @@ export default function Navbar({ locale }: NavbarProps) {
                   style={{
                     color: active ? "var(--color-primary)" : "var(--color-on-surface-variant)",
                     background: active ? "rgba(142,213,255,0.08)" : "transparent",
-                    borderLeft: active && !isAr ? "2px solid var(--color-primary)" : undefined,
-                    borderRight: active && isAr ? "2px solid var(--color-primary)" : undefined,
+                    borderInlineStart: active ? "2px solid var(--color-primary)" : "2px solid transparent",
                   }}
                   onClick={() => setMobileOpen(false)}
                 >
@@ -206,6 +331,52 @@ export default function Navbar({ locale }: NavbarProps) {
                 </Link>
               );
             })}
+
+            {/* Mobile AI Studio accordion */}
+            <div>
+              <button
+                onClick={() => setMobileStudioOpen((v) => !v)}
+                className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all"
+                style={{
+                  color: isStudioActive ? "var(--color-tertiary)" : "var(--color-on-surface-variant)",
+                  background: isStudioActive ? "rgba(60,224,251,0.08)" : "transparent",
+                  borderInlineStart: isStudioActive ? "2px solid var(--color-tertiary)" : "2px solid transparent",
+                }}
+              >
+                AI Studio
+                <ChevronDown
+                  size={14}
+                  style={{
+                    transition: "transform 0.2s",
+                    transform: mobileStudioOpen ? "rotate(180deg)" : "rotate(0deg)",
+                  }}
+                />
+              </button>
+              {mobileStudioOpen && (
+                <div className="mt-1 ms-4 flex flex-col gap-0.5">
+                  {studioItems.map((item) => {
+                    const active = pathname.startsWith(`/${locale}${item.href}`);
+                    return (
+                      <Link
+                        key={item.href}
+                        href={`/${locale}${item.href}`}
+                        className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm transition-all"
+                        style={{
+                          color: active ? "var(--color-tertiary)" : "var(--color-on-surface-variant)",
+                          background: active ? "rgba(60,224,251,0.06)" : "transparent",
+                          textDecoration: "none",
+                        }}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        <span>{item.icon}</span>
+                        <span>{item.label}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
             <div
               className="pt-3 mt-2 border-t"
               style={{ borderColor: "rgba(255,255,255,0.06)" }}
