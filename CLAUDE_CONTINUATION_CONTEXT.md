@@ -9,9 +9,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 2.5.0 — Production Audit Fixed |
-| **Status** | ✅ Live on Vercel + Supabase + Google OAuth + All P0/P1/P2 Issues Fixed |
-| **Build** | ✅ Passing — 252 static pages, 0 TypeScript errors |
+| **Version** | 2.6.0 — Content Expansion + Streak Counter |
+| **Status** | ✅ Live on Vercel + Supabase + Google OAuth + All Features Active |
+| **Build** | ✅ Passing — 286 static pages, 0 TypeScript errors |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
@@ -27,8 +27,43 @@
 Continue the Darhous AI Cloud Academy project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md first before any changes.
-Current version: 2.4.0 — Build: ✅ 251 pages — 6 new features — Deployed on Vercel
+Current version: 2.6.0 — Build: ✅ 286 pages — Content Expansion + Streak Counter — Deployed on Vercel
 ```
+
+---
+
+## 🆕 What was completed (v2.6.0):
+
+### Content Expansion + Streak Counter — Done in Session 2026-05-30
+
+#### 1. AI Tools Expanded: 45 → 62 entries ✅
+New tools added in `src/data/tools.ts`:
+- **Video AI** (new category): Runway ML, Pika, Kling AI, Luma Dream Machine
+- **AI Music** (new category): Suno, Udio
+- **AI Chatbots** (additions): Grok, Mistral Chat, DeepSeek
+- **Coding Agents** (additions): Bolt.new, Lovable
+- **AI Writing** (new category): Jasper AI, Grammarly AI
+- **AI Research** (new category): Consensus, Elicit
+- **Design AI** (addition): Framer AI
+- **Productivity AI** (addition): Mem
+- **Tool Stacks** (new): Content Creator Stack, Startup Builder Stack
+
+#### 2. Nano Banana Prompts Expanded: 21 → 51 entries ✅
+New prompts added in `src/data/nano-banana-prompts.ts` across all categories:
+- Art: Anime Portrait, Watercolor Portrait, Oil Painting, Fantasy Book Cover, Comic Panel, Renaissance Portrait, Underwater Fantasy, Stained Glass, Pop Art (Warhol), Low Poly, Grunge Rock Poster, Ghibli Scene, Egyptian Pharaoh, Nature Forest Spirit
+- Fun: Superhero Costume, Retro Pixel Game, Lego Minifigure, Claymation, Space Astronaut, Robot/Cyborg
+- Professional: Fashion Editorial, Motivational Poster, CV/Resume Photo
+- Social: Instagram Aesthetic, TikTok Creator Card, Twitter/X Banner
+- Product: Luxury Perfume Ad, Food Product Shot
+- Portrait: Street Photography Edit, B&W Fine Art Portrait
+
+#### 3. Streak Counter ✅
+- `calcStreak()` function in `StudentDashboardClient.tsx`
+- Queries `lesson_progress` table for `completed_at` dates
+- Calculates consecutive daily streak (resets if no activity today or yesterday)
+- Displayed as: 5th stat card (grid-cols-2 md:grid-cols-5) with orange flame 🔥
+- Also shown as a pill badge in the welcome card header
+- Pulse animation dot when streak > 0
 
 ---
 
@@ -152,10 +187,8 @@ All 6 variables in Production + Preview:
 **Publishing status:** In production (any Google account can sign in)
 **Supabase:** Google provider Enabled ✅
 
-### 🔴 Apple OAuth — NOT working
-**Error:** `Unsupported provider: provider is not enabled`
-**Fix needed:** Requires Apple Developer account — Service ID, Team ID, Key ID, Private Key
-OR simply hide the Apple button if not needed (remove from `OAuthButtons.tsx`)
+### ✅ Apple OAuth — Button removed (fixed 2026-05-30)
+Apple sign-in button was removed from `OAuthButtons.tsx`. Only Google OAuth remains active.
 
 ### 🟡 Email Confirmation OFF
 Currently new users don't need to confirm email (good for UX).
@@ -376,27 +409,36 @@ ADMIN_GUIDE.md
 
 ## 🔮 Recommended Next Tasks
 
-### Phase 2B: Content
-- [ ] More Nano Banana examples (target: 50+)
-- [ ] MDX support for blog posts
-- [ ] More AI tools (target: 60+)
+### Phase 2B: Content ✅ Done
+- [x] More Nano Banana examples (51 total — target met)
+- [x] MDX support for blog posts
+- [x] More AI tools (62 total — target met)
 
-### Phase 3B: Full Auth Experience
-- [ ] Email confirmation flow
+### Phase 3B: Full Auth Experience ✅ Done
+- [ ] Email confirmation flow (optional — currently disabled for UX)
 - [x] Password reset flow (`/forgot-password` + `/reset-password`)
-- [ ] User profile settings page
-- [ ] Onboarding flow after first login
+- [x] User profile settings page
+- [x] Onboarding flow after first login
 
-### Phase 4: Real Progress Tracking
-- [ ] Mark lesson as complete (writes to lesson_progress table)
-- [ ] Course progress bar updates in real-time
-- [ ] Quiz results saved to Supabase
-- [ ] Streak counter
+### Phase 4: Real Progress Tracking ✅ Done
+- [x] Mark lesson as complete (writes to lesson_progress table)
+- [x] Course progress bar updates in real-time
+- [x] Quiz results saved to Supabase
+- [x] Streak counter (shows consecutive learning days with 🔥)
 
-### Phase 5: AI Enhancements
-- [ ] Streaming AI responses (SSE)
+### Phase 5: AI Enhancements ✅ Partially done
+- [x] Streaming AI responses (SSE) — mentor-stream endpoint
 - [ ] RAG over platform content
-- [ ] Context-aware mentor from course pages
+- [ ] Context-aware mentor from course pages (shows course context in chat)
+
+### Phase 6: Upcoming Tasks
+- [ ] RAG: Index all courses/blog/prompts into a vector DB and let the mentor search them
+- [ ] Context mentor: course page has a "Ask about this lesson" CTA that pre-fills mentor with lesson context
+- [ ] More blog posts (currently 13 — target 20+)
+- [ ] Social sharing: share quiz results / streak on Twitter/X
+- [ ] Leaderboard: top learners by streak or quiz score (with opt-in)
+- [ ] Dark/light theme toggle in user settings
+- [ ] Certifications: downloadable PDF after completing a course
 
 ---
 

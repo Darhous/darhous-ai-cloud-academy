@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   TrendingUp, BookOpen, Save, Award, Brain, Activity,
-  Bookmark, Sparkles, LogOut, Settings, Star, Clock, ChevronRight, ChevronLeft,
+  Bookmark, Sparkles, LogOut, Settings, Star, Clock, ChevronRight, ChevronLeft, Flame,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -35,14 +35,35 @@ interface Props {
   locale: string;
 }
 
-function StatCard({ icon, value, labelAr, labelEn, color, isAr }: {
-  icon: React.ReactNode; value: string | number; labelAr: string; labelEn: string; color: string; isAr: boolean;
+function calcStreak(timestamps: string[]): number {
+  if (!timestamps.length) return 0;
+  const toDay = (ts: string) => ts.slice(0, 10); // "YYYY-MM-DD"
+  const uniqueDays = [...new Set(timestamps.map(toDay))].sort().reverse();
+  const today = new Date().toISOString().slice(0, 10);
+  const yesterday = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
+  // Streak must include today or yesterday (otherwise it's broken)
+  if (uniqueDays[0] !== today && uniqueDays[0] !== yesterday) return 0;
+  let streak = 1;
+  for (let i = 1; i < uniqueDays.length; i++) {
+    const prev = new Date(uniqueDays[i - 1]);
+    const curr = new Date(uniqueDays[i]);
+    const diffDays = Math.round((prev.getTime() - curr.getTime()) / 864e5);
+    if (diffDays === 1) { streak++; } else { break; }
+  }
+  return streak;
+}
+
+function StatCard({ icon, value, labelAr, labelEn, color, isAr, pulse }: {
+  icon: React.ReactNode; value: string | number; labelAr: string; labelEn: string; color: string; isAr: boolean; pulse?: boolean;
 }) {
   return (
     <div
       className="glass-card rounded-2xl p-5 flex items-center gap-4"
-      style={{ border: `1px solid ${color}20` }}
+      style={{ border: `1px solid ${color}20`, position: "relative", overflow: "hidden" }}
     >
+      {pulse && (
+        <span className="absolute top-2 end-2 w-2 h-2 rounded-full animate-pulse" style={{ background: color }} />
+      )}
       <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${color}15`, color }}>
         {icon}
       </div>
@@ -62,6 +83,7 @@ export default function StudentDashboardClient({ locale }: Props) {
   const [courseProgress, setCourseProgress] = useState<CourseProgressRow[]>([]);
   const [quizResults, setQuizResults] = useState<QuizResult[]>([]);
   const [savedPromptsDb, setSavedPromptsDb] = useState<SavedPromptRow[]>([]);
+  const [streak, setStreak] = useState(0);
   const [dataLoading, setDataLoading] = useState(false);
 
   useEffect(() => {
@@ -72,15 +94,17 @@ export default function StudentDashboardClient({ locale }: Props) {
       const supabase = createClient();
       if (!supabase || !user) { setDataLoading(false); return; }
 
-      const [cpRes, qrRes, spRes] = await Promise.all([
+      const [cpRes, qrRes, spRes, lpRes] = await Promise.all([
         supabase.from("course_progress").select("course_slug,status,progress_percent,last_opened_at").eq("user_id", user.id).order("last_opened_at", { ascending: false }).limit(5),
         supabase.from("quiz_results").select("course_slug,percentage,created_at").eq("user_id", user.id).order("created_at", { ascending: false }).limit(5),
         supabase.from("saved_prompts").select("id,title,created_at").eq("user_id", user.id).order("created_at", { ascending: false }).limit(5),
+        supabase.from("lesson_progress").select("completed_at").eq("user_id", user.id).eq("completed", true).not("completed_at", "is", null),
       ]);
 
       setCourseProgress(cpRes.data ?? []);
       setQuizResults(qrRes.data ?? []);
       setSavedPromptsDb(spRes.data ?? []);
+      setStreak(calcStreak(lpRes.data?.map((r: { completed_at: string }) => r.completed_at) ?? []));
       setDataLoading(false);
     }
 
@@ -152,9 +176,18 @@ export default function StudentDashboardClient({ locale }: Props) {
             <h1 className="font-display font-bold text-3xl md:text-4xl mb-2" style={{ color: "var(--color-on-surface)" }}>
               {(profile as UserProfile)?.full_name ?? user?.email?.split("@")[0] ?? (isAr ? "المتعلم" : "Learner")}
             </h1>
-            <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+            <p className="text-sm mb-3" style={{ color: "var(--color-on-surface-variant)" }}>
               {isAr ? "تابع رحلتك التعليمية في الذكاء الاصطناعي" : "Continue your AI learning journey"}
             </p>
+            {streak > 0 && (
+              <div
+                className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-full"
+                style={{ background: "rgba(249,115,22,0.15)", border: "1px solid rgba(249,115,22,0.3)", color: "#f97316" }}
+              >
+                <Flame size={12} />
+                {streak} {isAr ? (streak === 1 ? "يوم متواصل" : "أيام متواصلة") : (streak === 1 ? "day streak" : "day streak")}
+              </div>
+            )}
           </div>
           <div className="flex items-center gap-3">
             <Link
@@ -177,7 +210,8 @@ export default function StudentDashboardClient({ locale }: Props) {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <StatCard icon={<Flame size={22} />} value={`${streak} ${streak === 1 ? (isAr ? "يوم" : "day") : (isAr ? "أيام" : "days")}`} labelAr="سلسلة التعلم 🔥" labelEn="Learning streak 🔥" color="#f97316" isAr={isAr} pulse={streak > 0} />
         <StatCard icon={<BookOpen size={22} />} value={startedCount} labelAr="دورات جارية" labelEn="Courses started" color="var(--color-primary)" isAr={isAr} />
         <StatCard icon={<Award size={22} />} value={completedCount} labelAr="دورات مكتملة" labelEn="Courses completed" color="#4ade80" isAr={isAr} />
         <StatCard icon={<TrendingUp size={22} />} value={`${avgQuiz}%`} labelAr="متوسط الاختبارات" labelEn="Avg quiz score" color="var(--color-secondary)" isAr={isAr} />

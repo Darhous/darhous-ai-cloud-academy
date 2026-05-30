@@ -115,6 +115,30 @@ export const tools: Tool[] = [
   // Productivity
   { id: "notion-ai",       name: "Notion AI",         category: "Productivity AI",  shortDescriptionAr: "مساعد AI مدمج في Notion للكتابة والتلخيص",            shortDescriptionEn: "AI assistant built into Notion for writing and summaries",useCases: ["Writing","Notes","Planning"],             level: "beginner",     pricingType: "paid",        bestFor: "Knowledge workers",tags: ["notion","ai"],     featured: false },
   { id: "gamma",           name: "Gamma",             category: "Productivity AI",  shortDescriptionAr: "إنشاء عروض تقديمية احترافية بالذكاء الاصطناعي",       shortDescriptionEn: "Create professional presentations with AI",          useCases: ["Presentations","Docs","Content"],          level: "beginner",     pricingType: "freemium",    bestFor: "Presentations",  tags: ["gamma","slides"],   featured: false },
+  { id: "mem",             name: "Mem",               category: "Productivity AI",  shortDescriptionAr: "مساعد ملاحظات AI يُنظم معلوماتك تلقائياً",             shortDescriptionEn: "AI note assistant that auto-organizes your knowledge", useCases: ["Notes","PKM","Research"],                  level: "beginner",     pricingType: "freemium",    bestFor: "Knowledge mgmt", tags: ["mem","notes","pkm"],featured: false },
+  // AI Chatbots (additional)
+  { id: "grok",            name: "Grok",              category: "AI Chatbots",      shortDescriptionAr: "نموذج AI من xAI بوصول فوري لأخبار X/Twitter",          shortDescriptionEn: "xAI's model with real-time X/Twitter access",        useCases: ["Research","News","Chat","Humor"],           level: "beginner",     pricingType: "freemium",    bestFor: "Real-time info", tags: ["grok","xai","x"],   featured: false },
+  { id: "mistral",         name: "Mistral Chat",      category: "AI Chatbots",      shortDescriptionAr: "نموذج LLM أوروبي مفتوح المصدر عالي الكفاءة",            shortDescriptionEn: "High-efficiency European open-source LLM",           useCases: ["Chat","Coding","Privacy"],                  level: "intermediate", pricingType: "freemium",    bestFor: "Privacy-first",  tags: ["mistral","llm"],    featured: false },
+  { id: "deepseek",        name: "DeepSeek",          category: "AI Chatbots",      shortDescriptionAr: "نموذج AI صيني مفتوح المصدر بأداء مذهل مجاناً",          shortDescriptionEn: "Open-source Chinese AI model with impressive free performance", useCases: ["Coding","Math","Research"],         level: "beginner",     pricingType: "free",        bestFor: "Free coding AI", tags: ["deepseek","llm"],   featured: false },
+  // Video AI (new category)
+  { id: "runway-ml",       name: "Runway ML",         category: "Video AI",         shortDescriptionAr: "توليد وتحرير فيديو AI احترافي من النص أو الصور",         shortDescriptionEn: "Professional AI video generation and editing from text or images", useCases: ["Video Gen","Editing","VFX"],       level: "intermediate", pricingType: "freemium",    bestFor: "AI video",       tags: ["runway","video","ai"], featured: true  },
+  { id: "pika",            name: "Pika",              category: "Video AI",         shortDescriptionAr: "تحويل النص أو الصور إلى فيديو AI بجودة عالية",          shortDescriptionEn: "Transform text or images into high-quality AI video", useCases: ["Text2Video","Image2Video","Animation"],    level: "beginner",     pricingType: "freemium",    bestFor: "Quick videos",   tags: ["pika","video"],     featured: false },
+  { id: "kling",           name: "Kling AI",          category: "Video AI",         shortDescriptionAr: "نموذج توليد فيديو AI من Kuaishou بجودة سينمائية",        shortDescriptionEn: "Kuaishou's cinematic AI video generation model",      useCases: ["Video Gen","Cinematic","Motion"],           level: "intermediate", pricingType: "freemium",    bestFor: "Cinematic video", tags: ["kling","video"],   featured: false },
+  { id: "luma-dream",      name: "Luma Dream Machine",category: "Video AI",         shortDescriptionAr: "توليد فيديوهات فوتوريالستية بالذكاء الاصطناعي",         shortDescriptionEn: "Generate photorealistic AI videos from text prompts", useCases: ["3D Video","Photorealistic","Motion"],       level: "beginner",     pricingType: "freemium",    bestFor: "Photorealistic",  tags: ["luma","video"],    featured: false },
+  // AI Music (new category)
+  { id: "suno",            name: "Suno",              category: "AI Music",         shortDescriptionAr: "توليد أغانٍ كاملة باللحن والكلمات بالذكاء الاصطناعي",    shortDescriptionEn: "Generate complete songs with melody and lyrics using AI", useCases: ["Music Gen","Lyrics","Songs"],              level: "beginner",     pricingType: "freemium",    bestFor: "Full songs",     tags: ["suno","music","ai"],featured: true  },
+  { id: "udio",            name: "Udio",              category: "AI Music",         shortDescriptionAr: "توليد موسيقى AI بجودة استوديو من وصف نصي",               shortDescriptionEn: "Studio-quality AI music generation from text descriptions", useCases: ["Music Gen","Audio","Composition"],      level: "beginner",     pricingType: "freemium",    bestFor: "Music creation", tags: ["udio","music"],     featured: false },
+  // More Coding Agents
+  { id: "bolt-new",        name: "Bolt.new",          category: "Coding Agents",    shortDescriptionAr: "بناء تطبيقات ويب كاملة في المتصفح بمحادثة واحدة",        shortDescriptionEn: "Build full-stack web apps in the browser via conversation", useCases: ["Full-stack","Prototyping","No-code"],     level: "beginner",     pricingType: "freemium",    bestFor: "Instant apps",   tags: ["bolt","web","nocode"],featured: true },
+  { id: "lovable",         name: "Lovable",           category: "Coding Agents",    shortDescriptionAr: "منصة AI لبناء تطبيقات React بسرعة قياسية",               shortDescriptionEn: "AI platform for building React apps at record speed",  useCases: ["React","Full-stack","Startups"],            level: "beginner",     pricingType: "freemium",    bestFor: "Startup MVPs",   tags: ["lovable","react"],  featured: false },
+  // AI Writing (new category)
+  { id: "jasper",          name: "Jasper AI",         category: "AI Writing",       shortDescriptionAr: "منصة كتابة محتوى تسويقي AI للشركات",                    shortDescriptionEn: "AI marketing content writing platform for businesses", useCases: ["Marketing","Copywriting","SEO","Blog"],    level: "beginner",     pricingType: "paid",        bestFor: "Marketing copy", tags: ["jasper","copy"],    featured: false },
+  { id: "grammarly-ai",    name: "Grammarly AI",      category: "AI Writing",       shortDescriptionAr: "مساعد كتابة AI لتحسين القواعد والأسلوب والنبرة",          shortDescriptionEn: "AI writing assistant for grammar, style, and tone",    useCases: ["Grammar","Writing","Email","Clarity"],     level: "beginner",     pricingType: "freemium",    bestFor: "Writing clarity",tags: ["grammarly","write"],featured: false },
+  // AI Research (new category)
+  { id: "consensus",       name: "Consensus",         category: "AI Research",      shortDescriptionAr: "محرك بحث AI يستخرج نتائج من الأوراق العلمية",            shortDescriptionEn: "AI search engine extracting findings from research papers", useCases: ["Research","Citations","Science"],         level: "beginner",     pricingType: "freemium",    bestFor: "Academic research",tags: ["consensus","papers"],featured: true },
+  { id: "elicit",          name: "Elicit",            category: "AI Research",      shortDescriptionAr: "أداة AI لتحليل الأبحاث العلمية وتلخيصها تلقائياً",        shortDescriptionEn: "AI tool for automatically analyzing and summarizing scientific research", useCases: ["Research","Summarize","Papers"],   level: "intermediate", pricingType: "freemium",    bestFor: "Literature review",tags: ["elicit","research"],featured: false },
+  // More Design AI
+  { id: "framer-ai",       name: "Framer AI",         category: "Design AI",        shortDescriptionAr: "بناء مواقع احترافية بالذكاء الاصطناعي مع تحكم كامل",      shortDescriptionEn: "Build professional websites with AI and full design control", useCases: ["Web Design","CMS","Landing Pages"],       level: "beginner",     pricingType: "freemium",    bestFor: "Design-led sites",tags: ["framer","design"],  featured: false },
 ];
 
 export const toolCategories = [...new Set(tools.map((t) => t.category))];
@@ -173,5 +197,23 @@ export const toolStacks = [
     tools: ["ollama", "lm-studio", "open-webui", "chroma", "langchain"],
     descriptionAr: "ذكاء اصطناعي خاص ومحلي بدون إنترنت",
     descriptionEn: "Private local AI with no internet required",
+  },
+  {
+    id: "content-creator",
+    titleAr: "مجموعة صانع المحتوى",
+    titleEn: "Content Creator Stack",
+    icon: "🎬",
+    tools: ["runway-ml", "suno", "elevenlabs", "canva-ai", "gamma"],
+    descriptionAr: "إنتاج محتوى إبداعي بالكامل بالذكاء الاصطناعي",
+    descriptionEn: "Full AI-powered creative content production",
+  },
+  {
+    id: "startup-builder",
+    titleAr: "مجموعة بناء الشركات الناشئة",
+    titleEn: "Startup Builder Stack",
+    icon: "🚀",
+    tools: ["bolt-new", "lovable", "supabase", "vercel", "claude"],
+    descriptionAr: "أسرع طريقة لبناء MVP وإطلاق شركتك الناشئة",
+    descriptionEn: "Fastest way to build an MVP and launch your startup",
   },
 ];
