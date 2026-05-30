@@ -15,8 +15,31 @@
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Branch** | `main` |
-| **Last Commit** | feat: v1.5.0 — global layout unification and premium visual upgrade |
+| **Last Commit** | `b4f1a40` feat: v1.5.0 — global layout unification and premium visual upgrade |
 | **Last Updated** | 2026-05-30 |
+
+---
+
+## ⚡ Quick-Start for Next Session
+
+```
+Continue the Darhous AI Cloud Academy project.
+Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
+Read CLAUDE_CONTINUATION_CONTEXT.md first before any changes.
+Current version: 1.5.0 — Build: ✅ 225 pages — Git: clean — Deployed on Vercel
+```
+
+### What was just completed (v1.5.0):
+- Navbar: AI Studio dropdown (5 tools), removed Courses from main nav
+- Global compact carousel removed from layout (was on ALL pages)
+- TopShowcaseBar.tsx deleted
+- Footer: centered social icons + credit line
+- Contact: amber activation note + success popup modal
+- Breadcrumbs on all detail pages (courses/tools/projects/blog)
+- ScrollToTop button (global, above Mentor button)
+- OG image: public/og-image.svg
+- sitemap: all tools indexed (was slice(0,20))
+- JSON-LD structured data added to layout
 
 ---
 
