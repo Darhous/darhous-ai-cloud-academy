@@ -11,43 +11,31 @@ export default function Footer({ locale }: FooterProps) {
 
   const quickLinks = isAr
     ? [
-        { href: "/courses", label: "الدورات" },
-        { href: "/paths", label: "المسارات" },
-        { href: "/tools", label: "أدوات AI" },
-        { href: "/claude", label: "إتقان Claude" },
-        { href: "/cloud", label: "أكاديمية الكلاود" },
+        { href: "/courses",  label: "الدورات" },
+        { href: "/paths",    label: "المسارات" },
+        { href: "/tools",    label: "أدوات AI" },
+        { href: "/claude",   label: "إتقان Claude" },
+        { href: "/cloud",    label: "أكاديمية الكلاود" },
         { href: "/projects", label: "المشاريع" },
+        { href: "/prompts",  label: "مكتبة البرومبتات" },
+        { href: "/blog",     label: "المدونة" },
       ]
     : [
-        { href: "/courses", label: "Courses" },
-        { href: "/paths", label: "Learning Paths" },
-        { href: "/tools", label: "AI Tools" },
-        { href: "/claude", label: "Claude Mastery" },
-        { href: "/cloud", label: "Cloud Academy" },
+        { href: "/courses",  label: "Courses" },
+        { href: "/paths",    label: "Learning Paths" },
+        { href: "/tools",    label: "AI Tools" },
+        { href: "/claude",   label: "Claude Mastery" },
+        { href: "/cloud",    label: "Cloud Academy" },
         { href: "/projects", label: "Projects" },
-      ];
-
-  const resourceLinks = isAr
-    ? [
-        { href: "/prompts", label: "مكتبة المطالبات" },
-        { href: "/blog", label: "المدونة" },
-        { href: "/glossary", label: "المسرد" },
-        { href: "/about", label: "عن المنصة" },
-        { href: "/contact", label: "تواصل معنا" },
-      ]
-    : [
-        { href: "/prompts", label: "Prompt Library" },
-        { href: "/blog", label: "Blog" },
-        { href: "/glossary", label: "Glossary" },
-        { href: "/about", label: "About" },
-        { href: "/contact", label: "Contact" },
+        { href: "/prompts",  label: "Prompt Library" },
+        { href: "/blog",     label: "Blog" },
       ];
 
   const aiStudioLinks = isAr
     ? [
         { href: "/mentor",                label: "✨ مرشد AI" },
         { href: "/prompt-studio",         label: "⚡ استوديو البرومبتات" },
-        { href: "/claude-code-generator", label: "🛠️ مولّد برومبت Claude Code" },
+        { href: "/claude-code-generator", label: "🛠️ مولّد Claude Code" },
         { href: "/tool-recommender",      label: "🔎 مرشّح الأدوات" },
         { href: "/roadmap-generator",     label: "🗺️ مولّد خطط التعلم" },
         { href: "/dashboard",             label: "📂 محفوظاتي" },
@@ -61,6 +49,22 @@ export default function Footer({ locale }: FooterProps) {
         { href: "/dashboard",             label: "📂 My Saved Items" },
       ];
 
+  const moreLinks = isAr
+    ? [
+        { href: "/glossary", label: "المسرد" },
+        { href: "/about",    label: "عن المنصة" },
+        { href: "/contact",  label: "تواصل معنا" },
+        { href: "/privacy",  label: "سياسة الخصوصية" },
+        { href: "/terms",    label: "شروط الخدمة" },
+      ]
+    : [
+        { href: "/glossary", label: "Glossary" },
+        { href: "/about",    label: "About" },
+        { href: "/contact",  label: "Contact" },
+        { href: "/privacy",  label: "Privacy Policy" },
+        { href: "/terms",    label: "Terms of Service" },
+      ];
+
   return (
     <footer
       className="border-t mt-24"
@@ -69,10 +73,12 @@ export default function Footer({ locale }: FooterProps) {
         borderColor: "rgba(255,255,255,0.06)",
       }}
     >
-      <div className="container-xl py-16">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
+      <div className="container-xl pt-14 pb-8">
 
-          {/* Brand + Social */}
+        {/* Main grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+          {/* Brand */}
           <div className="md:col-span-1">
             <Link
               href={`/${locale}`}
@@ -83,15 +89,26 @@ export default function Footer({ locale }: FooterProps) {
               {isAr ? "درهوس AI" : "Darhous AI"}
             </Link>
             <p
-              className="text-sm leading-relaxed mb-5"
+              className="text-sm leading-relaxed mb-6"
               style={{ color: "var(--color-on-surface-variant)" }}
             >
               {isAr
                 ? "منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود من الصفر حتى بناء مشاريع حقيقية."
                 : "A practical AI and Cloud learning platform from zero to real-world projects."}
             </p>
-            {/* Social links — icon row */}
-            <SocialLinksBar locale={locale} variant="footer" />
+            {/* Email CTA */}
+            <a
+              href="mailto:ahmeddarhous@gmail.com"
+              className="inline-flex items-center gap-2 text-xs font-mono px-3 py-2 rounded-lg transition-opacity hover:opacity-80"
+              style={{
+                background: "rgba(142,213,255,0.07)",
+                border: "1px solid rgba(142,213,255,0.15)",
+                color: "var(--color-primary)",
+                textDecoration: "none",
+              }}
+            >
+              ✉️ ahmeddarhous@gmail.com
+            </a>
           </div>
 
           {/* Quick Links */}
@@ -107,30 +124,7 @@ export default function Footer({ locale }: FooterProps) {
                 <li key={link.href}>
                   <Link
                     href={`/${locale}${link.href}`}
-                    className="text-sm transition-colors hover:text-primary"
-                    style={{ color: "var(--color-on-surface-variant)" }}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h4
-              className="font-mono text-xs tracking-wider uppercase mb-4"
-              style={{ color: "var(--color-tertiary)" }}
-            >
-              {isAr ? "الموارد" : "Resources"}
-            </h4>
-            <ul className="space-y-2">
-              {resourceLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={`/${locale}${link.href}`}
-                    className="text-sm transition-colors hover:text-primary"
+                    className="text-sm transition-opacity hover:opacity-80"
                     style={{ color: "var(--color-on-surface-variant)" }}
                   >
                     {link.label}
@@ -144,7 +138,7 @@ export default function Footer({ locale }: FooterProps) {
           <div>
             <h4
               className="font-mono text-xs tracking-wider uppercase mb-4"
-              style={{ color: "var(--color-primary)" }}
+              style={{ color: "var(--color-tertiary)" }}
             >
               AI Studio
             </h4>
@@ -153,7 +147,7 @@ export default function Footer({ locale }: FooterProps) {
                 <li key={link.href}>
                   <Link
                     href={`/${locale}${link.href}`}
-                    className="text-sm transition-colors hover:text-primary"
+                    className="text-sm transition-opacity hover:opacity-80"
                     style={{ color: "var(--color-on-surface-variant)" }}
                   >
                     {link.label}
@@ -163,77 +157,53 @@ export default function Footer({ locale }: FooterProps) {
             </ul>
           </div>
 
-          {/* Community + Connect */}
+          {/* More */}
           <div>
             <h4
               className="font-mono text-xs tracking-wider uppercase mb-4"
               style={{ color: "var(--color-secondary)" }}
             >
-              {isAr ? "المجتمع" : "Community"}
+              {isAr ? "روابط أخرى" : "More"}
             </h4>
-            <p
-              className="text-sm mb-4"
-              style={{ color: "var(--color-on-surface-variant)" }}
-            >
-              {isAr
-                ? "انضم إلى مجتمع متعلمي AI العرب"
-                : "Join the Arabic AI learners community"}
-            </p>
-            <div className="flex gap-2 mb-6">
-              <input
-                type="email"
-                placeholder={isAr ? "بريدك الإلكتروني" : "Your email"}
-                className="flex-1 px-3 py-2 rounded-lg text-sm font-mono outline-none"
-                style={{
-                  background: "var(--color-surface-container)",
-                  border: "1px solid var(--color-outline-variant)",
-                  color: "var(--color-on-surface)",
-                }}
-              />
-              <button className="glow-button-primary text-white text-xs font-mono px-3 py-2 rounded-lg whitespace-nowrap">
-                {isAr ? "انضم" : "Join"}
-              </button>
-            </div>
-
-            {/* Social links — connect label in Community column */}
-            <p
-              className="font-mono text-[10px] tracking-wider uppercase mb-2"
-              style={{ color: "var(--color-on-surface-variant)", opacity: 0.6 }}
-            >
-              {isAr ? "تواصل معنا" : "Connect with us"}
-            </p>
-            <SocialLinksBar locale={locale} variant="footer" />
+            <ul className="space-y-2">
+              {moreLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={`/${locale}${link.href}`}
+                    className="text-sm transition-opacity hover:opacity-80"
+                    style={{ color: "var(--color-on-surface-variant)" }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* Bottom strip */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t"
+          className="pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-5"
           style={{ borderColor: "rgba(255,255,255,0.05)" }}
         >
+          {/* Social icons */}
+          <SocialLinksBar locale={locale} variant="footer" />
+
+          {/* Credit */}
           <p
-            className="text-xs font-mono"
-            style={{ color: "var(--color-on-surface-variant)" }}
+            className="text-xs font-mono text-center"
+            style={{ color: "var(--color-on-surface-variant)", opacity: 0.55 }}
           >
-            {isAr
-              ? "© 2025 أكاديمية درهوس للذكاء الاصطناعي والكلاود. جميع الحقوق محفوظة."
-              : "© 2025 Darhous AI Cloud Academy. All rights reserved."}
+            designed by{" "}
+            <a
+              href="mailto:ahmeddarhous@gmail.com"
+              className="transition-opacity hover:opacity-100"
+              style={{ color: "var(--color-primary)", textDecoration: "none", opacity: 0.85 }}
+            >
+              Ahmed Darhous
+            </a>{" "}
+            ©
           </p>
-          <div className="flex gap-6">
-            {[
-              { href: "/privacy", label: isAr ? "سياسة الخصوصية" : "Privacy Policy" },
-              { href: "/terms",   label: isAr ? "شروط الخدمة"     : "Terms of Service" },
-            ].map((link) => (
-              <Link
-                key={link.href}
-                href={`/${locale}${link.href}`}
-                className="text-xs font-mono transition-colors hover:text-primary"
-                style={{ color: "var(--color-on-surface-variant)" }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

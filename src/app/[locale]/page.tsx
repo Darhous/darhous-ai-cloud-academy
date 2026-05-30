@@ -7,6 +7,7 @@ import CourseCard from "@/components/cards/CourseCard";
 import ToolCard from "@/components/cards/ToolCard";
 import ProjectCard from "@/components/cards/ProjectCard";
 import BlogCard from "@/components/cards/BlogCard";
+import Premium3DShowcaseCarousel from "@/components/layout/Premium3DShowcaseCarousel";
 import { courses } from "@/data/courses";
 import { tools } from "@/data/tools";
 import { projects } from "@/data/projects";
@@ -55,6 +56,9 @@ export default async function HomePage({
       <div className="container-xl">
         <Stats locale={locale} />
       </div>
+
+      {/* Premium 3D AI Studio Showcase */}
+      <Premium3DShowcaseCarousel locale={locale} />
 
       {/* Featured Courses */}
       <div className="container-xl">

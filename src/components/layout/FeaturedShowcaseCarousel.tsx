@@ -9,354 +9,148 @@ interface CarouselItem {
   icon: string;
   titleAr: string;
   titleEn: string;
-  descriptionAr: string;
-  descriptionEn: string;
   categoryAr: string;
   categoryEn: string;
   href: string;
-  accentColor: string;
-  bgColor: string;
-  borderColor: string;
+  accent: string;
+  bg: string;
 }
 
-const carouselItems: CarouselItem[] = [
-  {
-    id: "mentor",
-    icon: "✨",
-    titleAr: "مساعد درهوس الذكي",
-    titleEn: "Darhous AI Mentor",
-    descriptionAr: "اسأل، حسّن البرومبتات، وابنِ خطط تعلم بمساعدة الذكاء الاصطناعي.",
-    descriptionEn: "Ask questions, improve prompts, and build learning plans with AI assistance.",
-    categoryAr: "AI Mentor",
-    categoryEn: "AI Mentor",
-    href: "/mentor",
-    accentColor: "#8ed5ff",
-    bgColor: "rgba(56,189,248,0.07)",
-    borderColor: "rgba(142,213,255,0.2)",
-  },
-  {
-    id: "prompt-studio",
-    icon: "⚡",
-    titleAr: "استوديو البرومبتات",
-    titleEn: "Prompt Studio",
-    descriptionAr: "حوّل أفكارك إلى برومبتات احترافية جاهزة للنسخ.",
-    descriptionEn: "Transform your ideas into professional prompts ready to copy.",
-    categoryAr: "AI Studio",
-    categoryEn: "AI Studio",
-    href: "/prompt-studio",
-    accentColor: "#d0bcff",
-    bgColor: "rgba(208,188,255,0.07)",
-    borderColor: "rgba(208,188,255,0.2)",
-  },
-  {
-    id: "claude-code-generator",
-    icon: "🛠️",
-    titleAr: "مولّد برومبت Claude Code",
-    titleEn: "Claude Code Generator",
-    descriptionAr: "أنشئ برومبتات قوية لبناء تطبيقات ومشاريع حقيقية.",
-    descriptionEn: "Generate powerful prompts to build real apps and projects.",
-    categoryAr: "Claude Code",
-    categoryEn: "Claude Code",
-    href: "/claude-code-generator",
-    accentColor: "#3ce0fb",
-    bgColor: "rgba(60,224,251,0.07)",
-    borderColor: "rgba(60,224,251,0.2)",
-  },
-  {
-    id: "tool-recommender",
-    icon: "🔎",
-    titleAr: "مرشح أدوات الذكاء الاصطناعي",
-    titleEn: "AI Tool Recommender",
-    descriptionAr: "اختر هدفك واحصل على أفضل الأدوات المناسبة لك.",
-    descriptionEn: "Choose your goal and get the best tools suited for you.",
-    categoryAr: "أدوات AI",
-    categoryEn: "AI Tools",
-    href: "/tool-recommender",
-    accentColor: "#86efac",
-    bgColor: "rgba(74,222,128,0.07)",
-    borderColor: "rgba(74,222,128,0.2)",
-  },
-  {
-    id: "roadmap-generator",
-    icon: "🗺️",
-    titleAr: "مولّد خطط التعلم",
-    titleEn: "AI Roadmap Generator",
-    descriptionAr: "ابنِ خطة تعلم شخصية حسب مستواك وهدفك.",
-    descriptionEn: "Build a personalized learning plan based on your level and goal.",
-    categoryAr: "خطط التعلم",
-    categoryEn: "Learning Paths",
-    href: "/roadmap-generator",
-    accentColor: "#fbbf24",
-    bgColor: "rgba(251,191,36,0.07)",
-    borderColor: "rgba(251,191,36,0.2)",
-  },
-  {
-    id: "claude",
-    icon: "🤖",
-    titleAr: "إتقان Claude",
-    titleEn: "Claude Mastery",
-    descriptionAr: "تعلم استخدام Claude في البرمجة والبحث وبناء المنتجات.",
-    descriptionEn: "Learn to use Claude for coding, research, and building products.",
-    categoryAr: "Claude",
-    categoryEn: "Claude",
-    href: "/claude",
-    accentColor: "#f472b6",
-    bgColor: "rgba(244,114,182,0.07)",
-    borderColor: "rgba(244,114,182,0.2)",
-  },
-  {
-    id: "tools",
-    icon: "🔧",
-    titleAr: "مركز أدوات الذكاء الاصطناعي",
-    titleEn: "AI Tools Hub",
-    descriptionAr: "استكشف أهم أدوات AI والبرمجة والأتمتة والكلاود.",
-    descriptionEn: "Explore the top AI, coding, automation, and cloud tools.",
-    categoryAr: "أدوات",
-    categoryEn: "Tools",
-    href: "/tools",
-    accentColor: "#8ed5ff",
-    bgColor: "rgba(56,189,248,0.07)",
-    borderColor: "rgba(142,213,255,0.18)",
-  },
-  {
-    id: "cloud",
-    icon: "☁️",
-    titleAr: "أكاديمية الكلاود",
-    titleEn: "Cloud Academy",
-    descriptionAr: "تعلم نشر مشاريع AI على السحابة وتأمينها.",
-    descriptionEn: "Learn to deploy and secure AI projects on the cloud.",
-    categoryAr: "Cloud",
-    categoryEn: "Cloud",
-    href: "/cloud",
-    accentColor: "#3ce0fb",
-    bgColor: "rgba(60,224,251,0.07)",
-    borderColor: "rgba(60,224,251,0.18)",
-  },
-  {
-    id: "projects",
-    icon: "🏗️",
-    titleAr: "مكتبة المشاريع",
-    titleEn: "Projects Library",
-    descriptionAr: "مشاريع عملية لتطبيق ما تتعلمه.",
-    descriptionEn: "Hands-on projects to apply what you learn.",
-    categoryAr: "مشاريع",
-    categoryEn: "Projects",
-    href: "/projects",
-    accentColor: "#d0bcff",
-    bgColor: "rgba(208,188,255,0.07)",
-    borderColor: "rgba(208,188,255,0.18)",
-  },
-  {
-    id: "prompts",
-    icon: "📋",
-    titleAr: "مكتبة البرومبتات",
-    titleEn: "Prompt Library",
-    descriptionAr: "قوالب جاهزة للنسخ والاستخدام.",
-    descriptionEn: "Ready-to-copy templates for immediate use.",
-    categoryAr: "برومبتات",
-    categoryEn: "Prompts",
-    href: "/prompts",
-    accentColor: "#86efac",
-    bgColor: "rgba(74,222,128,0.07)",
-    borderColor: "rgba(74,222,128,0.18)",
-  },
+const items: CarouselItem[] = [
+  { id: "mentor",       icon: "✨", titleAr: "مساعد درهوس الذكي",         titleEn: "Darhous AI Mentor",      categoryAr: "AI Mentor",  categoryEn: "AI Mentor",  href: "/mentor",                accent: "#8ed5ff", bg: "rgba(56,189,248,0.08)" },
+  { id: "studio",       icon: "⚡", titleAr: "استوديو البرومبتات",         titleEn: "Prompt Studio",          categoryAr: "AI Studio",  categoryEn: "AI Studio",  href: "/prompt-studio",         accent: "#d0bcff", bg: "rgba(208,188,255,0.08)" },
+  { id: "claude-code",  icon: "🛠️", titleAr: "مولّد Claude Code",          titleEn: "Claude Code Generator",  categoryAr: "Claude Code", categoryEn: "Claude Code", href: "/claude-code-generator", accent: "#3ce0fb", bg: "rgba(60,224,251,0.08)" },
+  { id: "tools-ai",     icon: "🔎", titleAr: "مرشّح الأدوات",               titleEn: "AI Tool Recommender",    categoryAr: "أدوات AI",   categoryEn: "AI Tools",   href: "/tool-recommender",      accent: "#86efac", bg: "rgba(74,222,128,0.08)" },
+  { id: "roadmap",      icon: "🗺️", titleAr: "مولّد خطط التعلم",           titleEn: "Roadmap Generator",      categoryAr: "تعلم",       categoryEn: "Learning",   href: "/roadmap-generator",     accent: "#fbbf24", bg: "rgba(251,191,36,0.08)" },
+  { id: "claude",       icon: "🤖", titleAr: "إتقان Claude",                titleEn: "Claude Mastery",         categoryAr: "Claude",     categoryEn: "Claude",     href: "/claude",                accent: "#f472b6", bg: "rgba(244,114,182,0.08)" },
+  { id: "tools-hub",    icon: "🔧", titleAr: "مركز أدوات AI",               titleEn: "AI Tools Hub",           categoryAr: "أدوات",      categoryEn: "Tools",      href: "/tools",                 accent: "#8ed5ff", bg: "rgba(56,189,248,0.06)" },
+  { id: "cloud",        icon: "☁️", titleAr: "أكاديمية الكلاود",            titleEn: "Cloud Academy",          categoryAr: "Cloud",      categoryEn: "Cloud",      href: "/cloud",                 accent: "#3ce0fb", bg: "rgba(60,224,251,0.06)" },
+  { id: "projects",     icon: "🏗️", titleAr: "مكتبة المشاريع",             titleEn: "Projects Library",       categoryAr: "مشاريع",     categoryEn: "Projects",   href: "/projects",              accent: "#d0bcff", bg: "rgba(208,188,255,0.06)" },
+  { id: "prompts",      icon: "📋", titleAr: "مكتبة البرومبتات",            titleEn: "Prompt Library",         categoryAr: "برومبتات",   categoryEn: "Prompts",    href: "/prompts",               accent: "#86efac", bg: "rgba(74,222,128,0.06)" },
+  { id: "paths",        icon: "🎯", titleAr: "مسارات التعلم",               titleEn: "Learning Paths",         categoryAr: "مسارات",     categoryEn: "Paths",      href: "/paths",                 accent: "#fbbf24", bg: "rgba(251,191,36,0.06)" },
+  { id: "dashboard",    icon: "📂", titleAr: "لوحة الطالب",                titleEn: "Student Dashboard",      categoryAr: "Dashboard",  categoryEn: "Dashboard",  href: "/dashboard",             accent: "#f472b6", bg: "rgba(244,114,182,0.06)" },
 ];
 
-const VISIBLE_DESKTOP = 3;
-const VISIBLE_TABLET = 2;
-const VISIBLE_MOBILE = 1;
-const AUTO_PLAY_INTERVAL = 5000;
+const VISIBLE = 4;
+const AUTO_INTERVAL = 6000;
 
 export default function FeaturedShowcaseCarousel({ locale }: { locale: string }) {
   const isAr = locale === "ar";
   const [current, setCurrent] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(VISIBLE_DESKTOP);
-  const autoTimer = useRef<ReturnType<typeof setInterval> | null>(null);
-  const touchStartX = useRef<number | null>(null);
-  const total = carouselItems.length;
+  const [paused, setPaused] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(VISIBLE);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const touchX = useRef<number | null>(null);
+  const total = items.length;
 
   useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth < 640) setVisibleCount(VISIBLE_MOBILE);
-      else if (window.innerWidth < 1024) setVisibleCount(VISIBLE_TABLET);
-      else setVisibleCount(VISIBLE_DESKTOP);
-    }
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const upd = () => {
+      if (window.innerWidth < 480) setVisibleCount(1);
+      else if (window.innerWidth < 768) setVisibleCount(2);
+      else if (window.innerWidth < 1024) setVisibleCount(3);
+      else setVisibleCount(VISIBLE);
+    };
+    upd();
+    window.addEventListener("resize", upd);
+    return () => window.removeEventListener("resize", upd);
   }, []);
 
-  const maxIndex = total - visibleCount;
-
-  const next = useCallback(() => {
-    setCurrent((c) => (c >= maxIndex ? 0 : c + 1));
-  }, [maxIndex]);
-
-  const prev = useCallback(() => {
-    setCurrent((c) => (c <= 0 ? maxIndex : c - 1));
-  }, [maxIndex]);
+  const maxIdx = total - visibleCount;
+  const next = useCallback(() => setCurrent((c) => (c >= maxIdx ? 0 : c + 1)), [maxIdx]);
+  const prev = useCallback(() => setCurrent((c) => (c <= 0 ? maxIdx : c - 1)), [maxIdx]);
 
   useEffect(() => {
-    if (isPaused) {
-      if (autoTimer.current) clearInterval(autoTimer.current);
-      return;
-    }
-    autoTimer.current = setInterval(next, AUTO_PLAY_INTERVAL);
-    return () => {
-      if (autoTimer.current) clearInterval(autoTimer.current);
-    };
-  }, [isPaused, next]);
+    if (paused) { if (timerRef.current) clearInterval(timerRef.current); return; }
+    timerRef.current = setInterval(next, AUTO_INTERVAL);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [paused, next]);
 
-  function handleTouchStart(e: React.TouchEvent) {
-    touchStartX.current = e.touches[0].clientX;
-  }
-
-  function handleTouchEnd(e: React.TouchEvent) {
-    if (touchStartX.current === null) return;
-    const delta = e.changedTouches[0].clientX - touchStartX.current;
-    if (Math.abs(delta) > 40) {
-      if (isAr ? delta > 0 : delta < 0) next();
-      else prev();
-    }
-    touchStartX.current = null;
-  }
-
-  const cardWidthPct = 100 / visibleCount;
-  const translatePct = isAr
-    ? current * cardWidthPct
-    : -(current * cardWidthPct);
+  const cardW = 100 / visibleCount;
+  const translatePct = isAr ? current * cardW : -(current * cardW);
 
   return (
     <div
-      className="w-full py-4"
-      style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
+      style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", background: "rgba(12,14,18,0.6)", backdropFilter: "blur(8px)" }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onTouchStart={(e) => { touchX.current = e.touches[0].clientX; }}
+      onTouchEnd={(e) => {
+        if (touchX.current === null) return;
+        const delta = e.changedTouches[0].clientX - touchX.current;
+        if (Math.abs(delta) > 40) { (isAr ? delta > 0 : delta < 0) ? next() : prev(); }
+        touchX.current = null;
+      }}
     >
-      <div className="container-xl">
+      <div className="container-xl py-3">
         <div className="relative">
-          {/* Prev button */}
+          {/* Prev */}
           <button
             onClick={isAr ? next : prev}
-            aria-label={isAr ? "الكرت السابق" : "Previous card"}
-            className="absolute start-0 top-1/2 -translate-y-1/2 z-20 -translate-x-3 w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110"
-            style={{
-              background: "var(--color-surface-container)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "var(--color-on-surface-variant)",
-            }}
+            aria-label={isAr ? "السابق" : "Previous"}
+            className="absolute start-0 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full flex items-center justify-center -translate-x-1"
+            style={{ background: "var(--color-surface-container-high)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}
           >
-            {isAr ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
+            {isAr ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
           </button>
 
-          {/* Overflow window */}
-          <div className="overflow-hidden mx-5">
+          <div className="overflow-hidden mx-6">
             <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{
-                transform: `translateX(${translatePct}%)`,
-                direction: "ltr",
-              }}
+              className="flex"
+              style={{ transform: `translateX(${translatePct}%)`, direction: "ltr", transition: "transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94)" }}
             >
-              {carouselItems.map((item) => (
-                <div
-                  key={item.id}
-                  style={{ width: `${cardWidthPct}%`, flexShrink: 0, padding: "0 6px" }}
-                >
+              {items.map((item) => (
+                <div key={item.id} style={{ width: `${cardW}%`, flexShrink: 0, padding: "0 5px" }}>
                   <Link
                     href={`/${locale}${item.href}`}
-                    className="group flex flex-col gap-3 p-4 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                    style={{
-                      background: item.bgColor,
-                      border: `1px solid ${item.borderColor}`,
-                      textDecoration: "none",
-                    }}
+                    className="flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                    style={{ background: item.bg, border: `1px solid ${item.accent}20`, textDecoration: "none" }}
                     dir={isAr ? "rtl" : "ltr"}
                   >
-                    {/* Top row */}
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="flex items-center gap-2.5">
-                        <span
-                          className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
-                          style={{ background: "rgba(255,255,255,0.06)" }}
-                        >
-                          {item.icon}
-                        </span>
-                        <div>
-                          <p
-                            className="font-semibold text-sm leading-tight"
-                            style={{ color: "var(--color-on-surface)" }}
-                          >
-                            {isAr ? item.titleAr : item.titleEn}
-                          </p>
-                          <p
-                            className="text-xs font-mono mt-0.5"
-                            style={{ color: item.accentColor, opacity: 0.8 }}
-                          >
-                            {isAr ? item.categoryAr : item.categoryEn}
-                          </p>
-                        </div>
-                      </div>
-                      <span
-                        className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5"
-                        style={{ background: item.accentColor }}
-                      />
-                    </div>
-
-                    {/* Description */}
-                    <p
-                      className="text-xs leading-relaxed"
-                      style={{ color: "var(--color-on-surface-variant)" }}
+                    <span
+                      className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
+                      style={{ background: `${item.accent}15`, border: `1px solid ${item.accent}25` }}
                     >
-                      {isAr ? item.descriptionAr : item.descriptionEn}
-                    </p>
-
-                    {/* CTA */}
-                    <div
-                      className="flex items-center gap-1 text-xs font-mono mt-auto"
-                      style={{ color: item.accentColor }}
-                    >
-                      {isAr ? "استكشف ←" : "Explore →"}
+                      {item.icon}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold truncate leading-tight" style={{ color: "var(--color-on-surface)" }}>
+                        {isAr ? item.titleAr : item.titleEn}
+                      </p>
+                      <p className="text-[10px] font-mono mt-0.5" style={{ color: item.accent, opacity: 0.8 }}>
+                        {isAr ? item.categoryAr : item.categoryEn}
+                      </p>
                     </div>
+                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 ms-auto" style={{ background: item.accent }} />
                   </Link>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Next button */}
+          {/* Next */}
           <button
             onClick={isAr ? prev : next}
-            aria-label={isAr ? "الكرت التالي" : "Next card"}
-            className="absolute end-0 top-1/2 -translate-y-1/2 z-20 translate-x-3 w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110"
-            style={{
-              background: "var(--color-surface-container)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "var(--color-on-surface-variant)",
-            }}
+            aria-label={isAr ? "التالي" : "Next"}
+            className="absolute end-0 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full flex items-center justify-center translate-x-1"
+            style={{ background: "var(--color-surface-container-high)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}
           >
-            {isAr ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
+            {isAr ? <ChevronLeft size={14} /> : <ChevronRight size={14} />}
           </button>
         </div>
 
-        {/* Dots */}
-        <div className="flex justify-center gap-1.5 mt-3">
-          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+        {/* Slim dots */}
+        <div className="flex justify-center gap-1 mt-2">
+          {Array.from({ length: maxIdx + 1 }).map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              aria-label={`Go to slide ${i + 1}`}
-              className="transition-all duration-300"
+              aria-label={`Slide ${i + 1}`}
               style={{
-                width: i === current ? "20px" : "6px",
-                height: "6px",
-                borderRadius: "3px",
-                background: i === current
-                  ? "var(--color-primary)"
-                  : "rgba(255,255,255,0.15)",
+                width: i === current ? "16px" : "4px",
+                height: "4px",
+                borderRadius: "2px",
+                background: i === current ? "var(--color-primary)" : "rgba(255,255,255,0.12)",
+                transition: "all 0.3s",
               }}
             />
           ))}
