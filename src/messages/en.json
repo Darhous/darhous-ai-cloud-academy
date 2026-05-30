@@ -1,0 +1,179 @@
+{
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "paths": "Paths",
+    "tools": "AI Tools",
+    "claude": "Claude",
+    "cloud": "Cloud",
+    "projects": "Projects",
+    "prompts": "Prompts",
+    "blog": "Blog",
+    "glossary": "Glossary",
+    "about": "About",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "signin": "Sign In",
+    "search": "Search courses..."
+  },
+  "hero": {
+    "badge": "Version 2.0 Available Now",
+    "title": "Master AI, Claude, Cloud, Automation, and Real-World Projects",
+    "title_highlight": "Real-World Projects",
+    "subtitle": "A practical AI and Cloud learning platform from zero to real-world projects. Join a community of developers and researchers building the future.",
+    "cta_primary": "Start Learning Now",
+    "cta_secondary": "Explore Tools"
+  },
+  "stats": {
+    "paths": "Learning Paths",
+    "lessons": "Lessons",
+    "tools": "AI Tools",
+    "projects": "Real Projects",
+    "cloud": "Cloud Tracks",
+    "platform": "Arabic Platform"
+  },
+  "sections": {
+    "courses": "Courses",
+    "courses_sub": "Structured learning tracks from beginner to expert",
+    "paths": "Learning Paths",
+    "paths_sub": "Guided roadmaps to achieve your AI goals",
+    "tools": "AI Tools Hub",
+    "tools_sub": "The ultimate command center for AI tools",
+    "claude": "Claude Mastery",
+    "claude_sub": "Master the world's most capable AI assistant",
+    "cloud": "Cloud Academy",
+    "cloud_sub": "Build and deploy AI at cloud scale",
+    "projects": "Projects Library",
+    "projects_sub": "Real-world projects with full build guides",
+    "prompts": "Prompt Library",
+    "prompts_sub": "Premium prompt templates for every workflow",
+    "blog": "Blog",
+    "blog_sub": "Deep dives, tutorials, and AI insights",
+    "glossary": "AI Glossary",
+    "glossary_sub": "Clear definitions for every AI and Cloud term",
+    "about": "About",
+    "contact": "Contact",
+    "dashboard": "Student Dashboard",
+    "view_all": "View All",
+    "coming_soon": "Coming Soon",
+    "explore": "Explore"
+  },
+  "cta": {
+    "title": "Ready to Master AI?",
+    "subtitle": "Join thousands of learners building real AI projects. Start your journey today — completely free.",
+    "primary": "Start Learning Now",
+    "secondary": "View All Courses"
+  },
+  "footer": {
+    "tagline": "A practical AI and Cloud learning platform from zero to real-world projects.",
+    "links": "Quick Links",
+    "resources": "Resources",
+    "community": "Community",
+    "copyright": "© 2025 Darhous AI Cloud Academy. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact"
+  },
+  "dashboard": {
+    "coming_soon": "Coming Soon",
+    "coming_desc": "Your personal AI learning command center is under construction.",
+    "features": ["Progress Tracking", "Saved Courses", "AI Assistant", "Cloud Labs", "Certificates", "Quizzes"]
+  },
+  "courses": {
+    "title": "All Courses",
+    "subtitle": "Structured learning tracks from AI foundations to advanced MLOps and cloud deployment",
+    "filter_all": "All",
+    "lessons": "lessons",
+    "hours": "hours",
+    "projects": "projects",
+    "level": "Level",
+    "start": "Start Course",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "tools": {
+    "title": "AI Tools Hub",
+    "subtitle": "The ultimate command center for discovering, comparing, and mastering AI tools",
+    "search": "Search tools...",
+    "filter_all": "All Tools",
+    "featured": "Featured Tools",
+    "all_tools": "All Tools",
+    "stacks": "Recommended Stacks",
+    "free": "Free",
+    "freemium": "Freemium",
+    "paid": "Paid",
+    "open_source": "Open Source"
+  },
+  "claude": {
+    "title": "Claude Mastery",
+    "subtitle": "The flagship Claude learning hub — from prompting to coding to building full products",
+    "framework_title": "Claude Prompting Framework",
+    "prompts_title": "Claude Prompt Vault"
+  },
+  "cloud": {
+    "title": "Cloud Academy",
+    "subtitle": "Build, deploy, and scale AI on the world's top cloud platforms",
+    "labs": "Cloud Labs"
+  },
+  "projects": {
+    "title": "Projects Library",
+    "subtitle": "Real-world AI projects with complete build guides",
+    "difficulty": "Difficulty",
+    "stack": "Stack",
+    "build": "Build This Project"
+  },
+  "prompts": {
+    "title": "Prompt Library",
+    "subtitle": "Premium prompt templates for Claude, GPT, Gemini, and every workflow",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "best_model": "Best Model"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Deep dives, tutorials, and the latest AI insights",
+    "read_more": "Read More",
+    "min_read": "min read"
+  },
+  "glossary": {
+    "title": "AI & Cloud Glossary",
+    "subtitle": "Clear, practical definitions for every term in the AI and Cloud ecosystem",
+    "search": "Search terms...",
+    "example": "Example"
+  },
+  "about": {
+    "title": "About Darhous AI Cloud Academy",
+    "subtitle": "Built for Arab learners who want to master AI without barriers",
+    "mission": "Our Mission",
+    "vision": "Our Vision"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have a question or want to collaborate? We'd love to hear from you.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message"
+  },
+  "mentor": {
+    "title": "Darhous AI Mentor",
+    "subtitle": "Your personal AI assistant for learning AI and Cloud",
+    "badge": "Powered by Gemini 2.5 Flash",
+    "nav_label": "✨ Mentor",
+    "floating_label": "AI Mentor",
+    "placeholder": "Ask me anything... (Enter to send)",
+    "send": "Send",
+    "thinking": "Thinking...",
+    "copy": "Copy",
+    "copied": "Copied",
+    "regenerate": "Retry",
+    "clear": "Clear chat",
+    "suggestions_hint": "Pick a question to start...",
+    "disclaimer": "AI can make mistakes. Always verify with official sources.",
+    "missing_key_title": "Mentor Unavailable",
+    "missing_key_desc": "The AI service is not configured.",
+    "error_network": "Connection failed. Check your network.",
+    "error_generic": "An error occurred. Please try again."
+  }
+}
