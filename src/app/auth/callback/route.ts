@@ -7,6 +7,12 @@ export async function GET(request: Request) {
   const type = searchParams.get("type");
   const locale = searchParams.get("locale") ?? "ar";
 
+  // Always use NEXT_PUBLIC_SITE_URL for redirects so localhost never leaks
+  // into production even if the request somehow arrives with a wrong origin.
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (origin.includes("localhost") ? "https://darhous-ai-cloud-academy.vercel.app" : origin);
+
   if (code) {
     const supabase = await createClient();
     if (supabase) {
@@ -14,7 +20,7 @@ export async function GET(request: Request) {
       if (!error && data.user) {
         // Password recovery flow → redirect to reset-password page
         if (type === "recovery") {
-          return NextResponse.redirect(`${origin}/${locale}/reset-password`);
+          return NextResponse.redirect(`${siteUrl}/${locale}/reset-password`);
         }
 
         // Normal sign-in: check role + onboarding status
@@ -25,7 +31,7 @@ export async function GET(request: Request) {
           .single();
 
         if (profile?.role === "admin") {
-          return NextResponse.redirect(`${origin}/${locale}/admin`);
+          return NextResponse.redirect(`${siteUrl}/${locale}/admin`);
         }
 
         // Check if onboarding is completed
@@ -36,11 +42,11 @@ export async function GET(request: Request) {
           .single();
 
         const dest = studentProfile?.onboarding_completed ? "dashboard" : "onboarding";
-        return NextResponse.redirect(`${origin}/${locale}/${dest}`);
+        return NextResponse.redirect(`${siteUrl}/${locale}/${dest}`);
       }
     }
   }
 
   // Fallback: redirect to login with error
-  return NextResponse.redirect(`${origin}/${locale}/login?error=auth_failed`);
+  return NextResponse.redirect(`${siteUrl}/${locale}/login?error=auth_failed`);
 }
