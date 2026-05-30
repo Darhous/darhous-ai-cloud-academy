@@ -7,165 +7,372 @@
 
 ## 📊 Current State
 
-- **Status:** MVP + AI Mentor + AI Product Wave — Build passing ✅ (221 static pages)
-- **Version:** 1.3.0 (AI Product Wave)
-- **Last updated:** 2026-05-29 (after AI Product Wave implementation)
-- **Phase:** Phase 1 ✅ + Phase 7 ✅ + Phase 7.5 (AI Studio) ✅ — All Complete
+| Field | Value |
+|-------|-------|
+| **Version** | 1.4.0 — Polish & Production Wave |
+| **Status** | ✅ Live on Vercel |
+| **Build** | ✅ Passing — 225 static pages, 0 TypeScript errors |
+| **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
+| **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
+| **Branch** | `main` |
+| **Last Commit** | feat: v1.4.0 polish — carousel, privacy/terms, UI fixes |
+| **Last Updated** | 2026-05-30 |
 
 ---
 
 ## 🏗️ Tech Stack
 
-| Layer | Technology | Version |
-|-------|------------|---------|
-| Framework | Next.js App Router | 16.x |
-| Language | TypeScript | 5.x |
-| Styling | Tailwind CSS | 4.x |
-| Animation | CSS + Framer Motion | - |
-| Icons | Lucide React | 1.x |
-| Fonts | Google Fonts (Geist, IBM Plex Sans Arabic, JetBrains Mono) | - |
-| Deployment target | Vercel | - |
+| Layer | Technology | Notes |
+|-------|-----------|-------|
+| Framework | Next.js 16 App Router | params is a Promise in Next.js 16 |
+| Language | TypeScript 5 | Strict mode |
+| Styling | Tailwind CSS v4 | CSS-based config — NO tailwind.config.js for colors |
+| Animation | Framer Motion 12 + CSS | |
+| Icons | Lucide React v1 | Some icons renamed vs older versions |
+| Search | Fuse.js 7 | Already installed, used in CommandPalette |
+| AI | Google Gemini API | gemini-2.5-flash, server-side only |
+| Fonts | Geist, IBM Plex Sans Arabic, JetBrains Mono | Via Google Fonts |
+| Deployment | Vercel | Free Hobby plan |
 
 ---
 
-## 📁 Folder Structure
+## 📁 Complete Folder Structure
 
 ```
-src/
-├── app/
-│   ├── layout.tsx              ← Root layout (minimal, just imports globals.css)
-│   ├── page.tsx                ← Redirects to /ar
-│   ├── globals.css             ← ALL styling: CSS vars, glass, glow, animations
-│   └── [locale]/              ← Dynamic locale routes (ar, en)
-│       ├── layout.tsx          ← Locale layout: Navbar + TopShowcaseBar + Footer
-│       ├── page.tsx            ← Home page
-│       ├── courses/page.tsx        ← Server component with metadata
-│       ├── courses/CoursesClient.tsx ← Client component (useState filter)
-│       ├── paths/page.tsx
-│       ├── tools/page.tsx          ← Server component with metadata
-│       ├── tools/ToolsClient.tsx   ← Client component (useState filter+search)
-│       ├── claude/page.tsx
-│       ├── cloud/page.tsx
-│       ├── projects/page.tsx       ← Server + ProjectsClient.tsx
-│       ├── prompts/page.tsx        ← Server + PromptsClient.tsx
-│       ├── blog/page.tsx           ← Server + BlogClient.tsx
-│       ├── glossary/page.tsx       ← Server + GlossaryClient.tsx
-│       ├── about/page.tsx
-│       ├── contact/page.tsx
-│       └── dashboard/page.tsx
-├── components/
-│   ├── layout/
-│   │   ├── Navbar.tsx          ← Sticky glass navbar with mobile menu
-│   │   ├── Footer.tsx          ← Footer with links and newsletter
-│   │   ├── TopShowcaseBar.tsx  ← Infinite marquee showcase bar
-│   │   ├── ThemeToggle.tsx     ← Dark/light toggle (CSS class on <html>)
-│   │   └── LanguageToggle.tsx  ← AR/EN switcher (route-based)
-│   ├── ui/
-│   │   ├── Button.tsx
-│   │   ├── Badge.tsx
-│   │   ├── SectionHeader.tsx
-│   │   ├── CopyButton.tsx      ← Client component for clipboard
-│   │   └── CategoryFilter.tsx  ← Client filter chips
-│   ├── sections/
-│   │   ├── Hero.tsx            ← Cinematic hero section
-│   │   ├── Stats.tsx           ← Stats grid
-│   │   └── CTASection.tsx      ← Final call-to-action
-│   ├── cards/
-│   │   ├── CourseCard.tsx
-│   │   ├── ToolCard.tsx
-│   │   ├── ProjectCard.tsx
-│   │   ├── PromptCard.tsx
-│   │   ├── BlogCard.tsx
-│   │   └── GlossaryCard.tsx
-│   ├── roadmap/
-│   │   └── RoadmapTimeline.tsx ← Animated roadmap with nodes
-│   └── visual/
-│       └── HeroDashboardPreview.tsx ← Floating terminal animation
-├── data/                       ← ALL content data (no database needed)
-│   ├── courses.ts              ← 18 courses
-│   ├── tools.ts                ← 40+ tools + stacks
-│   ├── projects.ts             ← 14 projects
-│   ├── prompts.ts              ← 25 prompts
-│   ├── glossary.ts             ← 40 terms
-│   ├── blog.ts                 ← 12 posts
-│   ├── roadmaps.ts             ← 6 learning paths
-│   ├── showcase.ts             ← 21 showcase bar items
-│   └── mentor.ts               ← AI Mentor: 6 modes with system prompts + suggestions (IDs: ask, prompt, claude_code, path, tools, project)
-├── hooks/
-│   ├── useLocalFavorites.ts    ← Favorites for tools/courses/prompts/projects (localStorage)
-│   └── useSavedPrompts.ts      ← Save AI-generated prompts to localStorage (key: saved_generated_prompts)
-└── components/
-    ├── prompt-studio/
-    │   └── PromptStudioClient.tsx      ← Prompt Studio page client
-    ├── claude-generator/
-    │   └── ClaudeCodeGeneratorClient.tsx ← Claude Code prompt generator
-    ├── tool-recommender/
-    │   └── ToolRecommenderClient.tsx   ← Tool recommender (local filter + optional AI)
-    └── roadmap-generator/
-        └── RoadmapGeneratorClient.tsx  ← AI Roadmap generator
-├── messages/
-│   ├── ar.json                 ← Arabic translations (includes mentor.* keys)
-│   └── en.json                 ← English translations (includes mentor.* keys)
-└── lib/
-    ├── utils.ts                ← cn(), getDir(), isRTL()
-    ├── constants.ts            ← Site name, nav links, stats
-    ├── i18n.ts                 ← getMessages(), t(), locales
-    ├── gemini.ts               ← SERVER-ONLY Gemini API client (callGemini)
-    └── mentor-context.ts       ← Shared types: MentorMessage, MentorApiRequest/Response, helpers
+C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy\
+├── .env.local                  ← LOCAL ONLY — never committed (.gitignore: .env*)
+├── .env.example                ← Placeholders only — safe to commit
+├── .gitignore                  ← Covers .env*, node_modules, .next, out, build
+├── package.json
+├── tsconfig.json
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx                      ← Root layout (minimal)
+│   │   ├── page.tsx                        ← Redirects / → /ar
+│   │   ├── globals.css                     ← ALL styling: CSS vars, glass, glow, animations
+│   │   ├── sitemap.ts                      ← Auto-generates /sitemap.xml (221 URLs)
+│   │   ├── robots.ts                       ← Blocks /api/ from crawlers
+│   │   ├── api/
+│   │   │   └── mentor/
+│   │   │       └── route.ts               ← SERVER-ONLY Gemini API route (Dynamic ƒ)
+│   │   └── [locale]/                      ← Routes for ar and en
+│   │       ├── layout.tsx                 ← Locale layout: Navbar + TopShowcaseBar + Footer + MentorFloatingButton
+│   │       ├── page.tsx                   ← Home page (with AI Mentor promo section)
+│   │       ├── about/page.tsx
+│   │       ├── contact/page.tsx
+│   │       ├── dashboard/page.tsx         ← Coming Soon + MySpacePanel + SavedPromptsPanel
+│   │       ├── courses/
+│   │       │   ├── page.tsx + CoursesClient.tsx
+│   │       │   └── [slug]/page.tsx        ← Course detail + AskThisPageButton
+│   │       ├── tools/
+│   │       │   ├── page.tsx + ToolsClient.tsx
+│   │       │   └── [slug]/page.tsx        ← Tool detail + AskThisPageButton
+│   │       ├── projects/
+│   │       │   ├── page.tsx + ProjectsClient.tsx
+│   │       │   └── [slug]/page.tsx        ← Project detail + AskThisPageButton
+│   │       ├── blog/
+│   │       │   ├── page.tsx + BlogClient.tsx
+│   │       │   └── [slug]/page.tsx        ← Blog post + AskThisPageButton
+│   │       ├── paths/page.tsx
+│   │       ├── claude/page.tsx            ← Claude Mastery hub
+│   │       ├── cloud/page.tsx             ← Cloud Academy hub
+│   │       ├── prompts/page.tsx + PromptsClient.tsx
+│   │       ├── glossary/page.tsx + GlossaryClient.tsx
+│   │       ├── mentor/
+│   │       │   ├── page.tsx               ← Server: metadata
+│   │       │   └── MentorPageClient.tsx   ← Client: mode selector + context banner
+│   │       ├── prompt-studio/page.tsx             ← AI Prompt Improver
+│   │       ├── claude-code-generator/page.tsx     ← Claude Code Prompt Builder
+│   │       ├── tool-recommender/page.tsx          ← AI Tool Finder
+│   │       └── roadmap-generator/page.tsx         ← AI Learning Plan Generator
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Navbar.tsx          ← Sticky glass, mobile menu, 9 nav items
+│   │   │   ├── Footer.tsx          ← 5 columns: Brand, Quick Links, Resources, AI Studio, Community
+│   │   │   ├── TopShowcaseBar.tsx  ← Infinite marquee (25 items)
+│   │   │   ├── ThemeToggle.tsx     ← Dark/light via html.light class
+│   │   │   └── LanguageToggle.tsx  ← Route-based AR/EN switcher
+│   │   ├── ui/
+│   │   │   ├── Button.tsx
+│   │   │   ├── Badge.tsx
+│   │   │   ├── SectionHeader.tsx
+│   │   │   ├── CopyButton.tsx
+│   │   │   ├── CategoryFilter.tsx
+│   │   │   ├── AnimateIn.tsx
+│   │   │   └── AskThisPageButton.tsx   ← "Ask AI about this page" button (sessionStorage → /mentor)
+│   │   ├── sections/
+│   │   │   ├── Hero.tsx
+│   │   │   ├── Stats.tsx
+│   │   │   └── CTASection.tsx
+│   │   ├── cards/
+│   │   │   ├── CourseCard.tsx
+│   │   │   ├── ToolCard.tsx
+│   │   │   ├── ProjectCard.tsx
+│   │   │   ├── PromptCard.tsx
+│   │   │   ├── BlogCard.tsx
+│   │   │   └── GlossaryCard.tsx
+│   │   ├── features/
+│   │   │   ├── CommandPalette.tsx       ← Ctrl+K search (Fuse.js) + page shortcuts
+│   │   │   ├── CommandPaletteProvider.tsx
+│   │   │   ├── FavoriteButton.tsx
+│   │   │   ├── MySpacePanel.tsx         ← Shows saved favorites from localStorage
+│   │   │   ├── SavedPromptsPanel.tsx    ← Shows AI-generated saved prompts
+│   │   │   └── QuizSection.tsx
+│   │   ├── mentor/
+│   │   │   ├── MentorChat.tsx           ← Main chat UI (cooldown 3s, max 4000 chars)
+│   │   │   ├── MentorHero.tsx
+│   │   │   ├── MentorModeSelector.tsx
+│   │   │   ├── MentorMessage.tsx
+│   │   │   ├── MentorSuggestionCards.tsx
+│   │   │   ├── MentorFloatingButton.tsx ← Fixed button on all pages (hides on /mentor)
+│   │   │   ├── MentorResponseActions.tsx
+│   │   │   └── ApiKeyMissingState.tsx
+│   │   ├── prompt-studio/
+│   │   │   └── PromptStudioClient.tsx
+│   │   ├── claude-generator/
+│   │   │   └── ClaudeCodeGeneratorClient.tsx
+│   │   ├── tool-recommender/
+│   │   │   └── ToolRecommenderClient.tsx
+│   │   ├── roadmap-generator/
+│   │   │   └── RoadmapGeneratorClient.tsx
+│   │   ├── roadmap/
+│   │   │   └── RoadmapTimeline.tsx
+│   │   └── visual/
+│   │       └── HeroDashboardPreview.tsx
+│   ├── data/                           ← ALL content — no database
+│   │   ├── courses.ts                  ← 18 courses with full detail fields
+│   │   ├── tools.ts                    ← 40+ tools (Tool interface)
+│   │   ├── projects.ts                 ← 14 projects
+│   │   ├── prompts.ts                  ← 25 prompts
+│   │   ├── glossary.ts                 ← 40 terms
+│   │   ├── blog.ts                     ← 12 posts
+│   │   ├── roadmaps.ts                 ← 6 learning paths
+│   │   ├── showcase.ts                 ← 25 showcase bar items
+│   │   └── mentor.ts                   ← 6 modes: ask, prompt, claude_code, path, tools, project
+│   ├── hooks/
+│   │   ├── useLocalFavorites.ts        ← Favorites: tools/courses/prompts/projects (localStorage)
+│   │   └── useSavedPrompts.ts          ← AI-generated prompts (localStorage key: saved_generated_prompts, max 50)
+│   ├── lib/
+│   │   ├── utils.ts                    ← cn(), getDir(), isRTL()
+│   │   ├── constants.ts                ← SITE_NAME, NAV_LINKS, STATS
+│   │   ├── i18n.ts                     ← getMessages(locale), t(locale, key)
+│   │   ├── gemini.ts                   ← SERVER-ONLY callGemini() — never import in client components
+│   │   └── mentor-context.ts           ← Shared types: MentorMessage, MentorApiRequest/Response
+│   └── messages/
+│       ├── ar.json                     ← Arabic translations
+│       └── en.json                     ← English translations
 ```
+
+---
+
+## 🌐 All Routes
+
+### Static Pages (× 2 locales = ar + en each)
+
+| Route | Description |
+|-------|-------------|
+| `/[locale]` | Home page with AI Mentor promo |
+| `/[locale]/courses` | 18 courses with filter |
+| `/[locale]/paths` | 6 learning paths |
+| `/[locale]/tools` | 40+ AI tools with filter + search |
+| `/[locale]/claude` | Claude Mastery hub |
+| `/[locale]/cloud` | Cloud Academy hub |
+| `/[locale]/projects` | 14 projects |
+| `/[locale]/prompts` | 25 prompts library |
+| `/[locale]/blog` | 12 blog posts |
+| `/[locale]/glossary` | 40 terms |
+| `/[locale]/about` | About page |
+| `/[locale]/contact` | Contact page |
+| `/[locale]/dashboard` | Coming Soon + Saved Items |
+| `/[locale]/mentor` | AI Mentor — 6 modes |
+| `/[locale]/prompt-studio` | Prompt Studio |
+| `/[locale]/claude-code-generator` | Claude Code Generator |
+| `/[locale]/tool-recommender` | Tool Recommender |
+| `/[locale]/roadmap-generator` | Roadmap Generator |
+
+### Dynamic Detail Pages (SSG)
+- `/[locale]/courses/[slug]` — 18 × 2 = 36 pages
+- `/[locale]/tools/[slug]` — 40+ × 2 = 80+ pages
+- `/[locale]/projects/[slug]` — 14 × 2 = 28 pages
+- `/[locale]/blog/[slug]` — 12 × 2 = 24 pages
+
+### API Routes (Dynamic — server-side)
+- `POST /api/mentor` — Gemini AI, protected, server-only
+
+---
+
+## 🤖 AI Mentor System
+
+### Architecture
+```
+Client (MentorChat) → POST /api/mentor → route.ts → gemini.ts → Gemini API
+```
+
+### 6 Modes (src/data/mentor.ts)
+| ID | Label AR | Label EN | Icon |
+|----|---------|---------|------|
+| `ask` | اسأل المنصة | Ask the Academy | 🎓 |
+| `prompt` | تحسين البرومبت | Prompt Optimizer | ⚡ |
+| `claude_code` | مولّد برومبت Claude Code | Claude Code Builder | 🛠️ |
+| `path` | مخطط التعلم | Learning Path Planner | 🗺️ |
+| `tools` | مرشّح الأدوات | Tool Finder | 🔎 |
+| `project` | مولّد المشاريع | Project Builder | 🏗️ |
+
+### API Protection (/api/mentor/route.ts)
+- Max message length: **4000 chars** (validated server-side)
+- Max history depth: **20 messages**
+- Mode validation: only valid `MentorModeId` values accepted
+- Rate limit 429: handled gracefully
+- No stack traces in error responses
+- API key redacted from logs
+
+### Client-side Protection (MentorChat.tsx)
+- Cooldown: **3 seconds** between sends
+- Char limit: **4000 chars** with counter shown at 3000+
+- Security notice in footer
+- `initialMessage` prop for pre-filling from Ask This Page
 
 ---
 
 ## 🎨 Design System
 
-### Colors (CSS Variables in globals.css)
-```
-Dark mode:  primary=#8ed5ff, secondary=#d0bcff, tertiary=#3ce0fb
-            background=#0c0e12, surface=#111318
-Light mode: primary=#0284c7, secondary=#6366f1, tertiary=#06b6d4
-            background=#f8fafc
+### CSS Variables (globals.css)
+```css
+/* Dark mode (default) */
+--color-primary: #8ed5ff
+--color-secondary: #d0bcff
+--color-tertiary: #3ce0fb
+--color-background: #0c0e12
+--color-surface: #111318
+--color-surface-container: rgba(255,255,255,0.04)
+--color-on-surface: #e8eaf0
+--color-on-surface-variant: #9aa3b8
+
+/* Light mode (html.light class) */
+--color-primary: #0284c7
+--color-secondary: #6366f1
+--color-tertiary: #06b6d4
+--color-background: #f8fafc
 ```
 
-### CSS Classes Used (in globals.css)
-- `.glass-panel` — Semi-transparent glass with blur
-- `.glass-card` — Darker glass for cards
-- `.glow-button-primary` — Electric blue glow button
-- `.glow-button-secondary` — Violet ghost button
-- `.glow-hover` — Hover glow effect
-- `.gradient-text` — Blue-cyan gradient text
-- `.bg-grid-overlay` — Grid background texture
-- `.env-orb-blue/violet/cyan` — Environmental glow orbs
-- `.marquee-track / .marquee-track-rtl` — Infinite scroll animation
-- `.roadmap-node-active` — Pulsing active node
-- `.animate-float-slow/fast` — Floating animation
-- `.animate-pulse-glow` — Glowing pulse
-- `.animate-fade-in-up` — Reveal animation
-- `.filter-chip-active` — Active filter state
-- `.container-xl` — Max-width container
-- `.dir-ltr` — Force LTR inside RTL
+### Key CSS Classes
+| Class | Purpose |
+|-------|---------|
+| `.glass-panel` | Semi-transparent glass with blur |
+| `.glass-card` | Darker glass for cards |
+| `.glow-button-primary` | Electric blue glow button |
+| `.glow-button-secondary` | Violet ghost button |
+| `.gradient-text` | Blue-cyan gradient text |
+| `.container-xl` | Max-width container with padding |
+| `.bg-grid-overlay` | Grid background texture |
+| `.env-orb-blue/violet/cyan` | Ambient glow orbs |
+| `.marquee-track / .marquee-track-rtl` | Infinite scroll animation |
 
 ---
 
-## 🌍 Language System
+## 🌍 Language & Direction System
 
-- **Routing:** `/{locale}/{page}` — `/ar/courses`, `/en/tools`, etc.
-- **Detection:** URL-based only (no browser detection)
-- **Default redirect:** `/` → `/ar`
-- **Direction:** Set via `dir={getDir(locale)}` on `<html>` and `<body>`
-- **Font switching:** Body font changes to `IBM Plex Sans Arabic` for RTL
-- **Toggle:** `LanguageToggle.tsx` replaces `/ar/` with `/en/` in pathname
-- **Translations:** `src/messages/ar.json` and `src/messages/en.json`
-- **Usage:** `const msgs = getMessages(locale)` then `msgs.nav.home`
+- **Routing:** `/{locale}/{page}` — e.g. `/ar/courses`, `/en/tools`
+- **Default:** `/` → redirects to `/ar`
+- **Locales:** `ar` (RTL) and `en` (LTR)
+- **Direction:** `dir={getDir(locale)}` on `<html>` and `<body>` in `[locale]/layout.tsx`
+- **Font:** Arabic uses `IBM Plex Sans Arabic`, English uses `Geist`
+- **Toggle:** `LanguageToggle.tsx` replaces `/ar/` ↔ `/en/` in pathname
+- **Translations:** `getMessages(locale)` → `src/messages/ar.json` or `en.json`
 
 ---
 
 ## 🎭 Theme System
 
-- **Implementation:** CSS class on `<html>` element (`dark` or `light`)
-- **Toggle:** `ThemeToggle.tsx` — adds/removes `light` class, saves to localStorage
-- **CSS:** All colors are CSS custom properties in `:root`, overridden by `html.light`
-- **Default:** Dark mode (no class needed for dark)
-- **Persistence:** localStorage key `"theme"`
+- **Default:** Dark mode (no class = dark)
+- **Light mode:** Add `light` class to `<html>`
+- **Toggle:** `ThemeToggle.tsx` → adds/removes `light` class → saves to `localStorage("theme")`
+- **CSS:** All colors via CSS custom properties in `:root`, overridden by `html.light { ... }`
+
+---
+
+## 💾 localStorage Keys
+
+| Key | Hook | Purpose |
+|-----|------|---------|
+| `theme` | ThemeToggle | `"light"` or absent (dark) |
+| `fav_tools` | useLocalFavorites | Array of tool IDs |
+| `fav_courses` | useLocalFavorites | Array of course IDs |
+| `fav_prompts` | useLocalFavorites | Array of prompt IDs |
+| `fav_projects` | useLocalFavorites | Array of project IDs |
+| `saved_generated_prompts` | useSavedPrompts | Array of `SavedPrompt` objects (max 50) |
+
+---
+
+## 🔑 Environment Variables
+
+| Variable | Required | Default | Description |
+|---------|---------|---------|-------------|
+| `GEMINI_API_KEY` | ✅ Yes (for AI features) | — | Google Gemini API key from aistudio.google.com |
+| `GEMINI_MODEL` | ❌ No | `gemini-2.5-flash` | Gemini model to use |
+
+### Where to get API key
+https://aistudio.google.com/app/apikey
+
+### Rules (CRITICAL)
+- ❌ **NEVER use `NEXT_PUBLIC_GEMINI_API_KEY`** — exposes key to browser
+- ❌ **NEVER commit `.env.local`** — protected by `.gitignore`
+- ✅ `GEMINI_API_KEY` is ONLY read in `src/lib/gemini.ts` and `src/app/api/mentor/route.ts`
+- ✅ No client component ever imports `gemini.ts`
+
+---
+
+## 🔒 Security Status
+
+| Check | Status |
+|-------|--------|
+| Real API key in source code | ❌ Not found |
+| `NEXT_PUBLIC_GEMINI` anywhere | ❌ Not found |
+| `AIzaSy` prefix in any file | ❌ Not found |
+| `.env.local` committed | ❌ Not committed (gitignored) |
+| `.env.example` has real key | ❌ Placeholders only |
+| `GEMINI_API_KEY` server-only | ✅ gemini.ts + route.ts only |
+| Stack traces in API responses | ❌ Redacted |
+| API key in git history | ❌ Never committed |
+
+---
+
+## 🚀 Deployment
+
+### GitHub
+- **Repo:** https://github.com/Darhous/darhous-ai-cloud-academy
+- **Branch:** `main`
+- **Visibility:** Public
+- **Last commit:** `9509202`
+
+### Vercel
+- **URL:** https://darhous-ai-cloud-academy.vercel.app
+- **Plan:** Free (Hobby)
+- **Auto-deploy:** Every `git push origin main` triggers redeploy
+
+### How to update after any change
+```powershell
+cd "C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy"
+git add .
+git commit -m "describe the change"
+git push
+# Vercel redeploys automatically in ~2 minutes
+```
+
+---
+
+## ⚠️ Critical Warnings
+
+1. **Tailwind v4** — CSS-based config. Never add a `tailwind.config.js` for colors — use `globals.css` CSS variables only.
+2. **Next.js 16 params** — `params` is a `Promise`. Always `await params` before using: `const { locale } = await params`
+3. **Lucide React v1** — Some icons renamed. Use `GitBranch` not `Github`, `Link2` not `Linkedin`.
+4. **Locale layout** — `[locale]/layout.tsx` renders `<html>` and `<body>`. Root `layout.tsx` is minimal.
+5. **Client components** — Any component using `useState`, `useEffect`, `useRouter`, `usePathname` needs `"use client"` at top.
+6. **MentorFloatingButton** — Must be a Client Component (uses `usePathname`). Imported in `[locale]/layout.tsx`.
+7. **MentorChat remount** — `key={chatKey}` causes full remount on mode change. This is intentional — resets conversation.
+8. **useSavedPrompts** — Client-only. Only import in `"use client"` components.
+9. **AskThisPageButton** — Client component using `sessionStorage` + `router.push`. Safe to import in Server Component pages.
+10. **API route is Dynamic (ƒ)** — `/api/mentor` is NOT static. Vercel handles it as a serverless function.
 
 ---
 
@@ -173,139 +380,116 @@ Light mode: primary=#0284c7, secondary=#6366f1, tertiary=#06b6d4
 
 ### Adding a Course
 ```typescript
-// src/data/courses.ts
+// src/data/courses.ts — follow the Course interface
 {
   id: "unique-id",
   titleAr: "العنوان بالعربي",
   titleEn: "English Title",
-  descriptionAr: "...",
-  descriptionEn: "...",
+  descriptionAr: "...", descriptionEn: "...",
   level: "beginner" | "intermediate" | "advanced",
-  lessons: 20,
-  hours: 15,
-  projects: 3,
-  skills: ["Skill1", "Skill2"],
-  category: "AI",
-  icon: "🤖",
-  featured: true,
-  color: "blue",
+  lessons: 20, hours: 15, projects: 3,
+  skills: ["Skill1"], category: "AI", icon: "🤖", featured: true,
+  // Optional detail fields:
+  overviewAr: "...", overviewEn: "...",
+  whatYouLearnAr: [...], whatYouLearnEn: [...],
+  forWhoAr: [...], forWhoEn: [...],
+  lessonOutline: [{ titleAr, titleEn, duration, type }],
+  quiz: [{ questionAr, questionEn, options, correctIndex, explanationAr, explanationEn }],
+  relatedProjects: ["project-id"], relatedCourses: ["course-id"],
 }
 ```
 
-### Adding a Tool
-Same pattern in `src/data/tools.ts` following the `Tool` interface.
-
-### Adding a Prompt
-Same pattern in `src/data/prompts.ts` following the `Prompt` interface.
-
-### Adding a Blog Post
-Same pattern in `src/data/blog.ts` following the `BlogPost` interface.
-
 ### Adding a New Page
-1. Create `src/app/[locale]/newpage/page.tsx`
-2. Add links in `src/components/layout/Navbar.tsx` navItems
-3. Add translation keys in `ar.json` and `en.json`
+1. Create `src/app/[locale]/newpage/page.tsx` (server component with `generateMetadata`)
+2. Create client component if needed: `src/components/newpage/NewPageClient.tsx`
+3. Add route to `src/app/sitemap.ts` staticPages array
+4. Add link to `src/components/layout/Navbar.tsx` navItems (optional)
+5. Add link to `src/components/layout/Footer.tsx` (optional)
+6. Add to `src/components/features/CommandPalette.tsx` buildPageItems() (optional)
+7. Add to `src/data/showcase.ts` (optional)
 
 ---
 
-## 🆕 New Routes (v1.3.0 — AI Product Wave)
+## ✅ v1.4.0 Changes (Polish & Production Wave — 2026-05-30)
 
-| Route | Description |
-|-------|-------------|
-| `/[locale]/prompt-studio` | Prompt Studio — AI prompt improvement |
-| `/[locale]/claude-code-generator` | Claude Code prompt generator |
-| `/[locale]/tool-recommender` | Tool recommender (local filter + AI) |
-| `/[locale]/roadmap-generator` | AI-personalized learning roadmap generator |
+### New Components
+- `src/components/layout/FeaturedShowcaseCarousel.tsx` — Large interactive carousel replacing TopShowcaseBar
+  - 10 cards: Mentor, Prompt Studio, Claude Code Gen, Tool Recommender, Roadmap Gen, Claude, Tools, Cloud, Projects, Prompts
+  - Auto-play (5s), pause on hover, arrows, dots navigation, swipe on mobile
+  - Responsive: 3 cards desktop / 2 tablet / 1 mobile
+  - Full RTL/LTR + Dark/Light support
 
-## 🆕 New Features (v1.3.0)
+### New Pages
+- `src/app/[locale]/privacy/page.tsx` — Privacy policy (AR + EN)
+- `src/app/[locale]/terms/page.tsx` — Terms of service (AR + EN)
 
-### AI Product Experience
-- **Prompt Studio** — improves prompts via AI using mode="prompt"
-- **Claude Code Generator** — builds full Claude Code prompts via mode="claude_code"
-- **Tool Recommender** — local filter from tools.ts (no AI required) + optional AI explanation
-- **Roadmap Generator** — personalized learning plan via mode="path"
-- **Ask This Page** — button on all detail pages (course/tool/project/blog), stores context in sessionStorage → redirects to /mentor
-- **Saved Prompts** — `useSavedPrompts` hook saves AI-generated content to localStorage key `saved_generated_prompts`
+### Bug Fixes
+- **Navbar**: زر "تسجيل الدخول" → "لوحة الطالب" badge "قريبًا" (links to /dashboard)
+- **Footer**: روابط Privacy/Terms تذهب لصفحات حقيقية `/privacy` و `/terms` بدلاً من `/about`
+- **Sitemap**: أضيف `/privacy` و `/terms` — إجمالي 225 صفحة
 
-### Mentor UX Improvements
-- Cooldown: 3 seconds between messages (prevents API spam)
-- Char limit: 4000 chars max per message with counter shown at 3000+
-- Security notice in chat footer
-- `initialMessage` prop on MentorChat for pre-filling from page context
-- Context banner in MentorPageClient when coming from "Ask This Page"
+### Improvements
+- Prompt Studio: Prompt Quality Checklist (5 criteria: Role, Context, Constraints, Format, Validation)
+- Roadmap Generator: Timeline visual header + improved result display
 
-### Navigation & Discovery
-- Footer: new "AI Studio" column with all new tools
-- CommandPalette (⌘K): page navigation items added at top of results
-- TopShowcaseBar: 4 new items (Prompt Studio, Claude Code Generator, Tool Recommender, Roadmap Generator)
-- Home page: new "Darhous AI Mentor" promotion section with AI Studio grid
-
-### API Protection
-- Message length validation (max 4000 chars server-side)
-- History depth limit (max 20 messages)
-- Mode validation (only valid MentorModeId values accepted)
-- Rate limit 429 error handled gracefully
-
-## ⚠️ Important Warnings
-
-1. **NEVER commit API keys or secrets** — use .env.local (already in .gitignore)
-2. **Tailwind v4** — uses CSS-based config, not tailwind.config.js for colors
-3. **Locale layout** — the `[locale]/layout.tsx` renders `<html>` and `<body>`, so root layout.tsx is minimal
-4. **Client components** — pages with `useState` need `"use client"` directive
-5. **Lucide-react v1** — some icons renamed (no `Github`, `Twitter`, `Linkedin` — use `GitBranch`, `Link2`)
-6. **GEMINI_API_KEY** — NEVER prefix with `NEXT_PUBLIC_`. Must stay server-only in `src/lib/gemini.ts` and `src/app/api/mentor/route.ts` only
-7. **MentorFloatingButton** — imported in `[locale]/layout.tsx` as a Client Component (uses `usePathname`)
-8. **MentorChat key** — `key={chatKey}` on MentorChat in MentorPageClient causes full remount on mode change (intentional)
-9. **useSavedPrompts** — client-only hook, only import in "use client" components
-10. **AskThisPageButton** — client component that uses sessionStorage + router.push, safe to import in Server Component pages (Next.js handles it)
+---
 
 ## 🔮 Recommended Next Tasks
 
-### Phase 2: Enhanced Content
-- [ ] Add MDX support for blog posts (full content)
-- [ ] Add more prompts (target: 100+)
+### Phase 2: Content Depth
+- [ ] MDX support for blog posts (full article content)
+- [ ] More prompts (target: 100+)
+- [ ] More tools (target: 60+)
+- [ ] Video embed support for lessons
 
-### Phase 3: Authentication + Backend
-- [ ] Add Supabase for auth (replace localStorage with DB)
-- [ ] Student registration/login
-- [ ] Save progress server-side
-- [ ] Migrate saved prompts from localStorage → Supabase
+### Phase 3: Authentication (Supabase)
+- [ ] Supabase Auth (email + GitHub OAuth)
+- [ ] User profiles
+- [ ] Migrate localStorage favorites → Supabase DB
+- [ ] Migrate saved prompts → Supabase DB
 
-### Phase 4: Dashboard
-- [ ] Build actual student dashboard
-- [ ] Progress tracking
-- [ ] Certificates (React-PDF)
+### Phase 4: Real Dashboard
+- [ ] Course progress tracking (lesson completion)
+- [ ] Learning streak counter
+- [ ] Skill map visualization
+- [ ] Certificate generation (React-PDF)
 
----
-
-## ⚠️ Important Warnings
-
-1. **NEVER commit API keys or secrets** — use .env.local (already in .gitignore)
-2. **Tailwind v4** — uses CSS-based config, not tailwind.config.js for colors
-3. **Locale layout** — the `[locale]/layout.tsx` renders `<html>` and `<body>`, so root layout.tsx is minimal
-4. **Client components** — pages with `useState` need `"use client"` directive
-5. **Lucide-react v1** — some icons renamed (no `Github`, `Twitter`, `Linkedin` — use `GitBranch`, `Link2`)
-6. **GEMINI_API_KEY** — NEVER prefix with `NEXT_PUBLIC_`. Must stay server-only in `src/lib/gemini.ts` and `src/app/api/mentor/route.ts` only
-7. **MentorFloatingButton** — imported in `[locale]/layout.tsx` as a Client Component (uses `usePathname`)
-8. **MentorChat key** — `key={activeMode}` on MentorChat in MentorPageClient causes full remount on mode change (intentional, resets conversation)
+### Phase 5: AI Enhancements
+- [ ] Context-aware mentor (links from course pages with pre-filled questions — partially done via Ask This Page)
+- [ ] Streaming responses (ReadableStream SSE)
+- [ ] RAG over platform content
 
 ---
 
-## 🚀 Continuation Prompts
+## 💬 Continuation Prompts
 
-Use these exact prompts to continue development:
+**Continue development:**
+```
+Continue the Darhous AI Cloud Academy project.
+Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
+Read CLAUDE_CONTINUATION_CONTEXT.md first before any changes.
+Current version: 1.4.0 — Build: ✅ 225 pages — Deployed: https://darhous-ai-cloud-academy.vercel.app
+```
 
 **Add Supabase backend:**
 ```
-Continue the Darhous AI Cloud Academy project at C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy. Read CLAUDE_CONTINUATION_CONTEXT.md first. Add Supabase authentication with user registration, login, and session management. Create a proper student dashboard that tracks course progress.
-```
-
-**Add search:**
-```
-Continue Darhous AI Cloud Academy. Read CLAUDE_CONTINUATION_CONTEXT.md. Add a global search feature using Fuse.js that searches across courses, tools, projects, prompts, and blog posts. Wire it to the ⌘K shortcut in Navbar.tsx.
+Continue Darhous AI Cloud Academy at C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy.
+Read CLAUDE_CONTINUATION_CONTEXT.md first.
+Add Supabase authentication with user registration, login, and session management.
+Create a proper student dashboard that tracks course progress.
 ```
 
 **Add MDX blog:**
 ```
-Continue Darhous AI Cloud Academy. Read CLAUDE_CONTINUATION_CONTEXT.md. Add MDX support for blog posts so each post in src/data/blog.ts can have a corresponding .mdx file with full content. Create a blog/[id]/page.tsx that renders the MDX.
+Continue Darhous AI Cloud Academy. Read CLAUDE_CONTINUATION_CONTEXT.md first.
+Add MDX support for blog posts so each post in src/data/blog.ts has a .mdx file with full content.
+Create blog/[slug]/page.tsx that renders the MDX.
+```
+
+**Add more content:**
+```
+Continue Darhous AI Cloud Academy. Read CLAUDE_CONTINUATION_CONTEXT.md first.
+Add 15 new prompts to src/data/prompts.ts following the existing Prompt interface.
+Add 10 new AI tools to src/data/tools.ts following the existing Tool interface.
+Do not change any UI or architecture.
 ```

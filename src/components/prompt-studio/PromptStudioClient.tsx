@@ -318,31 +318,40 @@ export default function PromptStudioClient({ locale }: Props) {
         </div>
       )}
 
-      {/* Tips */}
+      {/* Prompt Quality Checklist */}
       <div
-        className="rounded-2xl p-6 grid grid-cols-1 sm:grid-cols-3 gap-5"
+        className="rounded-2xl p-6"
         style={{
           background: "var(--color-surface-container)",
           border: "1px solid var(--color-outline-variant)",
         }}
       >
-        {[
-          { icon: "🎯", ar: "كن محدداً", en: "Be Specific", descAr: "كلما كان البرومبت الأصلي أوضح، كانت النتيجة أفضل", descEn: "The clearer your original prompt, the better the result" },
-          { icon: "📋", ar: "اذكر السياق", en: "Add Context", descAr: "أخبر AI بالهدف والجمهور والمخرجات المتوقعة", descEn: "Tell the AI about the goal, audience, and expected output" },
-          { icon: "🔄", ar: "جرّب أنواعاً مختلفة", en: "Try Different Types", descAr: "غيّر نوع البرومبت للحصول على تحسينات مختلفة", descEn: "Switch prompt types to get different improvements" },
-        ].map((tip) => (
-          <div key={tip.icon} className="flex items-start gap-3">
-            <span className="text-xl">{tip.icon}</span>
-            <div>
-              <p className="text-sm font-semibold mb-1" style={{ color: "var(--color-on-surface)" }}>
-                {isAr ? tip.ar : tip.en}
+        <p className="font-mono text-xs tracking-wider uppercase mb-4" style={{ color: "var(--color-tertiary)" }}>
+          {isAr ? "قائمة فحص جودة البرومبت" : "Prompt Quality Checklist"}
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          {[
+            { icon: "👤", ar: "دور محدد", en: "Clear Role", descAr: "هل حددت دور AI؟ مثال: أنت مهندس...", descEn: "Did you define AI's role? e.g. You are an engineer..." },
+            { icon: "📋", ar: "سياق واضح", en: "Context", descAr: "هل أضفت خلفية للمشكلة؟", descEn: "Did you add background to the problem?" },
+            { icon: "🔒", ar: "قيود", en: "Constraints", descAr: "هل حددت ما لا تريده؟", descEn: "Did you specify what you don't want?" },
+            { icon: "📦", ar: "صيغة المخرجات", en: "Output Format", descAr: "هل طلبت صيغة محددة للناتج؟", descEn: "Did you request a specific output format?" },
+            { icon: "✅", ar: "التحقق", en: "Validation", descAr: "هل طلبت التحقق من الناتج؟", descEn: "Did you ask to verify the output?" },
+          ].map((item) => (
+            <div
+              key={item.icon}
+              className="flex flex-col gap-2 p-3 rounded-xl"
+              style={{ background: "rgba(60,224,251,0.04)", border: "1px solid rgba(60,224,251,0.1)" }}
+            >
+              <span className="text-xl">{item.icon}</span>
+              <p className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>
+                {isAr ? item.ar : item.en}
               </p>
-              <p className="text-xs leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-                {isAr ? tip.descAr : tip.descEn}
+              <p className="text-[11px] leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                {isAr ? item.descAr : item.descEn}
               </p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -223,11 +223,11 @@ export default function Footer({ locale }: FooterProps) {
           </p>
           <div className="flex gap-6">
             {[
-              { href: "/about", label: isAr ? "سياسة الخصوصية" : "Privacy Policy" },
-              { href: "/about", label: isAr ? "شروط الخدمة" : "Terms of Service" },
+              { href: "/privacy", label: isAr ? "سياسة الخصوصية" : "Privacy Policy" },
+              { href: "/terms",   label: isAr ? "شروط الخدمة"     : "Terms of Service" },
             ].map((link) => (
               <Link
-                key={link.label}
+                key={link.href}
                 href={`/${locale}${link.href}`}
                 className="text-xs font-mono transition-colors hover:text-primary"
                 style={{ color: "var(--color-on-surface-variant)" }}

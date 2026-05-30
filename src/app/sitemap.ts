@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "", "/courses", "/paths", "/tools", "/claude", "/cloud",
     "/projects", "/prompts", "/blog", "/glossary", "/about", "/contact",
     "/mentor", "/dashboard", "/prompt-studio", "/claude-code-generator",
-    "/tool-recommender", "/roadmap-generator",
+    "/tool-recommender", "/roadmap-generator", "/privacy", "/terms",
   ];
 
   const staticEntries = locales.flatMap((locale) =>

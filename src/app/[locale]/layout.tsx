@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import TopShowcaseBar from "@/components/layout/TopShowcaseBar";
+import FeaturedShowcaseCarousel from "@/components/layout/FeaturedShowcaseCarousel";
 import CommandPaletteProvider from "@/components/features/CommandPaletteProvider";
 import MentorFloatingButton from "@/components/mentor/MentorFloatingButton";
 import { locales } from "@/lib/i18n";
@@ -126,7 +126,7 @@ export default async function LocaleLayout({
 
         <Navbar locale={locale} />
         <div style={{ paddingTop: "64px" }}>
-          <TopShowcaseBar locale={locale} />
+          <FeaturedShowcaseCarousel locale={locale} />
         </div>
         <CommandPaletteProvider locale={locale} />
         <MentorFloatingButton locale={locale} />

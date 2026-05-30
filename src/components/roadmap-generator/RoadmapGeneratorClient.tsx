@@ -385,15 +385,29 @@ Provide a structured, detailed, executable learning plan with clear phases, Darh
           className="rounded-2xl overflow-hidden"
           style={{ border: "1px solid rgba(74,222,128,0.2)", background: "var(--color-surface-container)" }}
         >
+          {/* Result header */}
           <div
             className="flex items-center justify-between px-6 py-4 border-b"
-            style={{ borderColor: "var(--color-outline-variant)" }}
+            style={{
+              borderColor: "var(--color-outline-variant)",
+              background: "rgba(74,222,128,0.04)",
+            }}
           >
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full" style={{ background: "#4ade80" }} />
-              <span className="font-mono text-sm font-semibold" style={{ color: "var(--color-on-surface)" }}>
-                {isAr ? "خطة التعلم المخصصة" : "Your Personalized Roadmap"}
-              </span>
+            <div className="flex items-center gap-3">
+              <div
+                className="w-8 h-8 rounded-xl flex items-center justify-center text-base"
+                style={{ background: "rgba(74,222,128,0.12)" }}
+              >
+                🗺️
+              </div>
+              <div>
+                <p className="font-mono text-sm font-semibold" style={{ color: "var(--color-on-surface)" }}>
+                  {isAr ? "خطة التعلم المخصصة" : "Your Personalized Roadmap"}
+                </p>
+                <p className="text-xs font-mono" style={{ color: "#4ade80", opacity: 0.8 }}>
+                  {isAr ? "مولّدة بالذكاء الاصطناعي" : "AI-Generated"}
+                </p>
+              </div>
             </div>
             <div className="flex items-center gap-2">
               <button
@@ -422,10 +436,30 @@ Provide a structured, detailed, executable learning plan with clear phases, Darh
               </button>
             </div>
           </div>
+
+          {/* Timeline visual hint */}
+          <div
+            className="px-6 py-3 border-b flex items-center gap-2"
+            style={{ borderColor: "var(--color-outline-variant)" }}
+          >
+            {["#8ed5ff", "#3ce0fb", "#d0bcff", "#4ade80"].map((c, i) => (
+              <div key={i} className="flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full" style={{ background: c }} />
+                <span className="text-[10px] font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                  {isAr
+                    ? ["المرحلة 1", "المرحلة 2", "المرحلة 3", "المرحلة 4"][i]
+                    : ["Phase 1", "Phase 2", "Phase 3", "Phase 4"][i]}
+                </span>
+                {i < 3 && <span className="w-4 h-px" style={{ background: "rgba(255,255,255,0.1)" }} />}
+              </div>
+            ))}
+          </div>
+
+          {/* Content */}
           <div className="px-6 py-5">
             <div
               className="text-sm leading-relaxed whitespace-pre-wrap"
-              style={{ color: "var(--color-on-surface)" }}
+              style={{ color: "var(--color-on-surface)", fontFamily: "inherit" }}
             >
               {result}
             </div>

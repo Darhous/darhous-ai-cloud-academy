@@ -147,9 +147,21 @@ export default function Navbar({ locale }: NavbarProps) {
 
           <Link
             href={`/${locale}/dashboard`}
-            className="hidden md:block glow-button-primary text-white text-xs font-mono px-4 py-2 rounded-lg"
+            className="hidden md:flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+            style={{
+              background: "rgba(142,213,255,0.06)",
+              borderColor: "rgba(142,213,255,0.2)",
+              color: "var(--color-primary)",
+            }}
           >
-            {isAr ? "تسجيل الدخول" : "Sign In"}
+            <span className="text-[10px]">🔮</span>
+            {isAr ? "لوحة الطالب" : "Dashboard"}
+            <span
+              className="px-1.5 py-0.5 rounded text-[9px] font-bold"
+              style={{ background: "rgba(208,188,255,0.15)", color: "var(--color-secondary)" }}
+            >
+              {isAr ? "قريبًا" : "Soon"}
+            </span>
           </Link>
 
           {/* Mobile hamburger */}
@@ -200,10 +212,21 @@ export default function Navbar({ locale }: NavbarProps) {
             >
               <Link
                 href={`/${locale}/dashboard`}
-                className="glow-button-primary text-white text-sm font-mono px-4 py-2.5 rounded-lg block text-center"
+                className="flex items-center justify-center gap-2 text-sm font-mono px-4 py-2.5 rounded-lg border transition-all hover:opacity-80"
+                style={{
+                  background: "rgba(142,213,255,0.06)",
+                  borderColor: "rgba(142,213,255,0.2)",
+                  color: "var(--color-primary)",
+                }}
                 onClick={() => setMobileOpen(false)}
               >
-                {isAr ? "تسجيل الدخول" : "Sign In"}
+                🔮 {isAr ? "لوحة الطالب" : "Dashboard"}
+                <span
+                  className="px-1.5 py-0.5 rounded text-[10px] font-bold"
+                  style={{ background: "rgba(208,188,255,0.15)", color: "var(--color-secondary)" }}
+                >
+                  {isAr ? "قريبًا" : "Soon"}
+                </span>
               </Link>
             </div>
           </div>
