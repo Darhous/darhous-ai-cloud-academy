@@ -1,0 +1,129 @@
+---
+titleAr: "دليلك الكامل لـ Gemini 2.5 Flash"
+titleEn: "Your Complete Guide to Gemini 2.5 Flash"
+excerptAr: "النموذج الأسرع من Google — كل ما تحتاج معرفته عن الاستخدام والتكامل والإمكانيات"
+excerptEn: "Google's fastest model — everything you need to know about usage, integration, and capabilities"
+date: "2026-03-20"
+category: "AI Models"
+icon: "⚡"
+tags: ["gemini", "google", "api", "flash", "ai-models"]
+readingTime: 7
+---
+
+## ما هو Gemini 2.5 Flash؟
+
+**Gemini 2.5 Flash** هو النموذج الأحدث من Google DeepMind في سلسلة Flash — مصمم لتحقيق التوازن المثالي بين:
+- **السرعة الفائقة** في توليد الردود
+- **الجودة العالية** في الفهم والتحليل
+- **التكلفة المنخفضة** مقارنة بـ Gemini Ultra
+
+## الميزات الرئيسية
+
+### نافذة السياق الضخمة
+يدعم حتى **1 مليون token** في السياق — أي ما يعادل كتاباً كاملاً! هذا يجعله مثالياً لـ:
+- تحليل قواعد بيانات كبيرة
+- معالجة ملفات PDF متعددة
+- تطبيقات RAG (Retrieval Augmented Generation)
+
+### التفكير المتقدم (Thinking Mode)
+ميزة فريدة تتيح للنموذج "التفكير بصوت عالٍ" قبل الإجابة:
+
+```python
+response = client.models.generate_content(
+  model="gemini-2.5-flash",
+  config={"thinking_config": {"thinking_budget": 8000}}
+)
+```
+
+### متعدد الوسائط (Multimodal)
+يفهم ويحلل:
+- النصوص
+- الصور
+- الفيديو (حتى ساعة كاملة!)
+- الصوت
+- ملفات PDF
+
+## كيف تبدأ مع Gemini API؟
+
+### 1. الحصول على API Key
+
+اذهب إلى [aistudio.google.com](https://aistudio.google.com) → إنشاء API Key (مجاني)
+
+### 2. تثبيت المكتبة
+
+```bash
+pip install google-generativeai
+# أو
+npm install @google/generative-ai
+```
+
+### 3. أول طلب
+
+```python
+import google.generativeai as genai
+
+genai.configure(api_key="YOUR_API_KEY")
+model = genai.GenerativeModel("gemini-2.5-flash")
+
+response = model.generate_content("مرحباً! كيف يمكنني تعلم AI؟")
+print(response.text)
+```
+
+### في JavaScript/TypeScript
+
+```typescript
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+
+const result = await model.generateContent("Hello!");
+console.log(result.response.text());
+```
+
+## حالات الاستخدام المثالية
+
+### Chatbots وMentors
+بفضل سرعته، يُعطي تجربة محادثة تبدو فورية تقريباً.
+
+### تحليل الصور
+```python
+import PIL.Image
+img = PIL.Image.open("screenshot.png")
+response = model.generate_content(["صف ما في هذه الصورة بالتفصيل:", img])
+```
+
+### استخراج البيانات من PDFs
+```python
+with open("document.pdf", "rb") as f:
+    pdf_data = f.read()
+    
+response = model.generate_content([
+  "استخرج كل الأرقام المالية من هذا المستند:",
+  {"mime_type": "application/pdf", "data": pdf_data}
+])
+```
+
+## المقارنة مع Flash vs Pro
+
+| الميزة | Flash | Pro |
+|--------|-------|-----|
+| السرعة | ⚡⚡⚡ سريع جداً | ⚡⚡ سريع |
+| الجودة | ممتازة | الأفضل |
+| السعر | منخفض | أعلى |
+| السياق | 1M token | 1M token |
+
+## الحدود والقيود
+
+- لا يتصفح الإنترنت مباشرة (يحتاج Google Search grounding)
+- قد يُهلوس في المعلومات التقنية الدقيقة
+- تعليق الكود أقل دقة من Claude في بعض الأحيان
+
+## خلاصة
+
+Gemini 2.5 Flash هو خيارك الأول إذا كنت تبني:
+- تطبيق يحتاج سرعة عالية
+- معالجة كميات ضخمة من النصوص
+- تحليل الوسائط المتعددة
+
+نستخدمه في منصة Darhous Academy لتشغيل AI Mentor بسبب سرعته وتكلفته المنخفضة.

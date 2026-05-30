@@ -17,14 +17,25 @@ export async function GET(request: Request) {
           return NextResponse.redirect(`${origin}/${locale}/reset-password`);
         }
 
-        // Normal sign-in: check role for redirect destination
+        // Normal sign-in: check role + onboarding status
         const { data: profile } = await supabase
           .from("profiles")
           .select("role")
           .eq("id", data.user.id)
           .single();
 
-        const dest = profile?.role === "admin" ? "admin" : "dashboard";
+        if (profile?.role === "admin") {
+          return NextResponse.redirect(`${origin}/${locale}/admin`);
+        }
+
+        // Check if onboarding is completed
+        const { data: studentProfile } = await supabase
+          .from("student_profiles")
+          .select("onboarding_completed")
+          .eq("user_id", data.user.id)
+          .single();
+
+        const dest = studentProfile?.onboarding_completed ? "dashboard" : "onboarding";
         return NextResponse.redirect(`${origin}/${locale}/${dest}`);
       }
     }

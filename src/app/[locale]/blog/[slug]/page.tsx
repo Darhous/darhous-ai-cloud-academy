@@ -4,33 +4,42 @@ import Link from "next/link";
 import { blogPosts } from "@/data/blog";
 import { tools } from "@/data/tools";
 import { courses } from "@/data/courses";
+import { getMdxPost, getMdxSlugs } from "@/lib/mdx";
 import { Clock, CalendarDays, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 import AskThisPageButton from "@/components/ui/AskThisPageButton";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import MdxContent from "@/components/blog/MdxContent";
 
 type Params = Promise<{ locale: string; slug: string }>;
 
 export async function generateStaticParams() {
   const locales = ["ar", "en"];
-  return locales.flatMap((locale) =>
-    blogPosts.map((p) => ({ locale, slug: p.id }))
-  );
+  const mdxSlugs = getMdxSlugs();
+  const dataSlugs = blogPosts.map((p) => p.id);
+  const allSlugs = [...new Set([...dataSlugs, ...mdxSlugs])];
+  return locales.flatMap((locale) => allSlugs.map((slug) => ({ locale, slug })));
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { locale, slug } = await params;
+  const isAr = locale === "ar";
+  // Try MDX first, fallback to data
+  const mdx = getMdxPost(slug);
+  if (mdx) {
+    return {
+      title: isAr ? mdx.frontmatter.titleAr : mdx.frontmatter.titleEn,
+      description: isAr ? mdx.frontmatter.excerptAr : mdx.frontmatter.excerptEn,
+      keywords: mdx.frontmatter.tags,
+      openGraph: { type: "article", publishedTime: mdx.frontmatter.date, tags: mdx.frontmatter.tags },
+    };
+  }
   const post = blogPosts.find((p) => p.id === slug);
   if (!post) return { title: "Post Not Found" };
-  const isAr = locale === "ar";
   return {
     title: isAr ? post.titleAr : post.titleEn,
     description: isAr ? post.excerptAr : post.excerptEn,
     keywords: post.tags,
-    openGraph: {
-      type: "article",
-      publishedTime: post.date,
-      tags: post.tags,
-    },
+    openGraph: { type: "article", publishedTime: post.date, tags: post.tags },
   };
 }
 
@@ -58,11 +67,58 @@ function renderMarkdown(text: string) {
 
 export default async function BlogPostPage({ params }: { params: Params }) {
   const { locale, slug } = await params;
-  const post = blogPosts.find((p) => p.id === slug);
-  if (!post) notFound();
-
   const isAr = locale === "ar";
   const BackChevron = isAr ? ChevronRight : ChevronLeft;
+
+  // Try MDX post first
+  const mdxPost = getMdxPost(slug);
+  if (mdxPost) {
+    const fm = mdxPost.frontmatter;
+    return (
+      <div className="container-xl py-12">
+        <div className="max-w-4xl mx-auto flex flex-col gap-10">
+          <Breadcrumbs locale={locale} items={[
+            { labelAr: "الرئيسية", labelEn: "Home", href: `/${locale}` },
+            { labelAr: "المدونة", labelEn: "Blog", href: `/${locale}/blog` },
+            { labelAr: fm.titleAr, labelEn: fm.titleEn },
+          ]} />
+          <div className="text-center flex flex-col items-center gap-4">
+            <div className="text-5xl">{fm.icon}</div>
+            <div className="flex items-center gap-4 text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+              <span className="px-2.5 py-1 rounded-full" style={{ background: "rgba(142,213,255,0.1)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)" }}>
+                {fm.category}
+              </span>
+              <span className="flex items-center gap-1"><Clock size={12} />{fm.readingTime} {isAr ? "دقيقة" : "min"}</span>
+              <span className="flex items-center gap-1"><CalendarDays size={12} />{fm.date}</span>
+            </div>
+            <h1 className="font-display font-bold text-3xl md:text-4xl leading-tight" style={{ color: "var(--color-on-surface)" }}>
+              {isAr ? fm.titleAr : fm.titleEn}
+            </h1>
+            <p className="text-lg max-w-2xl" style={{ color: "var(--color-on-surface-variant)" }}>
+              {isAr ? fm.excerptAr : fm.excerptEn}
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {fm.tags.map((tag) => (
+                <span key={tag} className="px-2.5 py-1 rounded-full text-xs font-mono"
+                  style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}>#{tag}</span>
+              ))}
+            </div>
+          </div>
+          <article className="glass-card rounded-2xl p-6 md:p-10">
+            <MdxContent source={mdxPost.content} />
+          </article>
+          <Link href={`/${locale}/blog`} className="flex items-center gap-1 text-sm hover:opacity-70 transition-opacity"
+            style={{ color: "var(--color-primary)" }}>
+            <BackChevron size={16} />
+            {isAr ? "العودة للمدونة" : "Back to Blog"}
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const post = blogPosts.find((p) => p.id === slug);
+  if (!post) notFound();
 
   const content = isAr ? post.contentAr : post.contentEn;
   const relatedPostsList = (post.relatedPosts ?? [])

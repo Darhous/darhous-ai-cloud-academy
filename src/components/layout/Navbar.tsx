@@ -157,6 +157,18 @@ export default function Navbar({ locale }: NavbarProps) {
             <UserCircle size={13} />
             {isAr ? "لوحتي" : "Dashboard"}
           </Link>
+          <Link
+            href={`/${locale}/profile`}
+            className="flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+            style={{
+              background: "rgba(208,188,255,0.06)",
+              borderColor: "rgba(208,188,255,0.2)",
+              color: "var(--color-secondary)",
+            }}
+          >
+            <UserCircle size={13} />
+            {isAr ? "حسابي" : "Profile"}
+          </Link>
         </div>
       );
     }

@@ -30,7 +30,7 @@ export default function QuizSection({ quiz, locale, courseId }: QuizSectionProps
     setAnswers((prev) => ({ ...prev, [qId]: idx }));
   }
 
-  function submit() {
+  async function submit() {
     if (Object.keys(answers).length < quiz.length) return;
     setSubmitted(true);
     const correct = quiz.filter((q) => answers[q.id] === q.correctIndex).length;
@@ -42,6 +42,20 @@ export default function QuizSection({ quiz, locale, courseId }: QuizSectionProps
         setBestScore(score);
       }
     } catch {}
+    // Save to Supabase (best effort — no auth guard, server handles it)
+    try {
+      await fetch("/api/quiz/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          course_slug: courseId,
+          quiz_id: `${courseId}-quiz`,
+          score: correct,
+          total: quiz.length,
+          answers: Object.entries(answers).map(([qId, ans]) => ({ question_id: qId, answer: ans })),
+        }),
+      });
+    } catch { /* silent — not logged in or network error */ }
   }
 
   function reset() {

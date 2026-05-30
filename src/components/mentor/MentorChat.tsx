@@ -23,24 +23,55 @@ interface Props {
   initialMessage?: string;
 }
 
-async function fetchMentorReply(
+async function streamMentorReply(
   history: MsgType[],
   mode: string,
-  locale: string
-): Promise<MentorApiResponse> {
+  locale: string,
+  onToken: (token: string) => void,
+  onDone: () => void,
+  onError: (err: string) => void
+): Promise<void> {
   try {
-    const res = await fetch("/api/mentor", {
+    const res = await fetch("/api/mentor-stream", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        messages: formatForGemini(history),
-        mode,
-        locale,
-      }),
+      body: JSON.stringify({ messages: formatForGemini(history), mode, locale }),
     });
-    return (await res.json()) as MentorApiResponse;
+
+    // Fallback: if streaming not available, use regular endpoint
+    if (!res.ok || !res.body) {
+      const data = await res.json().catch(() => ({}));
+      if (data.missingKey) { onError("missingKey"); return; }
+      if (data.reply) { onToken(data.reply); onDone(); return; }
+      onError(data.error ?? "unknown");
+      return;
+    }
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buf = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += decoder.decode(value, { stream: true });
+      const lines = buf.split("\n");
+      buf = lines.pop() ?? "";
+      for (const line of lines) {
+        if (!line.startsWith("data:")) continue;
+        const raw = line.slice(5).trim();
+        if (raw === "[DONE]") { onDone(); return; }
+        try {
+          const parsed = JSON.parse(raw);
+          if (parsed.error) { onError(parsed.error); return; }
+          if (parsed.missingKey) { onError("missingKey"); return; }
+          if (parsed.token) onToken(parsed.token);
+        } catch { /* skip */ }
+      }
+    }
+    onDone();
   } catch {
-    return { error: "network_error" };
+    onError("network_error");
   }
 }
 
@@ -92,36 +123,34 @@ export default function MentorChat({ modeId, locale, isAr, initialMessage }: Pro
         textareaRef.current.style.height = "auto";
       }
 
-      const data = await fetchMentorReply(history, modeId, locale);
-
-      if (data.missingKey) {
-        setMissingKey(true);
-        setLoading(false);
-        return;
-      }
-
-      if (!data.reply || data.error) {
-        const err =
-          data.error === "network_error"
-            ? isAr
-              ? "تعذّر الاتصال بالخادم. تحقق من اتصالك."
-              : "Connection failed. Check your network."
-            : (data.error ??
-              (isAr ? "حدث خطأ، يرجى المحاولة مرة أخرى." : "An error occurred. Please try again."));
-        setErrorMsg(err);
-        setLoading(false);
-        return;
-      }
-
-      const aiMsg: MsgType = {
-        id: createMessageId(),
-        role: "assistant",
-        content: data.reply,
-        timestamp: Date.now(),
-        modeId,
-      };
+      // Start streaming: add empty assistant message, then fill tokens
+      const aiId = createMessageId();
+      const aiMsg: MsgType = { id: aiId, role: "assistant", content: "", timestamp: Date.now(), modeId };
       setMessages([...history, aiMsg]);
-      setLoading(false);
+
+      let accumulated = "";
+
+      await streamMentorReply(
+        history,
+        modeId,
+        locale,
+        (token) => {
+          accumulated += token;
+          setMessages((prev) =>
+            prev.map((m) => m.id === aiId ? { ...m, content: accumulated } : m)
+          );
+        },
+        () => { setLoading(false); },
+        (err) => {
+          if (err === "missingKey") { setMissingKey(true); setLoading(false); return; }
+          const msg = err === "network_error"
+            ? (isAr ? "تعذّر الاتصال بالخادم." : "Connection failed.")
+            : (isAr ? "حدث خطأ، يرجى المحاولة مرة أخرى." : "An error occurred. Please try again.");
+          setErrorMsg(msg);
+          setMessages((prev) => prev.filter((m) => m.id !== aiId));
+          setLoading(false);
+        }
+      );
     },
     [modeId, locale, isAr, loading, cooldown]
   );

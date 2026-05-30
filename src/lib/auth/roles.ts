@@ -1,4 +1,5 @@
 export type UserRole = "student" | "admin";
+export type UserLevel = "beginner" | "intermediate" | "advanced";
 
 export interface UserProfile {
   id: string;
@@ -8,6 +9,19 @@ export interface UserProfile {
   role: UserRole;
   provider: string | null;
   locale: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface StudentProfile {
+  id: string;
+  user_id: string;
+  level: UserLevel | null;
+  goal: string | null;
+  interests: string[] | null;
+  weekly_time: string | null;
+  preferred_language: string | null;
+  onboarding_completed: boolean;
   created_at: string;
   updated_at: string;
 }

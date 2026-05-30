@@ -9,11 +9,13 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 2.1.0 — Password Reset Flow |
-| **Status** | ✅ Live on Vercel |
-| **Build** | ✅ Passing — 241 static pages, 0 TypeScript errors |
+| **Version** | 2.4.0 — Profile + Onboarding + Progress + MDX + Streaming + Quiz |
+| **Status** | ✅ Live on Vercel + Supabase + Google OAuth + 6 New Features |
+| **Build** | ✅ Passing — 251 static pages, 0 TypeScript errors |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
+| **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
+| **Supabase Project ID** | `kzbdmyovspkbakbtvgig` |
 | **Branch** | `main` |
 | **Last Updated** | 2026-05-30 |
 
@@ -25,8 +27,139 @@
 Continue the Darhous AI Cloud Academy project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md first before any changes.
-Current version: 2.1.0 — Build: ✅ 241 pages — Git: clean — Deployed on Vercel
+Current version: 2.4.0 — Build: ✅ 251 pages — 6 new features — Deployed on Vercel
 ```
+
+---
+
+## 🆕 What was completed (v2.4.0):
+
+### 6 Major Features — Done in Session 2026-05-30
+
+#### 1. Profile Settings Page ✅
+- Route: `/[locale]/profile`
+- Files: `src/app/[locale]/profile/page.tsx`, `src/components/profile/ProfileSettingsClient.tsx`
+- Updates: `profiles` table (full_name, avatar_url) + `student_profiles` table (level, goal, interests, weekly_time)
+- Avatar preview, level selector, interest tags, goal textarea, weekly time picker
+
+#### 2. Onboarding Flow ✅
+- Route: `/[locale]/onboarding`
+- Files: `src/app/[locale]/onboarding/page.tsx`, `src/components/onboarding/OnboardingClient.tsx`
+- 5-step animated flow: Welcome → Level → Interests → Goal → Finish
+- Auth callback updated: new users → onboarding, returning users → dashboard
+
+#### 3. Real Lesson Progress Tracking ✅
+- API: `POST /api/progress/lesson` — upserts lesson_progress + recalculates course_progress_percent
+- API: `GET /api/progress/lesson?course_slug=X` — returns completed lesson IDs
+- Component: `src/components/courses/LessonProgressButton.tsx` — Mark as complete button
+
+#### 4. MDX Blog ✅
+- Package: `next-mdx-remote` + `gray-matter` installed
+- MDX files in `src/content/blog/`: 3 posts (what-is-prompt-engineering, claude-vs-chatgpt, gemini-2-5-flash-guide)
+- Server component: `src/components/blog/MdxContent.tsx` (RSC, styled components)
+- Utility: `src/lib/mdx.ts` — getMdxPost, getMdxSlugs, getAllMdxPosts
+- Blog [slug] page: tries MDX first, falls back to data posts
+
+#### 5. Streaming AI Mentor (SSE) ✅
+- New API: `src/app/api/mentor-stream/route.ts` (Edge runtime, SSE, Gemini streamGenerateContent)
+- MentorChat.tsx updated: streams tokens → shows text as it arrives in real-time
+- Fallback: if streaming fails → regular endpoint
+
+#### 6. Quiz System — Supabase Integration ✅
+- API: `POST /api/quiz/submit` — saves quiz_results to Supabase
+- New component: `src/components/quiz/QuizClient.tsx` — animated step-by-step quiz
+- Existing `QuizSection.tsx` updated to also save to Supabase after submission
+
+#### Other Changes
+- `src/lib/auth/roles.ts`: added `StudentProfile` type and `UserLevel` type
+- Navbar: added Profile link for authenticated users
+
+---
+
+## 🆕 What was completed (v2.3.0):
+
+### Google OAuth Live — Done in Session 2026-05-30
+
+#### Google Cloud Console Setup ✅
+- Project used: `gemini-ai-project-450613` (Gemini-AI-Project — existing project)
+- Google Auth Platform configured: App name "Darhous AI Cloud Academy", External audience
+- OAuth 2.0 Client ID created: "Darhous Academy" (Web application)
+  - Client ID: `124806287477-priv5rdk65bmfltrbg7c5js6ghq1c5lc.apps.googleusercontent.com`
+  - Authorized JS Origin: `https://darhous-ai-cloud-academy.vercel.app`
+  - Authorized Redirect URI: `https://kzbdmyovspkbakbtvgig.supabase.co/auth/v1/callback`
+- Published to **production** (any Google account can sign in — not just test users)
+
+#### Supabase Google Provider ✅
+- Enabled at: Supabase → Auth → Sign In / Providers → Google
+- Client ID + Client Secret entered and saved
+
+---
+
+## 🆕 What was completed (v2.2.0):
+
+### Full Production Setup — Done in Session 2026-05-30
+
+#### Supabase Project Created
+- Project: `darhous-ai-cloud-academy`
+- Project ID: `kzbdmyovspkbakbtvgig`
+- Region: Europe (eu-central-1)
+- URL: `https://kzbdmyovspkbakbtvgig.supabase.co`
+- DB password: `Darhous@Academy2026#Secure!`
+
+#### Database Schema Deployed ✅
+All 8 tables created with RLS in Supabase SQL Editor:
+- `profiles` — auto-created on signup via trigger `on_auth_user_created`
+- `course_progress`
+- `lesson_progress`
+- `quiz_results`
+- `saved_prompts`
+- `community_subscribers`
+- `contact_messages`
+- `is_admin()` helper function
+
+#### Vercel Environment Variables Set ✅
+All 6 variables in Production + Preview:
+- `NEXT_PUBLIC_SUPABASE_URL` = `https://kzbdmyovspkbakbtvgig.supabase.co`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` = (JWT set)
+- `SUPABASE_SERVICE_ROLE_KEY` = (JWT set)
+- `NEXT_PUBLIC_SITE_URL` = `https://darhous-ai-cloud-academy.vercel.app`
+- `GEMINI_API_KEY` = (set)
+- `GEMINI_MODEL` = `gemini-2.5-flash`
+
+#### Production Deploy ✅
+- Redeploy triggered and completed: Status **Ready**
+- Commit: `2de7e61 feat: password reset flow + local-mode dashboard`
+
+#### Admin User ✅
+- `ahmeddarhous@gmail.com` → role = `admin`
+- Email confirmed manually via SQL
+
+#### Email Confirmation DISABLED ✅
+- Supabase → Auth → Providers → Confirm email = OFF
+- New users can log in immediately after register
+
+---
+
+## ⚠️ Open Issues / Next Steps
+
+### ✅ Google OAuth — WORKING (fixed 2026-05-30)
+**Google Cloud Project:** `gemini-ai-project-450613` (Gemini-AI-Project)
+**OAuth Client Name:** Darhous Academy
+**Client ID:** `124806287477-priv5rdk65bmfltrbg7c5js6ghq1c5lc.apps.googleusercontent.com`
+**Client Secret:** stored in Supabase (do NOT commit to code)
+**Authorized JS Origin:** `https://darhous-ai-cloud-academy.vercel.app`
+**Authorized Redirect URI:** `https://kzbdmyovspkbakbtvgig.supabase.co/auth/v1/callback`
+**Publishing status:** In production (any Google account can sign in)
+**Supabase:** Google provider Enabled ✅
+
+### 🔴 Apple OAuth — NOT working
+**Error:** `Unsupported provider: provider is not enabled`
+**Fix needed:** Requires Apple Developer account — Service ID, Team ID, Key ID, Private Key
+OR simply hide the Apple button if not needed (remove from `OAuthButtons.tsx`)
+
+### 🟡 Email Confirmation OFF
+Currently new users don't need to confirm email (good for UX).
+If you want to re-enable: Supabase → Auth → Providers → Enable "Confirm email"
 
 ---
 
