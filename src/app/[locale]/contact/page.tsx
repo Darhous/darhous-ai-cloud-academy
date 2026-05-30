@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { Mail, MessageSquare, GitBranch } from "lucide-react";
+import SocialLinksBar from "@/components/layout/SocialLinksBar";
+import { Mail, MessageSquare } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -18,7 +19,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   const isAr = locale === "ar";
 
   return (
-    <div className="container-xl py-16 flex flex-col gap-12">
+    <div className="container-xl py-16 flex flex-col gap-14">
       <div className="text-center">
         <SectionHeader
           badge={isAr ? "تواصل معنا" : "Contact"}
@@ -29,6 +30,36 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
         />
       </div>
 
+      {/* Social channels — hero block */}
+      <div
+        className="rounded-3xl p-8 md:p-10 relative overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, rgba(0,102,138,0.18) 0%, rgba(87,27,193,0.12) 100%)",
+          border: "1px solid rgba(142,213,255,0.12)",
+        }}
+      >
+        <div className="env-orb env-orb-blue absolute -top-16 -start-16 opacity-30" style={{ width: "240px", height: "240px" }} />
+        <div className="env-orb env-orb-violet absolute -bottom-16 -end-16 opacity-20" style={{ width: "200px", height: "200px" }} />
+        <div className="relative z-10">
+          <p
+            className="font-mono text-xs tracking-wider uppercase mb-2"
+            style={{ color: "var(--color-primary)" }}
+          >
+            {isAr ? "المنصات الرسمية" : "Official Channels"}
+          </p>
+          <h2 className="font-display font-bold text-2xl md:text-3xl mb-3" style={{ color: "var(--color-on-surface)" }}>
+            {isAr ? "تواصل معنا عبر المنصات الرسمية" : "Connect through Official Platforms"}
+          </h2>
+          <p className="text-sm mb-7 max-w-lg" style={{ color: "var(--color-on-surface-variant)" }}>
+            {isAr
+              ? "تابع آخر تحديثات أكاديمية درهوس وتواصل معنا عبر المنصات الرسمية — نسعد بتواصلك."
+              : "Follow Darhous Academy updates and connect through the official channels — we'd love to hear from you."}
+          </p>
+          <SocialLinksBar locale={locale} variant="page" />
+        </div>
+      </div>
+
+      {/* Main grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-4xl mx-auto w-full">
         {/* Contact form */}
         <div className="glass-card rounded-2xl p-8 flex flex-col gap-5">
@@ -87,17 +118,50 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           </div>
         </div>
 
-        {/* Contact info */}
+        {/* Contact info + Quick links */}
         <div className="flex flex-col gap-6">
+          {/* Quick social cards */}
           <div className="glass-card rounded-2xl p-6">
-            <h2 className="font-display font-bold text-xl mb-4" style={{ color: "var(--color-on-surface)" }}>
+            <h2 className="font-display font-bold text-lg mb-5" style={{ color: "var(--color-on-surface)" }}>
+              {isAr ? "تواصل معنا الآن" : "Contact us now"}
+            </h2>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { icon: "📸", labelAr: "إنستغرام", labelEn: "Instagram", href: "https://www.instagram.com/darhous/", color: "#E1306C", bg: "rgba(225,48,108,0.08)", border: "rgba(225,48,108,0.2)" },
+                { icon: "💼", labelAr: "لينكد إن", labelEn: "LinkedIn", href: "https://www.linkedin.com/in/darhous/", color: "#0A66C2", bg: "rgba(10,102,194,0.08)", border: "rgba(10,102,194,0.2)" },
+                { icon: "👤", labelAr: "فيسبوك", labelEn: "Facebook", href: "https://www.facebook.com/ahmed.darhous", color: "#1877F2", bg: "rgba(24,119,242,0.08)", border: "rgba(24,119,242,0.2)" },
+                { icon: "💬", labelAr: "واتساب", labelEn: "WhatsApp", href: "https://wa.me/201030002331", color: "#25D366", bg: "rgba(37,211,102,0.08)", border: "rgba(37,211,102,0.2)" },
+              ].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={isAr ? item.labelAr : item.labelEn}
+                  className="flex flex-col items-center gap-2 p-4 rounded-xl text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                  style={{
+                    background: item.bg,
+                    border: `1px solid ${item.border}`,
+                    textDecoration: "none",
+                  }}
+                >
+                  <span className="text-2xl">{item.icon}</span>
+                  <span className="text-xs font-medium" style={{ color: item.color }}>
+                    {isAr ? item.labelAr : item.labelEn}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Other contact */}
+          <div className="glass-card rounded-2xl p-6">
+            <h2 className="font-display font-bold text-base mb-4" style={{ color: "var(--color-on-surface)" }}>
               {isAr ? "طرق أخرى للتواصل" : "Other Ways to Reach Us"}
             </h2>
             <div className="flex flex-col gap-4">
               {[
                 { icon: <Mail size={18} />, label: isAr ? "البريد الإلكتروني" : "Email", value: "hello@darhous-ai.academy", color: "var(--color-primary)" },
-                { icon: <GitBranch size={18} />, label: "GitHub", value: "github.com/darhous-ai", color: "var(--color-on-surface)" },
-                { icon: <MessageSquare size={18} />, label: "Twitter / X", value: "@darhous_ai", color: "#60a5fa" },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-4">
                   <div
@@ -115,6 +179,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             </div>
           </div>
 
+          {/* Community card */}
           <div
             className="glass-card rounded-2xl p-6"
             style={{ border: "1px solid rgba(142,213,255,0.1)" }}
@@ -125,12 +190,9 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             </h3>
             <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
               {isAr
-                ? "انضم إلى مجتمعنا على Discord للتواصل مع متعلمين آخرين والحصول على دعم تقني."
-                : "Join our Discord community to connect with other learners and get technical support."}
+                ? "انضم إلى مجتمعنا للتواصل مع متعلمين آخرين والحصول على دعم تقني."
+                : "Join our community to connect with other learners and get technical support."}
             </p>
-            <button className="mt-4 glow-button-secondary font-mono text-sm px-5 py-2.5 rounded-xl" style={{ color: "var(--color-secondary)" }}>
-              {isAr ? "انضم للديسكورد" : "Join Discord"}
-            </button>
           </div>
         </div>
       </div>

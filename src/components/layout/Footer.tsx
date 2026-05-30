@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Bot, GitBranch, Link2 } from "lucide-react";
+import { Bot } from "lucide-react";
+import SocialLinksBar from "./SocialLinksBar";
 
 interface FooterProps {
   locale: string;
@@ -44,20 +45,20 @@ export default function Footer({ locale }: FooterProps) {
 
   const aiStudioLinks = isAr
     ? [
-        { href: "/mentor",              label: "✨ مرشد AI" },
-        { href: "/prompt-studio",       label: "⚡ استوديو البرومبتات" },
+        { href: "/mentor",                label: "✨ مرشد AI" },
+        { href: "/prompt-studio",         label: "⚡ استوديو البرومبتات" },
         { href: "/claude-code-generator", label: "🛠️ مولّد برومبت Claude Code" },
-        { href: "/tool-recommender",    label: "🔎 مرشّح الأدوات" },
-        { href: "/roadmap-generator",   label: "🗺️ مولّد خطط التعلم" },
-        { href: "/dashboard",           label: "📂 محفوظاتي" },
+        { href: "/tool-recommender",      label: "🔎 مرشّح الأدوات" },
+        { href: "/roadmap-generator",     label: "🗺️ مولّد خطط التعلم" },
+        { href: "/dashboard",             label: "📂 محفوظاتي" },
       ]
     : [
-        { href: "/mentor",              label: "✨ AI Mentor" },
-        { href: "/prompt-studio",       label: "⚡ Prompt Studio" },
+        { href: "/mentor",                label: "✨ AI Mentor" },
+        { href: "/prompt-studio",         label: "⚡ Prompt Studio" },
         { href: "/claude-code-generator", label: "🛠️ Claude Code Generator" },
-        { href: "/tool-recommender",    label: "🔎 Tool Recommender" },
-        { href: "/roadmap-generator",   label: "🗺️ Roadmap Generator" },
-        { href: "/dashboard",           label: "📂 My Saved Items" },
+        { href: "/tool-recommender",      label: "🔎 Tool Recommender" },
+        { href: "/roadmap-generator",     label: "🗺️ Roadmap Generator" },
+        { href: "/dashboard",             label: "📂 My Saved Items" },
       ];
 
   return (
@@ -70,7 +71,8 @@ export default function Footer({ locale }: FooterProps) {
     >
       <div className="container-xl py-16">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
-          {/* Brand */}
+
+          {/* Brand + Social */}
           <div className="md:col-span-1">
             <Link
               href={`/${locale}`}
@@ -81,28 +83,15 @@ export default function Footer({ locale }: FooterProps) {
               {isAr ? "درهوس AI" : "Darhous AI"}
             </Link>
             <p
-              className="text-sm leading-relaxed mb-6"
+              className="text-sm leading-relaxed mb-5"
               style={{ color: "var(--color-on-surface-variant)" }}
             >
               {isAr
                 ? "منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود من الصفر حتى بناء مشاريع حقيقية."
                 : "A practical AI and Cloud learning platform from zero to real-world projects."}
             </p>
-            <div className="flex gap-3">
-              {[GitBranch, Link2].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="p-2 rounded-lg transition-all duration-200 hover:scale-110"
-                  style={{
-                    background: "var(--color-surface-container)",
-                    color: "var(--color-on-surface-variant)",
-                  }}
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
-            </div>
+            {/* Social links — icon row */}
+            <SocialLinksBar locale={locale} variant="footer" />
           </div>
 
           {/* Quick Links */}
@@ -151,13 +140,13 @@ export default function Footer({ locale }: FooterProps) {
             </ul>
           </div>
 
-          {/* AI Studio links */}
+          {/* AI Studio */}
           <div>
             <h4
               className="font-mono text-xs tracking-wider uppercase mb-4"
               style={{ color: "var(--color-primary)" }}
             >
-              {isAr ? "AI Studio" : "AI Studio"}
+              AI Studio
             </h4>
             <ul className="space-y-2">
               {aiStudioLinks.map((link) => (
@@ -174,7 +163,7 @@ export default function Footer({ locale }: FooterProps) {
             </ul>
           </div>
 
-          {/* Newsletter placeholder */}
+          {/* Community + Connect */}
           <div>
             <h4
               className="font-mono text-xs tracking-wider uppercase mb-4"
@@ -190,7 +179,7 @@ export default function Footer({ locale }: FooterProps) {
                 ? "انضم إلى مجتمع متعلمي AI العرب"
                 : "Join the Arabic AI learners community"}
             </p>
-            <div className="flex gap-2">
+            <div className="flex gap-2 mb-6">
               <input
                 type="email"
                 placeholder={isAr ? "بريدك الإلكتروني" : "Your email"}
@@ -205,6 +194,15 @@ export default function Footer({ locale }: FooterProps) {
                 {isAr ? "انضم" : "Join"}
               </button>
             </div>
+
+            {/* Social links — connect label in Community column */}
+            <p
+              className="font-mono text-[10px] tracking-wider uppercase mb-2"
+              style={{ color: "var(--color-on-surface-variant)", opacity: 0.6 }}
+            >
+              {isAr ? "تواصل معنا" : "Connect with us"}
+            </p>
+            <SocialLinksBar locale={locale} variant="footer" />
           </div>
         </div>
 
