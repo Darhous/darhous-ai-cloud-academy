@@ -1,5 +1,5 @@
-// SERVER-ONLY — never import this file from client components.
-// Uses the service role key which bypasses RLS.
+import "server-only";
+// Uses the service role key which bypasses RLS — never import from client components.
 
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 

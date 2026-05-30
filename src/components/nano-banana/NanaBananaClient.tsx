@@ -245,7 +245,7 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
             <h2 className="font-bold text-lg mb-3" style={{ color: "var(--color-on-surface)" }}>
               {isAr ? "🚀 كيف تستخدم هذه البرومبتات؟" : "🚀 How to use these prompts?"}
             </h2>
-            <ol className="space-y-2 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+            <ol className="space-y-2 text-sm list-none" style={{ color: "var(--color-on-surface-variant)" }}>
               {(isAr ? [
                 "افتح Gemini على جوال أو متصفح",
                 "ارفع صورتك الشخصية (صورة تملكها)",

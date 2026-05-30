@@ -206,12 +206,13 @@ export default function Navbar({ locale }: NavbarProps) {
           href={`/${locale}`}
           className="flex items-center gap-2 font-display font-bold text-lg flex-shrink-0"
           style={{ color: "var(--color-primary)" }}
+          aria-label={isAr ? "أكاديمية درهوس للذكاء الاصطناعي" : "Darhous AI Academy"}
         >
-          <Bot size={22} style={{ color: "var(--color-tertiary)" }} />
-          <span className="hidden sm:block tracking-tight">
+          <Bot size={22} style={{ color: "var(--color-tertiary)" }} aria-hidden="true" />
+          <span className="hidden sm:block tracking-tight" aria-hidden="true">
             {isAr ? "أكاديمية درهوس" : "Darhous AI"}
           </span>
-          <span className="sm:hidden tracking-tight">
+          <span className="sm:hidden tracking-tight" aria-hidden="true">
             {isAr ? "درهوس" : "Darhous"}
           </span>
         </Link>

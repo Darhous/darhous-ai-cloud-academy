@@ -5,9 +5,11 @@ interface CategoryFilterProps {
   active: string;
   onChange: (cat: string) => void;
   allLabel?: string;
+  /** Optional map of value → display label (for translations) */
+  labelMap?: Record<string, string>;
 }
 
-export default function CategoryFilter({ categories, active, onChange, allLabel = "All" }: CategoryFilterProps) {
+export default function CategoryFilter({ categories, active, onChange, allLabel = "All", labelMap }: CategoryFilterProps) {
   return (
     <div className="flex flex-wrap gap-2">
       <button
@@ -36,7 +38,7 @@ export default function CategoryFilter({ categories, active, onChange, allLabel 
             color: active === cat ? undefined : "var(--color-on-surface-variant)",
           }}
         >
-          {cat}
+          {labelMap?.[cat] ?? cat}
         </button>
       ))}
     </div>

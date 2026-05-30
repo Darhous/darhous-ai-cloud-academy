@@ -1,4 +1,5 @@
-// Server-only — never import this file from client components
+import "server-only";
+// Never import this file from client components
 
 interface GeminiPart {
   text: string;

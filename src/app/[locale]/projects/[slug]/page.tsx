@@ -30,6 +30,10 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 }
 
 const difficultyVariant = { beginner: "beginner", intermediate: "intermediate", advanced: "advanced" } as const;
+const difficultyLabel = {
+  ar: { beginner: "مبتدئ", intermediate: "متوسط", advanced: "متقدم" },
+  en: { beginner: "Beginner", intermediate: "Intermediate", advanced: "Advanced" },
+} as const;
 
 export default async function ProjectDetailPage({ params }: { params: Params }) {
   const { locale, slug } = await params;
@@ -68,7 +72,9 @@ export default async function ProjectDetailPage({ params }: { params: Params }) 
           <div className="text-6xl flex-shrink-0">{project.icon}</div>
           <div className="flex-1">
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <Badge variant={difficultyVariant[project.difficulty]}>{project.difficulty}</Badge>
+              <Badge variant={difficultyVariant[project.difficulty]}>
+                {difficultyLabel[isAr ? "ar" : "en"][project.difficulty]}
+              </Badge>
               <span className="text-xs font-mono px-3 py-1 rounded-full"
                 style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}>
                 {project.category}

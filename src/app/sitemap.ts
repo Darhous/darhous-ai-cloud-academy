@@ -8,14 +8,17 @@ const BASE_URL = "https://darhous-ai-cloud-academy.vercel.app";
 const locales = ["ar", "en"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Public content pages only — no auth/private pages
   const staticPages = [
     "", "/courses", "/paths", "/tools", "/claude", "/cloud",
     "/projects", "/prompts", "/blog", "/glossary", "/about", "/contact",
-    "/mentor", "/dashboard", "/prompt-studio", "/claude-code-generator",
+    "/mentor", "/prompt-studio", "/claude-code-generator",
     "/tool-recommender", "/roadmap-generator", "/privacy", "/terms",
-    "/nano-banana-prompts", "/login", "/register",
-    "/forgot-password",
+    "/nano-banana-prompts",
   ];
+  // Excluded from sitemap (noindex or private):
+  // /login, /register, /forgot-password, /reset-password,
+  // /dashboard, /profile, /onboarding, /admin
 
   // Admin pages excluded (noindex anyway)
 

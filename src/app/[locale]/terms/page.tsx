@@ -51,9 +51,11 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
           icon: <Lock size={20} />,
           title: "البيانات والخصوصية",
           content: [
-            "لا نجمع بياناتك الشخصية حالياً — لا يوجد نظام تسجيل دخول.",
-            "البيانات المحفوظة محليًا (المفضلات، البرومبتات المحفوظة) تبقى في متصفحك فقط.",
-            "راجع سياسة الخصوصية للمزيد من التفاصيل.",
+            "نستخدم Supabase Auth لإدارة حسابات المستخدمين. يمكنك التسجيل بالبريد الإلكتروني أو عبر Google.",
+            "نحفظ بيانات التعلم (تقدم الدورات، نتائج الاختبارات) وبيانات الملف الشخصي في قاعدة بيانات مشفّرة.",
+            "لا ندعم تسجيل الدخول بـ Apple حالياً.",
+            "ميزات الذكاء الاصطناعي تُرسل مدخلاتك إلى Google Gemini API عبر خادمنا فقط.",
+            "راجع سياسة الخصوصية للمزيد من التفاصيل الكاملة.",
           ],
         },
         {
@@ -109,9 +111,11 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
           icon: <Lock size={20} />,
           title: "Data & Privacy",
           content: [
-            "We do not currently collect personal data — there is no login system.",
-            "Locally saved data (favorites, saved prompts) remains in your browser only.",
-            "See the Privacy Policy for more details.",
+            "We use Supabase Auth to manage user accounts. You can register via email or Google OAuth.",
+            "We store learning data (course progress, quiz results) and profile data in an encrypted database.",
+            "Apple Sign-In is not currently supported.",
+            "AI features send your inputs to Google Gemini API via our server only — never directly from your browser.",
+            "See the Privacy Policy for complete details.",
           ],
         },
         {

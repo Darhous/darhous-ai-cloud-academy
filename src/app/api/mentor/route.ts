@@ -3,12 +3,23 @@ import { callGemini } from "@/lib/gemini";
 import { mentorModes } from "@/data/mentor";
 import type { MentorModeId } from "@/data/mentor";
 import type { MentorApiRequest } from "@/lib/mentor-context";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 const VALID_MODES: MentorModeId[] = ["ask", "prompt", "claude_code", "path", "tools", "project"];
 const MAX_MESSAGE_LENGTH = 4000;
 const MAX_MESSAGES_IN_HISTORY = 20;
 
 export async function POST(req: NextRequest) {
+  // Rate limit: 10 requests per minute per IP
+  const ip = getClientIp(req);
+  const rl = checkRateLimit(`mentor:${ip}`, { limit: 10, windowSec: 60 });
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: `Too many requests. Please wait ${rl.resetInSec}s.` },
+      { status: 429, headers: { "Retry-After": String(rl.resetInSec) } }
+    );
+  }
+
   if (!process.env.GEMINI_API_KEY) {
     return NextResponse.json(
       { error: "AI Mentor is not configured. Missing GEMINI_API_KEY.", missingKey: true },

@@ -3,6 +3,7 @@
 import type { Roadmap } from "@/data/roadmaps";
 import Badge from "@/components/ui/Badge";
 import { CheckCircle2, Circle, Zap } from "lucide-react";
+import { getLevelLabel, translateDuration } from "@/lib/i18n-utils";
 
 interface RoadmapTimelineProps {
   roadmap: Roadmap;
@@ -30,7 +31,7 @@ export default function RoadmapTimeline({ roadmap, locale, compact = false }: Ro
           <div className="flex items-center gap-2 mb-2">
             <span className="text-2xl">{roadmap.icon}</span>
             <Badge variant={levelVariant[roadmap.level]}>
-              {roadmap.level}
+              {getLevelLabel(roadmap.level, isAr)}
             </Badge>
           </div>
           <h3 className="font-display font-bold text-xl" style={{ color: "var(--color-on-surface)" }}>
@@ -45,7 +46,7 @@ export default function RoadmapTimeline({ roadmap, locale, compact = false }: Ro
             {isAr ? "المدة" : "Duration"}
           </div>
           <div className="font-display font-bold text-lg" style={{ color: "var(--color-primary)" }}>
-            {roadmap.totalWeeks}w
+            {isAr ? `${roadmap.totalWeeks} ${roadmap.totalWeeks === 1 ? "أسبوع" : "أسابيع"}` : `${roadmap.totalWeeks}w`}
           </div>
         </div>
       </div>
@@ -116,7 +117,7 @@ export default function RoadmapTimeline({ roadmap, locale, compact = false }: Ro
                   )}
                 </div>
                 <span className="font-mono text-xs flex-shrink-0" style={{ color: "var(--color-outline)" }}>
-                  {node.duration}
+                  {translateDuration(node.duration, isAr)}
                 </span>
               </div>
               {!compact && (

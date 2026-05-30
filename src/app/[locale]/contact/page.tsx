@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import SectionHeader from "@/components/ui/SectionHeader";
 import SocialLinksBar from "@/components/layout/SocialLinksBar";
-import ContactSuccessModal from "@/components/contact/ContactSuccessModal";
-import { Mail, Send, Info } from "lucide-react";
+import ContactForm from "@/components/contact/ContactForm";
+import { Mail, Send } from "lucide-react";
 import { FaInstagram, FaLinkedinIn, FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -25,23 +25,14 @@ const socialCards = [
 
 export default async function ContactPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ sent?: string }>;
 }) {
   const { locale } = await params;
-  const { sent } = await searchParams;
   const isAr = locale === "ar";
-  const isSuccess = sent === "1";
-
-  const BASE_URL = "https://darhous-ai-cloud-academy.vercel.app";
-  const successRedirect = `${BASE_URL}/${locale}/contact?sent=1`;
 
   return (
     <div className="container-xl py-16 flex flex-col gap-14">
-      {/* Success popup modal (client component) */}
-      <ContactSuccessModal isSuccess={isSuccess} locale={locale} />
 
       <div className="text-center">
         <SectionHeader
@@ -115,7 +106,7 @@ export default async function ContactPage({
       {/* Main grid: form + info */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto w-full">
 
-        {/* Contact Form */}
+        {/* Contact Form — client component with /api/contact */}
         <div className="glass-card rounded-2xl p-8 flex flex-col gap-5">
           <div className="flex items-center gap-3 mb-1">
             <div
@@ -128,139 +119,13 @@ export default async function ContactPage({
               {isAr ? "أرسل رسالة" : "Send a Message"}
             </h2>
           </div>
-
-          {/* Prominent FormSubmit activation note */}
-          <div
-            className="flex items-start gap-3 px-4 py-3.5 rounded-xl"
-            style={{
-              background: "rgba(251,191,36,0.07)",
-              border: "1px solid rgba(251,191,36,0.25)",
-            }}
-          >
-            <Info size={16} style={{ color: "#fbbf24", flexShrink: 0, marginTop: "2px" }} />
-            <p className="text-xs leading-relaxed" style={{ color: "rgba(251,191,36,0.9)" }}>
-              {isAr
-                ? "ملاحظة: عند أول رسالة فقط قد يطلب نظام الإرسال تأكيد البريد الإلكتروني لتفعيل استقبال الرسائل. تحقق من بريدك الإلكتروني بعد إرسال أول رسالة."
-                : "Note: On the first message only, the email delivery service may require email confirmation to activate message delivery. Check your inbox after sending the first message."}
-            </p>
-          </div>
-
-          {/* Inline success banner (in addition to modal) */}
-          {isSuccess && (
-            <div
-              className="flex items-center gap-3 px-4 py-3 rounded-xl"
-              style={{ background: "rgba(74,222,128,0.1)", border: "1px solid rgba(74,222,128,0.25)" }}
-            >
-              <span className="text-xl">✅</span>
-              <p className="text-sm" style={{ color: "#4ade80" }}>
-                {isAr
-                  ? "تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا."
-                  : "Your message was sent successfully! We'll get back to you soon."}
-              </p>
-            </div>
-          )}
-
-          <form
-            action="https://formsubmit.co/ahmeddarhous@gmail.com"
-            method="POST"
-            className="flex flex-col gap-4"
-          >
-            {/* FormSubmit hidden config fields */}
-            <input type="hidden" name="_subject" value="New message from Darhous AI Cloud Academy" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value={successRedirect} />
-            {/* Honeypot anti-spam */}
-            <input type="text" name="_honey" style={{ display: "none" }} aria-hidden="true" />
-
-            <div>
-              <label className="block text-sm font-mono mb-2" style={{ color: "var(--color-on-surface-variant)" }}>
-                {isAr ? "الاسم *" : "Name *"}
-              </label>
-              <input
-                type="text"
-                name="name"
-                required
-                className="w-full px-4 py-3 rounded-xl outline-none text-sm"
-                style={{
-                  background: "var(--color-surface-container)",
-                  border: "1px solid var(--color-outline-variant)",
-                  color: "var(--color-on-surface)",
-                }}
-                placeholder={isAr ? "اسمك الكامل" : "Your full name"}
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-mono mb-2" style={{ color: "var(--color-on-surface-variant)" }}>
-                {isAr ? "البريد الإلكتروني *" : "Email *"}
-              </label>
-              <input
-                type="email"
-                name="email"
-                required
-                className="w-full px-4 py-3 rounded-xl outline-none text-sm"
-                style={{
-                  background: "var(--color-surface-container)",
-                  border: "1px solid var(--color-outline-variant)",
-                  color: "var(--color-on-surface)",
-                }}
-                placeholder="you@example.com"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-mono mb-2" style={{ color: "var(--color-on-surface-variant)" }}>
-                {isAr ? "الموضوع" : "Subject"}
-              </label>
-              <input
-                type="text"
-                name="subject"
-                className="w-full px-4 py-3 rounded-xl outline-none text-sm"
-                style={{
-                  background: "var(--color-surface-container)",
-                  border: "1px solid var(--color-outline-variant)",
-                  color: "var(--color-on-surface)",
-                }}
-                placeholder={isAr ? "موضوع رسالتك" : "Your message subject"}
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-mono mb-2" style={{ color: "var(--color-on-surface-variant)" }}>
-                {isAr ? "الرسالة *" : "Message *"}
-              </label>
-              <textarea
-                name="message"
-                required
-                rows={5}
-                className="w-full px-4 py-3 rounded-xl outline-none text-sm resize-none"
-                style={{
-                  background: "var(--color-surface-container)",
-                  border: "1px solid var(--color-outline-variant)",
-                  color: "var(--color-on-surface)",
-                }}
-                placeholder={isAr ? "رسالتك هنا..." : "Your message here..."}
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="glow-button-primary text-white font-mono py-3.5 rounded-xl flex items-center justify-center gap-2"
-            >
-              <Send size={16} />
-              {isAr ? "إرسال الرسالة" : "Send Message"}
-            </button>
-          </form>
-
+          <ContactForm locale={locale} isAr={isAr} />
           {/* Mailto fallback */}
           <p className="text-xs text-center" style={{ color: "var(--color-on-surface-variant)", opacity: 0.6 }}>
             {isAr ? "أو راسلنا مباشرة: " : "Or email us directly: "}
-            <a
-              href="mailto:ahmeddarhous@gmail.com"
+            <a href="mailto:ahmeddarhous@gmail.com"
               className="font-mono transition-opacity hover:opacity-80"
-              style={{ color: "var(--color-primary)" }}
-            >
+              style={{ color: "var(--color-primary)" }}>
               ahmeddarhous@gmail.com
             </a>
           </p>
