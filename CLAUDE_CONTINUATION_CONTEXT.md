@@ -9,9 +9,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 2.4.0 — Profile + Onboarding + Progress + MDX + Streaming + Quiz |
-| **Status** | ✅ Live on Vercel + Supabase + Google OAuth + 6 New Features |
-| **Build** | ✅ Passing — 251 static pages, 0 TypeScript errors |
+| **Version** | 2.5.0 — Production Audit Fixed |
+| **Status** | ✅ Live on Vercel + Supabase + Google OAuth + All P0/P1/P2 Issues Fixed |
+| **Build** | ✅ Passing — 252 static pages, 0 TypeScript errors |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
