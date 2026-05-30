@@ -9,9 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 3.0.0 — Global Platform Expansion — 20 Features |
+| **Version** | 3.0.0 — Global Platform Expansion — 20 Features + CI Fix |
 | **Status** | ✅ Live on Vercel + Supabase + Google OAuth + All Features Active |
 | **Build** | ✅ Passing — 344 static pages, 0 TypeScript errors, 0 lint errors |
+| **Last Commit** | `2f42166` — CI lint fix (react-hooks/purity → warn) |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
@@ -27,7 +28,8 @@
 Continue the Darhous AI Cloud Academy project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md first before any changes.
-Current version: v3.0.0 — Build: ✅ 344 pages — 20 features — Live on Vercel.
+Current version: v3.0.0 — Build: ✅ 344 pages — 20 features — CI ✅ — Live on Vercel.
+Last commit: 2f42166 — CI lint fix — all checks green.
 ```
 
 ---
