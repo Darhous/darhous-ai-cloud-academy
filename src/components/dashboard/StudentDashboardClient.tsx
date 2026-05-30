@@ -11,6 +11,7 @@ import { useAuth } from "@/hooks/useAuth";
 import type { UserProfile } from "@/lib/auth/roles";
 import MySpacePanel from "@/components/features/MySpacePanel";
 import SavedPromptsPanel from "@/components/features/SavedPromptsPanel";
+import AICoachCard from "@/components/dashboard/AICoachCard";
 
 interface CourseProgressRow {
   course_slug: string;
@@ -171,7 +172,7 @@ export default function StudentDashboardClient({ locale }: Props) {
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <p className="text-sm font-mono mb-1" style={{ color: "var(--color-primary)" }}>
-              {isAr ? "مرحبًا بعودتك 👋" : "Welcome back 👋"}
+              {isAr ? "نظام تعلمك الذكي 🧠" : "Your AI Learning OS 🧠"}
             </p>
             <h1 className="font-display font-bold text-3xl md:text-4xl mb-2" style={{ color: "var(--color-on-surface)" }}>
               {(profile as UserProfile)?.full_name ?? user?.email?.split("@")[0] ?? (isAr ? "المتعلم" : "Learner")}
@@ -314,17 +315,22 @@ export default function StudentDashboardClient({ locale }: Props) {
         </div>
       )}
 
+      {/* AI Coach Card */}
+      <AICoachCard locale={locale} streak={streak} />
+
       {/* Quick actions */}
       <div>
         <h2 className="font-display font-bold text-xl mb-5" style={{ color: "var(--color-on-surface)" }}>
           {isAr ? "وصول سريع" : "Quick Access"}
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {[
-            { icon: <Sparkles size={20} />, href: "/mentor", labelAr: "مرشد AI", labelEn: "AI Mentor", color: "var(--color-primary)" },
-            { icon: <Activity size={20} />, href: "/nano-banana-prompts", labelAr: "Nano Banana", labelEn: "Nano Banana", color: "#f59e0b" },
-            { icon: <Star size={20} />, href: "/prompts", labelAr: "مكتبة البرومبتات", labelEn: "Prompt Library", color: "var(--color-secondary)" },
-            { icon: <Settings size={20} />, href: "/paths", labelAr: "مسارات التعلم", labelEn: "Learning Paths", color: "var(--color-tertiary)" },
+            { icon: <Sparkles size={20} />, href: "/mentor",               labelAr: "مرشد AI",            labelEn: "AI Mentor",        color: "var(--color-primary)"   },
+            { icon: <Activity size={20} />, href: "/nano-banana-prompts", labelAr: "Nano Banana",         labelEn: "Nano Banana",      color: "#f59e0b"                },
+            { icon: <Star    size={20} />,  href: "/prompt-score",        labelAr: "تقييم البرومبت",      labelEn: "Prompt Score",     color: "var(--color-secondary)" },
+            { icon: <Award   size={20} />,  href: "/certificates",        labelAr: "شهاداتي",            labelEn: "Certificates",     color: "#fbbf24"                },
+            { icon: <Brain   size={20} />,  href: "/learning-plans",      labelAr: "خطط التعلم",         labelEn: "Learning Plans",   color: "#a78bfa"                },
+            { icon: <Settings size={20} />, href: "/profile",             labelAr: "الملف الشخصي",       labelEn: "Profile",          color: "var(--color-tertiary)"  },
           ].map((item) => (
             <Link
               key={item.href}

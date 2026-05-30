@@ -15,19 +15,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/mentor", "/prompt-studio", "/claude-code-generator",
     "/tool-recommender", "/roadmap-generator", "/privacy", "/terms",
     "/nano-banana-prompts",
+    // v3 new public pages
+    "/search", "/challenges", "/leaderboard",
+    "/prompt-battle", "/prompt-score", "/compare-tools",
+    "/project-generator",
   ];
   // Excluded from sitemap (noindex or private):
   // /login, /register, /forgot-password, /reset-password,
-  // /dashboard, /profile, /onboarding, /admin
+  // /dashboard, /profile, /onboarding, /admin,
+  // /certificates, /learning-plans (private user data)
 
   // Admin pages excluded (noindex anyway)
+
+  const v3Pages = new Set(["/search", "/challenges", "/leaderboard", "/prompt-battle", "/prompt-score", "/compare-tools", "/project-generator"]);
 
   const staticEntries = locales.flatMap((locale) =>
     staticPages.map((path) => ({
       url: `${BASE_URL}/${locale}${path}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
-      priority: path === "" ? 1.0 : path === "/nano-banana-prompts" ? 0.9 : 0.8,
+      priority: path === "" ? 1.0 : path === "/nano-banana-prompts" ? 0.9 : v3Pages.has(path) ? 0.85 : 0.8,
     }))
   );
 

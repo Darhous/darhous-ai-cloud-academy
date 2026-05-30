@@ -36,19 +36,29 @@ export default function Footer({ locale }: FooterProps) {
     ? [
         { href: "/mentor",                label: "✨ مرشد AI"               },
         { href: "/prompt-studio",         label: "⚡ استوديو البرومبتات"    },
+        { href: "/prompt-score",          label: "🎯 تقييم البرومبت"        },
+        { href: "/prompt-battle",         label: "⚔️ معركة البرومبتات"      },
         { href: "/claude-code-generator", label: "🛠️ مولّد Claude Code"     },
-        { href: "/tool-recommender",      label: "🔎 مرشّح الأدوات"         },
+        { href: "/compare-tools",         label: "⚖️ مقارنة الأدوات"        },
         { href: "/roadmap-generator",     label: "🗺️ مولّد خطط التعلم"      },
+        { href: "/project-generator",     label: "🚀 مولّد المشاريع"        },
         { href: "/nano-banana-prompts",   label: "🍌 Nano Banana Lab"        },
+        { href: "/search",                label: "🔍 البحث الذكي"            },
+        { href: "/challenges",            label: "🏆 التحديات"               },
         { href: "/dashboard",             label: "📂 لوحة الطالب"            },
       ]
     : [
         { href: "/mentor",                label: "✨ AI Mentor"             },
         { href: "/prompt-studio",         label: "⚡ Prompt Studio"         },
+        { href: "/prompt-score",          label: "🎯 Prompt Score"          },
+        { href: "/prompt-battle",         label: "⚔️ Prompt Battle"         },
         { href: "/claude-code-generator", label: "🛠️ Claude Code Generator" },
-        { href: "/tool-recommender",      label: "🔎 Tool Recommender"      },
+        { href: "/compare-tools",         label: "⚖️ Compare Tools"         },
         { href: "/roadmap-generator",     label: "🗺️ Roadmap Generator"     },
+        { href: "/project-generator",     label: "🚀 Project Generator"     },
         { href: "/nano-banana-prompts",   label: "🍌 Nano Banana Lab"       },
+        { href: "/search",                label: "🔍 Smart Search"          },
+        { href: "/challenges",            label: "🏆 Challenges"            },
         { href: "/dashboard",             label: "📂 Student Dashboard"     },
       ];
 

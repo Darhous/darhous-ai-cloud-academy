@@ -1,0 +1,39 @@
+{
+  "name": "Darhous AI Cloud Academy | أكاديمية درهوس",
+  "short_name": "Darhous AI",
+  "description": "Practical Arabic AI and Cloud learning platform — courses, paths, tools, and projects",
+  "start_url": "/ar",
+  "display": "standalone",
+  "background_color": "#0a0f1e",
+  "theme_color": "#00668a",
+  "orientation": "any",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/og-image.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "AI Mentor",
+      "url": "/ar/mentor",
+      "description": "Chat with AI Mentor"
+    },
+    {
+      "name": "Dashboard",
+      "url": "/ar/dashboard",
+      "description": "Student Dashboard"
+    },
+    {
+      "name": "Nano Banana",
+      "url": "/ar/nano-banana-prompts",
+      "description": "Nano Banana Prompt Lab"
+    }
+  ]
+}

@@ -16,7 +16,7 @@ import { blogPosts } from "@/data/blog";
 import { prompts } from "@/data/prompts";
 import { nanaBananaPrompts } from "@/data/nano-banana-prompts";
 
-type AdminTab = "overview" | "users" | "subscribers" | "messages" | "content" | "settings" | "audit";
+type AdminTab = "overview" | "users" | "subscribers" | "messages" | "content" | "settings" | "audit" | "analytics" | "studio";
 
 interface UserRow {
   id: string;
@@ -193,6 +193,8 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "subscribers", labelAr: "المشتركون", labelEn: "Subscribers", icon: <Mail size={16} /> },
     { id: "messages", labelAr: "الرسائل", labelEn: "Messages", icon: <MessageSquare size={16} /> },
     { id: "content", labelAr: "المحتوى", labelEn: "Content", icon: <Database size={16} /> },
+    { id: "analytics", labelAr: "التحليلات", labelEn: "Analytics", icon: <TrendingUp size={16} /> },
+    { id: "studio", labelAr: "استوديو المحتوى", labelEn: "Content Studio", icon: <Activity size={16} /> },
     { id: "settings", labelAr: "الإعدادات", labelEn: "Settings", icon: <Settings size={16} /> },
     { id: "audit", labelAr: "سجل النشاط", labelEn: "Audit Log", icon: <Shield size={16} /> },
   ];
@@ -494,6 +496,102 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
               ))
             )
           )}
+        </div>
+      )}
+
+      {/* ── Analytics ─────────────────────────────────────────────────────── */}
+      {tab === "analytics" && (
+        <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <StatCard icon={<Users size={18} />} value={users.length} label={isAr ? "إجمالي المستخدمين" : "Total Users"} color="var(--color-primary)" />
+            <StatCard icon={<Mail size={18} />} value={subscribers.length} label={isAr ? "المشتركون" : "Subscribers"} color="var(--color-secondary)" />
+            <StatCard icon={<MessageSquare size={18} />} value={messages.length} label={isAr ? "الرسائل" : "Messages"} color="var(--color-tertiary)" />
+            <StatCard icon={<Activity size={18} />} value={users.filter(u => u.role === "admin").length} label={isAr ? "الإداريون" : "Admins"} color="#ef4444" />
+          </div>
+
+          {/* Event tracking note */}
+          <div className="glass-card rounded-2xl p-6">
+            <h3 className="font-bold text-base mb-3" style={{ color: "var(--color-on-surface)" }}>
+              {isAr ? "تتبع الأحداث" : "Event Tracking"}
+            </h3>
+            <p className="text-sm mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
+              {isAr
+                ? "يتم تتبع الأحداث في جدول analytics_events. الأحداث المتاحة: نسخ برومبت، حفظ Nano Banana، تسجيل مجتمعي، إصدار شهادة، تقديم تحدي."
+                : "Events are tracked in the analytics_events table. Available events: prompt copied, Nano Banana saved, community signup, certificate generated, challenge submitted."}
+            </p>
+            <div className="glass-card rounded-xl p-4 font-mono text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+              <p style={{ color: "var(--color-primary)" }}>-- View event counts:</p>
+              <p>SELECT event_name, COUNT(*) as total</p>
+              <p>FROM analytics_events</p>
+              <p>GROUP BY event_name</p>
+              <p>ORDER BY total DESC;</p>
+            </div>
+          </div>
+
+          {/* Content counts */}
+          <div className="glass-card rounded-2xl p-6">
+            <h3 className="font-bold text-base mb-3" style={{ color: "var(--color-on-surface)" }}>
+              {isAr ? "إحصائيات المحتوى" : "Content Statistics"}
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {[
+                { label: isAr ? "الدورات" : "Courses", count: courses.length, icon: "📚" },
+                { label: isAr ? "الأدوات" : "Tools", count: tools.length, icon: "🛠️" },
+                { label: isAr ? "المشاريع" : "Projects", count: projects.length, icon: "🚀" },
+                { label: isAr ? "المقالات" : "Blog Posts", count: blogPosts.length, icon: "📰" },
+                { label: isAr ? "البرومبتات" : "Prompts", count: prompts.length, icon: "⚡" },
+                { label: "Nano Banana", count: nanaBananaPrompts.length, icon: "🍌" },
+              ].map((item) => (
+                <div key={item.label} className="glass-card rounded-xl p-3 text-center">
+                  <div className="text-2xl mb-1">{item.icon}</div>
+                  <p className="font-bold text-lg font-mono" style={{ color: "var(--color-on-surface)" }}>{item.count}</p>
+                  <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Content Studio ─────────────────────────────────────────────────── */}
+      {tab === "studio" && (
+        <div className="flex flex-col gap-6">
+          <div className="glass-card rounded-2xl p-6">
+            <h3 className="font-bold text-base mb-2" style={{ color: "var(--color-on-surface)" }}>
+              {isAr ? "استوديو المحتوى" : "Content Studio"}
+            </h3>
+            <p className="text-sm mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
+              {isAr
+                ? "المحتوى الثابت (الدورات، الأدوات، المشاريع) موجود في كود المصدر. يمكنك إنشاء مسودات للمحتوى الجديد في جدول content_items."
+                : "Static content (courses, tools, projects) lives in source code. Create drafts for new content in the content_items table."}
+            </p>
+            <div className="flex items-center gap-2 p-4 rounded-xl" style={{ background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.15)" }}>
+              <span style={{ color: "#fbbf24" }}>⚠️</span>
+              <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                {isAr ? "لإضافة محتوى جديد للموقع، أضفه في src/data/ أو أنشئ مسودة هنا للمراجعة." : "To add new content to the site, add it in src/data/ or create a draft here for review."}
+              </p>
+            </div>
+          </div>
+
+          {/* Content type overview */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { title: isAr ? "الدورات" : "Courses", count: courses.length, file: "src/data/courses.ts", color: "var(--color-primary)" },
+              { title: isAr ? "الأدوات" : "Tools", count: tools.length, file: "src/data/tools.ts", color: "#a78bfa" },
+              { title: isAr ? "المشاريع" : "Projects", count: projects.length, file: "src/data/projects.ts", color: "#4ade80" },
+              { title: isAr ? "المدونة" : "Blog", count: blogPosts.length, file: "src/data/blog.ts + src/content/blog/", color: "#fb923c" },
+              { title: isAr ? "البرومبتات" : "Prompts", count: prompts.length, file: "src/data/prompts.ts", color: "#fbbf24" },
+              { title: "Nano Banana", count: nanaBananaPrompts.length, file: "src/data/nano-banana-prompts.ts", color: "#f9a8d4" },
+            ].map((item) => (
+              <div key={item.title} className="glass-card rounded-2xl p-5" style={{ border: `1px solid ${item.color}15` }}>
+                <div className="flex items-center justify-between mb-2">
+                  <p className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{item.title}</p>
+                  <span className="text-sm font-bold font-mono" style={{ color: item.color }}>{item.count}</span>
+                </div>
+                <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{item.file}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>

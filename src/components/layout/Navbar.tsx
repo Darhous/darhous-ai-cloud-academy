@@ -35,17 +35,25 @@ const aiStudioItems = {
   ar: [
     { href: "/mentor",                icon: "✨", label: "مساعد درهوس الذكي" },
     { href: "/prompt-studio",         icon: "⚡", label: "استوديو البرومبتات" },
+    { href: "/prompt-score",          icon: "🎯", label: "تقييم البرومبت"    },
+    { href: "/prompt-battle",         icon: "⚔️", label: "معركة البرومبتات"  },
     { href: "/claude-code-generator", icon: "🛠️", label: "مولّد Claude Code" },
     { href: "/tool-recommender",      icon: "🔎", label: "مرشّح الأدوات"    },
+    { href: "/compare-tools",         icon: "⚖️", label: "مقارنة الأدوات"   },
     { href: "/roadmap-generator",     icon: "🗺️", label: "مولّد خطط التعلم" },
+    { href: "/project-generator",     icon: "🚀", label: "مولّد المشاريع"   },
     { href: "/nano-banana-prompts",   icon: "🍌", label: "Nano Banana Lab"   },
   ],
   en: [
     { href: "/mentor",                icon: "✨", label: "AI Mentor"             },
     { href: "/prompt-studio",         icon: "⚡", label: "Prompt Studio"         },
+    { href: "/prompt-score",          icon: "🎯", label: "Prompt Score"          },
+    { href: "/prompt-battle",         icon: "⚔️", label: "Prompt Battle"         },
     { href: "/claude-code-generator", icon: "🛠️", label: "Claude Code Generator" },
     { href: "/tool-recommender",      icon: "🔎", label: "Tool Recommender"      },
+    { href: "/compare-tools",         icon: "⚖️", label: "Compare Tools"         },
     { href: "/roadmap-generator",     icon: "🗺️", label: "Roadmap Generator"     },
+    { href: "/project-generator",     icon: "🚀", label: "Project Generator"     },
     { href: "/nano-banana-prompts",   icon: "🍌", label: "Nano Banana Lab"       },
   ],
 };
@@ -53,6 +61,7 @@ const aiStudioItems = {
 const AI_STUDIO_PATHS = [
   "/mentor", "/prompt-studio", "/claude-code-generator",
   "/tool-recommender", "/roadmap-generator", "/nano-banana-prompts",
+  "/prompt-score", "/prompt-battle", "/compare-tools", "/project-generator",
 ];
 
 export default function Navbar({ locale }: NavbarProps) {
@@ -348,27 +357,20 @@ export default function Navbar({ locale }: NavbarProps) {
 
         {/* Actions */}
         <div className="flex items-center gap-1.5 flex-shrink-0">
-          {/* Search hint */}
-          <button
-            onClick={() => {
-              window.dispatchEvent(
-                new KeyboardEvent("keydown", { key: "k", ctrlKey: true, bubbles: true })
-              );
-            }}
+          {/* Search link */}
+          <Link
+            href={`/${locale}/search`}
             className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono cursor-pointer transition-all hover:opacity-80 hover:scale-105"
             style={{
               background: "var(--color-surface-container)",
               border: "1px solid var(--color-outline-variant)",
               color: "var(--color-on-surface-variant)",
             }}
-            aria-label="Open search"
+            aria-label="Search"
           >
             <Search size={13} />
             <span className="opacity-60">{isAr ? "ابحث..." : "Search..."}</span>
-            <span className="px-1.5 py-0.5 rounded text-[10px]" style={{ background: "var(--color-surface-container-high)" }}>
-              ⌘K
-            </span>
-          </button>
+          </Link>
 
           <ThemeToggle />
           <LanguageToggle locale={locale} />
