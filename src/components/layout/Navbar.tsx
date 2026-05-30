@@ -3,9 +3,10 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bot, Search, Menu, X, ChevronDown } from "lucide-react";
+import { Bot, Search, Menu, X, ChevronDown, LogIn, UserCircle, ShieldCheck } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
+import { useAuth } from "@/hooks/useAuth";
 
 interface NavbarProps {
   locale: string;
@@ -37,6 +38,7 @@ const aiStudioItems = {
     { href: "/claude-code-generator", icon: "🛠️", label: "مولّد Claude Code" },
     { href: "/tool-recommender",      icon: "🔎", label: "مرشّح الأدوات"    },
     { href: "/roadmap-generator",     icon: "🗺️", label: "مولّد خطط التعلم" },
+    { href: "/nano-banana-prompts",   icon: "🍌", label: "Nano Banana Lab"   },
   ],
   en: [
     { href: "/mentor",                icon: "✨", label: "AI Mentor"             },
@@ -44,12 +46,13 @@ const aiStudioItems = {
     { href: "/claude-code-generator", icon: "🛠️", label: "Claude Code Generator" },
     { href: "/tool-recommender",      icon: "🔎", label: "Tool Recommender"      },
     { href: "/roadmap-generator",     icon: "🗺️", label: "Roadmap Generator"     },
+    { href: "/nano-banana-prompts",   icon: "🍌", label: "Nano Banana Lab"       },
   ],
 };
 
 const AI_STUDIO_PATHS = [
   "/mentor", "/prompt-studio", "/claude-code-generator",
-  "/tool-recommender", "/roadmap-generator",
+  "/tool-recommender", "/roadmap-generator", "/nano-banana-prompts",
 ];
 
 export default function Navbar({ locale }: NavbarProps) {
@@ -61,8 +64,8 @@ export default function Navbar({ locale }: NavbarProps) {
   const items = navItems[locale as "ar" | "en"] ?? navItems.en;
   const studioItems = aiStudioItems[locale as "ar" | "en"] ?? aiStudioItems.en;
   const isAr = locale === "ar";
+  const { user, isAdmin, loading, supabaseConfigured } = useAuth();
 
-  // Close studio dropdown on outside click
   useEffect(() => {
     function onOutside(e: MouseEvent) {
       if (studioRef.current && !studioRef.current.contains(e.target as Node)) {
@@ -73,7 +76,6 @@ export default function Navbar({ locale }: NavbarProps) {
     return () => document.removeEventListener("mousedown", onOutside);
   }, []);
 
-  // Close dropdowns on route change
   useEffect(() => {
     setMobileOpen(false);
     setStudioOpen(false);
@@ -89,6 +91,90 @@ export default function Navbar({ locale }: NavbarProps) {
   const isStudioActive = AI_STUDIO_PATHS.some((p) =>
     pathname.startsWith(`/${locale}${p}`)
   );
+
+  // Auth action button content
+  function AuthButton() {
+    if (!supabaseConfigured) {
+      return (
+        <Link
+          href={`/${locale}/dashboard`}
+          className="hidden md:flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+          style={{
+            background: "rgba(142,213,255,0.06)",
+            borderColor: "rgba(142,213,255,0.2)",
+            color: "var(--color-primary)",
+          }}
+        >
+          <span className="text-[10px]">🔮</span>
+          {isAr ? "لوحة الطالب" : "Dashboard"}
+          <span className="px-1.5 py-0.5 rounded text-[9px] font-bold" style={{ background: "rgba(208,188,255,0.15)", color: "var(--color-secondary)" }}>
+            {isAr ? "قريبًا" : "Soon"}
+          </span>
+        </Link>
+      );
+    }
+    if (loading) return null;
+    if (!user) {
+      return (
+        <Link
+          href={`/${locale}/login`}
+          className="hidden md:flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+          style={{
+            background: "rgba(142,213,255,0.06)",
+            borderColor: "rgba(142,213,255,0.2)",
+            color: "var(--color-primary)",
+          }}
+        >
+          <LogIn size={13} />
+          {isAr ? "تسجيل الدخول" : "Sign In"}
+        </Link>
+      );
+    }
+    if (isAdmin) {
+      return (
+        <div className="hidden md:flex items-center gap-1.5">
+          <Link
+            href={`/${locale}/admin`}
+            className="flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+            style={{
+              background: "rgba(239,68,68,0.06)",
+              borderColor: "rgba(239,68,68,0.2)",
+              color: "#ef4444",
+            }}
+          >
+            <ShieldCheck size={13} />
+            {isAr ? "الإدارة" : "Admin"}
+          </Link>
+          <Link
+            href={`/${locale}/dashboard`}
+            className="flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+            style={{
+              background: "rgba(142,213,255,0.06)",
+              borderColor: "rgba(142,213,255,0.2)",
+              color: "var(--color-primary)",
+            }}
+          >
+            <UserCircle size={13} />
+            {isAr ? "لوحتي" : "Dashboard"}
+          </Link>
+        </div>
+      );
+    }
+    return (
+      <Link
+        href={`/${locale}/dashboard`}
+        className="hidden md:flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+        style={{
+          background: "rgba(142,213,255,0.06)",
+          borderColor: "rgba(142,213,255,0.2)",
+          color: "var(--color-primary)",
+        }}
+      >
+        <UserCircle size={13} />
+        {isAr ? "لوحتي" : "Dashboard"}
+      </Link>
+    );
+  }
 
   return (
     <nav
@@ -190,7 +276,7 @@ export default function Navbar({ locale }: NavbarProps) {
                 className="absolute top-full mt-1.5 rounded-2xl overflow-hidden"
                 style={{
                   [isAr ? "right" : "left"]: 0,
-                  width: "220px",
+                  width: "230px",
                   background: "rgba(17,19,24,0.97)",
                   border: "1px solid rgba(60,224,251,0.15)",
                   boxShadow: "0 12px 40px rgba(0,0,0,0.4), 0 0 0 0.5px rgba(60,224,251,0.1)",
@@ -207,6 +293,7 @@ export default function Navbar({ locale }: NavbarProps) {
                   </div>
                   {studioItems.map((item) => {
                     const active = pathname.startsWith(`/${locale}${item.href}`);
+                    const isNano = item.href === "/nano-banana-prompts";
                     return (
                       <Link
                         key={item.href}
@@ -214,24 +301,29 @@ export default function Navbar({ locale }: NavbarProps) {
                         className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm transition-all duration-150"
                         style={{
                           color: active ? "var(--color-tertiary)" : "var(--color-on-surface-variant)",
-                          background: active ? "rgba(60,224,251,0.08)" : "transparent",
+                          background: active ? "rgba(60,224,251,0.08)" : isNano ? "rgba(245,158,11,0.04)" : "transparent",
                           textDecoration: "none",
                         }}
                         onMouseEnter={(e) => {
                           if (!active) {
-                            (e.currentTarget as HTMLElement).style.background = "rgba(60,224,251,0.06)";
-                            (e.currentTarget as HTMLElement).style.color = "var(--color-on-surface)";
+                            (e.currentTarget as HTMLElement).style.background = isNano ? "rgba(245,158,11,0.08)" : "rgba(60,224,251,0.06)";
+                            (e.currentTarget as HTMLElement).style.color = isNano ? "#f59e0b" : "var(--color-on-surface)";
                           }
                         }}
                         onMouseLeave={(e) => {
                           if (!active) {
-                            (e.currentTarget as HTMLElement).style.background = "transparent";
+                            (e.currentTarget as HTMLElement).style.background = isNano ? "rgba(245,158,11,0.04)" : "transparent";
                             (e.currentTarget as HTMLElement).style.color = "var(--color-on-surface-variant)";
                           }
                         }}
                       >
                         <span className="text-base leading-none w-5 text-center">{item.icon}</span>
                         <span className="font-medium">{item.label}</span>
+                        {isNano && (
+                          <span className="ms-auto text-[9px] font-mono px-1.5 py-0.5 rounded-full" style={{ background: "rgba(245,158,11,0.15)", color: "#f59e0b" }}>
+                            NEW
+                          </span>
+                        )}
                       </Link>
                     );
                   })}
@@ -260,10 +352,7 @@ export default function Navbar({ locale }: NavbarProps) {
           >
             <Search size={13} />
             <span className="opacity-60">{isAr ? "ابحث..." : "Search..."}</span>
-            <span
-              className="px-1.5 py-0.5 rounded text-[10px]"
-              style={{ background: "var(--color-surface-container-high)" }}
-            >
+            <span className="px-1.5 py-0.5 rounded text-[10px]" style={{ background: "var(--color-surface-container-high)" }}>
               ⌘K
             </span>
           </button>
@@ -271,24 +360,7 @@ export default function Navbar({ locale }: NavbarProps) {
           <ThemeToggle />
           <LanguageToggle locale={locale} />
 
-          <Link
-            href={`/${locale}/dashboard`}
-            className="hidden md:flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
-            style={{
-              background: "rgba(142,213,255,0.06)",
-              borderColor: "rgba(142,213,255,0.2)",
-              color: "var(--color-primary)",
-            }}
-          >
-            <span className="text-[10px]">🔮</span>
-            {isAr ? "لوحة الطالب" : "Dashboard"}
-            <span
-              className="px-1.5 py-0.5 rounded text-[9px] font-bold"
-              style={{ background: "rgba(208,188,255,0.15)", color: "var(--color-secondary)" }}
-            >
-              {isAr ? "قريبًا" : "Soon"}
-            </span>
-          </Link>
+          <AuthButton />
 
           {/* Mobile hamburger */}
           <button
@@ -377,28 +449,60 @@ export default function Navbar({ locale }: NavbarProps) {
               )}
             </div>
 
-            <div
-              className="pt-3 mt-2 border-t"
-              style={{ borderColor: "rgba(255,255,255,0.06)" }}
-            >
-              <Link
-                href={`/${locale}/dashboard`}
-                className="flex items-center justify-center gap-2 text-sm font-mono px-4 py-2.5 rounded-lg border transition-all hover:opacity-80"
-                style={{
-                  background: "rgba(142,213,255,0.06)",
-                  borderColor: "rgba(142,213,255,0.2)",
-                  color: "var(--color-primary)",
-                }}
-                onClick={() => setMobileOpen(false)}
-              >
-                🔮 {isAr ? "لوحة الطالب" : "Dashboard"}
-                <span
-                  className="px-1.5 py-0.5 rounded text-[10px] font-bold"
-                  style={{ background: "rgba(208,188,255,0.15)", color: "var(--color-secondary)" }}
+            <div className="pt-3 mt-2 border-t flex flex-col gap-2" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+              {!supabaseConfigured ? (
+                <Link
+                  href={`/${locale}/dashboard`}
+                  className="flex items-center justify-center gap-2 text-sm font-mono px-4 py-2.5 rounded-lg border transition-all hover:opacity-80"
+                  style={{ background: "rgba(142,213,255,0.06)", borderColor: "rgba(142,213,255,0.2)", color: "var(--color-primary)" }}
+                  onClick={() => setMobileOpen(false)}
                 >
-                  {isAr ? "قريبًا" : "Soon"}
-                </span>
-              </Link>
+                  🔮 {isAr ? "لوحة الطالب" : "Dashboard"}
+                  <span className="px-1.5 py-0.5 rounded text-[10px] font-bold" style={{ background: "rgba(208,188,255,0.15)", color: "var(--color-secondary)" }}>
+                    {isAr ? "قريبًا" : "Soon"}
+                  </span>
+                </Link>
+              ) : !loading && !user ? (
+                <>
+                  <Link
+                    href={`/${locale}/login`}
+                    className="flex items-center justify-center gap-2 text-sm font-mono px-4 py-2.5 rounded-lg border transition-all hover:opacity-80"
+                    style={{ background: "rgba(142,213,255,0.06)", borderColor: "rgba(142,213,255,0.2)", color: "var(--color-primary)" }}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <LogIn size={14} /> {isAr ? "تسجيل الدخول" : "Sign In"}
+                  </Link>
+                  <Link
+                    href={`/${locale}/register`}
+                    className="flex items-center justify-center gap-2 text-sm font-mono px-4 py-2.5 rounded-lg border"
+                    style={{ border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface-variant)" }}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {isAr ? "إنشاء حساب" : "Create Account"}
+                  </Link>
+                </>
+              ) : !loading && user ? (
+                <>
+                  {isAdmin && (
+                    <Link
+                      href={`/${locale}/admin`}
+                      className="flex items-center justify-center gap-2 text-sm font-mono px-4 py-2.5 rounded-lg border"
+                      style={{ background: "rgba(239,68,68,0.06)", borderColor: "rgba(239,68,68,0.2)", color: "#ef4444" }}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      <ShieldCheck size={14} /> {isAr ? "الإدارة" : "Admin"}
+                    </Link>
+                  )}
+                  <Link
+                    href={`/${locale}/dashboard`}
+                    className="flex items-center justify-center gap-2 text-sm font-mono px-4 py-2.5 rounded-lg border"
+                    style={{ background: "rgba(142,213,255,0.06)", borderColor: "rgba(142,213,255,0.2)", color: "var(--color-primary)" }}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <UserCircle size={14} /> {isAr ? "لوحتي" : "Dashboard"}
+                  </Link>
+                </>
+              ) : null}
             </div>
           </div>
         </div>

@@ -13,14 +13,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/projects", "/prompts", "/blog", "/glossary", "/about", "/contact",
     "/mentor", "/dashboard", "/prompt-studio", "/claude-code-generator",
     "/tool-recommender", "/roadmap-generator", "/privacy", "/terms",
+    "/nano-banana-prompts", "/login", "/register",
   ];
+
+  // Admin pages excluded (noindex anyway)
 
   const staticEntries = locales.flatMap((locale) =>
     staticPages.map((path) => ({
       url: `${BASE_URL}/${locale}${path}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
-      priority: path === "" ? 1.0 : 0.8,
+      priority: path === "" ? 1.0 : path === "/nano-banana-prompts" ? 0.9 : 0.8,
     }))
   );
 

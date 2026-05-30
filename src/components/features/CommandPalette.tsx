@@ -38,7 +38,10 @@ function buildPageItems(locale: string): SearchItem[] {
     { id: "claude-code-gen",     type: "page" as const, title: isAr ? "🛠️ مولّد برومبت Claude Code" : "🛠️ Claude Code Generator", description: isAr ? "إنشاء برومبتات Claude Code" : "Generate Claude Code prompts",    href: `/${locale}/claude-code-generator`, icon: "🛠️" },
     { id: "tool-recommender",    type: "page" as const, title: isAr ? "🔎 مرشّح الأدوات"         : "🔎 Tool Recommender",        description: isAr ? "اكتشف أفضل أداة لهدفك"     : "Find the best tool for your goal", href: `/${locale}/tool-recommender`,    icon: "🔎" },
     { id: "roadmap-generator",   type: "page" as const, title: isAr ? "🗺️ مولّد خطط التعلم"     : "🗺️ Roadmap Generator",       description: isAr ? "خطة تعلم مخصصة بالذكاء"    : "AI-personalized learning roadmap", href: `/${locale}/roadmap-generator`,   icon: "🗺️" },
-    { id: "dashboard",           type: "page" as const, title: isAr ? "📂 محفوظاتي"             : "📂 My Saved Items",           description: isAr ? "البرومبتات والأدوات المحفوظة" : "Saved prompts and tools",          href: `/${locale}/dashboard`,           icon: "📂" },
+    { id: "nano-banana",         type: "page" as const, title: isAr ? "🍌 Nano Banana Lab"       : "🍌 Nano Banana Lab",          description: isAr ? "برومبتات صور Gemini Nano Banana" : "Gemini Nano Banana image prompts", href: `/${locale}/nano-banana-prompts`, icon: "🍌" },
+    { id: "dashboard",           type: "page" as const, title: isAr ? "📂 لوحة الطالب"          : "📂 Student Dashboard",        description: isAr ? "تقدمك وبرومبتاتك المحفوظة" : "Progress and saved items",          href: `/${locale}/dashboard`,           icon: "📂" },
+    { id: "login",               type: "page" as const, title: isAr ? "🔐 تسجيل الدخول"         : "🔐 Sign In",                  description: isAr ? "الدخول إلى حسابك"           : "Sign in to your account",          href: `/${locale}/login`,               icon: "🔐" },
+    { id: "register",            type: "page" as const, title: isAr ? "✍️ إنشاء حساب"           : "✍️ Create Account",            description: isAr ? "إنشاء حساب جديد مجانًا"    : "Create a free account",            href: `/${locale}/register`,            icon: "✍️" },
   ];
 }
 

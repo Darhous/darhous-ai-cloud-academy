@@ -38,7 +38,8 @@ export default function Footer({ locale }: FooterProps) {
         { href: "/claude-code-generator", label: "🛠️ مولّد Claude Code"     },
         { href: "/tool-recommender",      label: "🔎 مرشّح الأدوات"         },
         { href: "/roadmap-generator",     label: "🗺️ مولّد خطط التعلم"      },
-        { href: "/dashboard",             label: "📂 محفوظاتي"              },
+        { href: "/nano-banana-prompts",   label: "🍌 Nano Banana Lab"        },
+        { href: "/dashboard",             label: "📂 لوحة الطالب"            },
       ]
     : [
         { href: "/mentor",                label: "✨ AI Mentor"             },
@@ -46,23 +47,28 @@ export default function Footer({ locale }: FooterProps) {
         { href: "/claude-code-generator", label: "🛠️ Claude Code Generator" },
         { href: "/tool-recommender",      label: "🔎 Tool Recommender"      },
         { href: "/roadmap-generator",     label: "🗺️ Roadmap Generator"     },
-        { href: "/dashboard",             label: "📂 My Saved Items"        },
+        { href: "/nano-banana-prompts",   label: "🍌 Nano Banana Lab"       },
+        { href: "/dashboard",             label: "📂 Student Dashboard"     },
       ];
 
   const moreLinks = isAr
     ? [
-        { href: "/glossary", label: "المسرد"             },
-        { href: "/about",    label: "عن المنصة"          },
-        { href: "/contact",  label: "تواصل معنا"         },
-        { href: "/privacy",  label: "سياسة الخصوصية"    },
-        { href: "/terms",    label: "شروط الخدمة"        },
+        { href: "/glossary",  label: "المسرد"             },
+        { href: "/about",     label: "عن المنصة"          },
+        { href: "/contact",   label: "تواصل معنا"         },
+        { href: "/login",     label: "تسجيل الدخول"       },
+        { href: "/register",  label: "إنشاء حساب"         },
+        { href: "/privacy",   label: "سياسة الخصوصية"    },
+        { href: "/terms",     label: "شروط الخدمة"        },
       ]
     : [
-        { href: "/glossary", label: "Glossary"       },
-        { href: "/about",    label: "About"          },
-        { href: "/contact",  label: "Contact"        },
-        { href: "/privacy",  label: "Privacy Policy" },
-        { href: "/terms",    label: "Terms of Service" },
+        { href: "/glossary",  label: "Glossary"        },
+        { href: "/about",     label: "About"           },
+        { href: "/contact",   label: "Contact"         },
+        { href: "/login",     label: "Sign In"         },
+        { href: "/register",  label: "Create Account"  },
+        { href: "/privacy",   label: "Privacy Policy"  },
+        { href: "/terms",     label: "Terms of Service"},
       ];
 
   return (
@@ -185,10 +191,7 @@ export default function Footer({ locale }: FooterProps) {
           className="pt-6 border-t flex flex-col items-center gap-4"
           style={{ borderColor: "rgba(255,255,255,0.05)" }}
         >
-          {/* Social icons — centered */}
           <SocialLinksBar locale={locale} variant="footer" />
-
-          {/* Credit line */}
           <p
             className="text-xs font-mono text-center"
             style={{ color: "var(--color-on-surface-variant)", opacity: 0.5 }}

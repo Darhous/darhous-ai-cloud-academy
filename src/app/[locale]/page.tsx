@@ -284,6 +284,68 @@ export default async function HomePage({
         </div>
       </div>
 
+      {/* Nano Banana section */}
+      <div className="container-xl">
+        <div
+          className="rounded-3xl p-8 md:p-12 relative overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, rgba(245,158,11,0.12) 0%, rgba(139,92,246,0.1) 60%, rgba(6,182,212,0.06) 100%)",
+            border: "1px solid rgba(245,158,11,0.2)",
+          }}
+        >
+          <div className="absolute top-0 end-0 w-72 h-72 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%)", filter: "blur(60px)" }} />
+          <div className="absolute bottom-0 start-0 w-56 h-56 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)", filter: "blur(60px)" }} />
+          <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
+            <div className="flex-1 text-center md:text-start">
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-mono mb-5"
+                style={{ background: "rgba(245,158,11,0.1)", borderColor: "rgba(245,158,11,0.3)", color: "#f59e0b" }}
+              >
+                🍌 Gemini Nano Banana
+              </div>
+              <h2 className="font-display font-bold text-3xl md:text-4xl mb-4" style={{ color: "var(--color-on-surface)" }}>
+                {isAr ? "تريند Gemini Nano Banana" : "Gemini Nano Banana Trends"}
+              </h2>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "var(--color-on-surface-variant)", maxWidth: "480px" }}>
+                {isAr
+                  ? "اكتشف أفكار صور تريندي جاهزة، وانسخ البرومبت الذي يحول صورتك إلى نفس الستايل."
+                  : "Explore viral image ideas and copy the prompt that turns your own photo into the same style."}
+              </p>
+              <Link
+                href={`/${locale}/nano-banana-prompts`}
+                className="inline-flex items-center gap-2 font-mono px-6 py-3 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
+                style={{ background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.4)", color: "#f59e0b" }}
+              >
+                🍌 {isAr ? "استكشف برومبتات Nano Banana" : "Explore Nano Banana Prompts"} <Arrow size={15} />
+              </Link>
+            </div>
+            {/* Visual preview grid */}
+            <div className="flex-shrink-0 grid grid-cols-2 gap-3 w-full max-w-xs">
+              {[
+                { emoji: "🏆", titleAr: "تمثال 3D Collectible", titleEn: "3D Figurine" },
+                { emoji: "🎬", titleAr: "بورتريه سينمائي", titleEn: "Cinematic Portrait" },
+                { emoji: "🌆", titleAr: "بوستر سايبربانك", titleEn: "Cyberpunk Poster" },
+                { emoji: "📔", titleAr: "غلاف مجلة فاخر", titleEn: "Magazine Cover" },
+                { emoji: "🎵", titleAr: "غلاف موسيقى نيوني", titleEn: "Music Cover" },
+                { emoji: "🌌", titleAr: "تعرض مزدوج", titleEn: "Double Exposure" },
+              ].map((item) => (
+                <Link
+                  key={item.emoji}
+                  href={`/${locale}/nano-banana-prompts`}
+                  className="glass-card p-3 rounded-xl flex flex-col items-center gap-1.5 text-center transition-all hover:scale-105 hover:-translate-y-0.5"
+                  style={{ border: "1px solid rgba(245,158,11,0.15)" }}
+                >
+                  <span className="text-xl">{item.emoji}</span>
+                  <span className="text-xs font-medium leading-tight" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {isAr ? item.titleAr : item.titleEn}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* CTA */}
       <div className="container-xl">
         <CTASection locale={locale} />
