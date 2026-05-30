@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
+  const type = searchParams.get("type");
   const locale = searchParams.get("locale") ?? "ar";
 
   if (code) {
@@ -11,7 +12,12 @@ export async function GET(request: Request) {
     if (supabase) {
       const { data, error } = await supabase.auth.exchangeCodeForSession(code);
       if (!error && data.user) {
-        // Check role for redirect destination
+        // Password recovery flow → redirect to reset-password page
+        if (type === "recovery") {
+          return NextResponse.redirect(`${origin}/${locale}/reset-password`);
+        }
+
+        // Normal sign-in: check role for redirect destination
         const { data: profile } = await supabase
           .from("profiles")
           .select("role")

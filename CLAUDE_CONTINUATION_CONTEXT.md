@@ -9,9 +9,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 2.0.0 — Auth + Dashboards + Nano Banana |
+| **Version** | 2.1.0 — Password Reset Flow |
 | **Status** | ✅ Live on Vercel |
-| **Build** | ✅ Passing — 237 static pages, 0 TypeScript errors |
+| **Build** | ✅ Passing — 241 static pages, 0 TypeScript errors |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Branch** | `main` |
@@ -25,8 +25,21 @@
 Continue the Darhous AI Cloud Academy project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md first before any changes.
-Current version: 2.0.0 — Build: ✅ 237 pages — Git: clean — Deployed on Vercel
+Current version: 2.1.0 — Build: ✅ 241 pages — Git: clean — Deployed on Vercel
 ```
+
+---
+
+## 🆕 What was completed (v2.1.0):
+
+### Password Reset Flow
+- `/[locale]/forgot-password` — Email input, calls `supabase.auth.resetPasswordForEmail()` with PKCE redirect to `/auth/callback?type=recovery&locale=...`
+- `/[locale]/reset-password` — New password + confirm, calls `supabase.auth.updateUser({ password })`. Checks session exists (handles expired links gracefully).
+- `src/components/auth/ForgotPasswordForm.tsx` — Client form with success state + spam-folder reminder
+- `src/components/auth/ResetPasswordForm.tsx` — Client form with session guard, confirm-password match, success → redirect to dashboard
+- **Auth callback updated** — `type=recovery` param detected → redirects to `/reset-password` instead of `/dashboard`
+- **LoginForm updated** — "Forgot password?" link added next to password label
+- **Sitemap updated** — `/forgot-password` added (241 pages, was 237)
 
 ---
 
@@ -237,7 +250,7 @@ ADMIN_GUIDE.md
 
 ### Phase 3B: Full Auth Experience
 - [ ] Email confirmation flow
-- [ ] Password reset page (`/forgot-password`)
+- [x] Password reset flow (`/forgot-password` + `/reset-password`)
 - [ ] User profile settings page
 - [ ] Onboarding flow after first login
 
@@ -274,7 +287,7 @@ ADMIN_GUIDE.md
 Continue the Darhous AI Cloud Academy project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md first before any changes.
-Current version: 2.0.0 — Build: ✅ 237 pages — Deployed on Vercel
+Current version: 2.1.0 — Build: ✅ 241 pages — Deployed on Vercel
 ```
 
 **Add MDX blog:**

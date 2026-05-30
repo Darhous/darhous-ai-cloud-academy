@@ -110,9 +110,18 @@ export default function LoginForm({ locale, isAr }: Props) {
 
         {/* Password */}
         <div>
-          <label className="block text-sm font-mono mb-2" style={{ color: "var(--color-on-surface-variant)" }}>
-            {isAr ? "كلمة المرور" : "Password"}
-          </label>
+          <div className="flex items-center justify-between mb-2">
+            <label className="text-sm font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+              {isAr ? "كلمة المرور" : "Password"}
+            </label>
+            <Link
+              href={`/${locale}/forgot-password`}
+              className="text-xs transition-opacity hover:opacity-80"
+              style={{ color: "var(--color-primary)" }}
+            >
+              {isAr ? "نسيت كلمة المرور؟" : "Forgot password?"}
+            </Link>
+          </div>
           <div className="relative">
             <Lock size={15} className="absolute top-1/2 -translate-y-1/2 start-3" style={{ color: "var(--color-on-surface-variant)" }} />
             <input

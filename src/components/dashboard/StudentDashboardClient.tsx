@@ -94,11 +94,12 @@ export default function StudentDashboardClient({ locale }: Props) {
     window.location.href = `/${locale}`;
   }
 
-  // ── Not configured ───────────────────────────────────────────────────────
+  // ── Not configured → show local-mode dashboard (no scary Supabase warning) ─
   if (!supabaseConfigured) {
     return (
-      <div className="container-xl py-16 flex flex-col gap-12">
-        <SetupBanner isAr={isAr} locale={locale} />
+      <div className="container-xl py-12 flex flex-col gap-10">
+        <LocalModeHeader isAr={isAr} locale={locale} />
+        <LocalQuickActions isAr={isAr} locale={locale} />
         <MySpacePanel locale={locale} />
         <SavedPromptsPanel locale={locale} />
       </div>
@@ -344,21 +345,94 @@ function LoginGate({ isAr, locale }: { isAr: boolean; locale: string }) {
   );
 }
 
-function SetupBanner({ isAr, locale }: { isAr: boolean; locale: string }) {
+function LocalModeHeader({ isAr, locale }: { isAr: boolean; locale: string }) {
   return (
     <div
-      className="rounded-3xl p-8 text-center"
-      style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)" }}
+      className="rounded-3xl p-8 md:p-10 relative overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, rgba(0,102,138,0.18) 0%, rgba(87,27,193,0.12) 100%)",
+        border: "1px solid rgba(142,213,255,0.12)",
+      }}
     >
-      <div className="text-4xl mb-4">⚙️</div>
-      <h1 className="font-display font-bold text-2xl mb-2" style={{ color: "var(--color-on-surface)" }}>
-        {isAr ? "لوحة الطالب" : "Student Dashboard"}
-      </h1>
-      <p className="text-sm max-w-md mx-auto mb-2" style={{ color: "var(--color-on-surface-variant)" }}>
-        {isAr
-          ? "يجب إعداد Supabase لتفعيل لوحة الطالب الكاملة. في هذه الأثناء، يمكنك استخدام المحفوظات المحلية."
-          : "Supabase must be configured to enable the full student dashboard. For now, use your local saved items."}
-      </p>
+      <div className="env-orb env-orb-blue absolute -top-16 -start-16 opacity-30" style={{ width: "220px", height: "220px" }} />
+      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <p className="text-sm font-mono mb-1" style={{ color: "var(--color-primary)" }}>
+            {isAr ? "مرحبًا 👋" : "Hello there 👋"}
+          </p>
+          <h1 className="font-display font-bold text-3xl md:text-4xl mb-2" style={{ color: "var(--color-on-surface)" }}>
+            {isAr ? "لوحة الطالب" : "Student Dashboard"}
+          </h1>
+          <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+            {isAr
+              ? "تصفح موادك المحفوظة وأدوات الذكاء الاصطناعي"
+              : "Browse your saved items and AI tools"}
+          </p>
+        </div>
+        <div className="flex items-center gap-3 flex-wrap">
+          <Link
+            href={`/${locale}/login`}
+            className="glow-button-primary text-white font-mono px-5 py-2.5 rounded-xl flex items-center gap-2 text-sm"
+          >
+            {isAr ? "تسجيل الدخول" : "Sign In"}
+          </Link>
+          <Link
+            href={`/${locale}/register`}
+            className="glow-button-secondary font-mono px-5 py-2.5 rounded-xl text-sm"
+          >
+            {isAr ? "إنشاء حساب" : "Register"}
+          </Link>
+        </div>
+      </div>
+      {/* Sync nudge */}
+      <div className="relative z-10 mt-5 flex items-center gap-2">
+        <div
+          className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-full"
+          style={{ background: "rgba(142,213,255,0.08)", border: "1px solid rgba(142,213,255,0.15)", color: "var(--color-primary)" }}
+        >
+          <Clock size={12} />
+          {isAr
+            ? "أنشئ حسابًا لمزامنة تقدمك عبر أجهزتك"
+            : "Create an account to sync your progress across devices"}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LocalQuickActions({ isAr, locale }: { isAr: boolean; locale: string }) {
+  const Arrow = isAr ? ChevronLeft : ChevronRight;
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="font-display font-bold text-xl" style={{ color: "var(--color-on-surface)" }}>
+          {isAr ? "وصول سريع" : "Quick Access"}
+        </h2>
+        <Link href={`/${locale}/courses`} className="flex items-center gap-1 text-sm" style={{ color: "var(--color-primary)" }}>
+          {isAr ? "استعرض الدورات" : "Browse courses"} <Arrow size={14} />
+        </Link>
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          { icon: <BookOpen size={20} />, href: "/courses",               labelAr: "الدورات",              labelEn: "Courses",        color: "var(--color-primary)"   },
+          { icon: <Sparkles size={20} />, href: "/mentor",                labelAr: "مرشد AI",              labelEn: "AI Mentor",      color: "var(--color-secondary)" },
+          { icon: <Activity size={20} />, href: "/nano-banana-prompts",   labelAr: "Nano Banana",          labelEn: "Nano Banana",    color: "#f59e0b"                },
+          { icon: <Brain   size={20} />,  href: "/paths",                 labelAr: "مسارات التعلم",        labelEn: "Learning Paths", color: "var(--color-tertiary)"  },
+        ].map((item) => (
+          <Link
+            key={item.href}
+            href={`/${locale}${item.href}`}
+            className="glass-card rounded-2xl p-5 flex flex-col items-center gap-3 text-center transition-all hover:scale-105 hover:-translate-y-1"
+          >
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${item.color}15`, color: item.color }}>
+              {item.icon}
+            </div>
+            <span className="text-xs font-medium" style={{ color: "var(--color-on-surface-variant)" }}>
+              {isAr ? item.labelAr : item.labelEn}
+            </span>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

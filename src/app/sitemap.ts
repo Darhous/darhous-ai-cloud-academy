@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/mentor", "/dashboard", "/prompt-studio", "/claude-code-generator",
     "/tool-recommender", "/roadmap-generator", "/privacy", "/terms",
     "/nano-banana-prompts", "/login", "/register",
+    "/forgot-password",
   ];
 
   // Admin pages excluded (noindex anyway)
