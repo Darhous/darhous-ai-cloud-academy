@@ -14,8 +14,7 @@ interface ProjectIdea {
   estimatedTime: string;
 }
 
-function localProjectGenerator(level: string, stack: string, goal: string): ProjectIdea {
-  const isArabic = /[؀-ۿ]/.test(goal ?? "");
+function localProjectGenerator(level: string, stack: string, _goal: string): ProjectIdea {
   const projects = {
     beginner: {
       title: { ar: "بوت للأسئلة الشائعة", en: "FAQ Chatbot" },

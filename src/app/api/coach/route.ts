@@ -69,11 +69,10 @@ export async function GET(req: Request) {
   }
 
   // Gather user data
-  const [cpRes, lpRes, spRes, profRes] = await Promise.all([
+  const [cpRes, lpRes, spRes] = await Promise.all([
     supabase.from("course_progress").select("course_slug,status,progress_percent").eq("user_id", user.id).order("updated_at", { ascending: false }).limit(10),
     supabase.from("lesson_progress").select("completed_at").eq("user_id", user.id).eq("completed", true).not("completed_at", "is", null),
     supabase.from("student_profiles").select("interests,level,goal").eq("user_id", user.id).single(),
-    supabase.from("profiles").select("full_name").eq("id", user.id).single(),
   ]);
 
   const courseProgress = cpRes.data ?? [];

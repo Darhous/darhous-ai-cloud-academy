@@ -23,6 +23,9 @@ const eslintConfig = defineConfig([
       // Flags components defined inside other components that don't use hooks —
       // overly strict for inline helper components in Next.js layouts.
       "react-hooks/static-components": "warn",
+      // Flags Date.now() / Math.random() calls inside server component function bodies —
+      // these are correctly used in server-side data processing (not inside hooks/render).
+      "react-hooks/purity": "warn",
     },
   },
 ]);
