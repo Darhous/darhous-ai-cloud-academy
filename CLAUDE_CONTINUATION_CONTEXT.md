@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 4.0.0 — Darhous Smart Learning Ecosystem |
+| **Version** | 4.1.0 — Portal Integration Release |
 | **Status** | ✅ Fully Live — Supabase v3 DEPLOYED — Resend ✅ — Vercel ✅ |
 | **Build** | ✅ Clean build — 0 TypeScript errors — 0 lint errors |
-| **Last Commit** | `a64d693` — Ecosystem v4.0.0 transformation |
+| **Last Commit** | `3f88632` — v4.1.0 Language Portal + Digital Exams full integration |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
@@ -20,7 +20,7 @@
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Supabase Project ID** | `kzbdmyovspkbakbtvgig` |
 | **Branch** | `main` |
-| **Last Updated** | 2026-05-31 |
+| **Last Updated** | 2026-05-31 (v4.1.0) |
 
 ---
 
@@ -38,6 +38,31 @@ Last commit: a64d693 — Ecosystem v4.0.0 transformation
 ---
 
 ## ✅ Everything Completed & Deployed (as of v4.0.0)
+
+### v4.1.0 — Portal Integration — DONE ✅
+
+| File | What It Does |
+|------|-------------|
+| `src/data/language-questions.json` | 150 English assessment questions (stages 1-10, all difficulties) |
+| `src/data/digital-exam-subjects.ts` | 7 exam subjects × 20 questions each (140 total) |
+| `src/components/language/LanguageAssessmentClient.tsx` | Full exam engine: adaptive stages, 90s timer, anti-cheat, CEFR scoring |
+| `src/components/language/LanguageResultsClient.tsx` | Results: CEFR badge, skill breakdown, stage chart, resources |
+| `src/components/exams/DigitalExamClient.tsx` | 20-question exam client: 60s timer, per-question feedback, review |
+| `src/app/[locale]/language/assessment/page.tsx` | Assessment entry page (auth-gated) |
+| `src/app/[locale]/language/results/page.tsx` | Results page (fetches from Supabase by ID) |
+| `src/app/[locale]/digital-exams/[subject]/page.tsx` | Subject exam page (7 subjects, static params) |
+| `src/app/api/language/submit/route.ts` | POST: save language result to Supabase |
+| `src/app/api/language/results/route.ts` | GET: user's language history |
+| `src/app/api/exams/submit/route.ts` | POST: save digital exam result |
+| `src/app/api/exams/results/route.ts` | GET: user's exam history |
+| `src/app/api/email/welcome/route.ts` | POST: sends bilingual welcome email via Resend |
+| `supabase/v4_portal_schema.sql` | SQL migration — language_results + digital_exam_results tables |
+| `src/components/dashboard/StudentDashboardClient.tsx` | Updated: My Portals now shows CEFR level + exam % |
+| `src/components/auth/RegisterForm.tsx` | Updated: triggers welcome email on signup |
+| `src/app/[locale]/language/page.tsx` | Updated: CTA links to /assessment (integration complete) |
+| `src/app/[locale]/digital-exams/page.tsx` | Updated: category cards are clickable links |
+
+⚠️ **REQUIRED ACTION**: Run `supabase/v4_portal_schema.sql` in Supabase Dashboard → SQL Editor (Project: kzbdmyovspkbakbtvgig) to create the two new tables.
 
 ### v4.0.0 — Ecosystem Transformation — DONE ✅
 
@@ -218,6 +243,10 @@ certificates, learning_plans, daily_tasks, challenges (4 seeded), challenge_subm
 prompt_scores, prompt_battles, public_profiles, analytics_events,
 email_sequence_events, content_items, tool_comparisons, user_preferences, user_projects
 
+### v4.1 tables (SQL written, ⚠️ NOT YET RUN — run supabase/v4_portal_schema.sql)
+language_results (id, user_id, score, level, time_taken, stages_completed, is_incomplete, breakdown jsonb)
+digital_exam_results (id, user_id, subject, subject_label, score, total, percentage, passed, time_taken, answers jsonb)
+
 ### RAG tables (schema ready, not populated)
 content_index, mentor_sources — see RAG_MENTOR_PLAN.md
 
@@ -241,14 +270,15 @@ The SINGLE source of truth for all portals. Changing a portal here updates: Land
 
 ## 🔮 Recommended Next Tasks (v4.1+)
 
-### Priority 1 — Full Portal Integration
-- [ ] **Language Portal full integration** — Clone `darhous-assessment` repo, embed its pages/API inside this Next.js project under `/[locale]/language/...`, save results to Supabase `quiz_results` or new `language_results` table, show in dashboard
-- [ ] **Digital Exams full integration** — Clone `Exams_Platform` repo, embed under `/[locale]/digital-exams/...`, save exam scores to new `exam_results` table, show in dashboard
-- [ ] **Unified results in dashboard** — Wire language test scores + exam scores into the "My Portals" dashboard section (currently showing placeholders)
+### Priority 1 — Full Portal Integration — ✅ DONE (v4.1.0)
+- [x] **Language Portal full integration** — 150 questions, 10 adaptive stages, CEFR levels, Supabase storage ✅
+- [x] **Digital Exams full integration** — 7 subjects × 20 questions, Supabase storage ✅
+- [x] **Unified results in dashboard** — My Portals shows CEFR level + exam % from real DB data ✅
+- [ ] **⚠️ Run Supabase migration** — Execute `supabase/v4_portal_schema.sql` in Supabase Dashboard SQL Editor
 
 ### Priority 2 — Email & Engagement
-- [ ] **Welcome email** — Send on signup via Supabase auth hook trigger + Resend
-- [ ] **Day-3 re-engagement email** — If user hasn't logged in since signup (Resend configured ✅)
+- [x] **Welcome email** — /api/email/welcome fires on signup (RegisterForm updated) ✅
+- [ ] **Day-3 re-engagement email** — Supabase Edge Function or cron: check last_sign_in_at, send if 3+ days inactive
 
 ### Priority 3 — AI Academy Features
 - [ ] **Dark/light theme toggle UI** — `user_preferences` table ready in DB, just needs the toggle button wired up
