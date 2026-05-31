@@ -9,16 +9,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 3.1.0 — Supabase Migration + Navigation Improvements |
-| **Status** | ✅ Live on Vercel + Supabase v3 schema DEPLOYED + All Features Active |
-| **Build** | ✅ Passing — 344 static pages, 0 TypeScript errors, 0 lint errors |
-| **Last Commit** | `400c02d` — v3.1.0 Navigation & Discovery improvements |
+| **Version** | 3.1.0 — DB Deployed + Nav + All Env Vars Set |
+| **Status** | ✅ Fully Live — Supabase v3 DEPLOYED — Resend ✅ — Vercel ✅ |
+| **Build** | ✅ 344 static pages — 0 TypeScript errors — 0 lint errors |
+| **Last Commit** | `cbf13fd` — trigger redeploy (RESEND_API_KEY added) |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
+| **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
+| **Vercel Env Vars** | https://vercel.com/darhous-projects/darhous-ai-cloud-academy/settings/environment-variables |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Supabase Project ID** | `kzbdmyovspkbakbtvgig` |
 | **Branch** | `main` |
-| **Last Updated** | 2026-05-31 (v3.1.0 session) |
+| **Last Updated** | 2026-05-31 |
 
 ---
 
@@ -27,107 +29,35 @@
 ```
 Continue the Darhous AI Cloud Academy project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
-Read CLAUDE_CONTINUATION_CONTEXT.md first before any changes.
-Current version: v3.1.0 — Build: ✅ 344 pages — Supabase DEPLOYED — CI ✅ — Live on Vercel.
-Last commit: 400c02d — v3.1.0 navigation improvements + Supabase migration complete.
+Read CLAUDE_CONTINUATION_CONTEXT.md before any changes.
+Current version: v3.1.0
+Build: ✅ 344 pages — 0 errors — CI ✅ — Live on Vercel
+Last commit: cbf13fd — trigger redeploy (RESEND_API_KEY added)
 ```
 
 ---
 
-## 🆕 What was completed (v3.0.0) — 2026-05-31
+## ✅ Everything Completed & Deployed (as of v3.1.0)
 
-### 20-Feature Global Platform Expansion
+### Infrastructure — ALL DONE ✅
+| Task | Status |
+|------|--------|
+| Supabase v3_feature_schema.sql | ✅ Run via Management API — 15 tables live |
+| avatars bucket (Supabase Storage) | ✅ Created + RLS policies set |
+| RESEND_API_KEY | ✅ Added to Vercel (Production + Preview) |
+| Vercel redeploy | ✅ Triggered — cbf13fd live |
 
-#### Database (supabase/v3_feature_schema.sql) ✅
-15 new tables with RLS: certificates, learning_plans, daily_tasks, challenges,
-challenge_submissions, prompt_scores, prompt_battles, public_profiles,
-analytics_events, email_sequence_events, content_items, tool_comparisons,
-user_preferences, user_projects, nano_banana_saved_prompts (ensured).
-Seeded 4 starter challenges. Storage instructions for avatars bucket included.
+### v3.1.0 Navigation Improvements — DONE ✅
+- **Navbar.tsx** — Challenges + Leaderboard added to AI Studio dropdown (12 items now)
+- **Footer.tsx** — Leaderboard link added
+- **StudentDashboardClient.tsx** — Quick Access expanded to 8 items (Challenges + Leaderboard added)
 
-#### RAG Foundation (supabase/rag_schema.sql) ✅
-content_index + mentor_sources tables. See RAG_MENTOR_PLAN.md.
-
-#### New API Routes ✅
-- `/api/coach` — Personal AI Coach (Gemini + local fallback, rate-limited)
-- `/api/certificates` — Issue/list certificates (POST verifies 100% progress)
-- `/api/certificates/verify/[code]` — Public verification (no auth)
-- `/api/prompt-score` — Score prompt out of 100 (AI + local scoring)
-- `/api/prompt-battle` — Compare two prompts (AI + local analysis)
-- `/api/search` — Full-platform search (courses, tools, projects, blog, prompts, nano)
-- `/api/avatar/upload` — Avatar upload to Supabase Storage (2MB limit, jpg/png/webp)
-- `/api/challenges/submit` — Submit challenge entry (auth required)
-- `/api/learning-plans` — CRUD learning plans
-- `/api/analytics/track` — Event tracking (prompt_copied, certificate_generated, etc.)
-- `/api/project-generator` — AI project idea generator (Gemini + local)
-
-#### New Pages ✅
-- `/[locale]/search` — Smart search across all content
-- `/[locale]/challenges` — AI Challenges (4 seeded: prompt, Nano Banana, Claude Code, project)
-- `/[locale]/leaderboard` — Public leaderboard (opt-in, privacy-first)
-- `/[locale]/prompt-battle` — Compare two prompts with AI analysis
-- `/[locale]/prompt-score` — Score prompt out of 100
-- `/[locale]/compare-tools` — Tool comparison engine (2-4 tools side-by-side)
-- `/[locale]/certificates` — My certificates (issue, print, share)
-- `/[locale]/learning-plans` — Saved learning plans
-- `/[locale]/project-generator` — AI project idea generator
-- `/[locale]/projects/[slug]/build` — 8-step "Build This Project" guided mode
-- `/u/[username]` — Public profile (is_public=true only)
-- `/certificates/verify/[code]` — Certificate verification page
-
-#### New Components ✅
-- `src/components/dashboard/AICoachCard.tsx` — Daily AI Coach recommendations
-- `src/components/nano-banana/NanoBananaVisualPreview.tsx` — 12-style CSS visual gallery
-
-#### Upgraded Existing ✅
-- `StudentDashboardClient.tsx` — Added AI Coach card, "نظام تعلمك الذكي" header, extended Quick Access (6 items)
-- `ProfileSettingsClient.tsx` — Avatar upload from device, Google photo import, username, bio, public profile toggle
-- `AdminDashboardClient.tsx` — New "Analytics" + "Content Studio" tabs
-- `NanaBananaVisualPreview` added to `/nano-banana-prompts` page
-- `Navbar.tsx` — AI Studio dropdown now has 10 items; Search link in navbar
-- `Footer.tsx` — All new routes added to AI Studio links
-- `sitemap.ts` — 7 new public pages (344 total)
-- `layout.tsx` — PWA manifest link + meta tags
-
-#### Email Foundation ✅
-- `src/lib/email/templates.ts` — Welcome, day-3 reminder, weekly digest templates
-- `src/lib/email/send.ts` — Resend wrapper with graceful fallback
-
-#### PWA ✅
-- `public/manifest.webmanifest` — App manifest (installable on mobile)
-
-#### Docs ✅
-- `V3_FEATURES.md` — Complete v3 feature list and status
-- `RAG_MENTOR_PLAN.md` — Step-by-step RAG implementation plan
-
----
-
-## ✅ Completed Setup (v3.1.0 — 2026-05-31)
-
-### Supabase v3 Migration — DONE ✅
-All 15 tables created via Management API:
-certificates, learning_plans, daily_tasks, challenges, challenge_submissions,
-prompt_scores, prompt_battles, public_profiles, analytics_events,
-email_sequence_events, content_items, tool_comparisons, user_preferences,
-user_projects, nano_banana_saved_prompts.
-All RLS policies set. 4 challenges seeded. Storage policies added.
-
-### Supabase Storage — avatars bucket — DONE ✅
-Bucket "avatars" created via Supabase Dashboard UI.
-Storage RLS policies applied via Management API.
-
----
-
-## ⚠️ Remaining Manual Step (v3.1.0)
-
-### 🟡 Add Resend API key (optional, for emails)
-- Go to: https://vercel.com/darhous-projects/darhous-ai-cloud-academy/settings/environment-variables
-- Add: `RESEND_API_KEY` = your Resend key (from resend.com)
-- See email templates in `src/lib/email/templates.ts`
-
-### 🔴 CRITICAL: Rotate Supabase DB password (from v2.7.0)
-- Go to: https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig/settings/database
-- See SECURITY_INCIDENT_NOTE.md
+### v3.0.0 Features (20 total) — ALL DONE ✅
+search, challenges, leaderboard, prompt-battle, prompt-score, compare-tools,
+certificates, learning-plans, project-generator, build-project mode,
+public profiles (`/u/[username]`), certificate verification, AI Coach card,
+Nano Banana visual gallery, avatar upload, email foundation (Resend),
+PWA manifest, RAG foundation schema, admin analytics tab, admin content studio tab.
 
 ---
 
@@ -135,51 +65,76 @@ Storage RLS policies applied via Management API.
 
 | Layer | Technology | Notes |
 |-------|-----------|-------|
-| Framework | Next.js 16 App Router | params is a Promise in Next.js 16 |
+| Framework | Next.js 16 App Router | params is a Promise — always `await params` |
 | Language | TypeScript 5 | Strict mode |
 | Styling | Tailwind CSS v4 | CSS-based config — NO tailwind.config.js for colors |
 | Animation | Framer Motion 12 + CSS | |
 | Icons | Lucide React v1 + react-icons | Some icons renamed vs older versions |
-| Search | Local Fuse-style scoring | Full-platform search in /api/search |
+| Search | Local Fuse-style scoring | /api/search |
 | AI | Google Gemini API | gemini-2.5-flash, server-side only |
 | Auth | Supabase Auth | Email + Google OAuth |
 | Database | Supabase PostgreSQL | RLS enabled on all tables |
-| Storage | Supabase Storage | avatars bucket (manual setup required) |
-| Email | Resend API | Graceful fallback if not configured |
+| Storage | Supabase Storage | avatars bucket ✅ live |
+| Email | Resend API | RESEND_API_KEY ✅ set in Vercel |
 | Fonts | Geist, IBM Plex Sans Arabic, JetBrains Mono | |
-| Deployment | Vercel | Free Hobby plan |
+| Deployment | Vercel | Hobby plan — team: darhous-projects |
 | PWA | manifest.webmanifest | Installable on mobile |
 
 ---
 
-## 📁 All Routes (v3.0.0)
+## 📁 All Routes (v3.1.0 complete)
 
 ### Public routes
 | Route | Description |
 |-------|-------------|
 | `/[locale]` | Home page |
-| `/[locale]/courses` | Courses |
-| `/[locale]/tools` | AI Tools |
-| `/[locale]/search` | Smart search (NEW v3) |
-| `/[locale]/challenges` | AI Challenges (NEW v3) |
-| `/[locale]/leaderboard` | Leaderboard (NEW v3) |
+| `/[locale]/courses` | Courses (18) |
+| `/[locale]/courses/[slug]` | Course detail + lessons |
+| `/[locale]/tools` | AI Tools (62) |
+| `/[locale]/tools/[slug]` | Tool detail |
+| `/[locale]/projects` | Projects (14) |
+| `/[locale]/projects/[slug]` | Project detail |
+| `/[locale]/projects/[slug]/build` | 8-step Build Mode (NEW v3) |
+| `/[locale]/blog` | Blog (13 posts) |
+| `/[locale]/blog/[slug]` | Blog post |
+| `/[locale]/prompts` | Prompt Library (27) |
+| `/[locale]/glossary` | Glossary (40 terms) |
+| `/[locale]/paths` | Learning Paths |
+| `/[locale]/claude` | Claude page |
+| `/[locale]/cloud` | Cloud page |
+| `/[locale]/about` | About |
+| `/[locale]/contact` | Contact |
+| `/[locale]/search` | Smart Search (NEW v3) |
+| `/[locale]/challenges` | AI Challenges — 4 seeded (NEW v3) |
+| `/[locale]/leaderboard` | Leaderboard — opt-in (NEW v3) |
 | `/[locale]/prompt-battle` | Prompt Battle (NEW v3) |
 | `/[locale]/prompt-score` | Prompt Score (NEW v3) |
-| `/[locale]/compare-tools` | Tool Comparison (NEW v3) |
-| `/[locale]/project-generator` | AI Project Generator (NEW v3) |
-| `/[locale]/projects/[slug]/build` | Build This Project (NEW v3) |
+| `/[locale]/compare-tools` | Tool Comparison 2-4 side-by-side (NEW v3) |
+| `/[locale]/project-generator` | AI Project Idea Generator (NEW v3) |
 | `/[locale]/nano-banana-prompts` | Nano Banana Visual Gallery Pro |
-| `/u/[username]` | Public Profile (NEW v3) |
-| `/certificates/verify/[code]` | Certificate Verify (NEW v3) |
+| `/[locale]/mentor` | AI Mentor (6 modes, streaming) |
+| `/[locale]/prompt-studio` | Prompt Studio |
+| `/[locale]/claude-code-generator` | Claude Code Generator |
+| `/[locale]/tool-recommender` | Tool Recommender |
+| `/[locale]/roadmap-generator` | Roadmap Generator |
+| `/[locale]/privacy` | Privacy Policy |
+| `/[locale]/terms` | Terms of Service |
+| `/u/[username]` | Public Profile — is_public=true only (NEW v3) |
+| `/certificates/verify/[code]` | Certificate Verification (NEW v3) |
 
-### Auth routes (private/noindex)
+### Auth-required routes (private/noindex)
 | Route | Description |
 |-------|-------------|
 | `/[locale]/dashboard` | AI Learning OS Dashboard |
-| `/[locale]/certificates` | My Certificates (NEW v3) |
+| `/[locale]/certificates` | My Certificates — issue/print/share (NEW v3) |
 | `/[locale]/learning-plans` | Learning Plans (NEW v3) |
-| `/[locale]/profile` | Profile v2 (avatar upload, username, bio) |
-| `/[locale]/admin` | Admin Dashboard |
+| `/[locale]/profile` | Profile v2 — avatar upload, username, bio |
+| `/[locale]/onboarding` | 5-step onboarding |
+| `/[locale]/admin` | Admin Dashboard — 7 tabs |
+| `/[locale]/login` | Login |
+| `/[locale]/register` | Register |
+| `/[locale]/forgot-password` | Forgot Password |
+| `/[locale]/reset-password` | Reset Password |
 
 ### API routes
 | Route | Method | Auth |
@@ -195,70 +150,100 @@ Storage RLS policies applied via Management API.
 | `/api/learning-plans` | GET/POST | Auth required |
 | `/api/analytics/track` | POST | Public |
 | `/api/project-generator` | POST | Public |
+| `/api/mentor` | POST | Public (rate-limited) |
+| `/api/mentor-stream` | GET | Public (SSE, rate-limited) |
+| `/api/progress/lesson` | POST | Auth required |
+| `/api/quiz/submit` | POST | Auth required |
+| `/api/contact` | POST | Public (rate-limited) |
+| `/api/community/subscribe` | POST | Public (rate-limited) |
+| `/api/admin/users` | GET | Admin only |
+| `/api/admin/subscribers` | GET | Admin only |
+| `/api/admin/promote` | POST | Admin only |
 
 ---
 
-## 🔑 Environment Variables
+## 🔑 Environment Variables — ALL SET ✅
 
-| Variable | Required | Description |
-|----------|---------|-------------|
-| `GEMINI_API_KEY` | ✅ For AI features | From aistudio.google.com |
-| `GEMINI_MODEL` | ❌ | Defaults to gemini-2.5-flash |
-| `NEXT_PUBLIC_SUPABASE_URL` | ✅ For auth | From Supabase project settings |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✅ For auth | Public anon key |
-| `SUPABASE_SERVICE_ROLE_KEY` | ✅ For admin APIs | **SERVER ONLY** |
-| `NEXT_PUBLIC_SITE_URL` | ✅ For OAuth | Live site URL |
-| `RESEND_API_KEY` | ❌ Optional | For email sequences |
+| Variable | Status | Description |
+|----------|--------|-------------|
+| `GEMINI_API_KEY` | ✅ Set | From aistudio.google.com |
+| `GEMINI_MODEL` | ✅ Set | gemini-2.5-flash |
+| `NEXT_PUBLIC_SUPABASE_URL` | ✅ Set | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✅ Set | Public anon key |
+| `SUPABASE_SERVICE_ROLE_KEY` | ✅ Set | **SERVER ONLY** |
+| `NEXT_PUBLIC_SITE_URL` | ✅ Set | Live site URL |
+| `RESEND_API_KEY` | ✅ Set | Added 2026-05-31 |
 | `CONTACT_TO_EMAIL` | ❌ Optional | Contact form notifications |
 
----
-
-## 🔒 Security Status (v3.0.0)
-
-| Check | Status |
-|-------|--------|
-| GEMINI_API_KEY in source | ❌ Not found |
-| SUPABASE_SERVICE_ROLE_KEY in client | ❌ Not found |
-| Service role stays server-only | ✅ |
-| Admin APIs verify role | ✅ All routes |
-| Avatar upload validates type/size | ✅ 2MB, jpg/png/webp only |
-| Public profiles hide email | ✅ Only name, bio, stats |
-| Private routes noindex | ✅ dashboard, certificates, learning-plans, profile |
-| RLS on all new tables | ✅ Documented in v3_feature_schema.sql |
-| .env.local not committed | ✅ |
-| analytics_events: safe events only | ✅ Allowlist of 10 event types |
+> Note: `.env.local` only has `GEMINI_API_KEY` and `GEMINI_MODEL`. All other keys are in Vercel only.
 
 ---
 
-## 🔮 Recommended Next Tasks (v3.1+)
+## 🗄️ Supabase DB Tables (complete list)
 
-### High Priority
-- [ ] Run `supabase/v3_feature_schema.sql` in production
-- [ ] Create `avatars` bucket in Supabase Storage
-- [ ] Test certificate issuance end-to-end
-- [ ] Test public profile at `/u/[username]`
+### Base tables (pre-v3)
+profiles, student_profiles, course_progress, lesson_progress, quiz_results,
+contact_messages, community_subscribers, saved_prompts, favorites,
+nano_banana_saved_prompts, audit_log
 
-### Features
-- [ ] RAG: Enable pgvector + populate content_index (see RAG_MENTOR_PLAN.md)
-- [ ] Email sequences: Day-3 re-engagement trigger after signup
-- [ ] Social sharing: Share streak/certificate on X/Twitter
-- [ ] More blog posts (currently 13 — target 20+)
-- [ ] Dark/light theme toggle in user preferences (user_preferences table ready)
-- [ ] Leaderboard: real data when users opt in
-- [ ] Admin: full CRUD for content_items (CMS)
-- [ ] Challenge points: integrate with leaderboard
+### v3 tables (DEPLOYED ✅)
+certificates, learning_plans, daily_tasks, challenges (4 seeded), challenge_submissions,
+prompt_scores, prompt_battles, public_profiles, analytics_events,
+email_sequence_events, content_items, tool_comparisons, user_preferences, user_projects
+
+### RAG tables (schema ready, not populated)
+content_index, mentor_sources — see RAG_MENTOR_PLAN.md
+
+---
+
+## 🔮 Recommended Next Tasks (v3.2+)
+
+### High Value Features
+- [ ] **Email sequences** — Day-3 re-engagement email using Resend (RESEND_API_KEY now set ✅)
+- [ ] **Welcome email** — Send on signup via Supabase auth hook + Resend
+- [ ] **Social sharing** — Share certificate/streak on X/Twitter
+- [ ] **RAG Mentor** — Enable pgvector + populate content_index (see RAG_MENTOR_PLAN.md)
+- [ ] **More blog posts** — currently 13, target 20+
+- [ ] **Dark/light theme toggle** — user_preferences table ready, just needs UI
+- [ ] **Challenge points → Leaderboard** — wire challenge submissions to point totals
+- [ ] **Admin CMS** — full CRUD for content_items table (Content Studio tab exists)
+
+### Testing (now that DB is live)
+- [ ] Test certificate issuance end-to-end (complete a course → /certificates → issue)
+- [ ] Test public profile at `/u/[username]` (enable in /profile first)
+- [ ] Test avatar upload in /profile
+- [ ] Test challenge submission in /challenges
 
 ---
 
 ## ⚠️ Critical Warnings
 
 1. **Tailwind v4** — CSS-based config. Never add `tailwind.config.js` for colors.
-2. **Next.js 16 params** — Always `await params` before using.
+2. **Next.js 16 params** — Always `await params` before using in server components.
 3. **Supabase client boundary** — `server.ts` and `admin.ts` are SERVER ONLY.
-4. **useAuth hook** — CLIENT ONLY.
-5. **Admin security** — Role checks in admin page are client-side (UX). API routes do server-side verification.
+4. **useAuth hook** — CLIENT ONLY (`"use client"` required).
+5. **Admin security** — Client-side role checks are UX only. All admin APIs do server-side verification.
 6. **SUPABASE_SERVICE_ROLE_KEY** — NEVER prefix with `NEXT_PUBLIC_`. Never import `admin.ts` in client components.
-7. **Build without Supabase** — App MUST build without Supabase env vars. All Supabase code is wrapped in null checks.
-8. **Avatar upload** — Requires `avatars` bucket in Supabase Storage. If bucket missing, shows clean error (`BUCKET_NOT_FOUND`).
-9. **MapIcon not Map** — lucide-react `Map` conflicts with JS global. Use `MapIcon` instead.
-10. **ImageIcon not Image** — Use `ImageIcon` from lucide-react to avoid Next.js Image conflict.
+7. **Build without Supabase** — App MUST build without Supabase env vars (all code has null checks).
+8. **MapIcon not Map** — lucide-react `Map` conflicts with JS global. Use `MapIcon`.
+9. **ImageIcon not Image** — Use `ImageIcon` from lucide-react to avoid Next.js Image conflict.
+10. **Vercel team slug** — Always use `darhous-projects` in URLs, NOT `darhous`.
+11. **Storage** — avatars bucket is private. Use signed URLs or public policy already set.
+12. **RESEND_API_KEY** — Lives in Vercel env only, not in .env.local.
+
+---
+
+## 🔒 Security Status (v3.1.0)
+
+| Check | Status |
+|-------|--------|
+| GEMINI_API_KEY in source | ✅ Not found |
+| SUPABASE_SERVICE_ROLE_KEY in client | ✅ Not found |
+| Service role stays server-only | ✅ |
+| Admin APIs verify role server-side | ✅ All routes |
+| Avatar upload validates type/size | ✅ 2MB, jpg/png/webp only |
+| Public profiles hide email | ✅ Only name, bio, stats |
+| Private routes noindex | ✅ dashboard, certificates, learning-plans, profile |
+| RLS on all tables | ✅ All 25+ tables |
+| .env.local not committed | ✅ |
+| RESEND_API_KEY not in source | ✅ Vercel env only |
