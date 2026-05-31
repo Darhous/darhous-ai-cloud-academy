@@ -24,21 +24,29 @@
 
 ---
 
-## ⚡ Quick-Start for Next Session
+## ⚡ Quick-Start for Next Session (v5.0 — Portal Integration)
 
 ```
 Continue the Darhous Smart Learning Ecosystem project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md before any changes.
-Current version: v4.1.0
+Current version: v4.2.0 — PRODUCTION READY ✅
 Build: ✅ Clean — 0 errors — Live on Vercel
-Last commit: 64bec6a — checkpoint v4.1.0
+Last commit: 20656dc — v4.2.0 complete checkpoint
 
-AUTHORIZATION: You are authorized to:
-- Execute the Supabase SQL migration by calling the Supabase Management API using SUPABASE_SERVICE_ROLE_KEY from Vercel env vars (project: kzbdmyovspkbakbtvgig). Run the SQL in supabase/v4_portal_schema.sql to create language_results and digital_exam_results tables.
-- Create a one-time Next.js API route to run the migration if direct API access is not available.
+NEXT MISSION: v5.0 — Full Portal Integration
+Integrate the 3 external GitHub repos as full portals inside the ecosystem:
+  1. Automation Academy → https://github.com/Darhous/darhous-automation-academy
+  2. IoT Lab          → https://github.com/Darhous/darhous-iot-lab
+  3. Career Hub       → https://github.com/Darhous/Darhous-career-hub-google
+
+AUTHORIZATION: You are fully authorized to:
 - Push commits directly to main branch without asking for confirmation.
-- Make any code changes needed to complete the tasks listed in "Recommended Next Tasks".
+- Inspect the 3 external repos (content, structure, tech stack).
+- Design and implement the integration approach for each portal.
+- Create new pages, components, API routes, and Supabase tables as needed.
+- Update src/config/portals.ts to wire each portal into the ecosystem.
+- Make any code changes needed — no need to ask for permission.
 ```
 
 ---
@@ -318,12 +326,33 @@ The SINGLE source of truth for all portals. Changing a portal here updates: Land
   - Deduplication: uses email_sequence_events table (7-day window, sequence='reengagement', step='day-3') ✅
   - Returns: { checked, sent, skipped, failed } — safe summary only ✅
 
-### Priority 3 — AI Academy Features
+### Priority 1 — v5.0 Portal Integration (NEXT SESSION)
+
+Three external repos to integrate as full portals:
+
+| Portal | Repo | Current Status in Ecosystem |
+|--------|------|----------------------------|
+| Career Hub | https://github.com/Darhous/Darhous-career-hub-google | `/career` — Coming Soon |
+| Automation Academy | https://github.com/Darhous/darhous-automation-academy | `/automation` — Coming Soon |
+| IoT Lab | https://github.com/Darhous/darhous-iot-lab | `/iot-lab` — Coming Soon |
+
+**Integration approach (inspect repos first, then decide):**
+- Option A: Embed as iframe (simple, preserves original UI)
+- Option B: Pull content/data and build native pages (deeper integration)
+- Option C: Link out + surface key data in the dashboard (hybrid)
+
+**Files to update regardless of approach:**
+- `src/config/portals.ts` — change status from `coming-soon` to `available`
+- `src/components/dashboard/StudentDashboardClient.tsx` — add portal cards with real data
+- `src/app/sitemap.ts` — add new routes
+- Supabase: add tracking tables if needed per portal
+
+### Priority 2 — AI Academy Features
 - [ ] **Dark/light theme toggle UI** — `user_preferences` table ready in DB, just needs the toggle button wired up
 - [ ] **Challenge points → Leaderboard** — Wire `challenge_submissions.score` to leaderboard point totals
 - [ ] **RAG Mentor** — Enable pgvector in Supabase + populate `content_index` table (plan exists in RAG_MENTOR_PLAN.md)
 
-### Priority 4 — Testing
+### Priority 3 — Testing
 - [ ] Test certificate issuance end-to-end (complete course → /certificates → issue → verify URL)
 - [ ] Test public profile at `/u/[username]`
 - [ ] Test avatar upload in /profile
