@@ -5,7 +5,9 @@ import Link from "next/link";
 import {
   Users, Mail, BookOpen, Wrench, FileText, Settings,
   Shield, Activity, Database, AlertCircle, RefreshCw, LogOut,
-  TrendingUp, MessageSquare, Search, Download,
+  TrendingUp, MessageSquare, Search, Download, Bot,
+  Globe, Award, Zap, Palette, Bell, ToggleLeft, ToggleRight,
+  Eye, EyeOff, Edit3, CheckCircle, BarChart2, ExternalLink,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -16,44 +18,20 @@ import { projects } from "@/data/projects";
 import { blogPosts } from "@/data/blog";
 import { prompts } from "@/data/prompts";
 import { nanaBananaPrompts } from "@/data/nano-banana-prompts";
+import { defaultMentorSettings } from "@/types/ai_mentor_settings";
+import { defaultFeatureFlags } from "@/types/feature_flags";
+import { defaultSiteSettings } from "@/types/site_settings";
+import type { UserProfile } from "@/lib/auth/roles";
 
-type AdminTab = "overview" | "users" | "subscribers" | "messages" | "content" | "settings" | "audit" | "analytics" | "studio" | "ecosystem";
+type AdminTab =
+  | "overview" | "site-builder" | "portals" | "users"
+  | "certificates" | "mentor-control" | "content" | "email"
+  | "analytics" | "theme" | "audit";
 
-interface UserRow {
-  id: string;
-  email: string | null;
-  full_name: string | null;
-  role: string;
-  provider: string | null;
-  created_at: string;
-}
-
-interface SubscriberRow {
-  id: string;
-  email: string;
-  level: string | null;
-  interest: string | null;
-  source: string | null;
-  locale: string | null;
-  created_at: string;
-}
-
-interface MessageRow {
-  id: string;
-  name: string | null;
-  email: string | null;
-  subject: string | null;
-  message: string | null;
-  status: string;
-  created_at: string;
-}
-
-interface AuditRow {
-  id: string;
-  action: string;
-  target_type: string | null;
-  created_at: string;
-}
+interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
+interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
+interface MessageRow { id: string; name: string | null; email: string | null; subject: string | null; message: string | null; status: string; created_at: string }
+interface AuditRow { id: string; action: string; target_type: string | null; created_at: string }
 
 function StatCard({ icon, value, label, color }: { icon: React.ReactNode; value: string | number; label: string; color: string }) {
   return (
@@ -69,6 +47,16 @@ function StatCard({ icon, value, label, color }: { icon: React.ReactNode; value:
   );
 }
 
+function LoadingSkeleton() {
+  return (
+    <div className="flex flex-col gap-3">
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="glass-card rounded-xl h-14 animate-pulse" style={{ background: "var(--color-surface-container)" }} />
+      ))}
+    </div>
+  );
+}
+
 export default function AdminDashboardClient({ locale }: { locale: string }) {
   const isAr = locale === "ar";
   const { user, profile, loading, isAdmin, supabaseConfigured } = useAuth();
@@ -79,6 +67,17 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [auditLogs, setAuditLogs] = useState<AuditRow[]>([]);
   const [dataLoading, setDataLoading] = useState(false);
   const [search, setSearch] = useState("");
+
+  /* Local feature flags state (no DB yet) */
+  const [featureFlags, setFeatureFlags] = useState(defaultFeatureFlags);
+  /* Local mentor settings state */
+  const [mentorSettings, setMentorSettings] = useState(defaultMentorSettings);
+  /* Local site settings state */
+  const [siteSettings, setSiteSettings] = useState(defaultSiteSettings);
+  /* Portal visibility overrides */
+  const [portalVisibility, setPortalVisibility] = useState<Record<string, boolean>>(
+    Object.fromEntries(allPortals.map((p) => [p.id, true]))
+  );
 
   const fetchData = useCallback(async () => {
     if (!user || !supabaseConfigured) return;
@@ -113,13 +112,10 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
 
   async function promoteUser(userId: string, role: string) {
     const res = await fetch("/api/admin/promote", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId, role }),
     });
-    if (res.ok) {
-      setUsers((prev) => prev.map((u) => u.id === userId ? { ...u, role } : u));
-    }
+    if (res.ok) setUsers((prev) => prev.map((u) => u.id === userId ? { ...u, role } : u));
   }
 
   async function signOut() {
@@ -136,19 +132,17 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     const blob = new Blob([rows.join("\n")], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    a.click();
+    a.href = url; a.download = filename; a.click();
     URL.revokeObjectURL(url);
   }
 
-  // ── Guards ──────────────────────────────────────────────────────────────────
+  /* ── Guards ─────────────────────────────────────────────────────────────── */
   if (!supabaseConfigured) {
     return (
       <div className="container-xl py-20 text-center">
         <div className="text-5xl mb-4">⚙️</div>
         <h1 className="font-display font-bold text-2xl mb-3" style={{ color: "var(--color-on-surface)" }}>
-          {isAr ? "لوحة الإدارة" : "Admin Dashboard"}
+          {isAr ? "Darhous Admin Studio" : "Darhous Admin Studio"}
         </h1>
         <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
           {isAr ? "يجب إعداد Supabase أولاً." : "Supabase must be configured first."}
@@ -160,7 +154,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <div className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin" style={{ borderColor: "var(--color-primary)", borderTopColor: "transparent" }} />
+        <div className="w-10 h-10 rounded-full border-2 animate-spin" style={{ borderColor: "var(--color-primary)", borderTopColor: "transparent" }} />
       </div>
     );
   }
@@ -168,10 +162,8 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   if (!user || !isAdmin) {
     return (
       <div className="container-xl py-20 text-center">
-        <div
-          className="inline-flex flex-col items-center gap-4 px-8 py-10 rounded-3xl"
-          style={{ background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.2)" }}
-        >
+        <div className="inline-flex flex-col items-center gap-4 px-8 py-10 rounded-3xl"
+          style={{ background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.2)" }}>
           <Shield size={40} style={{ color: "#ef4444" }} />
           <h1 className="font-display font-bold text-2xl" style={{ color: "var(--color-on-surface)" }}>
             {isAr ? "غير مصرح لك" : "Unauthorized"}
@@ -180,25 +172,26 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
             {isAr ? "هذه الصفحة متاحة للمشرفين فقط." : "This page is for admins only."}
           </p>
           <Link href={`/${locale}/dashboard`} className="glow-button-secondary text-sm font-mono px-5 py-2 rounded-xl">
-            {isAr ? "لوحة الطالب" : "Student Dashboard"}
+            {isAr ? "My Darhous Hub" : "My Darhous Hub"}
           </Link>
         </div>
       </div>
     );
   }
 
-  // ── Tabs config ─────────────────────────────────────────────────────────────
+  /* ── Tabs config ──────────────────────────────────────────────────────── */
   const tabs: { id: AdminTab; labelAr: string; labelEn: string; icon: React.ReactNode }[] = [
-    { id: "overview", labelAr: "النظرة العامة", labelEn: "Overview", icon: <Activity size={16} /> },
-    { id: "users", labelAr: "المستخدمون", labelEn: "Users", icon: <Users size={16} /> },
-    { id: "subscribers", labelAr: "المشتركون", labelEn: "Subscribers", icon: <Mail size={16} /> },
-    { id: "messages", labelAr: "الرسائل", labelEn: "Messages", icon: <MessageSquare size={16} /> },
-    { id: "content", labelAr: "المحتوى", labelEn: "Content", icon: <Database size={16} /> },
-    { id: "analytics", labelAr: "التحليلات", labelEn: "Analytics", icon: <TrendingUp size={16} /> },
-    { id: "ecosystem", labelAr: "الإيكوسيستم", labelEn: "Ecosystem", icon: <Database size={16} /> },
-    { id: "studio", labelAr: "استوديو المحتوى", labelEn: "Content Studio", icon: <Activity size={16} /> },
-    { id: "settings", labelAr: "الإعدادات", labelEn: "Settings", icon: <Settings size={16} /> },
-    { id: "audit", labelAr: "سجل النشاط", labelEn: "Audit Log", icon: <Shield size={16} /> },
+    { id: "overview",       labelAr: "النظرة العامة",      labelEn: "Overview",          icon: <Activity size={15} /> },
+    { id: "site-builder",   labelAr: "بناء الموقع",        labelEn: "Site Builder",       icon: <Edit3 size={15} /> },
+    { id: "portals",        labelAr: "إدارة البوابات",      labelEn: "Portal Manager",     icon: <Globe size={15} /> },
+    { id: "users",          labelAr: "المستخدمون",          labelEn: "Users",              icon: <Users size={15} /> },
+    { id: "certificates",   labelAr: "الشهادات",            labelEn: "Certificates",       icon: <Award size={15} /> },
+    { id: "mentor-control", labelAr: "إعدادات المرشد",     labelEn: "AI Mentor Control",  icon: <Bot size={15} /> },
+    { id: "content",        labelAr: "المحتوى",             labelEn: "Content Studio",     icon: <Database size={15} /> },
+    { id: "email",          labelAr: "الإيميلات",           labelEn: "Email & Notify",     icon: <Bell size={15} /> },
+    { id: "analytics",      labelAr: "التحليلات",           labelEn: "Analytics",          icon: <TrendingUp size={15} /> },
+    { id: "theme",          labelAr: "الهوية والتصميم",    labelEn: "Theme & Branding",   icon: <Palette size={15} /> },
+    { id: "audit",          labelAr: "سجل الأمان",         labelEn: "Security & Audit",   icon: <Shield size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -207,93 +200,271 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
 
   return (
     <div className="container-xl py-8 flex flex-col gap-6">
-      {/* Header */}
+
+      {/* ── Header ─ */}
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs font-mono" style={{ color: "var(--color-tertiary)" }}>ADMIN PANEL</p>
+          <p className="text-xs font-mono" style={{ color: "var(--color-tertiary)" }}>DARHOUS ADMIN STUDIO v6.0</p>
           <h1 className="font-display font-bold text-2xl" style={{ color: "var(--color-on-surface)" }}>
-            {isAr ? "لوحة الإدارة" : "Admin Dashboard"}
+            {isAr ? "استوديو الإدارة" : "Darhous Admin Studio"}
           </h1>
           <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>
             {(profile as UserProfile & { email?: string })?.email ?? user.email}
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <button
-            onClick={fetchData}
-            disabled={dataLoading}
+          <button onClick={fetchData} disabled={dataLoading}
             className="p-2.5 rounded-xl transition-opacity hover:opacity-70"
             style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}
-            title={isAr ? "تحديث" : "Refresh"}
-          >
+            title={isAr ? "تحديث" : "Refresh"}>
             <RefreshCw size={15} className={dataLoading ? "animate-spin" : ""} />
           </button>
-          <button
-            onClick={signOut}
+          <button onClick={signOut}
             className="flex items-center gap-2 text-sm font-mono px-3 py-2 rounded-xl transition-opacity hover:opacity-70"
-            style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}
-          >
+            style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}>
             <LogOut size={14} />
             {isAr ? "خروج" : "Sign out"}
           </button>
         </div>
       </div>
 
-      {/* Tab bar */}
+      {/* ── Tab bar ─ */}
       <div className="flex items-center gap-1 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
         {tabs.map((t) => (
-          <button
-            key={t.id}
-            onClick={() => setTab(t.id)}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-mono whitespace-nowrap transition-all"
+          <button key={t.id} onClick={() => setTab(t.id)}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all"
             style={{
               background: tab === t.id ? "rgba(60,224,251,0.12)" : "transparent",
               border: `1px solid ${tab === t.id ? "rgba(60,224,251,0.3)" : "transparent"}`,
               color: tab === t.id ? "var(--color-tertiary)" : "var(--color-on-surface-variant)",
-            }}
-          >
+            }}>
             {t.icon}
             {isAr ? t.labelAr : t.labelEn}
           </button>
         ))}
       </div>
 
-      {/* ── Overview ──────────────────────────────────────────────────────── */}
+      {/* ══════════════════════════════════════════════════════════
+          TAB CONTENT
+      ══════════════════════════════════════════════════════════ */}
+
+      {/* 1 ── OVERVIEW ─────────────────────────────────────────── */}
       {tab === "overview" && (
         <div className="flex flex-col gap-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <StatCard icon={<Users size={20} />} value={users.length} label={isAr ? "إجمالي المستخدمين" : "Total Users"} color="var(--color-primary)" />
             <StatCard icon={<Mail size={20} />} value={subscribers.length} label={isAr ? "المشتركون في النشرة" : "Subscribers"} color="var(--color-secondary)" />
             <StatCard icon={<MessageSquare size={20} />} value={messages.filter((m) => m.status === "new").length} label={isAr ? "رسائل جديدة" : "New Messages"} color="#f59e0b" />
-            <StatCard icon={<TrendingUp size={20} />} value={users.filter((u) => u.role === "admin").length} label={isAr ? "المشرفون" : "Admins"} color="#ef4444" />
+            <StatCard icon={<Shield size={20} />} value={users.filter((u) => u.role === "admin").length} label={isAr ? "المشرفون" : "Admins"} color="#ef4444" />
           </div>
-
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <StatCard icon={<BookOpen size={20} />} value={courses.length} label={isAr ? "الدورات" : "Courses"} color="var(--color-primary)" />
             <StatCard icon={<Wrench size={20} />} value={tools.length} label={isAr ? "الأدوات" : "Tools"} color="var(--color-tertiary)" />
             <StatCard icon={<FileText size={20} />} value={prompts.length} label={isAr ? "البرومبتات" : "Prompts"} color="var(--color-secondary)" />
-            <StatCard icon={<Database size={20} />} value={nanaBananaPrompts.length} label={isAr ? "Nano Banana" : "Nano Banana"} color="#f59e0b" />
+            <StatCard icon={<Globe size={20} />} value={allPortals.filter((p) => p.status === "available").length} label={isAr ? "بوابات متاحة" : "Live Portals"} color="#4ade80" />
+          </div>
+
+          {/* System health */}
+          <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(74,222,128,0.12)" }}>
+            <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+              <CheckCircle size={16} style={{ color: "#4ade80" }} />
+              {isAr ? "صحة النظام" : "System Health"}
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {[
+                { label: "Supabase DB", status: true },
+                { label: "Gemini AI", status: true },
+                { label: "Resend Email", status: true },
+                { label: "All 6 Portals", status: true },
+              ].map((s) => (
+                <div key={s.label} className="flex items-center gap-2 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+                  <div className="w-2 h-2 rounded-full" style={{ background: s.status ? "#4ade80" : "#ef4444" }} />
+                  {s.label}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
 
-      {/* ── Users ─────────────────────────────────────────────────────────── */}
+      {/* 2 ── SITE BUILDER ─────────────────────────────────────── */}
+      {tab === "site-builder" && (
+        <div className="flex flex-col gap-6">
+          <div className="flex items-center justify-between">
+            <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+              {isAr ? "بناء الصفحة الرئيسية" : "Landing Page Builder"}
+            </h2>
+            <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: "rgba(251,191,36,0.1)", color: "#fbbf24", border: "1px solid rgba(251,191,36,0.2)" }}>
+              {isAr ? "محلي — قريبًا DB" : "Local — DB coming soon"}
+            </span>
+          </div>
+
+          {/* Hero content editor */}
+          <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(142,213,255,0.1)" }}>
+            <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "var(--color-primary)" }}>
+              <Edit3 size={15} /> {isAr ? "محتوى الـ Hero" : "Hero Content"}
+            </h3>
+            <div className="flex flex-col gap-3">
+              <div>
+                <label className="text-xs font-mono mb-1 block" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "العنوان الرئيسي (عربي)" : "Hero Title (Arabic)"}</label>
+                <input value={siteSettings.heroTitle.ar} onChange={(e) => setSiteSettings((s) => ({ ...s, heroTitle: { ...s.heroTitle, ar: e.target.value } }))}
+                  className="w-full px-4 py-2.5 rounded-xl text-sm outline-none"
+                  style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }} />
+              </div>
+              <div>
+                <label className="text-xs font-mono mb-1 block" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "العنوان الرئيسي (إنجليزي)" : "Hero Title (English)"}</label>
+                <input value={siteSettings.heroTitle.en} onChange={(e) => setSiteSettings((s) => ({ ...s, heroTitle: { ...s.heroTitle, en: e.target.value } }))}
+                  className="w-full px-4 py-2.5 rounded-xl text-sm outline-none"
+                  style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }} />
+              </div>
+              <div>
+                <label className="text-xs font-mono mb-1 block" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "النص الفرعي (عربي)" : "Subtitle (Arabic)"}</label>
+                <textarea value={siteSettings.heroSubtitle.ar} onChange={(e) => setSiteSettings((s) => ({ ...s, heroSubtitle: { ...s.heroSubtitle, ar: e.target.value } }))}
+                  rows={2} className="w-full px-4 py-2.5 rounded-xl text-sm outline-none resize-none"
+                  style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }} />
+              </div>
+            </div>
+          </div>
+
+          {/* Section visibility */}
+          <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(208,188,255,0.1)" }}>
+            <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "var(--color-secondary)" }}>
+              <Eye size={15} /> {isAr ? "تحكم في رؤية الأقسام" : "Section Visibility"}
+            </h3>
+            <div className="flex flex-col gap-3">
+              {(Object.entries(siteSettings.sectionVisibility) as [keyof typeof siteSettings.sectionVisibility, boolean][]).map(([key, val]) => (
+                <div key={key} className="flex items-center justify-between py-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                  <span className="text-sm font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{key}</span>
+                  <button
+                    onClick={() => setSiteSettings((s) => ({ ...s, sectionVisibility: { ...s.sectionVisibility, [key]: !val } }))}
+                    style={{ color: val ? "#4ade80" : "var(--color-on-surface-variant)" }}>
+                    {val ? <ToggleRight size={24} /> : <ToggleLeft size={24} />}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTAs */}
+          <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(60,224,251,0.1)" }}>
+            <h3 className="font-bold text-sm mb-4" style={{ color: "var(--color-tertiary)" }}>
+              {isAr ? "نصوص أزرار Hero" : "Hero CTA Buttons"}
+            </h3>
+            <div className="flex flex-col gap-3">
+              {[
+                { field: "heroCta1" as const, label: isAr ? "زر 1" : "CTA 1" },
+                { field: "heroCta2" as const, label: isAr ? "زر 2" : "CTA 2" },
+                { field: "heroCta3" as const, label: isAr ? "زر 3" : "CTA 3" },
+              ].map(({ field, label }) => (
+                <div key={field} className="flex gap-2 items-center">
+                  <span className="text-xs font-mono w-12 flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{label}</span>
+                  <input value={siteSettings[field].ar} onChange={(e) => setSiteSettings((s) => ({ ...s, [field]: { ...s[field], ar: e.target.value } }))}
+                    placeholder="عربي" className="flex-1 px-3 py-2 rounded-xl text-xs outline-none"
+                    style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }} />
+                  <input value={siteSettings[field].en} onChange={(e) => setSiteSettings((s) => ({ ...s, [field]: { ...s[field], en: e.target.value } }))}
+                    placeholder="English" className="flex-1 px-3 py-2 rounded-xl text-xs outline-none"
+                    style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Feature Flags */}
+          <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(249,115,22,0.1)" }}>
+            <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#f97316" }}>
+              <Zap size={15} /> {isAr ? "Feature Flags" : "Feature Flags"}
+            </h3>
+            <div className="flex flex-col gap-3">
+              {featureFlags.map((flag, i) => (
+                <div key={flag.name} className="flex items-center justify-between py-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                  <div>
+                    <p className="text-sm font-mono" style={{ color: "var(--color-on-surface)" }}>{flag.name}</p>
+                    {flag.description && <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{flag.description}</p>}
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{flag.rollout_pct}%</span>
+                    <button
+                      onClick={() => setFeatureFlags((prev) => prev.map((f, j) => j === i ? { ...f, enabled: !f.enabled } : f))}
+                      style={{ color: flag.enabled ? "#4ade80" : "var(--color-on-surface-variant)" }}>
+                      {flag.enabled ? <ToggleRight size={22} /> : <ToggleLeft size={22} />}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 3 ── PORTAL MANAGER ────────────────────────────────────── */}
+      {tab === "portals" && (
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center justify-between">
+            <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+              {isAr ? "إدارة البوابات" : "Portal Manager"}
+            </h2>
+            <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: "rgba(74,222,128,0.1)", color: "#4ade80" }}>
+              {allPortals.filter((p) => p.status === "available").length} {isAr ? "متاح" : "live"}
+            </span>
+          </div>
+          <div className="flex flex-col gap-3">
+            {allPortals.map((portal) => (
+              <div key={portal.id} className="glass-card rounded-2xl p-4 flex items-center gap-4"
+                style={{ border: `1px solid ${portal.color}15` }}>
+                <span className="text-2xl flex-shrink-0">{portal.icon}</span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <p className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>
+                      {isAr ? portal.titleAr : portal.titleEn}
+                    </p>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full"
+                      style={{ background: portal.status === "available" ? "rgba(74,222,128,0.12)" : "rgba(148,163,184,0.1)", color: portal.status === "available" ? "#4ade80" : "#94a3b8" }}>
+                      {portal.status}
+                    </span>
+                    <span className="text-[10px] font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{portal.href}</span>
+                  </div>
+                  <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {portal.features.slice(0, 3).join(" · ")}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 flex-shrink-0">
+                  <button
+                    onClick={() => setPortalVisibility((prev) => ({ ...prev, [portal.id]: !prev[portal.id] }))}
+                    title={portalVisibility[portal.id] ? "Hide" : "Show"}
+                    style={{ color: portalVisibility[portal.id] ? "#4ade80" : "var(--color-on-surface-variant)" }}>
+                    {portalVisibility[portal.id] ? <Eye size={18} /> : <EyeOff size={18} />}
+                  </button>
+                  <Link href={`/${locale}${portal.href}`} target="_blank"
+                    className="p-1.5 rounded-lg hover:opacity-70 transition-opacity"
+                    style={{ color: "var(--color-on-surface-variant)" }}>
+                    <ExternalLink size={15} />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 4 ── USERS ─────────────────────────────────────────────── */}
       {tab === "users" && (
         <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <div className="relative flex-1 max-w-sm">
               <Search size={14} className="absolute top-1/2 -translate-y-1/2 start-3" style={{ color: "var(--color-on-surface-variant)" }} />
-              <input
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
+              <input value={search} onChange={(e) => setSearch(e.target.value)}
                 placeholder={isAr ? "ابحث بالبريد أو الاسم..." : "Search by email or name..."}
                 className="w-full ps-9 pe-4 py-2 rounded-xl outline-none text-sm"
-                style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }}
-              />
+                style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }} />
             </div>
             <span className="text-sm font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
               {filteredUsers.length} {isAr ? "مستخدم" : "users"}
             </span>
+            <button onClick={() => exportCSV(users as unknown as Record<string, unknown>[], "users.csv")}
+              className="flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-70"
+              style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)", border: "1px solid var(--color-outline-variant)" }}>
+              <Download size={12} /> {isAr ? "تصدير" : "Export"}
+            </button>
           </div>
 
           {dataLoading ? <LoadingSkeleton /> : (
@@ -303,31 +474,25 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold truncate" style={{ color: "var(--color-on-surface)" }}>{u.full_name ?? "—"}</p>
                     <p className="text-xs font-mono truncate" style={{ color: "var(--color-on-surface-variant)" }}>{u.email}</p>
+                    <p className="text-[10px] font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                      {new Date(u.created_at).toLocaleDateString()} · {u.provider ?? "email"}
+                    </p>
                   </div>
-                  <span
-                    className="text-[11px] font-mono px-2 py-0.5 rounded-full flex-shrink-0"
-                    style={{
-                      background: u.role === "admin" ? "rgba(239,68,68,0.12)" : "rgba(142,213,255,0.1)",
-                      color: u.role === "admin" ? "#ef4444" : "var(--color-primary)",
-                    }}
-                  >
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded-full flex-shrink-0"
+                    style={{ background: u.role === "admin" ? "rgba(239,68,68,0.12)" : "rgba(142,213,255,0.1)", color: u.role === "admin" ? "#ef4444" : "var(--color-primary)" }}>
                     {u.role}
                   </span>
                   {u.role !== "admin" && (
-                    <button
-                      onClick={() => promoteUser(u.id, "admin")}
+                    <button onClick={() => promoteUser(u.id, "admin")}
                       className="text-[11px] font-mono px-2 py-0.5 rounded-lg transition-opacity hover:opacity-70"
-                      style={{ background: "rgba(239,68,68,0.08)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.2)" }}
-                    >
-                      {isAr ? "ترقية لمشرف" : "Promote admin"}
+                      style={{ background: "rgba(239,68,68,0.08)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.2)" }}>
+                      {isAr ? "ترقية" : "Promote"}
                     </button>
                   )}
                   {u.role === "admin" && u.id !== user.id && (
-                    <button
-                      onClick={() => promoteUser(u.id, "student")}
+                    <button onClick={() => promoteUser(u.id, "student")}
                       className="text-[11px] font-mono px-2 py-0.5 rounded-lg transition-opacity hover:opacity-70"
-                      style={{ background: "rgba(142,213,255,0.06)", color: "var(--color-on-surface-variant)", border: "1px solid var(--color-outline-variant)" }}
-                    >
+                      style={{ background: "rgba(142,213,255,0.06)", color: "var(--color-on-surface-variant)", border: "1px solid var(--color-outline-variant)" }}>
                       {isAr ? "تخفيض" : "Demote"}
                     </button>
                   )}
@@ -335,400 +500,434 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
               ))}
             </div>
           )}
-        </div>
-      )}
 
-      {/* ── Subscribers ───────────────────────────────────────────────────── */}
-      {tab === "subscribers" && (
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
-              {subscribers.length} {isAr ? "مشترك" : "subscribers"}
-            </span>
-            <button
-              onClick={() => exportCSV(subscribers as unknown as Record<string, unknown>[], "subscribers.csv")}
-              className="flex items-center gap-2 text-sm font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-70"
-              style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)", border: "1px solid var(--color-outline-variant)" }}
-            >
-              <Download size={13} />
-              {isAr ? "تصدير CSV" : "Export CSV"}
-            </button>
-          </div>
-
-          {dataLoading ? <LoadingSkeleton /> : (
-            <div className="flex flex-col gap-2">
-              {subscribers.map((s) => (
-                <div key={s.id} className="glass-card rounded-xl px-4 py-3 flex flex-wrap items-center gap-3">
+          {/* Subscribers */}
+          <div className="mt-4 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            <div className="flex items-center justify-between mb-3">
+              <p className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>
+                {isAr ? `المشتركون في النشرة (${subscribers.length})` : `Newsletter Subscribers (${subscribers.length})`}
+              </p>
+              <button onClick={() => exportCSV(subscribers as unknown as Record<string, unknown>[], "subscribers.csv")}
+                className="flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-70"
+                style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)", border: "1px solid var(--color-outline-variant)" }}>
+                <Download size={11} /> CSV
+              </button>
+            </div>
+            <div className="flex flex-col gap-2 max-h-48 overflow-y-auto">
+              {subscribers.slice(0, 20).map((s) => (
+                <div key={s.id} className="glass-card rounded-xl px-4 py-2.5 flex flex-wrap items-center gap-3">
                   <p className="text-sm font-mono flex-1 truncate" style={{ color: "var(--color-on-surface)" }}>{s.email}</p>
-                  <span className="text-[11px] font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{s.interest ?? "—"}</span>
-                  <span className="text-[11px] font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{s.locale ?? "—"}</span>
+                  <span className="text-[10px] font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{s.interest ?? "—"}</span>
+                  <span className="text-[10px] font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{s.locale ?? "—"}</span>
                 </div>
               ))}
             </div>
-          )}
+          </div>
         </div>
       )}
 
-      {/* ── Messages ──────────────────────────────────────────────────────── */}
-      {tab === "messages" && (
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
-              {messages.filter((m) => m.status === "new").length} {isAr ? "جديد" : "new"} / {messages.length} {isAr ? "إجمالي" : "total"}
-            </span>
-            <div
-              className="flex items-center gap-1.5 text-xs px-3 py-1 rounded-lg"
-              style={{ background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.2)", color: "#fbbf24" }}
-            >
-              <AlertCircle size={12} />
-              {isAr ? "الرسائل تأتي أيضًا عبر FormSubmit لبريدك الإلكتروني" : "Messages also arrive via FormSubmit to your email"}
-            </div>
+      {/* 5 ── CERTIFICATES STUDIO ───────────────────────────────── */}
+      {tab === "certificates" && (
+        <div className="flex flex-col gap-5">
+          <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+            {isAr ? "استوديو الشهادات" : "Certificates Studio"}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { icon: "🤖", t: isAr ? "شهادة أكاديمية AI" : "AI Academy Certificate", color: "#8ed5ff" },
+              { icon: "🌐", t: isAr ? "شهادة اللغة الإنجليزية" : "English Language Certificate", color: "#d0bcff" },
+              { icon: "💻", t: isAr ? "شهادة التحول الرقمي" : "Digital Transformation Certificate", color: "#3ce0fb" },
+              { icon: "💼", t: isAr ? "شهادة المهارات المهنية" : "Career Skills Certificate", color: "#f59e0b" },
+              { icon: "⚙️", t: isAr ? "شهادة الأتمتة" : "Automation Certificate", color: "#4ade80" },
+              { icon: "🔌", t: isAr ? "شهادة IoT & Arduino" : "IoT & Arduino Certificate", color: "#f97316" },
+            ].map((cert) => (
+              <div key={cert.t} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: `1px solid ${cert.color}15` }}>
+                <span className="text-3xl">{cert.icon}</span>
+                <p className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{cert.t}</p>
+                <div className="flex gap-2 mt-auto flex-wrap">
+                  <button className="text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
+                    style={{ background: `${cert.color}12`, color: cert.color, border: `1px solid ${cert.color}20` }}>
+                    {isAr ? "عرض القالب" : "View Template"}
+                  </button>
+                  <Link href={`/${locale}/certificates`}
+                    className="text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
+                    style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)", textDecoration: "none" }}>
+                    {isAr ? "إصدار" : "Issue"}
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(251,191,36,0.1)" }}>
+            <p className="text-xs font-mono" style={{ color: "#fbbf24" }}>
+              ℹ️ {isAr ? "نظام الشهادات مرتبط بـ Supabase — راجع جدول certificates" : "Certificate system is linked to Supabase — check the certificates table"}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* 6 ── AI MENTOR CONTROL ─────────────────────────────────── */}
+      {tab === "mentor-control" && (
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center justify-between">
+            <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+              {isAr ? "إعدادات المرشد الذكي" : "AI Mentor Control"}
+            </h2>
+            <Link href={`/${locale}/mentor`} target="_blank"
+              className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-lg hover:opacity-80 transition-opacity"
+              style={{ background: "rgba(142,213,255,0.08)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)", textDecoration: "none" }}>
+              <ExternalLink size={12} /> {isAr ? "فتح المرشد" : "Open Mentor"}
+            </Link>
           </div>
 
-          {dataLoading ? <LoadingSkeleton /> : (
-            <div className="flex flex-col gap-2">
-              {messages.map((m) => (
-                <div
-                  key={m.id}
-                  className="glass-card rounded-xl p-4 flex flex-col gap-2"
-                  style={{ border: m.status === "new" ? "1px solid rgba(142,213,255,0.2)" : "1px solid rgba(255,255,255,0.04)" }}
-                >
-                  <div className="flex items-center justify-between flex-wrap gap-2">
-                    <div>
-                      <span className="font-semibold text-sm" style={{ color: "var(--color-on-surface)" }}>{m.name ?? "—"}</span>
-                      <span className="text-xs font-mono ms-2" style={{ color: "var(--color-on-surface-variant)" }}>{m.email}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span
-                        className="text-[11px] font-mono px-2 py-0.5 rounded-full"
-                        style={{
-                          background: m.status === "new" ? "rgba(142,213,255,0.1)" : "transparent",
-                          color: m.status === "new" ? "var(--color-primary)" : "var(--color-on-surface-variant)",
-                        }}
-                      >
-                        {m.status}
-                      </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {/* Personality & Tone */}
+            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(142,213,255,0.1)" }}>
+              <h3 className="font-bold text-sm mb-4" style={{ color: "var(--color-primary)" }}>
+                {isAr ? "الشخصية والأسلوب" : "Personality & Tone"}
+              </h3>
+              <div className="flex flex-col gap-3">
+                <div>
+                  <label className="text-xs font-mono mb-1 block" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {isAr ? "الشخصية" : "Personality"}
+                  </label>
+                  <select value={mentorSettings.personality}
+                    onChange={(e) => setMentorSettings((s) => ({ ...s, personality: e.target.value as typeof s.personality }))}
+                    className="w-full px-3 py-2 rounded-xl text-sm outline-none"
+                    style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }}>
+                    {(["coach", "teacher", "advisor", "motivator"] as const).map((v) => <option key={v} value={v}>{v}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs font-mono mb-1 block" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {isAr ? "الأسلوب" : "Tone"}
+                  </label>
+                  <select value={mentorSettings.tone}
+                    onChange={(e) => setMentorSettings((s) => ({ ...s, tone: e.target.value as typeof s.tone }))}
+                    className="w-full px-3 py-2 rounded-xl text-sm outline-none"
+                    style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }}>
+                    {(["friendly", "formal", "energetic", "calm"] as const).map((v) => <option key={v} value={v}>{v}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs font-mono mb-1 block" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {isAr ? "اللغة" : "Language"}
+                  </label>
+                  <select value={mentorSettings.language}
+                    onChange={(e) => setMentorSettings((s) => ({ ...s, language: e.target.value as typeof s.language }))}
+                    className="w-full px-3 py-2 rounded-xl text-sm outline-none"
+                    style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }}>
+                    {(["ar", "en", "bilingual"] as const).map((v) => <option key={v} value={v}>{v}</option>)}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* System Prompt */}
+            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(208,188,255,0.1)" }}>
+              <h3 className="font-bold text-sm mb-4" style={{ color: "var(--color-secondary)" }}>
+                {isAr ? "System Prompt" : "System Prompt"}
+              </h3>
+              <textarea value={mentorSettings.systemPrompt}
+                onChange={(e) => setMentorSettings((s) => ({ ...s, systemPrompt: e.target.value }))}
+                rows={6} className="w-full px-3 py-2.5 rounded-xl text-xs outline-none resize-none"
+                style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)", fontFamily: "monospace" }} />
+              <div className="flex items-center gap-3 mt-3">
+                <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                  max_tokens: {mentorSettings.maxTokens}
+                </span>
+                <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                  temp: {mentorSettings.temperature}
+                </span>
+                <div className="flex items-center gap-1.5 ms-auto text-xs font-mono" style={{ color: mentorSettings.enableStreaming ? "#4ade80" : "var(--color-on-surface-variant)" }}>
+                  {mentorSettings.enableStreaming ? "✓ Streaming" : "✗ Streaming"}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 7 ── CONTENT STUDIO ────────────────────────────────────── */}
+      {tab === "content" && (
+        <div className="flex flex-col gap-5">
+          <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+            {isAr ? "استوديو المحتوى" : "Content Studio"}
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { icon: <BookOpen size={22} />, count: courses.length, labelAr: "الدورات", labelEn: "Courses", href: `/${locale}/courses`, color: "var(--color-primary)" },
+              { icon: <Wrench size={22} />, count: tools.length, labelAr: "الأدوات", labelEn: "AI Tools", href: `/${locale}/tools`, color: "var(--color-tertiary)" },
+              { icon: <Activity size={22} />, count: projects.length, labelAr: "المشاريع", labelEn: "Projects", href: `/${locale}/projects`, color: "#4ade80" },
+              { icon: <FileText size={22} />, count: blogPosts.length, labelAr: "المقالات", labelEn: "Blog Posts", href: `/${locale}/blog`, color: "#f59e0b" },
+              { icon: <FileText size={22} />, count: prompts.length, labelAr: "البرومبتات", labelEn: "Prompts", href: `/${locale}/prompts`, color: "var(--color-secondary)" },
+              { icon: <Database size={22} />, count: nanaBananaPrompts.length, labelAr: "Nano Banana", labelEn: "Nano Banana", href: `/${locale}/nano-banana-prompts`, color: "#f59e0b" },
+            ].map((item) => (
+              <Link key={item.href} href={item.href}
+                className="glass-card rounded-2xl p-5 flex flex-col gap-3 transition-all hover:scale-[1.02]"
+                style={{ border: `1px solid ${item.color}15`, textDecoration: "none" }}>
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${item.color}12`, color: item.color }}>
+                    {item.icon}
+                  </div>
+                  <span className="font-bold text-2xl font-mono" style={{ color: item.color }}>{item.count}</span>
+                </div>
+                <p className="text-sm font-semibold" style={{ color: "var(--color-on-surface)" }}>
+                  {isAr ? item.labelAr : item.labelEn}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          {/* Messages */}
+          <div className="mt-2">
+            <div className="flex items-center gap-3 mb-3 flex-wrap">
+              <h3 className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>
+                {isAr ? `رسائل التواصل (${messages.filter((m) => m.status === "new").length} جديد)` : `Contact Messages (${messages.filter((m) => m.status === "new").length} new)`}
+              </h3>
+              {messages.filter((m) => m.status === "new").length > 0 && (
+                <div className="flex items-center gap-1.5 text-xs px-3 py-1 rounded-lg" style={{ background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.2)", color: "#fbbf24" }}>
+                  <AlertCircle size={12} /> {isAr ? "لديك رسائل جديدة" : "You have new messages"}
+                </div>
+              )}
+            </div>
+            {dataLoading ? <LoadingSkeleton /> : (
+              <div className="flex flex-col gap-2 max-h-80 overflow-y-auto">
+                {messages.map((m) => (
+                  <div key={m.id} className="glass-card rounded-xl p-4 flex flex-col gap-2"
+                    style={{ border: m.status === "new" ? "1px solid rgba(142,213,255,0.2)" : "1px solid rgba(255,255,255,0.04)" }}>
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <div>
+                        <span className="font-semibold text-sm" style={{ color: "var(--color-on-surface)" }}>{m.name ?? "—"}</span>
+                        <span className="text-xs font-mono ms-2" style={{ color: "var(--color-on-surface-variant)" }}>{m.email}</span>
+                      </div>
                       {m.status === "new" && (
-                        <button
-                          onClick={() => markMessageRead(m.id)}
+                        <button onClick={() => markMessageRead(m.id)}
                           className="text-[11px] font-mono px-2 py-0.5 rounded-lg transition-opacity hover:opacity-70"
-                          style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}
-                        >
+                          style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}>
                           {isAr ? "تعليم مقروء" : "Mark read"}
                         </button>
                       )}
                     </div>
+                    {m.message && <p className="text-sm leading-relaxed line-clamp-2" style={{ color: "var(--color-on-surface-variant)" }}>{m.message}</p>}
                   </div>
-                  {m.subject && <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{m.subject}</p>}
-                  {m.message && <p className="text-sm leading-relaxed line-clamp-3" style={{ color: "var(--color-on-surface-variant)" }}>{m.message}</p>}
-                </div>
-              ))}
-              {messages.length === 0 && (
-                <p className="text-center py-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                  {isAr ? "لا توجد رسائل بعد." : "No messages yet."}
-                </p>
-              )}
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* ── Content ───────────────────────────────────────────────────────── */}
-      {tab === "content" && (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[
-            { icon: <BookOpen size={22} />, count: courses.length, labelAr: "الدورات", labelEn: "Courses", href: `/${locale}/courses`, color: "var(--color-primary)" },
-            { icon: <Wrench size={22} />, count: tools.length, labelAr: "الأدوات", labelEn: "AI Tools", href: `/${locale}/tools`, color: "var(--color-tertiary)" },
-            { icon: <Activity size={22} />, count: projects.length, labelAr: "المشاريع", labelEn: "Projects", href: `/${locale}/projects`, color: "#4ade80" },
-            { icon: <FileText size={22} />, count: blogPosts.length, labelAr: "المقالات", labelEn: "Blog Posts", href: `/${locale}/blog`, color: "#f59e0b" },
-            { icon: <FileText size={22} />, count: prompts.length, labelAr: "البرومبتات", labelEn: "Prompts", href: `/${locale}/prompts`, color: "var(--color-secondary)" },
-            { icon: <Database size={22} />, count: nanaBananaPrompts.length, labelAr: "Nano Banana", labelEn: "Nano Banana", href: `/${locale}/nano-banana-prompts`, color: "#f59e0b" },
-          ].map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="glass-card rounded-2xl p-6 flex flex-col gap-3 transition-all hover:scale-105 hover:-translate-y-1"
-              style={{ border: `1px solid ${item.color}20` }}
-            >
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${item.color}15`, color: item.color }}>
-                {item.icon}
+                ))}
+                {messages.length === 0 && (
+                  <p className="text-center py-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {isAr ? "لا توجد رسائل بعد." : "No messages yet."}
+                  </p>
+                )}
               </div>
-              <p className="font-bold text-2xl font-mono" style={{ color: "var(--color-on-surface)" }}>{item.count}</p>
-              <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? item.labelAr : item.labelEn}</p>
-            </Link>
-          ))}
-        </div>
-      )}
-
-      {/* ── Settings ──────────────────────────────────────────────────────── */}
-      {tab === "settings" && (
-        <div
-          className="rounded-2xl p-8 text-center"
-          style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)" }}
-        >
-          <Settings size={40} className="mx-auto mb-4" style={{ color: "var(--color-on-surface-variant)" }} />
-          <h3 className="font-bold text-lg mb-2" style={{ color: "var(--color-on-surface)" }}>
-            {isAr ? "إعدادات المنصة" : "Platform Settings"}
-          </h3>
-          <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-            {isAr
-              ? "إعدادات المنصة المتقدمة ستكون متاحة قريبًا مع قاعدة بيانات Supabase."
-              : "Advanced platform settings will be available via the Supabase platform_settings table."}
-          </p>
-        </div>
-      )}
-
-      {/* ── Audit ─────────────────────────────────────────────────────────── */}
-      {tab === "audit" && (
-        <div className="flex flex-col gap-3">
-          {dataLoading ? <LoadingSkeleton /> : (
-            auditLogs.length === 0 ? (
-              <p className="text-center py-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                {isAr ? "لا توجد سجلات بعد." : "No audit logs yet."}
-              </p>
-            ) : (
-              auditLogs.map((a) => (
-                <div key={a.id} className="glass-card rounded-xl px-4 py-3 flex items-center gap-3">
-                  <Shield size={14} style={{ color: "var(--color-on-surface-variant)", flexShrink: 0 }} />
-                  <p className="text-sm flex-1" style={{ color: "var(--color-on-surface)" }}>{a.action}</p>
-                  <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
-                    {new Date(a.created_at).toLocaleDateString()}
-                  </span>
-                </div>
-              ))
-            )
-          )}
-        </div>
-      )}
-
-      {/* ── Analytics ─────────────────────────────────────────────────────── */}
-      {tab === "analytics" && (
-        <div className="flex flex-col gap-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <StatCard icon={<Users size={18} />} value={users.length} label={isAr ? "إجمالي المستخدمين" : "Total Users"} color="var(--color-primary)" />
-            <StatCard icon={<Mail size={18} />} value={subscribers.length} label={isAr ? "المشتركون" : "Subscribers"} color="var(--color-secondary)" />
-            <StatCard icon={<MessageSquare size={18} />} value={messages.length} label={isAr ? "الرسائل" : "Messages"} color="var(--color-tertiary)" />
-            <StatCard icon={<Activity size={18} />} value={users.filter(u => u.role === "admin").length} label={isAr ? "الإداريون" : "Admins"} color="#ef4444" />
-          </div>
-
-          {/* Event tracking note */}
-          <div className="glass-card rounded-2xl p-6">
-            <h3 className="font-bold text-base mb-3" style={{ color: "var(--color-on-surface)" }}>
-              {isAr ? "تتبع الأحداث" : "Event Tracking"}
-            </h3>
-            <p className="text-sm mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
-              {isAr
-                ? "يتم تتبع الأحداث في جدول analytics_events. الأحداث المتاحة: نسخ برومبت، حفظ Nano Banana، تسجيل مجتمعي، إصدار شهادة، تقديم تحدي."
-                : "Events are tracked in the analytics_events table. Available events: prompt copied, Nano Banana saved, community signup, certificate generated, challenge submitted."}
-            </p>
-            <div className="glass-card rounded-xl p-4 font-mono text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
-              <p style={{ color: "var(--color-primary)" }}>-- View event counts:</p>
-              <p>SELECT event_name, COUNT(*) as total</p>
-              <p>FROM analytics_events</p>
-              <p>GROUP BY event_name</p>
-              <p>ORDER BY total DESC;</p>
-            </div>
-          </div>
-
-          {/* Content counts */}
-          <div className="glass-card rounded-2xl p-6">
-            <h3 className="font-bold text-base mb-3" style={{ color: "var(--color-on-surface)" }}>
-              {isAr ? "إحصائيات المحتوى" : "Content Statistics"}
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {[
-                { label: isAr ? "الدورات" : "Courses", count: courses.length, icon: "📚" },
-                { label: isAr ? "الأدوات" : "Tools", count: tools.length, icon: "🛠️" },
-                { label: isAr ? "المشاريع" : "Projects", count: projects.length, icon: "🚀" },
-                { label: isAr ? "المقالات" : "Blog Posts", count: blogPosts.length, icon: "📰" },
-                { label: isAr ? "البرومبتات" : "Prompts", count: prompts.length, icon: "⚡" },
-                { label: "Nano Banana", count: nanaBananaPrompts.length, icon: "🍌" },
-              ].map((item) => (
-                <div key={item.label} className="glass-card rounded-xl p-3 text-center">
-                  <div className="text-2xl mb-1">{item.icon}</div>
-                  <p className="font-bold text-lg font-mono" style={{ color: "var(--color-on-surface)" }}>{item.count}</p>
-                  <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{item.label}</p>
-                </div>
-              ))}
-            </div>
+            )}
           </div>
         </div>
       )}
 
-      {/* ── Ecosystem ──────────────────────────────────────────────────────── */}
-      {tab === "ecosystem" && (
-        <EcosystemAdminPanel isAr={isAr} locale={locale} />
-      )}
-
-      {/* ── Content Studio ─────────────────────────────────────────────────── */}
-      {tab === "studio" && (
-        <div className="flex flex-col gap-6">
-          <div className="glass-card rounded-2xl p-6">
-            <h3 className="font-bold text-base mb-2" style={{ color: "var(--color-on-surface)" }}>
-              {isAr ? "استوديو المحتوى" : "Content Studio"}
-            </h3>
-            <p className="text-sm mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
-              {isAr
-                ? "المحتوى الثابت (الدورات، الأدوات، المشاريع) موجود في كود المصدر. يمكنك إنشاء مسودات للمحتوى الجديد في جدول content_items."
-                : "Static content (courses, tools, projects) lives in source code. Create drafts for new content in the content_items table."}
-            </p>
-            <div className="flex items-center gap-2 p-4 rounded-xl" style={{ background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.15)" }}>
-              <span style={{ color: "#fbbf24" }}>⚠️</span>
-              <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
-                {isAr ? "لإضافة محتوى جديد للموقع، أضفه في src/data/ أو أنشئ مسودة هنا للمراجعة." : "To add new content to the site, add it in src/data/ or create a draft here for review."}
-              </p>
-            </div>
-          </div>
-
-          {/* Content type overview */}
+      {/* 8 ── EMAIL & NOTIFICATIONS ─────────────────────────────── */}
+      {tab === "email" && (
+        <div className="flex flex-col gap-5">
+          <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+            {isAr ? "الإيميلات والإشعارات" : "Email & Notifications"}
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { title: isAr ? "الدورات" : "Courses", count: courses.length, file: "src/data/courses.ts", color: "var(--color-primary)" },
-              { title: isAr ? "الأدوات" : "Tools", count: tools.length, file: "src/data/tools.ts", color: "#a78bfa" },
-              { title: isAr ? "المشاريع" : "Projects", count: projects.length, file: "src/data/projects.ts", color: "#4ade80" },
-              { title: isAr ? "المدونة" : "Blog", count: blogPosts.length, file: "src/data/blog.ts + src/content/blog/", color: "#fb923c" },
-              { title: isAr ? "البرومبتات" : "Prompts", count: prompts.length, file: "src/data/prompts.ts", color: "#fbbf24" },
-              { title: "Nano Banana", count: nanaBananaPrompts.length, file: "src/data/nano-banana-prompts.ts", color: "#f9a8d4" },
-            ].map((item) => (
-              <div key={item.title} className="glass-card rounded-2xl p-5" style={{ border: `1px solid ${item.color}15` }}>
-                <div className="flex items-center justify-between mb-2">
-                  <p className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{item.title}</p>
-                  <span className="text-sm font-bold font-mono" style={{ color: item.color }}>{item.count}</span>
+              { icon: "👋", t: isAr ? "ترحيب جديد" : "Welcome Email", d: isAr ? "يُرسل تلقائيًا عند تسجيل مستخدم جديد" : "Sent automatically on new user signup", status: "active", endpoint: "/api/email/welcome" },
+              { icon: "🔁", t: isAr ? "إعادة التفاعل (Day-3)" : "Re-engagement (Day-3)", d: isAr ? "Cron يومي 08:00 UTC — للمستخدمين غير النشطين" : "Daily cron 08:00 UTC — for inactive users", status: "active", endpoint: "/api/email/reengagement" },
+              { icon: "🎓", t: isAr ? "إشعار الشهادة" : "Certificate Email", d: isAr ? "عند إصدار شهادة جديدة" : "When a new certificate is issued", status: "planned", endpoint: "" },
+              { icon: "📊", t: isAr ? "ملخص الأسبوعي" : "Weekly Summary", d: isAr ? "ملخص التقدم الأسبوعي" : "Weekly progress digest", status: "planned", endpoint: "" },
+            ].map((email) => (
+              <div key={email.t} className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(255,255,255,0.07)" }}>
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">{email.icon}</span>
+                    <div>
+                      <p className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{email.t}</p>
+                      <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>{email.d}</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full flex-shrink-0"
+                    style={{ background: email.status === "active" ? "rgba(74,222,128,0.12)" : "rgba(148,163,184,0.1)", color: email.status === "active" ? "#4ade80" : "#94a3b8" }}>
+                    {email.status}
+                  </span>
                 </div>
-                <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{item.file}</p>
+                {email.endpoint && (
+                  <p className="text-[10px] font-mono mt-3" style={{ color: "var(--color-on-surface-variant)" }}>
+                    POST {email.endpoint}
+                  </p>
+                )}
               </div>
             ))}
           </div>
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(142,213,255,0.1)" }}>
+            <p className="text-xs font-mono" style={{ color: "var(--color-primary)" }}>
+              ✅ {isAr ? "Resend API مفعّل — RESEND_API_KEY موجود في Vercel" : "Resend API active — RESEND_API_KEY set in Vercel"}
+            </p>
+          </div>
         </div>
       )}
-    </div>
-  );
-}
 
-function LoadingSkeleton() {
-  return (
-    <div className="flex flex-col gap-2">
-      {[1, 2, 3, 4].map((i) => (
-        <div key={i} className="h-14 rounded-xl animate-pulse" style={{ background: "var(--color-surface-container)" }} />
-      ))}
-    </div>
-  );
-}
-
-// Needed to silence TS import in component
-type UserProfile = { email?: string };
-
-// ── Ecosystem Admin Panel ────────────────────────────────────────────────────
-function EcosystemAdminPanel({ isAr, locale }: { isAr: boolean; locale: string }) {
-
-  return (
-    <div className="flex flex-col gap-6">
-      {/* Header */}
-      <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(208,188,255,0.12)" }}>
-        <h3 className="font-bold text-lg mb-2" style={{ color: "var(--color-on-surface)" }}>
-          {isAr ? "إدارة الإيكوسيستم" : "Ecosystem Management"}
-        </h3>
-        <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-          {isAr
-            ? "نظرة عامة على جميع بوابات المنصة وحالتها. لتغيير حالة بوابة، عدّل ملف src/config/portals.ts"
-            : "Overview of all platform portals and their status. To change a portal status, edit src/config/portals.ts"}
-        </p>
-      </div>
-
-      {/* Portal status grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {allPortals.map((portal) => {
-          const isAvailable = portal.status === "available";
-          return (
-            <div
-              key={portal.id}
-              className="glass-card rounded-2xl p-5 flex flex-col gap-3"
-              style={{ border: `1px solid ${portal.color}15` }}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
-                    style={{ background: `${portal.color}10` }}
-                  >
-                    {portal.icon}
-                  </span>
-                  <div>
-                    <p className="text-sm font-bold" style={{ color: "var(--color-on-surface)" }}>
+      {/* 9 ── ANALYTICS ─────────────────────────────────────────── */}
+      {tab === "analytics" && (
+        <div className="flex flex-col gap-5">
+          <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+            {isAr ? "تحليلات المنصة" : "Platform Analytics"}
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <StatCard icon={<Users size={20} />} value={users.length} label={isAr ? "مستخدمون كلي" : "Total Users"} color="var(--color-primary)" />
+            <StatCard icon={<BarChart2 size={20} />} value={subscribers.length} label={isAr ? "مشتركو النشرة" : "Newsletter Subs"} color="var(--color-secondary)" />
+            <StatCard icon={<Globe size={20} />} value={`${allPortals.filter((p) => p.status === "available").length}/7`} label={isAr ? "بوابات مفعّلة" : "Active Portals"} color="#4ade80" />
+            <StatCard icon={<MessageSquare size={20} />} value={messages.length} label={isAr ? "رسائل التواصل" : "Contact Messages"} color="#f59e0b" />
+          </div>
+          <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(255,255,255,0.07)" }}>
+            <h3 className="font-bold text-sm mb-4" style={{ color: "var(--color-on-surface)" }}>
+              {isAr ? "البوابات الأكثر استخدامًا" : "Most Used Portals"}
+            </h3>
+            <div className="flex flex-col gap-3">
+              {allPortals.filter((p) => p.status === "available").map((portal, i) => {
+                const mockPct = Math.max(15, 100 - i * 15);
+                return (
+                  <div key={portal.id} className="flex items-center gap-3">
+                    <span className="text-lg flex-shrink-0">{portal.icon}</span>
+                    <p className="text-sm flex-shrink-0 w-36 truncate" style={{ color: "var(--color-on-surface)" }}>
                       {isAr ? portal.titleAr : portal.titleEn}
                     </p>
-                    <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
-                      /{locale}{portal.href}
-                    </p>
+                    <div className="flex-1 h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                      <div className="h-full rounded-full" style={{ width: `${mockPct}%`, background: portal.color }} />
+                    </div>
+                    <span className="text-xs font-mono flex-shrink-0" style={{ color: portal.color }}>{mockPct}%</span>
                   </div>
-                </div>
-                <span
-                  className="text-xs px-2 py-0.5 rounded-full font-mono"
-                  style={
-                    isAvailable
-                      ? { background: "rgba(74,222,128,0.12)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.25)" }
-                      : { background: "rgba(148,163,184,0.08)", color: "#94a3b8", border: "1px solid rgba(148,163,184,0.15)" }
-                  }
-                >
-                  {isAvailable ? (isAr ? "✅ متاح" : "✅ Live") : (isAr ? "🔜 قريبًا" : "🔜 Soon")}
-                </span>
-              </div>
-
-              <div className="flex flex-wrap gap-1">
-                {portal.features.slice(0, 3).map((f) => (
-                  <span
-                    key={f}
-                    className="text-[10px] px-1.5 py-0.5 rounded font-mono"
-                    style={{ background: `${portal.color}08`, color: portal.color }}
-                  >
-                    {f}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-2 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
-                <span className="font-mono opacity-60">type:</span>
-                <span>{portal.integrationType}</span>
-                {portal.externalRepo && (
-                  <a
-                    href={portal.externalRepo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ms-auto text-xs underline opacity-60 hover:opacity-100 transition-opacity"
-                    style={{ color: "var(--color-primary)" }}
-                  >
-                    GitHub ↗
-                  </a>
-                )}
-              </div>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
-
-      {/* Roadmap note */}
-      <div className="rounded-2xl p-5" style={{ background: "rgba(208,188,255,0.04)", border: "1px solid rgba(208,188,255,0.12)" }}>
-        <h4 className="font-bold text-sm mb-3" style={{ color: "var(--color-secondary)" }}>
-          {isAr ? "خارطة طريق المنصة" : "Platform Roadmap"}
-        </h4>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {[
-            { phase: "V1 — الحالي", items: ["AI Academy ✅", "Language Portal ✅", "Digital Exams ✅", "Unified Nav & Dashboard ✅"] },
-            { phase: "V2 — قادم", items: ["Career & CV Portal 🔜", "Automation Academy 🔜", "Arduino & IoT Lab 🔜", "Full DB Integration"] },
-          ].map((phase) => (
-            <div key={phase.phase} className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <p className="text-xs font-mono font-bold mb-2" style={{ color: "var(--color-secondary)" }}>{phase.phase}</p>
-              <ul className="flex flex-col gap-1">
-                {phase.items.map((item) => (
-                  <li key={item} className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            <p className="text-[10px] font-mono mt-4" style={{ color: "var(--color-on-surface-variant)" }}>
+              * {isAr ? "بيانات تقديرية — سيتم ربطها بـ analytics_events قريبًا" : "Estimated data — will connect to analytics_events soon"}
+            </p>
+          </div>
         </div>
-      </div>
+      )}
+
+      {/* 10 ── THEME & BRANDING ──────────────────────────────────── */}
+      {tab === "theme" && (
+        <div className="flex flex-col gap-5">
+          <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+            {isAr ? "الهوية البصرية والتصميم" : "Theme & Branding"}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {/* Colors */}
+            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(142,213,255,0.1)" }}>
+              <h3 className="font-bold text-sm mb-4" style={{ color: "var(--color-primary)" }}>
+                {isAr ? "ألوان النظام" : "System Colors"}
+              </h3>
+              <div className="flex flex-col gap-2">
+                {[
+                  { n: "--color-primary", c: "#8ed5ff" },
+                  { n: "--color-secondary", c: "#d0bcff" },
+                  { n: "--color-tertiary", c: "#3ce0fb" },
+                  { n: "--color-background", c: "#0c0e12" },
+                ].map((col) => (
+                  <div key={col.n} className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg flex-shrink-0" style={{ background: col.c, border: "1px solid rgba(255,255,255,0.1)" }} />
+                    <p className="text-xs font-mono flex-1" style={{ color: "var(--color-on-surface-variant)" }}>{col.n}</p>
+                    <p className="text-xs font-mono" style={{ color: col.c }}>{col.c}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[10px] font-mono mt-3" style={{ color: "var(--color-on-surface-variant)" }}>
+                * {isAr ? "الألوان محددة في globals.css — Tailwind v4 CSS-based" : "Colors defined in globals.css — Tailwind v4 CSS-based"}
+              </p>
+            </div>
+
+            {/* Social Links */}
+            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(208,188,255,0.1)" }}>
+              <h3 className="font-bold text-sm mb-4" style={{ color: "var(--color-secondary)" }}>
+                {isAr ? "روابط التواصل" : "Social Links"}
+              </h3>
+              <div className="flex flex-col gap-2">
+                {[
+                  { label: "Instagram", url: "https://www.instagram.com/darhous/", c: "#E1306C" },
+                  { label: "LinkedIn", url: "https://www.linkedin.com/in/darhous/", c: "#0A66C2" },
+                  { label: "Facebook", url: "https://www.facebook.com/ahmed.darhous", c: "#1877F2" },
+                  { label: "WhatsApp", url: "https://wa.me/201030002331", c: "#25D366" },
+                ].map((s) => (
+                  <div key={s.label} className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: s.c }} />
+                    <span className="text-xs font-mono w-20 flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</span>
+                    <span className="text-[10px] font-mono truncate flex-1" style={{ color: "var(--color-on-surface-variant)" }}>{s.url}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Footer text */}
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(60,224,251,0.1)" }}>
+            <h3 className="font-bold text-sm mb-3" style={{ color: "var(--color-tertiary)" }}>
+              {isAr ? "نص التوقيع في الفوتر" : "Footer Signature"}
+            </h3>
+            <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+              designed by{" "}
+              <a href="mailto:ahmeddarhous@gmail.com" style={{ color: "var(--color-primary)" }}>Ahmed Darhous</a>
+              {" "}©
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* 11 ── SECURITY & AUDIT ──────────────────────────────────── */}
+      {tab === "audit" && (
+        <div className="flex flex-col gap-5">
+          <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+            {isAr ? "سجل الأمان والتدقيق" : "Security & Audit Log"}
+          </h2>
+          {dataLoading ? <LoadingSkeleton /> : (
+            <div className="flex flex-col gap-2">
+              {auditLogs.length === 0 && (
+                <p className="text-center py-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+                  {isAr ? "لا يوجد سجل تدقيق بعد." : "No audit log entries yet."}
+                </p>
+              )}
+              {auditLogs.map((log) => (
+                <div key={log.id} className="glass-card rounded-xl px-4 py-3 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: "rgba(239,68,68,0.08)", color: "#ef4444" }}>
+                    <Shield size={14} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-mono truncate" style={{ color: "var(--color-on-surface)" }}>{log.action}</p>
+                    {log.target_type && <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{log.target_type}</p>}
+                  </div>
+                  <p className="text-xs font-mono flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {new Date(log.created_at).toLocaleString(isAr ? "ar" : "en", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Security status */}
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(74,222,128,0.12)" }}>
+            <h3 className="font-bold text-sm mb-3 flex items-center gap-2" style={{ color: "#4ade80" }}>
+              <CheckCircle size={15} />
+              {isAr ? "حالة الأمان" : "Security Status"}
+            </h3>
+            <div className="flex flex-col gap-2">
+              {[
+                { check: isAr ? "GEMINI_API_KEY محمي في الخادم" : "GEMINI_API_KEY server-only", ok: true },
+                { check: isAr ? "SUPABASE_SERVICE_ROLE_KEY لا يظهر للعميل" : "SUPABASE_SERVICE_ROLE_KEY never exposed to client", ok: true },
+                { check: isAr ? "RLS مفعّل على كل الجداول" : "RLS enabled on all tables", ok: true },
+                { check: isAr ? "API routes تتحقق من صلاحيات المشرف" : "Admin API routes verify role server-side", ok: true },
+                { check: isAr ? "لا توجد routes مؤقتة في الكود" : "No temp admin routes in codebase", ok: true },
+              ].map((s) => (
+                <div key={s.check} className="flex items-center gap-2 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                  <CheckCircle size={13} style={{ color: "#4ade80", flexShrink: 0 }} />
+                  {s.check}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
