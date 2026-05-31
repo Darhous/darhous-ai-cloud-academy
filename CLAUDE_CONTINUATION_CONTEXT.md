@@ -9,16 +9,16 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 3.0.0 — Global Platform Expansion — 20 Features + CI Fix |
-| **Status** | ✅ Live on Vercel + Supabase + Google OAuth + All Features Active |
+| **Version** | 3.1.0 — Supabase Migration + Navigation Improvements |
+| **Status** | ✅ Live on Vercel + Supabase v3 schema DEPLOYED + All Features Active |
 | **Build** | ✅ Passing — 344 static pages, 0 TypeScript errors, 0 lint errors |
-| **Last Commit** | `2f42166` — CI lint fix (react-hooks/purity → warn) |
+| **Last Commit** | `400c02d` — v3.1.0 Navigation & Discovery improvements |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Supabase Project ID** | `kzbdmyovspkbakbtvgig` |
 | **Branch** | `main` |
-| **Last Updated** | 2026-05-31 |
+| **Last Updated** | 2026-05-31 (v3.1.0 session) |
 
 ---
 
@@ -28,8 +28,8 @@
 Continue the Darhous AI Cloud Academy project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md first before any changes.
-Current version: v3.0.0 — Build: ✅ 344 pages — 20 features — CI ✅ — Live on Vercel.
-Last commit: 2f42166 — CI lint fix — all checks green.
+Current version: v3.1.0 — Build: ✅ 344 pages — Supabase DEPLOYED — CI ✅ — Live on Vercel.
+Last commit: 400c02d — v3.1.0 navigation improvements + Supabase migration complete.
 ```
 
 ---
@@ -102,27 +102,32 @@ content_index + mentor_sources tables. See RAG_MENTOR_PLAN.md.
 
 ---
 
-## ⚠️ Manual Setup Required (v3.0.0)
+## ✅ Completed Setup (v3.1.0 — 2026-05-31)
 
-### 🔴 Run Supabase Migration
-```
-1. Supabase SQL Editor → run supabase/v3_feature_schema.sql
-2. Optional: run supabase/rag_schema.sql
-```
+### Supabase v3 Migration — DONE ✅
+All 15 tables created via Management API:
+certificates, learning_plans, daily_tasks, challenges, challenge_submissions,
+prompt_scores, prompt_battles, public_profiles, analytics_events,
+email_sequence_events, content_items, tool_comparisons, user_preferences,
+user_projects, nano_banana_saved_prompts.
+All RLS policies set. 4 challenges seeded. Storage policies added.
 
-### 🟡 Supabase Storage — avatars bucket
-```
-1. Supabase Dashboard → Storage → New Bucket → Name: "avatars"
-2. Run storage policies from comments in v3_feature_schema.sql
-```
+### Supabase Storage — avatars bucket — DONE ✅
+Bucket "avatars" created via Supabase Dashboard UI.
+Storage RLS policies applied via Management API.
+
+---
+
+## ⚠️ Remaining Manual Step (v3.1.0)
+
+### 🟡 Add Resend API key (optional, for emails)
+- Go to: https://vercel.com/darhous-projects/darhous-ai-cloud-academy/settings/environment-variables
+- Add: `RESEND_API_KEY` = your Resend key (from resend.com)
+- See email templates in `src/lib/email/templates.ts`
 
 ### 🔴 CRITICAL: Rotate Supabase DB password (from v2.7.0)
 - Go to: https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig/settings/database
 - See SECURITY_INCIDENT_NOTE.md
-
-### 🟡 Add Resend API key (optional)
-- For email sequences: `RESEND_API_KEY` in Vercel env vars
-- See email templates in `src/lib/email/templates.ts`
 
 ---
 
