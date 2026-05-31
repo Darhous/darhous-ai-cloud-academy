@@ -43,6 +43,8 @@ const aiStudioItems = {
     { href: "/roadmap-generator",     icon: "🗺️", label: "مولّد خطط التعلم" },
     { href: "/project-generator",     icon: "🚀", label: "مولّد المشاريع"   },
     { href: "/nano-banana-prompts",   icon: "🍌", label: "Nano Banana Lab"   },
+    { href: "/challenges",            icon: "🏆", label: "التحديات"          },
+    { href: "/leaderboard",           icon: "🥇", label: "المتصدرون"         },
   ],
   en: [
     { href: "/mentor",                icon: "✨", label: "AI Mentor"             },
@@ -55,6 +57,8 @@ const aiStudioItems = {
     { href: "/roadmap-generator",     icon: "🗺️", label: "Roadmap Generator"     },
     { href: "/project-generator",     icon: "🚀", label: "Project Generator"     },
     { href: "/nano-banana-prompts",   icon: "🍌", label: "Nano Banana Lab"       },
+    { href: "/challenges",            icon: "🏆", label: "Challenges"            },
+    { href: "/leaderboard",           icon: "🥇", label: "Leaderboard"           },
   ],
 };
 
@@ -62,6 +66,7 @@ const AI_STUDIO_PATHS = [
   "/mentor", "/prompt-studio", "/claude-code-generator",
   "/tool-recommender", "/roadmap-generator", "/nano-banana-prompts",
   "/prompt-score", "/prompt-battle", "/compare-tools", "/project-generator",
+  "/challenges", "/leaderboard",
 ];
 
 export default function Navbar({ locale }: NavbarProps) {

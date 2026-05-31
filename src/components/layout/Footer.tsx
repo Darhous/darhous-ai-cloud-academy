@@ -45,6 +45,7 @@ export default function Footer({ locale }: FooterProps) {
         { href: "/nano-banana-prompts",   label: "🍌 Nano Banana Lab"        },
         { href: "/search",                label: "🔍 البحث الذكي"            },
         { href: "/challenges",            label: "🏆 التحديات"               },
+        { href: "/leaderboard",           label: "🥇 المتصدرون"              },
         { href: "/dashboard",             label: "📂 لوحة الطالب"            },
       ]
     : [
@@ -59,6 +60,7 @@ export default function Footer({ locale }: FooterProps) {
         { href: "/nano-banana-prompts",   label: "🍌 Nano Banana Lab"       },
         { href: "/search",                label: "🔍 Smart Search"          },
         { href: "/challenges",            label: "🏆 Challenges"            },
+        { href: "/leaderboard",           label: "🥇 Leaderboard"           },
         { href: "/dashboard",             label: "📂 Student Dashboard"     },
       ];
 

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   TrendingUp, BookOpen, Save, Award, Brain, Activity,
-  Bookmark, Sparkles, LogOut, Settings, Star, Clock, ChevronRight, ChevronLeft, Flame,
+  Bookmark, Sparkles, LogOut, Settings, Star, Clock, ChevronRight, ChevronLeft, Flame, Trophy,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -323,13 +323,15 @@ export default function StudentDashboardClient({ locale }: Props) {
         <h2 className="font-display font-bold text-xl mb-5" style={{ color: "var(--color-on-surface)" }}>
           {isAr ? "وصول سريع" : "Quick Access"}
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
           {[
             { icon: <Sparkles size={20} />, href: "/mentor",               labelAr: "مرشد AI",            labelEn: "AI Mentor",        color: "var(--color-primary)"   },
             { icon: <Activity size={20} />, href: "/nano-banana-prompts", labelAr: "Nano Banana",         labelEn: "Nano Banana",      color: "#f59e0b"                },
             { icon: <Star    size={20} />,  href: "/prompt-score",        labelAr: "تقييم البرومبت",      labelEn: "Prompt Score",     color: "var(--color-secondary)" },
             { icon: <Award   size={20} />,  href: "/certificates",        labelAr: "شهاداتي",            labelEn: "Certificates",     color: "#fbbf24"                },
             { icon: <Brain   size={20} />,  href: "/learning-plans",      labelAr: "خطط التعلم",         labelEn: "Learning Plans",   color: "#a78bfa"                },
+            { icon: <Trophy  size={20} />,  href: "/challenges",          labelAr: "التحديات",            labelEn: "Challenges",       color: "#ef4444"                },
+            { icon: <TrendingUp size={20}/>, href: "/leaderboard",        labelAr: "المتصدرون",           labelEn: "Leaderboard",      color: "#4ade80"                },
             { icon: <Settings size={20} />, href: "/profile",             labelAr: "الملف الشخصي",       labelEn: "Profile",          color: "var(--color-tertiary)"  },
           ].map((item) => (
             <Link
