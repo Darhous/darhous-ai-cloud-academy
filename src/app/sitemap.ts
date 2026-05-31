@@ -21,6 +21,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/project-generator",
     // v4 ecosystem portals (public landing pages only — /assessment and /results are noindex)
     "/ai-academy", "/language", "/digital-exams",
+    // v5 full native portals
+    "/career", "/career/cv-analyzer", "/career/builder", "/career/jobs", "/career/interview", "/career/templates",
+    "/automation", "/automation/templates", "/automation/tools", "/automation/paths", "/automation/services", "/automation/labs",
+    "/iot-lab", "/iot-lab/paths", "/iot-lab/lessons", "/iot-lab/projects", "/iot-lab/challenges",
+    "/iot-lab/component-library", "/iot-lab/simulator", "/iot-lab/exams",
   ];
   // Excluded from sitemap (noindex or private):
   // /login, /register, /forgot-password, /reset-password,
