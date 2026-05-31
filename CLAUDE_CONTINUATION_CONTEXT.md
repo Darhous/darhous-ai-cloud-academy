@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 4.1.0 — Portal Integration Release |
+| **Version** | 4.2.0 — Production Readiness Round |
 | **Status** | ✅ Fully Live — Supabase v3 DEPLOYED — Resend ✅ — Vercel ✅ |
 | **Build** | ✅ Clean build — 0 TypeScript errors — 0 lint errors |
-| **Last Commit** | `3f88632` — v4.1.0 Language Portal + Digital Exams full integration |
+| **Last Commit** | `83561e9` — Phase 3+4 exam recommendations + reengagement email |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
@@ -20,7 +20,7 @@
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Supabase Project ID** | `kzbdmyovspkbakbtvgig` |
 | **Branch** | `main` |
-| **Last Updated** | 2026-05-31 (v4.1.0) |
+| **Last Updated** | 2026-05-31 (v4.2.0 production readiness round) |
 
 ---
 
@@ -45,6 +45,30 @@ AUTHORIZATION: You are authorized to:
 
 ## ✅ Everything Completed & Deployed (as of v4.0.0)
 
+### v4.2.0 — Production Readiness Round — DONE ✅
+
+| File | What Changed |
+|------|-------------|
+| `supabase/v4_portal_schema.sql` | Fixed: DROP POLICY IF EXISTS for idempotency, added user_id + created_at indexes |
+| `src/middleware.ts` | Fixed: API routes now bypass page-level auth redirects (was blocking /api/admin/*) |
+| `src/components/exams/DigitalExamClient.tsx` | Added: next-step recommendations for failed exams + retry button |
+| `src/app/api/email/reengagement/route.ts` | NEW: Day-3 re-engagement cron endpoint (see Phase 4 below) |
+| `.env.example` | Added: REENGAGEMENT_CRON_SECRET placeholder |
+
+### ⚠️ REQUIRED MANUAL ACTION: Supabase Migration
+
+The v4 tables must be created manually via Supabase Dashboard SQL Editor.
+
+**The automated migration route was attempted but Supabase's pg_meta API is not publicly accessible without a personal access token.**
+
+**Steps to run the migration:**
+1. Go to: https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig/sql/new
+2. Paste the entire contents of `supabase/v4_portal_schema.sql`
+3. Click "Run"
+4. Confirm both tables appear: `language_results`, `digital_exam_results`
+
+The SQL is idempotent (safe to re-run). RLS is enabled with SELECT and INSERT policies only. Without these tables, the app gracefully returns empty results — it won't crash.
+
 ### v4.1.0 — Portal Integration — DONE ✅
 
 | File | What It Does |
@@ -52,23 +76,20 @@ AUTHORIZATION: You are authorized to:
 | `src/data/language-questions.json` | 150 English assessment questions (stages 1-10, all difficulties) |
 | `src/data/digital-exam-subjects.ts` | 7 exam subjects × 20 questions each (140 total) |
 | `src/components/language/LanguageAssessmentClient.tsx` | Full exam engine: adaptive stages, 90s timer, anti-cheat, CEFR scoring |
-| `src/components/language/LanguageResultsClient.tsx` | Results: CEFR badge, skill breakdown, stage chart, resources |
-| `src/components/exams/DigitalExamClient.tsx` | 20-question exam client: 60s timer, per-question feedback, review |
+| `src/components/language/LanguageResultsClient.tsx` | Results: CEFR badge, skill breakdown, stage chart, study resources |
+| `src/components/exams/DigitalExamClient.tsx` | 20-question exam client: 60s timer, per-question feedback, next-step recs |
 | `src/app/[locale]/language/assessment/page.tsx` | Assessment entry page (auth-gated) |
-| `src/app/[locale]/language/results/page.tsx` | Results page (fetches from Supabase by ID) |
+| `src/app/[locale]/language/results/page.tsx` | Results page (fetches from Supabase by ID, URL param fallback) |
 | `src/app/[locale]/digital-exams/[subject]/page.tsx` | Subject exam page (7 subjects, static params) |
 | `src/app/api/language/submit/route.ts` | POST: save language result to Supabase |
 | `src/app/api/language/results/route.ts` | GET: user's language history |
 | `src/app/api/exams/submit/route.ts` | POST: save digital exam result |
 | `src/app/api/exams/results/route.ts` | GET: user's exam history |
 | `src/app/api/email/welcome/route.ts` | POST: sends bilingual welcome email via Resend |
-| `supabase/v4_portal_schema.sql` | SQL migration — language_results + digital_exam_results tables |
 | `src/components/dashboard/StudentDashboardClient.tsx` | Updated: My Portals now shows CEFR level + exam % |
 | `src/components/auth/RegisterForm.tsx` | Updated: triggers welcome email on signup |
 | `src/app/[locale]/language/page.tsx` | Updated: CTA links to /assessment (integration complete) |
 | `src/app/[locale]/digital-exams/page.tsx` | Updated: category cards are clickable links |
-
-⚠️ **REQUIRED ACTION**: Run `supabase/v4_portal_schema.sql` in Supabase Dashboard → SQL Editor (Project: kzbdmyovspkbakbtvgig) to create the two new tables.
 
 ### v4.0.0 — Ecosystem Transformation — DONE ✅
 
@@ -217,6 +238,12 @@ PWA manifest, RAG foundation schema, admin analytics tab, admin content studio t
 | `/api/admin/users` | GET | Admin only |
 | `/api/admin/subscribers` | GET | Admin only |
 | `/api/admin/promote` | POST | Admin only |
+| `/api/language/submit` | POST | Auth required |
+| `/api/language/results` | GET | Auth required |
+| `/api/exams/submit` | POST | Auth required |
+| `/api/exams/results` | GET | Auth required |
+| `/api/email/welcome` | POST | Internal (fire-and-forget from RegisterForm) |
+| `/api/email/reengagement` | POST | Cron secret (x-cron-secret header) |
 
 ---
 
@@ -232,6 +259,7 @@ PWA manifest, RAG foundation schema, admin analytics tab, admin content studio t
 | `NEXT_PUBLIC_SITE_URL` | ✅ Set | Live site URL |
 | `RESEND_API_KEY` | ✅ Set | Added 2026-05-31 |
 | `CONTACT_TO_EMAIL` | ❌ Optional | Contact form notifications |
+| `REENGAGEMENT_CRON_SECRET` | ⚠️ NOT SET — add to Vercel | Protects /api/email/reengagement |
 
 > Note: `.env.local` only has `GEMINI_API_KEY` and `GEMINI_MODEL`. All other keys are in Vercel only.
 
@@ -249,9 +277,11 @@ certificates, learning_plans, daily_tasks, challenges (4 seeded), challenge_subm
 prompt_scores, prompt_battles, public_profiles, analytics_events,
 email_sequence_events, content_items, tool_comparisons, user_preferences, user_projects
 
-### v4.1 tables (SQL written, ⚠️ NOT YET RUN — run supabase/v4_portal_schema.sql)
+### v4.1 tables (⚠️ SQL READY, MUST BE RUN MANUALLY IN SUPABASE DASHBOARD)
 language_results (id, user_id, score, level, time_taken, stages_completed, is_incomplete, breakdown jsonb)
 digital_exam_results (id, user_id, subject, subject_label, score, total, percentage, passed, time_taken, answers jsonb)
+— SQL: supabase/v4_portal_schema.sql (idempotent, includes indexes and RLS policies)
+— Go to: https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig/sql/new
 
 ### RAG tables (schema ready, not populated)
 content_index, mentor_sources — see RAG_MENTOR_PLAN.md
@@ -280,11 +310,16 @@ The SINGLE source of truth for all portals. Changing a portal here updates: Land
 - [x] **Language Portal full integration** — 150 questions, 10 adaptive stages, CEFR levels, Supabase storage ✅
 - [x] **Digital Exams full integration** — 7 subjects × 20 questions, Supabase storage ✅
 - [x] **Unified results in dashboard** — My Portals shows CEFR level + exam % from real DB data ✅
-- [ ] **⚠️ Run Supabase migration** — Execute `supabase/v4_portal_schema.sql` in Supabase Dashboard SQL Editor
+- [ ] **⚠️ Run Supabase migration MANUALLY** — Go to Supabase Dashboard → SQL Editor → paste `supabase/v4_portal_schema.sql` → Run
 
-### Priority 2 — Email & Engagement
+### Priority 2 — Email & Engagement (v4.2.0)
 - [x] **Welcome email** — /api/email/welcome fires on signup (RegisterForm updated) ✅
-- [ ] **Day-3 re-engagement email** — Supabase Edge Function or cron: check last_sign_in_at, send if 3+ days inactive
+- [x] **Day-3 re-engagement email** — /api/email/reengagement implemented (needs cron + env var) ✅
+  - Protected by `x-cron-secret: {REENGAGEMENT_CRON_SECRET}` header
+  - ⚠️ Add `REENGAGEMENT_CRON_SECRET` to Vercel env vars (generate with: openssl rand -hex 32)
+  - ⚠️ Set up a cron job (Vercel Cron, GitHub Actions, or similar) to POST to /api/email/reengagement daily
+  - Deduplication: uses email_sequence_events table (7-day window, sequence='reengagement', step='day-3')
+  - Returns: { checked, sent, skipped, failed } — safe summary only
 
 ### Priority 3 — AI Academy Features
 - [ ] **Dark/light theme toggle UI** — `user_preferences` table ready in DB, just needs the toggle button wired up
@@ -301,6 +336,32 @@ The SINGLE source of truth for all portals. Changing a portal here updates: Land
 - [ ] Career & CV Portal — CV Builder, ATS Analyzer, Cover Letters, Job Matching, App Tracker
 - [ ] Automation Academy — Paths, Workflow Builder, Template Marketplace
 - [ ] Arduino & IoT Lab — Projects, Circuits, Simulators
+
+---
+
+## 🏁 v4.2.0 Production Readiness Session Summary (2026-05-31)
+
+### Git Commits This Session
+| Commit | Description |
+|--------|-------------|
+| `8dad233` | temp: v4 portal migration route + idempotent SQL fix (route immediately deleted) |
+| `466b683` | fix: middleware should not block API routes with page-level auth guard |
+| `83561e9` | feat: Phase 3+4 — failed exam recommendations, reengagement email, migration route cleanup |
+
+### What Was Done
+1. **SQL reviewed + fixed**: `supabase/v4_portal_schema.sql` — added idempotency (`DROP POLICY IF EXISTS`), added 5 missing indexes on user_id and created_at columns
+2. **Migration attempt**: Created protected temp route, deployed to Vercel, called it — confirmed tables don't exist yet, `pg_meta` API not publicly accessible
+3. **Middleware fixed**: API routes were being blocked by middleware's admin-page auth guard (was redirecting `/api/admin/*` to login page)
+4. **Failed exam UX fixed**: `DigitalExamClient` now shows next-step recommendations + retry CTA when exam is failed
+5. **Reengagement email**: `/api/email/reengagement` implemented — protected cron endpoint, bilingual, deduped via email_sequence_events, never crashes on individual failures
+6. **Security verified**: No secrets in current codebase, no temp admin routes remain
+
+### Required Manual Actions Before Going Live
+1. **⚠️ Run Supabase Migration** (most urgent — without this, results can't be saved):
+   - URL: https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig/sql/new
+   - SQL: paste `supabase/v4_portal_schema.sql` and click Run
+2. **⚠️ Add Vercel env var** `REENGAGEMENT_CRON_SECRET` (any strong random secret)
+3. **⚠️ Set up cron job** to POST to `https://darhous-ai-cloud-academy.vercel.app/api/email/reengagement` daily with `x-cron-secret: {secret}` header
 
 ---
 
@@ -339,3 +400,6 @@ The SINGLE source of truth for all portals. Changing a portal here updates: Land
 | .env.local not committed | ✅ |
 | RESEND_API_KEY not in source | ✅ Vercel env only |
 | Portal shell pages (language, digital-exams) | ✅ No secrets, just links to GitHub |
+| REENGAGEMENT_CRON_SECRET in source | ✅ Not in source — only in .env.example as placeholder |
+| Temp migration route | ✅ Deleted from codebase — no temp admin routes remain |
+| API routes bypass middleware page-auth | ✅ middleware.ts now skips redirects for /api/* |
