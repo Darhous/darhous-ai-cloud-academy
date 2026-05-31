@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/search", "/challenges", "/leaderboard",
     "/prompt-battle", "/prompt-score", "/compare-tools",
     "/project-generator",
-    // v4 ecosystem portals (available ones only)
+    // v4 ecosystem portals (public landing pages only — /assessment and /results are noindex)
     "/ai-academy", "/language", "/digital-exams",
   ];
   // Excluded from sitemap (noindex or private):

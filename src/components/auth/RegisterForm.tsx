@@ -57,6 +57,14 @@ export default function RegisterForm({ locale, isAr }: Props) {
 
     setSuccess(true);
     setLoading(false);
+
+    // Fire-and-forget welcome email
+    fetch("/api/email/welcome", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email.trim(), name: fullName.trim(), locale }),
+    }).catch(() => {});
+
     setTimeout(() => router.push(`/${locale}/dashboard`), 2000);
   }
 

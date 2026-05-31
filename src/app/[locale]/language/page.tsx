@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowLeft, ExternalLink, GitBranch, CheckCircle } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle, Sparkles } from "lucide-react";
 import CommunitySignup from "@/components/community/CommunitySignup";
 
 export async function generateMetadata({
@@ -37,12 +37,6 @@ const assessmentFeatures = {
   ],
 };
 
-// Integration status — update this when full integration is complete
-const INTEGRATION_STATUS = {
-  phase: "shell", // "shell" | "integrated" | "live"
-  externalUrl: "https://github.com/Darhous/darhous-assessment",
-  note: "Integration with unified Darhous account in progress",
-};
 
 export default async function LanguagePortalPage({
   params,
@@ -88,33 +82,26 @@ export default async function LanguagePortalPage({
             className="glass-card rounded-2xl p-6 min-w-[260px] flex flex-col gap-4"
             style={{ border: "1px solid rgba(208,188,255,0.15)" }}
           >
+            <div className="flex items-center gap-2 px-2.5 py-1 rounded-full self-start text-xs font-mono" style={{ background: "rgba(74,222,128,0.08)", border: "1px solid rgba(74,222,128,0.2)", color: "#4ade80" }}>
+              <CheckCircle size={11} />
+              {isAr ? "مدمج الآن" : "Now Integrated"}
+            </div>
             <p className="text-sm font-bold" style={{ color: "var(--color-on-surface)" }}>
               {isAr ? "ابدأ الاختبار الآن" : "Start Your Assessment Now"}
             </p>
             <p className="text-xs leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
               {isAr
-                ? "منصة اختبارات مستقلة جاهزة للاستخدام"
-                : "Independent assessment platform ready to use"}
+                ? "10 مراحل تكيّفية — نتائجك تُحفظ في حسابك"
+                : "10 adaptive stages — results saved to your account"}
             </p>
-            <a
-              href={INTEGRATION_STATUS.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={`/${locale}/language/assessment`}
               className="inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-mono transition-all hover:opacity-80"
               style={{ background: "rgba(208,188,255,0.12)", border: "1px solid rgba(208,188,255,0.3)", color: "#d0bcff" }}
             >
-              <ExternalLink size={14} />
-              {isAr ? "فتح منصة التقييم" : "Open Assessment Platform"}
-            </a>
-            <div
-              className="flex items-center gap-2 text-xs p-2.5 rounded-lg"
-              style={{ background: "rgba(74,222,128,0.06)", border: "1px solid rgba(74,222,128,0.15)", color: "#4ade80" }}
-            >
-              <CheckCircle size={12} />
-              {isAr
-                ? "دمج الحساب الموحد قيد التطوير"
-                : "Unified account integration in progress"}
-            </div>
+              <Sparkles size={14} />
+              {isAr ? "ابدأ التقييم" : "Start Assessment"}
+            </Link>
           </div>
         </div>
 
@@ -137,34 +124,32 @@ export default async function LanguagePortalPage({
         {/* Integration info */}
         <div
           className="rounded-2xl p-6 mb-14 flex flex-col sm:flex-row items-start gap-4"
-          style={{ background: "rgba(60,224,251,0.04)", border: "1px solid rgba(60,224,251,0.12)" }}
+          style={{ background: "rgba(74,222,128,0.04)", border: "1px solid rgba(74,222,128,0.12)" }}
         >
-          <GitBranch size={20} className="flex-shrink-0 mt-0.5" style={{ color: "var(--color-tertiary)" }} />
+          <CheckCircle size={20} className="flex-shrink-0 mt-0.5" style={{ color: "#4ade80" }} />
           <div className="flex-1">
             <p className="font-bold text-sm mb-1" style={{ color: "var(--color-on-surface)" }}>
-              {isAr ? "حالة الدمج مع المنصة الموحدة" : "Integration Status with Unified Platform"}
+              {isAr ? "✅ مدمج بالكامل مع منصة درهوس" : "✅ Fully Integrated with Darhous Platform"}
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
               {isAr
-                ? "منصة التقييم جاهزة ومتاحة الآن كمنصة مستقلة. نعمل حالياً على دمجها بالكامل مع نظام حساب درهوس الموحد بحيث تُحفظ نتائجك في لوحة تحكمك الشخصية تلقائياً."
-                : "The assessment platform is ready and available as an independent platform. We are currently working on fully integrating it with the unified Darhous account system so your results are automatically saved to your personal dashboard."}
+                ? "اختبار تحديد المستوى الإنجليزي مدمج الآن بالكامل — 150 سؤالاً في 10 مراحل تكيّفية، ونتائجك تُحفظ في حسابك وتظهر في لوحة التحكم."
+                : "The English level assessment is now fully integrated — 150 questions across 10 adaptive stages, with results saved to your account and visible on your dashboard."}
             </p>
           </div>
-          <a
-            href={INTEGRATION_STATUS.externalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={`/${locale}/language/assessment`}
             className="flex items-center gap-1.5 text-xs font-mono flex-shrink-0 transition-opacity hover:opacity-80"
-            style={{ color: "var(--color-tertiary)" }}
+            style={{ color: "#4ade80" }}
           >
-            GitHub <ExternalLink size={11} />
-          </a>
+            {isAr ? "ابدأ الآن" : "Start Now"} <Arrow size={11} />
+          </Link>
         </div>
 
         {/* Community Signup */}
         <div className="max-w-xl mx-auto">
           <p className="text-center text-sm mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
-            {isAr ? "اشترك لتعرف عند اكتمال الدمج" : "Subscribe to know when full integration is complete"}
+            {isAr ? "اشترك للحصول على آخر التحديثات والموارد التعليمية" : "Subscribe for platform updates and learning resources"}
           </p>
           <CommunitySignup locale={locale} variant="footer" source="language-portal" />
         </div>

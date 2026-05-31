@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowLeft, ExternalLink, GitBranch, CheckCircle, Monitor } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle, Monitor } from "lucide-react";
 import CommunitySignup from "@/components/community/CommunitySignup";
+import { examSubjects } from "@/data/digital-exam-subjects";
 
 export async function generateMetadata({
   params,
@@ -18,30 +19,6 @@ export async function generateMetadata({
   };
 }
 
-const examCategories = {
-  ar: [
-    { icon: "💻", title: "اختبارات تقنية المعلومات IT", topics: ["Hardware & Software", "Networks", "Operating Systems", "Cloud Basics"] },
-    { icon: "📝", title: "مايكروسوفت ورد Word", topics: ["Document Formatting", "Tables & Images", "Mail Merge", "Advanced Editing"] },
-    { icon: "📊", title: "مايكروسوفت إكسيل Excel", topics: ["Formulas & Functions", "Charts & Graphs", "Pivot Tables", "Data Analysis"] },
-    { icon: "🎯", title: "باوربوينت PowerPoint", topics: ["Slide Design", "Animations", "Transitions", "Presentation Skills"] },
-    { icon: "🗄️", title: "أكسيس Access", topics: ["Database Design", "Queries", "Forms & Reports", "Relationships"] },
-    { icon: "🔐", title: "الأمن السيبراني", topics: ["Network Security", "Password Policies", "Phishing Awareness", "Data Protection"] },
-    { icon: "🌐", title: "مهارات التحول الرقمي", topics: ["Digital Literacy", "Cloud Services", "E-Government", "Digital Communication"] },
-  ],
-  en: [
-    { icon: "💻", title: "IT Fundamentals", topics: ["Hardware & Software", "Networks", "Operating Systems", "Cloud Basics"] },
-    { icon: "📝", title: "Microsoft Word", topics: ["Document Formatting", "Tables & Images", "Mail Merge", "Advanced Editing"] },
-    { icon: "📊", title: "Microsoft Excel", topics: ["Formulas & Functions", "Charts & Graphs", "Pivot Tables", "Data Analysis"] },
-    { icon: "🎯", title: "PowerPoint", topics: ["Slide Design", "Animations", "Transitions", "Presentation Skills"] },
-    { icon: "🗄️", title: "Microsoft Access", topics: ["Database Design", "Queries", "Forms & Reports", "Relationships"] },
-    { icon: "🔐", title: "Cybersecurity", topics: ["Network Security", "Password Policies", "Phishing Awareness", "Data Protection"] },
-    { icon: "🌐", title: "Digital Transformation Skills", topics: ["Digital Literacy", "Cloud Services", "E-Government", "Digital Communication"] },
-  ],
-};
-
-const INTEGRATION_STATUS = {
-  externalUrl: "https://github.com/Darhous/Exams_Platform",
-};
 
 export default async function DigitalExamsPage({
   params,
@@ -51,7 +28,6 @@ export default async function DigitalExamsPage({
   const { locale } = await params;
   const isAr = locale === "ar";
   const Arrow = isAr ? ArrowLeft : ArrowRight;
-  const categories = isAr ? examCategories.ar : examCategories.en;
 
   return (
     <div className="flex flex-col gap-20 pb-20 relative">
@@ -90,23 +66,16 @@ export default async function DigitalExamsPage({
                 {isAr ? "ابدأ الاختبار الآن" : "Start Your Exam Now"}
               </p>
             </div>
-            <p className="text-xs leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-              {isAr ? "7 فئات من الاختبارات متاحة" : "7 exam categories available"}
-            </p>
-            <a
-              href={INTEGRATION_STATUS.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-mono transition-all hover:opacity-80"
-              style={{ background: "rgba(60,224,251,0.12)", border: "1px solid rgba(60,224,251,0.3)", color: "#3ce0fb" }}
-            >
-              <ExternalLink size={14} />
-              {isAr ? "فتح منصة الاختبارات" : "Open Exams Platform"}
-            </a>
-            <div className="flex items-center gap-2 text-xs p-2.5 rounded-lg" style={{ background: "rgba(74,222,128,0.06)", border: "1px solid rgba(74,222,128,0.15)", color: "#4ade80" }}>
-              <CheckCircle size={12} />
-              {isAr ? "دمج الحساب الموحد قيد التطوير" : "Unified account integration in progress"}
+            <div className="flex items-center gap-2 text-xs px-2.5 py-1 rounded-full self-start" style={{ background: "rgba(74,222,128,0.08)", border: "1px solid rgba(74,222,128,0.2)", color: "#4ade80" }}>
+              <CheckCircle size={11} />
+              {isAr ? "مدمج الآن" : "Now Integrated"}
             </div>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+              {isAr ? "7 فئات من الاختبارات — النتائج تُحفظ في حسابك" : "7 exam categories — results saved to your account"}
+            </p>
+            <p className="text-xs font-bold mt-1" style={{ color: "var(--color-on-surface-variant)" }}>
+              {isAr ? "اختر فئة بالأسفل للبدء ←" : "Choose a category below to start ↓"}
+            </p>
           </div>
         </div>
 
@@ -116,47 +85,52 @@ export default async function DigitalExamsPage({
             {isAr ? "فئات الاختبارات" : "Exam Categories"}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {categories.map((cat, i) => (
-              <div key={i} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: "1px solid rgba(60,224,251,0.08)" }}>
+            {examSubjects.map((subject) => (
+              <Link
+                key={subject.id}
+                href={`/${locale}/digital-exams/${subject.id}`}
+                className="glass-card rounded-2xl p-5 flex flex-col gap-3 transition-all hover:scale-[1.02] hover:-translate-y-0.5"
+                style={{ border: `1px solid ${subject.color}15`, textDecoration: "none" }}
+              >
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl flex-shrink-0">{cat.icon}</span>
-                  <h3 className="font-bold text-sm leading-snug" style={{ color: "var(--color-on-surface)" }}>{cat.title}</h3>
+                  <span className="text-2xl flex-shrink-0">{subject.icon}</span>
+                  <h3 className="font-bold text-sm leading-snug" style={{ color: "var(--color-on-surface)" }}>
+                    {isAr ? subject.labelAr : subject.label}
+                  </h3>
                 </div>
-                <ul className="flex flex-col gap-1.5">
-                  {cat.topics.map((topic) => (
-                    <li key={topic} className="flex items-center gap-2 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
-                      <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "#3ce0fb" }} />
-                      {topic}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                  {isAr ? subject.descriptionAr : subject.description}
+                </p>
+                <div className="flex items-center justify-between mt-auto pt-1">
+                  <span className="text-[10px] font-mono" style={{ color: subject.color }}>
+                    20 {isAr ? "سؤال" : "questions"}
+                  </span>
+                  <Arrow size={14} style={{ color: subject.color }} />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
 
         {/* Integration info */}
-        <div className="rounded-2xl p-6 mb-14 flex flex-col sm:flex-row items-start gap-4" style={{ background: "rgba(60,224,251,0.04)", border: "1px solid rgba(60,224,251,0.12)" }}>
-          <GitBranch size={20} className="flex-shrink-0 mt-0.5" style={{ color: "#3ce0fb" }} />
+        <div className="rounded-2xl p-6 mb-14 flex flex-col sm:flex-row items-start gap-4" style={{ background: "rgba(74,222,128,0.04)", border: "1px solid rgba(74,222,128,0.12)" }}>
+          <CheckCircle size={20} className="flex-shrink-0 mt-0.5" style={{ color: "#4ade80" }} />
           <div className="flex-1">
             <p className="font-bold text-sm mb-1" style={{ color: "var(--color-on-surface)" }}>
-              {isAr ? "حالة الدمج مع المنصة الموحدة" : "Integration Status with Unified Platform"}
+              {isAr ? "✅ مدمج بالكامل مع منصة درهوس" : "✅ Fully Integrated with Darhous Platform"}
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
               {isAr
-                ? "منصة الاختبارات جاهزة ومتاحة كمنصة مستقلة. نعمل على دمجها مع نظام حساب درهوس الموحد لحفظ نتائجك تلقائياً في لوحة التحكم."
-                : "The exams platform is ready and available as a standalone platform. We are working on integrating it with the Darhous unified account system to automatically save your results to the dashboard."}
+                ? "اختبارات التحول الرقمي مدمجة الآن بالكامل — 7 فئات بـ 20 سؤالاً لكل فئة. نتائجك تُحفظ في حسابك وتظهر في لوحة التحكم الموحدة."
+                : "Digital transformation exams are now fully integrated — 7 categories with 20 questions each. Results are saved to your account and appear on your unified dashboard."}
             </p>
           </div>
-          <a href={INTEGRATION_STATUS.externalUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-mono flex-shrink-0 transition-opacity hover:opacity-80" style={{ color: "#3ce0fb" }}>
-            GitHub <ExternalLink size={11} />
-          </a>
         </div>
 
         {/* Community Signup */}
         <div className="max-w-xl mx-auto">
           <p className="text-center text-sm mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
-            {isAr ? "اشترك لتعرف عند اكتمال الدمج" : "Subscribe to know when full integration is complete"}
+            {isAr ? "اشترك للحصول على آخر الاختبارات والأخبار" : "Subscribe for new exams and platform updates"}
           </p>
           <CommunitySignup locale={locale} variant="footer" source="digital-exams-portal" />
         </div>

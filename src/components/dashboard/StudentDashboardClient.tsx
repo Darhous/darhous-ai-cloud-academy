@@ -33,6 +33,23 @@ interface SavedPromptRow {
   created_at: string;
 }
 
+interface LanguageResult {
+  id: string;
+  score: number;
+  level: string;
+  stages_completed: number;
+  created_at: string;
+}
+
+interface ExamResult {
+  id: string;
+  subject: string;
+  subject_label: string;
+  percentage: number;
+  passed: boolean;
+  created_at: string;
+}
+
 interface Props {
   locale: string;
 }
@@ -87,6 +104,8 @@ export default function StudentDashboardClient({ locale }: Props) {
   const [savedPromptsDb, setSavedPromptsDb] = useState<SavedPromptRow[]>([]);
   const [streak, setStreak] = useState(0);
   const [dataLoading, setDataLoading] = useState(false);
+  const [languageResult, setLanguageResult] = useState<LanguageResult | null>(null);
+  const [examResults, setExamResults] = useState<ExamResult[]>([]);
 
   useEffect(() => {
     if (!user || !supabaseConfigured) return;
@@ -96,17 +115,21 @@ export default function StudentDashboardClient({ locale }: Props) {
       const supabase = createClient();
       if (!supabase || !user) { setDataLoading(false); return; }
 
-      const [cpRes, qrRes, spRes, lpRes] = await Promise.all([
+      const [cpRes, qrRes, spRes, lpRes, lrRes, erRes] = await Promise.all([
         supabase.from("course_progress").select("course_slug,status,progress_percent,last_opened_at").eq("user_id", user.id).order("last_opened_at", { ascending: false }).limit(5),
         supabase.from("quiz_results").select("course_slug,percentage,created_at").eq("user_id", user.id).order("created_at", { ascending: false }).limit(5),
         supabase.from("saved_prompts").select("id,title,created_at").eq("user_id", user.id).order("created_at", { ascending: false }).limit(5),
         supabase.from("lesson_progress").select("completed_at").eq("user_id", user.id).eq("completed", true).not("completed_at", "is", null),
+        supabase.from("language_results").select("id,score,level,stages_completed,created_at").eq("user_id", user.id).order("created_at", { ascending: false }).limit(1),
+        supabase.from("digital_exam_results").select("id,subject,subject_label,percentage,passed,created_at").eq("user_id", user.id).order("created_at", { ascending: false }).limit(7),
       ]);
 
       setCourseProgress(cpRes.data ?? []);
       setQuizResults(qrRes.data ?? []);
       setSavedPromptsDb(spRes.data ?? []);
       setStreak(calcStreak(lpRes.data?.map((r: { completed_at: string }) => r.completed_at) ?? []));
+      setLanguageResult((lrRes.data ?? [])[0] ?? null);
+      setExamResults(erRes.data ?? []);
       setDataLoading(false);
     }
 
@@ -232,40 +255,57 @@ export default function StudentDashboardClient({ locale }: Props) {
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* Available portals with progress placeholders */}
-          {availablePortals.map((portal) => (
-            <Link
-              key={portal.id}
-              href={`/${locale}${portal.href}`}
-              className="glass-card rounded-2xl p-4 flex items-center gap-4 transition-all hover:scale-[1.02] hover:-translate-y-0.5"
-              style={{ border: `1px solid ${portal.color}15`, textDecoration: "none" }}
-            >
-              <span
-                className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                style={{ background: `${portal.color}12`, border: `1px solid ${portal.color}20` }}
+          {/* Available portals with real progress */}
+          {availablePortals.map((portal) => {
+            let statusLabel = isAr ? "متاح" : "Available";
+            let progressPct = 0;
+
+            if (portal.id === "ai-academy") {
+              progressPct = completedCount > 0 ? Math.min(completedCount * 6, 100) : 0;
+              statusLabel = `${completedCount} ${isAr ? "دورة" : "courses"}`;
+            } else if (portal.id === "language") {
+              if (languageResult) {
+                statusLabel = languageResult.level;
+                progressPct = languageResult.score;
+              }
+            } else if (portal.id === "digital-exams") {
+              if (examResults.length > 0) {
+                const lastExam = examResults[0];
+                statusLabel = `${Math.round(lastExam.percentage)}%`;
+                progressPct = lastExam.percentage;
+              }
+            }
+
+            return (
+              <Link
+                key={portal.id}
+                href={`/${locale}${portal.href}`}
+                className="glass-card rounded-2xl p-4 flex items-center gap-4 transition-all hover:scale-[1.02] hover:-translate-y-0.5"
+                style={{ border: `1px solid ${portal.color}15`, textDecoration: "none" }}
               >
-                {portal.icon}
-              </span>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold truncate" style={{ color: "var(--color-on-surface)" }}>
-                  {isAr ? portal.titleAr : portal.titleEn}
-                </p>
-                <div className="flex items-center gap-2 mt-1.5">
-                  <div className="flex-1 h-1 rounded-full" style={{ background: "var(--color-outline-variant)" }}>
-                    {portal.id === "ai-academy" && (
-                      <div className="h-full rounded-full" style={{ width: `${completedCount > 0 ? Math.min(completedCount * 6, 100) : 0}%`, background: portal.color }} />
-                    )}
+                <span
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                  style={{ background: `${portal.color}12`, border: `1px solid ${portal.color}20` }}
+                >
+                  {portal.icon}
+                </span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold truncate" style={{ color: "var(--color-on-surface)" }}>
+                    {isAr ? portal.titleAr : portal.titleEn}
+                  </p>
+                  <div className="flex items-center gap-2 mt-1.5">
+                    <div className="flex-1 h-1 rounded-full" style={{ background: "var(--color-outline-variant)" }}>
+                      <div className="h-full rounded-full transition-all" style={{ width: `${progressPct}%`, background: portal.color }} />
+                    </div>
+                    <span className="text-[10px] font-mono flex-shrink-0" style={{ color: portal.color }}>
+                      {statusLabel}
+                    </span>
                   </div>
-                  <span className="text-[10px] font-mono flex-shrink-0" style={{ color: portal.color }}>
-                    {portal.id === "ai-academy"
-                      ? `${completedCount} ${isAr ? "دورة" : "courses"}`
-                      : isAr ? "متاح" : "Available"}
-                  </span>
                 </div>
-              </div>
-              <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: "#4ade80" }} />
-            </Link>
-          ))}
+                <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: "#4ade80" }} />
+              </Link>
+            );
+          })}
           {/* Coming soon portals — compact placeholders */}
           {comingSoonPortals.slice(0, 3).map((portal) => (
             <Link
