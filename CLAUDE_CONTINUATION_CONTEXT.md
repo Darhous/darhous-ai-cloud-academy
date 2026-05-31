@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 5.0.0 — Full Native Portal Migration ✅ COMPLETE |
+| **Version** | 6.0.0 — Darhous Smart Learning OS ✅ COMPLETE |
 | **Status** | ✅ All 6 portals LIVE — Build clean — Pushed to Vercel |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 |
-| **Last Commit** | `16369c1` → docs: update CLAUDE_CONTINUATION_CONTEXT for v5.0 |
+| **Build** | ✅ Clean — 0 TypeScript errors — 955 pages — exit 0 |
+| **Last Commit** | `bab0c22` → feat: v6.0 — Darhous Smart Learning OS |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
@@ -20,19 +20,19 @@
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Supabase Project ID** | `kzbdmyovspkbakbtvgig` |
 | **Branch** | `main` |
-| **Last Updated** | 2026-05-31 (v5.0 — full portal migration session) |
+| **Last Updated** | 2026-06-01 (v6.0 — Smart Learning OS session) |
 
 ---
 
-## ⚡ Quick-Start for Next Session (v6.0 — Smart Learning OS)
+## ⚡ Quick-Start for Next Session (v7.0)
 
 ```
 Continue the Darhous Smart Learning Ecosystem project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md fully before any changes.
-Current version: v5.0.0 — PRODUCTION READY ✅
-Build: ✅ Clean — 0 errors — Live on Vercel
-Last commit: 16369c1 — v5.0 full portal migration complete
+Current version: v6.0.0 — PRODUCTION READY ✅
+Build: ✅ Clean — 0 errors — 955 pages — Live on Vercel
+Last commit: bab0c22 — feat: v6.0 — Darhous Smart Learning OS
 
 ALL 6 PORTALS ARE NOW LIVE:
   ✅ AI Academy         → /ai-academy
@@ -42,108 +42,141 @@ ALL 6 PORTALS ARE NOW LIVE:
   ✅ Automation Academy → /automation (30+ templates, 15+ tools, paths, services, labs)
   ✅ IoT Lab            → /iot-lab (60+ lessons, 72 projects, 40+ challenges, simulator)
 
-NEXT MISSION: v6.0 — Darhous Smart Learning OS
-Transform the platform into a premium, beginner-friendly, unified "Darhous Smart Learning OS".
+v6.0 COMPLETED:
+  ✅ Landing Page       → HomepageClient.tsx (10 sections, beginner path selector, ecosystem map, mentor showcase)
+  ✅ My Darhous Hub     → StudentDashboardClient.tsx (7 tabs: Overview, Portals, Certificates, Activity, Mentor, Plan, Settings)
+  ✅ Admin Studio       → AdminDashboardClient.tsx (11 tabs: Overview, Site Builder, Portals, Users, Certificates, Mentor Control, Content, Email, Analytics, Theme, Audit)
+  ✅ TypeScript Types   → src/types/ (site_settings, content_blocks, admin_audit_logs, ai_mentor_settings, feature_flags)
 
-AUTHORIZATION:
-- Push commits directly to main after validation passes.
-- Make all code changes without asking for confirmation.
-- Add new Supabase tables if needed (non-breaking, additive only).
-- Update any existing page, component, or config.
-- The final result MUST pass: npm run typecheck && npm run lint && npm run build
+NEXT MISSION: v7.0 — Data Persistence & AI Integration
+See "Recommended Next Tasks" section below.
 
 KEY FILES TO KNOW:
-  src/app/[locale]/page.tsx           ← Main landing page (REBUILD/UPGRADE)
-  src/app/[locale]/dashboard/page.tsx ← User dashboard → "My Darhous Hub"
-  src/app/[locale]/admin/page.tsx     ← Admin dashboard → "Darhous Admin Studio"
-  src/components/layout/Footer.tsx    ← Footer (preserve bottom signature bar exactly)
-  src/config/portals.ts               ← SINGLE source of truth for portals
-  src/lib/gemini.ts                   ← Gemini helper (callGemini)
-  src/lib/supabase/                   ← client.ts (client), server.ts (server), admin.ts (server-only)
+  src/app/[locale]/page.tsx                          ← Landing page (server, delegates to HomepageClient)
+  src/components/landing/HomepageClient.tsx          ← Full landing page (client component, 630 lines)
+  src/app/[locale]/dashboard/page.tsx               ← Dashboard page (server, auth guard)
+  src/components/dashboard/StudentDashboardClient.tsx ← "My Darhous Hub" (7 tabs, client)
+  src/app/[locale]/admin/page.tsx                   ← Admin page (server)
+  src/components/admin/AdminDashboardClient.tsx      ← "Darhous Admin Studio" (11 tabs, client)
+  src/components/layout/Footer.tsx                  ← Footer (preserve — already correct)
+  src/config/portals.ts                             ← SINGLE source of truth for portals
+  src/types/                                        ← New v6.0 TypeScript types
+  src/lib/gemini.ts                                 ← Gemini helper (callGemini)
+  src/lib/supabase/                                 ← client.ts (client), server.ts (server), admin.ts (server-only)
 ```
 
 ---
 
-## ✅ Everything Completed & Deployed (as of v4.0.0)
+## ✅ Everything Completed (v6.0 — 2026-06-01)
 
-### v4.2.0 — Production Readiness Round — DONE ✅
+### v6.0 — Darhous Smart Learning OS — DONE ✅
+
+#### Part 1 — New Landing Page
 
 | File | What Changed |
 |------|-------------|
-| `supabase/v4_portal_schema.sql` | Fixed: DROP POLICY IF EXISTS for idempotency, added user_id + created_at indexes |
-| `src/middleware.ts` | Fixed: API routes now bypass page-level auth redirects (was blocking /api/admin/*) |
-| `src/components/exams/DigitalExamClient.tsx` | Added: next-step recommendations for failed exams + retry button |
-| `src/app/api/email/reengagement/route.ts` | NEW: Day-3 re-engagement cron endpoint (see Phase 4 below) |
-| `.env.example` | Added: REENGAGEMENT_CRON_SECRET placeholder |
+| `src/app/[locale]/page.tsx` | Slimmed to metadata + `<HomepageClient locale={locale} />` |
+| `src/components/landing/HomepageClient.tsx` | NEW — full "use client" landing with 10 sections |
 
-### ✅ Supabase Migration COMPLETE (2026-05-31)
+**Landing Page Sections:**
+1. **Hero** — 3 beginner CTAs: "أنا مبتدئ وعايز أبدأ", "مهارة محددة", "تطوير الشغل" — each scrolls to selector
+2. **Beginner Path Selector** — "مش عارف تبدأ منين؟" — 4 questions (level × goal × dailyTime × interest) → weekly plan reveal
+3. **Stats** — existing component
+4. **Ecosystem Map** — AI Mentor center card + 6 portal cards in 3-column radial grid
+5. **Portal Grid** — all portals using existing PortalCard component
+6. **"رحلتك في 4 خطوات"** — 4-step journey: اختار هدفك → المرشد يبني خطة → اتعلم وطبّق → احصل على شهادة
+7. **AI Mentor Showcase** — simulated chat with typewriter animation (useTypewriter hook)
+8. **Why Darhous** — 8 feature cards
+9. **Final CTA** — "ابدأ الآن… حتى لو لا تعرف من أين تبدأ"
+10. **Community Signup** — existing component
 
-Both tables created and verified via Management REST API using browser session:
+**Framer Motion variants note:** `ease` must use bezier array `[0,0,0.2,1]` NOT string `"easeOut"` — Framer Motion 12 strict typing.
 
-| Table | RLS | Policies | Indexes |
-|-------|-----|----------|---------|
-| `language_results` | ✅ enabled | SELECT + INSERT (auth.uid() = user_id) | user_id, created_at DESC |
-| `digital_exam_results` | ✅ enabled | SELECT + INSERT (auth.uid() = user_id) | user_id, subject, created_at DESC |
+#### Part 2 — My Darhous Hub (User Dashboard)
 
-No manual action required — migration is DONE.
+| File | What Changed |
+|------|-------------|
+| `src/components/dashboard/StudentDashboardClient.tsx` | Full rewrite — 7-tab "My Darhous Hub" |
+
+**Dashboard Tabs:**
+| Tab | Content |
+|-----|---------|
+| Overview | Profile card (avatar initial, stats row, streak), "Continue Where You Left Off", stats cards, AI Coach, Quick Actions |
+| My Portals | All 6 real portals with progress %, features chips, Open button |
+| Certificates | 6 cert cards (locked/unlocked state), Download + LinkedIn Share buttons |
+| Activity | Chronological event timeline from all portal interactions |
+| AI Mentor | Context preview panel (what AI knows about user) + 3 quick-start cards |
+| Learning Plan | Today / This Week / This Month roadmaps + course progress list |
+| Settings | Links to profile, notifications, security, preferences + sign out |
+
+**Data sources:**
+- Supabase: `course_progress`, `quiz_results`, `saved_prompts`, `lesson_progress`, `language_results`, `digital_exam_results`
+- Mock/typed: certificates (locked by progress logic), activity timeline, learning plan tasks
+
+#### Part 3 — Darhous Admin Studio
+
+| File | What Changed |
+|------|-------------|
+| `src/components/admin/AdminDashboardClient.tsx` | Full rewrite — 11-tab "Darhous Admin Studio" |
+
+**Admin Tabs:**
+| # | Tab | Content |
+|---|-----|---------|
+| 1 | Overview | User/subscriber/message/portal stats + system health |
+| 2 | Site Builder | Hero content editor, section visibility toggles, CTA text editor, Feature Flags (local state) |
+| 3 | Portal Manager | All portals: status, visibility toggle (Eye), external link |
+| 4 | Users | Search/filter users, promote/demote, export CSV, subscribers list |
+| 5 | Certificates Studio | 6 cert cards with View Template / Issue buttons |
+| 6 | AI Mentor Control | Personality, tone, language selectors + system prompt editor (local state from defaultMentorSettings) |
+| 7 | Content Studio | Content stats (courses/tools/projects/blog/prompts/nanabana) + contact messages |
+| 8 | Email & Notifications | 4 email sequence cards (welcome, reengagement, certificate, weekly — status: active/planned) |
+| 9 | Analytics | 4 stat cards + portal usage bars (mock data) |
+| 10 | Theme & Branding | Color palette viewer, social links, footer signature display |
+| 11 | Security & Audit | Audit log from Supabase + security checklist |
+
+**Important:** Site Builder and AI Mentor Control use **local state only** — not yet persisted to DB.
+
+#### Part 4 — TypeScript Types
+
+| File | Types |
+|------|-------|
+| `src/types/site_settings.ts` | `SiteSettings`, `defaultSiteSettings` |
+| `src/types/content_blocks.ts` | `ContentBlock`, `ContentBlockType` |
+| `src/types/admin_audit_logs.ts` | `AdminAuditLog`, `AuditAction` |
+| `src/types/ai_mentor_settings.ts` | `AIMentorSettings`, `MentorTone`, `MentorPersonality`, `MentorLanguage`, `defaultMentorSettings` |
+| `src/types/feature_flags.ts` | `FeatureFlag`, `defaultFeatureFlags` |
+
+---
+
+## ✅ Everything Completed & Deployed (v5.0 and earlier)
+
+### v5.0 — Full Native Portal Migration — DONE ✅
+- Career Hub (`/career`) — ATS CV Analyzer, 5-step CV Builder, Smart Jobs, Interview Prep, Templates
+- Automation Academy (`/automation`) — 30+ templates, 15+ tools, paths, services, labs, automation agent
+- IoT Lab (`/iot-lab`) — 60+ lessons, 72 projects, 40+ challenges, component library, Wokwi simulator, exams
+- `src/config/portals.ts` — career/automation/iot-lab → `status: "available"`
+- `package.json` — added `pdf-parse` and `@types/pdf-parse`
+
+### v4.2.0 — Production Readiness — DONE ✅
+- `supabase/v4_portal_schema.sql` — idempotent, indexes added
+- `src/middleware.ts` — API routes bypass page-level auth guard
+- `src/components/exams/DigitalExamClient.tsx` — next-step recommendations for failed exams
+- `src/app/api/email/reengagement/route.ts` — Day-3 cron endpoint (LIVE: daily 08:00 UTC)
 
 ### v4.1.0 — Portal Integration — DONE ✅
-
-| File | What It Does |
-|------|-------------|
-| `src/data/language-questions.json` | 150 English assessment questions (stages 1-10, all difficulties) |
-| `src/data/digital-exam-subjects.ts` | 7 exam subjects × 20 questions each (140 total) |
-| `src/components/language/LanguageAssessmentClient.tsx` | Full exam engine: adaptive stages, 90s timer, anti-cheat, CEFR scoring |
-| `src/components/language/LanguageResultsClient.tsx` | Results: CEFR badge, skill breakdown, stage chart, study resources |
-| `src/components/exams/DigitalExamClient.tsx` | 20-question exam client: 60s timer, per-question feedback, next-step recs |
-| `src/app/[locale]/language/assessment/page.tsx` | Assessment entry page (auth-gated) |
-| `src/app/[locale]/language/results/page.tsx` | Results page (fetches from Supabase by ID, URL param fallback) |
-| `src/app/[locale]/digital-exams/[subject]/page.tsx` | Subject exam page (7 subjects, static params) |
-| `src/app/api/language/submit/route.ts` | POST: save language result to Supabase |
-| `src/app/api/language/results/route.ts` | GET: user's language history |
-| `src/app/api/exams/submit/route.ts` | POST: save digital exam result |
-| `src/app/api/exams/results/route.ts` | GET: user's exam history |
-| `src/app/api/email/welcome/route.ts` | POST: sends bilingual welcome email via Resend |
-| `src/components/dashboard/StudentDashboardClient.tsx` | Updated: My Portals now shows CEFR level + exam % |
-| `src/components/auth/RegisterForm.tsx` | Updated: triggers welcome email on signup |
-| `src/app/[locale]/language/page.tsx` | Updated: CTA links to /assessment (integration complete) |
-| `src/app/[locale]/digital-exams/page.tsx` | Updated: category cards are clickable links |
+- Language Assessment (150q, CEFR, adaptive stages, Supabase)
+- Digital Exams (7 subjects × 20q, Supabase)
+- Dashboard "My Portals" shows real CEFR + exam % data
 
 ### v4.0.0 — Ecosystem Transformation — DONE ✅
-
-| File | What It Does |
-|------|-------------|
-| `src/config/portals.ts` | Portal Registry — single source of truth for all 7 portals |
-| `src/components/ecosystem/PortalCard.tsx` | Reusable glassmorphism portal card (client component) |
-| `src/components/ecosystem/ComingSoonPortal.tsx` | Reusable Coming Soon page template |
-| `src/app/[locale]/page.tsx` | **NEW** Ecosystem landing page (11 sections) |
-| `src/app/[locale]/ai-academy/page.tsx` | AI Academy portal hub with AI Studio grid |
-| `src/app/[locale]/language/page.tsx` | Language portal shell page |
-| `src/app/[locale]/digital-exams/page.tsx` | Digital Exams portal shell page |
-| `src/app/[locale]/career/page.tsx` | Career & CV — Coming Soon |
-| `src/app/[locale]/automation/page.tsx` | Automation Academy — Coming Soon |
-| `src/app/[locale]/iot-lab/page.tsx` | Arduino & IoT Lab — Coming Soon |
-| `src/app/[locale]/coming-soon/page.tsx` | Future portals — Coming Soon |
-| `src/components/layout/Navbar.tsx` | +Portals dropdown (desktop + mobile) |
-| `src/components/layout/Footer.tsx` | Ecosystem footer (4 cols: Brand, Portals, AI Studio, Links) |
-| `src/components/dashboard/StudentDashboardClient.tsx` | +My Portals section |
-| `src/components/admin/AdminDashboardClient.tsx` | +Ecosystem tab |
-| `src/app/sitemap.ts` | +ai-academy, language, digital-exams routes |
+- Portal Registry (`src/config/portals.ts`) — single source of truth
+- 6 portal pages, Navbar dropdown, Footer ecosystem links
 
 ### v3.1.0 Infrastructure — ALL STILL LIVE ✅
-| Task | Status |
-|------|--------|
-| Supabase v3 schema (15 tables, all RLS, 4 challenges seeded) | ✅ LIVE |
-| avatars bucket (Supabase Storage) + RLS policies | ✅ LIVE |
-| RESEND_API_KEY in Vercel | ✅ Set |
-| All 20 v3.0.0 features | ✅ All still working |
-
-### v3.0.0 Features (20 total) — ALL INTACT ✅
-search, challenges, leaderboard, prompt-battle, prompt-score, compare-tools,
-certificates, learning-plans, project-generator, build-project mode,
-public profiles (`/u/[username]`), certificate verification, AI Coach card,
-Nano Banana visual gallery, avatar upload, email foundation (Resend),
-PWA manifest, RAG foundation schema, admin analytics tab, admin content studio tab.
+- Supabase v3 schema (15+ tables, all RLS, 4 challenges seeded)
+- avatars bucket + RLS
+- Resend API (RESEND_API_KEY in Vercel)
+- All 20 v3.0.0 features (search, challenges, leaderboard, prompt-battle, certificates, etc.)
 
 ---
 
@@ -154,9 +187,8 @@ PWA manifest, RAG foundation schema, admin analytics tab, admin content studio t
 | Framework | Next.js 16 App Router | params is a Promise — always `await params` |
 | Language | TypeScript 5 | Strict mode |
 | Styling | Tailwind CSS v4 | CSS-based config — NO tailwind.config.js for colors |
-| Animation | Framer Motion 12 + CSS | |
+| Animation | Framer Motion 12 + CSS | Import: `import { motion } from "framer-motion"` NOT "motion/react" |
 | Icons | Lucide React v1 + react-icons v5 | Some icons renamed vs older versions |
-| Search | Local Fuse-style scoring | /api/search |
 | AI | Google Gemini API | gemini-2.5-flash, server-side only |
 | Auth | Supabase Auth | Email + Google OAuth |
 | Database | Supabase PostgreSQL | RLS enabled on all tables |
@@ -168,118 +200,108 @@ PWA manifest, RAG foundation schema, admin analytics tab, admin content studio t
 
 ---
 
-## 📁 All Routes (v4.0.0 complete)
+## 📁 All Routes (v6.0 complete)
 
-### Ecosystem routes (v4 + v5 — ALL LIVE)
+### Landing & Core
 | Route | Description |
 |-------|-------------|
-| `/[locale]` | **Ecosystem Landing Page** (v6.0 target: full upgrade) |
+| `/[locale]` | **Smart Learning OS Landing** (v6.0 — HomepageClient.tsx) |
+| `/[locale]/dashboard` | **My Darhous Hub** (v6.0 — 7-tab user dashboard) |
+| `/[locale]/admin` | **Darhous Admin Studio** (v6.0 — 11-tab admin) |
+| `/[locale]/mentor` | AI Mentor (6 modes, streaming) |
+
+### Portal Routes (ALL LIVE)
+| Route | Description |
+|-------|-------------|
 | `/[locale]/ai-academy` | AI Academy portal hub |
-| `/[locale]/language` | Language portal — 150q, 10 stages, CEFR |
+| `/[locale]/language` | Language portal — 150q, CEFR |
 | `/[locale]/digital-exams` | Digital Exams — 7 subjects × 20q |
-| `/[locale]/career` | **Career Hub** ✅ LIVE v5.0 |
-| `/[locale]/career/cv-analyzer` | ATS CV Analyzer (Gemini AI + pdf-parse) |
-| `/[locale]/career/builder` | 5-step CV Builder with live preview |
+| `/[locale]/career` | Career Hub |
+| `/[locale]/career/cv-analyzer` | ATS CV Analyzer (Gemini + pdf-parse) |
+| `/[locale]/career/builder` | 5-step CV Builder |
 | `/[locale]/career/jobs` | Smart Jobs Board |
-| `/[locale]/career/interview` | Interview Prep + STAR AI Evaluator |
+| `/[locale]/career/interview` | Interview Prep + STAR AI |
 | `/[locale]/career/templates` | CV Templates |
-| `/[locale]/automation` | **Automation Academy** ✅ LIVE v5.0 |
-| `/[locale]/automation/templates` | 30+ Automation Templates |
+| `/[locale]/automation` | Automation Academy |
+| `/[locale]/automation/templates` | 30+ Templates |
 | `/[locale]/automation/tools` | 15+ Tools Explorer |
 | `/[locale]/automation/paths` | Learning Paths |
 | `/[locale]/automation/services` | 10 Service Packages |
 | `/[locale]/automation/labs` | Practical Labs |
 | `/[locale]/automation/automation-agent` | Automation Agent |
-| `/[locale]/iot-lab` | **IoT Lab** ✅ LIVE v5.0 |
-| `/[locale]/iot-lab/paths` | Learning Paths (with [slug]) |
-| `/[locale]/iot-lab/lessons` | 60+ Lessons (with [slug]) |
-| `/[locale]/iot-lab/projects` | 72 Projects (with [slug]) |
-| `/[locale]/iot-lab/challenges` | 40+ Challenges (with [slug]) |
-| `/[locale]/iot-lab/component-library` | Components Library (with [slug]) |
+| `/[locale]/iot-lab` | IoT Lab |
+| `/[locale]/iot-lab/paths` | Learning Paths |
+| `/[locale]/iot-lab/lessons` | 60+ Lessons |
+| `/[locale]/iot-lab/projects` | 72 Projects |
+| `/[locale]/iot-lab/challenges` | 40+ Challenges |
+| `/[locale]/iot-lab/component-library` | Components Library (NOT /components — App Router conflict) |
 | `/[locale]/iot-lab/simulator` | Wokwi Simulator |
 | `/[locale]/iot-lab/exams` | Interactive Exams |
-| `/[locale]/coming-soon` | Future portals |
 
-### Public routes (v3 and earlier — ALL PRESERVED)
+### Other Public Routes (v3 and earlier — ALL PRESERVED)
 | Route | Description |
 |-------|-------------|
 | `/[locale]/courses` | Courses (18) |
-| `/[locale]/courses/[slug]` | Course detail + lessons |
 | `/[locale]/tools` | AI Tools (62) |
-| `/[locale]/tools/[slug]` | Tool detail |
 | `/[locale]/projects` | Projects (14) |
-| `/[locale]/projects/[slug]` | Project detail |
-| `/[locale]/projects/[slug]/build` | 8-step Build Mode |
 | `/[locale]/blog` | Blog (13 posts) |
-| `/[locale]/blog/[slug]` | Blog post |
 | `/[locale]/prompts` | Prompt Library (27) |
-| `/[locale]/glossary` | Glossary (40 terms) |
+| `/[locale]/glossary` | Glossary |
 | `/[locale]/paths` | Learning Paths |
-| `/[locale]/claude` | Claude page |
-| `/[locale]/cloud` | Cloud page |
-| `/[locale]/about` | About |
-| `/[locale]/contact` | Contact |
 | `/[locale]/search` | Smart Search |
-| `/[locale]/challenges` | AI Challenges — 4 seeded |
+| `/[locale]/challenges` | AI Challenges |
 | `/[locale]/leaderboard` | Leaderboard |
 | `/[locale]/prompt-battle` | Prompt Battle |
 | `/[locale]/prompt-score` | Prompt Score |
 | `/[locale]/compare-tools` | Tool Comparison |
-| `/[locale]/project-generator` | AI Project Idea Generator |
-| `/[locale]/nano-banana-prompts` | Nano Banana Visual Gallery |
-| `/[locale]/mentor` | AI Mentor (6 modes, streaming) |
+| `/[locale]/project-generator` | AI Project Generator |
+| `/[locale]/nano-banana-prompts` | Nano Banana Gallery |
 | `/[locale]/prompt-studio` | Prompt Studio |
 | `/[locale]/claude-code-generator` | Claude Code Generator |
 | `/[locale]/tool-recommender` | Tool Recommender |
 | `/[locale]/roadmap-generator` | Roadmap Generator |
+| `/[locale]/about` | About |
+| `/[locale]/contact` | Contact |
 | `/[locale]/privacy` | Privacy Policy |
-| `/[locale]/terms` | Terms of Service |
+| `/[locale]/terms` | Terms |
+| `/[locale]/coming-soon` | Future portals |
 | `/u/[username]` | Public Profile |
 | `/certificates/verify/[code]` | Certificate Verification |
 
-### Auth-required routes
+### Auth-Required Routes
 | Route | Description |
 |-------|-------------|
-| `/[locale]/dashboard` | Unified Dashboard (v4 — My Portals + AI progress) |
+| `/[locale]/dashboard` | My Darhous Hub (v6.0) |
 | `/[locale]/certificates` | My Certificates |
 | `/[locale]/learning-plans` | Learning Plans |
-| `/[locale]/profile` | Profile v2 — avatar, username, bio |
+| `/[locale]/profile` | Profile v2 |
 | `/[locale]/onboarding` | 5-step onboarding |
-| `/[locale]/admin` | Admin Dashboard — 10 tabs (includes Ecosystem tab) |
-| `/[locale]/login` | Login |
-| `/[locale]/register` | Register |
-| `/[locale]/forgot-password` | Forgot Password |
-| `/[locale]/reset-password` | Reset Password |
+| `/[locale]/admin` | Darhous Admin Studio (v6.0) |
 
-### API routes
+### API Routes
 | Route | Method | Auth |
 |-------|--------|------|
 | `/api/coach` | GET | Auth required |
 | `/api/certificates` | GET/POST | Auth required |
 | `/api/certificates/verify/[code]` | GET | Public |
-| `/api/prompt-score` | POST | Public (saves if auth) |
-| `/api/prompt-battle` | POST | Public (saves if auth) |
+| `/api/mentor` | POST | Public (rate-limited) |
+| `/api/mentor-stream` | GET | Public (SSE) |
 | `/api/search` | GET | Public |
 | `/api/avatar/upload` | POST | Auth required |
-| `/api/challenges/submit` | POST | Auth required |
-| `/api/learning-plans` | GET/POST | Auth required |
 | `/api/analytics/track` | POST | Public |
 | `/api/project-generator` | POST | Public |
-| `/api/mentor` | POST | Public (rate-limited) |
-| `/api/mentor-stream` | GET | Public (SSE, rate-limited) |
-| `/api/progress/lesson` | POST | Auth required |
-| `/api/quiz/submit` | POST | Auth required |
-| `/api/contact` | POST | Public (rate-limited) |
-| `/api/community/subscribe` | POST | Public (rate-limited) |
-| `/api/admin/users` | GET | Admin only |
-| `/api/admin/subscribers` | GET | Admin only |
-| `/api/admin/promote` | POST | Admin only |
 | `/api/language/submit` | POST | Auth required |
 | `/api/language/results` | GET | Auth required |
 | `/api/exams/submit` | POST | Auth required |
 | `/api/exams/results` | GET | Auth required |
-| `/api/email/welcome` | POST | Internal (fire-and-forget from RegisterForm) |
-| `/api/email/reengagement` | POST | Cron secret (x-cron-secret header) |
+| `/api/career/upload-cv` | POST | Public (pdf-parse, Node runtime) |
+| `/api/career/analyze-cv` | POST | Public (Gemini AI) |
+| `/api/career/evaluate-interview` | POST | Public (Gemini AI) |
+| `/api/email/welcome` | POST | Internal (fire-and-forget) |
+| `/api/email/reengagement` | GET | Cron secret |
+| `/api/admin/users` | GET | Admin only |
+| `/api/admin/subscribers` | GET | Admin only |
+| `/api/admin/promote` | POST | Admin only |
 
 ---
 
@@ -287,176 +309,110 @@ PWA manifest, RAG foundation schema, admin analytics tab, admin content studio t
 
 | Variable | Status | Description |
 |----------|--------|-------------|
-| `GEMINI_API_KEY` | ✅ Set | From aistudio.google.com |
+| `GEMINI_API_KEY` | ✅ Set | aistudio.google.com |
 | `GEMINI_MODEL` | ✅ Set | gemini-2.5-flash |
 | `NEXT_PUBLIC_SUPABASE_URL` | ✅ Set | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✅ Set | Public anon key |
 | `SUPABASE_SERVICE_ROLE_KEY` | ✅ Set | **SERVER ONLY** |
 | `NEXT_PUBLIC_SITE_URL` | ✅ Set | Live site URL |
-| `RESEND_API_KEY` | ✅ Set | Added 2026-05-31 |
-| `CONTACT_TO_EMAIL` | ❌ Optional | Contact form notifications |
-| `REENGAGEMENT_CRON_SECRET` | ✅ Set in Vercel (2026-05-31) | Protects /api/email/reengagement |
-| `CRON_SECRET` | ✅ Auto-set by Vercel | Vercel native cron auth for GET /api/email/reengagement |
+| `RESEND_API_KEY` | ✅ Set | Resend email |
+| `REENGAGEMENT_CRON_SECRET` | ✅ Set | Cron protection |
+| `CRON_SECRET` | ✅ Auto-set by Vercel | Native cron auth |
 
-> Note: `.env.local` only has `GEMINI_API_KEY` and `GEMINI_MODEL`. All other keys are in Vercel only.
+> `.env.local` only has `GEMINI_API_KEY` and `GEMINI_MODEL`. All others are Vercel-only.
 
 ---
 
 ## 🗄️ Supabase DB Tables (complete list)
 
 ### Base tables (pre-v3)
-profiles, student_profiles, course_progress, lesson_progress, quiz_results,
-contact_messages, community_subscribers, saved_prompts, favorites,
-nano_banana_saved_prompts, audit_log
+`profiles`, `student_profiles`, `course_progress`, `lesson_progress`, `quiz_results`,
+`contact_messages`, `community_subscribers`, `saved_prompts`, `favorites`,
+`nano_banana_saved_prompts`, `audit_log`
 
 ### v3 tables (DEPLOYED ✅)
-certificates, learning_plans, daily_tasks, challenges (4 seeded), challenge_submissions,
-prompt_scores, prompt_battles, public_profiles, analytics_events,
-email_sequence_events, content_items, tool_comparisons, user_preferences, user_projects
+`certificates`, `learning_plans`, `daily_tasks`, `challenges` (4 seeded), `challenge_submissions`,
+`prompt_scores`, `prompt_battles`, `public_profiles`, `analytics_events`,
+`email_sequence_events`, `content_items`, `tool_comparisons`, `user_preferences`, `user_projects`
 
-### v4.1 tables (⚠️ SQL READY, MUST BE RUN MANUALLY IN SUPABASE DASHBOARD)
-language_results (id, user_id, score, level, time_taken, stages_completed, is_incomplete, breakdown jsonb)
-digital_exam_results (id, user_id, subject, subject_label, score, total, percentage, passed, time_taken, answers jsonb)
-— SQL: supabase/v4_portal_schema.sql (idempotent, includes indexes and RLS policies)
-— Go to: https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig/sql/new
+### v4.1 tables (DEPLOYED ✅)
+`language_results` (id, user_id, score, level, time_taken, stages_completed, is_incomplete, breakdown jsonb)
+`digital_exam_results` (id, user_id, subject, subject_label, score, total, percentage, passed, time_taken, answers jsonb)
 
 ### RAG tables (schema ready, not populated)
-content_index, mentor_sources — see RAG_MENTOR_PLAN.md
+`content_index`, `mentor_sources` — see RAG_MENTOR_PLAN.md
+
+### v7.0 planned tables (NOT YET CREATED)
+`admin_site_settings` — store Site Builder content
+`ai_mentor_settings` — store Mentor Control settings
+`feature_flags` — store feature flag toggles per environment
 
 ---
 
 ## 🌐 Portal Registry (src/config/portals.ts)
 
-The SINGLE source of truth for all portals. Changing a portal here updates: Landing Page, Navbar dropdown, Footer, Dashboard, Admin tab.
+Single source of truth. Changing a portal here updates: Landing Page, Navbar, Footer, Dashboard, Admin.
 
-| Portal ID | Route | Status | Color | Integration |
-|-----------|-------|--------|-------|-------------|
-| `ai-academy` | `/ai-academy` | available | `#8ed5ff` | internal |
-| `language` | `/language` | available | `#d0bcff` | shell → https://github.com/Darhous/darhous-assessment |
-| `digital-exams` | `/digital-exams` | available | `#3ce0fb` | shell → https://github.com/Darhous/Exams_Platform |
-| `career` | `/career` | coming-soon | `#f59e0b` | shell |
-| `automation` | `/automation` | coming-soon | `#4ade80` | shell |
-| `iot-lab` | `/iot-lab` | coming-soon | `#f97316` | shell |
-| `coming-soon` | `/coming-soon` | coming-soon | `#c084fc` | shell |
+| Portal ID | Route | Status | Color |
+|-----------|-------|--------|-------|
+| `ai-academy` | `/ai-academy` | available | `#8ed5ff` |
+| `language` | `/language` | available | `#d0bcff` |
+| `digital-exams` | `/digital-exams` | available | `#3ce0fb` |
+| `career` | `/career` | available | `#f59e0b` |
+| `automation` | `/automation` | available | `#4ade80` |
+| `iot-lab` | `/iot-lab` | available | `#f97316` |
+| `coming-soon` | `/coming-soon` | coming-soon | `#c084fc` |
 
 ---
 
-## 🔮 Recommended Next Tasks (v4.1+)
+## 🔮 Recommended Next Tasks (v7.0)
 
-### Priority 1 — Full Portal Integration — ✅ DONE (v4.1.0)
-- [x] **Language Portal full integration** — 150 questions, 10 adaptive stages, CEFR levels, Supabase storage ✅
-- [x] **Digital Exams full integration** — 7 subjects × 20 questions, Supabase storage ✅
-- [x] **Unified results in dashboard** — My Portals shows CEFR level + exam % from real DB data ✅
-- [x] **✅ Supabase migration DONE** — Tables created, RLS enabled, indexes verified
+### Priority 1 — Data Persistence for v6.0 Admin Features
+- [ ] **Admin Site Builder → DB** — create `admin_site_settings` table in Supabase, wire Site Builder to save/load via API
+- [ ] **AI Mentor Control → DB** — create `ai_mentor_settings` table, wire to `/api/admin/mentor-settings`
+- [ ] **Feature Flags → DB** — create `feature_flags` table, wire toggle to API
 
-### Priority 2 — Email & Engagement (v4.2.0)
-- [x] **Welcome email** — /api/email/welcome fires on signup (RegisterForm updated) ✅
-- [x] **Day-3 re-engagement email** — /api/email/reengagement LIVE ✅
-  - `REENGAGEMENT_CRON_SECRET` set in Vercel ✅
-  - Vercel Cron Job active: GET /api/email/reengagement daily @ 08:00 UTC ✅
-  - Deduplication: uses email_sequence_events table (7-day window, sequence='reengagement', step='day-3') ✅
-  - Returns: { checked, sent, skipped, failed } — safe summary only ✅
+### Priority 2 — User Hub Improvements
+- [ ] **Avatar upload in Hub** — wire profile card avatar to existing `/api/avatar/upload`
+- [ ] **Certificate download** — generate PDF server-side (use `@react-pdf/renderer` or puppeteer)
+- [ ] **LinkedIn share** — open share dialog with certificate verification URL
 
-### ✅ v5.0 Portal Integration — DONE (2026-05-31)
+### Priority 3 — AI Mentor Enhancement
+- [ ] **Real context injection** — pass user's Supabase data (level, portals, progress) into Gemini system prompt
+- [ ] **RAG Mentor** — enable pgvector in Supabase + populate `content_index` table (plan: RAG_MENTOR_PLAN.md)
 
-All 3 portals are now live as fully native routes:
+### Priority 4 — Theme & Settings
+- [ ] **Dark/light toggle** — `user_preferences` table is ready in DB — just needs the toggle button + CSS class swap
+- [ ] **Challenge points → Leaderboard** — wire `challenge_submissions.score` to leaderboard point totals
 
-| Portal | Repo (source) | Status | Routes |
-|--------|---------------|--------|--------|
-| Career Hub | Darhous/Darhous-career-hub-google | ✅ LIVE | `/career`, `/career/cv-analyzer`, `/career/builder`, `/career/jobs`, `/career/interview`, `/career/templates` |
-| Automation Academy | Darhous/darhous-automation-academy | ✅ LIVE | `/automation`, `/automation/templates`, `/automation/tools`, `/automation/paths`, `/automation/services`, `/automation/labs`, `/automation/automation-agent` |
-| IoT Lab | Darhous/darhous-iot-lab | ✅ LIVE | `/iot-lab`, `/iot-lab/paths`, `/iot-lab/lessons`, `/iot-lab/projects`, `/iot-lab/challenges`, `/iot-lab/component-library`, `/iot-lab/simulator`, `/iot-lab/exams` |
-
-### Priority 2 — AI Academy Features
-- [ ] **Dark/light theme toggle UI** — `user_preferences` table ready in DB, just needs the toggle button wired up
-- [ ] **Challenge points → Leaderboard** — Wire `challenge_submissions.score` to leaderboard point totals
-- [ ] **RAG Mentor** — Enable pgvector in Supabase + populate `content_index` table (plan exists in RAG_MENTOR_PLAN.md)
-
-### Priority 3 — Testing
-- [ ] Test certificate issuance end-to-end (complete course → /certificates → issue → verify URL)
+### Priority 5 — Testing
+- [ ] Test certificate issuance end-to-end
 - [ ] Test public profile at `/u/[username]`
 - [ ] Test avatar upload in /profile
-- [ ] Test challenge submission in /challenges
-
-### Priority 5 — V5 Future Portals
-- [ ] Career & CV Portal — CV Builder, ATS Analyzer, Cover Letters, Job Matching, App Tracker
-- [ ] Automation Academy — Paths, Workflow Builder, Template Marketplace
-- [ ] Arduino & IoT Lab — Projects, Circuits, Simulators
 
 ---
 
-## 🏁 v5.0 Full Native Portal Migration Session Summary (2026-05-31)
+## 🏁 v6.0 Session Summary (2026-06-01)
 
 ### Commit
-`4c35485` — 81 files changed, 9163 insertions
+`bab0c22` — feat: v6.0 — Darhous Smart Learning OS (landing, user hub, admin studio)
+9 files changed, 2,325 insertions(+), 1,302 deletions(-)
 
 ### What Was Done
-1. **Career Hub** (`/career`) — Vite React app → Next.js App Router native portal
-   - ATS CV Analyzer (pdf-parse + Gemini AI): `/api/career/upload-cv`, `/api/career/analyze-cv`
-   - STAR Interview Evaluator: `/api/career/evaluate-interview`
-   - 5-step CV Builder with live preview
-   - Smart Jobs Board (5 mock positions with match scoring)
-   - Interview Prep (question bank + AI STAR evaluator)
-   - CV Templates (3 templates page)
-
-2. **Automation Academy** (`/automation`) — Next.js → native portal
-   - 30+ automation templates (all source data copied to `src/data/automation/`)
-   - 15+ tools explorer with pros/cons/pricing
-   - 10+ learning paths with capstone projects
-   - 10 professional service packages
-   - 15+ practical labs
-   - Automation Agent consultation page
-   - Data: 17 TypeScript files in `src/data/automation/`
-
-3. **IoT Lab** (`/iot-lab`) — Next.js → native portal  
-   - 60+ lessons grouped by category with code blocks + wiring notes
-   - 72 projects with wiring guides and ready code
-   - 40+ challenges with XP rewards and badge system
-   - 50+ electronic components library with pin docs
-   - Wokwi simulator integration (11 pre-configured projects)
-   - Interactive exams with answer review + scoring
-   - Learning path detail pages with related lessons/projects
-   - Data: 22 TypeScript files in `src/data/iot/`
-
-4. **Shared updates**
-   - `src/config/portals.ts` — career/automation/iot-lab → `status: "available"`, titles updated
-   - `src/app/sitemap.ts` — 18 new public routes added
-   - `package.json` — `pdf-parse` and `@types/pdf-parse` added
-   - No Supabase tables added (portals are data-driven, no auth required)
+1. **Landing Page** — full rebuild via `HomepageClient.tsx` (client component, 10 sections, Framer Motion, RTL-first, beginner-friendly)
+2. **My Darhous Hub** — `StudentDashboardClient.tsx` upgraded to 7-tab dashboard with profile card, portals progress, certificates center, activity timeline, AI Mentor context panel, smart learning plan, settings
+3. **Darhous Admin Studio** — `AdminDashboardClient.tsx` upgraded to 11-tab admin with Site Builder, Portal Manager, AI Mentor Control, Email center, Analytics, Theme viewer, Audit log
+4. **TypeScript Types** — 5 new type files in `src/types/`
 
 ### Build Result
 - `npm run typecheck` → ✅ 0 errors
-- `npm run build` → ✅ exit 0 — all routes generated
+- `npm run build` → ✅ exit 0 — 955 pages generated — Turbopack 35s compile
 
 ### Critical Notes for Next Session
-- Portals are **data-only** (no Supabase persistence yet). If tracking user progress across portals is needed, create Supabase tables per portal.
-- Career Hub API routes require `GEMINI_API_KEY` (already in Vercel ✅)
-- pdf-parse may need `pdfjs-dist` as a fallback if edge runtime is needed — current implementation uses `require()` which works on Node.js runtime only
-- IoT Lab simulator page links to external Wokwi projects using hardcoded IDs from data
-- Component library route is `/iot-lab/component-library` (NOT `/iot-lab/components` to avoid App Router naming conflict)
-
-## 🏁 v4.2.0 Production Readiness Session Summary (2026-05-31)
-
-### Git Commits This Session
-| Commit | Description |
-|--------|-------------|
-| `8dad233` | temp: v4 portal migration route + idempotent SQL fix (route immediately deleted) |
-| `466b683` | fix: middleware should not block API routes with page-level auth guard |
-| `83561e9` | feat: Phase 3+4 — failed exam recommendations, reengagement email, migration route cleanup |
-
-### What Was Done
-1. **SQL reviewed + fixed**: `supabase/v4_portal_schema.sql` — added idempotency (`DROP POLICY IF EXISTS`), added 5 missing indexes on user_id and created_at columns
-2. **Migration attempt**: Created protected temp route, deployed to Vercel, called it — confirmed tables don't exist yet, `pg_meta` API not publicly accessible
-3. **Middleware fixed**: API routes were being blocked by middleware's admin-page auth guard (was redirecting `/api/admin/*` to login page)
-4. **Failed exam UX fixed**: `DigitalExamClient` now shows next-step recommendations + retry CTA when exam is failed
-5. **Reengagement email**: `/api/email/reengagement` implemented — protected cron endpoint, bilingual, deduped via email_sequence_events, never crashes on individual failures
-6. **Security verified**: No secrets in current codebase, no temp admin routes remain
-
-### ✅ ALL PRODUCTION ACTIONS COMPLETE (2026-05-31)
-1. ✅ **Supabase migration** — `language_results` + `digital_exam_results` created, RLS enabled, 5 indexes verified
-2. ✅ **`REENGAGEMENT_CRON_SECRET`** — added to Vercel env vars
-3. ✅ **Daily cron job** — configured in `vercel.json` (GET /api/email/reengagement @ 08:00 UTC, uses Vercel CRON_SECRET)
-4. ✅ **Vercel redeploy** — triggered by this commit to activate the new env var
+- `HomepageClient.tsx` uses Framer Motion `Variants` type — `ease` must be `[x,y,x,y]` array (NOT `"easeOut"` string — causes TS error in FM12)
+- Site Builder + AI Mentor Control in Admin Studio currently use local state only — not persisted to DB
+- `realPortals` in HomepageClient = `portals.filter(p => p.id !== "coming-soon")` (excludes placeholder)
+- Dashboard hub tabs state is local — no URL routing for tabs (could add `?tab=portals` in future)
 
 ---
 
@@ -469,18 +425,18 @@ All 3 portals are now live as fully native routes:
 5. **Admin security** — Client-side role checks are UX only. All admin APIs do server-side verification.
 6. **SUPABASE_SERVICE_ROLE_KEY** — NEVER prefix with `NEXT_PUBLIC_`. Never import `admin.ts` in client components.
 7. **Build without Supabase** — App MUST build without Supabase env vars (all code has null checks).
-8. **MapIcon not Map** — lucide-react `Map` conflicts with JS global. Use `MapIcon`.
+8. **MapIcon not Map** — lucide-react `Map` conflicts with JS global.
 9. **ImageIcon not Image** — Use `ImageIcon` from lucide-react to avoid Next.js Image conflict.
 10. **Vercel team slug** — Always use `darhous-projects` in URLs, NOT `darhous`.
-11. **Storage** — avatars bucket is private. Use signed URLs or public policy already set.
-12. **RESEND_API_KEY** — Lives in Vercel env only, not in .env.local.
-13. **Server components** — CANNOT have `onMouseEnter`/`onMouseLeave` event handlers. Extract to `"use client"` component. (Lesson learned in v4.0.0 — caused build error on Footer.)
-14. **Portal config** — `src/config/portals.ts` is the SINGLE source of truth. Don't hardcode portal data elsewhere.
-15. **`Github` icon** — Does NOT exist in lucide-react. Use `GitBranch` instead.
+11. **Server components** — CANNOT have `onMouseEnter`/`onMouseLeave`. Extract to `"use client"`.
+12. **Portal config** — `src/config/portals.ts` is the SINGLE source of truth.
+13. **`Github` icon** — Does NOT exist in lucide-react. Use `GitBranch` instead.
+14. **Framer Motion ease** — In FM12, `ease` in Variants must be `[x,y,x,y]` bezier array, NOT string `"easeOut"`.
+15. **pdf-parse** — Use `require()` not dynamic import `.default`.
 
 ---
 
-## 🔒 Security Status (v4.0.0)
+## 🔒 Security Status (v6.0)
 
 | Check | Status |
 |-------|--------|
@@ -488,14 +444,7 @@ All 3 portals are now live as fully native routes:
 | SUPABASE_SERVICE_ROLE_KEY in client | ✅ Not found |
 | Service role stays server-only | ✅ |
 | Admin APIs verify role server-side | ✅ All routes |
-| Avatar upload validates type/size | ✅ 2MB, jpg/png/webp only |
-| Public profiles hide email | ✅ Only name, bio, stats |
-| Private routes noindex | ✅ dashboard, certificates, learning-plans, profile |
 | RLS on all tables | ✅ All 25+ tables |
 | .env.local not committed | ✅ |
-| RESEND_API_KEY not in source | ✅ Vercel env only |
-| Portal shell pages (language, digital-exams) | ✅ No secrets, just links to GitHub |
-| REENGAGEMENT_CRON_SECRET in source | ✅ Not in source — only in .env.example as placeholder |
-| Temp migration route | ✅ Deleted from codebase — no temp admin routes remain |
-| Supabase migration executed | ✅ Both tables created via Management API + verified |
-| API routes bypass middleware page-auth | ✅ middleware.ts now skips redirects for /api/* |
+| No temp admin routes | ✅ |
+| API routes bypass middleware page-auth | ✅ |
