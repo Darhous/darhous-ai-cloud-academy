@@ -351,6 +351,53 @@ export default function DigitalExamClient({ subject, locale }: { subject: ExamSu
           )}
         </div>
 
+        {/* Next steps for failed exam */}
+        {!passed && (
+          <div className="w-full glass-card rounded-2xl p-6 text-start" style={{ border: "1px solid rgba(251,191,36,0.15)" }}>
+            <h3 className="font-bold text-base mb-4 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+              <span style={{ fontSize: "18px" }}>💡</span>
+              {isAr ? "خطوات التحسين" : "Next Steps to Pass"}
+            </h3>
+            <div className="flex flex-col gap-3">
+              {[
+                {
+                  icon: "📖",
+                  labelEn: `Review ${subject.label} fundamentals`,
+                  labelAr: `راجع أساسيات ${subject.labelAr}`,
+                  descEn: `You scored ${percentage}% — need 80% to pass. Focus on the questions you missed.`,
+                  descAr: `حصلت على ${percentage}% — تحتاج 80% للنجاح. ركّز على الأسئلة التي أخطأت فيها.`,
+                },
+                {
+                  icon: "🎯",
+                  labelEn: "Review the incorrect answers below",
+                  labelAr: "راجع الإجابات الخاطئة بالأسفل",
+                  descEn: `You got ${total - correct} questions wrong. Check the correct answers shown in the review.`,
+                  descAr: `أخطأت في ${total - correct} أسئلة. تحقق من الإجابات الصحيحة الموضحة في المراجعة.`,
+                },
+                {
+                  icon: "🔄",
+                  labelEn: "Retake the exam when ready",
+                  labelAr: "أعد الاختبار عند الاستعداد",
+                  descEn: "You can retake the exam as many times as needed. Your best score is saved.",
+                  descAr: "يمكنك إعادة الاختبار عدد المرات التي تحتاجها. أفضل نتيجة هي التي تُحفظ.",
+                },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-3 p-3 rounded-xl" style={{ background: "rgba(255,255,255,0.02)" }}>
+                  <span className="text-base mt-0.5 flex-shrink-0">{item.icon}</span>
+                  <div>
+                    <p className="text-sm font-semibold" style={{ color: "var(--color-on-surface)" }}>
+                      {isAr ? item.labelAr : item.labelEn}
+                    </p>
+                    <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                      {isAr ? item.descAr : item.descEn}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Per-question review */}
         <div className="w-full glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(255,255,255,0.05)" }}>
           <h3 className="font-bold text-base mb-4 text-start" style={{ color: "var(--color-on-surface)" }}>
@@ -384,6 +431,15 @@ export default function DigitalExamClient({ subject, locale }: { subject: ExamSu
           <Link href={`/${locale}/dashboard`} className="glow-button-primary text-white font-mono px-8 py-3 rounded-xl">
             {isAr ? "لوحة التحكم" : "Dashboard"}
           </Link>
+          {!passed && (
+            <button
+              onClick={() => { setPhase("intro"); setAnswers([]); setQIndex(0); setResultData(null); }}
+              className="glow-button-primary font-mono px-8 py-3 rounded-xl"
+              style={{ background: `linear-gradient(135deg, ${subject.color}60, ${subject.color}30)` }}
+            >
+              {isAr ? "إعادة الاختبار" : "Retry Exam"}
+            </button>
+          )}
           <Link href={`/${locale}/digital-exams`} className="glow-button-secondary font-mono px-6 py-3 rounded-xl flex items-center gap-2">
             {isAr ? "اختبار آخر" : "Try Another Exam"} <Arrow size={14} />
           </Link>
