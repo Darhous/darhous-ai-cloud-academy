@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 4.2.0 — Production Ready ✅ FULLY COMPLETE |
-| **Status** | ✅ Fully Live — Supabase v4 DEPLOYED ✅ — Resend ✅ — Vercel ✅ — Cron ✅ |
-| **Build** | ✅ Clean build — 0 TypeScript errors — 0 lint errors |
-| **Last Commit** | `37e467a` → final checkpoint push (this commit) |
+| **Version** | 5.0.0 — v5 Full Native Portal Migration ✅ |
+| **Status** | ✅ Fully Live — All 3 portals migrated natively — Build clean |
+| **Build** | ✅ Clean build — 0 TypeScript errors — 0 lint errors — exit 0 |
+| **Last Commit** | `4c35485` → feat: v5.0 — Full native portal migration |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
@@ -326,26 +326,15 @@ The SINGLE source of truth for all portals. Changing a portal here updates: Land
   - Deduplication: uses email_sequence_events table (7-day window, sequence='reengagement', step='day-3') ✅
   - Returns: { checked, sent, skipped, failed } — safe summary only ✅
 
-### Priority 1 — v5.0 Portal Integration (NEXT SESSION)
+### ✅ v5.0 Portal Integration — DONE (2026-05-31)
 
-Three external repos to integrate as full portals:
+All 3 portals are now live as fully native routes:
 
-| Portal | Repo | Current Status in Ecosystem |
-|--------|------|----------------------------|
-| Career Hub | https://github.com/Darhous/Darhous-career-hub-google | `/career` — Coming Soon |
-| Automation Academy | https://github.com/Darhous/darhous-automation-academy | `/automation` — Coming Soon |
-| IoT Lab | https://github.com/Darhous/darhous-iot-lab | `/iot-lab` — Coming Soon |
-
-**Integration approach (inspect repos first, then decide):**
-- Option A: Embed as iframe (simple, preserves original UI)
-- Option B: Pull content/data and build native pages (deeper integration)
-- Option C: Link out + surface key data in the dashboard (hybrid)
-
-**Files to update regardless of approach:**
-- `src/config/portals.ts` — change status from `coming-soon` to `available`
-- `src/components/dashboard/StudentDashboardClient.tsx` — add portal cards with real data
-- `src/app/sitemap.ts` — add new routes
-- Supabase: add tracking tables if needed per portal
+| Portal | Repo (source) | Status | Routes |
+|--------|---------------|--------|--------|
+| Career Hub | Darhous/Darhous-career-hub-google | ✅ LIVE | `/career`, `/career/cv-analyzer`, `/career/builder`, `/career/jobs`, `/career/interview`, `/career/templates` |
+| Automation Academy | Darhous/darhous-automation-academy | ✅ LIVE | `/automation`, `/automation/templates`, `/automation/tools`, `/automation/paths`, `/automation/services`, `/automation/labs`, `/automation/automation-agent` |
+| IoT Lab | Darhous/darhous-iot-lab | ✅ LIVE | `/iot-lab`, `/iot-lab/paths`, `/iot-lab/lessons`, `/iot-lab/projects`, `/iot-lab/challenges`, `/iot-lab/component-library`, `/iot-lab/simulator`, `/iot-lab/exams` |
 
 ### Priority 2 — AI Academy Features
 - [ ] **Dark/light theme toggle UI** — `user_preferences` table ready in DB, just needs the toggle button wired up
@@ -364,6 +353,56 @@ Three external repos to integrate as full portals:
 - [ ] Arduino & IoT Lab — Projects, Circuits, Simulators
 
 ---
+
+## 🏁 v5.0 Full Native Portal Migration Session Summary (2026-05-31)
+
+### Commit
+`4c35485` — 81 files changed, 9163 insertions
+
+### What Was Done
+1. **Career Hub** (`/career`) — Vite React app → Next.js App Router native portal
+   - ATS CV Analyzer (pdf-parse + Gemini AI): `/api/career/upload-cv`, `/api/career/analyze-cv`
+   - STAR Interview Evaluator: `/api/career/evaluate-interview`
+   - 5-step CV Builder with live preview
+   - Smart Jobs Board (5 mock positions with match scoring)
+   - Interview Prep (question bank + AI STAR evaluator)
+   - CV Templates (3 templates page)
+
+2. **Automation Academy** (`/automation`) — Next.js → native portal
+   - 30+ automation templates (all source data copied to `src/data/automation/`)
+   - 15+ tools explorer with pros/cons/pricing
+   - 10+ learning paths with capstone projects
+   - 10 professional service packages
+   - 15+ practical labs
+   - Automation Agent consultation page
+   - Data: 17 TypeScript files in `src/data/automation/`
+
+3. **IoT Lab** (`/iot-lab`) — Next.js → native portal  
+   - 60+ lessons grouped by category with code blocks + wiring notes
+   - 72 projects with wiring guides and ready code
+   - 40+ challenges with XP rewards and badge system
+   - 50+ electronic components library with pin docs
+   - Wokwi simulator integration (11 pre-configured projects)
+   - Interactive exams with answer review + scoring
+   - Learning path detail pages with related lessons/projects
+   - Data: 22 TypeScript files in `src/data/iot/`
+
+4. **Shared updates**
+   - `src/config/portals.ts` — career/automation/iot-lab → `status: "available"`, titles updated
+   - `src/app/sitemap.ts` — 18 new public routes added
+   - `package.json` — `pdf-parse` and `@types/pdf-parse` added
+   - No Supabase tables added (portals are data-driven, no auth required)
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run build` → ✅ exit 0 — all routes generated
+
+### Critical Notes for Next Session
+- Portals are **data-only** (no Supabase persistence yet). If tracking user progress across portals is needed, create Supabase tables per portal.
+- Career Hub API routes require `GEMINI_API_KEY` (already in Vercel ✅)
+- pdf-parse may need `pdfjs-dist` as a fallback if edge runtime is needed — current implementation uses `require()` which works on Node.js runtime only
+- IoT Lab simulator page links to external Wokwi projects using hardcoded IDs from data
+- Component library route is `/iot-lab/component-library` (NOT `/iot-lab/components` to avoid App Router naming conflict)
 
 ## 🏁 v4.2.0 Production Readiness Session Summary (2026-05-31)
 
