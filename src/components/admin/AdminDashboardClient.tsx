@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { portals as allPortals } from "@/config/portals";
 import { courses } from "@/data/courses";
 import { tools } from "@/data/tools";
 import { projects } from "@/data/projects";
@@ -16,7 +17,7 @@ import { blogPosts } from "@/data/blog";
 import { prompts } from "@/data/prompts";
 import { nanaBananaPrompts } from "@/data/nano-banana-prompts";
 
-type AdminTab = "overview" | "users" | "subscribers" | "messages" | "content" | "settings" | "audit" | "analytics" | "studio";
+type AdminTab = "overview" | "users" | "subscribers" | "messages" | "content" | "settings" | "audit" | "analytics" | "studio" | "ecosystem";
 
 interface UserRow {
   id: string;
@@ -194,6 +195,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "messages", labelAr: "الرسائل", labelEn: "Messages", icon: <MessageSquare size={16} /> },
     { id: "content", labelAr: "المحتوى", labelEn: "Content", icon: <Database size={16} /> },
     { id: "analytics", labelAr: "التحليلات", labelEn: "Analytics", icon: <TrendingUp size={16} /> },
+    { id: "ecosystem", labelAr: "الإيكوسيستم", labelEn: "Ecosystem", icon: <Database size={16} /> },
     { id: "studio", labelAr: "استوديو المحتوى", labelEn: "Content Studio", icon: <Activity size={16} /> },
     { id: "settings", labelAr: "الإعدادات", labelEn: "Settings", icon: <Settings size={16} /> },
     { id: "audit", labelAr: "سجل النشاط", labelEn: "Audit Log", icon: <Shield size={16} /> },
@@ -553,6 +555,11 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
         </div>
       )}
 
+      {/* ── Ecosystem ──────────────────────────────────────────────────────── */}
+      {tab === "ecosystem" && (
+        <EcosystemAdminPanel isAr={isAr} locale={locale} />
+      )}
+
       {/* ── Content Studio ─────────────────────────────────────────────────── */}
       {tab === "studio" && (
         <div className="flex flex-col gap-6">
@@ -610,3 +617,118 @@ function LoadingSkeleton() {
 
 // Needed to silence TS import in component
 type UserProfile = { email?: string };
+
+// ── Ecosystem Admin Panel ────────────────────────────────────────────────────
+function EcosystemAdminPanel({ isAr, locale }: { isAr: boolean; locale: string }) {
+
+  return (
+    <div className="flex flex-col gap-6">
+      {/* Header */}
+      <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(208,188,255,0.12)" }}>
+        <h3 className="font-bold text-lg mb-2" style={{ color: "var(--color-on-surface)" }}>
+          {isAr ? "إدارة الإيكوسيستم" : "Ecosystem Management"}
+        </h3>
+        <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+          {isAr
+            ? "نظرة عامة على جميع بوابات المنصة وحالتها. لتغيير حالة بوابة، عدّل ملف src/config/portals.ts"
+            : "Overview of all platform portals and their status. To change a portal status, edit src/config/portals.ts"}
+        </p>
+      </div>
+
+      {/* Portal status grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {allPortals.map((portal) => {
+          const isAvailable = portal.status === "available";
+          return (
+            <div
+              key={portal.id}
+              className="glass-card rounded-2xl p-5 flex flex-col gap-3"
+              style={{ border: `1px solid ${portal.color}15` }}
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span
+                    className="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                    style={{ background: `${portal.color}10` }}
+                  >
+                    {portal.icon}
+                  </span>
+                  <div>
+                    <p className="text-sm font-bold" style={{ color: "var(--color-on-surface)" }}>
+                      {isAr ? portal.titleAr : portal.titleEn}
+                    </p>
+                    <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                      /{locale}{portal.href}
+                    </p>
+                  </div>
+                </div>
+                <span
+                  className="text-xs px-2 py-0.5 rounded-full font-mono"
+                  style={
+                    isAvailable
+                      ? { background: "rgba(74,222,128,0.12)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.25)" }
+                      : { background: "rgba(148,163,184,0.08)", color: "#94a3b8", border: "1px solid rgba(148,163,184,0.15)" }
+                  }
+                >
+                  {isAvailable ? (isAr ? "✅ متاح" : "✅ Live") : (isAr ? "🔜 قريبًا" : "🔜 Soon")}
+                </span>
+              </div>
+
+              <div className="flex flex-wrap gap-1">
+                {portal.features.slice(0, 3).map((f) => (
+                  <span
+                    key={f}
+                    className="text-[10px] px-1.5 py-0.5 rounded font-mono"
+                    style={{ background: `${portal.color}08`, color: portal.color }}
+                  >
+                    {f}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                <span className="font-mono opacity-60">type:</span>
+                <span>{portal.integrationType}</span>
+                {portal.externalRepo && (
+                  <a
+                    href={portal.externalRepo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ms-auto text-xs underline opacity-60 hover:opacity-100 transition-opacity"
+                    style={{ color: "var(--color-primary)" }}
+                  >
+                    GitHub ↗
+                  </a>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Roadmap note */}
+      <div className="rounded-2xl p-5" style={{ background: "rgba(208,188,255,0.04)", border: "1px solid rgba(208,188,255,0.12)" }}>
+        <h4 className="font-bold text-sm mb-3" style={{ color: "var(--color-secondary)" }}>
+          {isAr ? "خارطة طريق المنصة" : "Platform Roadmap"}
+        </h4>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {[
+            { phase: "V1 — الحالي", items: ["AI Academy ✅", "Language Portal ✅", "Digital Exams ✅", "Unified Nav & Dashboard ✅"] },
+            { phase: "V2 — قادم", items: ["Career & CV Portal 🔜", "Automation Academy 🔜", "Arduino & IoT Lab 🔜", "Full DB Integration"] },
+          ].map((phase) => (
+            <div key={phase.phase} className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)" }}>
+              <p className="text-xs font-mono font-bold mb-2" style={{ color: "var(--color-secondary)" }}>{phase.phase}</p>
+              <ul className="flex flex-col gap-1">
+                {phase.items.map((item) => (
+                  <li key={item} className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

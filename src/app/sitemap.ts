@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/search", "/challenges", "/leaderboard",
     "/prompt-battle", "/prompt-score", "/compare-tools",
     "/project-generator",
+    // v4 ecosystem portals (available ones only)
+    "/ai-academy", "/language", "/digital-exams",
   ];
   // Excluded from sitemap (noindex or private):
   // /login, /register, /forgot-password, /reset-password,

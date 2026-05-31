@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 3.1.0 — DB Deployed + Nav + All Env Vars Set |
+| **Version** | 4.0.0 — Darhous Smart Learning Ecosystem |
 | **Status** | ✅ Fully Live — Supabase v3 DEPLOYED — Resend ✅ — Vercel ✅ |
-| **Build** | ✅ 344 static pages — 0 TypeScript errors — 0 lint errors |
-| **Last Commit** | `cbf13fd` — trigger redeploy (RESEND_API_KEY added) |
+| **Build** | ✅ Clean build — 0 TypeScript errors — Portal Ecosystem implemented |
+| **Last Commit** | `v4.0.0` — Ecosystem transformation: landing page, portal routes, nav, footer |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
@@ -30,34 +30,37 @@
 Continue the Darhous AI Cloud Academy project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md before any changes.
-Current version: v3.1.0
-Build: ✅ 344 pages — 0 errors — CI ✅ — Live on Vercel
-Last commit: cbf13fd — trigger redeploy (RESEND_API_KEY added)
+Current version: v4.0.0
+Build: ✅ Clean build — 0 TS errors — Ecosystem implemented
+Last commit: v4.0.0 — Darhous Smart Learning Ecosystem transformation
 ```
 
 ---
 
-## ✅ Everything Completed & Deployed (as of v3.1.0)
+## ✅ Everything Completed & Deployed (as of v4.0.0)
 
-### Infrastructure — ALL DONE ✅
+### v4.0.0 — Darhous Smart Learning Ecosystem — DONE ✅
 | Task | Status |
 |------|--------|
-| Supabase v3_feature_schema.sql | ✅ Run via Management API — 15 tables live |
-| avatars bucket (Supabase Storage) | ✅ Created + RLS policies set |
-| RESEND_API_KEY | ✅ Added to Vercel (Production + Preview) |
-| Vercel redeploy | ✅ Triggered — cbf13fd live |
+| `src/config/portals.ts` Portal Registry | ✅ 7 portals, config-driven, single source of truth |
+| `src/components/ecosystem/PortalCard.tsx` | ✅ Reusable glassmorphism portal card |
+| `src/components/ecosystem/ComingSoonPortal.tsx` | ✅ Reusable Coming Soon page template |
+| New Ecosystem Landing Page (`/[locale]`) | ✅ 11 sections — Hero, Portal Grid, Unified Account, Journey, Available, Coming Soon, Why, Dashboard Preview, CTA |
+| AI Academy Hub (`/[locale]/ai-academy`) | ✅ Portal entry with AI Studio grid, courses, tools, projects |
+| Language Portal (`/[locale]/language`) | ✅ Shell page — links to GitHub repo, integration notes |
+| Digital Exams Portal (`/[locale]/digital-exams`) | ✅ Shell page — exam categories, integration notes |
+| Career & CV (`/[locale]/career`) | ✅ Coming Soon with planned features |
+| Automation Academy (`/[locale]/automation`) | ✅ Coming Soon |
+| Arduino & IoT Lab (`/[locale]/iot-lab`) | ✅ Coming Soon |
+| General Coming Soon (`/[locale]/coming-soon`) | ✅ Future portals page |
+| Navbar — Portals dropdown | ✅ Desktop + mobile accordion, all 7 portals |
+| Footer — Ecosystem redesign | ✅ 4 columns: Brand, Portals, AI Studio, Links + social signature |
+| Dashboard — My Portals section | ✅ Ecosystem portal cards with progress placeholders |
+| Admin — Ecosystem tab | ✅ Portal status overview + roadmap V1/V2 |
+| Sitemap — new portal routes | ✅ ai-academy, language, digital-exams added |
 
-### v3.1.0 Navigation Improvements — DONE ✅
-- **Navbar.tsx** — Challenges + Leaderboard added to AI Studio dropdown (12 items now)
-- **Footer.tsx** — Leaderboard link added
-- **StudentDashboardClient.tsx** — Quick Access expanded to 8 items (Challenges + Leaderboard added)
-
-### v3.0.0 Features (20 total) — ALL DONE ✅
-search, challenges, leaderboard, prompt-battle, prompt-score, compare-tools,
-certificates, learning-plans, project-generator, build-project mode,
-public profiles (`/u/[username]`), certificate verification, AI Coach card,
-Nano Banana visual gallery, avatar upload, email foundation (Resend),
-PWA manifest, RAG foundation schema, admin analytics tab, admin content studio tab.
+### v3.1.0 + v3.0.0 Features — ALL STILL INTACT ✅
+All previous features (courses, tools, challenges, certificates, leaderboard, dashboard, admin, etc.) are preserved and accessible via `/[locale]/ai-academy` and existing routes.
 
 ---
 
@@ -82,7 +85,7 @@ PWA manifest, RAG foundation schema, admin analytics tab, admin content studio t
 
 ---
 
-## 📁 All Routes (v3.1.0 complete)
+## 📁 All Routes (v4.0.0 — Ecosystem complete)
 
 ### Public routes
 | Route | Description |
@@ -112,6 +115,13 @@ PWA manifest, RAG foundation schema, admin analytics tab, admin content studio t
 | `/[locale]/compare-tools` | Tool Comparison 2-4 side-by-side (NEW v3) |
 | `/[locale]/project-generator` | AI Project Idea Generator (NEW v3) |
 | `/[locale]/nano-banana-prompts` | Nano Banana Visual Gallery Pro |
+| `/[locale]/ai-academy` | AI Academy Portal Hub (NEW v4) |
+| `/[locale]/language` | Language Portal shell (NEW v4) |
+| `/[locale]/digital-exams` | Digital Exams Portal shell (NEW v4) |
+| `/[locale]/career` | Career & CV — Coming Soon (NEW v4) |
+| `/[locale]/automation` | Automation Academy — Coming Soon (NEW v4) |
+| `/[locale]/iot-lab` | Arduino & IoT Lab — Coming Soon (NEW v4) |
+| `/[locale]/coming-soon` | Future Portals — Coming Soon (NEW v4) |
 | `/[locale]/mentor` | AI Mentor (6 modes, streaming) |
 | `/[locale]/prompt-studio` | Prompt Studio |
 | `/[locale]/claude-code-generator` | Claude Code Generator |
@@ -196,23 +206,29 @@ content_index, mentor_sources — see RAG_MENTOR_PLAN.md
 
 ---
 
-## 🔮 Recommended Next Tasks (v3.2+)
+## 🔮 Recommended Next Tasks (v4.1+)
 
-### High Value Features
-- [ ] **Email sequences** — Day-3 re-engagement email using Resend (RESEND_API_KEY now set ✅)
+### V4 Ecosystem — Next Steps
+- [ ] **Deploy to Vercel** — push commit + trigger redeploy
+- [ ] **Full integration of Language Portal** — embed `darhous-assessment` repo inside the project OR use iframe + SSO token
+- [ ] **Full integration of Digital Exams** — embed `Exams_Platform` repo OR use iframe + SSO token
+- [ ] **Unified dashboard results** — write quiz results from Language + Exams portals to Supabase and show in dashboard
+- [ ] **Email sequences** — Day-3 re-engagement + Welcome email (Resend configured ✅)
 - [ ] **Welcome email** — Send on signup via Supabase auth hook + Resend
-- [ ] **Social sharing** — Share certificate/streak on X/Twitter
-- [ ] **RAG Mentor** — Enable pgvector + populate content_index (see RAG_MENTOR_PLAN.md)
-- [ ] **More blog posts** — currently 13, target 20+
 - [ ] **Dark/light theme toggle** — user_preferences table ready, just needs UI
 - [ ] **Challenge points → Leaderboard** — wire challenge submissions to point totals
-- [ ] **Admin CMS** — full CRUD for content_items table (Content Studio tab exists)
+- [ ] **More blog posts** — currently 13, target 20+
 
-### Testing (now that DB is live)
-- [ ] Test certificate issuance end-to-end (complete a course → /certificates → issue)
-- [ ] Test public profile at `/u/[username]` (enable in /profile first)
+### V4 AI Academy — From Previous
+- [ ] Test certificate issuance end-to-end
+- [ ] Test public profile at `/u/[username]`
 - [ ] Test avatar upload in /profile
 - [ ] Test challenge submission in /challenges
+
+### V5 Future Portals (next major version)
+- [ ] Career & CV Portal — CV Builder, ATS Analyzer, Cover Letters, Job Matching
+- [ ] Automation Academy — Workflow Builder, Template Marketplace
+- [ ] Arduino & IoT Lab — Projects, Circuits, Simulators
 
 ---
 

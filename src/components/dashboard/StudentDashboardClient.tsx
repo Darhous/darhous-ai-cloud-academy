@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   TrendingUp, BookOpen, Save, Award, Brain, Activity,
-  Bookmark, Sparkles, LogOut, Settings, Star, Clock, ChevronRight, ChevronLeft, Flame, Trophy,
+  Bookmark, Sparkles, LogOut, Settings, Star, Clock, ChevronRight, ChevronLeft, Flame, Trophy, Grid3X3,
 } from "lucide-react";
+import { availablePortals, comingSoonPortals } from "@/config/portals";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import type { UserProfile } from "@/lib/auth/roles";
@@ -172,13 +173,13 @@ export default function StudentDashboardClient({ locale }: Props) {
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <p className="text-sm font-mono mb-1" style={{ color: "var(--color-primary)" }}>
-              {isAr ? "نظام تعلمك الذكي 🧠" : "Your AI Learning OS 🧠"}
+              {isAr ? "لوحة درهوس الموحدة 🌐" : "Darhous Unified Dashboard 🌐"}
             </p>
             <h1 className="font-display font-bold text-3xl md:text-4xl mb-2" style={{ color: "var(--color-on-surface)" }}>
               {(profile as UserProfile)?.full_name ?? user?.email?.split("@")[0] ?? (isAr ? "المتعلم" : "Learner")}
             </h1>
             <p className="text-sm mb-3" style={{ color: "var(--color-on-surface-variant)" }}>
-              {isAr ? "تابع رحلتك التعليمية في الذكاء الاصطناعي" : "Continue your AI learning journey"}
+              {isAr ? "تابع رحلتك عبر بوابات منصة درهوس" : "Track your journey across all Darhous portals"}
             </p>
             {streak > 0 && (
               <div
@@ -217,6 +218,82 @@ export default function StudentDashboardClient({ locale }: Props) {
         <StatCard icon={<Award size={22} />} value={completedCount} labelAr="دورات مكتملة" labelEn="Courses completed" color="#4ade80" isAr={isAr} />
         <StatCard icon={<TrendingUp size={22} />} value={`${avgQuiz}%`} labelAr="متوسط الاختبارات" labelEn="Avg quiz score" color="var(--color-secondary)" isAr={isAr} />
         <StatCard icon={<Save size={22} />} value={savedPromptsDb.length} labelAr="برومبت محفوظ" labelEn="Saved prompts" color="var(--color-tertiary)" isAr={isAr} />
+      </div>
+
+      {/* My Portals — Ecosystem section */}
+      <div>
+        <div className="flex items-center justify-between mb-5">
+          <h2 className="font-display font-bold text-xl flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+            <Grid3X3 size={18} style={{ color: "var(--color-secondary)" }} />
+            {isAr ? "بواباتي" : "My Portals"}
+          </h2>
+          <Link href={`/${locale}`} className="flex items-center gap-1 text-sm" style={{ color: "var(--color-secondary)" }}>
+            {isAr ? "جميع البوابات" : "All Portals"} <Arrow size={14} />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Available portals with progress placeholders */}
+          {availablePortals.map((portal) => (
+            <Link
+              key={portal.id}
+              href={`/${locale}${portal.href}`}
+              className="glass-card rounded-2xl p-4 flex items-center gap-4 transition-all hover:scale-[1.02] hover:-translate-y-0.5"
+              style={{ border: `1px solid ${portal.color}15`, textDecoration: "none" }}
+            >
+              <span
+                className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                style={{ background: `${portal.color}12`, border: `1px solid ${portal.color}20` }}
+              >
+                {portal.icon}
+              </span>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-semibold truncate" style={{ color: "var(--color-on-surface)" }}>
+                  {isAr ? portal.titleAr : portal.titleEn}
+                </p>
+                <div className="flex items-center gap-2 mt-1.5">
+                  <div className="flex-1 h-1 rounded-full" style={{ background: "var(--color-outline-variant)" }}>
+                    {portal.id === "ai-academy" && (
+                      <div className="h-full rounded-full" style={{ width: `${completedCount > 0 ? Math.min(completedCount * 6, 100) : 0}%`, background: portal.color }} />
+                    )}
+                  </div>
+                  <span className="text-[10px] font-mono flex-shrink-0" style={{ color: portal.color }}>
+                    {portal.id === "ai-academy"
+                      ? `${completedCount} ${isAr ? "دورة" : "courses"}`
+                      : isAr ? "متاح" : "Available"}
+                  </span>
+                </div>
+              </div>
+              <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: "#4ade80" }} />
+            </Link>
+          ))}
+          {/* Coming soon portals — compact placeholders */}
+          {comingSoonPortals.slice(0, 3).map((portal) => (
+            <Link
+              key={portal.id}
+              href={`/${locale}${portal.href}`}
+              className="glass-card rounded-2xl p-4 flex items-center gap-4 opacity-55 transition-all hover:opacity-70"
+              style={{ border: "1px solid rgba(255,255,255,0.05)", textDecoration: "none" }}
+            >
+              <span
+                className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                style={{ background: "rgba(255,255,255,0.04)" }}
+              >
+                {portal.icon}
+              </span>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-semibold truncate" style={{ color: "var(--color-on-surface)" }}>
+                  {isAr ? portal.titleAr : portal.titleEn}
+                </p>
+                <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                  {isAr ? "قريبًا" : "Coming Soon"}
+                </p>
+              </div>
+              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full" style={{ background: "rgba(148,163,184,0.1)", color: "#94a3b8" }}>
+                {isAr ? "قريبًا" : "Soon"}
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* Course progress */}

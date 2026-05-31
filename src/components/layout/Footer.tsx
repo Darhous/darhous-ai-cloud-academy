@@ -2,87 +2,41 @@ import Link from "next/link";
 import { Bot } from "lucide-react";
 import SocialLinksBar from "./SocialLinksBar";
 import CommunitySignup from "@/components/community/CommunitySignup";
+import { portals } from "@/config/portals";
 
 interface FooterProps {
   locale: string;
 }
 
+const aiStudioLinks = (isAr: boolean, locale: string) =>
+  [
+    { href: `/${locale}/mentor`,                label: isAr ? "✨ مرشد AI"               : "✨ AI Mentor"             },
+    { href: `/${locale}/prompt-studio`,         label: isAr ? "⚡ استوديو البرومبتات"    : "⚡ Prompt Studio"         },
+    { href: `/${locale}/prompt-score`,          label: isAr ? "🎯 تقييم البرومبت"        : "🎯 Prompt Score"          },
+    { href: `/${locale}/prompt-battle`,         label: isAr ? "⚔️ معركة البرومبتات"      : "⚔️ Prompt Battle"         },
+    { href: `/${locale}/claude-code-generator`, label: isAr ? "🛠️ مولّد Claude Code"     : "🛠️ Claude Code Generator" },
+    { href: `/${locale}/compare-tools`,         label: isAr ? "⚖️ مقارنة الأدوات"        : "⚖️ Compare Tools"         },
+    { href: `/${locale}/project-generator`,     label: isAr ? "🚀 مولّد المشاريع"        : "🚀 Project Generator"     },
+    { href: `/${locale}/challenges`,            label: isAr ? "🏆 التحديات"               : "🏆 Challenges"            },
+    { href: `/${locale}/leaderboard`,           label: isAr ? "🥇 المتصدرون"              : "🥇 Leaderboard"           },
+  ];
+
+const moreLinks = (isAr: boolean, locale: string) =>
+  [
+    { href: `/${locale}/courses`,   label: isAr ? "الدورات"             : "Courses"         },
+    { href: `/${locale}/tools`,     label: isAr ? "أدوات AI"            : "AI Tools"        },
+    { href: `/${locale}/blog`,      label: isAr ? "المدونة"             : "Blog"            },
+    { href: `/${locale}/glossary`,  label: isAr ? "المسرد"              : "Glossary"        },
+    { href: `/${locale}/about`,     label: isAr ? "عن المنصة"           : "About"           },
+    { href: `/${locale}/contact`,   label: isAr ? "تواصل معنا"          : "Contact"         },
+    { href: `/${locale}/privacy`,   label: isAr ? "سياسة الخصوصية"     : "Privacy Policy"  },
+    { href: `/${locale}/terms`,     label: isAr ? "شروط الخدمة"         : "Terms"           },
+  ];
+
 export default function Footer({ locale }: FooterProps) {
   const isAr = locale === "ar";
-
-  const quickLinks = isAr
-    ? [
-        { href: "/courses",  label: "الدورات"            },
-        { href: "/paths",    label: "المسارات"            },
-        { href: "/tools",    label: "أدوات AI"            },
-        { href: "/claude",   label: "إتقان Claude"        },
-        { href: "/cloud",    label: "أكاديمية الكلاود"    },
-        { href: "/projects", label: "المشاريع"            },
-        { href: "/prompts",  label: "مكتبة البرومبتات"    },
-        { href: "/blog",     label: "المدونة"             },
-      ]
-    : [
-        { href: "/courses",  label: "Courses"         },
-        { href: "/paths",    label: "Learning Paths"  },
-        { href: "/tools",    label: "AI Tools"        },
-        { href: "/claude",   label: "Claude Mastery"  },
-        { href: "/cloud",    label: "Cloud Academy"   },
-        { href: "/projects", label: "Projects"        },
-        { href: "/prompts",  label: "Prompt Library"  },
-        { href: "/blog",     label: "Blog"            },
-      ];
-
-  const aiStudioLinks = isAr
-    ? [
-        { href: "/mentor",                label: "✨ مرشد AI"               },
-        { href: "/prompt-studio",         label: "⚡ استوديو البرومبتات"    },
-        { href: "/prompt-score",          label: "🎯 تقييم البرومبت"        },
-        { href: "/prompt-battle",         label: "⚔️ معركة البرومبتات"      },
-        { href: "/claude-code-generator", label: "🛠️ مولّد Claude Code"     },
-        { href: "/compare-tools",         label: "⚖️ مقارنة الأدوات"        },
-        { href: "/roadmap-generator",     label: "🗺️ مولّد خطط التعلم"      },
-        { href: "/project-generator",     label: "🚀 مولّد المشاريع"        },
-        { href: "/nano-banana-prompts",   label: "🍌 Nano Banana Lab"        },
-        { href: "/search",                label: "🔍 البحث الذكي"            },
-        { href: "/challenges",            label: "🏆 التحديات"               },
-        { href: "/leaderboard",           label: "🥇 المتصدرون"              },
-        { href: "/dashboard",             label: "📂 لوحة الطالب"            },
-      ]
-    : [
-        { href: "/mentor",                label: "✨ AI Mentor"             },
-        { href: "/prompt-studio",         label: "⚡ Prompt Studio"         },
-        { href: "/prompt-score",          label: "🎯 Prompt Score"          },
-        { href: "/prompt-battle",         label: "⚔️ Prompt Battle"         },
-        { href: "/claude-code-generator", label: "🛠️ Claude Code Generator" },
-        { href: "/compare-tools",         label: "⚖️ Compare Tools"         },
-        { href: "/roadmap-generator",     label: "🗺️ Roadmap Generator"     },
-        { href: "/project-generator",     label: "🚀 Project Generator"     },
-        { href: "/nano-banana-prompts",   label: "🍌 Nano Banana Lab"       },
-        { href: "/search",                label: "🔍 Smart Search"          },
-        { href: "/challenges",            label: "🏆 Challenges"            },
-        { href: "/leaderboard",           label: "🥇 Leaderboard"           },
-        { href: "/dashboard",             label: "📂 Student Dashboard"     },
-      ];
-
-  const moreLinks = isAr
-    ? [
-        { href: "/glossary",  label: "المسرد"             },
-        { href: "/about",     label: "عن المنصة"          },
-        { href: "/contact",   label: "تواصل معنا"         },
-        { href: "/login",     label: "تسجيل الدخول"       },
-        { href: "/register",  label: "إنشاء حساب"         },
-        { href: "/privacy",   label: "سياسة الخصوصية"    },
-        { href: "/terms",     label: "شروط الخدمة"        },
-      ]
-    : [
-        { href: "/glossary",  label: "Glossary"        },
-        { href: "/about",     label: "About"           },
-        { href: "/contact",   label: "Contact"         },
-        { href: "/login",     label: "Sign In"         },
-        { href: "/register",  label: "Create Account"  },
-        { href: "/privacy",   label: "Privacy Policy"  },
-        { href: "/terms",     label: "Terms of Service"},
-      ];
+  const studio = aiStudioLinks(isAr, locale);
+  const more = moreLinks(isAr, locale);
 
   return (
     <footer
@@ -94,47 +48,62 @@ export default function Footer({ locale }: FooterProps) {
     >
       <div className="container-xl pt-14 pb-8">
 
-        {/* Main grid */}
+        {/* Main grid — 4 columns */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
 
           {/* Brand + Community Signup */}
           <div className="md:col-span-1">
             <Link
               href={`/${locale}`}
-              className="flex items-center gap-2 font-display font-bold text-xl mb-4"
+              className="flex items-center gap-2 font-display font-bold text-xl mb-3"
               style={{ color: "var(--color-primary)" }}
             >
               <Bot size={24} style={{ color: "var(--color-tertiary)" }} />
-              {isAr ? "أكاديمية درهوس" : "Darhous AI"}
+              {isAr ? "منصة درهوس" : "Darhous"}
             </Link>
+            <p
+              className="text-xs leading-relaxed mb-1 font-mono"
+              style={{ color: "var(--color-secondary)", opacity: 0.8 }}
+            >
+              {isAr ? "المنصة التعليمية الذكية" : "Smart Learning Ecosystem"}
+            </p>
             <p
               className="text-sm leading-relaxed mb-5"
               style={{ color: "var(--color-on-surface-variant)" }}
             >
               {isAr
-                ? "منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود من الصفر حتى بناء مشاريع حقيقية."
-                : "A practical AI and Cloud learning platform from zero to real-world projects."}
+                ? "منصة عربية ذكية تجمع كل أدوات التعلم والتقييم والتوظيف في مكان واحد."
+                : "A smart Arabic platform uniting learning, assessment, and career tools in one place."}
             </p>
             <CommunitySignup locale={locale} variant="footer" source="footer" />
           </div>
 
-          {/* Quick Links */}
+          {/* Portals column */}
           <div>
             <h4
               className="font-mono text-xs tracking-wider uppercase mb-4"
-              style={{ color: "var(--color-primary)" }}
+              style={{ color: "var(--color-secondary)" }}
             >
-              {isAr ? "روابط سريعة" : "Quick Links"}
+              {isAr ? "البوابات" : "Portals"}
             </h4>
             <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
+              {portals.map((portal) => (
+                <li key={portal.id}>
                   <Link
-                    href={`/${locale}${link.href}`}
-                    className="text-sm transition-opacity hover:opacity-80"
-                    style={{ color: "var(--color-on-surface-variant)" }}
+                    href={`/${locale}${portal.href}`}
+                    className="text-sm transition-opacity hover:opacity-80 flex items-center gap-1.5"
+                    style={{ color: "var(--color-on-surface-variant)", textDecoration: "none" }}
                   >
-                    {link.label}
+                    <span className="text-xs leading-none">{portal.icon}</span>
+                    {isAr ? portal.titleAr : portal.titleEn}
+                    {portal.status !== "available" && (
+                      <span
+                        className="text-[9px] px-1 py-0.5 rounded font-mono"
+                        style={{ background: "rgba(148,163,184,0.1)", color: "#94a3b8" }}
+                      >
+                        {isAr ? "قريبًا" : "Soon"}
+                      </span>
+                    )}
                   </Link>
                 </li>
               ))}
@@ -150,12 +119,12 @@ export default function Footer({ locale }: FooterProps) {
               AI Studio
             </h4>
             <ul className="space-y-2">
-              {aiStudioLinks.map((link) => (
+              {studio.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={`/${locale}${link.href}`}
+                    href={link.href}
                     className="text-sm transition-opacity hover:opacity-80"
-                    style={{ color: "var(--color-on-surface-variant)" }}
+                    style={{ color: "var(--color-on-surface-variant)", textDecoration: "none" }}
                   >
                     {link.label}
                   </Link>
@@ -164,21 +133,21 @@ export default function Footer({ locale }: FooterProps) {
             </ul>
           </div>
 
-          {/* More */}
+          {/* More links */}
           <div>
             <h4
               className="font-mono text-xs tracking-wider uppercase mb-4"
-              style={{ color: "var(--color-secondary)" }}
+              style={{ color: "var(--color-primary)" }}
             >
-              {isAr ? "روابط أخرى" : "More"}
+              {isAr ? "روابط" : "Links"}
             </h4>
             <ul className="space-y-2">
-              {moreLinks.map((link) => (
+              {more.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={`/${locale}${link.href}`}
+                    href={link.href}
                     className="text-sm transition-opacity hover:opacity-80"
-                    style={{ color: "var(--color-on-surface-variant)" }}
+                    style={{ color: "var(--color-on-surface-variant)", textDecoration: "none" }}
                   >
                     {link.label}
                   </Link>
@@ -194,6 +163,8 @@ export default function Footer({ locale }: FooterProps) {
           style={{ borderColor: "rgba(255,255,255,0.05)" }}
         >
           <SocialLinksBar locale={locale} variant="footer" />
+
+          {/* Signature */}
           <p
             className="text-xs font-mono text-center"
             style={{ color: "var(--color-on-surface-variant)", opacity: 0.5 }}

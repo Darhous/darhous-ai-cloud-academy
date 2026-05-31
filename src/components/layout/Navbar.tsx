@@ -3,10 +3,11 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bot, Search, Menu, X, ChevronDown, LogIn, UserCircle, ShieldCheck } from "lucide-react";
+import { Bot, Search, Menu, X, ChevronDown, LogIn, UserCircle, ShieldCheck, Grid3X3 } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 import { useAuth } from "@/hooks/useAuth";
+import { portals } from "@/config/portals";
 
 interface NavbarProps {
   locale: string;
@@ -69,11 +70,16 @@ const AI_STUDIO_PATHS = [
   "/challenges", "/leaderboard",
 ];
 
+const PORTAL_PATHS = portals.map((p) => p.href);
+
 export default function Navbar({ locale }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [studioOpen, setStudioOpen] = useState(false);
+  const [portalsOpen, setPortalsOpen] = useState(false);
   const [mobileStudioOpen, setMobileStudioOpen] = useState(false);
+  const [mobilePortalsOpen, setMobilePortalsOpen] = useState(false);
   const studioRef = useRef<HTMLDivElement>(null);
+  const portalsRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const items = navItems[locale as "ar" | "en"] ?? navItems.en;
   const studioItems = aiStudioItems[locale as "ar" | "en"] ?? aiStudioItems.en;
@@ -85,15 +91,22 @@ export default function Navbar({ locale }: NavbarProps) {
       if (studioRef.current && !studioRef.current.contains(e.target as Node)) {
         setStudioOpen(false);
       }
+      if (portalsRef.current && !portalsRef.current.contains(e.target as Node)) {
+        setPortalsOpen(false);
+      }
     }
     document.addEventListener("mousedown", onOutside);
     return () => document.removeEventListener("mousedown", onOutside);
   }, []);
 
+  const isPortalsActive = PORTAL_PATHS.some((p) => pathname.startsWith(`/${locale}${p}`));
+
   useEffect(() => {
     setMobileOpen(false);
     setStudioOpen(false);
+    setPortalsOpen(false);
     setMobileStudioOpen(false);
+    setMobilePortalsOpen(false);
   }, [pathname]);
 
   function isActive(href: string) {
@@ -269,6 +282,98 @@ export default function Navbar({ locale }: NavbarProps) {
             );
           })}
 
+          {/* Portals Dropdown */}
+          <div ref={portalsRef} className="relative">
+            <button
+              onClick={() => setPortalsOpen((v) => !v)}
+              onMouseEnter={() => setPortalsOpen(true)}
+              className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              style={{
+                color: isPortalsActive ? "var(--color-secondary)" : "var(--color-on-surface-variant)",
+                background: isPortalsActive ? "rgba(208,188,255,0.06)" : "transparent",
+                fontWeight: isPortalsActive ? 600 : 400,
+              }}
+            >
+              <Grid3X3 size={13} style={{ color: isPortalsActive ? "var(--color-secondary)" : "var(--color-on-surface-variant)", opacity: 0.7 }} />
+              {isAr ? "البوابات" : "Portals"}
+              <ChevronDown
+                size={13}
+                style={{
+                  transition: "transform 0.2s",
+                  transform: portalsOpen ? "rotate(180deg)" : "rotate(0deg)",
+                  color: "var(--color-secondary)",
+                  opacity: 0.7,
+                }}
+              />
+              {isPortalsActive && (
+                <span className="absolute bottom-1 left-3 right-3 h-0.5 rounded-full" style={{ background: "var(--color-secondary)" }} />
+              )}
+            </button>
+
+            {portalsOpen && (
+              <div
+                className="absolute top-full mt-1.5 rounded-2xl overflow-hidden z-50"
+                style={{
+                  [isAr ? "right" : "left"]: 0,
+                  width: "280px",
+                  background: "rgba(17,19,24,0.97)",
+                  border: "1px solid rgba(208,188,255,0.15)",
+                  boxShadow: "0 12px 40px rgba(0,0,0,0.4), 0 0 0 0.5px rgba(208,188,255,0.1)",
+                  backdropFilter: "blur(20px)",
+                }}
+                onMouseLeave={() => setPortalsOpen(false)}
+              >
+                <div className="p-1.5">
+                  <div className="px-3 py-2 text-[10px] font-mono tracking-widest uppercase" style={{ color: "var(--color-secondary)", opacity: 0.7 }}>
+                    {isAr ? "بوابات درهوس" : "Darhous Portals"}
+                  </div>
+                  {portals.map((portal) => {
+                    const active = pathname.startsWith(`/${locale}${portal.href}`);
+                    const isAvailable = portal.status === "available";
+                    return (
+                      <Link
+                        key={portal.id}
+                        href={`/${locale}${portal.href}`}
+                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm transition-all duration-150"
+                        style={{
+                          color: active ? portal.color : "var(--color-on-surface-variant)",
+                          background: active ? `${portal.color}10` : "transparent",
+                          textDecoration: "none",
+                          opacity: isAvailable ? 1 : 0.6,
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!active) {
+                            (e.currentTarget as HTMLElement).style.background = `${portal.color}08`;
+                            (e.currentTarget as HTMLElement).style.color = portal.color;
+                            (e.currentTarget as HTMLElement).style.opacity = "1";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!active) {
+                            (e.currentTarget as HTMLElement).style.background = "transparent";
+                            (e.currentTarget as HTMLElement).style.color = "var(--color-on-surface-variant)";
+                            (e.currentTarget as HTMLElement).style.opacity = isAvailable ? "1" : "0.6";
+                          }
+                        }}
+                      >
+                        <span className="text-base leading-none w-5 text-center flex-shrink-0">{portal.icon}</span>
+                        <span className="font-medium flex-1">{isAr ? portal.titleAr : portal.titleEn}</span>
+                        {portal.status !== "available" && (
+                          <span className="ms-auto text-[9px] font-mono px-1.5 py-0.5 rounded-full" style={{ background: "rgba(148,163,184,0.1)", color: "#94a3b8" }}>
+                            {isAr ? "قريبًا" : "Soon"}
+                          </span>
+                        )}
+                        {portal.status === "available" && (
+                          <span className="ms-auto w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#4ade80" }} />
+                        )}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* AI Studio Dropdown */}
           <div ref={studioRef} className="relative">
             <button
@@ -423,6 +528,57 @@ export default function Navbar({ locale }: NavbarProps) {
                 </Link>
               );
             })}
+
+            {/* Mobile Portals accordion */}
+            <div>
+              <button
+                onClick={() => setMobilePortalsOpen((v) => !v)}
+                className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all"
+                style={{
+                  color: isPortalsActive ? "var(--color-secondary)" : "var(--color-on-surface-variant)",
+                  background: isPortalsActive ? "rgba(208,188,255,0.08)" : "transparent",
+                  borderInlineStart: isPortalsActive ? "2px solid var(--color-secondary)" : "2px solid transparent",
+                }}
+              >
+                <span className="flex items-center gap-2">
+                  <Grid3X3 size={14} />
+                  {isAr ? "البوابات" : "Portals"}
+                </span>
+                <ChevronDown
+                  size={14}
+                  style={{ transition: "transform 0.2s", transform: mobilePortalsOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                />
+              </button>
+              {mobilePortalsOpen && (
+                <div className="mt-1 ms-4 flex flex-col gap-0.5">
+                  {portals.map((portal) => {
+                    const active = pathname.startsWith(`/${locale}${portal.href}`);
+                    return (
+                      <Link
+                        key={portal.id}
+                        href={`/${locale}${portal.href}`}
+                        className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm transition-all"
+                        style={{
+                          color: active ? portal.color : "var(--color-on-surface-variant)",
+                          background: active ? `${portal.color}08` : "transparent",
+                          textDecoration: "none",
+                          opacity: portal.status === "available" ? 1 : 0.65,
+                        }}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        <span>{portal.icon}</span>
+                        <span className="flex-1">{isAr ? portal.titleAr : portal.titleEn}</span>
+                        {portal.status !== "available" && (
+                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full" style={{ background: "rgba(148,163,184,0.1)", color: "#94a3b8" }}>
+                            {isAr ? "قريبًا" : "Soon"}
+                          </span>
+                        )}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
 
             {/* Mobile AI Studio accordion */}
             <div>
