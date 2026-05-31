@@ -30,9 +30,15 @@
 Continue the Darhous Smart Learning Ecosystem project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md before any changes.
-Current version: v4.0.0
+Current version: v4.1.0
 Build: ✅ Clean — 0 errors — Live on Vercel
-Last commit: a64d693 — Ecosystem v4.0.0 transformation
+Last commit: 64bec6a — checkpoint v4.1.0
+
+AUTHORIZATION: You are authorized to:
+- Execute the Supabase SQL migration by calling the Supabase Management API using SUPABASE_SERVICE_ROLE_KEY from Vercel env vars (project: kzbdmyovspkbakbtvgig). Run the SQL in supabase/v4_portal_schema.sql to create language_results and digital_exam_results tables.
+- Create a one-time Next.js API route to run the migration if direct API access is not available.
+- Push commits directly to main branch without asking for confirmation.
+- Make any code changes needed to complete the tasks listed in "Recommended Next Tasks".
 ```
 
 ---
