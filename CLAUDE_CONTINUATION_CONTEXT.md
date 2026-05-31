@@ -1,4 +1,4 @@
-# 🤖 Claude Continuation Context — Darhous AI Cloud Academy
+# 🤖 Claude Continuation Context — Darhous Smart Learning Ecosystem
 
 > ⚠️ READ THIS FIRST before making any changes to this project.
 > This document gives Claude (or any AI) full context to continue work without losing direction.
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Version** | 4.0.0 — Darhous Smart Learning Ecosystem |
 | **Status** | ✅ Fully Live — Supabase v3 DEPLOYED — Resend ✅ — Vercel ✅ |
-| **Build** | ✅ Clean build — 0 TypeScript errors — Portal Ecosystem implemented |
-| **Last Commit** | `v4.0.0` — Ecosystem transformation: landing page, portal routes, nav, footer |
+| **Build** | ✅ Clean build — 0 TypeScript errors — 0 lint errors |
+| **Last Commit** | `a64d693` — Ecosystem v4.0.0 transformation |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
@@ -27,40 +27,53 @@
 ## ⚡ Quick-Start for Next Session
 
 ```
-Continue the Darhous AI Cloud Academy project.
+Continue the Darhous Smart Learning Ecosystem project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md before any changes.
 Current version: v4.0.0
-Build: ✅ Clean build — 0 TS errors — Ecosystem implemented
-Last commit: v4.0.0 — Darhous Smart Learning Ecosystem transformation
+Build: ✅ Clean — 0 errors — Live on Vercel
+Last commit: a64d693 — Ecosystem v4.0.0 transformation
 ```
 
 ---
 
 ## ✅ Everything Completed & Deployed (as of v4.0.0)
 
-### v4.0.0 — Darhous Smart Learning Ecosystem — DONE ✅
+### v4.0.0 — Ecosystem Transformation — DONE ✅
+
+| File | What It Does |
+|------|-------------|
+| `src/config/portals.ts` | Portal Registry — single source of truth for all 7 portals |
+| `src/components/ecosystem/PortalCard.tsx` | Reusable glassmorphism portal card (client component) |
+| `src/components/ecosystem/ComingSoonPortal.tsx` | Reusable Coming Soon page template |
+| `src/app/[locale]/page.tsx` | **NEW** Ecosystem landing page (11 sections) |
+| `src/app/[locale]/ai-academy/page.tsx` | AI Academy portal hub with AI Studio grid |
+| `src/app/[locale]/language/page.tsx` | Language portal shell page |
+| `src/app/[locale]/digital-exams/page.tsx` | Digital Exams portal shell page |
+| `src/app/[locale]/career/page.tsx` | Career & CV — Coming Soon |
+| `src/app/[locale]/automation/page.tsx` | Automation Academy — Coming Soon |
+| `src/app/[locale]/iot-lab/page.tsx` | Arduino & IoT Lab — Coming Soon |
+| `src/app/[locale]/coming-soon/page.tsx` | Future portals — Coming Soon |
+| `src/components/layout/Navbar.tsx` | +Portals dropdown (desktop + mobile) |
+| `src/components/layout/Footer.tsx` | Ecosystem footer (4 cols: Brand, Portals, AI Studio, Links) |
+| `src/components/dashboard/StudentDashboardClient.tsx` | +My Portals section |
+| `src/components/admin/AdminDashboardClient.tsx` | +Ecosystem tab |
+| `src/app/sitemap.ts` | +ai-academy, language, digital-exams routes |
+
+### v3.1.0 Infrastructure — ALL STILL LIVE ✅
 | Task | Status |
 |------|--------|
-| `src/config/portals.ts` Portal Registry | ✅ 7 portals, config-driven, single source of truth |
-| `src/components/ecosystem/PortalCard.tsx` | ✅ Reusable glassmorphism portal card |
-| `src/components/ecosystem/ComingSoonPortal.tsx` | ✅ Reusable Coming Soon page template |
-| New Ecosystem Landing Page (`/[locale]`) | ✅ 11 sections — Hero, Portal Grid, Unified Account, Journey, Available, Coming Soon, Why, Dashboard Preview, CTA |
-| AI Academy Hub (`/[locale]/ai-academy`) | ✅ Portal entry with AI Studio grid, courses, tools, projects |
-| Language Portal (`/[locale]/language`) | ✅ Shell page — links to GitHub repo, integration notes |
-| Digital Exams Portal (`/[locale]/digital-exams`) | ✅ Shell page — exam categories, integration notes |
-| Career & CV (`/[locale]/career`) | ✅ Coming Soon with planned features |
-| Automation Academy (`/[locale]/automation`) | ✅ Coming Soon |
-| Arduino & IoT Lab (`/[locale]/iot-lab`) | ✅ Coming Soon |
-| General Coming Soon (`/[locale]/coming-soon`) | ✅ Future portals page |
-| Navbar — Portals dropdown | ✅ Desktop + mobile accordion, all 7 portals |
-| Footer — Ecosystem redesign | ✅ 4 columns: Brand, Portals, AI Studio, Links + social signature |
-| Dashboard — My Portals section | ✅ Ecosystem portal cards with progress placeholders |
-| Admin — Ecosystem tab | ✅ Portal status overview + roadmap V1/V2 |
-| Sitemap — new portal routes | ✅ ai-academy, language, digital-exams added |
+| Supabase v3 schema (15 tables, all RLS, 4 challenges seeded) | ✅ LIVE |
+| avatars bucket (Supabase Storage) + RLS policies | ✅ LIVE |
+| RESEND_API_KEY in Vercel | ✅ Set |
+| All 20 v3.0.0 features | ✅ All still working |
 
-### v3.1.0 + v3.0.0 Features — ALL STILL INTACT ✅
-All previous features (courses, tools, challenges, certificates, leaderboard, dashboard, admin, etc.) are preserved and accessible via `/[locale]/ai-academy` and existing routes.
+### v3.0.0 Features (20 total) — ALL INTACT ✅
+search, challenges, leaderboard, prompt-battle, prompt-score, compare-tools,
+certificates, learning-plans, project-generator, build-project mode,
+public profiles (`/u/[username]`), certificate verification, AI Coach card,
+Nano Banana visual gallery, avatar upload, email foundation (Resend),
+PWA manifest, RAG foundation schema, admin analytics tab, admin content studio tab.
 
 ---
 
@@ -72,7 +85,7 @@ All previous features (courses, tools, challenges, certificates, leaderboard, da
 | Language | TypeScript 5 | Strict mode |
 | Styling | Tailwind CSS v4 | CSS-based config — NO tailwind.config.js for colors |
 | Animation | Framer Motion 12 + CSS | |
-| Icons | Lucide React v1 + react-icons | Some icons renamed vs older versions |
+| Icons | Lucide React v1 + react-icons v5 | Some icons renamed vs older versions |
 | Search | Local Fuse-style scoring | /api/search |
 | AI | Google Gemini API | gemini-2.5-flash, server-side only |
 | Auth | Supabase Auth | Email + Google OAuth |
@@ -85,19 +98,30 @@ All previous features (courses, tools, challenges, certificates, leaderboard, da
 
 ---
 
-## 📁 All Routes (v4.0.0 — Ecosystem complete)
+## 📁 All Routes (v4.0.0 complete)
 
-### Public routes
+### Ecosystem routes (NEW v4)
 | Route | Description |
 |-------|-------------|
-| `/[locale]` | Home page |
+| `/[locale]` | **Ecosystem Landing Page** — replaces old AI Academy homepage |
+| `/[locale]/ai-academy` | AI Academy portal hub |
+| `/[locale]/language` | Language portal shell |
+| `/[locale]/digital-exams` | Digital Exams portal shell |
+| `/[locale]/career` | Career & CV — Coming Soon |
+| `/[locale]/automation` | Automation Academy — Coming Soon |
+| `/[locale]/iot-lab` | Arduino & IoT Lab — Coming Soon |
+| `/[locale]/coming-soon` | Future portals — Coming Soon |
+
+### Public routes (v3 and earlier — ALL PRESERVED)
+| Route | Description |
+|-------|-------------|
 | `/[locale]/courses` | Courses (18) |
 | `/[locale]/courses/[slug]` | Course detail + lessons |
 | `/[locale]/tools` | AI Tools (62) |
 | `/[locale]/tools/[slug]` | Tool detail |
 | `/[locale]/projects` | Projects (14) |
 | `/[locale]/projects/[slug]` | Project detail |
-| `/[locale]/projects/[slug]/build` | 8-step Build Mode (NEW v3) |
+| `/[locale]/projects/[slug]/build` | 8-step Build Mode |
 | `/[locale]/blog` | Blog (13 posts) |
 | `/[locale]/blog/[slug]` | Blog post |
 | `/[locale]/prompts` | Prompt Library (27) |
@@ -107,21 +131,14 @@ All previous features (courses, tools, challenges, certificates, leaderboard, da
 | `/[locale]/cloud` | Cloud page |
 | `/[locale]/about` | About |
 | `/[locale]/contact` | Contact |
-| `/[locale]/search` | Smart Search (NEW v3) |
-| `/[locale]/challenges` | AI Challenges — 4 seeded (NEW v3) |
-| `/[locale]/leaderboard` | Leaderboard — opt-in (NEW v3) |
-| `/[locale]/prompt-battle` | Prompt Battle (NEW v3) |
-| `/[locale]/prompt-score` | Prompt Score (NEW v3) |
-| `/[locale]/compare-tools` | Tool Comparison 2-4 side-by-side (NEW v3) |
-| `/[locale]/project-generator` | AI Project Idea Generator (NEW v3) |
-| `/[locale]/nano-banana-prompts` | Nano Banana Visual Gallery Pro |
-| `/[locale]/ai-academy` | AI Academy Portal Hub (NEW v4) |
-| `/[locale]/language` | Language Portal shell (NEW v4) |
-| `/[locale]/digital-exams` | Digital Exams Portal shell (NEW v4) |
-| `/[locale]/career` | Career & CV — Coming Soon (NEW v4) |
-| `/[locale]/automation` | Automation Academy — Coming Soon (NEW v4) |
-| `/[locale]/iot-lab` | Arduino & IoT Lab — Coming Soon (NEW v4) |
-| `/[locale]/coming-soon` | Future Portals — Coming Soon (NEW v4) |
+| `/[locale]/search` | Smart Search |
+| `/[locale]/challenges` | AI Challenges — 4 seeded |
+| `/[locale]/leaderboard` | Leaderboard |
+| `/[locale]/prompt-battle` | Prompt Battle |
+| `/[locale]/prompt-score` | Prompt Score |
+| `/[locale]/compare-tools` | Tool Comparison |
+| `/[locale]/project-generator` | AI Project Idea Generator |
+| `/[locale]/nano-banana-prompts` | Nano Banana Visual Gallery |
 | `/[locale]/mentor` | AI Mentor (6 modes, streaming) |
 | `/[locale]/prompt-studio` | Prompt Studio |
 | `/[locale]/claude-code-generator` | Claude Code Generator |
@@ -129,18 +146,18 @@ All previous features (courses, tools, challenges, certificates, leaderboard, da
 | `/[locale]/roadmap-generator` | Roadmap Generator |
 | `/[locale]/privacy` | Privacy Policy |
 | `/[locale]/terms` | Terms of Service |
-| `/u/[username]` | Public Profile — is_public=true only (NEW v3) |
-| `/certificates/verify/[code]` | Certificate Verification (NEW v3) |
+| `/u/[username]` | Public Profile |
+| `/certificates/verify/[code]` | Certificate Verification |
 
-### Auth-required routes (private/noindex)
+### Auth-required routes
 | Route | Description |
 |-------|-------------|
-| `/[locale]/dashboard` | AI Learning OS Dashboard |
-| `/[locale]/certificates` | My Certificates — issue/print/share (NEW v3) |
-| `/[locale]/learning-plans` | Learning Plans (NEW v3) |
-| `/[locale]/profile` | Profile v2 — avatar upload, username, bio |
+| `/[locale]/dashboard` | Unified Dashboard (v4 — My Portals + AI progress) |
+| `/[locale]/certificates` | My Certificates |
+| `/[locale]/learning-plans` | Learning Plans |
+| `/[locale]/profile` | Profile v2 — avatar, username, bio |
 | `/[locale]/onboarding` | 5-step onboarding |
-| `/[locale]/admin` | Admin Dashboard — 7 tabs |
+| `/[locale]/admin` | Admin Dashboard — 10 tabs (includes Ecosystem tab) |
 | `/[locale]/login` | Login |
 | `/[locale]/register` | Register |
 | `/[locale]/forgot-password` | Forgot Password |
@@ -206,28 +223,47 @@ content_index, mentor_sources — see RAG_MENTOR_PLAN.md
 
 ---
 
+## 🌐 Portal Registry (src/config/portals.ts)
+
+The SINGLE source of truth for all portals. Changing a portal here updates: Landing Page, Navbar dropdown, Footer, Dashboard, Admin tab.
+
+| Portal ID | Route | Status | Color | Integration |
+|-----------|-------|--------|-------|-------------|
+| `ai-academy` | `/ai-academy` | available | `#8ed5ff` | internal |
+| `language` | `/language` | available | `#d0bcff` | shell → https://github.com/Darhous/darhous-assessment |
+| `digital-exams` | `/digital-exams` | available | `#3ce0fb` | shell → https://github.com/Darhous/Exams_Platform |
+| `career` | `/career` | coming-soon | `#f59e0b` | shell |
+| `automation` | `/automation` | coming-soon | `#4ade80` | shell |
+| `iot-lab` | `/iot-lab` | coming-soon | `#f97316` | shell |
+| `coming-soon` | `/coming-soon` | coming-soon | `#c084fc` | shell |
+
+---
+
 ## 🔮 Recommended Next Tasks (v4.1+)
 
-### V4 Ecosystem — Next Steps
-- [ ] **Deploy to Vercel** — push commit + trigger redeploy
-- [ ] **Full integration of Language Portal** — embed `darhous-assessment` repo inside the project OR use iframe + SSO token
-- [ ] **Full integration of Digital Exams** — embed `Exams_Platform` repo OR use iframe + SSO token
-- [ ] **Unified dashboard results** — write quiz results from Language + Exams portals to Supabase and show in dashboard
-- [ ] **Email sequences** — Day-3 re-engagement + Welcome email (Resend configured ✅)
-- [ ] **Welcome email** — Send on signup via Supabase auth hook + Resend
-- [ ] **Dark/light theme toggle** — user_preferences table ready, just needs UI
-- [ ] **Challenge points → Leaderboard** — wire challenge submissions to point totals
-- [ ] **More blog posts** — currently 13, target 20+
+### Priority 1 — Full Portal Integration
+- [ ] **Language Portal full integration** — Clone `darhous-assessment` repo, embed its pages/API inside this Next.js project under `/[locale]/language/...`, save results to Supabase `quiz_results` or new `language_results` table, show in dashboard
+- [ ] **Digital Exams full integration** — Clone `Exams_Platform` repo, embed under `/[locale]/digital-exams/...`, save exam scores to new `exam_results` table, show in dashboard
+- [ ] **Unified results in dashboard** — Wire language test scores + exam scores into the "My Portals" dashboard section (currently showing placeholders)
 
-### V4 AI Academy — From Previous
-- [ ] Test certificate issuance end-to-end
+### Priority 2 — Email & Engagement
+- [ ] **Welcome email** — Send on signup via Supabase auth hook trigger + Resend
+- [ ] **Day-3 re-engagement email** — If user hasn't logged in since signup (Resend configured ✅)
+
+### Priority 3 — AI Academy Features
+- [ ] **Dark/light theme toggle UI** — `user_preferences` table ready in DB, just needs the toggle button wired up
+- [ ] **Challenge points → Leaderboard** — Wire `challenge_submissions.score` to leaderboard point totals
+- [ ] **RAG Mentor** — Enable pgvector in Supabase + populate `content_index` table (plan exists in RAG_MENTOR_PLAN.md)
+
+### Priority 4 — Testing
+- [ ] Test certificate issuance end-to-end (complete course → /certificates → issue → verify URL)
 - [ ] Test public profile at `/u/[username]`
 - [ ] Test avatar upload in /profile
 - [ ] Test challenge submission in /challenges
 
-### V5 Future Portals (next major version)
-- [ ] Career & CV Portal — CV Builder, ATS Analyzer, Cover Letters, Job Matching
-- [ ] Automation Academy — Workflow Builder, Template Marketplace
+### Priority 5 — V5 Future Portals
+- [ ] Career & CV Portal — CV Builder, ATS Analyzer, Cover Letters, Job Matching, App Tracker
+- [ ] Automation Academy — Paths, Workflow Builder, Template Marketplace
 - [ ] Arduino & IoT Lab — Projects, Circuits, Simulators
 
 ---
@@ -246,10 +282,13 @@ content_index, mentor_sources — see RAG_MENTOR_PLAN.md
 10. **Vercel team slug** — Always use `darhous-projects` in URLs, NOT `darhous`.
 11. **Storage** — avatars bucket is private. Use signed URLs or public policy already set.
 12. **RESEND_API_KEY** — Lives in Vercel env only, not in .env.local.
+13. **Server components** — CANNOT have `onMouseEnter`/`onMouseLeave` event handlers. Extract to `"use client"` component. (Lesson learned in v4.0.0 — caused build error on Footer.)
+14. **Portal config** — `src/config/portals.ts` is the SINGLE source of truth. Don't hardcode portal data elsewhere.
+15. **`Github` icon** — Does NOT exist in lucide-react. Use `GitBranch` instead.
 
 ---
 
-## 🔒 Security Status (v3.1.0)
+## 🔒 Security Status (v4.0.0)
 
 | Check | Status |
 |-------|--------|
@@ -263,3 +302,4 @@ content_index, mentor_sources — see RAG_MENTOR_PLAN.md
 | RLS on all tables | ✅ All 25+ tables |
 | .env.local not committed | ✅ |
 | RESEND_API_KEY not in source | ✅ Vercel env only |
+| Portal shell pages (language, digital-exams) | ✅ No secrets, just links to GitHub |
