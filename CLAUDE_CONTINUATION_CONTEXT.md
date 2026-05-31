@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 5.0.0 — v5 Full Native Portal Migration ✅ |
-| **Status** | ✅ Fully Live — All 3 portals migrated natively — Build clean |
-| **Build** | ✅ Clean build — 0 TypeScript errors — 0 lint errors — exit 0 |
-| **Last Commit** | `4c35485` → feat: v5.0 — Full native portal migration |
+| **Version** | 5.0.0 — Full Native Portal Migration ✅ COMPLETE |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Pushed to Vercel |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 |
+| **Last Commit** | `16369c1` → docs: update CLAUDE_CONTINUATION_CONTEXT for v5.0 |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
@@ -20,33 +20,46 @@
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Supabase Project ID** | `kzbdmyovspkbakbtvgig` |
 | **Branch** | `main` |
-| **Last Updated** | 2026-05-31 (v4.2.0 production readiness round) |
+| **Last Updated** | 2026-05-31 (v5.0 — full portal migration session) |
 
 ---
 
-## ⚡ Quick-Start for Next Session (v5.0 — Portal Integration)
+## ⚡ Quick-Start for Next Session (v6.0 — Smart Learning OS)
 
 ```
 Continue the Darhous Smart Learning Ecosystem project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
-Read CLAUDE_CONTINUATION_CONTEXT.md before any changes.
-Current version: v4.2.0 — PRODUCTION READY ✅
+Read CLAUDE_CONTINUATION_CONTEXT.md fully before any changes.
+Current version: v5.0.0 — PRODUCTION READY ✅
 Build: ✅ Clean — 0 errors — Live on Vercel
-Last commit: 20656dc — v4.2.0 complete checkpoint
+Last commit: 16369c1 — v5.0 full portal migration complete
 
-NEXT MISSION: v5.0 — Full Portal Integration
-Integrate the 3 external GitHub repos as full portals inside the ecosystem:
-  1. Automation Academy → https://github.com/Darhous/darhous-automation-academy
-  2. IoT Lab          → https://github.com/Darhous/darhous-iot-lab
-  3. Career Hub       → https://github.com/Darhous/Darhous-career-hub-google
+ALL 6 PORTALS ARE NOW LIVE:
+  ✅ AI Academy         → /ai-academy
+  ✅ Language Portal    → /language (150q, CEFR)
+  ✅ Digital Exams      → /digital-exams (7 subjects × 20q)
+  ✅ Career Hub         → /career (ATS analyzer, CV builder, jobs, interview, templates)
+  ✅ Automation Academy → /automation (30+ templates, 15+ tools, paths, services, labs)
+  ✅ IoT Lab            → /iot-lab (60+ lessons, 72 projects, 40+ challenges, simulator)
 
-AUTHORIZATION: You are fully authorized to:
-- Push commits directly to main branch without asking for confirmation.
-- Inspect the 3 external repos (content, structure, tech stack).
-- Design and implement the integration approach for each portal.
-- Create new pages, components, API routes, and Supabase tables as needed.
-- Update src/config/portals.ts to wire each portal into the ecosystem.
-- Make any code changes needed — no need to ask for permission.
+NEXT MISSION: v6.0 — Darhous Smart Learning OS
+Transform the platform into a premium, beginner-friendly, unified "Darhous Smart Learning OS".
+
+AUTHORIZATION:
+- Push commits directly to main after validation passes.
+- Make all code changes without asking for confirmation.
+- Add new Supabase tables if needed (non-breaking, additive only).
+- Update any existing page, component, or config.
+- The final result MUST pass: npm run typecheck && npm run lint && npm run build
+
+KEY FILES TO KNOW:
+  src/app/[locale]/page.tsx           ← Main landing page (REBUILD/UPGRADE)
+  src/app/[locale]/dashboard/page.tsx ← User dashboard → "My Darhous Hub"
+  src/app/[locale]/admin/page.tsx     ← Admin dashboard → "Darhous Admin Studio"
+  src/components/layout/Footer.tsx    ← Footer (preserve bottom signature bar exactly)
+  src/config/portals.ts               ← SINGLE source of truth for portals
+  src/lib/gemini.ts                   ← Gemini helper (callGemini)
+  src/lib/supabase/                   ← client.ts (client), server.ts (server), admin.ts (server-only)
 ```
 
 ---
@@ -157,17 +170,35 @@ PWA manifest, RAG foundation schema, admin analytics tab, admin content studio t
 
 ## 📁 All Routes (v4.0.0 complete)
 
-### Ecosystem routes (NEW v4)
+### Ecosystem routes (v4 + v5 — ALL LIVE)
 | Route | Description |
 |-------|-------------|
-| `/[locale]` | **Ecosystem Landing Page** — replaces old AI Academy homepage |
+| `/[locale]` | **Ecosystem Landing Page** (v6.0 target: full upgrade) |
 | `/[locale]/ai-academy` | AI Academy portal hub |
-| `/[locale]/language` | Language portal shell |
-| `/[locale]/digital-exams` | Digital Exams portal shell |
-| `/[locale]/career` | Career & CV — Coming Soon |
-| `/[locale]/automation` | Automation Academy — Coming Soon |
-| `/[locale]/iot-lab` | Arduino & IoT Lab — Coming Soon |
-| `/[locale]/coming-soon` | Future portals — Coming Soon |
+| `/[locale]/language` | Language portal — 150q, 10 stages, CEFR |
+| `/[locale]/digital-exams` | Digital Exams — 7 subjects × 20q |
+| `/[locale]/career` | **Career Hub** ✅ LIVE v5.0 |
+| `/[locale]/career/cv-analyzer` | ATS CV Analyzer (Gemini AI + pdf-parse) |
+| `/[locale]/career/builder` | 5-step CV Builder with live preview |
+| `/[locale]/career/jobs` | Smart Jobs Board |
+| `/[locale]/career/interview` | Interview Prep + STAR AI Evaluator |
+| `/[locale]/career/templates` | CV Templates |
+| `/[locale]/automation` | **Automation Academy** ✅ LIVE v5.0 |
+| `/[locale]/automation/templates` | 30+ Automation Templates |
+| `/[locale]/automation/tools` | 15+ Tools Explorer |
+| `/[locale]/automation/paths` | Learning Paths |
+| `/[locale]/automation/services` | 10 Service Packages |
+| `/[locale]/automation/labs` | Practical Labs |
+| `/[locale]/automation/automation-agent` | Automation Agent |
+| `/[locale]/iot-lab` | **IoT Lab** ✅ LIVE v5.0 |
+| `/[locale]/iot-lab/paths` | Learning Paths (with [slug]) |
+| `/[locale]/iot-lab/lessons` | 60+ Lessons (with [slug]) |
+| `/[locale]/iot-lab/projects` | 72 Projects (with [slug]) |
+| `/[locale]/iot-lab/challenges` | 40+ Challenges (with [slug]) |
+| `/[locale]/iot-lab/component-library` | Components Library (with [slug]) |
+| `/[locale]/iot-lab/simulator` | Wokwi Simulator |
+| `/[locale]/iot-lab/exams` | Interactive Exams |
+| `/[locale]/coming-soon` | Future portals |
 
 ### Public routes (v3 and earlier — ALL PRESERVED)
 | Route | Description |
