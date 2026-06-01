@@ -612,11 +612,16 @@ export default function StudentDashboardClient({ locale }: Props) {
                   </div>
                 ))}
               </div>
-              <div className="mt-3">
+              <div className="mt-3 flex flex-wrap gap-2">
                 <a href={`/${locale}/language/assessment`}
                   className="text-xs font-mono px-4 py-2 rounded-xl inline-flex items-center gap-2 transition-opacity hover:opacity-80"
                   style={{ background: "rgba(208,188,255,0.08)", color: "#d0bcff", textDecoration: "none" }}>
                   🔄 {isAr ? "إعادة الاختبار" : "Retake Assessment"}
+                </a>
+                <a href={`/${locale}/language/history`}
+                  className="text-xs font-mono px-4 py-2 rounded-xl inline-flex items-center gap-2 transition-opacity hover:opacity-80"
+                  style={{ background: "rgba(208,188,255,0.04)", border: "1px solid rgba(208,188,255,0.12)", color: "var(--color-on-surface-variant)", textDecoration: "none" }}>
+                  📈 {isAr ? "عرض كل السجل" : "View Full History"}
                 </a>
               </div>
             </div>

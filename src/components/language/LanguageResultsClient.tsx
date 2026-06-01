@@ -8,7 +8,7 @@ import { useAuth } from "@/hooks/useAuth";
 import {
   Award, RotateCcw, LayoutDashboard, BookOpen, ChevronRight, ChevronLeft,
   Share2, MessageCircle, Copy, Check, ChevronDown, ChevronUp,
-  TrendingUp, Calendar, XCircle, CheckCircle, AlertTriangle,
+  TrendingUp, Calendar, XCircle, CheckCircle, AlertTriangle, Briefcase, Clock,
 } from "lucide-react";
 import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
@@ -498,6 +498,32 @@ export default function LanguageResultsClient({ locale }: { locale: string }) {
         </div>
       )}
 
+      {/* ── Career Hub Handoff ───────────────────────────────────── */}
+      <div className="rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+        style={{ background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)" }}>
+        <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{ background: "rgba(245,158,11,0.1)" }}>
+          <Briefcase size={20} style={{ color: "#f59e0b" }} />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>
+            {isAr ? "اكتشف فرصك المهنية" : "Discover Career Opportunities"}
+          </p>
+          <p className="text-xs mt-0.5 leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+            {isAr
+              ? `بناءً على مستواك ${result.level}، اكتشف الوظائف المناسبة وحلّل سيرتك الذاتية عبر بوابة المسار المهني.`
+              : `Based on your ${result.level} level, explore matching jobs and analyse your CV through the Career Hub.`}
+          </p>
+        </div>
+        <Link href={`/${locale}/career`}
+          className="flex-shrink-0 flex items-center gap-2 font-mono text-sm px-4 py-2.5 rounded-xl transition-all hover:opacity-80 whitespace-nowrap"
+          style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.3)", color: "#f59e0b", textDecoration: "none" }}>
+          <Briefcase size={14} />
+          {isAr ? "ابحث عن فرصك" : "Find My Opportunities"}
+          <Arrow size={13} />
+        </Link>
+      </div>
+
       {/* ── Actions ──────────────────────────────────────────────── */}
       <div className="flex flex-wrap gap-4 justify-center">
         <Link href={`/${locale}/dashboard`} className="glow-button-primary text-white font-mono px-8 py-3 rounded-xl flex items-center gap-2">
@@ -507,6 +533,12 @@ export default function LanguageResultsClient({ locale }: { locale: string }) {
         <Link href={`/${locale}/language/assessment`} className="glow-button-secondary font-mono px-6 py-3 rounded-xl flex items-center gap-2">
           <RotateCcw size={16} />
           {isAr ? "إعادة الاختبار" : "Retake Assessment"}
+        </Link>
+        <Link href={`/${locale}/language/history`}
+          className="font-mono px-6 py-3 rounded-xl flex items-center gap-2 text-sm transition-all hover:opacity-80"
+          style={{ color: "var(--color-on-surface-variant)" }}>
+          <Clock size={14} />
+          {isAr ? "سجل الاختبارات" : "View History"}
         </Link>
         <Link href={`/${locale}/language`} className="font-mono px-6 py-3 rounded-xl flex items-center gap-2 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
           {isAr ? "بوابة اللغة" : "Language Portal"} <Arrow size={14} />

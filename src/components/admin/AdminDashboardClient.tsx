@@ -1106,9 +1106,37 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
             <h3 className="font-bold text-sm mb-4 flex items-center justify-between" style={{ color: "var(--color-on-surface)" }}>
               <span>{isAr ? "نتائج الاختبارات" : "Assessment Results"}</span>
               {langResults.length > 0 && (
-                <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
-                  {langResults.length} {isAr ? "نتيجة" : "results"}
-                </span>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {langResults.length} {isAr ? "نتيجة" : "results"}
+                  </span>
+                  <button
+                    onClick={() => {
+                      const headers = ["User ID", "Level", "Score %", "Stages", "Flags", "Certificate", "Date"];
+                      const rows = langResults.map((r) => [
+                        (r.user_id as string).slice(0, 8),
+                        r.level as string,
+                        (r.score as number).toFixed(1),
+                        `${r.stages_completed as number}/10`,
+                        String((r.flags_count as number) ?? 0),
+                        r.certificate_id ? "Yes" : "No",
+                        new Date(r.created_at as string).toLocaleDateString(),
+                      ]);
+                      const csv = [headers, ...rows].map((row) => row.map((c) => `"${c}"`).join(",")).join("\n");
+                      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+                      const url = URL.createObjectURL(blob);
+                      const a = document.createElement("a");
+                      a.href = url;
+                      a.download = `language-results-${new Date().toISOString().slice(0, 10)}.csv`;
+                      a.click();
+                      URL.revokeObjectURL(url);
+                    }}
+                    className="flex items-center gap-1 text-xs font-mono px-2.5 py-1 rounded-lg transition-opacity hover:opacity-70"
+                    style={{ background: "rgba(74,222,128,0.08)", border: "1px solid rgba(74,222,128,0.2)", color: "#4ade80" }}>
+                    <Download size={11} />
+                    {isAr ? "CSV" : "CSV"}
+                  </button>
+                </div>
               )}
             </h3>
             {langLoading
