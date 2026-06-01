@@ -1176,13 +1176,6 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
             </div>
           )}
 
-          {/* DB migration reminder */}
-          <div className="rounded-xl p-4 text-xs font-mono"
-            style={{ background: "rgba(251,191,36,0.06)", border: "1px solid rgba(251,191,36,0.15)", color: "var(--color-on-surface-variant)" }}>
-            <strong style={{ color: "#fbbf24" }}>⚠ DB Migration Required:</strong>{" "}
-            Run <code style={{ color: "#d0bcff" }}>supabase/v8_language_upgrade.sql</code> in Supabase SQL Editor to enable flags_count, wrong_answers, and certificate_id columns.
-          </div>
-
         </div>
       )}
 

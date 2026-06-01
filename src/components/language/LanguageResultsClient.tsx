@@ -281,13 +281,11 @@ export default function LanguageResultsClient({ locale }: { locale: string }) {
 
           {/* Action buttons */}
           <div className="flex flex-wrap gap-3 justify-center mt-2">
-            {result.certificate_id && (
-              <a href={`/api/certificates/language/${result.id}`} target="_blank" rel="noreferrer"
-                className="glow-button-primary text-white font-mono px-6 py-2.5 rounded-xl text-sm flex items-center gap-2">
-                <Award size={15} />
-                {isAr ? "تحميل الشهادة" : "Download Certificate"}
-              </a>
-            )}
+            <a href={`/api/certificates/language/${result.id}`} target="_blank" rel="noreferrer"
+              className="glow-button-primary text-white font-mono px-6 py-2.5 rounded-xl text-sm flex items-center gap-2">
+              <Award size={15} />
+              {isAr ? "تحميل الشهادة" : "Download Certificate"}
+            </a>
             {linkedInUrl && (
               <a href={linkedInUrl} target="_blank" rel="noreferrer"
                 className="flex items-center gap-2 text-sm font-mono px-4 py-2.5 rounded-xl transition-all hover:opacity-80"
