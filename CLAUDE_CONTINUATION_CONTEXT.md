@@ -9,16 +9,16 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 7.0.0 — Darhous Smart Learning OS — Data & AI Layer ✅ |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Pushed to Vercel |
+| **Version** | 7.0.0 — Darhous Smart Learning OS — Data & AI Layer ✅ COMPLETE |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Pushed to Vercel — Supabase migration done |
 | **Build** | ✅ Clean — 0 TypeScript errors — 962 pages — exit 0 |
-| **Last Commit** | `pending` → feat: v7.0 — data persistence, AI mentor context, avatar upload, LinkedIn share |
+| **Last Commit** | `55adb49` — chore: remove temp migration route |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-01 (v7.0 session) |
+| **Last Updated** | 2026-06-01 (v7.0 FINAL — all migrations done) |
 
 ---
 
@@ -39,8 +39,9 @@ ALL 6 PORTALS ARE NOW LIVE:
   ✅ Automation Academy → /automation (30+ templates, 15+ tools, paths, services, labs)
   ✅ IoT Lab            → /iot-lab (60+ lessons, 72 projects, 40+ challenges, simulator)
 
-v7.0 COMPLETED:
+v7.0 COMPLETED (ALL DONE ✅ — including Supabase migration):
   ✅ Admin Site Builder → DB      → POST/GET /api/admin/site-settings
+  ✅ Supabase migration DONE      → admin_site_settings, ai_mentor_settings_store, feature_flags_store created
   ✅ AI Mentor Control → DB       → POST/GET /api/admin/mentor-settings
   ✅ Feature Flags → DB           → POST/GET /api/admin/feature-flags
   ✅ Supabase migration           → supabase/v7_admin_settings_schema.sql (run in SQL Editor)
