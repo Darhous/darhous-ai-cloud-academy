@@ -27,10 +27,22 @@ interface LQQuestion {
 
 interface LQAnswer {
   questionText: string;
+  options: { a: string; b: string; c: string; d: string };
   selected: "a" | "b" | "c" | "d" | null;
+  correctAnswer: "a" | "b" | "c" | "d";
   correct: boolean;
   timeSpent: number;
   difficulty: Difficulty;
+  category: Category;
+  stage: number;
+}
+
+interface WrongAnswer {
+  questionText: string;
+  options: { a: string; b: string; c: string; d: string };
+  userAnswer: "a" | "b" | "c" | "d" | null;
+  correctAnswer: "a" | "b" | "c" | "d";
+  timeSpent: number;
   category: Category;
   stage: number;
 }
@@ -64,11 +76,12 @@ function getStageQuestions(stageNum: number, difficulty: Difficulty): LQQuestion
 const WEIGHTS: Record<Difficulty, number> = { easy: 5, medium: 10, hard: 18 };
 const TIER: Record<Difficulty, number> = { easy: 0, medium: 1, hard: 2 };
 
+// Thresholds match legacy backend/services/scoring.py exactly
 const CEFR_THRESHOLDS: Array<[number, string]> = [
-  [96, "C2"], [91, "C1B"], [85, "C1A"],
-  [79, "B2B"], [73, "B2A"], [67, "B1B"],
-  [61, "B1A"], [55, "A2B"], [49, "A2A"],
-  [43, "A1B"], [0, "A1A"],
+  [96, "C2"],  [91, "C1B"], [81, "C1A"],
+  [71, "B2B"], [61, "B2A"], [51, "B1B"],
+  [41, "B1A"], [31, "A2B"], [21, "A2A"],
+  [11, "A1B"], [0,  "A1A"],
 ];
 
 function getCEFRLevel(score: number): string {
@@ -141,6 +154,7 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
   const [questionStart, setQuestionStart] = useState(Date.now());
   const [examStart, setExamStart] = useState(0);
   const [tabSwitches, setTabSwitches] = useState(0);
+  const [showAntiCheatWarning, setShowAntiCheatWarning] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
 
   // Refs for values needed inside timers (avoids stale closures)
@@ -155,11 +169,14 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
   useEffect(() => { qIndexRef.current = qIndex; }, [qIndex]);
   useEffect(() => { currentAnswersRef.current = currentAnswers; }, [currentAnswers]);
 
-  // Anti-cheat
+  // Anti-cheat — show warning overlay when returning after a tab switch
   useEffect(() => {
     const handleVisibility = () => {
-      if (document.visibilityState === "hidden" && phase === "running") {
+      if (phase !== "running") return;
+      if (document.visibilityState === "hidden") {
         setTabSwitches((n) => n + 1);
+      } else if (document.visibilityState === "visible") {
+        setShowAntiCheatWarning(true);
       }
     };
     document.addEventListener("visibilitychange", handleVisibility);
@@ -191,7 +208,7 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
           if (q) {
             setCurrentAnswers((prev) => [
               ...prev,
-              { questionText: q.question_text, selected: null, correct: false, timeSpent: 90, difficulty: q.difficulty, category: q.category, stage: q.stage },
+              { questionText: q.question_text, options: q.options, selected: null, correctAnswer: q.correct_answer, correct: false, timeSpent: 90, difficulty: q.difficulty, category: q.category, stage: q.stage },
             ]);
           }
           setQIndex((i) => i + 1);
@@ -223,9 +240,11 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
       };
       setStageRecords((r) => [...r, record]);
 
-      // Determine next difficulty
-      if (score >= 75) {
+      // Match legacy determine_next_difficulty: ≥70% → up, <40% → down, else keep
+      if (score >= 70) {
         setCurrentDifficulty((d) => d === "easy" ? "medium" : d === "medium" ? "hard" : "hard");
+      } else if (score < 40) {
+        setCurrentDifficulty((d) => d === "hard" ? "medium" : "easy");
       }
       setPhase("stage-break");
       return;
@@ -254,14 +273,17 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
 
   function handleContinue(lastScore: number) {
     const nextIdx = currentStageIdx + 1;
-    if (nextIdx >= 10 || lastScore < 40) {
+    if (nextIdx >= 10) {
       startFinalize(false);
       return;
     }
+    // Match legacy: ≥70% → up, <40% → down, else keep
     const nextDiff: Difficulty =
-      lastScore >= 75
+      lastScore >= 70
         ? currentDifficulty === "easy" ? "medium" : currentDifficulty === "medium" ? "hard" : "hard"
-        : currentDifficulty;
+        : lastScore < 40
+          ? currentDifficulty === "hard" ? "medium" : "easy"
+          : currentDifficulty;
     startStage(nextIdx, nextDiff);
   }
 
@@ -282,6 +304,19 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
     // Re-read stageRecords from state (via a functional update trick)
     setStageRecords((latestRecords) => {
       const result = computeFinalResult(latestRecords, totalSec);
+      const allAnswers = latestRecords.flatMap((r) => r.answers);
+      const wrongAnswers: WrongAnswer[] = allAnswers
+        .filter((a) => !a.correct)
+        .map((a) => ({
+          questionText: a.questionText,
+          options: a.options,
+          userAnswer: a.selected,
+          correctAnswer: a.correctAnswer,
+          timeSpent: a.timeSpent,
+          category: a.category,
+          stage: a.stage,
+        }));
+
       const payload = {
         score: result.score,
         level: result.level,
@@ -289,6 +324,8 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
         stages_completed: result.stagesCompleted,
         is_incomplete: earlyExit || result.isIncomplete,
         breakdown: result.breakdown,
+        flags_count: tabSwitches,
+        wrong_answers: wrongAnswers,
       };
 
       fetch("/api/language/submit", {
@@ -322,7 +359,7 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
     setShowFeedback(true);
     setCurrentAnswers((prev) => [
       ...prev,
-      { questionText: q.question_text, selected: opt, correct, timeSpent, difficulty: q.difficulty, category: q.category, stage: q.stage },
+      { questionText: q.question_text, options: q.options, selected: opt, correctAnswer: q.correct_answer, correct, timeSpent, difficulty: q.difficulty, category: q.category, stage: q.stage },
     ]);
     feedbackTimerRef.current = setTimeout(() => {
       setShowFeedback(false);
@@ -409,6 +446,33 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
     const q = stageQuestions[qIndex];
     if (!q) return null;
     const progress = (qIndex / stageQuestions.length) * 100;
+
+    // Anti-cheat warning overlay
+    if (showAntiCheatWarning) {
+      return (
+        <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(0,0,0,0.85)" }}>
+          <div className="rounded-2xl p-10 max-w-sm w-full mx-4 flex flex-col items-center gap-6 text-center"
+            style={{ background: "var(--color-surface)", border: "2px solid rgba(239,68,68,0.5)" }}>
+            <AlertTriangle size={48} style={{ color: "#ef4444" }} />
+            <div>
+              <h2 className="font-display font-bold text-2xl mb-2" style={{ color: "#ef4444" }}>
+                {isAr ? "تحذير!" : "Tab Switch Detected!"}
+              </h2>
+              <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
+                {isAr
+                  ? `لقد غادرت نافذة الاختبار. تم تسجيل ${tabSwitches} تنبيه حتى الآن. يُرجى البقاء في هذه النافذة.`
+                  : `You left the exam window. ${tabSwitches} flag${tabSwitches !== 1 ? "s" : ""} recorded so far. Please stay on this page.`}
+              </p>
+            </div>
+            <button
+              onClick={() => setShowAntiCheatWarning(false)}
+              className="glow-button-primary text-white font-mono px-8 py-3 rounded-xl w-full">
+              {isAr ? "فهمت، أكمل الاختبار" : "Understood — Continue Exam"}
+            </button>
+          </div>
+        </div>
+      );
+    }
     const timerPct = (timeLeft / 90) * 100;
     const timerColor = timeLeft <= 10 ? "#ef4444" : timeLeft <= 25 ? "#f59e0b" : "#4ade80";
 
@@ -517,11 +581,13 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
     const correct = lastRecord?.answers.filter((a) => a.correct).length ?? 0;
     const total = lastRecord?.answers.length ?? 0;
     const isLastStage = currentStageIdx >= 9;
-    const shouldStop = score < 40;
+    const nextDiffLabel = score >= 70 ? (currentDifficulty === "hard" ? "hard" : currentDifficulty === "medium" ? "hard" : "medium")
+      : score < 40 ? (currentDifficulty === "hard" ? "medium" : "easy")
+      : currentDifficulty;
 
     return (
       <div className="container-xl py-16 flex flex-col items-center gap-8 max-w-xl mx-auto text-center">
-        <div style={{ fontSize: "48px" }}>{score >= 70 ? "🎯" : score >= 40 ? "📊" : "✋"}</div>
+        <div style={{ fontSize: "48px" }}>{score >= 70 ? "🎯" : score >= 40 ? "📊" : "💪"}</div>
         <h2 className="font-display font-bold text-3xl" style={{ color: "var(--color-on-surface)" }}>
           {isAr ? `المرحلة ${currentStageIdx + 1} مكتملة` : `Stage ${currentStageIdx + 1} Complete`}
         </h2>
@@ -533,20 +599,22 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
             ({correct}/{total} {isAr ? "صحيح" : "correct"})
           </span>
         </div>
-        {shouldStop && !isLastStage && (
+        {!isLastStage && (
           <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-            {isAr ? "وصلت إلى مستواك الحالي. سيتم حساب نتائجك الآن." : "You've reached your current level. Results will now be calculated."}
+            {isAr
+              ? `المرحلة التالية: ${currentStageIdx + 2}/10 · الصعوبة: ${nextDiffLabel}`
+              : `Next: Stage ${currentStageIdx + 2}/10 · Difficulty: ${nextDiffLabel}`}
           </p>
         )}
         <div className="flex flex-wrap gap-4 justify-center">
-          {!isLastStage && !shouldStop && (
+          {!isLastStage && (
             <button onClick={() => handleContinue(score)} className="glow-button-primary text-white font-mono px-8 py-3 rounded-xl flex items-center gap-2">
               {isAr ? "المرحلة التالية" : "Next Stage"} <Arrow size={16} />
             </button>
           )}
           <button
-            onClick={() => startFinalize(!(isLastStage || shouldStop))}
-            className={`font-mono px-8 py-3 rounded-xl ${isLastStage || shouldStop ? "glow-button-primary text-white" : "glow-button-secondary"}`}
+            onClick={() => startFinalize(!isLastStage)}
+            className={`font-mono px-8 py-3 rounded-xl ${isLastStage ? "glow-button-primary text-white" : "glow-button-secondary"}`}
           >
             {isAr ? "احسب النتيجة النهائية" : "Calculate Final Result"}
           </button>

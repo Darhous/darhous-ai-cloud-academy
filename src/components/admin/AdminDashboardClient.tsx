@@ -7,7 +7,7 @@ import {
   Shield, Activity, Database, AlertCircle, RefreshCw, LogOut,
   TrendingUp, MessageSquare, Search, Download, Bot,
   Globe, Award, Zap, Palette, Bell, ToggleLeft, ToggleRight,
-  Eye, EyeOff, Edit3, CheckCircle, BarChart2, ExternalLink,
+  Eye, EyeOff, Edit3, CheckCircle, BarChart2, ExternalLink, AlertTriangle,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -26,7 +26,7 @@ import type { UserProfile } from "@/lib/auth/roles";
 type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
-  | "analytics" | "theme" | "audit";
+  | "analytics" | "theme" | "audit" | "language";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -67,6 +67,8 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [auditLogs, setAuditLogs] = useState<AuditRow[]>([]);
   const [dataLoading, setDataLoading] = useState(false);
   const [search, setSearch] = useState("");
+  const [langResults, setLangResults] = useState<Record<string, unknown>[]>([]);
+  const [langLoading, setLangLoading] = useState(false);
 
   /* Local feature flags state */
   const [featureFlags, setFeatureFlags] = useState(defaultFeatureFlags);
@@ -107,6 +109,23 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   useEffect(() => {
     if (isAdmin) fetchData();
   }, [isAdmin, fetchData]);
+
+  // Load language results when language tab opens
+  useEffect(() => {
+    if (tab !== "language" || !isAdmin || langResults.length > 0) return;
+    const supabase = createClient();
+    if (!supabase) return;
+    setLangLoading(true);
+    supabase
+      .from("language_results")
+      .select("id,score,level,stages_completed,is_incomplete,flags_count,certificate_id,created_at,user_id")
+      .order("created_at", { ascending: false })
+      .limit(100)
+      .then(({ data }) => {
+        setLangResults(data ?? []);
+        setLangLoading(false);
+      });
+  }, [tab, isAdmin, langResults.length]);
 
   async function markMessageRead(id: string) {
     const supabase = createClient();
@@ -259,6 +278,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "analytics",      labelAr: "التحليلات",           labelEn: "Analytics",          icon: <TrendingUp size={15} /> },
     { id: "theme",          labelAr: "الهوية والتصميم",    labelEn: "Theme & Branding",   icon: <Palette size={15} /> },
     { id: "audit",          labelAr: "سجل الأمان",         labelEn: "Security & Audit",   icon: <Shield size={15} /> },
+    { id: "language",       labelAr: "بوابة اللغة",         labelEn: "Language Portal",    icon: <Globe size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -1023,6 +1043,146 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
               ))}
             </div>
           </div>
+        </div>
+      )}
+
+      {/* ─────────────────── LANGUAGE PORTAL ─────────────────── */}
+      {tab === "language" && (
+        <div className="flex flex-col gap-6">
+
+          {/* Analytics summary */}
+          {!langLoading && langResults.length > 0 && (() => {
+            const avgScore = langResults.reduce((s, r) => s + (r.score as number), 0) / langResults.length;
+            const flagged = langResults.filter((r) => ((r.flags_count as number) ?? 0) > 0).length;
+            const withCerts = langResults.filter((r) => r.certificate_id).length;
+            return (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {[
+                  { label: isAr ? "إجمالي الاختبارات" : "Total Attempts", value: langResults.length, color: "#d0bcff" },
+                  { label: isAr ? "متوسط النتيجة" : "Avg Score", value: `${avgScore.toFixed(1)}%`, color: "#4ade80" },
+                  { label: isAr ? "مع تنبيهات" : "Flagged", value: flagged, color: "#ef4444" },
+                  { label: isAr ? "الشهادات" : "Certificates", value: withCerts, color: "#fbbf24" },
+                ].map((s) => (
+                  <div key={s.label} className="glass-card rounded-2xl p-5 flex flex-col gap-1" style={{ border: `1px solid ${s.color}20` }}>
+                    <p className="font-mono font-bold text-2xl" style={{ color: s.color }}>{s.value}</p>
+                    <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</p>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
+
+          {/* Level distribution */}
+          {!langLoading && langResults.length > 0 && (() => {
+            const levels = langResults.reduce<Record<string, number>>((acc, r) => {
+              const l = r.level as string;
+              acc[l] = (acc[l] ?? 0) + 1;
+              return acc;
+            }, {});
+            const sorted = Object.entries(levels).sort(([a], [b]) => a.localeCompare(b));
+            const max = Math.max(...sorted.map(([, n]) => n));
+            return (
+              <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(208,188,255,0.1)" }}>
+                <h3 className="font-bold text-sm mb-4" style={{ color: "var(--color-on-surface)" }}>
+                  {isAr ? "توزيع المستويات" : "Level Distribution"}
+                </h3>
+                <div className="flex flex-col gap-2">
+                  {sorted.map(([level, count]) => (
+                    <div key={level} className="flex items-center gap-3 text-sm">
+                      <span className="font-mono w-10 flex-shrink-0 font-bold" style={{ color: "#d0bcff" }}>{level}</span>
+                      <div className="flex-1 h-2 rounded-full" style={{ background: "var(--color-outline-variant)" }}>
+                        <div className="h-full rounded-full" style={{ width: `${(count / max) * 100}%`, background: "#d0bcff" }} />
+                      </div>
+                      <span className="font-mono w-6 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* Results table */}
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+            <h3 className="font-bold text-sm mb-4 flex items-center justify-between" style={{ color: "var(--color-on-surface)" }}>
+              <span>{isAr ? "نتائج الاختبارات" : "Assessment Results"}</span>
+              {langResults.length > 0 && (
+                <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                  {langResults.length} {isAr ? "نتيجة" : "results"}
+                </span>
+              )}
+            </h3>
+            {langLoading
+              ? <div className="h-8 rounded animate-pulse" style={{ background: "rgba(255,255,255,0.04)" }} />
+              : langResults.length === 0
+                ? <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "لا توجد نتائج" : "No results yet"}</p>
+                : (
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs font-mono border-collapse">
+                      <thead>
+                        <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                          {["User ID", "Level", "Score", "Stages", "Flags", "Cert", "Date"].map((h) => (
+                            <th key={h} className="text-start pb-2 pr-4 font-bold" style={{ color: "var(--color-on-surface-variant)" }}>{h}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {langResults.map((r) => (
+                          <tr key={r.id as string} style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+                            <td className="py-2 pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{(r.user_id as string).slice(0, 8)}…</td>
+                            <td className="py-2 pr-4 font-bold" style={{ color: "#d0bcff" }}>{r.level as string}</td>
+                            <td className="py-2 pr-4" style={{ color: "var(--color-on-surface)" }}>{(r.score as number).toFixed(1)}%</td>
+                            <td className="py-2 pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{r.stages_completed as number}/10</td>
+                            <td className="py-2 pr-4" style={{ color: ((r.flags_count as number) ?? 0) > 0 ? "#ef4444" : "var(--color-on-surface-variant)" }}>
+                              {(r.flags_count as number) ?? 0}
+                            </td>
+                            <td className="py-2 pr-4" style={{ color: r.certificate_id ? "#4ade80" : "var(--color-on-surface-variant)" }}>
+                              {r.certificate_id ? "✓" : "—"}
+                            </td>
+                            <td className="py-2" style={{ color: "var(--color-on-surface-variant)" }}>
+                              {new Date(r.created_at as string).toLocaleDateString()}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )
+            }
+          </div>
+
+          {/* Anti-cheat flags */}
+          {!langLoading && langResults.filter((r) => ((r.flags_count as number) ?? 0) > 0).length > 0 && (
+            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(239,68,68,0.15)" }}>
+              <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#ef4444" }}>
+                <AlertTriangle size={15} />
+                {isAr ? "تقارير التنبيه (Anti-cheat)" : "Anti-Cheat Flags"}
+              </h3>
+              <div className="flex flex-col gap-2">
+                {langResults.filter((r) => ((r.flags_count as number) ?? 0) > 0).map((r) => (
+                  <div key={r.id as string} className="flex items-center gap-3 text-xs"
+                    style={{ background: "rgba(239,68,68,0.04)", border: "1px solid rgba(239,68,68,0.1)", borderRadius: 8, padding: "8px 12px" }}>
+                    <span className="font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{(r.user_id as string).slice(0, 8)}…</span>
+                    <span className="font-bold" style={{ color: "#d0bcff" }}>{r.level as string}</span>
+                    <span style={{ color: "var(--color-on-surface-variant)" }}>{(r.score as number).toFixed(1)}%</span>
+                    <span className="font-bold" style={{ color: "#ef4444" }}>
+                      {r.flags_count as number} flag{(r.flags_count as number) !== 1 ? "s" : ""}
+                    </span>
+                    <span className="ml-auto" style={{ color: "var(--color-on-surface-variant)" }}>
+                      {new Date(r.created_at as string).toLocaleDateString()}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* DB migration reminder */}
+          <div className="rounded-xl p-4 text-xs font-mono"
+            style={{ background: "rgba(251,191,36,0.06)", border: "1px solid rgba(251,191,36,0.15)", color: "var(--color-on-surface-variant)" }}>
+            <strong style={{ color: "#fbbf24" }}>⚠ DB Migration Required:</strong>{" "}
+            Run <code style={{ color: "#d0bcff" }}>supabase/v8_language_upgrade.sql</code> in Supabase SQL Editor to enable flags_count, wrong_answers, and certificate_id columns.
+          </div>
+
         </div>
       )}
 

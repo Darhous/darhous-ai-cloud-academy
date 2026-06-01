@@ -38,6 +38,8 @@ interface LanguageResult {
   score: number;
   level: string;
   stages_completed: number;
+  certificate_id?: string | null;
+  is_incomplete?: boolean;
   created_at: string;
 }
 interface ExamResult {
@@ -103,6 +105,7 @@ export default function StudentDashboardClient({ locale }: Props) {
   const [streak, setStreak]                 = useState(0);
   const [dataLoading, setDataLoading]       = useState(false);
   const [languageResult, setLanguageResult] = useState<LanguageResult | null>(null);
+  const [languageHistory, setLanguageHistory] = useState<LanguageResult[]>([]);
   const [examResults, setExamResults]       = useState<ExamResult[]>([]);
   const [avatarUrl, setAvatarUrl]           = useState<string | null>(null);
   const [avatarUploading, setAvatarUploading] = useState(false);
@@ -119,14 +122,16 @@ export default function StudentDashboardClient({ locale }: Props) {
         supabase.from("quiz_results").select("course_slug,percentage,created_at").eq("user_id", user.id).order("created_at", { ascending: false }).limit(5),
         supabase.from("saved_prompts").select("id,title,created_at").eq("user_id", user.id).order("created_at", { ascending: false }).limit(5),
         supabase.from("lesson_progress").select("completed_at").eq("user_id", user.id).eq("completed", true).not("completed_at", "is", null),
-        supabase.from("language_results").select("id,score,level,stages_completed,created_at").eq("user_id", user.id).order("created_at", { ascending: false }).limit(1),
+        supabase.from("language_results").select("id,score,level,stages_completed,certificate_id,is_incomplete,created_at").eq("user_id", user.id).order("created_at", { ascending: false }).limit(10),
         supabase.from("digital_exam_results").select("id,subject,subject_label,percentage,passed,created_at").eq("user_id", user.id).order("created_at", { ascending: false }).limit(7),
       ]);
       setCourseProgress(cpRes.data ?? []);
       setQuizResults(qrRes.data ?? []);
       setSavedPromptsDb(spRes.data ?? []);
       setStreak(calcStreak(lpRes.data?.map((r: { completed_at: string }) => r.completed_at) ?? []));
-      setLanguageResult((lrRes.data ?? [])[0] ?? null);
+      const lr = lrRes.data ?? [];
+      setLanguageResult(lr[0] ?? null);
+      setLanguageHistory(lr);
       setExamResults(erRes.data ?? []);
       setDataLoading(false);
     }
@@ -569,6 +574,53 @@ export default function StudentDashboardClient({ locale }: Props) {
               </div>
             ))}
           </div>
+
+          {/* Language Assessment History */}
+          {languageHistory.length > 0 && (
+            <div>
+              <h3 className="font-bold text-base mb-3 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+                🌐 {isAr ? "سجل تقييمات اللغة" : "Language Assessment History"}
+              </h3>
+              <div className="flex flex-col gap-2">
+                {languageHistory.map((lr, idx) => (
+                  <div key={lr.id} className="flex items-center gap-4 rounded-xl px-4 py-3"
+                    style={{ background: "rgba(208,188,255,0.04)", border: "1px solid rgba(208,188,255,0.1)" }}>
+                    <div>
+                      <p className="font-mono font-bold text-sm" style={{ color: "#d0bcff" }}>{lr.level}</p>
+                      <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {isAr ? `نتيجة: ${lr.score.toFixed(1)}% — ${lr.stages_completed}/10 مراحل` : `Score: ${lr.score.toFixed(1)}% — ${lr.stages_completed}/10 stages`}
+                      </p>
+                    </div>
+                    <div className="ml-auto flex items-center gap-2">
+                      {idx === 0 && <span className="text-xs px-2 py-0.5 rounded-full font-mono" style={{ background: "rgba(74,222,128,0.1)", color: "#4ade80" }}>Latest</span>}
+                      <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {new Date(lr.created_at).toLocaleDateString(isAr ? "ar" : "en", { month: "short", day: "numeric", year: "numeric" })}
+                      </p>
+                      {lr.certificate_id && (
+                        <a href={`/api/certificates/language/${lr.id}`} target="_blank" rel="noreferrer"
+                          className="flex items-center gap-1 text-xs font-mono px-2 py-1 rounded-lg transition-opacity hover:opacity-80"
+                          style={{ background: "rgba(251,191,36,0.1)", color: "#fbbf24", textDecoration: "none" }}>
+                          <Download size={11} /> PDF
+                        </a>
+                      )}
+                      <a href={`/${locale}/language/results?id=${lr.id}`}
+                        className="flex items-center gap-1 text-xs font-mono px-2 py-1 rounded-lg transition-opacity hover:opacity-80"
+                        style={{ background: "rgba(208,188,255,0.08)", color: "#d0bcff", textDecoration: "none" }}>
+                        {isAr ? "عرض" : "View"}
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-3">
+                <a href={`/${locale}/language/assessment`}
+                  className="text-xs font-mono px-4 py-2 rounded-xl inline-flex items-center gap-2 transition-opacity hover:opacity-80"
+                  style={{ background: "rgba(208,188,255,0.08)", color: "#d0bcff", textDecoration: "none" }}>
+                  🔄 {isAr ? "إعادة الاختبار" : "Retake Assessment"}
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       )}
 

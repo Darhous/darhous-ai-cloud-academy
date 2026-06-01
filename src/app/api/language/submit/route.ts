@@ -9,23 +9,27 @@ export async function POST(req: NextRequest) {
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await req.json();
-  const { score, level, time_taken, stages_completed, is_incomplete, breakdown } = body;
+  const { score, level, time_taken, stages_completed, is_incomplete, breakdown, flags_count, wrong_answers } = body;
 
   if (score === undefined || !level) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
 
+  const row: Record<string, unknown> = {
+    user_id: user.id,
+    score: Math.round(score * 10) / 10,
+    level,
+    time_taken: time_taken ?? 0,
+    stages_completed: stages_completed ?? 0,
+    is_incomplete: is_incomplete ?? false,
+    breakdown: breakdown ?? {},
+    flags_count: flags_count ?? 0,
+    wrong_answers: wrong_answers ?? [],
+  };
+
   const { data, error } = await supabase
     .from("language_results")
-    .insert({
-      user_id: user.id,
-      score: Math.round(score * 10) / 10,
-      level,
-      time_taken: time_taken ?? 0,
-      stages_completed: stages_completed ?? 0,
-      is_incomplete: is_incomplete ?? false,
-      breakdown: breakdown ?? {},
-    })
+    .insert(row)
     .select("id")
     .single();
 

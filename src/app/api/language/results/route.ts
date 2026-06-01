@@ -10,10 +10,10 @@ export async function GET() {
 
   const { data } = await supabase
     .from("language_results")
-    .select("id,score,level,stages_completed,is_incomplete,created_at")
+    .select("id,score,level,stages_completed,is_incomplete,flags_count,certificate_id,created_at")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false })
-    .limit(5);
+    .limit(10);
 
   return NextResponse.json({ results: data ?? [] });
 }
