@@ -11,15 +11,75 @@
 |-------|-------|
 | **Version** | 8.0.0 — Language Portal v2.0 — Original Assessment Integrated ✅ COMPLETE |
 | **Next Version** | 8.1 — Language Career Recommendations + 9.0 Digital Exams v2.0 |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Commit 1cb679e — Vercel deploy pending |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 |
-| **Last Commit** | `1cb679e` — checkpoint(language): integrate original language assessment portal — v8.0 |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Commit 2f1fc94 — Vercel PRODUCTION VERIFIED ✅ |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (65 pre-existing warnings) — exit 0 |
+| **Last Commit** | `2f1fc94` — docs: update continuation context for v8.0 language integration |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-01 (v8.0 language integration complete) |
+| **Last Updated** | 2026-06-01 (v8.0 production smoke test verified) |
+
+---
+
+## ✅ v8.0 Language Portal — Production Verification (2026-06-01)
+
+| Check | Result |
+|-------|--------|
+| **Checkpoint tag** | `checkpoint/v8-language-integration-complete` → `2f1fc94` ✅ |
+| **Working tree** | Clean — no uncommitted changes ✅ |
+| **TypeScript** | 0 errors ✅ |
+| **Lint** | 0 errors — 65 pre-existing warnings (acceptable) ✅ |
+| **Build** | Success — exit 0 — 963 static pages generated ✅ |
+| **GitHub push** | `main` pushed `7ef04e8..2f1fc94` + tag pushed ✅ |
+| **Vercel deployment** | `● Ready` — ID `dpl_4uzLgYKD2BY8oCQVJeHHKqdzkhxG` — auto-triggered by push ✅ |
+| **Production URL** | https://darhous-ai-cloud-academy.vercel.app ✅ |
+
+### Environment Variables (Vercel Production — presence only, no values)
+
+| Variable | Present |
+|----------|---------|
+| `NEXT_PUBLIC_SUPABASE_URL` | ✅ |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | ✅ |
+| `SUPABASE_SERVICE_ROLE_KEY` | ✅ |
+| `RESEND_API_KEY` | ✅ |
+| `NEXT_PUBLIC_SITE_URL` | ✅ |
+| `GEMINI_API_KEY` | ✅ |
+| `GEMINI_MODEL` | ✅ |
+| `REENGAGEMENT_CRON_SECRET` | ✅ |
+
+### Smoke Test Results (unauthenticated public routes)
+
+| Route | Result |
+|-------|--------|
+| `/en/language` | ✅ Language portal loads — shows 10 stages, CEFR, certificates, anti-cheat |
+| `/ar/language` | ✅ Arabic RTL layout correct — all content in Arabic |
+| `/en/language/assessment` | ✅ Exam landing page loads — all v8.0 features visible |
+| `/ar/language/assessment` | ✅ Arabic version correct |
+| `/en/language/verify/[certId]` | ✅ Shows "Certificate Not Found" gracefully for unknown cert |
+| `/en/dashboard` | ✅ Redirects to login when unauthenticated (auth-gated correctly) |
+| `/en/admin` | ✅ Redirects to login when unauthenticated |
+| `/en/digital-exams` | ✅ All 7 exam subjects showing correctly — unaffected |
+| `/en/career` | ✅ All career tools showing — unaffected |
+| `/api/language/submit` (GET) | ✅ 405 Method Not Allowed (POST-only — correct) |
+| `/api/language/results` (GET) | ✅ Returns `{"results":[]}` for unauthenticated (soft-auth, no data leak) |
+| `/api/language/email-result` (GET) | ✅ 405 Method Not Allowed (POST-only — correct) |
+| `/api/language/submit` auth check | ✅ Returns 401 for unauthenticated POST |
+| `/api/admin/users` | ✅ 401 Unauthorized — admin data protected |
+| `/api/certificates/language/[id]` | ✅ 404 for unknown cert ID (route exists, cert not found) |
+| `/api/certificates/verify/[code]` | ✅ 404 for unknown code (route exists, cert not found) |
+
+### Notes
+
+- Authenticated user flow (exam → result → PDF → email → hub history) requires browser login — cannot be tested headlessly. Run manually after login.
+- Admin dashboard Language tab requires admin login — test manually.
+- `RESEND_API_KEY` is set in Vercel — email should work for authenticated users. Graceful fallback if Resend is down.
+- No production blockers found. No v8.0 fixes were needed.
+
+### Recommended Next Step
+
+v8.1 is safe to start. Recommended first task: `/api/language/jobs` — Career Recommendations based on CEFR level.
 
 ---
 
@@ -30,7 +90,7 @@ Continue the Darhous Smart Learning Ecosystem project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md fully before any changes.
 Current version: v8.0.0 — Language Portal v2.0 — PRODUCTION READY ✅
-Build: ✅ Clean — 0 errors — 0 lint errors — exit 0 — Commit 1cb679e
+Build: ✅ Clean — 0 errors — 0 lint errors — exit 0 — Commit 2f1fc94
 
 ⚠️ CRITICAL: Run supabase/v8_language_upgrade.sql in Supabase SQL Editor FIRST
    (adds flags_count, wrong_answers, feedback, certificate_id to language_results)
