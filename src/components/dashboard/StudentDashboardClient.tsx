@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, type ChangeEvent } from "react";
 import Link from "next/link";
 import {
   TrendingUp, BookOpen, Save, Award, Brain, Activity,
@@ -104,6 +104,9 @@ export default function StudentDashboardClient({ locale }: Props) {
   const [dataLoading, setDataLoading]       = useState(false);
   const [languageResult, setLanguageResult] = useState<LanguageResult | null>(null);
   const [examResults, setExamResults]       = useState<ExamResult[]>([]);
+  const [avatarUrl, setAvatarUrl]           = useState<string | null>(null);
+  const [avatarUploading, setAvatarUploading] = useState(false);
+  const avatarInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (!user || !supabaseConfigured) return;
@@ -135,6 +138,37 @@ export default function StudentDashboardClient({ locale }: Props) {
     if (!supabase) return;
     await supabase.auth.signOut();
     window.location.href = `/${locale}`;
+  }
+
+  /* Fetch avatar_url from profile on mount */
+  useEffect(() => {
+    if (!user || !supabaseConfigured) return;
+    const supabase = createClient();
+    if (!supabase) return;
+    supabase.from("profiles").select("avatar_url").eq("id", user.id).single()
+      .then(({ data }) => { if (data?.avatar_url) setAvatarUrl(data.avatar_url); });
+  }, [user, supabaseConfigured]);
+
+  async function handleAvatarUpload(e: ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setAvatarUploading(true);
+    const form = new FormData();
+    form.append("avatar", file);
+    try {
+      const res = await fetch("/api/avatar/upload", { method: "POST", body: form });
+      const data = await res.json();
+      if (data.avatarUrl) setAvatarUrl(data.avatarUrl);
+    } catch { /* silent */ }
+    setAvatarUploading(false);
+    if (avatarInputRef.current) avatarInputRef.current.value = "";
+  }
+
+  function shareToLinkedIn(certTitle: string) {
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://darhous-ai-cloud-academy.vercel.app";
+    const url = `${siteUrl}/${locale}/certificates`;
+    const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(certTitle)}`;
+    window.open(linkedInUrl, "_blank", "noopener,noreferrer");
   }
 
   /* ── Not configured ─ */
@@ -220,22 +254,31 @@ export default function StudentDashboardClient({ locale }: Props) {
         <div className="env-orb env-orb-blue absolute -top-16 -start-16 opacity-30" style={{ width: "220px", height: "220px" }} />
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-center gap-5">
-            {/* Avatar */}
+            {/* Avatar — clickable to upload */}
             <div className="relative flex-shrink-0">
-              <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-bold"
+              <button
+                onClick={() => avatarInputRef.current?.click()}
+                disabled={avatarUploading}
+                className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-bold overflow-hidden cursor-pointer transition-opacity hover:opacity-80 disabled:opacity-60"
                 style={{ background: "linear-gradient(135deg, #8ed5ff, #d0bcff)", color: "#0c0e12" }}
+                title={isAr ? "اضغط لتغيير الصورة" : "Click to change avatar"}
               >
-                {displayName.charAt(0).toUpperCase()}
-              </div>
-              <Link
-                href={`/${locale}/profile`}
-                className="absolute -bottom-1 -end-1 w-6 h-6 rounded-lg flex items-center justify-center transition-opacity hover:opacity-80"
+                {avatarUploading ? (
+                  <div className="w-5 h-5 rounded-full border-2 animate-spin" style={{ borderColor: "#0c0e12", borderTopColor: "transparent" }} />
+                ) : avatarUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={avatarUrl} alt="avatar" className="w-full h-full object-cover" />
+                ) : (
+                  displayName.charAt(0).toUpperCase()
+                )}
+              </button>
+              <input ref={avatarInputRef} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={handleAvatarUpload} />
+              <div
+                className="absolute -bottom-1 -end-1 w-6 h-6 rounded-lg flex items-center justify-center pointer-events-none"
                 style={{ background: "var(--color-surface-container)", border: "1px solid rgba(255,255,255,0.1)" }}
-                title={isAr ? "تعديل الملف" : "Edit Profile"}
               >
                 <User size={12} style={{ color: "var(--color-on-surface-variant)" }} />
-              </Link>
+              </div>
             </div>
             <div>
               <p className="text-xs font-mono mb-0.5" style={{ color: "var(--color-primary)" }}>
@@ -510,10 +553,15 @@ export default function StudentDashboardClient({ locale }: Props) {
                   </span>
                 ) : (
                   <div className="flex gap-2 justify-center">
-                    <button className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-xl transition-opacity hover:opacity-80" style={{ background: `${cert.color}15`, color: cert.color }}>
+                    <Link href={`/${locale}/certificates`}
+                      className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-xl transition-opacity hover:opacity-80"
+                      style={{ background: `${cert.color}15`, color: cert.color, textDecoration: "none" }}>
                       <Download size={12} /> {isAr ? "تحميل" : "Download"}
-                    </button>
-                    <button className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-xl transition-opacity hover:opacity-80" style={{ background: "rgba(10,102,194,0.12)", color: "#0A66C2" }}>
+                    </Link>
+                    <button
+                      onClick={() => shareToLinkedIn(cert.t)}
+                      className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-xl transition-opacity hover:opacity-80"
+                      style={{ background: "rgba(10,102,194,0.12)", color: "#0A66C2" }}>
                       <Share2 size={12} /> LinkedIn
                     </button>
                   </div>

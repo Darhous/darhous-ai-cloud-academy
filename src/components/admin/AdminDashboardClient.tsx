@@ -68,7 +68,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [dataLoading, setDataLoading] = useState(false);
   const [search, setSearch] = useState("");
 
-  /* Local feature flags state (no DB yet) */
+  /* Local feature flags state */
   const [featureFlags, setFeatureFlags] = useState(defaultFeatureFlags);
   /* Local mentor settings state */
   const [mentorSettings, setMentorSettings] = useState(defaultMentorSettings);
@@ -78,6 +78,11 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [portalVisibility, setPortalVisibility] = useState<Record<string, boolean>>(
     Object.fromEntries(allPortals.map((p) => [p.id, true]))
   );
+  /* Persistence states */
+  const [settingsSaving, setSettingsSaving] = useState(false);
+  const [mentorSaving, setMentorSaving] = useState(false);
+  const [flagsSaving, setFlagsSaving] = useState(false);
+  const [saveMsg, setSaveMsg] = useState<string | null>(null);
 
   const fetchData = useCallback(async () => {
     if (!user || !supabaseConfigured) return;
@@ -134,6 +139,68 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     const a = document.createElement("a");
     a.href = url; a.download = filename; a.click();
     URL.revokeObjectURL(url);
+  }
+
+  function showSaveMsg(msg: string) {
+    setSaveMsg(msg);
+    setTimeout(() => setSaveMsg(null), 3000);
+  }
+
+  /* Auto-load settings from DB when tab is activated */
+  useEffect(() => {
+    if (tab === "site-builder") {
+      fetch("/api/admin/site-settings").then(r => r.json())
+        .then(({ settings }) => { if (settings) setSiteSettings(settings); })
+        .catch(() => {});
+    }
+    if (tab === "mentor-control") {
+      fetch("/api/admin/mentor-settings").then(r => r.json())
+        .then(({ settings }) => { if (settings) setMentorSettings(settings); })
+        .catch(() => {});
+      fetch("/api/admin/feature-flags").then(r => r.json())
+        .then(({ flags }) => { if (flags) setFeatureFlags(flags); })
+        .catch(() => {});
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tab]);
+
+  async function saveSiteSettings() {
+    setSettingsSaving(true);
+    try {
+      const res = await fetch("/api/admin/site-settings", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ settings: siteSettings }),
+      });
+      const data = await res.json();
+      showSaveMsg(data.success ? "✅ " + (isAr ? "تم الحفظ" : "Saved") : `❌ ${data.error ?? "Error"}`);
+    } catch { showSaveMsg("❌ " + (isAr ? "خطأ في الشبكة" : "Network error")); }
+    setSettingsSaving(false);
+  }
+
+  async function saveMentorSettings() {
+    setMentorSaving(true);
+    try {
+      const res = await fetch("/api/admin/mentor-settings", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ settings: mentorSettings }),
+      });
+      const data = await res.json();
+      showSaveMsg(data.success ? "✅ " + (isAr ? "تم الحفظ" : "Saved") : `❌ ${data.error ?? "Error"}`);
+    } catch { showSaveMsg("❌ " + (isAr ? "خطأ في الشبكة" : "Network error")); }
+    setMentorSaving(false);
+  }
+
+  async function saveFeatureFlags() {
+    setFlagsSaving(true);
+    try {
+      const res = await fetch("/api/admin/feature-flags", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ flags: featureFlags }),
+      });
+      const data = await res.json();
+      showSaveMsg(data.success ? "✅ " + (isAr ? "تم الحفظ" : "Saved") : `❌ ${data.error ?? "Error"}`);
+    } catch { showSaveMsg("❌ " + (isAr ? "خطأ في الشبكة" : "Network error")); }
+    setFlagsSaving(false);
   }
 
   /* ── Guards ─────────────────────────────────────────────────────────────── */
@@ -290,13 +357,23 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
       {/* 2 ── SITE BUILDER ─────────────────────────────────────── */}
       {tab === "site-builder" && (
         <div className="flex flex-col gap-6">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-3 flex-wrap">
             <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
               {isAr ? "بناء الصفحة الرئيسية" : "Landing Page Builder"}
             </h2>
-            <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: "rgba(251,191,36,0.1)", color: "#fbbf24", border: "1px solid rgba(251,191,36,0.2)" }}>
-              {isAr ? "محلي — قريبًا DB" : "Local — DB coming soon"}
-            </span>
+            <div className="flex items-center gap-2">
+              {saveMsg && tab === "site-builder" && (
+                <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: saveMsg.startsWith("✅") ? "rgba(74,222,128,0.1)" : "rgba(239,68,68,0.1)", color: saveMsg.startsWith("✅") ? "#4ade80" : "#ef4444" }}>
+                  {saveMsg}
+                </span>
+              )}
+              <button onClick={saveSiteSettings} disabled={settingsSaving}
+                className="flex items-center gap-1.5 text-xs font-mono px-4 py-2 rounded-xl transition-opacity hover:opacity-80 disabled:opacity-50"
+                style={{ background: "rgba(142,213,255,0.12)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.25)" }}>
+                {settingsSaving ? <RefreshCw size={12} className="animate-spin" /> : <CheckCircle size={12} />}
+                {isAr ? "حفظ التغييرات" : "Save Changes"}
+              </button>
+            </div>
           </div>
 
           {/* Hero content editor */}
@@ -371,9 +448,17 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
 
           {/* Feature Flags */}
           <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(249,115,22,0.1)" }}>
-            <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#f97316" }}>
-              <Zap size={15} /> {isAr ? "Feature Flags" : "Feature Flags"}
-            </h3>
+            <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+              <h3 className="font-bold text-sm flex items-center gap-2" style={{ color: "#f97316" }}>
+                <Zap size={15} /> {isAr ? "Feature Flags" : "Feature Flags"}
+              </h3>
+              <button onClick={saveFeatureFlags} disabled={flagsSaving}
+                className="flex items-center gap-1.5 text-[11px] font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80 disabled:opacity-50"
+                style={{ background: "rgba(249,115,22,0.1)", color: "#f97316", border: "1px solid rgba(249,115,22,0.2)" }}>
+                {flagsSaving ? <RefreshCw size={11} className="animate-spin" /> : <CheckCircle size={11} />}
+                {isAr ? "حفظ" : "Save"}
+              </button>
+            </div>
             <div className="flex flex-col gap-3">
               {featureFlags.map((flag, i) => (
                 <div key={flag.name} className="flex items-center justify-between py-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
@@ -569,15 +654,28 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
       {/* 6 ── AI MENTOR CONTROL ─────────────────────────────────── */}
       {tab === "mentor-control" && (
         <div className="flex flex-col gap-5">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-3 flex-wrap">
             <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
               {isAr ? "إعدادات المرشد الذكي" : "AI Mentor Control"}
             </h2>
-            <Link href={`/${locale}/mentor`} target="_blank"
-              className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-lg hover:opacity-80 transition-opacity"
-              style={{ background: "rgba(142,213,255,0.08)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)", textDecoration: "none" }}>
-              <ExternalLink size={12} /> {isAr ? "فتح المرشد" : "Open Mentor"}
-            </Link>
+            <div className="flex items-center gap-2">
+              {saveMsg && tab === "mentor-control" && (
+                <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: saveMsg.startsWith("✅") ? "rgba(74,222,128,0.1)" : "rgba(239,68,68,0.1)", color: saveMsg.startsWith("✅") ? "#4ade80" : "#ef4444" }}>
+                  {saveMsg}
+                </span>
+              )}
+              <button onClick={saveMentorSettings} disabled={mentorSaving}
+                className="flex items-center gap-1.5 text-xs font-mono px-4 py-2 rounded-xl transition-opacity hover:opacity-80 disabled:opacity-50"
+                style={{ background: "rgba(142,213,255,0.12)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.25)" }}>
+                {mentorSaving ? <RefreshCw size={12} className="animate-spin" /> : <CheckCircle size={12} />}
+                {isAr ? "حفظ الإعدادات" : "Save Settings"}
+              </button>
+              <Link href={`/${locale}/mentor`} target="_blank"
+                className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-lg hover:opacity-80 transition-opacity"
+                style={{ background: "rgba(142,213,255,0.08)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)", textDecoration: "none" }}>
+                <ExternalLink size={12} /> {isAr ? "فتح المرشد" : "Open Mentor"}
+              </Link>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

@@ -21,6 +21,7 @@ interface Props {
   locale: string;
   isAr: boolean;
   initialMessage?: string;
+  userContext?: string;
 }
 
 async function streamMentorReply(
@@ -29,13 +30,14 @@ async function streamMentorReply(
   locale: string,
   onToken: (token: string) => void,
   onDone: () => void,
-  onError: (err: string) => void
+  onError: (err: string) => void,
+  userContext?: string
 ): Promise<void> {
   try {
     const res = await fetch("/api/mentor-stream", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: formatForGemini(history), mode, locale }),
+      body: JSON.stringify({ messages: formatForGemini(history), mode, locale, userContext }),
     });
 
     // Fallback: if streaming not available, use regular endpoint
@@ -75,7 +77,7 @@ async function streamMentorReply(
   }
 }
 
-export default function MentorChat({ modeId, locale, isAr, initialMessage }: Props) {
+export default function MentorChat({ modeId, locale, isAr, initialMessage, userContext }: Props) {
   const [messages, setMessages] = useState<MsgType[]>([]);
   const [input, setInput] = useState(initialMessage ?? "");
   const [loading, setLoading] = useState(false);
@@ -149,10 +151,11 @@ export default function MentorChat({ modeId, locale, isAr, initialMessage }: Pro
           setErrorMsg(msg);
           setMessages((prev) => prev.filter((m) => m.id !== aiId));
           setLoading(false);
-        }
+        },
+        userContext
       );
     },
-    [modeId, locale, isAr, loading, cooldown]
+    [modeId, locale, isAr, loading, cooldown, userContext]
   );
 
   const handleSubmit = (e: React.FormEvent) => {

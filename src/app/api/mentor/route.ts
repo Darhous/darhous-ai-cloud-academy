@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body: MentorApiRequest = await req.json();
-    const { messages, mode, locale } = body;
+    const { messages, mode, locale, userContext } = body;
 
     // Validate messages
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
@@ -64,8 +64,11 @@ export async function POST(req: NextRequest) {
 
     const mentorMode =
       mentorModes.find((m) => m.id === safeMode) ?? mentorModes[0];
-    const systemPrompt =
+    const basePrompt =
       locale === "ar" ? mentorMode.systemPromptAr : mentorMode.systemPromptEn;
+    const systemPrompt = userContext
+      ? `${basePrompt}\n\n--- معلومات المتعلم ---\n${userContext}\n---`
+      : basePrompt;
 
     const reply = await callGemini(trimmedMessages, systemPrompt);
 

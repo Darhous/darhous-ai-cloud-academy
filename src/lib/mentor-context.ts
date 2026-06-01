@@ -13,6 +13,8 @@ export interface MentorApiRequest {
   messages: Array<{ role: "user" | "model"; content: string }>;
   mode: string;
   locale: string;
+  /** Optional user context injected into the AI system prompt */
+  userContext?: string;
 }
 
 export interface MentorApiResponse {

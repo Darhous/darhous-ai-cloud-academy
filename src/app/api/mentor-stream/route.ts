@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
     return new Response(JSON.stringify({ error: "Invalid JSON" }), { status: 400 });
   }
 
-  const { messages, mode, locale } = body;
+  const { messages, mode, locale, userContext } = body;
   if (!messages?.length) {
     return new Response(JSON.stringify({ error: "Messages required" }), { status: 400 });
   }
@@ -51,7 +51,10 @@ export async function POST(req: NextRequest) {
 
   const safeMode: MentorModeId = VALID_MODES.includes(mode as MentorModeId) ? (mode as MentorModeId) : "ask";
   const mentorMode = mentorModes.find((m) => m.id === safeMode) ?? mentorModes[0];
-  const systemPrompt = locale === "ar" ? mentorMode.systemPromptAr : mentorMode.systemPromptEn;
+  const basePrompt = locale === "ar" ? mentorMode.systemPromptAr : mentorMode.systemPromptEn;
+  const systemPrompt = userContext
+    ? `${basePrompt}\n\n--- معلومات المتعلم ---\n${userContext}\n---`
+    : basePrompt;
 
   const apiKey = process.env.GEMINI_API_KEY;
   const modelId = process.env.GEMINI_MODEL ?? "gemini-2.5-flash";
