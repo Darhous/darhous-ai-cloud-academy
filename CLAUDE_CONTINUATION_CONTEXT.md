@@ -9,17 +9,57 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 8.0.0 — Language Portal v2.0 — Original Assessment Integrated ✅ COMPLETE |
+| **Version** | 8.0.1 — Language QA Polish ✅ COMPLETE |
 | **Next Version** | 8.1 — Language Career Recommendations + 9.0 Digital Exams v2.0 |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Commit 2f1fc94 — Vercel PRODUCTION VERIFIED ✅ — Authenticated QA PASSED ✅ |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Commit a32b7ea — Vercel PRODUCTION DEPLOYED ✅ — v8.0.1 QA Polish COMPLETE ✅ |
 | **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (65 pre-existing warnings) — exit 0 |
-| **Last Commit** | `2f1fc94` — docs: update continuation context for v8.0 language integration |
+| **Last Commit** | `a32b7ea` — fix(language): v8.0.1 QA polish — remove stale admin migration warning, fix cert button always visible |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
 | **Last Updated** | 2026-06-01 (v8.0 authenticated live QA passed) |
+
+---
+
+## ✅ v8.0.1 Language QA Polish (2026-06-01)
+
+**Commit:** `a32b7ea` · **Tag:** `checkpoint/v8-language-qa-polished` · **Vercel:** Auto-deployed from push
+
+### Changes Made
+
+| Fix | File | Detail |
+|-----|------|--------|
+| Remove stale "DB Migration Required" banner | `AdminDashboardClient.tsx` | Migration already executed; flags_count works. Static warning removed entirely. |
+| Fix cert button always visible | `LanguageResultsClient.tsx` | Button was only shown when `certificate_id` was already set (chicken-and-egg). Now always shows for all results — API already generates for any result. |
+
+### QA Status After Polish
+
+| Check | Status | Notes |
+|-------|--------|-------|
+| Admin Language tab — no false migration warning | ✅ | Removed |
+| Certificate download button visible for all results | ✅ | Code fixed |
+| Radar chart — positive flow (non-zero skills) | ⚠ Pending manual test | Logic is correct; hidden for 0% by design. Requires real exam attempt with correct answers to verify positive path. |
+| Certificate PDF generation | ⚠ Pending manual test | Button is now visible for existing results. Verify by visiting results page and clicking "Download Certificate" — API will generate PDF and save `certificate_id` on first call. |
+| Certificate verify page | ⚠ Pending manual test | Works after first cert download sets `certificate_id`. |
+| Hub cert download link | ⚠ Pending manual test | Hub shows cert link only after cert_id is set (correct behavior — set after first results-page download). |
+| Build | ✅ | 0 errors — 963 pages — exit 0 |
+| GitHub push | ✅ | `main` pushed `a6eb1d0..a32b7ea` |
+| Tag pushed | ✅ | `checkpoint/v8-language-qa-polished` |
+| Vercel deployment | ✅ | Auto-triggered by push |
+
+### How to complete the remaining manual QA
+1. Log in as `ahmeddarhous@gmail.com`
+2. Navigate to `/ar/language/results?id=2fb780ad-f31b-4158-9e7c-422e72a7dfdd` (existing result)
+3. Click **"تحميل الشهادة"** — PDF should download and `certificate_id` should be saved to DB
+4. Reload the page — verify link shows and `verifyUrl` is now present
+5. Visit the verify URL — should show certificate details
+6. Check Hub → language history → PDF button should now appear for that attempt
+7. To test radar chart: take a new exam and answer at least some questions correctly → skill breakdown > 0 → radar appears
+
+### Recommended Next Step
+**v8.1 is safe to start** — Career/job recommendations: `/api/language/jobs` — Gemini API + LEVEL_JOB_MAP fallback
 
 ---
 
@@ -66,7 +106,7 @@
 | Level distribution: A1A × 3 | ✅ |
 | Results table: User ID, Level, Score, Stages, Flags (red for flagged), Cert, Date | ✅ |
 | Anti-cheat section "تقارير التنبيه (Anti-cheat)" shows flagged result | ✅ |
-| "DB Migration Required" static reminder — shows always, NOT a bug (migration already executed) | ℹ️ |
+| "DB Migration Required" static reminder | ✅ Removed in v8.0.1 |
 
 ### Production Logs
 
@@ -81,7 +121,7 @@
 ### Notes
 
 - Radar chart, certificate, wrong-answers review all have correct conditional logic — they don't show for 0%/partial results, which is correct behavior.
-- The "DB Migration Required" banner in admin is a static reminder that always displays. The migration `supabase/v8_language_upgrade.sql` was already executed — `flags_count` works correctly.
+- The "DB Migration Required" banner was a static reminder that always displayed. Removed in v8.0.1 — migration was already executed and flags_count works correctly.
 - Timer froze during JS anti-cheat simulation (Object.defineProperty side effect) — this is a test artifact only, not a production bug. In normal browser use, the timer works correctly.
 
 ### Final QA Verdict
@@ -157,8 +197,8 @@ v8.1 is safe to start. Recommended first task: `/api/language/jobs` — Career R
 Continue the Darhous Smart Learning Ecosystem project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md fully before any changes.
-Current version: v8.0.0 — Language Portal v2.0 — PRODUCTION READY ✅
-Build: ✅ Clean — 0 errors — 0 lint errors — exit 0 — Commit 2f1fc94
+Current version: v8.0.1 — Language QA Polish ✅ COMPLETE
+Build: ✅ Clean — 0 errors — 0 lint errors — exit 0 — Commit a32b7ea
 
 ⚠️ CRITICAL: Run supabase/v8_language_upgrade.sql in Supabase SQL Editor FIRST
    (adds flags_count, wrong_answers, feedback, certificate_id to language_results)
