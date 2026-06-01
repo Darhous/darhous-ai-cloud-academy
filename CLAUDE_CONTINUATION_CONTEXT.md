@@ -9,17 +9,55 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 8.0.1 — Language QA Polish ✅ COMPLETE |
-| **Next Version** | 8.1 — Language Career Recommendations + 9.0 Digital Exams v2.0 |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Commit a32b7ea — Vercel PRODUCTION DEPLOYED ✅ — v8.0.1 QA Polish COMPLETE ✅ |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (65 pre-existing warnings) — exit 0 |
-| **Last Commit** | `a32b7ea` — fix(language): v8.0.1 QA polish — remove stale admin migration warning, fix cert button always visible |
+| **Version** | 8.1 — Language Portal CLOSED ✅ |
+| **Next Version** | Automation Academy upgrade — source: https://github.com/Darhous/darhous-automation-academy |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Commit f54a127 — Vercel PRODUCTION DEPLOYED ✅ — Language Portal FULLY CLOSED ✅ |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (65 pre-existing warnings) — exit 0 — 965 pages |
+| **Last Commit** | `f54a127` — feat(language): close Language Portal — history page, Career Hub handoff, admin CSV export |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
 | **Last Updated** | 2026-06-01 (v8.0 authenticated live QA passed) |
+
+---
+
+## ✅ v8.1 — Language Portal Closure (2026-06-01)
+
+**Commit:** `f54a127` · **Tag:** `checkpoint/v8.1-language-portal-closure` · **Vercel:** Auto-deployed
+
+### What Was Delivered
+
+| Feature | File(s) | Detail |
+|---------|---------|--------|
+| Language History page | `src/app/[locale]/language/history/page.tsx` + `LanguageHistoryClient.tsx` | New page — recharts LineChart score progression, stats (attempts / best score / best level / certs), latest level banner, all attempts list — RTL/localized |
+| Career Hub handoff card | `LanguageResultsClient.tsx` | "Find My Opportunities" card on results page → routes to `/{locale}/career` — intentional handoff to Career Hub, no standalone jobs API built |
+| View History link | `LanguageResultsClient.tsx` | Added to bottom actions row on results page |
+| Admin CSV export | `AdminDashboardClient.tsx` | Client-side CSV download button in Language results table header — safe fields only (User ID truncated, Level, Score, Stages, Flags, Cert status, Date) |
+| Hub history link | `StudentDashboardClient.tsx` | "View Full History" link added next to "Retake Assessment" CTA |
+
+### Intentionally NOT Built
+
+| Item | Reason |
+|------|--------|
+| `/api/language/jobs` | Career recommendations belong to Career Hub, NOT Language Portal |
+| Admin resend email route | Requires new admin route using `createAdminClient()` + duplicating email template; deferred to v8.2 as minor enhancement |
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (65 pre-existing warnings)
+- `npm run build` → ✅ exit 0 — 965 pages (was 963 — +2 for `/ar/language/history` + `/en/language/history`)
+
+### Manual QA Still Needed (no code changes required)
+1. **Certificate positive flow**: Log in → `/ar/language/results?id=2fb780ad-...` → click "تحميل الشهادة" → PDF downloads → `certificate_id` saved → verify link appears
+2. **Radar chart positive flow**: Take an exam with correct answers → score > 0% → radar chart and skill bars appear
+3. **History page**: Log in → `/ar/language/history` → verify chart and list render
+
+### ⚠️ Career Hub Handoff — Architecture Decision (PERMANENT)
+**`/api/language/jobs` will NOT be built inside the Language Portal.**
+Career recommendations, job matching, CV analysis, and opportunity guidance are the responsibility of the **Career Hub** (`/ar/career`).
+The "Find My Opportunities" button on the results page routes to `/{locale}/career` — this is the intended final behavior.
 
 ---
 
@@ -197,8 +235,8 @@ v8.1 is safe to start. Recommended first task: `/api/language/jobs` — Career R
 Continue the Darhous Smart Learning Ecosystem project.
 Path: C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
 Read CLAUDE_CONTINUATION_CONTEXT.md fully before any changes.
-Current version: v8.0.1 — Language QA Polish ✅ COMPLETE
-Build: ✅ Clean — 0 errors — 0 lint errors — exit 0 — Commit a32b7ea
+Current version: v8.1 — Language Portal CLOSED ✅
+Build: ✅ Clean — 0 errors — 0 lint errors — exit 0 — 965 pages — Commit f54a127
 
 ⚠️ CRITICAL: Run supabase/v8_language_upgrade.sql in Supabase SQL Editor FIRST
    (adds flags_count, wrong_answers, feedback, certificate_id to language_results)
@@ -437,15 +475,33 @@ KEY FILES TO KNOW:
 
 All stages implemented and committed (1cb679e). See v8.0 section below for details.
 
-**⚠️ REMAINING (v8.1):**
-- [ ] Career recommendations: `/api/language/jobs` — Gemini API + LEVEL_JOB_MAP fallback (legacy jobs.py)
-- [ ] Wire "Find My Opportunities" button on results page → shows job matches
-- [ ] Language history standalone page: `/[locale]/language/history` (recharts line chart)
-- [ ] Admin: resend email button per result, CSV export
+**✅ v8.1 COMPLETE (Language Portal CLOSED):**
+- ✅ "Find My Opportunities" → Career Hub handoff button on results page (routes to `/{locale}/career`)
+- ✅ Language history page: `/[locale]/language/history` (recharts LineChart + stats)
+- ✅ Admin: CSV export button (client-side, safe fields)
+- ✅ Hub: "View Full History" link
+- ⚠️ Admin resend email: deferred to v8.2 (minor, needs new admin API route)
+- ❌ `/api/language/jobs`: INTENTIONALLY NEVER BUILT — belongs to Career Hub
+
+**⚠️ ARCHITECTURE DECISION:**
+Career recommendations live in Career Hub (`/ar/career`), NOT Language Portal.
+Do NOT create `/api/language/jobs` in any future session.
 
 ---
 
-### 💻 PORTAL v9.0 — Digital Exams v2.0 (AFTER Language is complete)
+### 🤖 PORTAL v9.0 — Automation Academy Upgrade (NEXT PHASE)
+
+**Source repo:** https://github.com/Darhous/darhous-automation-academy
+**Academy route:** https://darhous-ai-cloud-academy.vercel.app/ar/automation
+**Local path (if cloned):** `C:\Users\ahmed\Desktop\automation`
+
+The current Automation Academy inside the platform is a static content portal. The next phase upgrades it to full parity with the original Automation Academy standalone app.
+
+Before starting: read `src/app/[locale]/automation/` to understand current state, then clone/review the source repo for what's missing.
+
+---
+
+### 💻 PORTAL v10.0 — Digital Exams v2.0 (AFTER Automation is complete)
 
 The original Exams_Platform (Streamlit) had features stripped during integration. Rebuild them:
 
