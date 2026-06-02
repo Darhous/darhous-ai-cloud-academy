@@ -1,0 +1,48 @@
+{
+  "name": "مسار اعتماد المحتوى",
+  "nodes": [
+    {
+      "parameters": { "resource": "databasePage", "event": "pageAddedToDatabase", "databaseId": "YOUR_WORKSPACE_ID" },
+      "id": "node_trigger",
+      "name": "محتوى جديد",
+      "type": "n8n-nodes-base.notionTrigger",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "credentials": { "notionApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Notion" } }
+    },
+    {
+      "parameters": { "channel": "YOUR_CHANNEL_ID", "text": "محتوى جديد ينتظر المراجعة: {{ $json.title }}" },
+      "id": "node_slack",
+      "name": "طلب مراجعة",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [480, 300],
+      "credentials": { "slackApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Slack" } }
+    },
+    {
+      "parameters": { "conditions": { "string": [{ "value1": "={{ $json.status }}", "value2": "approved" }] } },
+      "id": "node_if",
+      "name": "حالة الاعتماد",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": { "resource": "databasePage", "operation": "update", "pageId": "={{ $json.id }}", "propertiesUi": { "status": "ready_to_publish" } },
+      "id": "node_update",
+      "name": "تحديث الحالة",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "notionApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Notion" } }
+    }
+  ],
+  "connections": {
+    "محتوى جديد": { "main": [[{ "node": "طلب مراجعة", "type": "main", "index": 0 }]] },
+    "طلب مراجعة": { "main": [[{ "node": "حالة الاعتماد", "type": "main", "index": 0 }]] },
+    "حالة الاعتماد": { "main": [[{ "node": "تحديث الحالة", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "إصدار شهادات PDF تلقائيًا",
+  "nodes": [
+    {
+      "parameters": { "event": "rowUpdate", "documentId": "YOUR_SHEET_ID", "sheetName": "Completions" },
+      "id": "node_trigger",
+      "name": "إكمال دورة",
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "credentials": { "googleSheetsTriggerOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": { "method": "POST", "url": "YOUR_WEBHOOK_URL", "sendBody": true, "bodyParameters": { "template_id": "YOUR_FORM_ID", "name": "={{ $json.name }}", "course": "={{ $json.course }}" } },
+      "id": "node_pdf",
+      "name": "توليد PDF",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [480, 300],
+      "credentials": { "httpHeaderAuth": { "id": "YOUR_CREDENTIAL_ID", "name": "PDF API" } }
+    },
+    {
+      "parameters": { "operation": "upload", "name": "={{ $json.name }}-certificate.pdf", "folderId": "YOUR_WORKSPACE_ID" },
+      "id": "node_drive",
+      "name": "حفظ في Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [720, 300],
+      "credentials": { "googleDriveOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Drive" } }
+    },
+    {
+      "parameters": { "sendTo": "={{ $json.email }}", "subject": "شهادتك جاهزة", "message": "مبروك {{ $json.name }}، مرفق شهادة إتمام {{ $json.course }}." },
+      "id": "node_mail",
+      "name": "إرسال للطالب",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    }
+  ],
+  "connections": {
+    "إكمال دورة": { "main": [[{ "node": "توليد PDF", "type": "main", "index": 0 }]] },
+    "توليد PDF": { "main": [[{ "node": "حفظ في Drive", "type": "main", "index": 0 }]] },
+    "حفظ في Drive": { "main": [[{ "node": "إرسال للطالب", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

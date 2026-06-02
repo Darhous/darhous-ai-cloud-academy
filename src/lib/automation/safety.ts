@@ -12,7 +12,10 @@ const DANGEROUS_PATTERNS = [
   /172\.(1[6-9]|2\d|3[01])\.\d+\.\d+/i,
   /[a-zA-Z0-9._%+-]+@(?!example\.com|YOUR_EMAIL)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/,
   /https?:\/\/(?!placeholder|example|YOUR_|darhous)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\/[a-zA-Z0-9/_-]{10,}/i,
-  /[a-zA-Z0-9]{20,}/,
+  // Long high-entropy run (20+ chars) that contains at least one digit —
+  // matches API keys/tokens/hashes while ignoring legitimate long camelCase
+  // identifiers like n8n node types (e.g. "googleCalendarTrigger").
+  /(?=[A-Za-z0-9]*[0-9])[A-Za-z0-9]{20,}/,
 ];
 
 const SAFE_PLACEHOLDER_PATTERN = /YOUR_[A-Z_]+/;

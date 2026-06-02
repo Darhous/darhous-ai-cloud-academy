@@ -1,0 +1,47 @@
+{
+  "name": "تذكير تجديد العملاء",
+  "nodes": [
+    {
+      "parameters": { "rule": { "interval": [{ "field": "days", "daysInterval": 1 }] } },
+      "id": "node_cron",
+      "name": "فحص دوري",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "operation": "read", "documentId": "YOUR_SHEET_ID", "sheetName": "Contracts" },
+      "id": "node_read",
+      "name": "قراءة العقود",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [480, 300],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": { "conditions": { "number": [{ "value1": "={{ $json.daysUntilExpiry }}", "operation": "smallerEqual", "value2": 30 }] } },
+      "id": "node_if",
+      "name": "قرب الانتهاء",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": { "sendTo": "YOUR_EMAIL", "subject": "تجديد قريب: {{ $json.client }}", "message": "عقد {{ $json.client }} ينتهي بتاريخ {{ $json.expiryDate }}." },
+      "id": "node_mail",
+      "name": "تنبيه ومهمة",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    }
+  ],
+  "connections": {
+    "فحص دوري": { "main": [[{ "node": "قراءة العقود", "type": "main", "index": 0 }]] },
+    "قراءة العقود": { "main": [[{ "node": "قرب الانتهاء", "type": "main", "index": 0 }]] },
+    "قرب الانتهاء": { "main": [[{ "node": "تنبيه ومهمة", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

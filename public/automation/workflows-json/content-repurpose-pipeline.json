@@ -1,0 +1,47 @@
+{
+  "name": "إعادة توظيف المحتوى عبر القنوات",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "node_trigger",
+      "name": "فكرة محتوى",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "modelId": "gemini-2.5-flash", "prompt": "حوّل هذه الفكرة إلى منشور تويتر ومنشور لينكدإن ونسخة بريد بالعربية: {{ $json.idea }}" },
+      "id": "node_ai",
+      "name": "توليد النسخ",
+      "type": "n8n-nodes-base.googleGemini",
+      "typeVersion": 1,
+      "position": [480, 300],
+      "credentials": { "googleGeminiApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Gemini" } }
+    },
+    {
+      "parameters": { "mode": "manual", "fields": { "values": [{ "name": "channel", "stringValue": "multi" }] } },
+      "id": "node_format",
+      "name": "تنسيق القنوات",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [720, 300]
+    },
+    {
+      "parameters": { "resource": "databasePage", "operation": "create", "databaseId": "YOUR_WORKSPACE_ID", "title": "={{ $json.title }}" },
+      "id": "node_notion",
+      "name": "حفظ المسودات",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "notionApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Notion" } }
+    }
+  ],
+  "connections": {
+    "فكرة محتوى": { "main": [[{ "node": "توليد النسخ", "type": "main", "index": 0 }]] },
+    "توليد النسخ": { "main": [[{ "node": "تنسيق القنوات", "type": "main", "index": 0 }]] },
+    "تنسيق القنوات": { "main": [[{ "node": "حفظ المسودات", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

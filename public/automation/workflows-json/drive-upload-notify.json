@@ -1,0 +1,39 @@
+{
+  "name": "رفع ملف إلى Drive مع إشعار",
+  "nodes": [
+    {
+      "parameters": { "event": "fileCreated", "triggerOn": "specificFolder", "folderToWatch": "YOUR_WORKSPACE_ID" },
+      "id": "node_trigger",
+      "name": "ملف جديد",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "credentials": { "googleDriveOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Drive" } }
+    },
+    {
+      "parameters": { "operation": "append", "documentId": "YOUR_SHEET_ID", "sheetName": "Files", "columns": { "file": "={{ $json.name }}", "owner": "={{ $json.owners }}", "date": "={{ $now }}", "link": "={{ $json.webViewLink }}" } },
+      "id": "node_log",
+      "name": "تسجيل مرجعي",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [480, 300],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": { "channel": "YOUR_CHANNEL_ID", "text": "ملف جديد: {{ $json.name }} — {{ $json.webViewLink }}" },
+      "id": "node_slack",
+      "name": "إشعار الفريق",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [720, 300],
+      "credentials": { "slackApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Slack" } }
+    }
+  ],
+  "connections": {
+    "ملف جديد": { "main": [[{ "node": "تسجيل مرجعي", "type": "main", "index": 0 }]] },
+    "تسجيل مرجعي": { "main": [[{ "node": "إشعار الفريق", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

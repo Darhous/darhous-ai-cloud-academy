@@ -1,0 +1,51 @@
+{
+  "name": "موجز بريد يومي بالذكاء الاصطناعي",
+  "nodes": [
+    {
+      "parameters": { "rule": { "interval": [{ "field": "hours", "hoursInterval": 24 }] } },
+      "id": "node_cron",
+      "name": "مؤقت يومي",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "operation": "getAll", "returnAll": false, "limit": 25, "filters": { "labelIds": ["YOUR_LABEL_ID"] } },
+      "id": "node_gmail",
+      "name": "جلب الرسائل",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [480, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "parameters": {
+        "modelId": "gemini-2.5-flash",
+        "prompt": "لخّص هذه الرسائل بالعربية في نقاط مع أهم القرارات المطلوبة: {{ $json.snippet }}"
+      },
+      "id": "node_ai",
+      "name": "تلخيص ذكي",
+      "type": "n8n-nodes-base.googleGemini",
+      "typeVersion": 1,
+      "position": [720, 300],
+      "credentials": { "googleGeminiApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Gemini" } }
+    },
+    {
+      "parameters": { "sendTo": "YOUR_EMAIL", "subject": "موجز اليوم", "message": "={{ $json.text }}" },
+      "id": "node_send",
+      "name": "إرسال الموجز",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    }
+  ],
+  "connections": {
+    "مؤقت يومي": { "main": [[{ "node": "جلب الرسائل", "type": "main", "index": 0 }]] },
+    "جلب الرسائل": { "main": [[{ "node": "تلخيص ذكي", "type": "main", "index": 0 }]] },
+    "تلخيص ذكي": { "main": [[{ "node": "إرسال الموجز", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

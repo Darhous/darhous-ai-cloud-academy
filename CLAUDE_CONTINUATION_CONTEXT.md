@@ -9,18 +9,53 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 9.0 — Automation Recipe Library v1 ✅ |
-| **Next Version** | v9.1 — Automation detail pages full content (workflow maps, JSON, setup guides) |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Commit a959034 — Pushed ✅ — Recipe Library cards live |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (65 pre-existing warnings) — exit 0 — **1005 pages** |
-| **Last Commit** | `a959034` — feat(automation): wire 20-workflow curated library — card grid + detail stubs |
-| **Last Tag** | `checkpoint/automation-recipe-library-v1-cards` |
+| **Version** | 9.1 — Automation Recipe Library CONTENT COMPLETE ✅ |
+| **Next Version** | v9.2 — Student Hub automation section + Admin automation overview tab (optional) |
+| **Status** | ✅ All 6 portals LIVE — Build clean — 20 workflows fully built (maps + JSON + guides) — Pushed ✅ |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (66 warnings, pre-existing pattern) — exit 0 — **1005 pages** |
+| **Last Tag** | `checkpoint/automation-recipe-library-content-complete` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
 | **Last Updated** | 2026-06-02 (v9.0 Automation Recipe Library cards launched) |
+
+---
+
+## ✅ v9.1 — Automation Recipe Library CONTENT COMPLETE (2026-06-02)
+
+**Tag:** `checkpoint/automation-recipe-library-content-complete`
+
+### Data-driven 3-layer architecture (scales to 4000+ without rebuilding template/route/filters)
+
+| Layer | Location | Role |
+|-------|----------|------|
+| **Metadata (light)** | `src/data/automation/workflowLibrary.ts` | Cards, filters, search, SEO, related, sitemap, generateStaticParams |
+| **Details (heavy)** | `src/data/automation/details/[slug].ts` (20 files) + `details/index.ts` → `getWorkflowDetail(slug)` | workflowMapNodes (n8n-style map), businessUseCase, whoNeedsIt, jsonFileName |
+| **Clean JSON (static)** | `public/automation/workflows-json/[slug].json` (20 files) | Cleaned educational n8n JSON — fetched client-side; never in TS |
+
+### What was built
+- **20 detail files** + **20 cleaned JSON files** — all 20 workflows now have full content.
+- `WorkflowDetail` type added to `types.ts`.
+- `TemplateDetailClient.tsx` rewritten: reads `template` (metadata) + `detail` (heavy) + `jsonUrl`. Renders hero, business-use-case cards, n8n-style workflow map, node-by-node (expandable), trigger/summary, JSON viewer, credentials guide, accordion (setup/io/testing/risks+mistakes/upgrades).
+- `JsonViewer.tsx` rewritten: **fetches** JSON from `public/`, runs `safety.ts` scan before display, Copy + Download buttons, educational Arabic warning, collapsible. Blocks display if dangerous patterns found.
+- `[slug]/page.tsx`: renders `TemplateDetailClient` (replaced "قريبا" stub) + related workflows + CTAs (services + automation-agent).
+- **Orphan removed:** `automationWorkflows.ts` deleted. Single source of truth = `workflowLibrary.ts` + `details/`.
+- **Safety hardening:** `safety.ts` long-run regex now requires a digit → no false-positives on n8n camelCase node types, still catches keys/tokens.
+
+### ⚠️ TO ADD A NEW WORKFLOW LATER (the ONLY steps needed)
+1. Add object to `src/data/automation/workflowLibrary.ts` (metadata, `visible: true`).
+2. Add `src/data/automation/details/[slug].ts` (map nodes + use case).
+3. Add `public/automation/workflows-json/[slug].json` (cleaned, placeholders only).
+4. Register it in `details/index.ts`.
+→ Template, route, filters, sitemap all update automatically.
+
+### What remains (optional, non-blocking)
+- Student Hub: lightweight automation section (saved recipes via localStorage).
+- Admin: read-only automation overview tab (counts, safety summary).
+- Lab detail pages `/automation/labs/[labId]`.
+- Real AI blueprint generator for the Agent (currently deterministic demo wizard).
 
 ---
 

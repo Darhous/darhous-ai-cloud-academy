@@ -1,0 +1,48 @@
+{
+  "name": "خط تسجيل الدورات الكامل",
+  "nodes": [
+    {
+      "parameters": { "formId": "YOUR_FORM_ID" },
+      "id": "node_form",
+      "name": "تسجيل دورة",
+      "type": "n8n-nodes-base.googleFormsTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "operation": "append", "documentId": "YOUR_SHEET_ID", "sheetName": "Registrations", "columns": { "student": "={{ $json.name }}", "course": "={{ $json.course }}", "payment": "pending", "startDate": "={{ $json.startDate }}" } },
+      "id": "node_sheet",
+      "name": "سجل الطالب",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [480, 300],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": { "sendTo": "={{ $json.email }}", "subject": "تأكيد تسجيلك", "message": "تم تسجيلك في {{ $json.course }}. تبدأ بتاريخ {{ $json.startDate }}." },
+      "id": "node_mail",
+      "name": "رسالة تأكيد",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [720, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "parameters": { "operation": "create", "calendarId": "YOUR_ACCOUNT_ID", "start": "={{ $json.startDate }}", "summary": "بداية دورة {{ $json.name }}" },
+      "id": "node_cal",
+      "name": "جدولة تذكير",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [960, 300],
+      "credentials": { "googleCalendarOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Calendar" } }
+    }
+  ],
+  "connections": {
+    "تسجيل دورة": { "main": [[{ "node": "سجل الطالب", "type": "main", "index": 0 }]] },
+    "سجل الطالب": { "main": [[{ "node": "رسالة تأكيد", "type": "main", "index": 0 }]] },
+    "رسالة تأكيد": { "main": [[{ "node": "جدولة تذكير", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

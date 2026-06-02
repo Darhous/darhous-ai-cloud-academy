@@ -1,0 +1,47 @@
+{
+  "name": "Google Form إلى CRM",
+  "nodes": [
+    {
+      "parameters": { "formId": "YOUR_FORM_ID" },
+      "id": "node_form",
+      "name": "نموذج جديد",
+      "type": "n8n-nodes-base.googleFormsTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "resource": "contact",
+        "operation": "create",
+        "email": "={{ $json.email }}",
+        "additionalFields": { "firstname": "={{ $json.name }}", "phone": "={{ $json.phone }}", "hs_lead_source": "={{ $json.source }}" }
+      },
+      "id": "node_crm",
+      "name": "إنشاء Lead",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2,
+      "position": [480, 300],
+      "credentials": { "hubspotApi": { "id": "YOUR_CREDENTIAL_ID", "name": "HubSpot" } }
+    },
+    {
+      "parameters": {
+        "sendTo": "YOUR_EMAIL",
+        "subject": "Lead جديد للمتابعة",
+        "message": "وصل lead جديد: {{ $json.name }} — {{ $json.phone }}"
+      },
+      "id": "node_notify",
+      "name": "إشعار البائع",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [720, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    }
+  ],
+  "connections": {
+    "نموذج جديد": { "main": [[{ "node": "إنشاء Lead", "type": "main", "index": 0 }]] },
+    "إنشاء Lead": { "main": [[{ "node": "إشعار البائع", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

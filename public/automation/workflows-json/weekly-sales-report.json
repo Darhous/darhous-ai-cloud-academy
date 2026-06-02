@@ -1,0 +1,47 @@
+{
+  "name": "تقرير المبيعات الأسبوعي التلقائي",
+  "nodes": [
+    {
+      "parameters": { "rule": { "interval": [{ "field": "weeks", "weeksInterval": 1 }] } },
+      "id": "node_cron",
+      "name": "مؤقت أسبوعي",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "operation": "read", "documentId": "YOUR_SHEET_ID", "sheetName": "Sales" },
+      "id": "node_sheet",
+      "name": "قراءة البيانات",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [480, 300],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": { "jsCode": "const total = items.reduce((s,i)=> s + Number(i.json.amount||0), 0); return [{ json: { total, deals: items.length } }];" },
+      "id": "node_calc",
+      "name": "حساب المؤشرات",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": { "sendTo": "YOUR_EMAIL", "subject": "تقرير المبيعات الأسبوعي", "message": "الإجمالي: {{ $json.total }} — عدد الصفقات: {{ $json.deals }}" },
+      "id": "node_send",
+      "name": "إرسال التقرير",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    }
+  ],
+  "connections": {
+    "مؤقت أسبوعي": { "main": [[{ "node": "قراءة البيانات", "type": "main", "index": 0 }]] },
+    "قراءة البيانات": { "main": [[{ "node": "حساب المؤشرات", "type": "main", "index": 0 }]] },
+    "حساب المؤشرات": { "main": [[{ "node": "إرسال التقرير", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

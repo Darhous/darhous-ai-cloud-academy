@@ -1,0 +1,47 @@
+{
+  "name": "استفسار الموقع إلى واتساب و CRM",
+  "nodes": [
+    {
+      "parameters": { "httpMethod": "POST", "path": "YOUR_WEBHOOK_URL" },
+      "id": "node_hook",
+      "name": "استفسار الموقع",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "resource": "contact", "operation": "create", "email": "={{ $json.email }}", "additionalFields": { "firstname": "={{ $json.name }}", "phone": "={{ $json.phone }}" } },
+      "id": "node_crm",
+      "name": "تحديث CRM",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2,
+      "position": [480, 300],
+      "credentials": { "hubspotApi": { "id": "YOUR_CREDENTIAL_ID", "name": "HubSpot" } }
+    },
+    {
+      "parameters": { "operation": "send", "phoneNumberId": "YOUR_ACCOUNT_ID", "recipientPhoneNumber": "={{ $json.phone }}", "messageType": "template", "template": "website_welcome" },
+      "id": "node_wa",
+      "name": "رسالة واتساب",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [720, 220],
+      "credentials": { "whatsAppApi": { "id": "YOUR_CREDENTIAL_ID", "name": "WhatsApp Business" } }
+    },
+    {
+      "parameters": { "channel": "YOUR_CHANNEL_ID", "text": "استفسار جديد من الموقع: {{ $json.name }} — {{ $json.service }}" },
+      "id": "node_slack",
+      "name": "إشعار البائع",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [720, 380],
+      "credentials": { "slackApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Slack" } }
+    }
+  ],
+  "connections": {
+    "استفسار الموقع": { "main": [[{ "node": "تحديث CRM", "type": "main", "index": 0 }]] },
+    "تحديث CRM": { "main": [[{ "node": "رسالة واتساب", "type": "main", "index": 0 }, { "node": "إشعار البائع", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

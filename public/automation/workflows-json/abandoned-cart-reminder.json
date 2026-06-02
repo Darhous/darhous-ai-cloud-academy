@@ -1,0 +1,46 @@
+{
+  "name": "استعادة السلة المتروكة",
+  "nodes": [
+    {
+      "parameters": { "httpMethod": "POST", "path": "YOUR_WEBHOOK_URL" },
+      "id": "node_hook",
+      "name": "سلة متروكة",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "unit": "minutes", "amount": 30 },
+      "id": "node_wait",
+      "name": "انتظار",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [480, 300]
+    },
+    {
+      "parameters": { "conditions": { "string": [{ "value1": "={{ $json.orderStatus }}", "value2": "completed", "operation": "notEqual" }] } },
+      "id": "node_if",
+      "name": "هل أتم الشراء؟",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": { "fromEmail": "YOUR_EMAIL", "toEmail": "={{ $json.email }}", "subject": "نسيت شيئًا في سلتك؟", "text": "مرحبًا {{ $json.name }}، سلتك بقيمة {{ $json.total }} ما زالت بانتظارك." },
+      "id": "node_mail",
+      "name": "تذكير بالبريد",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "smtp": { "id": "YOUR_CREDENTIAL_ID", "name": "SMTP" } }
+    }
+  ],
+  "connections": {
+    "سلة متروكة": { "main": [[{ "node": "انتظار", "type": "main", "index": 0 }]] },
+    "انتظار": { "main": [[{ "node": "هل أتم الشراء؟", "type": "main", "index": 0 }]] },
+    "هل أتم الشراء؟": { "main": [[{ "node": "تذكير بالبريد", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

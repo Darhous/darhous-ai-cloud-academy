@@ -1,0 +1,57 @@
+{
+  "name": "ترحيب الطلاب بعد التسجيل",
+  "nodes": [
+    {
+      "parameters": { "formId": "YOUR_FORM_ID" },
+      "id": "node_form",
+      "name": "تسجيل جديد",
+      "type": "n8n-nodes-base.googleFormsTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": "YOUR_SHEET_ID",
+        "sheetName": "Students",
+        "columns": { "name": "={{ $json.name }}", "email": "={{ $json.email }}", "phone": "={{ $json.phone }}", "course": "={{ $json.course }}" }
+      },
+      "id": "node_sheet",
+      "name": "تسجيل في الجدول",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [480, 300],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "أهلاً بك في الدورة",
+        "message": "مرحبًا {{ $json.name }}، تم تسجيلك في {{ $json.course }} بنجاح."
+      },
+      "id": "node_gmail",
+      "name": "رسالة ترحيب",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [720, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "parameters": { "chatId": "YOUR_CHANNEL_ID", "text": "تسجيل جديد: {{ $json.name }} — {{ $json.course }}" },
+      "id": "node_notify",
+      "name": "إشعار المنسق",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [960, 300],
+      "credentials": { "telegramApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Telegram Bot" } }
+    }
+  ],
+  "connections": {
+    "تسجيل جديد": { "main": [[{ "node": "تسجيل في الجدول", "type": "main", "index": 0 }]] },
+    "تسجيل في الجدول": { "main": [[{ "node": "رسالة ترحيب", "type": "main", "index": 0 }]] },
+    "رسالة ترحيب": { "main": [[{ "node": "إشعار المنسق", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

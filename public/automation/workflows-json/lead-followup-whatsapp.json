@@ -1,0 +1,46 @@
+{
+  "name": "متابعة Lead عبر واتساب",
+  "nodes": [
+    {
+      "parameters": { "httpMethod": "POST", "path": "YOUR_WEBHOOK_URL" },
+      "id": "node_hook",
+      "name": "Lead جديد",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "conditions": { "string": [{ "value1": "={{ $json.phone }}", "operation": "isNotEmpty" }] } },
+      "id": "node_if",
+      "name": "تحقق من الرقم",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": { "operation": "send", "phoneNumberId": "YOUR_ACCOUNT_ID", "recipientPhoneNumber": "={{ $json.phone }}", "messageType": "template", "template": "welcome_lead" },
+      "id": "node_wa",
+      "name": "رسالة واتساب",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [720, 220],
+      "credentials": { "whatsAppApi": { "id": "YOUR_CREDENTIAL_ID", "name": "WhatsApp Business" } }
+    },
+    {
+      "parameters": { "resource": "task", "operation": "create", "title": "متابعة: {{ $json.name }}" },
+      "id": "node_task",
+      "name": "مهمة متابعة",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [720, 380],
+      "credentials": { "notionApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Notion" } }
+    }
+  ],
+  "connections": {
+    "Lead جديد": { "main": [[{ "node": "تحقق من الرقم", "type": "main", "index": 0 }]] },
+    "تحقق من الرقم": { "main": [[{ "node": "رسالة واتساب", "type": "main", "index": 0 }, { "node": "مهمة متابعة", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

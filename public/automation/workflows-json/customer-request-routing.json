@@ -1,0 +1,47 @@
+{
+  "name": "توجيه طلبات العملاء",
+  "nodes": [
+    {
+      "parameters": { "httpMethod": "POST", "path": "YOUR_WEBHOOK_URL" },
+      "id": "node_hook",
+      "name": "طلب وارد",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "dataType": "string", "value1": "={{ $json.type }}", "rules": { "rules": [{ "value2": "technical" }, { "value2": "billing" }] } },
+      "id": "node_switch",
+      "name": "تصنيف الطلب",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [480, 300]
+    },
+    {
+      "parameters": { "resource": "databasePage", "operation": "create", "databaseId": "YOUR_WORKSPACE_ID", "title": "={{ $json.subject }}" },
+      "id": "node_ticket",
+      "name": "إنشاء تذكرة",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [720, 300],
+      "credentials": { "notionApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Notion" } }
+    },
+    {
+      "parameters": { "channel": "YOUR_CHANNEL_ID", "text": "تذكرة جديدة [{{ $json.priority }}]: {{ $json.subject }}" },
+      "id": "node_slack",
+      "name": "إشعار الفريق",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "slackApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Slack" } }
+    }
+  ],
+  "connections": {
+    "طلب وارد": { "main": [[{ "node": "تصنيف الطلب", "type": "main", "index": 0 }]] },
+    "تصنيف الطلب": { "main": [[{ "node": "إنشاء تذكرة", "type": "main", "index": 0 }]] },
+    "إنشاء تذكرة": { "main": [[{ "node": "إشعار الفريق", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "توزيع ملخص الاجتماع بالذكاء الاصطناعي",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "node_trigger",
+      "name": "إدخال الملاحظات",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "modelId": "gemini-2.5-flash", "prompt": "حوّل ملاحظات الاجتماع التالية إلى قائمة مهام بالعربية مع مسؤول لكل مهمة: {{ $json.notes }}" },
+      "id": "node_ai",
+      "name": "استخراج المهام",
+      "type": "n8n-nodes-base.googleGemini",
+      "typeVersion": 1,
+      "position": [480, 300],
+      "credentials": { "googleGeminiApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Gemini" } }
+    },
+    {
+      "parameters": { "resource": "databasePage", "operation": "create", "databaseId": "YOUR_WORKSPACE_ID", "title": "={{ $json.task }}" },
+      "id": "node_notion",
+      "name": "إنشاء المهام",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [720, 300],
+      "credentials": { "notionApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Notion" } }
+    },
+    {
+      "parameters": { "sendTo": "YOUR_EMAIL", "subject": "ملخص الاجتماع والمهام", "message": "={{ $json.text }}" },
+      "id": "node_mail",
+      "name": "توزيع الملخص",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    }
+  ],
+  "connections": {
+    "إدخال الملاحظات": { "main": [[{ "node": "استخراج المهام", "type": "main", "index": 0 }]] },
+    "استخراج المهام": { "main": [[{ "node": "إنشاء المهام", "type": "main", "index": 0 }]] },
+    "إنشاء المهام": { "main": [[{ "node": "توزيع الملخص", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

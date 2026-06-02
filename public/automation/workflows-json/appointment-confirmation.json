@@ -1,0 +1,48 @@
+{
+  "name": "تأكيد المواعيد والتذكير التلقائي",
+  "nodes": [
+    {
+      "parameters": { "triggerOn": "eventCreated", "calendarId": "YOUR_ACCOUNT_ID" },
+      "id": "node_trigger",
+      "name": "موعد جديد",
+      "type": "n8n-nodes-base.googleCalendarTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "credentials": { "googleCalendarOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Calendar" } }
+    },
+    {
+      "parameters": { "sendTo": "={{ $json.email }}", "subject": "تأكيد موعدك", "message": "تم تأكيد موعدك {{ $json.summary }} بتاريخ {{ $json.start }}." },
+      "id": "node_confirm",
+      "name": "رسالة تأكيد",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [480, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "parameters": { "resume": "timeInterval", "unit": "hours", "amount": 24 },
+      "id": "node_wait",
+      "name": "انتظار للتذكير",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [720, 300]
+    },
+    {
+      "parameters": { "sendTo": "={{ $json.email }}", "subject": "تذكير بموعدك غدًا", "message": "تذكير: موعدك {{ $json.summary }} غدًا الساعة {{ $json.start }}." },
+      "id": "node_remind",
+      "name": "تذكير",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    }
+  ],
+  "connections": {
+    "موعد جديد": { "main": [[{ "node": "رسالة تأكيد", "type": "main", "index": 0 }]] },
+    "رسالة تأكيد": { "main": [[{ "node": "انتظار للتذكير", "type": "main", "index": 0 }]] },
+    "انتظار للتذكير": { "main": [[{ "node": "تذكير", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

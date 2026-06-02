@@ -1,0 +1,48 @@
+{
+  "name": "أرشفة الفواتير تلقائيًا",
+  "nodes": [
+    {
+      "parameters": { "event": "messageReceived", "filters": { "q": "subject:فاتورة has:attachment" } },
+      "id": "node_gmail",
+      "name": "بريد فاتورة",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "parameters": { "jsCode": "return items.filter(i => i.binary && Object.keys(i.binary).length);" },
+      "id": "node_extract",
+      "name": "استخراج المرفق",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": { "operation": "upload", "name": "invoice-{{ $now.format('yyyyMMdd') }}.pdf", "folderId": "YOUR_WORKSPACE_ID" },
+      "id": "node_drive",
+      "name": "حفظ في Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [720, 300],
+      "credentials": { "googleDriveOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Drive" } }
+    },
+    {
+      "parameters": { "operation": "append", "documentId": "YOUR_SHEET_ID", "sheetName": "Invoices", "columns": { "vendor": "={{ $json.from }}", "date": "={{ $now }}", "file": "={{ $json.webViewLink }}" } },
+      "id": "node_log",
+      "name": "تسجيل مرجعي",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [960, 300],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    }
+  ],
+  "connections": {
+    "بريد فاتورة": { "main": [[{ "node": "استخراج المرفق", "type": "main", "index": 0 }]] },
+    "استخراج المرفق": { "main": [[{ "node": "حفظ في Drive", "type": "main", "index": 0 }]] },
+    "حفظ في Drive": { "main": [[{ "node": "تسجيل مرجعي", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "حزمة Onboarding للموظف الجديد",
+  "nodes": [
+    {
+      "parameters": { "httpMethod": "POST", "path": "YOUR_WEBHOOK_URL" },
+      "id": "node_hook",
+      "name": "موظف معتمد",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "operation": "create", "name": "={{ $json.name }} - Onboarding", "parentFolder": "YOUR_WORKSPACE_ID" },
+      "id": "node_drive",
+      "name": "مجلد الموظف",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [480, 300],
+      "credentials": { "googleDriveOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Drive" } }
+    },
+    {
+      "parameters": { "resource": "card", "operation": "create", "name": "Onboarding: {{ $json.name }}", "listId": "YOUR_CHANNEL_ID" },
+      "id": "node_trello",
+      "name": "قائمة مهام",
+      "type": "n8n-nodes-base.trello",
+      "typeVersion": 1,
+      "position": [720, 300],
+      "credentials": { "trelloApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Trello" } }
+    },
+    {
+      "parameters": { "sendTo": "={{ $json.email }}", "subject": "أهلاً بك في الفريق", "message": "مرحبًا {{ $json.name }}، نتطلع لبدايتك في {{ $json.startDate }}." },
+      "id": "node_mail",
+      "name": "ترحيب وإشعار",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    }
+  ],
+  "connections": {
+    "موظف معتمد": { "main": [[{ "node": "مجلد الموظف", "type": "main", "index": 0 }]] },
+    "مجلد الموظف": { "main": [[{ "node": "قائمة مهام", "type": "main", "index": 0 }]] },
+    "قائمة مهام": { "main": [[{ "node": "ترحيب وإشعار", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

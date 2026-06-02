@@ -1,0 +1,48 @@
+{
+  "name": "فرز المرشحين الأولي بالذكاء الاصطناعي",
+  "nodes": [
+    {
+      "parameters": { "formId": "YOUR_FORM_ID" },
+      "id": "node_form",
+      "name": "طلب توظيف",
+      "type": "n8n-nodes-base.googleFormsTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "modelId": "gemini-2.5-flash", "prompt": "قيّم مطابقة هذا المرشح للدور {{ $json.role }} من 100 بناءً على خبرته: {{ $json.experience }}" },
+      "id": "node_ai",
+      "name": "تقييم أولي",
+      "type": "n8n-nodes-base.googleGemini",
+      "typeVersion": 1,
+      "position": [480, 300],
+      "credentials": { "googleGeminiApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Gemini" } }
+    },
+    {
+      "parameters": { "operation": "append", "documentId": "YOUR_SHEET_ID", "sheetName": "Candidates", "columns": { "name": "={{ $json.name }}", "score": "={{ $json.text }}", "status": "screened" } },
+      "id": "node_sheet",
+      "name": "تسجيل النتيجة",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [720, 300],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": { "channel": "YOUR_CHANNEL_ID", "text": "مرشح مؤهل: {{ $json.name }} — درجة {{ $json.text }}" },
+      "id": "node_slack",
+      "name": "إشعار HR",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "slackApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Slack" } }
+    }
+  ],
+  "connections": {
+    "طلب توظيف": { "main": [[{ "node": "تقييم أولي", "type": "main", "index": 0 }]] },
+    "تقييم أولي": { "main": [[{ "node": "تسجيل النتيجة", "type": "main", "index": 0 }]] },
+    "تسجيل النتيجة": { "main": [[{ "node": "إشعار HR", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "تنبيهات الحضور والانصراف",
+  "nodes": [
+    {
+      "parameters": { "formId": "YOUR_FORM_ID" },
+      "id": "node_form",
+      "name": "تسجيل حضور",
+      "type": "n8n-nodes-base.googleFormsTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "operation": "append", "documentId": "YOUR_SHEET_ID", "sheetName": "Attendance", "columns": { "name": "={{ $json.name }}", "time": "={{ $json.time }}", "branch": "={{ $json.branch }}" } },
+      "id": "node_log",
+      "name": "سجل الحضور",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [480, 300],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    },
+    {
+      "parameters": { "conditions": { "dateTime": [{ "value1": "={{ $json.time }}", "operation": "after", "value2": "09:00" }] } },
+      "id": "node_if",
+      "name": "فحص التأخير",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": { "chatId": "YOUR_CHANNEL_ID", "text": "تأخير: {{ $json.name }} في {{ $json.branch }} الساعة {{ $json.time }}" },
+      "id": "node_alert",
+      "name": "تنبيه استثناء",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [960, 300],
+      "credentials": { "telegramApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Telegram Bot" } }
+    }
+  ],
+  "connections": {
+    "تسجيل حضور": { "main": [[{ "node": "سجل الحضور", "type": "main", "index": 0 }]] },
+    "سجل الحضور": { "main": [[{ "node": "فحص التأخير", "type": "main", "index": 0 }]] },
+    "فحص التأخير": { "main": [[{ "node": "تنبيه استثناء", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": false }
+}

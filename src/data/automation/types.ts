@@ -12,6 +12,25 @@ export interface WorkflowMapNode {
   riskNote?: string;
   order: number;
 }
+
+/**
+ * Heavy per-workflow content. Lives in src/data/automation/details/[slug].ts
+ * (one small file each) — kept separate from the light card metadata in
+ * workflowLibrary.ts so the data model scales without bloating any single file.
+ * Cleaned JSON is NOT stored here — it lives in public/automation/workflows-json/.
+ */
+export interface WorkflowDetail {
+  id: string;
+  /** Arabic prose: the real-world scenario this workflow solves. */
+  businessUseCase: string;
+  /** Arabic prose: who specifically benefits from this automation. */
+  whoNeedsIt: string;
+  /** n8n-style read-only visual map nodes (drives WorkflowMapClient). */
+  workflowMapNodes: WorkflowMapNode[];
+  /** Download filename, e.g. darhous-workflow-[id].json */
+  jsonFileName: string;
+}
+
 export type PricingCategory = "مجاني" | "مجاني / مدفوع" | "مدفوع" | "مفاهيمي";
 export type Department =
   | "sales"
