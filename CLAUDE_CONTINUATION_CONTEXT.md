@@ -9,17 +9,101 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 8.1 — Language Portal CLOSED ✅ |
-| **Next Version** | Automation Academy upgrade — source: https://github.com/Darhous/darhous-automation-academy |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Commit f54a127 — Vercel PRODUCTION DEPLOYED ✅ — Language Portal FULLY CLOSED ✅ |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (65 pre-existing warnings) — exit 0 — 965 pages |
-| **Last Commit** | `f54a127` — feat(language): close Language Portal — history page, Career Hub handoff, admin CSV export |
+| **Version** | 9.0 — Automation Recipe Library v1 ✅ |
+| **Next Version** | v9.1 — Automation detail pages full content (workflow maps, JSON, setup guides) |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Commit a959034 — Pushed ✅ — Recipe Library cards live |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (65 pre-existing warnings) — exit 0 — **1005 pages** |
+| **Last Commit** | `a959034` — feat(automation): wire 20-workflow curated library — card grid + detail stubs |
+| **Last Tag** | `checkpoint/automation-recipe-library-v1-cards` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-01 (v8.0 authenticated live QA passed) |
+| **Last Updated** | 2026-06-02 (v9.0 Automation Recipe Library cards launched) |
+
+---
+
+## ✅ v9.0 — Automation Recipe Library v1 (2026-06-02)
+
+**Commits:** `f759157` (components) · `a959034` (library wiring) · **Tag:** `checkpoint/automation-recipe-library-v1-cards` · **Vercel:** Auto-deployed
+
+### What Was Delivered
+
+| Feature | File(s) | Detail |
+|---------|---------|--------|
+| 20 Curated Workflow Library | `src/data/automation/workflowLibrary.ts` | 20 `AutomationTemplate` objects covering 14 categories — each with `shortDescription`, `safetyStatus`, `safetyNotes`, `tags`, `seoHashtags`, `industry`, `triggerType`, `relatedTemplateIds`, `nodeCount`, `businessValue`, `credentialsGuide` |
+| Safety Utility | `src/lib/automation/safety.ts` | `scanJsonForDangerousPatterns()` + `isSafeForDisplay()` — scans for API keys, tokens, real emails, private IPs, webhook URLs |
+| SafetyBadge Component | `src/components/automation/SafetyBadge.tsx` | Color-coded badge: آمن/يحتاج مراجعة/متقدم/غير آمن — updated with optional `size` prop |
+| JsonViewer Component | `src/components/automation/JsonViewer.tsx` | Copy button + collapse/expand — blocks display if dangerous patterns found |
+| WorkflowMapClient | `src/components/automation/WorkflowMapClient.tsx` | Visual n8n-style node map — ready for future content |
+| TemplateDetailClient | `src/components/automation/TemplateDetailClient.tsx` | Full detail layout — sections for workflow, setup, I/O, testing, risks, upgrades |
+| AutomationAgentClient | `src/components/automation/AutomationAgentClient.tsx` | 3-step wizard — department/goal/tools → generates blueprint in demo mode |
+| Card Library Page | `src/app/[locale]/automation/templates/page.tsx` | Uses `curatedWorkflows`, passes `locale` to client |
+| Detail Stub Pages | `src/app/[locale]/automation/templates/[slug]/page.tsx` | 20 × 2 locale pages — hero card, safety, tags, tools, "قريبا" CTA, related workflows |
+| Upgraded TemplatesClient | `src/components/automation/TemplatesClient.tsx` | Collapsible filter panel (category/difficulty/safety), SafetyBadge on cards, "عرض التفاصيل" CTA with locale link |
+| Wired Agent Page | `src/app/[locale]/automation/automation-agent/page.tsx` | Now renders `AutomationAgentClient` wizard |
+| Sitemap Updated | `src/app/sitemap.ts` | +40 entries (20 workflows × 2 locales) at priority 0.75 |
+
+### The 20 Selected Workflows
+
+| # | ID | Category |
+|---|-----|---------|
+| 1 | `student-welcome-flow` | Education Automation |
+| 2 | `google-form-to-crm` | CRM & Sales |
+| 3 | `daily-ai-email-brief` | AI Agents |
+| 4 | `weekly-sales-report` | Reporting & Dashboards |
+| 5 | `lead-followup-whatsapp` | CRM & Sales (WhatsApp) |
+| 6 | `social-content-approval` | Marketing Campaign |
+| 7 | `pdf-certificates` | Education Automation |
+| 8 | `hr-candidate-screening` | HR & Recruitment |
+| 9 | `customer-request-routing` | Customer Support |
+| 10 | `invoice-archive-bot` | File Automation |
+| 11 | `website-lead-to-whatsapp` | E-commerce Automation |
+| 12 | `course-registration-pipeline` | Education Automation |
+| 13 | `attendance-alerts` | HR & Recruitment |
+| 14 | `hr-onboarding-pack` | HR & Recruitment |
+| 15 | `abandoned-cart-reminder` | E-commerce Automation |
+| 16 | `drive-upload-notify` | Internal Operations |
+| 17 | `meeting-summary-distribution` | AI Agents |
+| 18 | `crm-renewal-reminder` | CRM & Sales |
+| 19 | `appointment-confirmation` | Freelance Client Workflows |
+| 20 | `content-repurpose-pipeline` | Marketing Campaign |
+
+### Architecture Rules (PERMANENT)
+
+- `visible: true` in `workflowLibrary.ts` → appears in product library
+- Future expansion = **add more objects to `workflowLibrary.ts`** — no code changes needed elsewhere
+- `generateStaticParams` in `[slug]/page.tsx` reads from `curatedWorkflows` — auto-generates pages
+- Sitemap reads from `curatedWorkflows` — auto-adds SEO entries
+- Safety scan utility must pass before any JSON is displayed to users
+
+### Build Result
+
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (65 pre-existing warnings)
+- `npm run build` → ✅ exit 0 — **1005 pages** (was 965 — +40 for 20 workflows × 2 locales)
+
+### What Remains for v9.1 — Detail Content Sprint
+
+| Item | Status | Notes |
+|------|--------|-------|
+| Workflow map nodes (`workflowMapNodes`) | ⏳ Pending | Add per workflow — renders in `WorkflowMapClient` |
+| Cleaned educational JSON (`cleanedJson`) | ⏳ Pending | Add per workflow — renders in `JsonViewer` |
+| Full setup guide prose | ⏳ Pending | `setupSteps` already have bullets — expand to prose |
+| Testing checklist interactive | ⏳ Pending | `testingChecklist` data exists — wire interactive checkboxes |
+| Common mistakes section | ⏳ Pending | `commonMistakes` data exists — render in detail page |
+| Upgrade ideas section | ⏳ Pending | `upgradeIdeas` data exists — render in detail page |
+| Student Hub automation section | ⏳ Pending | Add lightweight saved recipes + progress to Hub |
+| Admin automation overview tab | ⏳ Pending | Read-only audit: visible/hidden count, safety summary |
+| Lab pages (`/labs/[labId]`) | ⏳ Pending | Connect existing lab data to workflow detail pages |
+| Add more reviewed workflows | ⏳ Future | Next expansion = add objects to `workflowLibrary.ts` only |
+
+### ⚠️ NEXT SESSION MUST DO
+
+1. **Fill detail pages** — add `workflowMapNodes` + `cleanedJson` + expanded prose to the 20 workflows in `workflowLibrary.ts`
+2. **Replace "قريبا" stubs** — swap the coming-soon CTA block in `[slug]/page.tsx` with `TemplateDetailClient` once content is ready
+3. **No new portals** — don't touch Language / Career / Digital Exams / AI Academy / IoT Lab
 
 ---
 
