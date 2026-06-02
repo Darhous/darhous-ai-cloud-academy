@@ -12,6 +12,7 @@ import {
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { portals as allPortals } from "@/config/portals";
+import { curatedWorkflows } from "@/data/automation/workflowLibrary";
 import { courses } from "@/data/courses";
 import { tools } from "@/data/tools";
 import { projects } from "@/data/projects";
@@ -26,7 +27,7 @@ import type { UserProfile } from "@/lib/auth/roles";
 type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
-  | "analytics" | "theme" | "audit" | "language";
+  | "analytics" | "theme" | "audit" | "language" | "automation";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -279,6 +280,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "theme",          labelAr: "الهوية والتصميم",    labelEn: "Theme & Branding",   icon: <Palette size={15} /> },
     { id: "audit",          labelAr: "سجل الأمان",         labelEn: "Security & Audit",   icon: <Shield size={15} /> },
     { id: "language",       labelAr: "بوابة اللغة",         labelEn: "Language Portal",    icon: <Globe size={15} /> },
+    { id: "automation",     labelAr: "بوابة الأتمتة",       labelEn: "Automation Portal",  icon: <Zap size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -1206,6 +1208,144 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
 
         </div>
       )}
+
+      {tab === "automation" && (() => {
+        const visible = curatedWorkflows.filter((w) => w.visible !== false);
+        const hidden = curatedWorkflows.filter((w) => w.visible === false);
+
+        const safetyCount = visible.reduce<Record<string, number>>((acc, w) => {
+          const s = w.safetyStatus ?? "آمن";
+          acc[s] = (acc[s] ?? 0) + 1;
+          return acc;
+        }, {});
+        const diffCount = visible.reduce<Record<string, number>>((acc, w) => {
+          acc[w.difficulty] = (acc[w.difficulty] ?? 0) + 1;
+          return acc;
+        }, {});
+        const catCount = visible.reduce<Record<string, number>>((acc, w) => {
+          acc[w.category] = (acc[w.category] ?? 0) + 1;
+          return acc;
+        }, {});
+        const catSorted = Object.entries(catCount).sort(([, a], [, b]) => b - a);
+        const catMax = catSorted[0]?.[1] ?? 1;
+
+        const SAFETY_COLORS: Record<string, string> = { "آمن": "#4ade80", "يحتاج مراجعة": "#f59e0b", "متقدم": "#8ed5ff", "غير آمن": "#f87171" };
+        const DIFF_COLORS: Record<string, string> = { "مبتدئ": "#4ade80", "متوسط": "#f59e0b", "متقدم": "#f87171" };
+
+        return (
+          <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { label: isAr ? "إجمالي الوصفات" : "Total Recipes", value: curatedWorkflows.length, color: "#4ade80" },
+                { label: isAr ? "مرئية" : "Visible", value: visible.length, color: "#4ade80" },
+                { label: isAr ? "مخفية" : "Hidden", value: hidden.length, color: "#f87171" },
+                { label: isAr ? "فئات" : "Categories", value: Object.keys(catCount).length, color: "#8ed5ff" },
+              ].map((s) => (
+                <div key={s.label} className="glass-card rounded-2xl p-5 flex flex-col gap-1" style={{ border: `1px solid ${s.color}20` }}>
+                  <p className="font-mono font-bold text-2xl" style={{ color: s.color }}>{s.value}</p>
+                  <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(74,222,128,0.1)" }}>
+                <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#4ade80" }}>
+                  <Shield size={14} />{isAr ? "توزيع مستوى الأمان" : "Safety Distribution"}
+                </h3>
+                <div className="flex flex-col gap-2">
+                  {Object.entries(safetyCount).map(([status, count]) => (
+                    <div key={status} className="flex items-center gap-3 text-sm">
+                      <span className="w-28 flex-shrink-0 text-xs font-mono" style={{ color: SAFETY_COLORS[status] ?? "#8ed5ff" }}>{status}</span>
+                      <div className="flex-1 h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                        <div className="h-full rounded-full" style={{ width: `${(count / visible.length) * 100}%`, background: SAFETY_COLORS[status] ?? "#8ed5ff" }} />
+                      </div>
+                      <span className="font-mono w-5 text-end flex-shrink-0 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(245,158,11,0.1)" }}>
+                <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#f59e0b" }}>
+                  <BarChart2 size={14} />{isAr ? "توزيع الصعوبة" : "Difficulty Distribution"}
+                </h3>
+                <div className="flex flex-col gap-2">
+                  {Object.entries(diffCount).map(([diff, count]) => (
+                    <div key={diff} className="flex items-center gap-3 text-sm">
+                      <span className="w-16 flex-shrink-0 text-xs font-mono" style={{ color: DIFF_COLORS[diff] ?? "#8ed5ff" }}>{diff}</span>
+                      <div className="flex-1 h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                        <div className="h-full rounded-full" style={{ width: `${(count / visible.length) * 100}%`, background: DIFF_COLORS[diff] ?? "#8ed5ff" }} />
+                      </div>
+                      <span className="font-mono w-5 text-end flex-shrink-0 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(142,213,255,0.1)" }}>
+              <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#8ed5ff" }}>
+                <Database size={14} />{isAr ? "توزيع الفئات" : "Category Breakdown"}
+              </h3>
+              <div className="flex flex-col gap-2">
+                {catSorted.map(([cat, count]) => (
+                  <div key={cat} className="flex items-center gap-3 text-sm">
+                    <span className="w-48 flex-shrink-0 text-xs truncate" style={{ color: "var(--color-on-surface)" }}>{cat}</span>
+                    <div className="flex-1 h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                      <div className="h-full rounded-full" style={{ width: `${(count / catMax) * 100}%`, background: "#8ed5ff" }} />
+                    </div>
+                    <span className="font-mono w-5 text-end flex-shrink-0 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="glass-card rounded-2xl p-5 overflow-x-auto" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+              <h3 className="font-bold text-sm mb-4" style={{ color: "var(--color-on-surface)" }}>
+                {isAr ? "فهرس الوصفات" : "Recipe Index"}
+              </h3>
+              <table className="w-full text-xs" style={{ borderCollapse: "collapse" }}>
+                <thead>
+                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", color: "var(--color-on-surface-variant)" }}>
+                    <th className="text-right pb-2 pr-2">ID</th>
+                    <th className="text-right pb-2 pr-2">{isAr ? "العنوان" : "Title"}</th>
+                    <th className="text-right pb-2 pr-2">{isAr ? "الفئة" : "Category"}</th>
+                    <th className="text-right pb-2 pr-2">{isAr ? "الصعوبة" : "Difficulty"}</th>
+                    <th className="text-right pb-2 pr-2">{isAr ? "الأمان" : "Safety"}</th>
+                    <th className="text-right pb-2">{isAr ? "حالة" : "Status"}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {curatedWorkflows.map((w) => (
+                    <tr key={w.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                      <td className="py-2 pr-2 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{w.id}</td>
+                      <td className="py-2 pr-2" style={{ color: "var(--color-on-surface)" }}>{w.title}</td>
+                      <td className="py-2 pr-2" style={{ color: "var(--color-on-surface-variant)" }}>{w.category}</td>
+                      <td className="py-2 pr-2 font-mono" style={{ color: DIFF_COLORS[w.difficulty] ?? "#8ed5ff" }}>{w.difficulty}</td>
+                      <td className="py-2 pr-2 font-mono" style={{ color: SAFETY_COLORS[w.safetyStatus ?? "آمن"] ?? "#8ed5ff" }}>{w.safetyStatus ?? "آمن"}</td>
+                      <td className="py-2">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-mono" style={{ background: w.visible !== false ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)", color: w.visible !== false ? "#4ade80" : "#f87171" }}>
+                          {w.visible !== false ? (isAr ? "مرئي" : "visible") : (isAr ? "مخفي" : "hidden")}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Link href={`/${locale}/automation/templates`} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold" style={{ background: "rgba(74,222,128,0.08)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.2)" }}>
+                <ExternalLink size={13} />{isAr ? "مكتبة الوصفات" : "Recipe Library"}
+              </Link>
+              <Link href={`/${locale}/automation`} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold" style={{ background: "rgba(142,213,255,0.08)", color: "#8ed5ff", border: "1px solid rgba(142,213,255,0.2)" }}>
+                <ExternalLink size={13} />{isAr ? "بوابة الأتمتة" : "Automation Portal"}
+              </Link>
+            </div>
+          </div>
+        );
+      })()}
 
     </div>
   );
