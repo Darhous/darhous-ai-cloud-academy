@@ -9,18 +9,53 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 9.6 — Phase F: Library Expansion → 25 Workflows ✅ |
-| **Next Version** | v9.7 — Phase E: Supabase progress tracking (new table needed) |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C+D+F complete — Pushed ✅ |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings) — exit 0 — **1036 pages** |
-| **Last Tag** | `checkpoint/automation-library-25-workflows` |
-| **Commit** | `33c564d` |
+| **Version** | 9.7 — Phase E: Supabase Progress Sync ✅ |
+| **Next Version** | v9.8 — Run SQL migration in Supabase dashboard, then test E2E |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C+D+E+F ALL COMPLETE — Pushed ✅ |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings) — exit 0 — **1037 pages** |
+| **Last Tag** | `checkpoint/automation-supabase-sync` |
+| **Commit** | `3dfbf93` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (Phase F library expanded to 25 workflows) |
+| **Last Updated** | 2026-06-03 (Phase E Supabase progress sync — all phases complete) |
+
+---
+
+## ✅ v9.7 — Phase E: Supabase Progress Sync (2026-06-03)
+
+**Tag:** `checkpoint/automation-supabase-sync` · **Commit:** `3dfbf93`
+
+### What Was Built
+
+| Feature | File | Detail |
+|---------|------|--------|
+| SQL migration | `supabase/v9_automation_progress.sql` | 3 tables with RLS — run in Supabase Dashboard → SQL Editor |
+| `automation_saved_recipes` | — | user_id + recipe_id unique, RLS: own rows only |
+| `automation_lab_progress` | — | user_id + lab_id unique, checked_items JSONB, completed bool |
+| `automation_recipe_checklist` | — | user_id + recipe_id unique, checked_items JSONB |
+| API route | `src/app/api/automation/progress/route.ts` | GET: fetch all 3 tables; POST: upsert by type |
+| `useAutomationProgress` hook | `src/hooks/useAutomationProgress.ts` | 3 exports: `useSavedRecipe`, `useLabProgress`, `useRecipeChecklist` |
+| SaveRecipeButton | updated | uses `useSavedRecipe` — syncs to Supabase when logged in |
+| TestingChecklist | updated | uses `useRecipeChecklist` — syncs to Supabase when logged in |
+| LabDetailClient | updated | uses `useLabProgress` — syncs to Supabase when logged in |
+
+### Sync Strategy
+- localStorage: primary fast store (works offline / unauthenticated)
+- Supabase: on mount, if user is logged in, fetch + merge (server wins per item: OR logic)
+- On toggle: write localStorage immediately + fire async POST to `/api/automation/progress`
+- No blocking — all server writes are fire-and-forget
+
+### ⚠️ MIGRATION REQUIRED
+Run `supabase/v9_automation_progress.sql` in:
+**Supabase Dashboard → https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig → SQL Editor**
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (68 warnings)
+- `npm run build` → ✅ exit 0 — **1037 pages**
 
 ---
 
