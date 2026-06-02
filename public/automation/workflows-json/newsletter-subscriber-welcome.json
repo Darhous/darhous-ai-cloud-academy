@@ -1,0 +1,36 @@
+{
+  "name": "استقبال المشتركين الجدد",
+  "nodes": [
+    {
+      "parameters": { "formTitle": "اشتراك في النشرة", "formFields": { "values": [{ "fieldLabel": "الاسم", "requiredField": true }, { "fieldLabel": "البريد", "fieldType": "email", "requiredField": true }, { "fieldLabel": "الاهتمام" }] } },
+      "id": "node_form",
+      "name": "مشترك جديد",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "sendTo": "={{ $json.البريد }}", "subject": "مرحباً {{ $json.الاسم }} في نشرتنا!", "emailType": "html", "message": "<h2>أهلاً {{ $json.الاسم }}!</h2><p>سعداء بانضمامك. ستصلك نشرتنا قريباً.</p><p><small><a href='YOUR_UNSUBSCRIBE_LINK'>إلغاء الاشتراك</a></small></p>" },
+      "id": "node_welcome",
+      "name": "رسالة الترحيب",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [480, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "parameters": { "operation": "append", "documentId": "YOUR_SHEET_ID", "sheetName": "Subscribers", "columns": { "name": "={{ $json.الاسم }}", "email": "={{ $json.البريد }}", "interest": "={{ $json.الاهتمام }}", "subscribed_at": "={{ $now }}", "status": "active" } },
+      "id": "node_log",
+      "name": "تسجيل المشترك",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [720, 300],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    }
+  ],
+  "connections": {
+    "مشترك جديد": { "main": [[{ "node": "رسالة الترحيب", "type": "main", "index": 0 }]] },
+    "رسالة الترحيب": { "main": [[{ "node": "تسجيل المشترك", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}

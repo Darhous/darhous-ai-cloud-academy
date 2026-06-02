@@ -23,6 +23,11 @@ import meetingSummaryDistribution from "./meeting-summary-distribution";
 import crmRenewalReminder from "./crm-renewal-reminder";
 import appointmentConfirmation from "./appointment-confirmation";
 import contentRepurposePipeline from "./content-repurpose-pipeline";
+import expenseReportApproval from "./expense-report-approval";
+import customerFeedbackRouting from "./customer-feedback-routing";
+import newsletterSubscriberWelcome from "./newsletter-subscriber-welcome";
+import projectTaskFromEmail from "./project-task-from-email";
+import inventoryLowStockAlert from "./inventory-low-stock-alert";
 
 const ALL: WorkflowDetail[] = [
   studentWelcomeFlow,
@@ -45,6 +50,11 @@ const ALL: WorkflowDetail[] = [
   crmRenewalReminder,
   appointmentConfirmation,
   contentRepurposePipeline,
+  expenseReportApproval,
+  customerFeedbackRouting,
+  newsletterSubscriberWelcome,
+  projectTaskFromEmail,
+  inventoryLowStockAlert,
 ];
 
 const BY_ID: Record<string, WorkflowDetail> = Object.fromEntries(ALL.map((d) => [d.id, d]));

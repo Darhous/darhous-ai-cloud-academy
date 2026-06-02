@@ -1,0 +1,46 @@
+{
+  "name": "تحويل البريد إلى مهمة Notion",
+  "nodes": [
+    {
+      "parameters": { "pollTimes": { "item": [{ "mode": "everyMinute" }] }, "filters": { "labelIds": ["YOUR_LABEL_ID"] } },
+      "id": "node_gmail",
+      "name": "بريد جديد",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "parameters": { "assignments": { "assignments": [{ "name": "title", "value": "={{ $json.subject }}" }, { "name": "sender", "value": "={{ $json.from.value[0].address }}" }, { "name": "priority", "value": "={{ $json.subject.includes('عاجل') ? 'High' : 'Medium' }}" }] } },
+      "id": "node_set",
+      "name": "استخراج البيانات",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [480, 300]
+    },
+    {
+      "parameters": { "resource": "page", "operation": "create", "databaseId": "YOUR_NOTION_DB_ID", "title": "={{ $json.title }}", "propertiesUi": { "propertyValues": [{ "key": "Status", "textValue": "To Do" }, { "key": "Priority", "textValue": "={{ $json.priority }}" }, { "key": "From", "textValue": "={{ $json.sender }}" }] } },
+      "id": "node_notion",
+      "name": "إنشاء المهمة",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [720, 300],
+      "credentials": { "notionApi": { "id": "YOUR_CREDENTIAL_ID", "name": "Notion" } }
+    },
+    {
+      "parameters": { "sendTo": "YOUR_MANAGER_EMAIL", "subject": "مهمة جديدة: {{ $json.title }}", "message": "تم إنشاء مهمة جديدة من بريد {{ $json.sender }}.\nأولوية: {{ $json.priority }}" },
+      "id": "node_notify",
+      "name": "إشعار المسؤول",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    }
+  ],
+  "connections": {
+    "بريد جديد": { "main": [[{ "node": "استخراج البيانات", "type": "main", "index": 0 }]] },
+    "استخراج البيانات": { "main": [[{ "node": "إنشاء المهمة", "type": "main", "index": 0 }]] },
+    "إنشاء المهمة": { "main": [[{ "node": "إشعار المسؤول", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}

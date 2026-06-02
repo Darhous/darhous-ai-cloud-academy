@@ -1,0 +1,45 @@
+{
+  "name": "توجيه تقييمات العملاء",
+  "nodes": [
+    {
+      "parameters": { "formTitle": "تقييم العميل", "formFields": { "values": [{ "fieldLabel": "الاسم" }, { "fieldLabel": "التقييم", "fieldType": "number" }, { "fieldLabel": "التعليق", "fieldType": "textarea" }] } },
+      "id": "node_form",
+      "name": "تقييم جديد",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "conditions": { "number": [{ "value1": "={{ $json.التقييم }}", "operation": "smallerEqual", "value2": 2 }] } },
+      "id": "node_check",
+      "name": "تصنيف التقييم",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [480, 300]
+    },
+    {
+      "parameters": { "sendTo": "YOUR_SUPPORT_EMAIL", "subject": "⚠️ شكوى عميل: {{ $json.الاسم }}", "message": "تقييم: {{ $json.التقييم }}/5\nتعليق: {{ $json.التعليق }}" },
+      "id": "node_alert",
+      "name": "تنبيه دعم عاجل",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [720, 200],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "parameters": { "operation": "append", "documentId": "YOUR_SHEET_ID", "sheetName": "Feedback", "columns": { "name": "={{ $json.الاسم }}", "score": "={{ $json.التقييم }}", "comment": "={{ $json.التعليق }}", "category": "={{ $json.التقييم <= 2 ? 'شكوى' : 'إيجابي' }}", "date": "={{ $now }}" } },
+      "id": "node_log",
+      "name": "تسجيل التقييم",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [720, 400],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    }
+  ],
+  "connections": {
+    "تقييم جديد": { "main": [[{ "node": "تصنيف التقييم", "type": "main", "index": 0 }]] },
+    "تصنيف التقييم": { "main": [[{ "node": "تنبيه دعم عاجل", "type": "main", "index": 0 }], [{ "node": "تسجيل التقييم", "type": "main", "index": 0 }]] },
+    "تنبيه دعم عاجل": { "main": [[{ "node": "تسجيل التقييم", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}

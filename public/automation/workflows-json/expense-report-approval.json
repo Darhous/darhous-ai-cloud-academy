@@ -1,0 +1,45 @@
+{
+  "name": "اعتماد تقارير المصروفات",
+  "nodes": [
+    {
+      "parameters": { "formTitle": "طلب مصروف", "formFields": { "values": [{ "fieldLabel": "الاسم", "requiredField": true }, { "fieldLabel": "المبلغ", "fieldType": "number", "requiredField": true }, { "fieldLabel": "السبب", "fieldType": "textarea" }] } },
+      "id": "node_form",
+      "name": "طلب مصروف",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": { "conditions": { "number": [{ "value1": "={{ $json.المبلغ }}", "operation": "smallerEqual", "value2": 500 }] } },
+      "id": "node_check",
+      "name": "التحقق من الحد",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [480, 300]
+    },
+    {
+      "parameters": { "sendTo": "YOUR_MANAGER_EMAIL", "subject": "طلب مصروف جديد: {{ $json.الاسم }}", "emailType": "html", "message": "<p>موظف: {{ $json.الاسم }}</p><p>المبلغ: {{ $json.المبلغ }}</p><p>السبب: {{ $json.السبب }}</p>" },
+      "id": "node_email",
+      "name": "بريد الاعتماد",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [720, 200],
+      "credentials": { "gmailOAuth2": { "id": "YOUR_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "parameters": { "operation": "append", "documentId": "YOUR_SHEET_ID", "sheetName": "Expenses", "columns": { "name": "={{ $json.الاسم }}", "amount": "={{ $json.المبلغ }}", "reason": "={{ $json.السبب }}", "status": "قيد المراجعة", "date": "={{ $now }}" } },
+      "id": "node_log",
+      "name": "تسجيل الطلب",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [720, 400],
+      "credentials": { "googleSheetsOAuth2Api": { "id": "YOUR_CREDENTIAL_ID", "name": "Google Sheets" } }
+    }
+  ],
+  "connections": {
+    "طلب مصروف": { "main": [[{ "node": "التحقق من الحد", "type": "main", "index": 0 }]] },
+    "التحقق من الحد": { "main": [[{ "node": "بريد الاعتماد", "type": "main", "index": 0 }], [{ "node": "بريد الاعتماد", "type": "main", "index": 0 }]] },
+    "بريد الاعتماد": { "main": [[{ "node": "تسجيل الطلب", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}
