@@ -84,6 +84,7 @@ export default function AutomationAgentClient({ onGenerate }: Props) {
   const [blueprint, setBlueprint] = useState<AutomationBlueprint | null>(null);
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
   const [openSection, setOpenSection] = useState<string | null>("summary");
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const totalSteps = 3;
 
@@ -110,45 +111,37 @@ export default function AutomationAgentClient({ onGenerate }: Props) {
     };
 
     setLoading(true);
+    setApiError(null);
     try {
       if (onGenerate) {
         const result = await onGenerate(parsed);
         setBlueprint(result);
-      } else {
-        // Demo mode: show a placeholder blueprint
-        await new Promise((r) => setTimeout(r, 1500));
-        setBlueprint({
-          id: "demo-blueprint",
-          title: `Blueprint: ${parsed.businessGoal.slice(0, 50)}`,
-          summary: "هذا نموذج تجريبي. قم بتوصيل واجهة API لتوليد blueprint حقيقي.",
-          recommendedStack: ["n8n", "Make", "Google Sheets"],
-          stackReasoning: ["n8n مناسب للـ workflows المعقدة", "Make مثالي للـ no-code"],
-          workflowDiagram: ["Trigger → Fetch Data → Process → Notify → Log"],
-          trigger: parsed.trigger || "New form submission",
-          actions: parsed.desiredActions.length ? parsed.desiredActions : ["Process data", "Send notification"],
-          requiredDataFields: parsed.apps,
-          appsInvolved: parsed.apps,
-          implementationPlan: ["أسبوع 1: إعداد البيئة", "أسبوع 2: بناء الـ workflow", "أسبوع 3: الاختبار"],
-          testingChecklist: ["اختبر سيناريو كامل", "تحقق من الأخطاء", "راجع الأداء"],
-          errorHandlingPlan: ["إضافة try/catch", "إشعار عند الفشل"],
-          privacyAndSecurityNotes: ["لا تخزّن بيانات حساسة", "استخدم variables للمفاتيح"],
-          maintenancePlan: ["مراجعة شهرية", "تحديث الـ credentials كل 90 يومًا"],
-          estimatedComplexity: "متوسط",
-          estimatedImplementationTime: "2-3 أسابيع",
-          monthlyCostCategory: "مجاني / مدفوع",
-          expectedROI: "توفير 5-10 ساعات أسبوعيًا",
-          upgradeIdeas: ["إضافة AI summary", "تقارير أسبوعية", "إشعارات واتساب"],
-          clientProposal: "مقترح جاهز للعميل",
-          technicalBrief: "ملخص تقني للمطور",
-          buildPrompts: {
-            n8n: `Build a workflow in n8n for: ${parsed.businessGoal}`,
-            make: `Create a Make scenario for: ${parsed.businessGoal}`,
-            zapier: `Set up a Zap for: ${parsed.businessGoal}`,
-            python: `# Python script for: ${parsed.businessGoal}\n# Tools: ${parsed.apps.join(", ")}`,
-          },
-          savedAt: new Date().toISOString(),
-        });
+        return;
       }
+
+      // Call real API
+      const res = await fetch("/api/automation/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(parsed),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        const msg = (err as { error?: string }).error ?? `خطأ ${res.status}`;
+        // Rate limit or server error — fall back to demo
+        if (res.status === 503 || res.status === 429) {
+          setApiError(msg);
+        } else {
+          setApiError(msg);
+        }
+        return;
+      }
+
+      const blueprint: AutomationBlueprint = await res.json();
+      setBlueprint(blueprint);
+    } catch (e) {
+      setApiError(e instanceof Error ? e.message : "فشل الاتصال بالوكيل. حاول مجدداً.");
     } finally {
       setLoading(false);
     }
@@ -595,6 +588,14 @@ export default function AutomationAgentClient({ onGenerate }: Props) {
               )}
             </button>
           </div>
+
+          {/* API error */}
+          {apiError && (
+            <div className="mt-3 rounded-xl p-3 text-xs flex items-start gap-2" style={{ background: "rgba(248,113,113,0.08)", border: "1px solid rgba(248,113,113,0.2)", color: "#f87171" }}>
+              <span className="shrink-0 mt-0.5">⚠</span>
+              <span>{apiError}</span>
+            </div>
+          )}
         </motion.div>
       )}
 
