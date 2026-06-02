@@ -1,48 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FlaskConical, Clock, Target, Wrench, CheckCircle2, Circle,
   AlertTriangle, ChevronDown, ChevronUp, Zap, ArrowUpRight,
 } from "lucide-react";
 import type { AutomationLab } from "@/data/automation/types";
+import { useLabProgress } from "@/hooks/useAutomationProgress";
 
 const DIFF_COLOR: Record<string, string> = { مبتدئ: "#4ade80", متوسط: "#f59e0b", متقدم: "#f87171" };
-
-function completionKey(id: string) {
-  return `darhous:automation:lab:${id}`;
-}
-
-function readCompletion(id: string, total: number): boolean[] {
-  if (typeof window === "undefined") return Array(total).fill(false);
-  try {
-    const raw = localStorage.getItem(completionKey(id));
-    return raw ? JSON.parse(raw) : Array(total).fill(false);
-  } catch {
-    return Array(total).fill(false);
-  }
-}
 
 interface Props { lab: AutomationLab }
 
 export default function LabDetailClient({ lab }: Props) {
   const color = DIFF_COLOR[lab.level] ?? "#8ed5ff";
-  const [checked, setChecked] = useState<boolean[]>([]);
+  const { checked, toggleItem: toggleCheck } = useLabProgress(lab.id, lab.completionChecklist.length);
   const [openSection, setOpenSection] = useState<string | null>("steps");
-
-  useEffect(() => {
-    setChecked(readCompletion(lab.id, lab.completionChecklist.length));
-  }, [lab.id, lab.completionChecklist.length]);
-
-  function toggleCheck(i: number) {
-    setChecked((prev) => {
-      const next = [...prev];
-      next[i] = !next[i];
-      localStorage.setItem(completionKey(lab.id), JSON.stringify(next));
-      return next;
-    });
-  }
 
   const toggle = (s: string) => setOpenSection((p) => (p === s ? null : s));
   const doneCount = checked.filter(Boolean).length;

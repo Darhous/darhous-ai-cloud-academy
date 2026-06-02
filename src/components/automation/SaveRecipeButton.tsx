@@ -1,28 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Bookmark } from "lucide-react";
-import { isSaved, toggleSaved } from "@/lib/automation/savedRecipes";
+import { useSavedRecipe } from "@/hooks/useAutomationProgress";
 
-interface Props {
-  id: string;
-}
+interface Props { id: string }
 
 export default function SaveRecipeButton({ id }: Props) {
-  const [saved, setSaved] = useState(false);
-
-  useEffect(() => {
-    setSaved(isSaved(id));
-  }, [id]);
-
-  function handleToggle() {
-    const next = toggleSaved(id);
-    setSaved(next);
-  }
+  const { saved, toggle } = useSavedRecipe(id);
 
   return (
     <button
-      onClick={handleToggle}
+      onClick={toggle}
       title={saved ? "إلغاء الحفظ" : "حفظ الوصفة"}
       className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all"
       style={{

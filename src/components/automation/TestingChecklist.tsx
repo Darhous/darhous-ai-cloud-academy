@@ -1,43 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { CheckCircle2, Circle } from "lucide-react";
+import { useRecipeChecklist } from "@/hooks/useAutomationProgress";
 
-interface Props {
-  id: string;
-  items: string[];
-}
-
-function storageKey(id: string) {
-  return `darhous:automation:checklist:${id}`;
-}
-
-function readChecked(id: string): boolean[] {
-  if (typeof window === "undefined") return [];
-  try {
-    const raw = localStorage.getItem(storageKey(id));
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
-}
+interface Props { id: string; items: string[] }
 
 export default function TestingChecklist({ id, items }: Props) {
-  const [checked, setChecked] = useState<boolean[]>([]);
-
-  useEffect(() => {
-    const stored = readChecked(id);
-    setChecked(items.map((_, i) => stored[i] ?? false));
-  }, [id, items]);
-
-  function toggle(i: number) {
-    setChecked((prev) => {
-      const next = [...prev];
-      next[i] = !next[i];
-      localStorage.setItem(storageKey(id), JSON.stringify(next));
-      return next;
-    });
-  }
+  const { checked, toggleItem } = useRecipeChecklist(id, items.length);
 
   const doneCount = checked.filter(Boolean).length;
   const total = items.length;
@@ -59,7 +28,7 @@ export default function TestingChecklist({ id, items }: Props) {
         {items.map((item, i) => (
           <li key={i}>
             <button
-              onClick={() => toggle(i)}
+              onClick={() => toggleItem(i)}
               className="w-full flex items-start gap-2 text-sm text-right transition-opacity hover:opacity-80"
               style={{ color: checked[i] ? "var(--color-on-surface-variant)" : "var(--color-on-surface)" }}
             >
