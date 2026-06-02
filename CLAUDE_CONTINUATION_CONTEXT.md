@@ -9,18 +9,41 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 9.2 — Phase A: Student Engagement Layer ✅ |
-| **Next Version** | v9.3 — Phase B: Admin automation overview tab (optional) OR Phase C: Lab detail pages |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A complete — Pushed ✅ |
+| **Version** | 9.3 — Phase B: Admin Automation Tab ✅ |
+| **Next Version** | v9.4 — Phase C: Lab detail pages `/automation/labs/[labId]` |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B complete — Pushed ✅ |
 | **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (67 warnings, pre-existing pattern) — exit 0 — **1005 pages** |
-| **Last Tag** | `checkpoint/automation-student-layer` |
-| **Commit** | `c4723dc` |
+| **Last Tag** | `checkpoint/automation-admin-tab` |
+| **Commit** | `23aedd2` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (Phase A student engagement layer) |
+| **Last Updated** | 2026-06-03 (Phase B admin automation tab) |
+
+---
+
+## ✅ v9.3 — Phase B: Admin Automation Tab (2026-06-03)
+
+**Tag:** `checkpoint/automation-admin-tab` · **Commit:** `23aedd2`
+
+### What Was Built
+
+| Feature | File | Detail |
+|---------|------|--------|
+| AdminTab "automation" | `src/components/admin/AdminDashboardClient.tsx` | New read-only tab — imports curatedWorkflows static data, no Supabase |
+| Summary stats | — | Total / visible / hidden count + category count cards |
+| Safety distribution | — | Bar chart per safetyStatus with color-coded labels |
+| Difficulty distribution | — | Bar chart مبتدئ/متوسط/متقدم |
+| Category breakdown | — | Sorted bar chart per category |
+| Recipe index table | — | All 20 rows: ID, title, category, difficulty, safety, visible badge |
+| Quick links | — | Links to /automation/templates and /automation portal |
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (67 warnings unchanged)
+- `npm run build` → ✅ exit 0 — **1005 pages**
 
 ---
 
@@ -158,7 +181,7 @@
 | Common mistakes section | ⏳ Pending | `commonMistakes` data exists — render in detail page |
 | Upgrade ideas section | ⏳ Pending | `upgradeIdeas` data exists — render in detail page |
 | Student Hub automation section | ✅ Done v9.2 | savedRecipes + SaveRecipeButton + TestingChecklist + AutomationHubSection |
-| Admin automation overview tab | ⏳ Pending | Read-only audit: visible/hidden count, safety summary |
+| Admin automation overview tab | ✅ Done v9.3 | AdminDashboardClient "automation" tab — counts, charts, recipe index |
 | Lab pages (`/labs/[labId]`) | ⏳ Pending | Connect existing lab data to workflow detail pages |
 | Add more reviewed workflows | ⏳ Future | Next expansion = add objects to `workflowLibrary.ts` only |
 
