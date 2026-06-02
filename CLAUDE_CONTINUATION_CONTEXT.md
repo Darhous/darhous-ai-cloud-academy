@@ -9,18 +9,45 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 9.4 — Phase C: Lab Detail Pages ✅ |
-| **Next Version** | v9.5 — Phase D: Real AI automation agent (replace demo wizard) |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C complete — Pushed ✅ |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings, pre-existing pattern) — exit 0 — **1025 pages** |
-| **Last Tag** | `checkpoint/automation-lab-detail-pages` |
-| **Commit** | `ae195cc` |
+| **Version** | 9.5 — Phase D: Real AI Automation Agent ✅ |
+| **Next Version** | v9.6 — Phase E: Supabase progress tracking OR Phase F: Library expansion |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C+D complete — Pushed ✅ |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings) — exit 0 — **1026 pages** |
+| **Last Tag** | `checkpoint/automation-ai-agent` |
+| **Commit** | `eaa21a0` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (Phase C lab detail pages) |
+| **Last Updated** | 2026-06-03 (Phase D real AI agent via Gemini) |
+
+---
+
+## ✅ v9.5 — Phase D: Real AI Automation Agent (2026-06-03)
+
+**Tag:** `checkpoint/automation-ai-agent` · **Commit:** `eaa21a0`
+
+### What Was Built
+
+| Feature | File | Detail |
+|---------|------|--------|
+| `/api/automation/generate` | `src/app/api/automation/generate/route.ts` | POST handler — receives AutomationAgentInput, calls Gemini (`gemini-2.5-flash`), returns AutomationBlueprint JSON |
+| Gemini system prompt | — | Arabic structured prompt with exact JSON schema, strict rules (no markdown, Arabic content, valid estimatedComplexity values) |
+| JSON extraction | — | `extractJson()` strips markdown fences + handles bare JSON |
+| Rate limiting | — | 5 req/min per IP using existing `checkRateLimit` + `getClientIp` |
+| AutomationAgentClient updated | `src/components/automation/AutomationAgentClient.tsx` | `handleSubmit` calls `/api/automation/generate` → shows error banner on failure |
+
+### Architecture Notes
+- Uses existing `GEMINI_API_KEY` (same as mentor route) — no new env vars needed
+- `extractJson()` is defensive: handles ```json blocks + bare JSON objects
+- Error states: 429 rate-limit, 503 missing key, 500 generation failure — all show Arabic error banner
+- `onGenerate` prop preserved for future override (e.g., server component injection)
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (68 warnings)
+- `npm run build` → ✅ exit 0 — **1026 pages** (+1 dynamic API route)
 
 ---
 
@@ -126,7 +153,7 @@
 - Student Hub: lightweight automation section (saved recipes via localStorage).
 - Admin: read-only automation overview tab (counts, safety summary).
 - Lab detail pages `/automation/labs/[labId]`.
-- Real AI blueprint generator for the Agent (currently deterministic demo wizard).
+- ✅ Real AI blueprint generator (v9.5) — Gemini API, `/api/automation/generate`, Arabic output.
 
 ---
 
