@@ -9,17 +9,45 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 9.1 — Automation Recipe Library CONTENT COMPLETE ✅ |
-| **Next Version** | v9.2 — Student Hub automation section + Admin automation overview tab (optional) |
-| **Status** | ✅ All 6 portals LIVE — Build clean — 20 workflows fully built (maps + JSON + guides) — Pushed ✅ |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (66 warnings, pre-existing pattern) — exit 0 — **1005 pages** |
-| **Last Tag** | `checkpoint/automation-recipe-library-content-complete` |
+| **Version** | 9.2 — Phase A: Student Engagement Layer ✅ |
+| **Next Version** | v9.3 — Phase B: Admin automation overview tab (optional) OR Phase C: Lab detail pages |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A complete — Pushed ✅ |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (67 warnings, pre-existing pattern) — exit 0 — **1005 pages** |
+| **Last Tag** | `checkpoint/automation-student-layer` |
+| **Commit** | `c4723dc` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-02 (v9.0 Automation Recipe Library cards launched) |
+| **Last Updated** | 2026-06-03 (Phase A student engagement layer) |
+
+---
+
+## ✅ v9.2 — Phase A: Student Engagement Layer (2026-06-03)
+
+**Tag:** `checkpoint/automation-student-layer` · **Commit:** `c4723dc`
+
+### What Was Built
+
+| Feature | File(s) | Detail |
+|---------|---------|--------|
+| savedRecipes.ts | `src/lib/automation/savedRecipes.ts` | SSR-safe localStorage helpers: `getSaved()`, `isSaved(id)`, `toggleSaved(id)` — key `darhous:automation:saved` |
+| SaveRecipeButton | `src/components/automation/SaveRecipeButton.tsx` | Client component — Bookmark icon, live saved state, shown in TemplateDetailClient hero |
+| TestingChecklist | `src/components/automation/TestingChecklist.tsx` | Interactive checkboxes with progress bar (X/Y done), state persisted per workflow (key `darhous:automation:checklist:{id}`) — replaces static list in accordion |
+| TemplateDetailClient updated | `src/components/automation/TemplateDetailClient.tsx` | +SaveRecipeButton in hero, testing accordion → TestingChecklist component |
+| AutomationHubSection | `src/components/dashboard/StudentDashboardClient.tsx` | Inline component added to overview tab — saved count badge, 3 beginner workflow picks, links to /templates and /automation-agent |
+| Landing page alignment | `src/app/[locale]/automation/page.tsx` | Stats bar + section card: "30+ قالب" → "20 وصفة منتقاة" |
+
+### Architecture Notes
+- localStorage only — no Supabase tables for Phase A
+- All client components are SSR-safe (typeof window check / useEffect hydration)
+- BEGINNER_WORKFLOWS constant computed once at module level from curatedWorkflows — no redundant imports
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (67 warnings, +2 from new useEffect setState pattern — same pre-existing pattern)
+- `npm run build` → ✅ exit 0 — **1005 pages**
 
 ---
 
@@ -129,7 +157,7 @@
 | Testing checklist interactive | ⏳ Pending | `testingChecklist` data exists — wire interactive checkboxes |
 | Common mistakes section | ⏳ Pending | `commonMistakes` data exists — render in detail page |
 | Upgrade ideas section | ⏳ Pending | `upgradeIdeas` data exists — render in detail page |
-| Student Hub automation section | ⏳ Pending | Add lightweight saved recipes + progress to Hub |
+| Student Hub automation section | ✅ Done v9.2 | savedRecipes + SaveRecipeButton + TestingChecklist + AutomationHubSection |
 | Admin automation overview tab | ⏳ Pending | Read-only audit: visible/hidden count, safety summary |
 | Lab pages (`/labs/[labId]`) | ⏳ Pending | Connect existing lab data to workflow detail pages |
 | Add more reviewed workflows | ⏳ Future | Next expansion = add objects to `workflowLibrary.ts` only |
