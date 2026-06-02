@@ -9,18 +9,51 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 9.5 — Phase D: Real AI Automation Agent ✅ |
-| **Next Version** | v9.6 — Phase E: Supabase progress tracking OR Phase F: Library expansion |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C+D complete — Pushed ✅ |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings) — exit 0 — **1026 pages** |
-| **Last Tag** | `checkpoint/automation-ai-agent` |
-| **Commit** | `eaa21a0` |
+| **Version** | 9.6 — Phase F: Library Expansion → 25 Workflows ✅ |
+| **Next Version** | v9.7 — Phase E: Supabase progress tracking (new table needed) |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C+D+F complete — Pushed ✅ |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings) — exit 0 — **1036 pages** |
+| **Last Tag** | `checkpoint/automation-library-25-workflows` |
+| **Commit** | `33c564d` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (Phase D real AI agent via Gemini) |
+| **Last Updated** | 2026-06-03 (Phase F library expanded to 25 workflows) |
+
+---
+
+## ✅ v9.6 — Phase F: Library Expansion to 25 Workflows (2026-06-03)
+
+**Tag:** `checkpoint/automation-library-25-workflows` · **Commit:** `33c564d`
+
+### 5 New Workflows Added
+
+| # | ID | Category | Difficulty |
+|---|-----|---------|------------|
+| 21 | `expense-report-approval` | Finance Automation | متوسط |
+| 22 | `customer-feedback-routing` | Customer Support | مبتدئ |
+| 23 | `newsletter-subscriber-welcome` | Marketing Campaign | مبتدئ |
+| 24 | `project-task-from-email` | Internal Operations | متوسط |
+| 25 | `inventory-low-stock-alert` | E-commerce Automation | متوسط |
+
+### Per Workflow: 3-layer data structure
+- `workflowLibrary.ts` entry (metadata, filters, SEO)
+- `details/[slug].ts` (workflowMapNodes, businessUseCase, whoNeedsIt)
+- `public/automation/workflows-json/[slug].json` (n8n educational JSON)
+- Registered in `details/index.ts`
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run build` → ✅ exit 0 — **1036 pages** (was 1026 + 10)
+
+### ⚠️ TO ADD MORE WORKFLOWS (the ONLY steps needed)
+1. Add object to `workflowLibrary.ts`
+2. Add `details/[slug].ts`
+3. Add `public/automation/workflows-json/[slug].json`
+4. Register in `details/index.ts`
+→ Template, route, filters, sitemap all update automatically.
 
 ---
 
@@ -230,7 +263,7 @@
 | Student Hub automation section | ✅ Done v9.2 | savedRecipes + SaveRecipeButton + TestingChecklist + AutomationHubSection |
 | Admin automation overview tab | ✅ Done v9.3 | AdminDashboardClient "automation" tab — counts, charts, recipe index |
 | Lab pages (`/labs/[labId]`) | ✅ Done v9.4 | LabDetailClient + 20 static pages + completion checklist |
-| Add more reviewed workflows | ⏳ Future | Next expansion = add objects to `workflowLibrary.ts` only |
+| Add more reviewed workflows | ✅ Done v9.6 — 25 workflows total (+5 new categories) |
 
 ### ⚠️ NEXT SESSION MUST DO
 
