@@ -6,9 +6,11 @@ import {
   TrendingUp, BookOpen, Save, Award, Brain, Activity,
   Bookmark, Sparkles, LogOut, Settings, Star, Clock, ChevronRight, ChevronLeft,
   Flame, Trophy, Grid3X3, User, Calendar, Bell, Shield, Download, Share2,
-  CheckCircle, Bot, Target, Zap, LayoutDashboard, FileText, Map,
+  CheckCircle, Bot, Target, Zap, LayoutDashboard, FileText, Map, Layers,
 } from "lucide-react";
 import { portals } from "@/config/portals";
+import { curatedWorkflows } from "@/data/automation/workflowLibrary";
+import { getSaved } from "@/lib/automation/savedRecipes";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import type { UserProfile } from "@/lib/auth/roles";
@@ -85,6 +87,74 @@ function StatCard({ icon, value, labelAr, labelEn, color, isAr, pulse }: {
       <div>
         <p className="font-bold text-2xl font-mono" style={{ color: "var(--color-on-surface)" }}>{value}</p>
         <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? labelAr : labelEn}</p>
+      </div>
+    </div>
+  );
+}
+
+const BEGINNER_WORKFLOWS = curatedWorkflows
+  .filter((w) => w.difficulty === "مبتدئ" && w.visible !== false)
+  .slice(0, 3);
+
+function AutomationHubSection({ locale, isAr }: { locale: string; isAr: boolean }) {
+  const [savedCount, setSavedCount] = useState(0);
+
+  useEffect(() => {
+    setSavedCount(getSaved().length);
+  }, []);
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="font-display font-bold text-xl flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+          <Zap size={18} style={{ color: "#4ade80" }} />
+          {isAr ? "بوابة الأتمتة" : "Automation Hub"}
+        </h2>
+        <div className="flex items-center gap-3">
+          {savedCount > 0 && (
+            <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: "rgba(74,222,128,0.1)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.2)" }}>
+              <Bookmark size={11} className="inline ml-1" />{savedCount} {isAr ? "محفوظة" : "saved"}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Recommended beginners */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+        {BEGINNER_WORKFLOWS.map((w) => (
+          <Link
+            key={w.id}
+            href={`/${locale}/automation/templates/${w.id}`}
+            className="glass-card rounded-2xl p-4 flex flex-col gap-2 transition-all hover:scale-[1.01] hover:-translate-y-0.5"
+            style={{ border: "1px solid rgba(74,222,128,0.1)", textDecoration: "none" }}
+          >
+            <p className="text-[10px] font-mono" style={{ color: "#4ade80" }}>
+              {isAr ? "موصى للمبتدئين" : "Beginner pick"}
+            </p>
+            <p className="text-sm font-semibold leading-snug" style={{ color: "var(--color-on-surface)" }}>{w.title}</p>
+            <p className="text-[11px]" style={{ color: "var(--color-on-surface-variant)" }}>{w.category}</p>
+          </Link>
+        ))}
+      </div>
+
+      {/* CTA links */}
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href={`/${locale}/automation/templates`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all"
+          style={{ background: "rgba(74,222,128,0.08)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.2)" }}
+        >
+          <Layers size={14} />
+          {isAr ? "مكتبة الوصفات" : "Recipe Library"}
+        </Link>
+        <Link
+          href={`/${locale}/automation/automation-agent`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all"
+          style={{ background: "rgba(249,115,22,0.08)", color: "#f97316", border: "1px solid rgba(249,115,22,0.2)" }}
+        >
+          <Bot size={14} />
+          {isAr ? "وكيل الأتمتة" : "Automation Agent"}
+        </Link>
       </div>
     </div>
   );
@@ -460,6 +530,9 @@ export default function StudentDashboardClient({ locale }: Props) {
           {/* localStorage panels */}
           <MySpacePanel locale={locale} />
           <SavedPromptsPanel locale={locale} />
+
+          {/* Automation section */}
+          <AutomationHubSection locale={locale} isAr={isAr} />
         </div>
       )}
 

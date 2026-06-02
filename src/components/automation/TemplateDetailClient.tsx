@@ -21,6 +21,8 @@ import type { AutomationTemplate, WorkflowDetail } from "@/data/automation/types
 import SafetyBadge from "./SafetyBadge";
 import WorkflowMapClient from "./WorkflowMapClient";
 import JsonViewer from "./JsonViewer";
+import SaveRecipeButton from "./SaveRecipeButton";
+import TestingChecklist from "./TestingChecklist";
 
 const ACCESS_COLORS: Record<string, string> = {
   Free: "#4ade80",
@@ -104,6 +106,11 @@ export default function TemplateDetailClient({ template, detail, jsonUrl }: Prop
             ))}
           </div>
         )}
+
+        {/* Save button */}
+        <div className="mt-4 flex justify-start">
+          <SaveRecipeButton id={template.id} />
+        </div>
       </div>
 
       {/* ── Business value cards ─────────────────────────── */}
@@ -227,14 +234,7 @@ export default function TemplateDetailClient({ template, detail, jsonUrl }: Prop
             );
           } else if (sec.id === "testing") {
             content = (
-              <ul className="space-y-2">
-                {template.testingChecklist.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                    <CheckCircle2 size={13} className="shrink-0 mt-0.5" style={{ color: sec.color }} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <TestingChecklist id={template.id} items={template.testingChecklist} />
             );
           } else if (sec.id === "risks") {
             content = (

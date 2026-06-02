@@ -12,8 +12,8 @@ export async function generateMetadata({
   return {
     title: isAr ? "أكاديمية درهوس للأتمتة | درهوس" : "Darhous Automation Academy | Darhous",
     description: isAr
-      ? "تعلم الأتمتة التجارية، استكشف 30+ قالب جاهز، وابنِ workflows ذكية لأعمالك."
-      : "Learn business automation with 30+ ready templates, tools explorer, and workflow builder.",
+      ? "تعلم الأتمتة التجارية، استكشف 20 وصفة منتقاة، وابنِ workflows ذكية لأعمالك."
+      : "Learn business automation with 20 curated recipes, tools explorer, and workflow builder.",
     robots: { index: true },
   };
 }
@@ -22,9 +22,9 @@ const SECTIONS = [
   {
     href: "/automation/templates",
     icon: <Layers size={22} />,
-    titleAr: "مكتبة القوالب",
-    descAr: "30+ قالب أتمتة جاهز للتنفيذ: من ترحيب الطلاب إلى أتمتة المبيعات والموارد البشرية.",
-    badge: "30+ قالب",
+    titleAr: "مكتبة الوصفات",
+    descAr: "20 وصفة أتمتة منتقاة جاهزة للتنفيذ: من ترحيب الطلاب إلى أتمتة المبيعات والموارد البشرية.",
+    badge: "20 وصفة",
     color: "#4ade80",
   },
   {
@@ -115,7 +115,7 @@ export default async function AutomationPage({
         {/* Stats bar */}
         <div className="flex flex-wrap justify-center gap-8 mb-16 py-6 rounded-2xl" style={{ background: "rgba(74,222,128,0.04)", border: "1px solid rgba(74,222,128,0.1)" }}>
           {[
-            { v: "30+", l: "قالب أتمتة جاهز" },
+            { v: "20", l: "وصفة أتمتة منتقاة" },
             { v: "15+", l: "أداة موثقة" },
             { v: "10+", l: "مسار تعلم" },
             { v: "10", l: "باقة خدمة احترافية" },
