@@ -9,18 +9,38 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 9.3 — Phase B: Admin Automation Tab ✅ |
-| **Next Version** | v9.4 — Phase C: Lab detail pages `/automation/labs/[labId]` |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B complete — Pushed ✅ |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (67 warnings, pre-existing pattern) — exit 0 — **1005 pages** |
-| **Last Tag** | `checkpoint/automation-admin-tab` |
-| **Commit** | `23aedd2` |
+| **Version** | 9.4 — Phase C: Lab Detail Pages ✅ |
+| **Next Version** | v9.5 — Phase D: Real AI automation agent (replace demo wizard) |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C complete — Pushed ✅ |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings, pre-existing pattern) — exit 0 — **1025 pages** |
+| **Last Tag** | `checkpoint/automation-lab-detail-pages` |
+| **Commit** | `ae195cc` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (Phase B admin automation tab) |
+| **Last Updated** | 2026-06-03 (Phase C lab detail pages) |
+
+---
+
+## ✅ v9.4 — Phase C: Lab Detail Pages (2026-06-03)
+
+**Tag:** `checkpoint/automation-lab-detail-pages` · **Commit:** `ae195cc`
+
+### What Was Built
+
+| Feature | File | Detail |
+|---------|------|--------|
+| LabDetailClient | `src/components/automation/LabDetailClient.tsx` | Hero, scenario, expected output, accordion (steps/mistakes/challenge), interactive completion checklist |
+| Completion checklist | — | localStorage per lab (key `darhous:automation:lab:{id}`), progress bar, completion badge |
+| Lab detail pages | `src/app/[locale]/automation/labs/[labId]/page.tsx` | generateStaticParams → 10 labs × 2 locales = 20 new pages |
+| Labs listing updated | `src/app/[locale]/automation/labs/page.tsx` | "ابدأ المعمل" CTA link on each card |
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (68 warnings)
+- `npm run build` → ✅ exit 0 — **1025 pages** (was 1005 + 20)
 
 ---
 
@@ -182,7 +202,7 @@
 | Upgrade ideas section | ⏳ Pending | `upgradeIdeas` data exists — render in detail page |
 | Student Hub automation section | ✅ Done v9.2 | savedRecipes + SaveRecipeButton + TestingChecklist + AutomationHubSection |
 | Admin automation overview tab | ✅ Done v9.3 | AdminDashboardClient "automation" tab — counts, charts, recipe index |
-| Lab pages (`/labs/[labId]`) | ⏳ Pending | Connect existing lab data to workflow detail pages |
+| Lab pages (`/labs/[labId]`) | ✅ Done v9.4 | LabDetailClient + 20 static pages + completion checklist |
 | Add more reviewed workflows | ⏳ Future | Next expansion = add objects to `workflowLibrary.ts` only |
 
 ### ⚠️ NEXT SESSION MUST DO
