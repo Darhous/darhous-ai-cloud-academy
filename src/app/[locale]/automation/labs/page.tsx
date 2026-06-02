@@ -92,6 +92,14 @@ export default async function AutomationLabsPage({
                 <p className="font-semibold mb-1" style={{ color }}>تحدي إضافي</p>
                 <p style={{ color: "var(--color-on-surface-variant)" }}>{lab.challengeTask}</p>
               </div>
+
+              <Link
+                href={`/${locale}/automation/labs/${lab.id}`}
+                className="mt-auto w-full text-center py-2.5 rounded-xl text-sm font-semibold transition-all hover:opacity-80"
+                style={{ background: `${color}12`, color, border: `1px solid ${color}25` }}
+              >
+                ابدأ المعمل
+              </Link>
             </div>
           );
         })}
