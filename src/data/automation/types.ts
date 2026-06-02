@@ -1,4 +1,17 @@
 export type Difficulty = "مبتدئ" | "متوسط" | "متقدم";
+export type SafetyStatus = "آمن" | "يحتاج مراجعة" | "متقدم" | "غير آمن";
+
+export interface WorkflowMapNode {
+  id: string;
+  label: string;
+  type: "trigger" | "action" | "condition" | "ai" | "output" | "transform" | "notification" | "storage";
+  tool: string;
+  description: string;
+  input?: string;
+  output?: string;
+  riskNote?: string;
+  order: number;
+}
 export type PricingCategory = "مجاني" | "مجاني / مدفوع" | "مدفوع" | "مفاهيمي";
 export type Department =
   | "sales"
@@ -106,6 +119,28 @@ export interface AutomationTemplate {
   trigger: string;
   actions: string[];
   featured?: boolean;
+  // Extended fields for Recipe Library product
+  shortDescription?: string;
+  businessValue?: string;
+  requiredAccounts?: string[];
+  credentialsGuide?: string;
+  nodeCount?: number;
+  tags?: string[];
+  seoHashtags?: string[];
+  industry?: string;
+  triggerType?: string;
+  integrations?: string[];
+  hasCleanedJson?: boolean;
+  cleanedJson?: Record<string, unknown>;
+  jsonFileName?: string;
+  workflowMapNodes?: WorkflowMapNode[];
+  relatedTemplateIds?: string[];
+  relatedLabIds?: string[];
+  relatedChecklistIds?: string[];
+  commonMistakes?: string[];
+  safetyStatus?: SafetyStatus;
+  safetyNotes?: string;
+  visible?: boolean;
 }
 
 export interface AutomationRecipe {
