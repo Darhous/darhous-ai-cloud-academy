@@ -7,6 +7,7 @@ interface Props {
   status: SafetyStatus;
   notes?: string;
   className?: string;
+  size?: "sm" | "md";
 }
 
 const CONFIG: Record<SafetyStatus, { color: string; bg: string; border: string; icon: React.ReactNode; label: string }> = {

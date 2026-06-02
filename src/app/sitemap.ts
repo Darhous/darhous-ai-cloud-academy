@@ -3,6 +3,7 @@ import { courses } from "@/data/courses";
 import { tools } from "@/data/tools";
 import { projects } from "@/data/projects";
 import { blogPosts } from "@/data/blog";
+import { curatedWorkflows } from "@/data/automation/workflowLibrary";
 
 const BASE_URL = "https://darhous-ai-cloud-academy.vercel.app";
 const locales = ["ar", "en"];
@@ -81,5 +82,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...staticEntries, ...courseEntries, ...toolEntries, ...projectEntries, ...blogEntries];
+  // Automation Recipe Library — only the 20 visible curated workflows
+  const workflowEntries = locales.flatMap((locale) =>
+    curatedWorkflows
+      .filter((w) => w.visible !== false)
+      .map((w) => ({
+        url: `${BASE_URL}/${locale}/automation/templates/${w.id}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.75,
+      }))
+  );
+
+  return [...staticEntries, ...courseEntries, ...toolEntries, ...projectEntries, ...blogEntries, ...workflowEntries];
 }
