@@ -31,7 +31,8 @@ export interface GeminiMessage {
 export async function callGemini(
   messages: GeminiMessage[],
   systemPrompt: string,
-  model?: string
+  model?: string,
+  maxOutputTokens?: number
 ): Promise<string> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
@@ -51,7 +52,7 @@ export async function callGemini(
     contents,
     generationConfig: {
       temperature: 0.7,
-      maxOutputTokens: 2048,
+      maxOutputTokens: maxOutputTokens ?? 2048,
       topP: 0.9,
     },
   };

@@ -103,7 +103,8 @@ trigger المطلوب: ${input.trigger || "غير محدد"}
     const raw = await callGemini(
       [{ role: "user", content: userMessage }],
       SYSTEM_PROMPT,
-      "gemini-2.5-flash"
+      "gemini-2.5-flash",
+      8192
     );
 
     const jsonStr = extractJson(raw);
