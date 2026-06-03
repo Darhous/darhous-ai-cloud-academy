@@ -9,18 +9,62 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 9.7.1 — QA Verified ✅ |
-| **Next Version** | v10 — Polish & UX improvements |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C+D+E+F ALL COMPLETE — v9.7 QA PASSED ✅ |
+| **Version** | 9.7.3 — Live QA Complete ✅ |
+| **Next Version** | v10 — Polish & UX improvements (automation portal first) |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C+D+E+F ALL COMPLETE — Live QA PASSED ✅ |
 | **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings) — exit 0 — **1037 pages** |
-| **Last Tag** | `checkpoint/v9.7-verified` |
-| **Commit** | `a8b4a38` |
+| **Last Tag** | `checkpoint/v9.7.2-full-alignment` |
+| **Commit** | `a149cd8` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (v9.7 QA complete — SQL migration confirmed — all features verified) |
+| **Last Updated** | 2026-06-03 (Live QA on Vercel — Supabase sync confirmed — bug fixed: maxOutputTokens 8192) |
+
+---
+
+## ✅ v9.7.3 — Live QA on Vercel + Bug Fix (2026-06-03)
+
+**Tags:** `checkpoint/v9.7.2-full-alignment` · **Last Commit:** `a149cd8`
+
+### Live QA Results (tested on https://darhous-ai-cloud-academy.vercel.app)
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Landing page stats bar "25 وصفة" | ✅ Pass | Fixed in this session (was 20 in stats bar line 118) |
+| Landing page portals.ts "25 وصفة" | ✅ Pass | Fixed (was "30+ قالب") |
+| /automation/templates — 25 cards | ✅ Pass | Dynamic from curatedWorkflows |
+| expense-report-approval detail page | ✅ Pass | Hero, map, JSON viewer, TestingChecklist toggle |
+| /automation/labs — 10 معامل | ✅ Pass | "ابدأ المعمل" buttons navigate correctly |
+| /automation/labs/lab-1 — detail | ✅ Pass | Hero, steps, completion checklist |
+| Lab completion checklist toggle | ✅ Pass | "1/3" counter + progress bar updates |
+| Supabase sync (lab progress) | ✅ Pass | State persists after page refresh (verified live) |
+| /automation/automation-agent wizard | ✅ Pass | 3 steps work, fields fillable |
+| API /api/automation/generate | 🔧 Fixed | maxOutputTokens 2048→8192 (was truncating JSON) |
+| Gemini 503 error handling | ✅ Pass | Shows Arabic error, allows retry |
+| StudentDashboard AutomationHubSection | ✅ Pass | "3 محفوظة" badge + 3 beginner workflows + links |
+| Admin Tab "بوابة الأتمتة" | ✅ Pass | 25 total, 25 visible, 0 hidden, 13 categories |
+| Admin charts (safety + difficulty) | ✅ Pass | آمن:16, يحتاج مراجعة:8, متقدم:1 |
+| Admin recipe index table | ✅ Pass | 25 rows — last row: inventory-low-stock-alert |
+| Admin system health | ✅ Pass | All 6 portals, Supabase DB, Gemini AI, Resend — all green |
+| Admin protection (non-admin blocked) | ✅ Pass | "غير مصرح لك" shown correctly |
+
+### Fixes in This Session
+| File | Fix |
+|------|-----|
+| `src/app/[locale]/automation/page.tsx` line 118 | stats bar: `"20"` → `"25"` |
+| `src/config/portals.ts` | description + features: `"30+ قالب"` → `"25 وصفة منتقاة"` |
+| `src/lib/gemini.ts` | added optional `maxOutputTokens` param (default 2048) |
+| `src/app/api/automation/generate/route.ts` | passes `8192` tokens — blueprint no longer truncates |
+
+### Known Issues
+- Gemini API occasional 503 (high demand) — transient, error handling shows correct message
+- Admin Tab tested via live site (not reproducible locally without service_role key)
+
+### ⚠️ "لوحة الطالب — قريبًا" locally
+Normal behavior — `.env.local` lacks `NEXT_PUBLIC_SUPABASE_*` so `supabaseConfigured = false`.
+On Vercel (with env vars set) it shows correctly as "لوحتي".
 
 ---
 
