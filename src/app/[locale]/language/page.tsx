@@ -15,6 +15,16 @@ export async function generateMetadata({
     description: isAr
       ? "اختبارات تحديد مستوى اللغة الإنجليزية وتقييم المهارات"
       : "English language level assessment and skills evaluation",
+    robots: { index: true },
+    openGraph: {
+      title: isAr ? "بوابة اللغة — درهوس" : "Language Portal — Darhous",
+      description: isAr
+        ? "قيّم مستواك الإنجليزي عبر 150+ سؤال تكيفي، واحصل على شهادة CEFR وخطة دراسية مخصصة."
+        : "Assess your English level with 150+ adaptive questions, get a CEFR certificate and personalized study plan.",
+      url: `/${locale}/language`,
+      images: [{ url: "/og-image.svg" }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 

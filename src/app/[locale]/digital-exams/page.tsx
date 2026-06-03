@@ -16,6 +16,16 @@ export async function generateMetadata({
     description: isAr
       ? "اختبارات IT وOffice والأمن السيبراني ومهارات التحول الرقمي"
       : "IT, Office suite, Cybersecurity, and digital transformation skills exams",
+    robots: { index: true },
+    openGraph: {
+      title: isAr ? "اختبارات التحول الرقمي — درهوس" : "Digital Transformation Exams — Darhous",
+      description: isAr
+        ? "7 اختبارات معتمدة: IT Fundamentals، Word، Excel، PowerPoint، Access، Cybersecurity، التحول الرقمي — ابدأ مجاناً."
+        : "7 certified exams: IT Fundamentals, Word, Excel, PowerPoint, Access, Cybersecurity, Digital Transformation — free to start.",
+      url: `/${locale}/digital-exams`,
+      images: [{ url: "/og-image.svg" }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 

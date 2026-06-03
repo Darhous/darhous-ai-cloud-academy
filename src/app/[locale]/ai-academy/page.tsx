@@ -22,6 +22,16 @@ export async function generateMetadata({
     description: isAr
       ? "تعلم الذكاء الاصطناعي، أدوات AI، البرومبتات، والمشاريع العملية — بوابة AI الكاملة"
       : "Learn AI, AI tools, prompts, and hands-on projects — the complete AI portal",
+    robots: { index: true },
+    openGraph: {
+      title: isAr ? "أكاديمية الذكاء الاصطناعي — درهوس" : "AI Academy — Darhous",
+      description: isAr
+        ? "دورات AI، أدوات مُختبرة، مشاريع تطبيقية، ومرشد ذكاء اصطناعي — كل ما تحتاجه لإتقان AI."
+        : "AI courses, tested tools, hands-on projects, and an AI mentor — everything you need to master AI.",
+      url: `/${locale}/ai-academy`,
+      images: [{ url: "/og-image.svg" }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 

@@ -15,6 +15,15 @@ export async function generateMetadata({
       ? "حلل سيرتك الذاتية بالذكاء الاصطناعي، اكتشف فجوات مهاراتك، وتحضّر للمقابلات بثقة."
       : "AI-powered CV analysis, ATS scoring, job matching and interview preparation.",
     robots: { index: true },
+    openGraph: {
+      title: isAr ? "بوابة درهوس المهنية" : "Darhous Career Hub",
+      description: isAr
+        ? "حلل سيرتك الذاتية بالذكاء الاصطناعي، درجة ATS، بناء السيرة الذاتية، تحضير المقابلات وقوالب جاهزة."
+        : "AI CV analysis, ATS score, CV builder, interview prep and ready-to-use templates.",
+      url: `/${locale}/career`,
+      images: [{ url: "/og-image.svg" }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 
