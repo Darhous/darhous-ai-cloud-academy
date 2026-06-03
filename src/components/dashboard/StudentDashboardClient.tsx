@@ -232,6 +232,156 @@ function DigitalExamsHubSection({ locale, isAr }: { locale: string; isAr: boolea
   );
 }
 
+/* ── Career Hub Section ──────────────────────────────────────── */
+function CareerHubSection({ locale, isAr }: { locale: string; isAr: boolean }) {
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="font-display font-bold text-xl flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+          <span style={{ fontSize: "18px" }}>💼</span>
+          {isAr ? "بوابة المهنة" : "Career Hub"}
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+        {[
+          { label: isAr ? "محلل ATS" : "ATS Analyzer", icon: "📄", href: `/${locale}/career/cv-analyzer`, color: "#f59e0b" },
+          { label: isAr ? "صانع CV" : "CV Builder", icon: "✏️", href: `/${locale}/career/builder`, color: "#4ade80" },
+          { label: isAr ? "تحضير مقابلة" : "Interview Prep", icon: "🎯", href: `/${locale}/career/interview`, color: "#8ed5ff" },
+          { label: isAr ? "فرص العمل" : "Job Explorer", icon: "🔍", href: `/${locale}/career/jobs`, color: "#f97316" },
+        ].map((tool) => (
+          <Link
+            key={tool.href}
+            href={tool.href}
+            className="glass-card rounded-2xl p-4 flex flex-col gap-2 items-center text-center transition-all hover:scale-[1.02]"
+            style={{ border: `1px solid ${tool.color}15`, textDecoration: "none" }}
+          >
+            <span style={{ fontSize: "22px" }}>{tool.icon}</span>
+            <p className="text-xs font-semibold" style={{ color: tool.color }}>{tool.label}</p>
+          </Link>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href={`/${locale}/career`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(245,158,11,0.08)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.2)" }}
+        >
+          💼 {isAr ? "دخول البوابة" : "Enter Portal"}
+        </Link>
+        <Link
+          href={`/${locale}/career/templates`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(74,222,128,0.08)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.2)" }}
+        >
+          📋 {isAr ? "قوالب CV" : "CV Templates"}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+/* ── IoT Lab Hub Section ─────────────────────────────────────── */
+function IoTHubSection({ locale, isAr }: { locale: string; isAr: boolean }) {
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="font-display font-bold text-xl flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+          <span style={{ fontSize: "18px" }}>🔌</span>
+          {isAr ? "مختبر IoT والأردوينو" : "IoT Lab & Arduino"}
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+        {[
+          { label: isAr ? "60 درس" : "60 Lessons", icon: "📚", href: `/${locale}/iot-lab/lessons`, color: "#f97316" },
+          { label: isAr ? "73 مشروع" : "73 Projects", icon: "🛠️", href: `/${locale}/iot-lab/projects`, color: "#4ade80" },
+          { label: isAr ? "41 تحدي" : "41 Challenges", icon: "⚡", href: `/${locale}/iot-lab/challenges`, color: "#8ed5ff" },
+          { label: isAr ? "81 مكوّن" : "81 Components", icon: "🔧", href: `/${locale}/iot-lab/components`, color: "#f59e0b" },
+        ].map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="glass-card rounded-2xl p-4 flex flex-col gap-2 items-center text-center transition-all hover:scale-[1.02]"
+            style={{ border: `1px solid ${item.color}15`, textDecoration: "none" }}
+          >
+            <span style={{ fontSize: "22px" }}>{item.icon}</span>
+            <p className="text-xs font-semibold" style={{ color: item.color }}>{item.label}</p>
+          </Link>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href={`/${locale}/iot-lab`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(249,115,22,0.08)", color: "#f97316", border: "1px solid rgba(249,115,22,0.2)" }}
+        >
+          🔌 {isAr ? "دخول المختبر" : "Enter Lab"}
+        </Link>
+        <Link
+          href={`/${locale}/iot-lab/lessons`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(74,222,128,0.08)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.2)" }}
+        >
+          📚 {isAr ? "ابدأ التعلم" : "Start Learning"}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+/* ── AI Academy Hub Section ──────────────────────────────────── */
+function AIAcademyHubSection({ locale, isAr }: { locale: string; isAr: boolean }) {
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="font-display font-bold text-xl flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+          <span style={{ fontSize: "18px" }}>🤖</span>
+          {isAr ? "أكاديمية الذكاء الاصطناعي" : "AI Academy"}
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+        {[
+          { label: isAr ? "19 دورة" : "19 Courses", icon: "🎓", href: `/${locale}/courses`, color: "#8ed5ff" },
+          { label: isAr ? "62 أداة AI" : "62 AI Tools", icon: "🛠️", href: `/${locale}/tools`, color: "#4ade80" },
+          { label: isAr ? "27 برومبت" : "27 Prompts", icon: "✨", href: `/${locale}/prompts`, color: "#d0bcff" },
+          { label: isAr ? "مرشد AI" : "AI Mentor", icon: "🧠", href: `/${locale}/mentor`, color: "#f59e0b" },
+        ].map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="glass-card rounded-2xl p-4 flex flex-col gap-2 items-center text-center transition-all hover:scale-[1.02]"
+            style={{ border: `1px solid ${item.color}15`, textDecoration: "none" }}
+          >
+            <span style={{ fontSize: "22px" }}>{item.icon}</span>
+            <p className="text-xs font-semibold" style={{ color: item.color }}>{item.label}</p>
+          </Link>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href={`/${locale}/ai-academy`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(142,213,255,0.08)", color: "#8ed5ff", border: "1px solid rgba(142,213,255,0.2)" }}
+        >
+          🤖 {isAr ? "دخول الأكاديمية" : "Enter Academy"}
+        </Link>
+        <Link
+          href={`/${locale}/mentor`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(208,188,255,0.08)", color: "#d0bcff", border: "1px solid rgba(208,188,255,0.2)" }}
+        >
+          🧠 {isAr ? "اسأل المرشد" : "Ask AI Mentor"}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 /* ════════════════════════════════════════════════════════════════
    MAIN EXPORT
 ════════════════════════════════════════════════════════════════ */
@@ -608,6 +758,15 @@ export default function StudentDashboardClient({ locale }: Props) {
 
           {/* Digital Exams section */}
           <DigitalExamsHubSection locale={locale} isAr={isAr} />
+
+          {/* Career Hub section */}
+          <CareerHubSection locale={locale} isAr={isAr} />
+
+          {/* IoT Lab section */}
+          <IoTHubSection locale={locale} isAr={isAr} />
+
+          {/* AI Academy section */}
+          <AIAcademyHubSection locale={locale} isAr={isAr} />
         </div>
       )}
 

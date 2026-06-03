@@ -30,7 +30,7 @@ export const STATS = {
   ar: [
     { value: "12+", label: "مسار تعليمي", color: "primary" },
     { value: "100+", label: "درس مقترح", color: "tertiary" },
-    { value: "50+", label: "أداة ذكاء اصطناعي", color: "secondary" },
+    { value: "60+", label: "أداة ذكاء اصطناعي", color: "secondary" },
     { value: "30+", label: "مشروع عملي", color: "primary" },
     { value: "4", label: "مسارات كلاود", color: "tertiary" },
     { value: "∞", label: "منصة عربية متكاملة", color: "secondary" },
@@ -38,7 +38,7 @@ export const STATS = {
   en: [
     { value: "12+", label: "Learning Paths", color: "primary" },
     { value: "100+", label: "Lessons", color: "tertiary" },
-    { value: "50+", label: "AI Tools", color: "secondary" },
+    { value: "60+", label: "AI Tools", color: "secondary" },
     { value: "30+", label: "Real Projects", color: "primary" },
     { value: "4", label: "Cloud Tracks", color: "tertiary" },
     { value: "∞", label: "Arabic Platform", color: "secondary" },

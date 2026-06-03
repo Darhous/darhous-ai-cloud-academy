@@ -148,7 +148,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  // Digital Exams — 7 subjects × 2 locales = 14 entries
+  // Digital Exams — 9 subjects × 2 locales = 18 entries
   const examSubjectEntries = locales.flatMap((locale) =>
     examSubjects.map((subject) => ({
       url: `${BASE_URL}/${locale}/digital-exams/${subject.id}`,

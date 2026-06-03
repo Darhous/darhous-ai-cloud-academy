@@ -16,6 +16,9 @@ import { curatedWorkflows } from "@/data/automation/workflowLibrary";
 import { examSubjects } from "@/data/digital-exam-subjects";
 import { courses } from "@/data/courses";
 import { tools } from "@/data/tools";
+import { lessonsData } from "@/data/iot/lessons";
+import { projectsData } from "@/data/iot/projects";
+import { challengesData } from "@/data/iot/challenges";
 import { projects } from "@/data/projects";
 import { blogPosts } from "@/data/blog";
 import { prompts } from "@/data/prompts";
@@ -28,7 +31,8 @@ import type { UserProfile } from "@/lib/auth/roles";
 type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
-  | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams";
+  | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
+  | "career" | "iot-lab" | "ai-academy";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -71,6 +75,8 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [search, setSearch] = useState("");
   const [langResults, setLangResults] = useState<Record<string, unknown>[]>([]);
   const [langLoading, setLangLoading] = useState(false);
+  const [health, setHealth] = useState<{ supabase: boolean; gemini: boolean; resend: boolean; portalsOk: boolean; portalsCount: number } | null>(null);
+  const [healthLoading, setHealthLoading] = useState(false);
 
   /* Local feature flags state */
   const [featureFlags, setFeatureFlags] = useState(defaultFeatureFlags);
@@ -111,6 +117,17 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   useEffect(() => {
     if (isAdmin) fetchData();
   }, [isAdmin, fetchData]);
+
+  // Fetch real system health on admin mount
+  useEffect(() => {
+    if (!isAdmin) return;
+    setHealthLoading(true);
+    fetch("/api/admin/health")
+      .then((r) => r.json())
+      .then((data) => setHealth(data))
+      .catch(() => setHealth({ supabase: false, gemini: false, resend: false, portalsOk: false, portalsCount: 0 }))
+      .finally(() => setHealthLoading(false));
+  }, [isAdmin]);
 
   // Load language results when language tab opens
   useEffect(() => {
@@ -283,6 +300,9 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "language",       labelAr: "بوابة اللغة",         labelEn: "Language Portal",    icon: <Globe size={15} /> },
     { id: "automation",     labelAr: "بوابة الأتمتة",       labelEn: "Automation Portal",  icon: <Zap size={15} /> },
     { id: "digital-exams",  labelAr: "الاختبارات الرقمية",  labelEn: "Digital Exams",      icon: <BarChart2 size={15} /> },
+    { id: "career",         labelAr: "بوابة المهنة",         labelEn: "Career Hub",         icon: <Award size={15} /> },
+    { id: "iot-lab",        labelAr: "مختبر IoT",            labelEn: "IoT Lab",            icon: <Wrench size={15} /> },
+    { id: "ai-academy",     labelAr: "أكاديمية AI",          labelEn: "AI Academy",         icon: <Bot size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -360,16 +380,20 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
             <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
               <CheckCircle size={16} style={{ color: "#4ade80" }} />
               {isAr ? "صحة النظام" : "System Health"}
+              {healthLoading && <RefreshCw size={12} className="animate-spin" style={{ color: "var(--color-on-surface-variant)" }} />}
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
-                { label: "Supabase DB", status: true },
-                { label: "Gemini AI", status: true },
-                { label: "Resend Email", status: true },
-                { label: "All 6 Portals", status: true },
+                { label: "Supabase DB", status: health?.supabase ?? null },
+                { label: "Gemini AI", status: health?.gemini ?? null },
+                { label: "Resend Email", status: health?.resend ?? null },
+                { label: isAr ? `${health?.portalsCount ?? 6} بوابات` : `${health?.portalsCount ?? 6} Portals`, status: health?.portalsOk ?? null },
               ].map((s) => (
                 <div key={s.label} className="flex items-center gap-2 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                  <div className="w-2 h-2 rounded-full" style={{ background: s.status ? "#4ade80" : "#ef4444" }} />
+                  <div
+                    className="w-2 h-2 rounded-full"
+                    style={{ background: s.status === null ? "#94a3b8" : s.status ? "#4ade80" : "#ef4444" }}
+                  />
                   {s.label}
                 </div>
               ))}
@@ -1437,6 +1461,275 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
           </div>
         );
       })()}
+
+      {/* ── CAREER HUB TAB ─────────────────────────────────── */}
+      {tab === "career" && (
+        <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {[
+              { label: isAr ? "أدوات AI" : "AI Tools", value: "5+", color: "#f59e0b" },
+              { label: isAr ? "قوالب CV" : "CV Templates", value: "10+", color: "#4ade80" },
+              { label: isAr ? "أسئلة مقابلات" : "Interview Questions", value: "200+", color: "#8ed5ff" },
+              { label: isAr ? "قطاعات وظيفية" : "Job Sectors", value: "12+", color: "#f97316" },
+            ].map((s) => (
+              <div key={s.label} className="glass-card rounded-2xl p-5 flex flex-col gap-1" style={{ border: `1px solid ${s.color}20` }}>
+                <p className="font-mono font-bold text-2xl" style={{ color: s.color }}>{s.value}</p>
+                <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(245,158,11,0.1)" }}>
+            <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#f59e0b" }}>
+              <Zap size={14} />{isAr ? "أدوات بوابة المهنة" : "Career Hub Tools"}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {[
+                { label: isAr ? "محلل السيرة الذاتية (ATS)" : "CV Analyzer (ATS)", href: `/${locale}/career/cv-analyzer`, color: "#f59e0b" },
+                { label: isAr ? "صانع السيرة الذاتية" : "CV Builder", href: `/${locale}/career/builder`, color: "#4ade80" },
+                { label: isAr ? "تحضير المقابلات بالـ AI" : "AI Interview Prep", href: `/${locale}/career/interview`, color: "#8ed5ff" },
+                { label: isAr ? "استكشاف الوظائف" : "Job Explorer", href: `/${locale}/career/jobs`, color: "#f97316" },
+                { label: isAr ? "قوالب السير الذاتية" : "CV Templates", href: `/${locale}/career/templates`, color: "#d0bcff" },
+              ].map((tool) => (
+                <Link key={tool.href} href={tool.href} className="flex items-center gap-3 p-3 rounded-xl text-sm hover:opacity-80 transition-opacity" style={{ background: `${tool.color}08`, border: `1px solid ${tool.color}20`, color: tool.color }}>
+                  <ExternalLink size={13} />{tool.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(74,222,128,0.1)" }}>
+            <h3 className="font-bold text-sm mb-3" style={{ color: "#4ade80" }}>
+              {isAr ? "ميزات بوابة المهنة" : "Career Hub Features"}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {[
+                isAr ? "✅ تحليل السيرة الذاتية بـ Gemini AI" : "✅ CV analysis via Gemini AI",
+                isAr ? "✅ Rate limit: 5 طلبات/دقيقة/IP" : "✅ Rate limit: 5 req/min/IP",
+                isAr ? "✅ قيود حجم الملف: 5MB + فحص نوع" : "✅ File size limit: 5MB + type check",
+                isAr ? "✅ أسئلة مقابلات مخصصة بالذكاء الاصطناعي" : "✅ AI-powered custom interview questions",
+                isAr ? "✅ بناء CV تفاعلي بالعربية والإنجليزية" : "✅ Interactive CV builder (AR + EN)",
+                isAr ? "✅ 10+ قوالب CV جاهزة" : "✅ 10+ ready CV templates",
+              ].map((f, i) => (
+                <p key={i} className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{f}</p>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {[
+              { href: `/${locale}/career`, label: isAr ? "بوابة المهنة" : "Career Hub", color: "#f59e0b" },
+              { href: `/${locale}/career/cv-analyzer`, label: isAr ? "محلل ATS" : "ATS Analyzer", color: "#4ade80" },
+              { href: `/${locale}/career/interview`, label: isAr ? "تحضير المقابلة" : "Interview Prep", color: "#8ed5ff" },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold" style={{ background: `${l.color}10`, color: l.color, border: `1px solid ${l.color}25` }}>
+                <ExternalLink size={13} />{l.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── IOT LAB TAB ─────────────────────────────────────── */}
+      {tab === "iot-lab" && (
+        <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {[
+              { label: isAr ? "الدروس" : "Lessons", value: lessonsData.length, color: "#f97316" },
+              { label: isAr ? "المشاريع" : "Projects", value: projectsData.length, color: "#4ade80" },
+              { label: isAr ? "التحديات" : "Challenges", value: challengesData.length, color: "#8ed5ff" },
+              { label: isAr ? "المكونات" : "Components", value: 81, color: "#f59e0b" },
+            ].map((s) => (
+              <div key={s.label} className="glass-card rounded-2xl p-5 flex flex-col gap-1" style={{ border: `1px solid ${s.color}20` }}>
+                <p className="font-mono font-bold text-2xl" style={{ color: s.color }}>{s.value}</p>
+                <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(249,115,22,0.1)" }}>
+              <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#f97316" }}>
+                <Database size={14} />{isAr ? "توزيع فئات الدروس" : "Lesson Categories"}
+              </h3>
+              <div className="flex flex-col gap-2">
+                {Object.entries(
+                  lessonsData.reduce<Record<string, number>>((acc, l) => {
+                    acc[l.category] = (acc[l.category] ?? 0) + 1;
+                    return acc;
+                  }, {})
+                )
+                  .sort(([, a], [, b]) => b - a)
+                  .map(([cat, count]) => (
+                    <div key={cat} className="flex items-center gap-3 text-sm">
+                      <span className="flex-1 text-xs truncate" style={{ color: "var(--color-on-surface)" }}>{cat}</span>
+                      <div className="w-20 h-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                        <div className="h-full rounded-full" style={{ width: `${(count / lessonsData.length) * 100}%`, background: "#f97316" }} />
+                      </div>
+                      <span className="font-mono text-xs w-5 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(74,222,128,0.1)" }}>
+              <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#4ade80" }}>
+                <BarChart2 size={14} />{isAr ? "مستوى صعوبة التحديات" : "Challenge Difficulty"}
+              </h3>
+              <div className="flex flex-col gap-2">
+                {Object.entries(
+                  challengesData.reduce<Record<string, number>>((acc, c) => {
+                    acc[c.level] = (acc[c.level] ?? 0) + 1;
+                    return acc;
+                  }, {})
+                )
+                  .sort(([, a], [, b]) => b - a)
+                  .map(([diff, count]) => (
+                    <div key={diff} className="flex items-center gap-3 text-sm">
+                      <span className="w-20 flex-shrink-0 text-xs font-mono" style={{ color: "var(--color-on-surface)" }}>{diff}</span>
+                      <div className="flex-1 h-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                        <div className="h-full rounded-full" style={{ width: `${(count / challengesData.length) * 100}%`, background: "#4ade80" }} />
+                      </div>
+                      <span className="font-mono text-xs w-5 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(142,213,255,0.1)" }}>
+            <h3 className="font-bold text-sm mb-3" style={{ color: "#8ed5ff" }}>
+              {isAr ? "ميزات مختبر IoT" : "IoT Lab Features"}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {[
+                isAr ? `✅ ${lessonsData.length} درس أردوينو من الأساسيات للمتقدم` : `✅ ${lessonsData.length} Arduino lessons from basic to advanced`,
+                isAr ? `✅ ${projectsData.length} مشروع تطبيقي مع أمثلة كود` : `✅ ${projectsData.length} projects with code examples`,
+                isAr ? `✅ ${challengesData.length} تحدي برمجي تفاعلي` : `✅ ${challengesData.length} interactive coding challenges`,
+                isAr ? "✅ 81 مكوّن إلكتروني في المكتبة" : "✅ 81 electronic components in library",
+                isAr ? "✅ محاكي أردوينو تفاعلي" : "✅ Interactive Arduino simulator",
+                isAr ? "✅ مسارات تعليمية مرتبة" : "✅ Structured learning paths",
+              ].map((f, i) => (
+                <p key={i} className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{f}</p>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {[
+              { href: `/${locale}/iot-lab`, label: isAr ? "بوابة IoT" : "IoT Portal", color: "#f97316" },
+              { href: `/${locale}/iot-lab/lessons`, label: isAr ? "الدروس" : "Lessons", color: "#4ade80" },
+              { href: `/${locale}/iot-lab/projects`, label: isAr ? "المشاريع" : "Projects", color: "#8ed5ff" },
+              { href: `/${locale}/iot-lab/challenges`, label: isAr ? "التحديات" : "Challenges", color: "#f59e0b" },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold" style={{ background: `${l.color}10`, color: l.color, border: `1px solid ${l.color}25` }}>
+                <ExternalLink size={13} />{l.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── AI ACADEMY TAB ───────────────────────────────────── */}
+      {tab === "ai-academy" && (
+        <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {[
+              { label: isAr ? "الدورات" : "Courses", value: courses.length, color: "#8ed5ff" },
+              { label: isAr ? "أدوات AI" : "AI Tools", value: tools.length, color: "#4ade80" },
+              { label: isAr ? "البرومبتات" : "Prompts", value: prompts.length, color: "#d0bcff" },
+              { label: isAr ? "المشاريع" : "Projects", value: projects.length, color: "#f59e0b" },
+            ].map((s) => (
+              <div key={s.label} className="glass-card rounded-2xl p-5 flex flex-col gap-1" style={{ border: `1px solid ${s.color}20` }}>
+                <p className="font-mono font-bold text-2xl" style={{ color: s.color }}>{s.value}</p>
+                <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(142,213,255,0.1)" }}>
+              <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#8ed5ff" }}>
+                <Database size={14} />{isAr ? "توزيع فئات الأدوات" : "Tool Categories"}
+              </h3>
+              <div className="flex flex-col gap-2">
+                {Object.entries(
+                  tools.reduce<Record<string, number>>((acc, t) => {
+                    acc[t.category] = (acc[t.category] ?? 0) + 1;
+                    return acc;
+                  }, {})
+                )
+                  .sort(([, a], [, b]) => b - a)
+                  .slice(0, 8)
+                  .map(([cat, count]) => (
+                    <div key={cat} className="flex items-center gap-3 text-sm">
+                      <span className="flex-1 text-xs truncate" style={{ color: "var(--color-on-surface)" }}>{cat}</span>
+                      <div className="w-20 h-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                        <div className="h-full rounded-full" style={{ width: `${(count / tools.length) * 100}%`, background: "#8ed5ff" }} />
+                      </div>
+                      <span className="font-mono text-xs w-5 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(74,222,128,0.1)" }}>
+              <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#4ade80" }}>
+                <BarChart2 size={14} />{isAr ? "مستوى الأدوات" : "Tool Levels"}
+              </h3>
+              <div className="flex flex-col gap-2">
+                {Object.entries(
+                  tools.reduce<Record<string, number>>((acc, t) => {
+                    acc[t.level] = (acc[t.level] ?? 0) + 1;
+                    return acc;
+                  }, {})
+                ).map(([lvl, count]) => {
+                  const LEVEL_COLORS: Record<string, string> = { beginner: "#4ade80", intermediate: "#f59e0b", advanced: "#f87171" };
+                  return (
+                    <div key={lvl} className="flex items-center gap-3 text-sm">
+                      <span className="w-24 flex-shrink-0 text-xs font-mono" style={{ color: LEVEL_COLORS[lvl] ?? "#8ed5ff" }}>{lvl}</span>
+                      <div className="flex-1 h-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                        <div className="h-full rounded-full" style={{ width: `${(count / tools.length) * 100}%`, background: LEVEL_COLORS[lvl] ?? "#8ed5ff" }} />
+                      </div>
+                      <span className="font-mono text-xs w-5 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(208,188,255,0.1)" }}>
+            <h3 className="font-bold text-sm mb-3" style={{ color: "#d0bcff" }}>
+              {isAr ? "ميزات أكاديمية AI" : "AI Academy Features"}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {[
+                isAr ? `✅ ${courses.length} دورة تعليمية متكاملة` : `✅ ${courses.length} complete courses`,
+                isAr ? `✅ ${tools.length} أداة AI موثّقة` : `✅ ${tools.length} documented AI tools`,
+                isAr ? `✅ ${prompts.length} برومبت جاهز للاستخدام` : `✅ ${prompts.length} ready-to-use prompts`,
+                isAr ? "✅ مرشد AI بالسياق الشخصي" : "✅ AI mentor with personal context",
+                isAr ? "✅ تحديات ومشاريع تطبيقية" : "✅ Hands-on challenges & projects",
+                isAr ? "✅ شهادات إتمام موثّقة" : "✅ Verifiable completion certificates",
+              ].map((f, i) => (
+                <p key={i} className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{f}</p>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {[
+              { href: `/${locale}/ai-academy`, label: isAr ? "أكاديمية AI" : "AI Academy", color: "#8ed5ff" },
+              { href: `/${locale}/tools`, label: isAr ? "دليل الأدوات" : "Tools Directory", color: "#4ade80" },
+              { href: `/${locale}/courses`, label: isAr ? "الدورات" : "Courses", color: "#d0bcff" },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold" style={{ background: `${l.color}10`, color: l.color, border: `1px solid ${l.color}25` }}>
+                <ExternalLink size={13} />{l.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
     </div>
   );
