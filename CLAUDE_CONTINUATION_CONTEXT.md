@@ -9,18 +9,89 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | v11.0 — Platform-Wide Audit COMPLETE ✅ |
-| **Next Version** | المرحلة 0 (تأمين + SEO) → ثم Digital Exams v2.0 |
-| **Status** | ✅ مراجعة شاملة منتهية — لم يُعدَّل أي كود — خطة مرحلية جاهزة (انظر القسم أدناه) |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (66 warnings) — exit 0 — **1037 pages** |
-| **Last Tag** | `checkpoint/platform-audit-complete` |
-| **Commit** | `9150018` (آخر commit كود — المراجعة لم تُعدِّل كودًا) |
+| **Version** | v12.0 — Digital Exams v2.0 COMPLETE ✅ |
+| **Next Version** | المرحلة 3 (تنظيف) — System Health حقيقي + Admin tabs + Hub sections للباقي |
+| **Status** | ✅ المراحل 0+1+2 منتهية — Digital Exams v2.0 مكتمل — Vercel deployed |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (67 warnings) — exit 0 |
+| **Last Tag** | `checkpoint/digital-exams-v2-complete` |
+| **Commit** | `a45ceb3` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (Platform-Wide Audit — review gate before next portal) |
+| **Last Updated** | 2026-06-03 (Digital Exams v2.0 closed) |
+
+---
+
+## ✅ v12.0 — Digital Exams v2.0 COMPLETE (2026-06-03)
+
+**Tags:** `checkpoint/phase-0-security-sitemap` · `checkpoint/phase-1-seo-og` · `checkpoint/digital-exams-v2-complete`
+**Commit:** `a45ceb3`
+
+### المرحلة 0 — تأمين Career API + إكمال Sitemap ✅
+- `api/career/analyze-cv` + `api/career/evaluate-interview`: rate limit (5 req/min per IP)
+- `api/career/upload-cv`: حد حجم 5MB (413) + فحص نوع ملف (415)
+- Sitemap: IoT lessons(60) + projects(73) + challenges(40) + components(80) × 2 locales
+- Sitemap: 9 digital exam subjects × 2 locales
+- Sitemap: `/language/assessment` + `/language/history` أُضيفا
+
+### المرحلة 1 — SEO openGraph للـ 5 Landing Pages ✅
+- language, digital-exams, career, ai-academy, iot-lab: أُضيف openGraph + twitter:card
+- نفس نمط automation/page.tsx
+
+### المرحلة 2 — Digital Exams v2.0 ✅
+
+#### البيانات (D1)
+- `digital-exam-subjects.ts`: 7 → 9 مواد (أُضيف Mobile، WebApps، InternetSearch)
+- 902 سؤال مستوردة من قاعدة بيانات المنصة الأصلية (Exams_Platform SQLite)
+- دعم كامل للأنواع: MCQ (اختيار متعدد) + True/False (صح/خطأ)
+- interface `ExamQuestion` يحتوي الآن على `type: QuestionType`
+
+#### محرك الاختبار (D1) — DigitalExamClient.tsx
+- اختيار عدد الأسئلة (10/15/20/30) في شاشة الـ intro
+- خلط عشوائي (Fisher-Yates shuffle) — أسئلة مختلفة في كل مرة
+- Anti-cheat: visibilitychange listener، 3 تحذيرات → إنهاء تلقائي
+- عرض صح/خطأ: يظهر خيارين فقط بدلاً من 4
+- `flags_count` + `auto_terminated` تُرسل إلى API
+
+#### النتائج والشهادات (D2)
+- `api/certificates/exams/[id]/route.tsx`: PDF بـ @react-pdf/renderer (80%+ فقط)
+- `api/exams/explain/route.ts`: شرح الإجابات الخاطئة بـ Gemini (rate limited)
+- شاشة النتائج: زر تحميل الشهادة + مشاركة واتساب + نسخ النتيجة
+
+#### المكتبة الرقمية (D3)
+- `/digital-exams/library` + `DigitalExamsLibraryClient.tsx`
+- `api/exams/library` (GET عام، DELETE للأدمن)
+- بحث + فلترة حسب المادة
+
+#### سجل الأداء (D4)
+- `/digital-exams/history` + `DigitalExamsHistoryClient.tsx`
+- BarChart (recharts) لمقارنة الأداء حسب المادة
+- إحصائيات لكل مادة: أفضل نتيجة، متوسط، عدد المحاولات
+- جدول كامل بكل المحاولات مع رابط تحميل الشهادة
+
+#### لوحة الأدمن (D5)
+- tab "الاختبارات الرقمية" في AdminDashboardClient
+- يعرض: 9 مواد، 902 سؤال، توزيع MCQ/TF، قائمة الميزات
+
+#### الامتحان المجمع (D1+)
+- `/digital-exams/mixed` + `MixedExamClient.tsx`
+- يسحب أسئلة عشوائية من كل 9 مواد (20/30/50/100 سؤال)
+
+#### Hub Section
+- `DigitalExamsHubSection` أُضيف في `StudentDashboardClient.tsx`
+- يعرض آخر النتائج + روابط للامتحانات والمجمع والسجل
+
+#### SQL Migration
+- `supabase/v11_digital_exams_upgrade.sql`
+- ⚠️ يجب تشغيله في Supabase Dashboard → SQL Editor
+
+### ملاحظات مهمة
+- `digital-exam-subjects.ts`: 207KB (902 سؤال) — صحيح TypeScript
+- Legacy files (`.legacy-exams.db`, `.legacy-exams-questions.json`) لم تُكوميت
+- `gen_exams.py` لم تُكوميت — لتوليد البيانات فقط
+- الشهادات تُخزن `certificate_id` في `digital_exam_results` بعد تشغيل migration
 
 ---
 
