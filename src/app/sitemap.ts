@@ -5,6 +5,11 @@ import { projects } from "@/data/projects";
 import { blogPosts } from "@/data/blog";
 import { curatedWorkflows } from "@/data/automation/workflowLibrary";
 import { automationLabsV2 } from "@/data/automation/automationLabsV2";
+import { lessonsData } from "@/data/iot/lessons";
+import { projectsData } from "@/data/iot/projects";
+import { challengesData } from "@/data/iot/challenges";
+import { componentsData } from "@/data/iot/components";
+import { examSubjects } from "@/data/digital-exam-subjects";
 
 const BASE_URL = "https://darhous-ai-cloud-academy.vercel.app";
 const locales = ["ar", "en"];
@@ -22,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/prompt-battle", "/prompt-score", "/compare-tools",
     "/project-generator",
     // v4 ecosystem portals (public landing pages only — /assessment and /results are noindex)
-    "/ai-academy", "/language", "/digital-exams",
+    "/ai-academy", "/language", "/language/assessment", "/language/history", "/digital-exams",
     // v5 full native portals
     "/career", "/career/cv-analyzer", "/career/builder", "/career/jobs", "/career/interview", "/career/templates",
     "/automation", "/automation/templates", "/automation/tools", "/automation/paths", "/automation/services", "/automation/labs",
@@ -105,5 +110,65 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...staticEntries, ...courseEntries, ...toolEntries, ...projectEntries, ...blogEntries, ...workflowEntries, ...labEntries];
+  // IoT Lab detail pages — lessons + projects + challenges + components × 2 locales
+  const iotLessonEntries = locales.flatMap((locale) =>
+    lessonsData.map((item) => ({
+      url: `${BASE_URL}/${locale}/iot-lab/lessons/${item.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }))
+  );
+
+  const iotProjectEntries = locales.flatMap((locale) =>
+    projectsData.map((item) => ({
+      url: `${BASE_URL}/${locale}/iot-lab/projects/${item.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }))
+  );
+
+  const iotChallengeEntries = locales.flatMap((locale) =>
+    challengesData.map((item) => ({
+      url: `${BASE_URL}/${locale}/iot-lab/challenges/${item.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }))
+  );
+
+  const iotComponentEntries = locales.flatMap((locale) =>
+    componentsData.map((item) => ({
+      url: `${BASE_URL}/${locale}/iot-lab/component-library/${item.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    }))
+  );
+
+  // Digital Exams — 7 subjects × 2 locales = 14 entries
+  const examSubjectEntries = locales.flatMap((locale) =>
+    examSubjects.map((subject) => ({
+      url: `${BASE_URL}/${locale}/digital-exams/${subject.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    }))
+  );
+
+  return [
+    ...staticEntries,
+    ...courseEntries,
+    ...toolEntries,
+    ...projectEntries,
+    ...blogEntries,
+    ...workflowEntries,
+    ...labEntries,
+    ...iotLessonEntries,
+    ...iotProjectEntries,
+    ...iotChallengeEntries,
+    ...iotComponentEntries,
+    ...examSubjectEntries,
+  ];
 }
