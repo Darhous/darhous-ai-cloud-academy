@@ -68,17 +68,32 @@ function PromptCard({
     >
       {/* Visual header */}
       <div
-        className="relative flex items-center justify-center"
+        className="relative flex items-center justify-center overflow-hidden"
         style={{
-          height: "120px",
-          background: `radial-gradient(circle at 50% 50%, ${item.accent}25 0%, transparent 70%)`,
+          height: "140px",
+          background: item.image
+            ? "transparent"
+            : `radial-gradient(circle at 50% 50%, ${item.accent}25 0%, transparent 70%)`,
           borderBottom: `1px solid ${item.accent}20`,
         }}
       >
-        <span style={{ fontSize: "52px", lineHeight: 1 }}>{item.emoji}</span>
+        {item.image ? (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={item.image}
+              alt=""
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+            />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%)", zIndex: 1 }} />
+            <span style={{ position: "relative", zIndex: 2, fontSize: "28px", lineHeight: 1, filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.7))" }}>{item.emoji}</span>
+          </>
+        ) : (
+          <span style={{ fontSize: "52px", lineHeight: 1 }}>{item.emoji}</span>
+        )}
         {item.featured && (
           <span
-            className="absolute top-3 start-3 text-[10px] font-mono px-2 py-0.5 rounded-full"
+            className="absolute top-3 start-3 z-10 text-[10px] font-mono px-2 py-0.5 rounded-full"
             style={{ background: `${item.accent}25`, color: item.accent, border: `1px solid ${item.accent}40` }}
           >
             ★ {isAr ? "مميز" : "Featured"}
@@ -86,7 +101,7 @@ function PromptCard({
         )}
         <button
           onClick={onSave}
-          className="absolute top-3 end-3 p-1.5 rounded-xl transition-all hover:scale-110"
+          className="absolute top-3 end-3 z-10 p-1.5 rounded-xl transition-all hover:scale-110"
           style={{ background: `${item.accent}15`, color: item.accent }}
           title={isAr ? "حفظ البرومبت" : "Save prompt"}
         >
