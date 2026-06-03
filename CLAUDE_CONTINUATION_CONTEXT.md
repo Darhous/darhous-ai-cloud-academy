@@ -9,18 +9,70 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | v10.0 — Automation Portal CLOSED ✅ |
-| **Next Version** | المراجعة الشاملة قبل أي بوابة جديدة |
-| **Status** | ✅ Automation Portal CLOSED — 100% (تبقّى: ترقية وكيل AI + توسعة محتوى — مؤجَّلة للنهاية) |
+| **Version** | v11.0 — Platform-Wide Audit COMPLETE ✅ |
+| **Next Version** | المرحلة 0 (تأمين + SEO) → ثم Digital Exams v2.0 |
+| **Status** | ✅ مراجعة شاملة منتهية — لم يُعدَّل أي كود — خطة مرحلية جاهزة (انظر القسم أدناه) |
 | **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (66 warnings) — exit 0 — **1037 pages** |
-| **Last Tag** | `checkpoint/automation-portal-closed` |
-| **Commit** | `b41a56d` |
+| **Last Tag** | `checkpoint/platform-audit-complete` |
+| **Commit** | `9150018` (آخر commit كود — المراجعة لم تُعدِّل كودًا) |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (Automation Portal Final Close — SEO + orphaned data + cross-links + dead code cleanup) |
+| **Last Updated** | 2026-06-03 (Platform-Wide Audit — review gate before next portal) |
+
+---
+
+## 🔍 v11.0 — Platform-Wide Audit + Phased Plan (2026-06-03)
+
+**Tag:** `checkpoint/platform-audit-complete`
+
+مراجعة شاملة لكل البوابات الست والطبقات المشتركة. **لم يُعدَّل أي كود** — فقط audit + خطة.
+Build وقت المراجعة: ✅ typecheck 0 errors · lint 0 errors / 66 warnings · working tree clean.
+
+### جدول حالة البوابات وقت المراجعة
+
+| البوابة | OG على landing | Hub Section حقيقي | Admin Tab | Sitemap detail | الحالة |
+|---------|---------------|-------------------|-----------|---------------|--------|
+| Automation | ✅ | ✅ | ✅ | ✅ 25 recipes + 10 labs | مكتمل |
+| Language | ❌ | ✅ | ✅ | ⚠️ assessment/history غائبتان | ناقص OG |
+| Digital Exams | ❌ | ⚠️ link فقط | ❌ | ❌ 7 مواد × 2 غائبة | ناقص |
+| Career | ❌ | ⚠️ link فقط | ❌ | ✅ | ناقص |
+| AI Academy | ❌ | ⚠️ link فقط | ❌ | ✅ | ناقص OG |
+| IoT Lab | ❌ | ⚠️ link فقط | ❌ | ❌ ~510 detail page غائبة | سيتماب حرج |
+
+### المشاكل المكتشفة (مرتّبة حسب الخطورة)
+
+**🔴 حرج:**
+1. **Career API بلا حماية** — `api/career/analyze-cv` و `api/career/evaluate-interview` يستخدمان `GEMINI_API_KEY` بـ 0 rate-limit و 0 auth → خطر استنزاف الـ API key. النمط الجاهز للنسخ موجود في `api/automation/generate` و `api/mentor` (`checkRateLimit` + `getClientIp`).
+2. **~510 صفحة IoT detail + 14 صفحة Digital Exams غائبة من الـ sitemap** — الصفحات موجودة (generateStaticParams تعمل) لكنها مخفية عن جوجل. (IoT: 60 lessons + 73 projects + 41 challenges + 81 components × 2 locales).
+
+**🟡 متوسط:**
+3. `openGraph` + `twitter:card` غائب عن 5 landing pages (language, digital-exams, career, ai-academy, iot-lab) — Automation فقط مكتمل. القالب موجود في `automation/page.tsx`.
+4. Admin Studio بلا tabs لـ Digital Exams / Career / IoT / AI Academy.
+5. System Health في `AdminDashboardClient.tsx:364-367` مُرمَّز `status: true` دائمًا — لا ping حقيقي.
+6. `language/history` و `language/assessment` غائبتان من sitemap.
+7. أرقام `portals.ts` و `STATS` (lib/constants.ts) غير متطابقة مع البيانات الفعلية (مثل "62 أداة" مقابل tools.ts، "50+" في STATS).
+8. Student Hub: فقط Automation + Language لهما sections حقيقية؛ الباقي links فقط.
+
+**🟢 تحسين:**
+9. صفحات IoT listing (lessons/projects/challenges) بلا filter/search — server components تعرض كل العناصر.
+10. `api/career/upload-cv` بلا auth ولا حد حجم/نوع ملف.
+
+### الـ Supabase — سليم
+كل الجداول الموثّقة لها migrations، RLS مفعّل على الجداول الجديدة، لا جداول في الكود بلا migration. (career/IoT بلا جداول عمدًا — API/static).
+
+### الخطة المرحلية المعتمدة (الترتيب)
+
+- **المرحلة 0 (حرجة — قبل أي بوابة):**
+  - 0a. تأمين Career API: rate-limit + auth على analyze-cv + evaluate-interview، وحد ملف على upload-cv.
+  - 0b. إكمال sitemap: IoT detail (lessons/projects/challenges/components) + Digital Exams subjects + language history/assessment.
+- **المرحلة 1 (SEO مشترك):** openGraph + twitter:card للـ 5 landing pages الناقصة.
+- **المرحلة 2 (البوابة التالية):** Digital Exams v2.0 — الخطة D1–D5 مفصّلة في قسم "Recommended Next Tasks" أدناه. بناؤها يُغلق تلقائيًا Admin tab + Hub section لـ Digital Exams (يسد جزءًا من #4 و#8).
+- **المرحلة 3 (تنظيف بعد إغلاق Digital Exams):** System Health حقيقي · تصحيح أرقام portals.ts/STATS · Admin tabs + Hub sections لباقي البوابات.
+
+**التوصية:** Digital Exams v2.0 هي البوابة التالية (الخطة جاهزة، أبسط بيانات، غائبة تمامًا من Admin).
 
 ---
 
