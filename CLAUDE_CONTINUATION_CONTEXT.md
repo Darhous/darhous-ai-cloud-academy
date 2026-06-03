@@ -9,18 +9,65 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 9.7.3 — Live QA Complete ✅ |
-| **Next Version** | v10 — Polish & UX improvements (automation portal first) |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C+D+E+F ALL COMPLETE — Live QA PASSED ✅ |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings) — exit 0 — **1037 pages** |
-| **Last Tag** | `checkpoint/v9.7.2-full-alignment` |
-| **Commit** | `a149cd8` |
+| **Version** | v10.0 — Automation Portal CLOSED ✅ |
+| **Next Version** | المراجعة الشاملة قبل أي بوابة جديدة |
+| **Status** | ✅ Automation Portal CLOSED — 100% (تبقّى: ترقية وكيل AI + توسعة محتوى — مؤجَّلة للنهاية) |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (66 warnings) — exit 0 — **1037 pages** |
+| **Last Tag** | `checkpoint/automation-portal-closed` |
+| **Commit** | `b41a56d` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (Live QA on Vercel — Supabase sync confirmed — bug fixed: maxOutputTokens 8192) |
+| **Last Updated** | 2026-06-03 (Automation Portal Final Close — SEO + orphaned data + cross-links + dead code cleanup) |
+
+---
+
+## ✅ v10.0 — Automation Portal Final Close (2026-06-03)
+
+**Tag:** `checkpoint/automation-portal-closed` · **Commit:** `b41a56d`
+
+### ما اكتمل / أُصلح / أُغلق
+
+| الـ Milestone | ما تم |
+|---|---|
+| **M1 — Dead code** | حذف 6 ملفات: 4 re-exports ميتة (labs.ts, tools.ts, services.ts, automationPaths.ts) + 2 صيغة قديمة (automationRecipes.ts, automationTemplates.ts) |
+| **M2 — SEO** | openGraph + twitter:card لـ 8 صفحات automation؛ JSON-LD ItemList على /templates |
+| **M3 — tools page** | 3 أقسام جديدة: مقارنة الأدوات (4 مقارنات) + التكاملات (12 تطبيق) + المصطلحات (38 مصطلح) |
+| **M4 — automation landing** | قسمان جديدان: قصص نجاح (10 حالات) + الأتمتة لكل قطاع (8 قطاعات) |
+| **M5 — labs page** | قسم Checklists الإطلاق (4 checklists × 4 مراحل) |
+| **M6 — agent page** | قسم مرجع الـ Prompts (11 prompt جاهز) |
+| **M7 — cross-links** | paths→templates+labs؛ services→automation-agent؛ labs→templates |
+
+### ما تبقّى مؤجَّل للنهاية (بعد إنهاء كل البوابات)
+
+1. **وكيل AI أقوى** — ترقية Gemini + API key حقيقي لتوليد Blueprint فعلي
+2. **توسعة محتوى الأتمتة** — وصفات/معامل جديدة (أكثر من 25/10)
+3. **موضوع بوابة Nano Banana**
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (66 warnings, all pre-existing)
+- `npm run build` → ✅ exit 0 — **1037 pages**
+
+### ملفات البيانات النشطة في الأوتوميشن (بعد الإغلاق)
+
+| الملف | الاستخدام |
+|-------|-----------|
+| `workflowLibrary.ts` | 25 وصفة — canonical source |
+| `automationLabsV2.ts` | 10 معامل |
+| `automationLearningPaths.ts` | مسارات التعلم |
+| `automationServices.ts` | باقات الخدمات |
+| `automationTools.ts` | دليل الأدوات |
+| `automationGlossary.ts` | ✅ مربوط بـ tools page |
+| `automationCaseStudies.ts` | ✅ مربوط بـ automation landing |
+| `automationComparisons.ts` | ✅ مربوط بـ tools page |
+| `automationUseCases.ts` | ✅ مربوط بـ automation landing |
+| `automationChecklists.ts` | ✅ مربوط بـ labs page |
+| `automationPrompts.ts` | ✅ مربوط بـ automation-agent page |
+| `integrations.ts` | ✅ مربوط بـ tools page |
+| `details/` (25 + index) | workflow detail pages |
 
 ---
 
