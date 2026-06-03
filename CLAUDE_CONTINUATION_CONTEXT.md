@@ -9,18 +9,63 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | v12.0 — Digital Exams v2.0 COMPLETE ✅ |
-| **Next Version** | المرحلة 3 (تنظيف) — System Health حقيقي + Admin tabs + Hub sections للباقي |
-| **Status** | ✅ المراحل 0+1+2 منتهية — Digital Exams v2.0 مكتمل — Vercel deployed |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (67 warnings) — exit 0 |
-| **Last Tag** | `checkpoint/digital-exams-v2-complete` |
-| **Commit** | `a45ceb3` |
+| **Version** | v13.0 — المرحلة 3 (Platform Cleanup) COMPLETE ✅ |
+| **Next Version** | ترقية وكيل AI + مفتاح Gemini حقيقي · توسعة محتوى الأتمتة · بوابة Nano Banana |
+| **Status** | ✅ المراحل 0+1+2+3 منتهية — Platform Cleanup C1-C5 مكتمل — Vercel deployed |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings) — exit 0 |
+| **Last Tag** | `checkpoint/phase-3-cleanup-complete` |
+| **Commit** | `71bc73a` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (Digital Exams v2.0 closed) |
+| **Last Updated** | 2026-06-03 (Phase 3 Cleanup closed) |
+
+---
+
+## ✅ v13.0 — المرحلة 3 — Platform Cleanup COMPLETE (2026-06-03)
+
+**Tag:** `checkpoint/phase-3-cleanup-complete` · **Commit:** `71bc73a`
+
+### C1 — System Health حقيقي ✅
+- `src/app/api/admin/health/route.ts`: API route جديد
+  - Supabase: real DB ping عبر `profiles.select("id").limit(1)`
+  - Gemini: فحص وجود `GEMINI_API_KEY` env var
+  - Resend: فحص وجود `RESEND_API_KEY` env var
+  - Portals: عدد البوابات الفعلية من portals registry
+- `AdminDashboardClient.tsx`: يفحص `/api/admin/health` عند mount مع loading spinner وألوان صحيحة (رمادي=pending، أخضر=ok، أحمر=fail)
+
+### C2 — تصحيح الأرقام ✅
+- `portals.ts` ai-academy: `"18 دورة"` → `"19 دورة"` (courses.ts: 19)
+- `portals.ts` digital-exams features: `["اختبارات IT", ...]` → `["9 مواد", "902+ سؤال", ...]`
+- `portals.ts` iot-lab description: `"72 مشروع"` → `"73 مشروع"`، `"40+ تحدي"` → `"41 تحدي"`
+- `portals.ts` iot-lab features: `"72 مشروع تطبيقي"` → `"73 مشروع"`، `"40+ تحدي"` → `"41 تحدي"`
+- `lib/constants.ts` STATS: `"50+"` AI tools → `"60+"` (tools.ts: 62)
+- `sitemap.ts`: تعليق `"7 subjects"` → `"9 subjects"`
+
+### C3 — Admin Tabs للبوابات الناقصة ✅
+- `AdminDashboardClient.tsx`: أُضيفت 3 tabs جديدة:
+  - **Career Hub**: 4 stat cards + قائمة 5 أدوات + features + روابط
+  - **IoT Lab**: 4 stat cards (60/73/41/81) + توزيع فئات الدروس + صعوبة التحديات + features + روابط
+  - **AI Academy**: 4 stat cards (19/62/27/14) + توزيع فئات الأدوات + مستوى الأدوات + features + روابط
+- imports مُضافة: `lessonsData`, `projectsData`, `challengesData` من `@/data/iot/`
+
+### C4 — Hub Sections للبوابات الناقصة ✅
+- `StudentDashboardClient.tsx`: أُضيفت 3 sections في overview tab:
+  - `CareerHubSection`: 4 بطاقات أدوات (ATS/Builder/Interview/Jobs) + CTAs
+  - `IoTHubSection`: 4 بطاقات إحصائية (60/73/41/81) + CTAs
+  - `AIAcademyHubSection`: 4 بطاقات (19 دورة/62 أداة/27 برومبت/مرشد) + CTAs
+
+### C5 — IoT Listing Filters ✅
+- `IotLessonsClient.tsx`: client component مع search bar + category filter chips
+- `IotProjectsClient.tsx`: client component مع search bar + difficulty filter chips (سهل/متوسط/صعب/تخرج)
+- `IotChallengesClient.tsx`: client component مع search bar + level filter chips (مبتدئ/متوسط/صعب)
+- صفحات lessons/projects/challenges محدّثة لاستخدام هذه الـ client components
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (68 warnings, all pre-existing)
 
 ---
 
