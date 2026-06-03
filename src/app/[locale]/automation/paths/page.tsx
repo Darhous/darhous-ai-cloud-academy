@@ -87,7 +87,7 @@ export default async function AutomationPathsPage({
           </div>
           <div>
             <p className="font-semibold text-sm" style={{ color: "var(--color-on-surface)" }}>مكتبة الوصفات</p>
-            <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>25 وصفة جاهزة تناسب كل مسار</p>
+            <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>30 وصفة جاهزة تناسب كل مسار</p>
           </div>
           <ArrowRight size={14} className="ms-auto shrink-0" style={{ color: "#4ade80", transform: "rotate(180deg)" }} />
         </Link>

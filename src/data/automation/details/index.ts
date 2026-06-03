@@ -28,6 +28,11 @@ import customerFeedbackRouting from "./customer-feedback-routing";
 import newsletterSubscriberWelcome from "./newsletter-subscriber-welcome";
 import projectTaskFromEmail from "./project-task-from-email";
 import inventoryLowStockAlert from "./inventory-low-stock-alert";
+import socialMediaPostScheduler from "./social-media-post-scheduler";
+import clientInvoiceGenerator from "./client-invoice-generator";
+import supportTicketAutoAssign from "./support-ticket-auto-assign";
+import employeeBirthdayReminder from "./employee-birthday-reminder";
+import ecommerceNewOrderNotify from "./ecommerce-new-order-notify";
 
 const ALL: WorkflowDetail[] = [
   studentWelcomeFlow,
@@ -55,6 +60,11 @@ const ALL: WorkflowDetail[] = [
   newsletterSubscriberWelcome,
   projectTaskFromEmail,
   inventoryLowStockAlert,
+  socialMediaPostScheduler,
+  clientInvoiceGenerator,
+  supportTicketAutoAssign,
+  employeeBirthdayReminder,
+  ecommerceNewOrderNotify,
 ];
 
 const BY_ID: Record<string, WorkflowDetail> = Object.fromEntries(ALL.map((d) => [d.id, d]));

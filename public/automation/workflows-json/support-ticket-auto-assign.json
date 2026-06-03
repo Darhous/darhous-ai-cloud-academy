@@ -1,0 +1,60 @@
+{
+  "name": "Support Ticket Auto-Assign",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": { "item": [{ "mode": "everyMinute" }] },
+        "filters": { "labelIds": ["Label_YOUR_SUPPORT_LABEL"] },
+        "format": "resolved"
+      },
+      "name": "New Support Email",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "dataPropertyName": "subject",
+        "rules": {
+          "rules": [
+            { "value": "تقني", "output": 0 },
+            { "value": "فاتورة", "output": 1 },
+            { "value": ".*", "output": 2 }
+          ]
+        }
+      },
+      "name": "Classify Ticket",
+      "type": "n8n-nodes-base.switch",
+      "position": [400, 300]
+    },
+    {
+      "parameters": {
+        "idList": "YOUR_TRELLO_LIST_ID",
+        "name": "={{ $json.subject }}",
+        "additionalFields": {
+          "desc": "المُرسِل: {{ $json.from }}\n\n{{ $json.text }}",
+          "idMembers": ["YOUR_AGENT_MEMBER_ID"]
+        }
+      },
+      "name": "Create Trello Card",
+      "type": "n8n-nodes-base.trello",
+      "position": [600, 300]
+    },
+    {
+      "parameters": {
+        "toEmail": "={{ $json.from }}",
+        "subject": "تم استلام طلبك — رقم التذكرة: {{ $json.id }}",
+        "message": "شكرًا لتواصلك معنا. سيتواصل معك فريقنا خلال ساعتين.",
+        "options": {}
+      },
+      "name": "Acknowledge Customer",
+      "type": "n8n-nodes-base.gmail",
+      "position": [800, 300]
+    }
+  ],
+  "connections": {
+    "New Support Email": { "main": [[{ "node": "Classify Ticket", "type": "main", "index": 0 }]] },
+    "Classify Ticket": { "main": [[{ "node": "Create Trello Card", "type": "main", "index": 0 }]] },
+    "Create Trello Card": { "main": [[{ "node": "Acknowledge Customer", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}

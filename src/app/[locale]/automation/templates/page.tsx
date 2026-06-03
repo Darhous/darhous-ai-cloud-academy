@@ -13,16 +13,16 @@ export async function generateMetadata({
   const isAr = locale === "ar";
   return {
     title: isAr
-      ? "مكتبة قوالب الأتمتة — 25 وصفة أتمتة | درهوس"
-      : "Automation Recipe Library — 25 Curated Workflows | Darhous",
+      ? "مكتبة قوالب الأتمتة — 30 وصفة أتمتة | درهوس"
+      : "Automation Recipe Library — 30 Curated Workflows | Darhous",
     description: isAr
-      ? "25 وصفة أتمتة منتقاة لأعمالك: مبيعات، تسويق، HR، تعليم، دعم عملاء، وأكثر."
-      : "25 curated automation workflows for sales, marketing, HR, education, customer support and more.",
+      ? "30 وصفة أتمتة منتقاة لأعمالك: مبيعات، تسويق، HR، تعليم، دعم عملاء، وأكثر."
+      : "30 curated automation workflows for sales, marketing, HR, education, customer support and more.",
     openGraph: {
-      title: isAr ? "مكتبة وصفات الأتمتة — 25 وصفة" : "Automation Recipe Library — 25 Workflows",
+      title: isAr ? "مكتبة وصفات الأتمتة — 30 وصفة" : "Automation Recipe Library — 25 Workflows",
       description: isAr
-        ? "25 وصفة أتمتة منتقاة لأعمالك: مبيعات، تسويق، HR، تعليم، دعم عملاء، وأكثر."
-        : "25 curated automation workflows for sales, marketing, HR, education, customer support and more.",
+        ? "30 وصفة أتمتة منتقاة لأعمالك: مبيعات، تسويق، HR، تعليم، دعم عملاء، وأكثر."
+        : "30 curated automation workflows for sales, marketing, HR, education, customer support and more.",
       url: `/${locale}/automation/templates`,
       images: [{ url: "/og-image.svg" }],
     },
@@ -43,7 +43,7 @@ export default async function AutomationTemplatesPage({
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "مكتبة وصفات الأتمتة — درهوس",
-    description: "25 وصفة أتمتة منتقاة لأعمالك",
+    description: "30 وصفة أتمتة منتقاة لأعمالك",
     numberOfItems: visible.length,
     itemListElement: visible.map((w, i) => ({
       "@type": "ListItem",

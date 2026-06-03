@@ -51,7 +51,7 @@ export default async function AutomationLabsPage({
           className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-lg mb-2 transition-opacity hover:opacity-80"
           style={{ background: "rgba(74,222,128,0.06)", border: "1px solid rgba(74,222,128,0.15)", color: "#4ade80" }}
         >
-          <Layers size={12} />هل تبحث عن وصفة جاهزة؟ ← مكتبة الوصفات (25 وصفة)
+          <Layers size={12} />هل تبحث عن وصفة جاهزة؟ ← مكتبة الوصفات (30 وصفة)
         </Link>
       </div>
 

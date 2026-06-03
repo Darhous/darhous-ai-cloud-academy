@@ -14,13 +14,13 @@ export async function generateMetadata({
   return {
     title: isAr ? "أكاديمية درهوس للأتمتة | درهوس" : "Darhous Automation Academy | Darhous",
     description: isAr
-      ? "تعلم الأتمتة التجارية، استكشف 25 وصفة منتقاة، وابنِ workflows ذكية لأعمالك."
-      : "Learn business automation with 25 curated recipes, tools explorer, and workflow builder.",
+      ? "تعلم الأتمتة التجارية، استكشف 30 وصفة منتقاة، وابنِ workflows ذكية لأعمالك."
+      : "Learn business automation with 30 curated recipes, tools explorer, and workflow builder.",
     robots: { index: true },
     openGraph: {
       title: isAr ? "أكاديمية درهوس للأتمتة" : "Darhous Automation Academy",
       description: isAr
-        ? "25 وصفة أتمتة منتقاة، أدوات موثقة، ومسارات تعلم — كل ما تحتاجه لأتمتة عملياتك."
+        ? "30 وصفة أتمتة منتقاة، أدوات موثقة، ومسارات تعلم — كل ما تحتاجه لأتمتة عملياتك."
         : "25 curated automation recipes, documented tools, and learning paths for business automation.",
       url: `/${locale}/automation`,
       images: [{ url: "/og-image.svg" }],
@@ -34,8 +34,8 @@ const SECTIONS = [
     href: "/automation/templates",
     icon: <Layers size={22} />,
     titleAr: "مكتبة الوصفات",
-    descAr: "25 وصفة أتمتة منتقاة جاهزة للتنفيذ: من ترحيب الطلاب إلى أتمتة المبيعات والموارد البشرية.",
-    badge: "25 وصفة",
+    descAr: "30 وصفة أتمتة منتقاة جاهزة للتنفيذ: من ترحيب الطلاب إلى أتمتة المبيعات والموارد البشرية.",
+    badge: "30 وصفة",
     color: "#4ade80",
   },
   {

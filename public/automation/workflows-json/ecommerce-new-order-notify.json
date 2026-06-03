@@ -1,0 +1,50 @@
+{
+  "name": "E-commerce New Order Notify",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "new-order",
+        "responseMode": "onReceived",
+        "responseData": "firstEntryJson"
+      },
+      "name": "New Order Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "position": [200, 300],
+      "webhookId": "YOUR_WEBHOOK_ID"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "sendMessage",
+        "chatId": "YOUR_TELEGRAM_CHAT_ID",
+        "text": "🛒 طلب جديد!\nرقم الطلب: {{ $json.order_id }}\nالعميل: {{ $json.customer_name }}\nالمبلغ: {{ $json.total }} ريال\nالمنتجات: {{ $json.items }}",
+        "additionalFields": {}
+      },
+      "name": "Notify Team on Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "position": [400, 200]
+    },
+    {
+      "parameters": {
+        "fromEmail": "orders@YOUR_STORE.com",
+        "toEmail": "={{ $json.customer_email }}",
+        "subject": "تأكيد طلبك رقم {{ $json.order_id }}",
+        "message": "شكرًا لطلبك! رقم الطلب: {{ $json.order_id }}. سيصلك خلال 2-3 أيام عمل.",
+        "options": {}
+      },
+      "name": "Send Customer Confirmation",
+      "type": "n8n-nodes-base.gmail",
+      "position": [400, 400]
+    }
+  ],
+  "connections": {
+    "New Order Webhook": {
+      "main": [
+        [{ "node": "Notify Team on Telegram", "type": "main", "index": 0 }],
+        [{ "node": "Send Customer Confirmation", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" }
+}

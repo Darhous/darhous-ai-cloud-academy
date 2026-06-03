@@ -1,0 +1,55 @@
+{
+  "name": "Social Media Post Scheduler",
+  "nodes": [
+    {
+      "parameters": { "rule": { "interval": [{ "field": "hours", "hoursInterval": 1 }] } },
+      "name": "Every Hour",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "operation": "list",
+        "base": { "__rl": true, "value": "YOUR_AIRTABLE_BASE_ID", "mode": "id" },
+        "table": { "__rl": true, "value": "YOUR_TABLE_ID", "mode": "id" },
+        "filterByFormula": "AND({Status}='scheduled', IS_BEFORE({ScheduledTime}, NOW()))"
+      },
+      "name": "Get Scheduled Posts",
+      "type": "n8n-nodes-base.airtable",
+      "position": [400, 300]
+    },
+    {
+      "parameters": {
+        "dataPropertyName": "data",
+        "rules": {
+          "rules": [
+            { "value": "twitter" },
+            { "value": "linkedin" },
+            { "value": "instagram" }
+          ]
+        }
+      },
+      "name": "Route by Channel",
+      "type": "n8n-nodes-base.switch",
+      "position": [600, 300]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": { "__rl": true, "value": "YOUR_AIRTABLE_BASE_ID", "mode": "id" },
+        "table": { "__rl": true, "value": "YOUR_TABLE_ID", "mode": "id" },
+        "id": "={{ $json.id }}",
+        "fields": { "fieldValues": { "values": [{ "fieldId": "Status", "fieldValue": "published" }] } }
+      },
+      "name": "Update Status to Published",
+      "type": "n8n-nodes-base.airtable",
+      "position": [800, 300]
+    }
+  ],
+  "connections": {
+    "Every Hour": { "main": [[{ "node": "Get Scheduled Posts", "type": "main", "index": 0 }]] },
+    "Get Scheduled Posts": { "main": [[{ "node": "Route by Channel", "type": "main", "index": 0 }]] },
+    "Route by Channel": { "main": [[{ "node": "Update Status to Published", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}
