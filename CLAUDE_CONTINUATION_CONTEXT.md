@@ -9,18 +9,66 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | 9.7 — Phase E: Supabase Progress Sync ✅ |
-| **Next Version** | v9.8 — Run SQL migration in Supabase dashboard, then test E2E |
-| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C+D+E+F ALL COMPLETE — Pushed ✅ |
+| **Version** | 9.7.1 — QA Verified ✅ |
+| **Next Version** | v10 — Polish & UX improvements |
+| **Status** | ✅ All 6 portals LIVE — Build clean — Phase A+B+C+D+E+F ALL COMPLETE — v9.7 QA PASSED ✅ |
 | **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings) — exit 0 — **1037 pages** |
-| **Last Tag** | `checkpoint/automation-supabase-sync` |
-| **Commit** | `3dfbf93` |
+| **Last Tag** | `checkpoint/v9.7-verified` |
+| **Commit** | `a8b4a38` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (Phase E Supabase progress sync — all phases complete) |
+| **Last Updated** | 2026-06-03 (v9.7 QA complete — SQL migration confirmed — all features verified) |
+
+---
+
+## ✅ v9.7.1 — QA Verification Session (2026-06-03)
+
+**Tag:** `checkpoint/v9.7-verified` · **Commit:** `a8b4a38`
+
+### SQL Migration Status
+- `supabase/v9_automation_progress.sql` — ✅ CONFIRMED EXECUTED in Supabase Dashboard
+- 3 tables created: `automation_saved_recipes`, `automation_lab_progress`, `automation_recipe_checklist`
+- RLS enabled on all 3 tables with proper WITH CHECK on UPDATE policies
+
+### QA Results
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| /automation landing page stats bar | 🔧 Fixed | "20 وصفة" → "25 وصفة" in metadata + badge |
+| /automation/templates metadata | 🔧 Fixed | title + description updated to 25 |
+| /automation/templates page count | ✅ Pass | Renders `visible.length` dynamically (25) |
+| Workflow JSON files in public/ | ✅ Pass | 25 files present, including all 5 new |
+| 5 new workflows in details/index.ts | ✅ Pass | All registered correctly |
+| TemplateDetailClient: SaveRecipeButton | ✅ Pass | Present in hero |
+| TemplateDetailClient: TestingChecklist | ✅ Pass | In accordion |
+| TemplateDetailClient: JsonViewer | ✅ Pass | Safety scan + fetch from public/ |
+| /automation/labs: 10 cards | ✅ Pass | automationLabsV2 has lab-1→lab-10 |
+| /automation/labs: "ابدأ المعمل" button | ✅ Pass | Links to /automation/labs/[id] |
+| LabDetailClient: completion checklist | ✅ Pass | useLabProgress hook, progress bar, badge |
+| LabDetailClient: Supabase sync | ✅ Pass | useLabProgress writes to automation_lab_progress |
+| /automation/automation-agent wizard | ✅ Pass | handleSubmit → /api/automation/generate |
+| API /api/automation/generate | ✅ Pass | Gemini gemini-2.5-flash + JSON extraction |
+| API /api/automation/progress GET | ✅ Pass | Returns 401 without auth, queries all 3 tables |
+| API /api/automation/progress POST | ✅ Pass | 4 types: save_recipe, unsave_recipe, lab_progress, recipe_checklist |
+| useAutomationProgress hook | ✅ Pass | localStorage + Supabase merge strategy |
+| StudentDashboardClient: AutomationHubSection | ✅ Pass | savedCount + 3 beginner picks + links |
+| AdminDashboardClient: automation tab | ✅ Pass | Dynamic from curatedWorkflows (25 rows) |
+| Sitemap: workflow entries | ✅ Pass | All 25 visible workflows × 2 locales |
+| Sitemap: lab entries | 🔧 Fixed | Added 10 labs × 2 locales = 20 new entries |
+
+### Fixes Applied
+- `src/app/[locale]/automation/page.tsx`: 3 occurrences of "20 وصفة" → "25 وصفة"
+- `src/app/[locale]/automation/templates/page.tsx`: 4 occurrences in metadata title/description
+- `src/app/sitemap.ts`: added `labEntries` block (automationLabsV2 × locales) + fixed comment
+- `supabase/v9_automation_progress.sql`: added `WITH CHECK` clause to UPDATE policies (RLS hardening)
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (68 warnings)
+- `npm run build` → ✅ exit 0 — **1037 pages**
 
 ---
 
