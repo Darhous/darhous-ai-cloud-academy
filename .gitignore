@@ -44,3 +44,9 @@ next-env.d.ts
 /.legacy/
 
 .vercel
+
+# Legacy exam import temp files (not committed)
+.legacy-exams-app.py
+.legacy-exams-questions.json
+.legacy-exams.db
+gen_exams.py
