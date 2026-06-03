@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Bot, Sparkles } from "lucide-react";
+import { ArrowRight, Bot, Sparkles, BookOpen } from "lucide-react";
 import AutomationAgentClient from "@/components/automation/AutomationAgentClient";
+import { automationPrompts } from "@/data/automation/automationPrompts";
 
 export async function generateMetadata({
   params,
@@ -15,6 +16,15 @@ export async function generateMetadata({
     description: isAr
       ? "صف عمليتك التجارية واحصل على blueprint أتمتة مخصص مع خارطة أدوات واقتراحات تنفيذ."
       : "Get a custom automation blueprint for your business process with AI.",
+    openGraph: {
+      title: isAr ? "وكيل الأتمتة الذكي" : "AI Automation Agent",
+      description: isAr
+        ? "صف عمليتك التجارية واحصل على blueprint أتمتة مخصص: الأدوات، الخطوات، وخطة التنفيذ."
+        : "Describe your business process and get a custom automation blueprint with tools, steps, and an implementation plan.",
+      url: `/${locale}/automation/automation-agent`,
+      images: [{ url: "/og-image.svg" }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 
@@ -122,6 +132,35 @@ export default async function AutomationAgentPage({
           >
             استكشف القوالب الجاهزة
           </Link>
+        </div>
+      </div>
+
+      {/* ─── مرجع الـ Prompts ─── */}
+      <div className="max-w-3xl mx-auto mt-16">
+        <div className="flex items-center gap-3 mb-2">
+          <BookOpen size={20} style={{ color: "#f97316" }} />
+          <h2 className="font-display font-bold text-xl" style={{ color: "var(--color-on-surface)" }}>مرجع الـ Prompts</h2>
+        </div>
+        <p className="text-sm mb-6" style={{ color: "var(--color-on-surface-variant)" }}>
+          {automationPrompts.length} prompt جاهز لأكثر مهام الأتمتة شيوعًا — استخدمها مع أي نموذج AI.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {automationPrompts.map((p) => (
+            <div key={p.id} className="glass-card rounded-xl p-4 flex flex-col gap-2" style={{ border: "1px solid rgba(249,115,22,0.1)" }}>
+              <div>
+                <h3 className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{p.title}</h3>
+                <p className="text-xs mt-0.5" style={{ color: "#f97316" }}>{p.goal}</p>
+              </div>
+              <p className="text-xs leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
+                <span className="font-semibold" style={{ color: "var(--color-on-surface)" }}>المخرج: </span>{p.output}
+              </p>
+              <div className="flex flex-wrap gap-1">
+                {p.recommendedFor.map((r, i) => (
+                  <span key={i} className="text-[10px] px-1.5 py-0.5 rounded" style={{ background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.15)", color: "var(--color-on-surface-variant)" }}>{r}</span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

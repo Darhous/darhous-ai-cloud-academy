@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Layers, Wrench, BookOpen, Briefcase, FlaskConical, Bot } from "lucide-react";
+import { ArrowRight, Sparkles, Layers, Wrench, BookOpen, Briefcase, FlaskConical, Bot, TrendingUp, CheckCircle2 } from "lucide-react";
+import { automationCaseStudies } from "@/data/automation/automationCaseStudies";
+import { automationUseCases } from "@/data/automation/automationUseCases";
 
 export async function generateMetadata({
   params,
@@ -15,6 +17,15 @@ export async function generateMetadata({
       ? "تعلم الأتمتة التجارية، استكشف 25 وصفة منتقاة، وابنِ workflows ذكية لأعمالك."
       : "Learn business automation with 25 curated recipes, tools explorer, and workflow builder.",
     robots: { index: true },
+    openGraph: {
+      title: isAr ? "أكاديمية درهوس للأتمتة" : "Darhous Automation Academy",
+      description: isAr
+        ? "25 وصفة أتمتة منتقاة، أدوات موثقة، ومسارات تعلم — كل ما تحتاجه لأتمتة عملياتك."
+        : "25 curated automation recipes, documented tools, and learning paths for business automation.",
+      url: `/${locale}/automation`,
+      images: [{ url: "/og-image.svg" }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 
@@ -154,6 +165,71 @@ export default async function AutomationPage({
             </Link>
           ))}
         </div>
+
+        {/* ─── الصناعات المستفيدة ─── */}
+        <section className="mb-16">
+          <h2 className="font-display font-bold text-2xl mb-2 text-center" style={{ color: "var(--color-on-surface)" }}>الأتمتة لكل قطاع</h2>
+          <p className="text-sm text-center mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
+            {automationUseCases.length} قطاعات تستفيد من الأتمتة — من التعليم إلى العيادات.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {automationUseCases.map((uc) => (
+              <div key={uc.id} className="glass-card rounded-2xl p-4 flex flex-col gap-3" style={{ border: "1px solid rgba(74,222,128,0.1)" }}>
+                <h3 className="font-bold text-sm" style={{ color: "#4ade80" }}>{uc.title}</h3>
+                <div className="space-y-1">
+                  {uc.operationalWins.map((w, i) => (
+                    <div key={i} className="flex items-center gap-1.5 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                      <CheckCircle2 size={10} style={{ color: "#4ade80", flexShrink: 0 }} />{w}
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-1 pt-1 border-t" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+                  {uc.examples.slice(0, 3).map((ex, i) => (
+                    <span key={i} className="text-[10px] px-1.5 py-0.5 rounded" style={{ background: "rgba(74,222,128,0.06)", border: "1px solid rgba(74,222,128,0.12)", color: "var(--color-on-surface-variant)" }}>{ex}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ─── قصص نجاح ─── */}
+        <section className="mb-16">
+          <h2 className="font-display font-bold text-2xl mb-2 text-center" style={{ color: "var(--color-on-surface)" }}>قصص نجاح حقيقية</h2>
+          <p className="text-sm text-center mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
+            {automationCaseStudies.length} حالات استخدام موثقة من قطاعات مختلفة.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {automationCaseStudies.map((cs, idx) => {
+              const colors = ["#4ade80", "#8ed5ff", "#d0bcff", "#f59e0b", "#3ce0fb", "#f97316", "#4ade80", "#8ed5ff", "#d0bcff", "#f59e0b"];
+              const color = colors[idx % colors.length];
+              return (
+                <div key={cs.id} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: `1px solid ${color}12` }}>
+                  <div className="flex items-center gap-2">
+                    <TrendingUp size={16} style={{ color }} />
+                    <h3 className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{cs.title}</h3>
+                  </div>
+                  <p className="text-xs leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{cs.businessProblem}</p>
+                  <div>
+                    <p className="text-[10px] font-semibold mb-1.5" style={{ color }}>المكاسب التشغيلية</p>
+                    <div className="space-y-1">
+                      {cs.kpiImprovements.slice(0, 2).map((k, i) => (
+                        <div key={i} className="flex items-center gap-1.5 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
+                          <CheckCircle2 size={10} style={{ color, flexShrink: 0 }} />{k}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-1 pt-1 border-t" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+                    {cs.toolsUsed.slice(0, 3).map((t, i) => (
+                      <span key={i} className="text-[10px] px-1.5 py-0.5 rounded" style={{ background: `${color}08`, border: `1px solid ${color}15`, color: "var(--color-on-surface-variant)" }}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
 
         {/* Bottom CTA */}
         <div className="text-center rounded-3xl p-10" style={{ background: "rgba(74,222,128,0.05)", border: "1px solid rgba(74,222,128,0.12)" }}>

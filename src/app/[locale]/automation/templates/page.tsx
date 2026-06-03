@@ -18,6 +18,15 @@ export async function generateMetadata({
     description: isAr
       ? "25 وصفة أتمتة منتقاة لأعمالك: مبيعات، تسويق، HR، تعليم، دعم عملاء، وأكثر."
       : "25 curated automation workflows for sales, marketing, HR, education, customer support and more.",
+    openGraph: {
+      title: isAr ? "مكتبة وصفات الأتمتة — 25 وصفة" : "Automation Recipe Library — 25 Workflows",
+      description: isAr
+        ? "25 وصفة أتمتة منتقاة لأعمالك: مبيعات، تسويق، HR، تعليم، دعم عملاء، وأكثر."
+        : "25 curated automation workflows for sales, marketing, HR, education, customer support and more.",
+      url: `/${locale}/automation/templates`,
+      images: [{ url: "/og-image.svg" }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 
@@ -28,9 +37,26 @@ export default async function AutomationTemplatesPage({
 }) {
   const { locale } = await params;
   const visible = curatedWorkflows.filter((w) => w.visible !== false);
+  const BASE_URL = "https://darhous-ai-cloud-academy.vercel.app";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "مكتبة وصفات الأتمتة — درهوس",
+    description: "25 وصفة أتمتة منتقاة لأعمالك",
+    numberOfItems: visible.length,
+    itemListElement: visible.map((w, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: w.title,
+      url: `${BASE_URL}/${locale}/automation/templates/${w.id}`,
+      description: w.shortDescription ?? w.businessProblem,
+    })),
+  };
 
   return (
     <div className="container-xl py-12" dir="rtl">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mb-8">
         <Link
           href={`/${locale}/automation`}

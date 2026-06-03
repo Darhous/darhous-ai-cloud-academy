@@ -20,10 +20,18 @@ export async function generateMetadata({
   const { slug } = await params;
   const workflow = curatedWorkflows.find((t) => t.id === slug);
   if (!workflow) return { title: "قالب غير موجود | درهوس" };
+  const desc = workflow.shortDescription ?? workflow.businessProblem;
   return {
     title: `${workflow.title} | مكتبة وصفات الأتمتة n8n | درهوس`,
-    description: workflow.shortDescription ?? workflow.businessProblem,
+    description: desc,
     keywords: workflow.seoHashtags?.join(", "),
+    openGraph: {
+      title: workflow.title,
+      description: desc,
+      url: `/ar/automation/templates/${workflow.id}`,
+      images: [{ url: "/og-image.svg" }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 

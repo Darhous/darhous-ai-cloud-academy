@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock, CheckCircle2, Users } from "lucide-react";
+import { ArrowRight, Clock, CheckCircle2, Bot, Users } from "lucide-react";
 import { automationServicePackages } from "@/data/automation/automationServices";
 
 export async function generateMetadata({
@@ -13,6 +13,15 @@ export async function generateMetadata({
   return {
     title: isAr ? "خدمات الأتمتة الاحترافية | درهوس" : "Professional Automation Services | Darhous",
     description: isAr ? "باقات خدمات احترافية لتنفيذ حلول الأتمتة لعملك." : "Professional automation service packages for your business.",
+    openGraph: {
+      title: isAr ? "خدمات الأتمتة الاحترافية" : "Professional Automation Services",
+      description: isAr
+        ? "10 باقات خدمة احترافية: من تدقيق العمليات إلى تنفيذ حلول n8n و Python المخصصة."
+        : "10 professional service packages: process audit, workflow design, and custom n8n / Python implementation.",
+      url: `/${locale}/automation/services`,
+      images: [{ url: "/og-image.svg" }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 
@@ -88,6 +97,24 @@ export default async function AutomationServicesPage({
             </div>
           );
         })}
+      </div>
+
+      {/* Cross-link — automation-agent self-service */}
+      <div className="rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4" style={{ background: "rgba(249,115,22,0.05)", border: "1px solid rgba(249,115,22,0.15)" }}>
+        <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.2)" }}>
+          <Bot size={20} style={{ color: "#f97316" }} />
+        </div>
+        <div className="flex-1">
+          <p className="font-semibold text-sm mb-0.5" style={{ color: "var(--color-on-surface)" }}>تفضّل تجربة الأتمتة بنفسك؟</p>
+          <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>استخدم وكيل الأتمتة الذكي للحصول على blueprint مخصص في دقائق — مجانًا وبدون تواصل.</p>
+        </div>
+        <Link
+          href={`/${locale}/automation/automation-agent`}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold shrink-0 transition-all hover:opacity-80"
+          style={{ background: "rgba(249,115,22,0.15)", color: "#f97316", border: "1px solid rgba(249,115,22,0.3)" }}
+        >
+          <Bot size={14} />جرّب الوكيل
+        </Link>
       </div>
     </div>
   );

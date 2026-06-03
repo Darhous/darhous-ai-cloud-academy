@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock, Users, Star } from "lucide-react";
+import { ArrowRight, Clock, Star, Layers, FlaskConical } from "lucide-react";
 import { automationLearningPaths } from "@/data/automation/automationLearningPaths";
 
 export async function generateMetadata({
@@ -13,6 +13,15 @@ export async function generateMetadata({
   return {
     title: isAr ? "مسارات تعلم الأتمتة | درهوس" : "Automation Learning Paths | Darhous",
     description: isAr ? "مسارات تعلم منظمة من المبتدئ للمحترف في مجال الأتمتة." : "Structured learning paths from beginner to advanced automation professional.",
+    openGraph: {
+      title: isAr ? "مسارات تعلم الأتمتة" : "Automation Learning Paths",
+      description: isAr
+        ? "مسارات تعلم منظمة من المبتدئ للمحترف — مشاريع تطبيقية وأدوات موصى بها في كل مسار."
+        : "Structured learning paths from beginner to advanced — with capstone projects and recommended tools.",
+      url: `/${locale}/automation/paths`,
+      images: [{ url: "/og-image.svg" }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 
@@ -64,6 +73,38 @@ export default async function AutomationPathsPage({
             </div>
           );
         })}
+      </div>
+
+      {/* Cross-links */}
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <Link
+          href={`/${locale}/automation/templates`}
+          className="glass-card rounded-2xl p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5"
+          style={{ border: "1px solid rgba(74,222,128,0.15)", textDecoration: "none" }}
+        >
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(74,222,128,0.1)", border: "1px solid rgba(74,222,128,0.2)" }}>
+            <Layers size={18} style={{ color: "#4ade80" }} />
+          </div>
+          <div>
+            <p className="font-semibold text-sm" style={{ color: "var(--color-on-surface)" }}>مكتبة الوصفات</p>
+            <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>25 وصفة جاهزة تناسب كل مسار</p>
+          </div>
+          <ArrowRight size={14} className="ms-auto shrink-0" style={{ color: "#4ade80", transform: "rotate(180deg)" }} />
+        </Link>
+        <Link
+          href={`/${locale}/automation/labs`}
+          className="glass-card rounded-2xl p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5"
+          style={{ border: "1px solid rgba(60,224,251,0.15)", textDecoration: "none" }}
+        >
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(60,224,251,0.1)", border: "1px solid rgba(60,224,251,0.2)" }}>
+            <FlaskConical size={18} style={{ color: "#3ce0fb" }} />
+          </div>
+          <div>
+            <p className="font-semibold text-sm" style={{ color: "var(--color-on-surface)" }}>المعامل التطبيقية</p>
+            <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>10 معامل لتطبيق ما تعلمته فعليًا</p>
+          </div>
+          <ArrowRight size={14} className="ms-auto shrink-0" style={{ color: "#3ce0fb", transform: "rotate(180deg)" }} />
+        </Link>
       </div>
     </div>
   );

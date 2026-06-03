@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock, CheckCircle2, FlaskConical } from "lucide-react";
+import { ArrowRight, Clock, CheckCircle2, FlaskConical, ClipboardList, Layers } from "lucide-react";
 import { automationLabsV2 } from "@/data/automation/automationLabsV2";
+import { automationChecklists } from "@/data/automation/automationChecklists";
 
 export async function generateMetadata({
   params,
@@ -13,6 +14,15 @@ export async function generateMetadata({
   return {
     title: isAr ? "معامل الأتمتة التطبيقية | درهوس" : "Automation Practical Labs | Darhous",
     description: isAr ? "تمارين عملية لبناء automations حقيقية خطوة بخطوة." : "Hands-on labs to build real automations step by step.",
+    openGraph: {
+      title: isAr ? "معامل الأتمتة التطبيقية" : "Automation Practical Labs",
+      description: isAr
+        ? "10 معامل تطبيقية — سيناريوهات حقيقية، خطوات مفصلة، وقائمة تحقق من الإنجاز مع Supabase sync."
+        : "10 practical labs with real scenarios, step-by-step instructions, and completion checklists.",
+      url: `/${locale}/automation/labs`,
+      images: [{ url: "/og-image.svg" }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 
@@ -32,9 +42,17 @@ export default async function AutomationLabsPage({
           <ArrowRight size={14} />العودة لأكاديمية الأتمتة
         </Link>
         <h1 className="font-display font-bold text-3xl mb-2" style={{ color: "var(--color-on-surface)" }}>المعامل التطبيقية</h1>
-        <p className="text-sm mb-6" style={{ color: "var(--color-on-surface-variant)" }}>
+        <p className="text-sm mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
           {automationLabsV2.length} معمل تطبيقي — كل معمل يتضمن سيناريو حقيقي، خطوات مفصلة، وقائمة تحقق من الإنجاز.
         </p>
+        {/* Cross-link → templates */}
+        <Link
+          href={`/${locale}/automation/templates`}
+          className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-lg mb-2 transition-opacity hover:opacity-80"
+          style={{ background: "rgba(74,222,128,0.06)", border: "1px solid rgba(74,222,128,0.15)", color: "#4ade80" }}
+        >
+          <Layers size={12} />هل تبحث عن وصفة جاهزة؟ ← مكتبة الوصفات (25 وصفة)
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -104,6 +122,54 @@ export default async function AutomationLabsPage({
           );
         })}
       </div>
+
+      {/* ─── Checklists الإطلاق ─── */}
+      <section className="mt-16">
+        <div className="flex items-center gap-3 mb-2">
+          <ClipboardList size={22} style={{ color: "#3ce0fb" }} />
+          <h2 className="font-display font-bold text-2xl" style={{ color: "var(--color-on-surface)" }}>Checklists الإطلاق</h2>
+        </div>
+        <p className="text-sm mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
+          {automationChecklists.length} checklists جاهزة لأكثر مشاريع الأتمتة شيوعًا — من الاكتشاف إلى الصيانة.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {automationChecklists.map((cl, idx) => {
+            const colors = ["#3ce0fb", "#4ade80", "#d0bcff", "#f59e0b"];
+            const color = colors[idx % colors.length];
+            const phases = [
+              { label: "الاكتشاف", items: cl.discoveryChecklist },
+              { label: "البناء", items: cl.buildChecklist },
+              { label: "الاختبار", items: cl.qaChecklist },
+              { label: "الإطلاق", items: cl.launchChecklist },
+            ];
+            return (
+              <div key={cl.id} className="glass-card rounded-2xl p-5 flex flex-col gap-4" style={{ border: `1px solid ${color}12` }}>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{cl.title}</h3>
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded" style={{ background: `${color}10`, color, border: `1px solid ${color}20` }}>{cl.projectType}</span>
+                  </div>
+                  <p className="text-[10px]" style={{ color: "var(--color-on-surface-variant)" }}>الحساسية: {cl.sensitivity} · الأدوات: {cl.tools.join(", ")}</p>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {phases.map((ph) => (
+                    <div key={ph.label} className="rounded-xl p-3" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--color-outline-variant)" }}>
+                      <p className="text-[10px] font-semibold mb-1.5" style={{ color }}>{ph.label}</p>
+                      <div className="space-y-1">
+                        {ph.items.map((item, i) => (
+                          <div key={i} className="flex items-start gap-1 text-[10px]" style={{ color: "var(--color-on-surface-variant)" }}>
+                            <CheckCircle2 size={9} className="mt-0.5 shrink-0" style={{ color }} />{item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }
