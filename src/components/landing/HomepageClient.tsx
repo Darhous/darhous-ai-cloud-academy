@@ -178,7 +178,7 @@ export default function HomepageClient({ locale }: { locale: string }) {
               style={{ background: "rgba(142,213,255,0.06)", borderColor: "rgba(142,213,255,0.2)", color: "var(--color-primary)" }}
             >
               <Sparkles size={13} />
-              {isAr ? "نظام التعلم الذكي الجديد — v6.0" : "Smart Learning OS — v6.0"}
+              {isAr ? "نظام التعلم الذكي الجديد — v13.0" : "Smart Learning OS — v13.0"}
             </div>
           </motion.div>
 
@@ -258,7 +258,7 @@ export default function HomepageClient({ locale }: { locale: string }) {
               <div className="w-3 h-3 rounded-full bg-red-500/60" />
               <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
               <div className="w-3 h-3 rounded-full bg-green-500/60" />
-              <span className="ms-3 text-xs font-mono opacity-40" style={{ color: "var(--color-on-surface-variant)" }}>Darhous Smart Learning OS — v6.0</span>
+              <span className="ms-3 text-xs font-mono opacity-40" style={{ color: "var(--color-on-surface-variant)" }}>Darhous Smart Learning OS — v13.0</span>
             </div>
             <div className="p-5 grid grid-cols-3 gap-3">
               {[
