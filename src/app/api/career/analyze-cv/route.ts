@@ -1,7 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { callGemini } from "@/lib/gemini";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
+  const ip = getClientIp(req);
+  const rl = checkRateLimit(`career-analyze-cv:${ip}`, { limit: 5, windowSec: 60 });
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: `طلبات كثيرة. انتظر ${rl.resetInSec} ثانية.` },
+      { status: 429, headers: { "Retry-After": String(rl.resetInSec) } }
+    );
+  }
+
   try {
     const { text, jobDescription } = await req.json();
 

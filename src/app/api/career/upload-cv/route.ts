@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+const ALLOWED_TYPES = ["application/pdf", "text/plain"];
+
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
@@ -9,6 +12,22 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "لم يتم رفع أي ملف" }, { status: 400 });
     }
 
+    if (file.size > MAX_FILE_SIZE) {
+      return NextResponse.json(
+        { error: "حجم الملف يتجاوز الحد المسموح (5 ميغابايت)" },
+        { status: 413 }
+      );
+    }
+
+    const isAllowedType =
+      ALLOWED_TYPES.includes(file.type) || file.name.endsWith(".txt");
+    if (!isAllowedType) {
+      return NextResponse.json(
+        { error: "نوع الملف غير مدعوم. الرجاء رفع ملف PDF أو TXT." },
+        { status: 415 }
+      );
+    }
+
     const buffer = Buffer.from(await file.arrayBuffer());
 
     if (file.type === "application/pdf") {
@@ -16,13 +35,8 @@ export async function POST(req: NextRequest) {
       const pdfParse = require("pdf-parse") as (buf: Buffer) => Promise<{ text: string }>;
       const data = await pdfParse(buffer);
       return NextResponse.json({ text: data.text });
-    } else if (file.type === "text/plain" || file.name.endsWith(".txt")) {
-      return NextResponse.json({ text: buffer.toString("utf-8") });
     } else {
-      return NextResponse.json(
-        { error: "نوع الملف غير مدعوم. الرجاء رفع ملف PDF أو TXT." },
-        { status: 400 }
-      );
+      return NextResponse.json({ text: buffer.toString("utf-8") });
     }
   } catch (error) {
     console.error("Error parsing CV file:", error);
