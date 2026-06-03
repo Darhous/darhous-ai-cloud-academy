@@ -160,6 +160,78 @@ function AutomationHubSection({ locale, isAr }: { locale: string; isAr: boolean 
   );
 }
 
+/* ── Digital Exams Hub Section ───────────────────────────────── */
+function DigitalExamsHubSection({ locale, isAr }: { locale: string; isAr: boolean }) {
+  const [results, setResults] = useState<{ subject: string; subject_label: string; percentage: number; passed: boolean }[]>([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/exams/results?limit=10")
+      .then((r) => r.json())
+      .then(({ results: data }) => setResults(data ?? []))
+      .catch(() => {})
+      .finally(() => setLoaded(true));
+  }, []);
+
+  const passed = results.filter((r) => r.passed).length;
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="font-display font-bold text-xl flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+          <span style={{ fontSize: "18px" }}>💻</span>
+          {isAr ? "الاختبارات الرقمية" : "Digital Exams"}
+        </h2>
+        {passed > 0 && (
+          <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: "rgba(74,222,128,0.1)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.2)" }}>
+            <Trophy size={11} className="inline ml-1" />{passed} {isAr ? "اجتياز" : "passed"}
+          </span>
+        )}
+      </div>
+
+      {loaded && results.length > 0 ? (
+        <div className="flex flex-col gap-2 mb-4">
+          {results.slice(0, 4).map((r, i) => (
+            <div key={i} className="flex items-center gap-3 px-4 py-2.5 rounded-xl" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.04)" }}>
+              <span className="flex-1 text-sm truncate" style={{ color: "var(--color-on-surface)" }}>{r.subject_label || r.subject}</span>
+              <span className="font-mono text-sm font-bold" style={{ color: r.passed ? "#4ade80" : "#ef4444" }}>{Math.round(r.percentage)}%</span>
+              <span className="text-[10px]" style={{ color: r.passed ? "#4ade80" : "#f59e0b" }}>{r.passed ? (isAr ? "✅ ناجح" : "✅ Pass") : (isAr ? "↺ أعد" : "↺ Retry")}</span>
+            </div>
+          ))}
+        </div>
+      ) : loaded ? (
+        <p className="text-sm mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
+          {isAr ? "لم تُجرِ اختبارات بعد — ابدأ الآن!" : "No exams yet — start now!"}
+        </p>
+      ) : null}
+
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href={`/${locale}/digital-exams`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(60,224,251,0.08)", color: "#3ce0fb", border: "1px solid rgba(60,224,251,0.2)" }}
+        >
+          💻 {isAr ? "اختبارات المواد" : "Subject Exams"}
+        </Link>
+        <Link
+          href={`/${locale}/digital-exams/mixed`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(245,158,11,0.08)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.2)" }}
+        >
+          🏆 {isAr ? "الامتحان المجمع" : "Mixed Exam"}
+        </Link>
+        <Link
+          href={`/${locale}/digital-exams/history`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(142,213,255,0.08)", color: "#8ed5ff", border: "1px solid rgba(142,213,255,0.2)" }}
+        >
+          📊 {isAr ? "سجل أدائي" : "My History"}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 /* ════════════════════════════════════════════════════════════════
    MAIN EXPORT
 ════════════════════════════════════════════════════════════════ */
@@ -533,6 +605,9 @@ export default function StudentDashboardClient({ locale }: Props) {
 
           {/* Automation section */}
           <AutomationHubSection locale={locale} isAr={isAr} />
+
+          {/* Digital Exams section */}
+          <DigitalExamsHubSection locale={locale} isAr={isAr} />
         </div>
       )}
 

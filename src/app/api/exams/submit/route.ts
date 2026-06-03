@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await req.json();
-  const { subject, subject_label, score, total, time_taken, answers } = body;
+  const { subject, subject_label, score, total, time_taken, answers, flags_count, auto_terminated } = body;
 
   if (!subject || !subject_label || score === undefined || !total) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -30,6 +30,8 @@ export async function POST(req: NextRequest) {
       passed,
       time_taken: time_taken ?? 0,
       answers: answers ?? [],
+      flags_count: flags_count ?? 0,
+      auto_terminated: auto_terminated ?? false,
     })
     .select("id")
     .single();

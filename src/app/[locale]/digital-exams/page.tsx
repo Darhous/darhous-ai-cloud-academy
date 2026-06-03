@@ -20,8 +20,8 @@ export async function generateMetadata({
     openGraph: {
       title: isAr ? "اختبارات التحول الرقمي — درهوس" : "Digital Transformation Exams — Darhous",
       description: isAr
-        ? "7 اختبارات معتمدة: IT Fundamentals، Word، Excel، PowerPoint، Access، Cybersecurity، التحول الرقمي — ابدأ مجاناً."
-        : "7 certified exams: IT Fundamentals, Word, Excel, PowerPoint, Access, Cybersecurity, Digital Transformation — free to start.",
+        ? "9 اختبارات معتمدة: IT، Word، Excel، PowerPoint، Access، تطبيقات الموبايل، الويب، الأمن السيبراني، البحث — 902+ سؤال — ابدأ مجاناً."
+        : "9 certified exams: IT, Word, Excel, PowerPoint, Access, Mobile, WebApps, Cybersecurity, Internet Search — 902+ questions — free to start.",
       url: `/${locale}/digital-exams`,
       images: [{ url: "/og-image.svg" }],
     },
@@ -63,8 +63,8 @@ export default async function DigitalExamsPage({
             </h1>
             <p className="text-lg leading-relaxed max-w-xl" style={{ color: "var(--color-on-surface-variant)" }}>
               {isAr
-                ? "اختبارات شاملة في IT وWord وExcel وPowerPoint وAccess والأمن السيبراني ومهارات التحول الرقمي — قيّم نفسك واحصل على شهادة."
-                : "Comprehensive exams in IT, Word, Excel, PowerPoint, Access, Cybersecurity, and digital transformation skills — assess yourself and earn a certificate."}
+                ? "9 اختبارات شاملة · 902+ سؤال عشوائي في IT وWord وExcel وPowerPoint وAccess وتطبيقات الموبايل والويب والأمن السيبراني والبحث — قيّم نفسك واحصل على شهادة عند 80%+."
+                : "9 comprehensive exams · 902+ random questions in IT, Word, Excel, PowerPoint, Access, Mobile, WebApps, Cybersecurity, Internet Search — assess yourself and earn a certificate at 80%+."}
             </p>
           </div>
 
@@ -81,11 +81,19 @@ export default async function DigitalExamsPage({
               {isAr ? "مدمج الآن" : "Now Integrated"}
             </div>
             <p className="text-xs leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
-              {isAr ? "7 فئات من الاختبارات — النتائج تُحفظ في حسابك" : "7 exam categories — results saved to your account"}
+              {isAr ? "9 مواد · 902+ سؤال — النتائج والشهادات تُحفظ في حسابك" : "9 subjects · 902+ questions — results and certificates saved to your account"}
             </p>
-            <p className="text-xs font-bold mt-1" style={{ color: "var(--color-on-surface-variant)" }}>
-              {isAr ? "اختر فئة بالأسفل للبدء ←" : "Choose a category below to start ↓"}
-            </p>
+            <div className="flex flex-col gap-2 mt-1">
+              <Link href={`/${locale}/digital-exams/mixed`} className="flex items-center gap-1.5 text-xs font-bold" style={{ color: "#f59e0b" }}>
+                🏆 {isAr ? "الامتحان المجمع الشامل" : "Mixed Comprehensive Exam"}
+              </Link>
+              <Link href={`/${locale}/digital-exams/library`} className="flex items-center gap-1.5 text-xs font-bold" style={{ color: "#3ce0fb" }}>
+                📚 {isAr ? "المكتبة الرقمية" : "Digital Library"}
+              </Link>
+              <Link href={`/${locale}/digital-exams/history`} className="flex items-center gap-1.5 text-xs font-bold" style={{ color: "#8ed5ff" }}>
+                📊 {isAr ? "سجل أدائي" : "My Performance History"}
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -113,7 +121,7 @@ export default async function DigitalExamsPage({
                 </p>
                 <div className="flex items-center justify-between mt-auto pt-1">
                   <span className="text-[10px] font-mono" style={{ color: subject.color }}>
-                    20 {isAr ? "سؤال" : "questions"}
+                    {subject.questions.length} {isAr ? "سؤال" : "q"}
                   </span>
                   <Arrow size={14} style={{ color: subject.color }} />
                 </div>
@@ -131,8 +139,8 @@ export default async function DigitalExamsPage({
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
               {isAr
-                ? "اختبارات التحول الرقمي مدمجة الآن بالكامل — 7 فئات بـ 20 سؤالاً لكل فئة. نتائجك تُحفظ في حسابك وتظهر في لوحة التحكم الموحدة."
-                : "Digital transformation exams are now fully integrated — 7 categories with 20 questions each. Results are saved to your account and appear on your unified dashboard."}
+                ? "9 فئات · 902+ سؤال عشوائي · شهادة PDF عند 80%+ · امتحان مجمع شامل · مكتبة رقمية · سجل أداء مفصّل. نتائجك تُحفظ في حسابك وتظهر في لوحة التحكم الموحدة."
+                : "9 categories · 902+ random questions · PDF certificate at 80%+ · mixed comprehensive exam · digital library · detailed performance history. Results saved to your account and appear on your unified dashboard."}
             </p>
           </div>
         </div>
