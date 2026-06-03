@@ -1558,10 +1558,19 @@ Quality: Fantasy digital art, 8K.`,
     difficulty: "beginner",
     bestInputAr: "صورة واضحة للوجه أو نصف الجسم", bestInputEn: "Clear face or half-body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-غروب شاطئ ذهبي سينمائي، إضاءة دافئة أمبر وذهبية وردية، بوكيه محيط ناعم في الخلفية.
-جودة: فوتوريالستيك سينمائي، 8K.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Golden hour beach sunset, warm amber and rose gold light, soft ocean bokeh background, cinematic photorealistic quality, keep the person exactly the same.`,
+أنشئ بورتريه شاطئي سينمائي عند غروب الشمس الذهبي.
+الأسلوب: إضاءة ساعة ذهبية دافئة بتدرجات الأمبر والذهبي والوردي الذهبي.
+الإضاءة: ضوء مباشر خلفي ناعم من المغيب، هالة ذهبية محيطة بالشخص.
+الخلفية: بوكيه محيط ناعم، موج هادئ، سماء ملوّنة.
+الجودة: فوتوريالستيك سينمائي، 8K، Canon EF 85mm f/1.4.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a cinematic beach portrait at golden hour sunset.
+Style: Warm golden hour light with amber, gold, and rose-gold gradients.
+Lighting: Soft backlit glow from the setting sun, golden halo around the subject.
+Background: Soft ocean bokeh, gentle waves, colorful painted sky.
+Quality: Cinematic photorealistic, 8K, Canon EF 85mm f/1.4 equivalent.
+Do not add any unrelated elements.`,
     accent: "#f59e0b",
     gradient: "linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(251,191,36,0.08) 100%)",
     emoji: "🌅",
@@ -1578,10 +1587,19 @@ Golden hour beach sunset, warm amber and rose gold light, soft ocean bokeh backg
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه حضري في الساعة الزرقاء، أضواء ناطحات سحاب مُضببة خلفه، عمق ميدان ضيق، مزاج حزين.
-جودة: سينمائي، 4K.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Cinematic blue hour urban portrait, city skyscraper lights blurred behind, shallow depth of field, melancholy mood, keep the person exactly the same.`,
+أنشئ بورتريه حضري مزاجي في الساعة الزرقاء بعد الغروب.
+الأسلوب: Cinematic urban portrait، درجة ألوان زرقاء باردة عميقة، عمق ميدان ضيق.
+الإضاءة: ضوء أمامي لطيف من الأضواء الحضرية مع هالة خلفية زرقاء باردة.
+الخلفية: ناطحات سحاب بوكيه بأضواء مُضببة، بخار خفيف من الشوارع.
+الجودة: سينمائي 4K، Sony 85mm f/1.4 GM، حبوب فيلم ناعمة.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a moody urban portrait in the cinematic blue hour after sunset.
+Style: Deep cool blue color grade, shallow depth of field, melancholy introspective mood.
+Lighting: Soft front fill from urban ambient lights, cool blue backlight halo.
+Background: Bokeh city skyscraper lights blurred behind, light street fog.
+Quality: Cinematic 4K, Sony 85mm f/1.4 GM equivalent, subtle film grain.
+Do not add any unrelated elements.`,
     accent: "#60a5fa",
     gradient: "linear-gradient(135deg, rgba(96,165,250,0.2) 0%, rgba(99,102,241,0.08) 100%)",
     emoji: "🌆",
@@ -1598,10 +1616,19 @@ Cinematic blue hour urban portrait, city skyscraper lights blurred behind, shall
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-إضاءة رامبرانت كياروسكورو دراماتيكية، خلفية سوداء داكنة، ضوء شمعة واحد دافئ يحفر الظلال.
-جودة: جودة نهضة، 8K.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Dramatic Rembrandt chiaroscuro lighting, pitch black background, single warm candle light carving deep shadows, Renaissance quality, keep the person exactly the same.`,
+أنشئ بورتريه كياروسكورو درامي بأسلوب رامبرانت الهولندي الكلاسيكي.
+الأسلوب: كياروسكورو مدرسة هولندا الذهبية، مثلث رامبرانت واضح على الخد.
+الإضاءة: مصدر ضوء واحد جانبي دافئ، ظلال عميقة لا رحمة فيها، خط نور حاد على الأنف.
+الخلفية: خلفية سوداء داكنة كاملة بلا عناصر مشتتة.
+الجودة: 8K، دقة جلد وعيون بمستوى النهضة الإيطالية.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a dramatic chiaroscuro portrait in Rembrandt's Dutch Golden Age tradition.
+Style: Dutch Golden Age chiaroscuro, clear Rembrandt triangle on the cheek.
+Lighting: Single warm directional side light, merciless deep shadows, sharp nose light line.
+Background: Pure pitch black background with no distracting elements.
+Quality: 8K, Italian Renaissance-level skin and eye detail.
+Do not add any unrelated elements.`,
     accent: "#f59e0b",
     gradient: "linear-gradient(135deg, rgba(245,158,11,0.18) 0%, rgba(120,53,15,0.08) 100%)",
     emoji: "🕯️",
@@ -1618,10 +1645,19 @@ Dramatic Rembrandt chiaroscuro lighting, pitch black background, single warm can
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه فيلم نوار، مطر ثقيل على شوارع مبلطة مبللة، أبيض وأسود عالي التباين، أسلوب سينما هوليوود الأربعينات.
-جودة: 4K، حبوب فيلم أصيل.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Film noir portrait, heavy rain on wet cobblestone streets, high contrast black and white, 1940s Hollywood cinema style, keep the person exactly the same.`,
+أنشئ بورتريه فيلم نوار بالأبيض والأسود بأسلوب هوليوود الأربعينات.
+الأسلوب: أبيض وأسود عالي التباين، ظلال شرائط نافذة عريانة على الوجه، حبوب فيلم 35mm أصيل.
+الإضاءة: مصدر ضوء واحد قاسٍ جانبي، خطوط ظل حادة تقطع الوجه.
+الخلفية: أرصفة مبلطة مبللة بالمطر الثقيل، انعكاسات نيون على البرك.
+الجودة: 4K، أسلوب تطوير Kodak Tri-X عالي التباين، حبوب حية واضحة.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a 1940s Hollywood film noir portrait in high-contrast black and white.
+Style: Extreme B&W contrast, venetian blind shadow stripes across the face, authentic 35mm film grain.
+Lighting: Single harsh side light source, sharp shadow lines cutting across the face.
+Background: Wet cobblestone streets in heavy rain, neon reflections in puddles.
+Quality: 4K, Kodak Tri-X high-contrast development style, vivid visible grain.
+Do not add any unrelated elements.`,
     accent: "#94a3b8",
     gradient: "linear-gradient(135deg, rgba(148,163,184,0.2) 0%, rgba(71,85,105,0.08) 100%)",
     emoji: "🎩",
@@ -1638,9 +1674,19 @@ Film noir portrait, heavy rain on wet cobblestone streets, high contrast black a
     difficulty: "beginner",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-لوحة ألوان مائية انطباعية رقيقة، ألوان باستيل ناعمة، نسيج الورق واضح، قطعة معرض فنية حالمة وشاعرية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Delicate impressionist watercolor portrait, soft pastel color washes, paper texture visible, fine art gallery piece, dreamy and poetic, preserving likeness.`,
+أنشئ لوحة ألوان مائية انطباعية بأسلوب الفن الرفيع الأوروبي.
+الأسلوب: غسيل مائي انطباعي شفاف، حواف ناعمة متدفقة، لوحة باستيل حالمة.
+النسيج: نسيج ورق خشن واضح، ضربات فرشاة عفوية ناعمة، بقع لون مرئية.
+الخلفية: ضبابية انطباعية بألوان باستيل فاتحة، بوكيه ناعم.
+الجودة: قطعة معرض فنية راقية، جودة Arches hot-press 300 DPI.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create an impressionist watercolor painting in European fine art gallery style.
+Style: Transparent watercolor washes, soft flowing edges, dreamy pastel palette.
+Texture: Rough watercolor paper grain visible, spontaneous brushwork, color blooms.
+Background: Impressionist soft blur in light pastels, gentle bokeh.
+Quality: Premium fine art gallery piece, 300 DPI Arches paper quality.
+Do not add any unrelated elements.`,
     accent: "#c084fc",
     gradient: "linear-gradient(135deg, rgba(192,132,252,0.2) 0%, rgba(96,165,250,0.08) 100%)",
     emoji: "🎨",
@@ -1657,9 +1703,19 @@ Delicate impressionist watercolor portrait, soft pastel color washes, paper text
     difficulty: "beginner",
     bestInputAr: "صورة الوجه في إضاءة جيدة", bestInputEn: "Face photo with good lighting",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه أنمي بأسلوب استوديو جيبلي، عيون كبيرة لامعة، تظليل مسطح ناعم، إخراج فني ميازاكي، خلفية طبيعية جميلة.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Studio Ghibli anime portrait, large luminous eyes, soft cel shading, Miyazaki art direction, gentle nature background, preserving recognizable features.`,
+أنشئ بورتريه أنمي بأسلوب رسوم استوديو جيبلي المميز.
+الأسلوب: رسوم جيبلي، عيون كبيرة لامعة معبّرة، تظليل مسطح ناعم بتدرجات محدودة.
+الألوان: لوحة ألوان جيبلي الأصيلة، ألوان طبيعية دافئة مع لمسات سحرية.
+الخلفية: خلفية طبيعية جميلة بأسلوب الإخراج الفني لميازاكي، حقل أو غابة.
+الجودة: جودة أنيميشن استوديو 2K، تفاصيل دقيقة في الشعر والعيون.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create an anime portrait in Studio Ghibli's distinctive animation art style.
+Style: Ghibli anime illustration, large luminous expressive eyes, soft cel shading with limited gradients.
+Colors: Authentic Ghibli warm natural palette with magical touches.
+Background: Beautiful nature background in Miyazaki's art direction, field or forest setting.
+Quality: 2K studio animation quality, detailed hair and eye rendering.
+Do not add any unrelated elements.`,
     accent: "#34d399",
     gradient: "linear-gradient(135deg, rgba(52,211,153,0.2) 0%, rgba(74,222,128,0.08) 100%)",
     emoji: "🌸",
@@ -1676,9 +1732,19 @@ Studio Ghibli anime portrait, large luminous eyes, soft cel shading, Miyazaki ar
     difficulty: "beginner",
     bestInputAr: "صورة واضحة للوجه أو الجسم", bestInputEn: "Clear face or body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-رسم كوميك بأسلوب ماربل/DC، خطوط حبر سميكة جريئة، ألوان أساسية حيوية، نقاط هالفتون، تأثير جاك كيربي.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Marvel comic book style illustration, bold thick ink outlines, vibrant primary colors, halftone dot pattern, dynamic hero pose, Jack Kirby influence, preserving likeness.`,
+أنشئ رسم كوميكس بطولي بأسلوب ماربل/DC الكلاسيكي.
+الأسلوب: خطوط حبر سميكة جريئة، ألوان أساسية حيوية متشبعة، نقاط هالفتون مرئية.
+التفاصيل: تأثير طباعة كوميكس أصيل، تعبير بطولي ديناميكي قوي، تأثير جاك كيربي.
+الخلفية: خلفية كوميكس شعاعية أو بُقعية، سطح ورق أبيض.
+الجودة: 4K، رسم متسق يدوي احترافي، أسلوب الكوميكس السبعيني الكلاسيكي.
+لا تضف أي فقاعات حوار أو نصوص.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a heroic comic book illustration in classic Marvel/DC style.
+Style: Bold thick ink outlines, vibrant saturated primary colors, visible halftone dot pattern.
+Details: Authentic comic printing effect, dynamic heroic expression, Jack Kirby influence.
+Background: Radial or burst comic-style background, white paper surface.
+Quality: 4K, consistent professional hand-drawn illustration, classic 1970s comic style.
+Do not add any speech bubbles or text.`,
     accent: "#f87171",
     gradient: "linear-gradient(135deg, rgba(248,113,113,0.2) 0%, rgba(251,191,36,0.08) 100%)",
     emoji: "💥",
@@ -1695,10 +1761,19 @@ Marvel comic book style illustration, bold thick ink outlines, vibrant primary c
     difficulty: "advanced",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-محارب خيالي ملحمي في درع ذهبي محفور بالأحجار الكريمة والرونز المتوهجة، تنين ضخم وقلعة محترقة في الخلفية.
-جودة: أشعة إلهية دراماتيكية، 4K.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Epic fantasy warrior in ornate engraved golden armor with glowing runes, massive dragon and burning castle in background, dramatic god-ray lighting, keep the face exactly.`,
+أنشئ بورتريه محارب خيالي ملحمي في درع ذهبي مزخرف.
+الأسلوب: فن خيال ملحمي عالي الدقة، درع ذهبي محفور بالأحجار الكريمة والرونز المتوهجة.
+الإضاءة: أشعة إلهية دراماتيكية من الأعلى، توهجات سحرية ذهبية من الرونز.
+الخلفية: تنين ضخم يحلق وقلعة محترقة في العمق، سحب ملحمية متلاطمة.
+الجودة: 4K، رسم رقمي احترافي بأسلوب World of Warcraft، تفاصيل عالية الدقة.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create an epic fantasy warrior portrait in ornate golden armor.
+Style: High-fidelity epic fantasy art, golden armor engraved with gemstones and glowing runes.
+Lighting: Dramatic divine god-rays from above, magical golden glow from the runes.
+Background: Massive dragon soaring behind, burning castle in the distance, epic storm clouds.
+Quality: 4K, professional digital art in World of Warcraft style, hyper-detailed rendering.
+Do not add any unrelated elements.`,
     accent: "#fbbf24",
     gradient: "linear-gradient(135deg, rgba(251,191,36,0.2) 0%, rgba(245,158,11,0.08) 100%)",
     emoji: "⚔️",
@@ -1715,9 +1790,19 @@ Epic fantasy warrior in ornate engraved golden armor with glowing runes, massive
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه أو نصف الجسم", bestInputEn: "Clear face or half-body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-رائد فضاء مستقبلي في بدلة أنيقة متوهجة، سديم دوار ومجرات بعيدة في الخلفية، جودة NASA السينمائية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Futuristic astronaut in sleek spacesuit with glowing visor, swirling nebula and distant galaxies background, NASA cinematic quality, keep the face exactly.`,
+أنشئ بورتريه رائد فضاء مستقبلي في محيط كوني مذهل.
+الأسلوب: بدلة فضاء أنيقة متوهجة بتفاصيل تقنية، خوذة لامعة تعكس الكون.
+الإضاءة: ضوء كوني بارد من النجوم والسديم، انعكاسات على الخوذة.
+الخلفية: سديم دوار ملوّن بالبنفسجي والأزرق والوردي، مجرات بعيدة ونجوم لامعة.
+الجودة: دقة NASA السينمائية، 4K، تصوير فضائي احترافي.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a futuristic astronaut portrait in a stunning cosmic environment.
+Style: Sleek futuristic spacesuit with glowing accents, reflective visor showing the galaxy.
+Lighting: Cold cosmic light from stars and nebula, visor reflections.
+Background: Swirling nebula in purple, blue, and pink tones, distant galaxies, glittering stars.
+Quality: NASA cinematic quality, 4K, professional astrophotography composite.
+Do not add any unrelated elements.`,
     accent: "#818cf8",
     gradient: "linear-gradient(135deg, rgba(129,140,248,0.2) 0%, rgba(109,40,217,0.08) 100%)",
     emoji: "🚀",
@@ -1734,9 +1819,19 @@ Futuristic astronaut in sleek spacesuit with glowing visor, swirling nebula and 
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-جمالية سايبربانك 2077، أضواء نيون وردية وفيروزية منعكسة على الوجه، زقاق طوكيو ليلي ممطر، إعلانات هولوغرامية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Cyberpunk 2077 aesthetic, neon pink and cyan lights reflected on face, rainy night Tokyo alleyway, holographic advertisements, glowing augmented eye implants, keep the person exactly.`,
+أنشئ بورتريه سايبربانك في طوكيو المستقبلية الليلية الممطرة.
+الأسلوب: جمالية Cyberpunk 2077، تعديلات سيبرانية متوهجة، ملابس وسائط عالية التقنية.
+الإضاءة: أضواء نيون وردية وفيروزية تعكس على الوجه والمطر، ظلال مدينية معقدة.
+الخلفية: زقاق طوكيو الليلي الضيق، إعلانات هولوغرامية يابانية طائفة، مطر ثقيل.
+الجودة: فن رقمي سينمائي، 4K، أسلوب Blade Runner 2049 الحديث.
+لا تضف أي نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a cyberpunk portrait in a rain-soaked futuristic Tokyo night.
+Style: Cyberpunk 2077 aesthetic, glowing cyber augmentations, high-tech streetwear.
+Lighting: Pink and cyan neon lights reflecting off face and rain, complex urban shadows.
+Background: Narrow Tokyo night alley, floating Japanese holographic advertisements, heavy rain.
+Quality: Cinematic digital art, 4K, modern Blade Runner 2049 aesthetic.
+Do not add any unrelated text.`,
     accent: "#f472b6",
     gradient: "linear-gradient(135deg, rgba(244,114,182,0.2) 0%, rgba(34,211,238,0.08) 100%)",
     emoji: "🌃",
@@ -1753,9 +1848,19 @@ Cyberpunk 2077 aesthetic, neon pink and cyan lights reflected on face, rainy nig
     difficulty: "advanced",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-ساحر أرش ماجي قديم، عصا سحرية تتشقق بالبرق، مكتبة ضخمة من الكتب السحرية القديمة في الخلفية، أجواء خيال ملحمي.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Ancient archmage wizard, glowing magical staff crackling with lightning, towering library of ancient grimoires background, epic high fantasy atmosphere, keep the face exactly.`,
+أنشئ بورتريه ساحر كبير قديم بقوى سحرية هائلة.
+الأسلوب: فن خيال ملحمي، عصا سحرية تتشقق بالبرق الأرجواني، رداء طويل منقوش بالرونز المتوهجة.
+الإضاءة: ضوء سحري دراماتيكي من العصا، عيون متوهجة بالطاقة السحرية.
+الخلفية: مكتبة ضخمة من كتب السحر القديمة تصل للسقف، أعمدة حجرية وشموع طائفة.
+الجودة: 4K، رسم رقمي خيال ملحمي، أسلوب Lord of the Rings السينمائي.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a portrait of an ancient wise archmage with immense magical power.
+Style: Epic fantasy art, magical staff crackling with purple lightning, long robe with glowing rune inscriptions.
+Lighting: Dramatic magical light from the staff, glowing eyes radiating power.
+Background: Towering library of ancient grimoires, stone pillars, floating candles.
+Quality: 4K, epic fantasy digital art, Lord of the Rings cinematic style.
+Do not add any unrelated elements.`,
     accent: "#a78bfa",
     gradient: "linear-gradient(135deg, rgba(167,139,250,0.2) 0%, rgba(124,58,237,0.08) 100%)",
     emoji: "🧙",
@@ -1772,9 +1877,19 @@ Ancient archmage wizard, glowing magical staff crackling with lightning, towerin
     difficulty: "advanced",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-ملكة إلفية راقية، تاج فضي من الكروم والزهور الحية، روب شفاف لامع، غابة سحرية بيراح البيولومينسانت.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-High Elven queen, silver crown of living vines and flowers, translucent gossamer robes, enchanted forest with bioluminescent fireflies, ethereal quality, keep the face exactly.`,
+أنشئ بورتريه ملكة إلفية راقية وأثيرية في غابة سحرية.
+الأسلوب: جمال إلفي نقي راقٍ، آذان مدببة أنيقة، تاج فضي من كروم وزهور حية، روب حريري شفاف.
+الإضاءة: ضوء بيولومينسنت أخضر ذهبي من الغابة، توهج أثيري هادئ حول الشخص.
+الخلفية: غابة مسحورة بحشرات يراعة بيولومينسنت تحوم، أشجار عملاقة قديمة.
+الجودة: 4K، فن خيال راقٍ بأسلوب إلف Lord of the Rings.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a regal ethereal High Elven queen portrait in an enchanted forest.
+Style: Pure elegant elven beauty, graceful pointed ears, silver crown of living vines and flowers, translucent silk robes.
+Lighting: Green-golden bioluminescent light from the forest, ethereal soft glow around subject.
+Background: Enchanted forest with bioluminescent fireflies, towering ancient trees.
+Quality: 4K, high fantasy art in Lord of the Rings Elves style.
+Do not add any unrelated elements.`,
     accent: "#34d399",
     gradient: "linear-gradient(135deg, rgba(52,211,153,0.2) 0%, rgba(167,243,208,0.08) 100%)",
     emoji: "🧝",
@@ -1791,9 +1906,19 @@ High Elven queen, silver crown of living vines and flowers, translucent gossamer
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-فرعون مصري قديم، تاج ذهبي مزخرف بالكوبرا، مكياج كحل، مجوهرات اللازورد، الأهرام والهيروغليفية الذهبية في الخلفية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Ancient Egyptian pharaoh, elaborate golden headdress with cobras, kohl eye makeup, lapis lazuli jewelry, Great Pyramid and hieroglyphics golden background, keep the face exactly.`,
+أنشئ بورتريه فرعون مصري عظيم في كامل مجده الإمبراطوري.
+الأسلوب: فرعوني مصري قديم، تاج نمس ذهبي مزخرف بالكوبرا الإلهية، كحل مصري، مجوهرات لازوردية.
+الإضاءة: ضوء رسمي دراماتيكي ذهبي كالإله رع، أشعة شمسية جلالية.
+الخلفية: الأهرام الثلاث الكبرى مع هيروغليفية ذهبية منحوتة وحراس إلهيون.
+الجودة: 4K، تفاصيل تاريخية دقيقة، جودة متحف البريطاني.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a portrait of a magnificent Egyptian pharaoh in full imperial splendor.
+Style: Ancient Egyptian pharaoh, golden Nemes headdress with divine cobra uraeus, dramatic kohl eye makeup, lapis lazuli jewelry.
+Lighting: Dramatic golden formal light like the sun god Ra, majestic solar rays.
+Background: The three Great Pyramids with golden carved hieroglyphics and divine guardians.
+Quality: 4K, historically accurate details, British Museum quality rendering.
+Do not add any unrelated elements.`,
     accent: "#fbbf24",
     gradient: "linear-gradient(135deg, rgba(251,191,36,0.2) 0%, rgba(212,175,55,0.08) 100%)",
     emoji: "🏺",
@@ -1810,9 +1935,19 @@ Ancient Egyptian pharaoh, elaborate golden headdress with cobras, kohl eye makeu
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-ملكية ألف ليلة وليلة، غطاء رأس فيروزي وذهبي مزخرف، روب حرير فاخر، فوانيس ذهبية طائرة، فناء قصر رخامي فاخر.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Arabian Nights royalty, ornate turquoise and gold headdress, rich silk robes, glowing lanterns floating, grand marble palace courtyard with fountain backdrop, keep the face exactly.`,
+أنشئ بورتريه ملكية ألف ليلة وليلة بأجواء شرقية ساحرة.
+الأسلوب: ملابس ملكية شرقية فاخرة، غطاء رأس فيروزي وذهبي مرصع بالجواهر، روب حرير مطرّز.
+الإضاءة: ضوء فوانيس ذهبية دافئة، توهج برتقالي ذهبي سحري يملأ المشهد.
+الخلفية: فناء قصر رخامي ضخم بنافورات وبساتين، فوانيس ذهبية تطفو في الهواء.
+الجودة: 4K، تفاصيل نسيج راقية، فن شرقي فاخر.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create an Arabian Nights royalty portrait with enchanting Eastern atmosphere.
+Style: Luxurious royal Eastern attire, ornate turquoise and gold jeweled headdress, embroidered silk robes.
+Lighting: Warm golden lantern light, magical golden-orange glow filling the scene.
+Background: Grand marble palace courtyard with fountains and gardens, golden lanterns floating in the air.
+Quality: 4K, exquisite fabric detail rendering, luxury Oriental art style.
+Do not add any unrelated elements.`,
     accent: "#f59e0b",
     gradient: "linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(180,83,9,0.08) 100%)",
     emoji: "🕌",
@@ -1829,9 +1964,19 @@ Arabian Nights royalty, ornate turquoise and gold headdress, rich silk robes, gl
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-إمبراطور روماني مهيب، توغا إمبراطورية بنفسجية، إكليل غار ذهبي، أعمدة رخامية وقوس الانتصار.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Majestic Roman Emperor portrait, purple imperial toga, golden laurel wreath, marble columns and triumphant arch, god-like classical composition, keep the face exactly.`,
+أنشئ بورتريه إمبراطور روماني مهيب في كامل هيبته الإمبراطورية.
+الأسلوب: توغا إمبراطورية بنفسجية كلاسيكية مزيّنة، إكليل غار ذهبي، تعبير قيادي سلطوي.
+الإضاءة: إضاءة رسمية كلاسيكية تُبرز الكبرياء والجلال، ضوء دراماتيكي.
+الخلفية: أعمدة رخامية ضخمة وقوس الانتصار، منظر روما الإمبراطورية.
+الجودة: 4K، دقة تاريخية، جودة فيلم ملحمي بأسلوب Gladiator.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a portrait of a majestic Roman Emperor in full imperial grandeur.
+Style: Classic purple imperial toga, golden laurel wreath, commanding authoritative expression.
+Lighting: Formal classical lighting emphasizing power and dignity, dramatic light.
+Background: Massive marble columns and triumphal arch, Imperial Rome view.
+Quality: 4K, historical accuracy, epic film quality in Gladiator style.
+Do not add any unrelated elements.`,
     accent: "#94a3b8",
     gradient: "linear-gradient(135deg, rgba(148,163,184,0.2) 0%, rgba(71,85,105,0.08) 100%)",
     emoji: "🏛️",
@@ -1848,9 +1993,19 @@ Majestic Roman Emperor portrait, purple imperial toga, golden laurel wreath, mar
     difficulty: "intermediate",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه أكاديمية مظلمة، مكتبة جامعية قوطية بأضواء الشموع، كتب جلدية قديمة، ظلال عنبرية دافئة، غموض أكسفورد الفكري.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Dark academia portrait, candlelit Gothic university library, leather-bound ancient books, warm amber shadows, Oxford intellectual mystery atmosphere, keep the person exactly.`,
+أنشئ بورتريه أكاديمية مظلمة بأجواء جامعة قوطية غامضة.
+الأسلوب: جماليات Dark Academia، ملابس تويد كلاسيكية، عالم فكري هادئ وغامض.
+الإضاءة: ضوء شموع دافئ عنبري، ظلال ناعمة معبّرة، نوافذ زجاجية عتيقة.
+الخلفية: مكتبة جامعية قوطية ضخمة، رفوف كتب جلدية ترتفع للسقف، سلالم خشبية عريقة.
+الجودة: 4K، درجة ألوان عنبرية دافئة، أسلوب أكسفورد التاريخي.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a dark academia portrait with mysterious Gothic university atmosphere.
+Style: Dark Academia aesthetics, classic tweed clothing, quiet intellectual mood.
+Lighting: Warm amber candlelight, expressive soft shadows, antique stained glass windows.
+Background: Grand Gothic university library, leather-bound books towering to the ceiling, antique wooden staircases.
+Quality: 4K, warm amber color grade, Oxford historical style.
+Do not add any unrelated elements.`,
     accent: "#78716c",
     gradient: "linear-gradient(135deg, rgba(120,113,108,0.2) 0%, rgba(92,64,14,0.08) 100%)",
     emoji: "📚",
@@ -1867,9 +2022,19 @@ Dark academia portrait, candlelit Gothic university library, leather-bound ancie
     difficulty: "beginner",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه كوتيج كور في مرج مشمس بالزهور البرية، قبعة قش منسوجة، ضوء ذهبي عبر أعشاب طويلة، سلام ريفي.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Cottagecore portrait in a sun-drenched wildflower meadow, woven straw hat, golden hour light through tall grass, pastoral peace, Monet impressionism, keep the person exactly.`,
+أنشئ بورتريه كوتيج كور ريفي دافئ في مرج زهور برية مشمس.
+الأسلوب: جماليات Cottagecore الريفية الأصيلة، قبعة قش منسوجة، ملابس كتانية ناعمة.
+الإضاءة: ضوء ذهبي دافئ يتسرب عبر الأعشاب الطويلة، بوكيه خوخي ناعم.
+الخلفية: مرج مشمس بالزهور البرية الملونة (بابونج، خشخاش، أقحوان)، أشجار متفرقة.
+الجودة: 4K، درجة ألوان فيلم إيجابي دافئة، أسلوب الساعة الذهبية الانطباعي.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a warm rural cottagecore portrait in a sun-drenched wildflower meadow.
+Style: Authentic Cottagecore pastoral aesthetics, woven straw hat, soft linen clothing.
+Lighting: Warm golden light filtering through tall grass, soft peachy bokeh.
+Background: Sunny meadow with colorful wildflowers (chamomile, poppies, daisies), scattered trees.
+Quality: 4K, warm positive film color grade, golden hour impressionist photography style.
+Do not add any unrelated elements.`,
     accent: "#86efac",
     gradient: "linear-gradient(135deg, rgba(134,239,172,0.2) 0%, rgba(74,222,128,0.08) 100%)",
     emoji: "🌻",
@@ -1886,9 +2051,19 @@ Cottagecore portrait in a sun-drenched wildflower meadow, woven straw hat, golde
     difficulty: "intermediate",
     bestInputAr: "صورة نصف الجسم أو الوجه", bestInputEn: "Half-body or face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه أزياء إيديتوريال جريء، خلفية خضراء ليموني، تصوير فلاش مباشر، طاقة جيل Z المعاصر.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Bold editorial fashion portrait, lime green background, stark direct flash photography, confident unapologetic energy, modern Gen-Z aesthetic, keep the person exactly.`,
+أنشئ بورتريه أزياء إيديتوريال جريء بأسلوب تصوير معاصر.
+الأسلوب: Flat flash photography مباشر، ألوان حادة جريئة، طاقة جيل Z المعاصر.
+الإضاءة: فلاش مباشر من الكاميرا، ظلال مسطحة، بدون تدرجات معقدة.
+الخلفية: خلفية خضراء ليموني حارة موحدة، بدون فوضى.
+الجودة: 4K، جودة مجلة أزياء مطبوعة، صورة حادة واضحة.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a bold editorial fashion portrait in contemporary photography style.
+Style: Flat direct flash photography, vivid bold colors, modern Gen-Z aesthetic energy.
+Lighting: Direct on-camera flash, flat shadows, no complex gradients.
+Background: Uniform hot lime green background, no clutter.
+Quality: 4K, printed fashion magazine quality, sharp and clear.
+Do not add any unrelated elements.`,
     accent: "#4ade80",
     gradient: "linear-gradient(135deg, rgba(74,222,128,0.2) 0%, rgba(34,197,94,0.08) 100%)",
     emoji: "💚",
@@ -1905,9 +2080,19 @@ Bold editorial fashion portrait, lime green background, stark direct flash photo
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه أو الجسم", bestInputEn: "Clear face or body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-محاط بإعصار من أوراق القيقب المتساقطة بألوان الخريف المشتعلة حمراء برتقالية ذهبية، خلفية غابة ضبابية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Surrounded by a tornado of falling maple leaves in fiery red orange gold, misty forest background, warm bokeh light shafts, magical seasonal portrait, keep the person exactly.`,
+أنشئ بورتريه سحري محاط بإعصار من أوراق الخريف الاحتراقية.
+الأسلوب: موجة لوليّة من أوراق القيقب بألوان الحريق الخريفي، أوراق في حركة متجمدة.
+الإضاءة: ضوء خريفي دافئ برتقالي ذهبي، تسريب ضوء ذهبي عبر سحابة الأوراق.
+الخلفية: غابة ضبابية ضيقة بأشجار عارية، ضوء خافت دافئ.
+الجودة: 4K، تصوير لحظة احترافية، تفاصيل عالية دقيقة لكل ورقة.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a magical portrait surrounded by a tornado of fiery autumn leaves.
+Style: Swirling vortex of maple leaves in autumn fire colors, leaves frozen in motion.
+Lighting: Warm orange-golden autumn light, golden light shafts through the leaf cloud.
+Background: Narrow misty forest with bare trees, soft warm ambient light.
+Quality: 4K, professional moment photography, hyper-detailed individual leaves.
+Do not add any unrelated elements.`,
     accent: "#f97316",
     gradient: "linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(245,158,11,0.08) 100%)",
     emoji: "🍂",
@@ -1924,9 +2109,19 @@ Surrounded by a tornado of falling maple leaves in fiery red orange gold, misty 
     difficulty: "beginner",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-زخة بتلات الكرز في ربيع اليابان، أشجار ساكورا تصطف على مسار قديم، بوكيه وردي ناعم في كل مكان.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Shower of cherry blossom petals in spring Japan, Sakura trees lining ancient path, soft pink bokeh everywhere, tender emotional atmosphere, keep the person exactly.`,
+أنشئ بورتريه ياباني رومانسي رقيق تحت زخات أزهار الكرز.
+الأسلوب: بتلات ساكورا تتساقط كعاصفة وردية بطيئة، جو ياباني ربيعي حالم وعاطفي.
+الإضاءة: ضوء ربيعي ناعم منتشر، بوكيه وردي حالم في كل مكان.
+الخلفية: مسار ياباني قديم تصطف على جانبيه أشجار كرز متفتحة، معبد في العمق.
+الجودة: 4K، درجة ألوان وردية فاتحة حالمة، أسلوب التصوير الياباني الحساس.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a tender romantic Japanese portrait under a shower of cherry blossom petals.
+Style: Sakura petals falling like a slow pink blizzard, dreamy emotional Japanese spring atmosphere.
+Lighting: Soft diffused spring light, dreamy pink bokeh everywhere.
+Background: Ancient Japanese path lined with blooming cherry trees, temple in the distance.
+Quality: 4K, dreamy light pink color grade, sensitive Japanese photography style.
+Do not add any unrelated elements.`,
     accent: "#f9a8d4",
     gradient: "linear-gradient(135deg, rgba(249,168,212,0.2) 0%, rgba(244,114,182,0.08) 100%)",
     emoji: "🌸",
@@ -1943,9 +2138,19 @@ Shower of cherry blossom petals in spring Japan, Sakura trees lining ancient pat
     difficulty: "advanced",
     bestInputAr: "صورة واضحة للوجه أو نصف الجسم", bestInputEn: "Clear face or half-body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه قوي مع بروق متعددة تضرب خلفه، كهرباء في الهواء، سحب عاصفة متلاطمة، جودة ناشيونال جيوغرافيك فوتوريالستيك.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Dramatic portrait with multiple lightning bolts striking behind, electricity in the air, storm clouds churning, Zeus-like power, photorealistic National Geographic, keep the person exactly.`,
+أنشئ بورتريه قوي دراماتيكي مع عاصفة برق هائلة.
+الأسلوب: قوة إلهية هائلة، برق متفرع في السماء، كهرباء في الهواء تشعّ على الجلد.
+الإضاءة: وميض برق كثيف فوري، ظلال حادة قاسية، توهج بنفسجي أبيض من البرق.
+الخلفية: سماء عاصفة متلاطمة مظلمة، سحب انفجارية، مطر عمودي ثقيل.
+الجودة: فوتوريالستيك National Geographic، 4K، تصوير عاصفة احترافي.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a powerful dramatic portrait with a massive lightning storm.
+Style: God-like immense power, branching lightning across the sky, electricity in the air radiating on skin.
+Lighting: Intense instantaneous lightning flash, harsh sharp shadows, purple-white glow from lightning.
+Background: Dark churning storm sky, explosive clouds, heavy vertical rain.
+Quality: Photorealistic National Geographic quality, 4K, professional storm photography.
+Do not add any unrelated elements.`,
     accent: "#a78bfa",
     gradient: "linear-gradient(135deg, rgba(167,139,250,0.2) 0%, rgba(99,102,241,0.08) 100%)",
     emoji: "⚡",
@@ -1962,9 +2167,19 @@ Dramatic portrait with multiple lightning bolts striking behind, electricity in 
     difficulty: "advanced",
     bestInputAr: "صورة واضحة للوجه أو الجسم", bestInputEn: "Clear face or body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-عند حافة محيط بيولومينسنت متوهج بالليل، أمواج مضيئة زرقاء، انعكاس درب التبانة على الماء، واقعية سحرية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Standing at edge of bioluminescent ocean at night, glowing blue plankton waves, milky way reflection on water, otherworldly magical realism, keep the person exactly.`,
+أنشئ بورتريه ليلي سحري عند شاطئ محيط بيولومينسنت.
+الأسلوب: توهج البلانكتون البيولومينسنت الأزرق الفيروزي، مشهد طبيعي نادر مُضاء ذاتياً.
+الإضاءة: ضوء أزرق فيروزي بيولومينسنت يضيء الشخص من الأسفل، سماء نجومية فوق.
+الخلفية: أمواج بيولومينسنت تتكسر على الشاطئ الليلي، انعكاس درب التبانة على الماء.
+الجودة: 4K، تصوير طبيعة احترافي، أسلوب وثائقي David Attenborough.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a magical nighttime portrait at a bioluminescent ocean shore.
+Style: Glowing blue-teal bioluminescent plankton, rare self-illuminated natural scene.
+Lighting: Blue-teal bioluminescent glow lighting the subject from below, starry sky above.
+Background: Bioluminescent waves breaking on the night beach, Milky Way reflection in water.
+Quality: 4K, professional nature photography, David Attenborough documentary style.
+Do not add any unrelated elements.`,
     accent: "#22d3ee",
     gradient: "linear-gradient(135deg, rgba(34,211,238,0.2) 0%, rgba(6,182,212,0.08) 100%)",
     emoji: "🌊",
@@ -1981,9 +2196,19 @@ Standing at edge of bioluminescent ocean at night, glowing blue plankton waves, 
     difficulty: "intermediate",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-درجة لون سينمائية هوليوودية، ظلال تيل وهايلايت أورانج عميق، عدسة أنامورفيك، تصحيح ألوان DI احترافي.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Hollywood blockbuster cinematic color grade, teal shadows and deep orange highlights, anamorphic lens flare, professional DI color correction, action hero look, keep the person exactly.`,
+أنشئ بورتريه سينمائي هوليوودي بدرجة ألوان تيل وأورانج الكلاسيكية.
+الأسلوب: LUT سينمائي تيل-أورانج هوليوودي عميق، عدسة أنامورفيك، شخصية بطولة أكشن.
+الإضاءة: ضوء أمامي برتقالي دافئ على الجلد مقابل ظلال فيروزية باردة، تباين قوي.
+الخلفية: مشهد سينمائي ببوكيه عميق، أضواء خلفية فيروزية خافتة.
+الجودة: 8K DCI، معالجة DI احترافية، جودة إنتاج ضخم.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a Hollywood cinematic portrait with the classic teal-and-orange color grade.
+Style: Deep Hollywood teal-orange LUT, anamorphic lens flare, action hero look.
+Lighting: Warm orange front key light on skin contrasted with cool teal shadows, high contrast.
+Background: Cinematic scene with deep bokeh, subtle cool teal background accents.
+Quality: 8K DCI, professional DI processing, blockbuster production quality.
+Do not add any unrelated elements.`,
     accent: "#f97316",
     gradient: "linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(6,182,212,0.08) 100%)",
     emoji: "🎬",
@@ -2000,9 +2225,19 @@ Hollywood blockbuster cinematic color grade, teal shadows and deep orange highli
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه فني أبيض وأسود بكونتراست شديد، ظلال سوداء عميقة، هايلايت منفجر، حبوب فيلم درامية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Extreme high contrast black and white fine art portrait, deep crushed blacks, blown highlights, dramatic film grain, Sebastião Salgado documentary style, keep the person exactly.`,
+أنشئ بورتريه فني بالأبيض والأسود بكونتراست قصوى وحبوب فيلم درامية.
+الأسلوب: كونتراست أقصى، سواد عميق كامل وهايلايت منفجر، أسلوب Sebastião Salgado.
+الإضاءة: مصدر ضوء واحد قاسٍ جانبي، ظلال لا رحمة فيها، ضوء مباشر حاد.
+الخلفية: خلفية تكاد تكون سوداء بالكامل، بدون تشتيت.
+الجودة: 4K، حبوب فيلم ISO 3200 دراماتيكية، تطوير Ilford HP5 حاد.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a fine art B&W portrait with extreme high contrast and dramatic film grain.
+Style: Maximum contrast, deep crushed blacks and blown highlights, Sebastião Salgado style.
+Lighting: Single harsh side light source, merciless shadows, hard direct light.
+Background: Near-black dark background with no distractions.
+Quality: 4K, dramatic ISO 3200 film grain, sharp Ilford HP5 development.
+Do not add any unrelated elements.`,
     accent: "#e2e8f0",
     gradient: "linear-gradient(135deg, rgba(226,232,240,0.2) 0%, rgba(71,85,105,0.08) 100%)",
     emoji: "🖤",
@@ -2019,9 +2254,19 @@ Extreme high contrast black and white fine art portrait, deep crushed blacks, bl
     difficulty: "intermediate",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه إيديتوريال عصري بلونين، كوبالت أزرق كهربائي وغسيل وردي ماجنتا، جودة غلاف مجلة جرافيكية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Modern editorial duotone portrait, electric cobalt blue and magenta pink color wash, graphic design magazine cover quality, bold and striking, keep the person exactly.`,
+أنشئ بورتريه إيديتوريال حديث بتأثير الدوتون باللونين الكوبالت والماجنتا.
+الأسلوب: تأثير Duotone جرافيكي، كوبالت أزرق كهربائي في الظلال، ماجنتا وردي حار في الهايلايت.
+الإضاءة: إضاءة موحدة ناعمة لإبراز تأثير الدوتون بالكامل، بدون ظلال معقدة.
+الخلفية: خلفية رمادية محايدة أو بيضاء لإبراز اللونين.
+الجودة: 4K، جودة تصميم جرافيك غلاف مجلة، أسلوب Andy Warhol الرقمي.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a modern editorial portrait with duotone effect in cobalt and magenta.
+Style: Graphic design duotone effect, electric cobalt blue in shadows, hot magenta pink in highlights.
+Lighting: Uniform soft lighting to maximize the duotone effect, no complex shadows.
+Background: Neutral gray or white background to make the dual colors pop.
+Quality: 4K, graphic magazine cover design quality, digital Andy Warhol style.
+Do not add any unrelated elements.`,
     accent: "#f472b6",
     gradient: "linear-gradient(135deg, rgba(244,114,182,0.2) 0%, rgba(96,165,250,0.08) 100%)",
     emoji: "🎭",
@@ -2038,9 +2283,19 @@ Modern editorial duotone portrait, electric cobalt blue and magenta pink color w
     difficulty: "beginner",
     bestInputAr: "أي صورة واضحة للوجه", bestInputEn: "Any clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-صورة فوتوغرافية عتيقة أصيلة من عشرينات القرن، سيبيا باهت مع مسحة صفراء، خدوش الفيلم والغبار، إطار بيضاوي، أزياء آرت ديكو.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Authentic 1920s vintage photograph aesthetic, faded sepia with slight yellow cast, film scratches and dust texture, oval vignette, Art Deco fashion portrait, keep the person exactly.`,
+أنشئ صورة فوتوغرافية أثرية عتيقة بأسلوب عشرينات القرن العشرين.
+الأسلوب: سيبيا باهت بمسحة صفراء قديمة، أزياء آرت ديكو من العشرينات، ملصق موضة فينتاج.
+النسيج: خدوش الفيلم والغبار الدقيق، تلاشٍ زمني، حدة مخففة كالصور القديمة.
+التأطير: إطار بيضاوي أو مستطيل بحواف ناعمة وتلاشٍ، ورق عتيق في الخلفية.
+الجودة: أصالة تاريخية عالية، نسيج ورق صور عتيق، جودة متحف.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create an archival vintage photograph in 1920s period style.
+Style: Faded sepia with slight yellow cast, Art Deco 1920s fashion, vintage Vogue portrait.
+Texture: Film scratches, subtle dust particles, time damage, slightly reduced sharpness.
+Framing: Oval or rectangular frame with soft edges and fade, antique paper background.
+Quality: High historical authenticity, antique photo paper texture, museum quality.
+Do not add any unrelated elements.`,
     accent: "#d97706",
     gradient: "linear-gradient(135deg, rgba(217,119,6,0.2) 0%, rgba(180,83,9,0.08) 100%)",
     emoji: "📷",
@@ -2057,9 +2312,19 @@ Authentic 1920s vintage photograph aesthetic, faded sepia with slight yellow cas
     difficulty: "advanced",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-تأثير تصوير إنفراريد، جلد يتوهج بلون أبيض أثيري، سماء مظلمة بنفسجية سريالية، أوراق مضيئة، جو حلمي آخروي.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Infrared photography portrait effect, skin glowing ethereal white, dark surreal purple sky, luminous foliage, Technicolor otherworldly dreamlike atmosphere, keep the person exactly.`,
+أنشئ بورتريه سوريالي بتأثير التصوير الإنفراريد الاحترافي.
+الأسلوب: محاكاة فيلم إنفراريد، جلد يتوهج بلون أبيض أثيري كالنور الداخلي.
+الألوان: سماء سوداء أو بنفسجية داكنة سريالية، أوراق شجر بيضاء لامعة، جلد شفاف متوهج.
+الخلفية: مشهد طبيعي بأشجار بيضاء لامعة، سماء دراماتيكية داكنة، غابة حالمة.
+الجودة: 4K، محاكاة فيلم Kodak Aerochrome، درجة ألوان Technicolor خيالية.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a surreal portrait with professional infrared photography simulation.
+Style: Infrared film simulation, skin glowing ethereal white from within.
+Colors: Black or dark surreal purple sky, bright white glowing leaves, translucent ethereal skin.
+Background: Natural setting with glowing white trees, dark dramatic sky, dreamlike forest.
+Quality: 4K, Kodak Aerochrome film simulation, Technicolor fantasy color grade.
+Do not add any unrelated elements.`,
     accent: "#86efac",
     gradient: "linear-gradient(135deg, rgba(134,239,172,0.2) 0%, rgba(167,139,250,0.08) 100%)",
     emoji: "🌿",
@@ -2076,9 +2341,19 @@ Infrared photography portrait effect, skin glowing ethereal white, dark surreal 
     difficulty: "intermediate",
     bestInputAr: "صورة الجسم كاملة أو نصف الجسم", bestInputEn: "Full or half-body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-تصوير قنبلة دخان، انفجارات دخان قرمزي وكوبالتي متدفقة، طمس حركة ديناميكي، طاقة فن الشارع الإيديتوريال.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Smoke bomb photography, billowing crimson and cobalt smoke explosions, dynamic motion blur, vibrant street art energy, editorial fashion shoot, keep the person exactly.`,
+أنشئ بورتريه ديناميكي مع انفجارات قنبلة الدخان القرمزية والكوبالتية.
+الأسلوب: تصوير قنبلة دخان عالي الطاقة، دخان قرمزي وكوبالتي يتدفق ويلتف بديناميكية.
+الإضاءة: ضوء عاكس من الدخان الملون، ظلال تدريجية ملونة حول الشخص.
+الخلفية: خلفية داكنة لإبراز الدخان الملون، بيئة خارجية مفتوحة.
+الجودة: 4K، تصوير حركة احترافي، ألوان حيوية متشبعة.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a dynamic portrait with crimson and cobalt smoke bomb explosions.
+Style: High-energy smoke bomb photography, billowing crimson and cobalt smoke swirling dynamically.
+Lighting: Reflected light from the colorful smoke, graduated colored shadows around the subject.
+Background: Dark background to highlight the colorful smoke, open outdoor setting.
+Quality: 4K, professional action photography, vivid saturated colors.
+Do not add any unrelated elements.`,
     accent: "#f87171",
     gradient: "linear-gradient(135deg, rgba(248,113,113,0.2) 0%, rgba(96,165,250,0.08) 100%)",
     emoji: "💨",
@@ -2095,9 +2370,19 @@ Smoke bomb photography, billowing crimson and cobalt smoke explosions, dynamic m
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه ضوء هولوغرافي بريزمي، انكسارات طيفية قوس قزح على الوجه، ألوان فقاعة صابون، إيديتوريال مستقبلي.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Holographic prismatic light portrait, rainbow spectral refractions across face, iridescent soap bubble colors, futuristic fashion editorial, Instagram viral, keep the person exactly.`,
+أنشئ بورتريه إيديتوريال مستقبلي بانعكاسات ضوء هولوغرافي بريزمي.
+الأسلوب: انكسار طيفي قوس قزح كامل عبر الوجه، ألوان بريزمية بديعة كفقاعة الصابون.
+الإضاءة: ضوء هولوغرافي متشعب من كل الاتجاهات، انعكاسات ملونة تغطي الوجه والجسم.
+الخلفية: خلفية بيضاء أو رمادية لإبراز الانكسارات الملونة.
+الجودة: 4K، جودة إيديتوريال Vogue مستقبلي، بريزما بصرية عالية الدقة.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a futuristic editorial portrait with holographic prismatic light refractions.
+Style: Full rainbow spectrum refractions across face, beautiful soap-bubble iridescent colors.
+Lighting: Holographic light radiating from all directions, colorful reflections covering face and body.
+Background: White or gray background to fully showcase the colorful refractions.
+Quality: 4K, futuristic Vogue editorial quality, high-definition optical prism rendering.
+Do not add any unrelated elements.`,
     accent: "#c084fc",
     gradient: "linear-gradient(135deg, rgba(192,132,252,0.2) 0%, rgba(34,211,238,0.08) 100%)",
     emoji: "🌈",
@@ -2114,9 +2399,19 @@ Holographic prismatic light portrait, rainbow spectral refractions across face, 
     difficulty: "advanced",
     bestInputAr: "صورة واضحة للوجه أو الجسم", bestInputEn: "Clear face or body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-تعريض مزدوج فني، صلويت الشخص مملوء بغابة صنوبر كثيفة وقمم جبلية، مزج سلس، ألوان الساعة الزرقاء.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Fine art double exposure: person's silhouette filled with dense pine forest and mountain peaks, seamless blend, blue hour tones, contemplative fine art photography.`,
+أنشئ لوحة فنية بتقنية التعريض المزدوج تمزج الصلويت مع الطبيعة.
+الأسلوب: صلويت الشخص مملوء بغابة صنوبر كثيفة وجبال ثلجية، مزج سلس أبيض وأسود.
+الألوان: درجة ألوان الساعة الزرقاء الباردة، ألوان معدنية زرقاء وسيانية.
+التقنية: مزج طبقات (screen/multiply)، حواف الصلويت حادة وخطية.
+الجودة: 4K، تصوير فني تجريدي احترافي، جودة طباعة Fine Art.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a fine art double exposure piece blending silhouette with nature.
+Style: Subject silhouette filled with dense pine forest and snowy mountain peaks, seamless B&W blend.
+Colors: Cold blue hour color grade, metallic blue and cyan tones.
+Technique: Layer blending (screen/multiply), sharp clean silhouette edges.
+Quality: 4K, professional abstract fine art photography, Fine Art print quality.
+Do not add any unrelated elements.`,
     accent: "#60a5fa",
     gradient: "linear-gradient(135deg, rgba(96,165,250,0.2) 0%, rgba(52,211,153,0.08) 100%)",
     emoji: "🌲",
@@ -2133,9 +2428,19 @@ Fine art double exposure: person's silhouette filled with dense pine forest and 
     difficulty: "intermediate",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-باريس الرومانسية عند الغروب الذهبي، برج إيفل يتوهج خلفه، قهوة ومقهى باريسي، مساء فرنسي دافئ.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Romantic Paris at golden hour, Eiffel Tower glowing behind, café au lait and croissants on bistro table, warm French summer evening, keep the person exactly.`,
+أنشئ بورتريه رومانسي في باريس خلال ساعة الغروب الذهبي.
+الأسلوب: أجواء فرنسية رومانسية راقية، ملابس أنيقة باريسية، تعبير دافئ بهيج.
+الإضاءة: ضوء غروب ذهبي دافئ يغمر المشهد، هالة ذهبية خلف البرج الشهير.
+الخلفية: برج إيفل يتوهج بالذهبي في الخلف، رصيف مقهى باريسي أنيق.
+الجودة: 4K، تصوير سفر احترافي، درجة ألوان رومانسية دافئة.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a romantic portrait in Paris during golden hour sunset.
+Style: Elegant romantic French atmosphere, chic Parisian attire, warm joyful expression.
+Lighting: Warm golden sunset light flooding the scene, golden halo behind the iconic tower.
+Background: Eiffel Tower glowing golden behind, elegant Parisian sidewalk café.
+Quality: 4K, professional travel photography, warm romantic color grade.
+Do not add any unrelated elements.`,
     accent: "#f9a8d4",
     gradient: "linear-gradient(135deg, rgba(249,168,212,0.2) 0%, rgba(245,158,11,0.08) 100%)",
     emoji: "🗼",
@@ -2152,9 +2457,19 @@ Romantic Paris at golden hour, Eiffel Tower glowing behind, café au lait and cr
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه أو نصف الجسم", bestInputEn: "Clear face or half-body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه تحت الماء، شعاب مرجانية زاهية في مياه الكاريبي الفيروزية، أسماك استوائية تحلق حوله، سكينة ووزن صفري.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Underwater portrait, vibrant coral reef in crystal turquoise Caribbean water, sunlight caustics rippling on skin, tropical fish circling, weightless serenity, keep the person exactly.`,
+أنشئ بورتريه احترافي تحت الماء في شعاب مرجانية استوائية زاهية.
+الأسلوب: تصوير تحت الماء احترافي، شعاب مرجانية ملونة حية، وزن صفري سلمي.
+الإضاءة: أشعة الشمس تخترق الماء بتموجات caustics على الجلد، ضوء أزرق فيروزي ناعم.
+الخلفية: شعاب مرجانية استوائية كثيفة، أسماك ملونة تحلق حوله، ماء كريستالي صافٍ.
+الجودة: 4K، تصوير تحت الماء احترافي، جودة National Geographic مائي.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a professional underwater portrait in vibrant tropical coral reef.
+Style: Professional underwater photography, colorful living coral reefs, peaceful weightlessness.
+Lighting: Sunlight rays penetrating the water with caustics rippling on skin, soft blue-teal ambient.
+Background: Dense tropical coral reef, colorful tropical fish swimming around, crystal clear water.
+Quality: 4K, professional underwater photography, National Geographic aquatic quality.
+Do not add any unrelated elements.`,
     accent: "#22d3ee",
     gradient: "linear-gradient(135deg, rgba(34,211,238,0.2) 0%, rgba(16,185,129,0.08) 100%)",
     emoji: "🐠",
@@ -2171,9 +2486,19 @@ Underwater portrait, vibrant coral reef in crystal turquoise Caribbean water, su
     difficulty: "intermediate",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه تايمز سكوير نيويورك، لافتات LED ضخمة مضيئة من كل الاتجاهات، طمس سيارات الأجرة الصفراء، طاقة المدينة.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-New York Times Square portrait, massive LED billboards blazing all around, yellow taxi blur, energy of the city, street photography documentary style, keep the person exactly.`,
+أنشئ بورتريه حضري نابض في تايمز سكوير نيويورك الليلي.
+الأسلوب: تصوير وثائقي شارعي حضري، طاقة نيويورك الحيوية الليلية المتوثبة.
+الإضاءة: إضاءة متعددة المصادر من اللافتات LED الضخمة بألوان مختلطة جريئة.
+الخلفية: لافتات LED ضخمة تغطي كل شيء، سيارات أجرة صفراء في حركة، حشود المارة.
+الجودة: 4K، تصوير شارعي احترافي ليلي، أسلوب المصور الصحفي.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a vibrant urban portrait at night in Times Square, New York City.
+Style: Urban street documentary photography, pulsating NYC night energy.
+Lighting: Multi-source lighting from massive LED billboards in bold mixed colors.
+Background: Massive LED billboards covering everything, moving yellow taxis, crowds of pedestrians.
+Quality: 4K, professional nighttime street photography, photojournalist style.
+Do not add any unrelated elements.`,
     accent: "#fbbf24",
     gradient: "linear-gradient(135deg, rgba(251,191,36,0.2) 0%, rgba(239,68,68,0.08) 100%)",
     emoji: "🗽",
@@ -2190,9 +2515,19 @@ New York Times Square portrait, massive LED billboards blazing all around, yello
     difficulty: "beginner",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-جزيرة سانتوريني اليونانية، مباني دوارية بيضاء إيقونية، قباب كنائس زرقاء، بحر إيجه الفيروزي، غروب متوسطي دافئ.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Santorini island Greece, iconic white Cycladic architecture, blue church domes, Aegean sea turquoise backdrop, warm Mediterranean golden hour, keep the person exactly.`,
+أنشئ بورتريه إيجابي مشمس في جزيرة سانتوريني اليونانية الأيقونية.
+الأسلوب: أجواء متوسطية دافئة، مبانٍ بيضاء ناصعة دوارية، قباب كنائس زرقاء فاقعة.
+الإضاءة: ضوء شمسي متوسطي ساطع ودافئ، انعكاس الشمس على البحر الأزرق.
+الخلفية: معمارية سيكلاديك بيضاء أيقونية، قباب كنائس زرقاء، بحر إيجه الفيروزي.
+الجودة: 4K، تصوير سفر احترافي، درجة ألوان متوسطية مشرقة.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a sunny positive portrait on the iconic Greek island of Santorini.
+Style: Warm Mediterranean atmosphere, brilliant white Cycladic buildings, vivid blue church domes.
+Lighting: Bright warm Mediterranean sunlight, sun reflection on the blue sea.
+Background: Iconic white Cycladic architecture, blue church domes, turquoise Aegean sea.
+Quality: 4K, professional travel photography, bright Mediterranean color grade.
+Do not add any unrelated elements.`,
     accent: "#60a5fa",
     gradient: "linear-gradient(135deg, rgba(96,165,250,0.2) 0%, rgba(34,211,238,0.08) 100%)",
     emoji: "🇬🇷",
@@ -2209,9 +2544,19 @@ Santorini island Greece, iconic white Cycladic architecture, blue church domes, 
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه ملاك سماوي، أجنحة ريش بيضاء ضخمة منتشرة، أشعة ضوء إلهية ذهبية من الأعلى، غلاف سحابي سماوي، فن مقدس.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Celestial angel portrait, enormous white feathered wings spread wide, divine golden light rays from above, heavenly cloud atmosphere, sacred art, keep the face exactly.`,
+أنشئ بورتريه ملاك سماوي إلهي بأجنحة ريش ضخمة وضوء إلهي.
+الأسلوب: ملاك سماوي نقي راقٍ، أجنحة ريش بيضاء ضخمة منتشرة بالكامل، تعبير هادئ حكيم.
+الإضاءة: أشعة ضوء ذهبية إلهية تنهمر من السماء، هالة ذهبية، توهج أبيض أثيري.
+الخلفية: سحب سماوية بيضاء ناعمة ولامعة، سماء أزرق سماوي، أشعة ذهبية تنتشر.
+الجودة: 4K، فن مقدس راقٍ، أسلوب لوحات سقف كنائس النهضة الإيطالية.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a celestial divine angel portrait with enormous feathered wings and divine light.
+Style: Pure regal celestial angel, enormous white feathered wings fully spread, serene wise expression.
+Lighting: Golden divine light rays pouring from heaven, golden halo, ethereal white glow.
+Background: Soft glowing white heavenly clouds, sky blue background, spreading golden rays.
+Quality: 4K, high sacred art quality, Italian Renaissance church ceiling painting style.
+Do not add any unrelated elements.`,
     accent: "#fef9c3",
     gradient: "linear-gradient(135deg, rgba(254,249,195,0.3) 0%, rgba(251,191,36,0.08) 100%)",
     emoji: "👼",
@@ -2228,9 +2573,19 @@ Celestial angel portrait, enormous white feathered wings spread wide, divine gol
     difficulty: "advanced",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه ناجٍ من نهاية العالم، مدينة مدمرة متهالكة في الخلفية، إضاءة قاسية دراماتيكية، رماد وغبار في الهواء، جماليات The Last of Us.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Post-apocalyptic survivor portrait, ruined crumbling cityscape background, dramatic harsh light, dust and ash in air, gritty photorealistic, The Last of Us game aesthetic, keep the person exactly.`,
+أنشئ بورتريه جريء لناجٍ في عالم ما بعد نهاية الكون.
+الأسلوب: جماليات The Last of Us / Mad Max، ملابس متهالكة مُرقّعة، وجه يروي قصة النجاة.
+الإضاءة: ضوء قاسٍ حاد من مصدر واحد، رماد وغبار في الهواء يتسرب الضوء منها.
+الخلفية: مدينة كبرى منهارة محترقة، مبانٍ متهالكة، طبيعة تستعيد أرضها.
+الجودة: 4K، جودة إنتاج لعبة AAA أو فيلم خيال علمي احترافي.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a gritty portrait of a survivor in a post-apocalyptic world.
+Style: The Last of Us / Mad Max aesthetics, worn patched clothing, face showing a survival story.
+Lighting: Harsh direct light from a single source, dust and ash in the air diffusing the light.
+Background: Collapsed burned major city, crumbling buildings, nature reclaiming the ruins.
+Quality: 4K, AAA game or professional sci-fi film production quality.
+Do not add any unrelated elements.`,
     accent: "#f87171",
     gradient: "linear-gradient(135deg, rgba(248,113,113,0.2) 0%, rgba(120,53,15,0.08) 100%)",
     emoji: "🌆",
@@ -2247,9 +2602,19 @@ Post-apocalyptic survivor portrait, ruined crumbling cityscape background, drama
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه ملكي مهيب على عرش مزخرف، روب مخمل قرمزي، تاج مرصع بالجواهر، إضاءة مسرحية دراماتيكية، قصر فخم.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Regal royal portrait on an ornate throne, velvet crimson robes, jeweled crown, dramatic theatrical lighting, grand palatial backdrop, power and authority, keep the face exactly.`,
+أنشئ بورتريه ملكي مهيب بكامل أبهة العرش والتاج.
+الأسلوب: بورتريه ملكي رسمي، روب مخمل قرمزي ذهبي الحدود، تاج مرصع بالجواهر الكريمة.
+الإضاءة: إضاءة قاعة العرش المسرحية الدراماتيكية، مصادر ضوء متعددة رسمية.
+الخلفية: عرش مزخرف فخم من الذهب والخشب الأصيل، قاعة قصر ضخمة بستائر حرير ذهبية.
+الجودة: 4K، أسلوب بورتريه الحكام الرسمي، جودة فنان البلاط الملكي.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a majestic royal portrait in full throne and crown splendor.
+Style: Formal royal portrait, crimson velvet robe with gold trim, jeweled crown studded with precious gems.
+Lighting: Dramatic theatrical throne room lighting, multiple formal light sources.
+Background: Ornate gold and antique wood throne, grand palace hall with golden silk curtains.
+Quality: 4K, formal ruler portrait style, royal court painter quality.
+Do not add any unrelated elements.`,
     accent: "#fbbf24",
     gradient: "linear-gradient(135deg, rgba(251,191,36,0.2) 0%, rgba(180,83,9,0.08) 100%)",
     emoji: "👑",
@@ -2266,9 +2631,19 @@ Regal royal portrait on an ornate throne, velvet crimson robes, jeweled crown, d
     difficulty: "advanced",
     bestInputAr: "صورة واضحة للوجه أو نصف الجسم", bestInputEn: "Clear face or half-body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-محاط بلوحات واجهة هولوغرامية طائفة، تدفقات كود وبيانات متساقطة، عناصر UI سيان خيالية علمية، جماليات Minority Report.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Surrounded by floating holographic interface panels, cascading code and data streams, cyan sci-fi UI elements, Minority Report aesthetic, sleek futuristic tech, keep the person exactly.`,
+أنشئ بورتريه خيال علمي محاط بلوحات واجهة هولوغرامية مستقبلية.
+الأسلوب: جماليات Minority Report الحديثة، لوحات واجهة هولوغرامية شفافة طائرة، تدفقات بيانات.
+الإضاءة: ضوء سيان مستقبلي بارد يعكس من اللوحات على الوجه، بيئة تقنية متوهجة.
+الخلفية: فضاء مكتبي مستقبلي مظلم مع شاشات هولوغرامية لا حصر لها، مدينة مضيئة من خلف.
+الجودة: 4K، جودة إنتاج فيلم خيال علمي ضخم، تأثيرات بصرية احترافية.
+لا تضف أي نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a sci-fi portrait surrounded by futuristic holographic interface panels.
+Style: Modern Minority Report aesthetics, transparent floating holographic panels, cascading data streams.
+Lighting: Cold cyan futuristic light reflecting from panels onto face, glowing tech environment.
+Background: Dark futuristic workspace with countless holographic screens, lit city visible behind.
+Quality: 4K, major sci-fi blockbuster production quality, professional VFX.
+Do not add any unrelated text.`,
     accent: "#22d3ee",
     gradient: "linear-gradient(135deg, rgba(34,211,238,0.2) 0%, rgba(99,102,241,0.08) 100%)",
     emoji: "🤖",
@@ -2287,9 +2662,19 @@ Surrounded by floating holographic interface panels, cascading code and data str
     difficulty: "beginner",
     bestInputAr: "صورة الوجه في إضاءة جيدة", bestInputEn: "Face photo with good lighting",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه دقيق الجودة بأسلوب أنمي استوديو جيبلي، ملمس زيتي ناعم، إضاءة سحرية، خلفية خضراء كثيفة.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-A high-fidelity portrait in Studio Ghibli anime style. Soft painterly textures, magical lighting, lush green background, characteristic Ghibli eye and hair detail.`,
+أنشئ بورتريه أنمي دقيق الجودة بأسلوب استوديو جيبلي عالي الدقة.
+الأسلوب: أنيميشن جيبلي عالي الجودة، ملمس ريشي زيتي ناعم، ألوان دافئة غنية.
+الإضاءة: إضاءة جيبلي السحرية الشهيرة، ضوء طبيعي مُرشَّح ناعم.
+الخلفية: خلفية خضراء كثيفة بأسلوب رسوم جيبلي المتقن، أشجار وضوء شمسي.
+الجودة: جودة 2K أنيميشن استوديو، تفاصيل دقيقة في الشعر والعيون والتعابير.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a high-fidelity anime portrait in detailed Studio Ghibli style.
+Style: High-quality Ghibli animation, soft painterly oil-like texture, warm rich colors.
+Lighting: Famous Ghibli magical lighting, soft natural filtered light.
+Background: Dense green background in Ghibli's meticulous art style, trees and sunlight.
+Quality: 2K studio animation quality, detailed rendering of hair, eyes, and expressions.
+Do not add any unrelated elements.`,
     accent: "#34d399",
     gradient: "linear-gradient(135deg, rgba(52,211,153,0.2) 0%, rgba(74,222,128,0.08) 100%)",
     emoji: "🌿",
@@ -2306,9 +2691,21 @@ A high-fidelity portrait in Studio Ghibli anime style. Soft painterly textures, 
     difficulty: "beginner",
     bestInputAr: "صورة الوجه في إضاءة جيدة", bestInputEn: "Face photo with good lighting",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-شخصية تشيبي ثلاثية الأبعاد، رأس كبير وجسم صغير، عيون كبيرة معبرة، ملمس لعبة ناعم، إضاءة استوديو لطيفة.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-A 3D Chibi character portrait. Large head, small body, big expressive eyes, smooth toy-like textures, soft studio lighting.`,
+أنشئ شخصية تشيبي ثلاثية الأبعاد مبهجة بنسبة رأس إلى جسم 1:2.
+الأسلوب: شخصية Super Deformed تشيبي، رأس ضخم جذاب وجسم صغير بسيط.
+التفاصيل: عيون كبيرة لامعة معبّرة جداً، تعبير وجه لطيف مبهج، شعر مفصل.
+الإضاءة: إضاءة استوديو 3D لطيفة دافئة، ظلال ناعمة على ملمس اللعبة.
+الخلفية: خلفية بيضاء نظيفة أو تدرجية ناعمة لإبراز الشخصية.
+الجودة: 4K render ثلاثي الأبعاد، جودة لعبة Next-Gen.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a joyful 3D Chibi character with a 1:2 head-to-body ratio.
+Style: Super Deformed Chibi character, large attractive head and small simple body.
+Details: Large luminous very expressive eyes, adorable joyful expression, detailed hair.
+Lighting: Gentle warm 3D studio lighting, soft shadows on the toy-like texture.
+Background: Clean white or soft gradient background to showcase the character.
+Quality: 4K 3D render, Next-Gen game quality.
+Do not add any unrelated elements.`,
     accent: "#f59e0b",
     gradient: "linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(251,191,36,0.08) 100%)",
     emoji: "🎎",
@@ -2325,9 +2722,21 @@ A 3D Chibi character portrait. Large head, small body, big expressive eyes, smoo
     difficulty: "beginner",
     bestInputAr: "صورة نصف الجسم أو كاملة", bestInputEn: "Half or full-body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-شخصية مجسم داخل صندوق لعبة جامع، نافذة بلاستيكية شفافة، تغليف كرتوني ملون بعلامة 2026.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-A stylish person as an action figure inside a collector's toy box. Transparent plastic window, colorful cardboard packaging with collector branding.`,
+أنشئ شخصية Action Figure داخل صندوق جامع احترافي عالي الجودة.
+الأسلوب: صندوق لعبة بلاستيكي تجاري احترافي، نافذة شفافة تُظهر الشخصية بوضوح.
+التفاصيل: طباعة صندوق ملونة مُصمَّمة باحترافية، علامة "Limited Edition 2026"، اسم الشخصية.
+الإضاءة: إضاءة منتج استوديو احترافية موزعة بشكل متساوٍ.
+الخلفية: خلفية بيضاء نظيفة لتصوير منتج تجاري أنيق.
+الجودة: 4K، تصوير منتج احترافي، جودة إعلان تجاري.
+لا تضف أي نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create an action figure character inside a professional high-quality collector toy box.
+Style: High-quality commercial plastic toy box, transparent window clearly showcasing the figure.
+Details: Professionally designed colorful box printing, "Limited Edition 2026" label, character name.
+Lighting: Professional studio product lighting, evenly distributed.
+Background: Clean white background for clean commercial product photography.
+Quality: 4K, professional product photography, commercial advertisement quality.
+Do not add any unrelated text.`,
     accent: "#fbbf24",
     gradient: "linear-gradient(135deg, rgba(251,191,36,0.2) 0%, rgba(245,158,11,0.08) 100%)",
     emoji: "📦",
@@ -2344,9 +2753,21 @@ A stylish person as an action figure inside a collector's toy box. Transparent p
     difficulty: "beginner",
     bestInputAr: "صورة الوجه", bestInputEn: "Face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه بأسلوب فانكو بوب فينيل، رأس ضخم ممتاز، عيون زرار سوداء، ملامح وجه بسيطة، ملمس بلاستيك مطفأ، في صندوق ذو نافذة.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-A portrait as a Funko Pop vinyl figure. Iconic oversized head, black button eyes, minimal facial features, matte plastic texture, sitting in a windowed collector box.`,
+أنشئ شخصية فانكو بوب فينيل أيقونية بالرأس الضخم والملامح المبسطة.
+الأسلوب: فانكو بوب Classic فينيل، رأس ضخم بنسبة 1:3، عيون زرار سوداء كبيرة.
+التفاصيل: ملامح وجه مبسطة أيقونية، ملابس الشخصية مُبسَّطة، نسب مميزة Funko.
+الإضاءة: إضاءة استوديو 3D منتج، ملمس بلاستيك فينيل مطفأ ناعم.
+الخلفية: صندوق فانكو بوب الأيقوني بنافذة شفافة، تصميم غلاف احترافي.
+الجودة: 4K render ثلاثي الأبعاد، جودة Funko الرسمية.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create an iconic Funko Pop vinyl figure with oversized head and simplified features.
+Style: Classic Funko Pop vinyl, 1:3 oversized head, large black button eyes.
+Details: Iconic simplified facial features, simplified character clothing, signature Funko proportions.
+Lighting: 3D product studio lighting, smooth matte vinyl plastic texture.
+Background: Iconic Funko Pop windowed collector box, professional cover design.
+Quality: 4K 3D render, official Funko quality standard.
+Do not add any unrelated elements.`,
     accent: "#8ed5ff",
     gradient: "linear-gradient(135deg, rgba(142,213,255,0.2) 0%, rgba(99,102,241,0.08) 100%)",
     emoji: "🧸",
@@ -2363,9 +2784,21 @@ A portrait as a Funko Pop vinyl figure. Iconic oversized head, black button eyes
     difficulty: "beginner",
     bestInputAr: "صورة الوجه في إضاءة جيدة", bestInputEn: "Face photo with good lighting",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-شخصية نيندرويد أنمي سوبر ديفورمد، مفاصل مرئية، وجه لطيف معبر، ألوان حيوية، ملمس مطفأ.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-A portrait as a Nendoroid anime figure. Super-deformed style, articulated joints visible, cute expressive face, vibrant colors, matte finish.`,
+أنشئ شخصية نيندرويد Super Deformed أنمي بمفاصل مرئية.
+الأسلوب: نيندرويد Super Deformed الأيقوني، رأس كبير متناسق، جسم صغير قصير.
+التفاصيل: وجه أنمي لطيف معبّر، مفاصل مرئية للذراعين والساقين، ملابس مُبسَّطة مفصلة.
+الإضاءة: إضاءة استوديو ثلاثية الأبعاد ناعمة، ملمس مطفأ راقٍ.
+الخلفية: قاعدة نيندرويد البيضاء الشفافة القياسية، أو خلفية بسيطة نظيفة.
+الجودة: 4K render ثلاثي الأبعاد دقيق، جودة Good Smile Company.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create an iconic Super Deformed Nendoroid anime figure with visible joints.
+Style: Iconic Nendoroid Super Deformed, large proportional head, small short body.
+Details: Cute expressive anime face, visible arm and leg joints, simplified detailed clothing.
+Lighting: Soft 3D studio lighting, refined matte texture finish.
+Background: Standard transparent white Nendoroid base, or clean simple background.
+Quality: Detailed 4K 3D render, Good Smile Company product quality.
+Do not add any unrelated elements.`,
     accent: "#f87171",
     gradient: "linear-gradient(135deg, rgba(248,113,113,0.2) 0%, rgba(244,114,182,0.08) 100%)",
     emoji: "✨",
@@ -2382,9 +2815,21 @@ A portrait as a Nendoroid anime figure. Super-deformed style, articulated joints
     difficulty: "beginner",
     bestInputAr: "صورة الوجه أو نصف الجسم", bestInputEn: "Face or half-body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه محوّل إلى لعبة قطيفة محشوة، ملمس قماش ناعم، تفاصيل خياطة، عيون أزرار، شعر ناعم، إضاءة دافئة مريحة.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-A portrait as a plush stuffed toy. Soft fabric textures, stitched details, button eyes, fuzzy hair, cozy warm lighting.`,
+أنشئ نسخة لعبة قطيفة محشوة دافئة ومحببة.
+الأسلوب: لعبة قطيفة ناعمة بملمس قماش واضح ومحبوب، وجه بتعبير لطيف ودود.
+التفاصيل: تفاصيل خياطة مرئية واضحة، عيون أزرار أو خيط، شعر ناعم قطيفة.
+الإضاءة: إضاءة دافئة مريحة مغمورة، ضوء ناعم يبرز ملمس القطيفة.
+الخلفية: خلفية دافئة ناعمة أو بيضاء نظيفة، أجواء منزلية مريحة.
+الجودة: 4K render فائق الدقة، تفاصيل قماشية دقيقة جداً.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a warm loveable plush stuffed toy version.
+Style: Soft plush toy with visible fabric texture, face with kind friendly expression.
+Details: Clearly visible stitching details, button or thread eyes, soft fuzzy hair.
+Lighting: Warm comfortable ambient lighting, soft light showcasing the plush texture.
+Background: Soft warm or clean white background, cozy home atmosphere.
+Quality: Hyperrealistic 4K render, very detailed fabric textures.
+Do not add any unrelated elements.`,
     accent: "#d0bcff",
     gradient: "linear-gradient(135deg, rgba(208,188,255,0.2) 0%, rgba(244,114,182,0.08) 100%)",
     emoji: "🧸",
@@ -2401,9 +2846,21 @@ A portrait as a plush stuffed toy. Soft fabric textures, stitched details, butto
     difficulty: "beginner",
     bestInputAr: "صورة الوجه أو نصف الجسم", bestInputEn: "Face or half-body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-أسلوب دار أحلام باربي، ثيم وردي زاهي، جماليات بلاستيكية لامعة، شعر وماكياج مثالي، أزياء عالية الجاذبية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-A portrait in the Barbie Dreamhouse style. Vibrant pink theme, glamorous plastic aesthetic, perfect hair and makeup, high-gloss fashion.`,
+أنشئ بورتريه بأسلوب عالم باربي دريم هاوس الوردي الزاهي.
+الأسلوب: جماليات باربي أيقونية، ثيم وردي كانزاسي فاقع، بلاستيك لامع مثالي، كمال متصنّع.
+التفاصيل: شعر مثالي مشفر، ماكياج لامع مثالي، ملابس موضة عالية جذابة.
+الإضاءة: إضاءة وردية دافئة ناعمة من كل الاتجاهات، توهج مثالي.
+الخلفية: غرفة دريم هاوس وردية لامعة، ديكورات باربي المميزة.
+الجودة: 4K، جودة بلاستيك لامع فاخر، أسلوب إعلان Mattel Barbie.
+لا تضف أي عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a portrait in the vibrant pink Barbie Dreamhouse aesthetic.
+Style: Iconic Barbie aesthetics, vivid hot pink theme, perfect shiny plastic, artificial perfection.
+Details: Perfectly set hair, perfect glossy makeup, high-glamour fashion attire.
+Lighting: Soft warm pink lighting from all directions, perfect soft glow.
+Background: Gleaming pink Dreamhouse room, signature Barbie décor.
+Quality: 4K, luxury shiny plastic quality, Mattel Barbie advertisement style.
+Do not add any unrelated elements.`,
     accent: "#f9a8d4",
     gradient: "linear-gradient(135deg, rgba(249,168,212,0.2) 0%, rgba(244,114,182,0.08) 100%)",
     emoji: "👱",
@@ -2420,9 +2877,21 @@ A portrait in the Barbie Dreamhouse style. Vibrant pink theme, glamorous plastic
     difficulty: "beginner",
     bestInputAr: "صورة الوجه أو نصف الجسم", bestInputEn: "Face or half-body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-أسلوب دمية براتز Y2K، عيون لوزية كبيرة جريئة، شفاه لامعة، موضة الألفينات الجريئة، تعبير مليء بالشخصية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-A portrait in the Bratz Doll Y2K aesthetic. Large almond-shaped eyes, heavy glossy lips, trendy 2000s fashion, bold makeup, attitude-heavy pose.`,
+أنشئ بورتريه بجمالية دمية براتز Y2K بأسلوب الألفينات الجريء.
+الأسلوب: جمالية براتز Y2K الأيقونية، عيون لوزية كبيرة جريئة مع خط عيون سميك.
+التفاصيل: شفاه لامعة مبالغ فيها، تعبير شخصية قوي، ملابس موضة الألفينات الجريئة.
+الإضاءة: إضاءة براقة جريئة ساطعة، ألوان حيوية متشبعة.
+الخلفية: خلفية ملونة جريئة أو بيئة موضة الألفينات.
+الجودة: 4K، جودة دمية بلاستيكية براقة، أسلوب إعلان MGA Entertainment.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a portrait in the bold Bratz Doll Y2K aesthetic.
+Style: Iconic Bratz Y2K aesthetic, large bold almond eyes with heavy eyeliner.
+Details: Exaggerated glossy lips, strong personality expression, bold 2000s fashion clothing.
+Lighting: Bright bold vivid lighting, highly saturated colors.
+Background: Bold colorful background or 2000s fashion environment.
+Quality: 4K, glossy plastic doll quality, MGA Entertainment advertisement style.
+Do not add any unrelated elements.`,
     accent: "#8ed5ff",
     gradient: "linear-gradient(135deg, rgba(142,213,255,0.2) 0%, rgba(208,188,255,0.08) 100%)",
     emoji: "💄",
@@ -2439,9 +2908,21 @@ A portrait in the Bratz Doll Y2K aesthetic. Large almond-shaped eyes, heavy glos
     difficulty: "beginner",
     bestInputAr: "صورة الوجه", bestInputEn: "Face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-شخصية بوب مارت صندوق أعمى، جمالية لعبة مصمم، إنهاء راتنج ناعم، تفاصيل فنية وخيالية، ألوان باستيل.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-A portrait in the style of a Pop Mart blind box figure. Designer toy aesthetic, smooth resin finish, artistic and whimsical details, pastel colors.`,
+أنشئ شخصية بوب مارت Designer Toy بأسلوب الصندوق المغلق الفني.
+الأسلوب: جمالية لعبة مصمم راتنجي، ملمس راتنج ناعم مطفأ، تفاصيل نقية دقيقة الحرفية.
+الألوان: لوحة ألوان باستيل حالمة مع تفاصيل متناقضة، أسلوب MOLLY أو DIMOO.
+التفاصيل: تعبير عيون مُبسَّط حالم، ملامح نقية مختصرة، نسب شخصية مميزة.
+الخلفية: تصوير منتج راقٍ على قاعدة شفافة، خلفية ناعمة متدرجة.
+الجودة: 4K render راتنجي فائق الدقة، جودة تصوير منتج Pop Mart الرسمية.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a Pop Mart Designer Toy character in blind box art style.
+Style: Designer resin toy aesthetic, smooth matte resin finish, pure detailed craftsmanship.
+Colors: Dreamy pastel color palette with contrasting details, MOLLY or DIMOO style.
+Details: Simplified dreamy eye expression, pure minimal features, distinctive character proportions.
+Background: Premium product photography on transparent base, soft gradient background.
+Quality: Hyperrealistic 4K resin render, official Pop Mart product photography quality.
+Do not add any unrelated elements.`,
     accent: "#f59e0b",
     gradient: "linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(249,168,212,0.08) 100%)",
     emoji: "🎁",
@@ -2460,9 +2941,21 @@ A portrait in the style of a Pop Mart blind box figure. Designer toy aesthetic, 
     difficulty: "intermediate",
     bestInputAr: "صورة الوجه أو نصف الجسم", bestInputEn: "Face or half-body photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-أسلوب آرت ديكو عشرينات القرن، جمالية ذهبية وسوداء عتيقة، أنماط هندسية، أزياء فلابر فينتاج.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-1920s Art Deco flapper vintage style, gold and black aesthetic, geometric patterns, elegant vintage fashion.`,
+أنشئ بورتريه فينتاج بجماليات آرت ديكو عشرينات القرن الذهبية.
+الأسلوب: أيقونية آرت ديكو الذهبية والسوداء، أنماط هندسية نقية رشيقة من عشرينات القرن.
+التفاصيل: ملابس فلابر أنيقة بتفاصيل ذهبية، إكسسوارات من عقد اللؤلؤ وعصابة الرأس.
+الإضاءة: إضاءة دراماتيكية كلاسيكية ذهبية من جانب واحد.
+الخلفية: خلفية أنماط آرت ديكو هندسية ذهبية وسوداء، أسلوب ملصق فينتاج.
+الجودة: 4K، أسلوب Erté الأيقوني، جودة فن رسم فيكتور راقٍ.
+لا تضف أي نصوص أو عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a vintage portrait in golden 1920s Art Deco aesthetics.
+Style: Iconic Art Deco gold and black, clean elegant geometric patterns from the 1920s.
+Details: Elegant flapper outfit with gold details, pearl necklace and headband accessories.
+Lighting: Classic dramatic single-side golden lighting.
+Background: Art Deco geometric gold and black pattern background, vintage poster style.
+Quality: 4K, iconic Erté style, high-quality fine art vector illustration.
+Do not add any unrelated text or elements.`,
     accent: "#d97706",
     gradient: "linear-gradient(135deg, rgba(217,119,6,0.2) 0%, rgba(0,0,0,0.08) 100%)",
     emoji: "🎭",
@@ -2479,9 +2972,21 @@ A portrait in the style of a Pop Mart blind box figure. Designer toy aesthetic, 
     difficulty: "beginner",
     bestInputAr: "صورة الوجه", bestInputEn: "Face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-شخصية فانكو بوب فينيل ثلاثية الأبعاد، رأس كبير لطيف، جمالية لعبة قابلة للتحصيل، تصوير منتج احترافي.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-3D Funko Pop vinyl figure, cute big head, collectible toy aesthetic, professional product photography studio quality.`,
+أنشئ شخصية فانكو بوب ثلاثية الأبعاد بجودة استوديو احترافية عالية.
+الأسلوب: فانكو بوب Classic فينيل 3D عالي الجودة، رأس ضخم مُبسَّط بشكل مثالي، نسب Funko أيقونية.
+التفاصيل: عيون زرار مطفأة كبيرة، ملامح مُبسَّطة متقنة، ملابس الشخصية بتفاصيل دقيقة.
+الإضاءة: إضاءة منتج استوديو احترافية ثلاثية، ملمس بلاستيك فينيل مطفأ راقٍ.
+الخلفية: صندوق فانكو بوب الرسمي المُصمَّم باحترافية، خلفية بيضاء لتصوير المنتج.
+الجودة: 8K render ثلاثي الأبعاد، معايير Funko الرسمية، جودة إعلان.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a high-quality studio-grade 3D Funko Pop figure.
+Style: High-quality Classic Funko Pop Vinyl 3D, perfectly simplified oversized head, iconic Funko proportions.
+Details: Large matte button eyes, refined simplified features, detailed character clothing.
+Lighting: Professional triple studio product lighting, refined matte vinyl plastic texture.
+Background: Professionally designed official Funko Pop box, white background for product photography.
+Quality: 8K 3D render, official Funko standards, advertisement quality.
+Do not add any unrelated elements.`,
     accent: "#f59e0b",
     gradient: "linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(251,191,36,0.08) 100%)",
     emoji: "🏆",
@@ -2498,10 +3003,19 @@ A portrait in the style of a Pop Mart blind box figure. Designer toy aesthetic, 
     difficulty: "intermediate",
     bestInputAr: "صورة واضحة للوجه", bestInputEn: "Clear face photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-بورتريه سينمائي هوليوودي احترافي، إضاءة استوديو مثالية، عالي الدقة، أسلوب إنتاج هوليوود.
-جودة: 8K render، احترافي عالي الجودة.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Cinematic Hollywood portrait, professional studio lighting, 8K render, high-end production quality.`,
+أنشئ بورتريه سينمائي هوليوودي بإضاءة استوديو احترافية متكاملة.
+الأسلوب: بورتريه هوليوود احترافي للنجم، إضاءة استوديو ثلاثية النقطة متقنة.
+الإضاءة: إضاءة ثلاثية النقطة (Key/Fill/Rim) متقنة، درجة ألوان سينمائية عميقة.
+الخلفية: خلفية داكنة أو بوكيه ناعم سينمائي.
+الجودة: 8K render HDR، معايير إنتاج هوليوود الحقيقي، مستوى حملة تصوير كبرى.
+لا تضف أي نصوص أو عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a professional Hollywood cinematic portrait with complete studio lighting.
+Style: Professional Hollywood star portrait, masterful three-point studio lighting.
+Lighting: Expertly executed Key/Fill/Rim three-point lighting, deep cinematic color grade.
+Background: Dark or soft cinematic bokeh background.
+Quality: 8K HDR render, true Hollywood production standards, major campaign level.
+Do not add any unrelated text or elements.`,
     accent: "#94a3b8",
     gradient: "linear-gradient(135deg, rgba(148,163,184,0.2) 0%, rgba(71,85,105,0.08) 100%)",
     emoji: "🎬",
@@ -2518,9 +3032,21 @@ Cinematic Hollywood portrait, professional studio lighting, 8K render, high-end 
     difficulty: "intermediate",
     bestInputAr: "صورة الوجه في إضاءة جيدة", bestInputEn: "Face photo with good lighting",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-لوحة زيتية كلاسيكية، ضربات فرشاة سميكة مرئية، ملمس قماش غني، أسلوب نهضوي، ألوان زيتية عميقة.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Classical oil painting, thick brushstrokes, rich textures, Renaissance style, deep warm oil colors.`,
+أنشئ لوحة زيتية كلاسيكية بأسلوب مشايخ الرسم النهضويين.
+الأسلوب: لوحة زيتية نهضة إيطالية كلاسيكية، ضربات فرشاة سميكة مرئية غنية، تدرجات عميقة.
+الألوان: ألوان زيتية دافئة عميقة متشبعة، تناغم لوني من المدرسة الفلمنكية.
+النسيج: نسيج قماش مشدود واضح، طبقات زيتية متعددة، تفاصيل جلد وشعر عالية الدقة.
+الخلفية: خلفية داكنة دافئة كلاسيكية تبرز الوجه، بأسلوب إضاءة رامبرانت.
+الجودة: جودة متحف فني عالمي، 8K تفاصيل عالية الدقة.
+لا تضف أي عناصر أو نصوص غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a classical oil painting in the style of Renaissance master painters.
+Style: Italian Renaissance classical oil painting, richly visible thick brushstrokes, deep gradients.
+Colors: Deep warm saturated oil colors, Flemish school color harmony.
+Texture: Visible stretched canvas texture, multiple oil layers, highly detailed skin and hair.
+Background: Classic dark warm background highlighting the face, Rembrandt lighting style.
+Quality: World art museum quality, 8K ultra-detailed rendering.
+Do not add any unrelated elements.`,
     accent: "#92400e",
     gradient: "linear-gradient(135deg, rgba(146,64,14,0.2) 0%, rgba(212,175,55,0.08) 100%)",
     emoji: "🖼️",
@@ -2537,9 +3063,19 @@ Classical oil painting, thick brushstrokes, rich textures, Renaissance style, de
     difficulty: "intermediate",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-فن رقمي سايبربانك، مدينة مستقبلية بأضواء نيون متوهجة، شوارع ممطرة لامعة، جماليات مستقبلية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Cyberpunk neon city digital art, glowing futuristic lights, rain-slicked streets, dystopian city aesthetic.`,
+أنشئ فناً رقمياً سايبربانك بمدينة مستقبلية ممطرة ونيون متوهج.
+الأسلوب: فن رقمي سايبربانك احترافي، مدينة مستقبلية بائسة بأضواء نيون ساطعة.
+الإضاءة: أضواء نيون وردية وبنفسجية وفيروزية تعكس على الشوارع المبللة، تأثير مطري.
+الخلفية: مشهد مدينة مستقبلية شاهق، مبانٍ معدنية مع إعلانات هولوغرامية، مطر متواصل.
+الجودة: 4K، فن مفهوم سينمائي احترافي، أسلوب Blade Runner / Ghost in the Shell.
+لا تضف أي نصوص أو عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create professional cyberpunk digital art in a rainy futuristic neon city.
+Style: Professional cyberpunk digital concept art, dystopian futuristic city with blazing neon lights.
+Lighting: Pink, purple, and cyan neon lights reflecting on rain-slicked streets, rain effect.
+Background: Towering futuristic cityscape, metallic buildings with holographic advertisements, continuous rain.
+Quality: 4K, professional cinematic concept art, Blade Runner / Ghost in the Shell style.
+Do not add any unrelated text or elements.`,
     accent: "#8b5cf6",
     gradient: "linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(236,72,153,0.08) 100%)",
     emoji: "🌆",
@@ -2556,9 +3092,21 @@ Cyberpunk neon city digital art, glowing futuristic lights, rain-slicked streets
     difficulty: "beginner",
     bestInputAr: "أي صورة واضحة", bestInputEn: "Any clear photo",
     promptAr: `استخدم الصورة المرفقة كمرجع للشخص الأساسي، وحافظ على ملامحه وهويته البصرية.
-فن زجاج ملون بأسلوب كاتدرائية قوطية، ألوان زاهية ومعقدة، خطوط رصاص سوداء، أشعة ضوء إلهية.`,
-    promptEn: `Use the uploaded image as reference, preserving the subject's identity.
-Cathedral stained glass art, vibrant colors, intricate patterns, Gothic style, divine light rays filtering through.`,
+أنشئ عملاً فنياً بأسلوب الزجاج الملون القوطي الكاتدرائي الراقي.
+الأسلوب: فن الزجاج الملون القوطي الكلاسيكي، ألوان زاهية متشبعة وجريئة، خطوط رصاص سوداء واضحة.
+الألوان: ألوان كاتدرائية راقية (أزرق كوبالت، أحمر قرمزي، ذهبي، أخضر زمردي)، شفافية الزجاج.
+التفاصيل: خطوط رصاص "lead lines" محيطة بكل قطعة، تفاصيل وجه مُبسَّطة بأسلوب قوطي.
+الإضاءة: أشعة ضوء إلهية تخترق الزجاج، ألوان الزجاج تصبغ المشهد.
+الجودة: 4K، نسيج زجاج قوطي أصيل، أسلوب كاتدرائية Notre-Dame.
+لا تضف أي نصوص أو عناصر غير مرتبطة.`,
+    promptEn: `Use the uploaded image as the reference for the main subject, preserving identity, facial features, and core visual details.
+Create a piece of art in the Gothic cathedral stained glass style.
+Style: Classic Gothic stained glass art, vibrant saturated bold colors, clear black lead lines.
+Colors: Regal cathedral colors (cobalt blue, crimson, gold, emerald), glass transparency.
+Details: Lead lines surrounding each glass piece, simplified Gothic-style face details.
+Lighting: Divine light rays piercing through glass, colored light tinting the scene.
+Quality: 4K, authentic Gothic glass texture, Notre-Dame Cathedral style.
+Do not add any unrelated text or elements.`,
     accent: "#7c3aed",
     gradient: "linear-gradient(135deg, rgba(124,58,237,0.2) 0%, rgba(239,68,68,0.08) 100%)",
     emoji: "⛪",
