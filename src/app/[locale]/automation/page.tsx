@@ -115,7 +115,7 @@ export default async function AutomationPage({
         {/* Stats bar */}
         <div className="flex flex-wrap justify-center gap-8 mb-16 py-6 rounded-2xl" style={{ background: "rgba(74,222,128,0.04)", border: "1px solid rgba(74,222,128,0.1)" }}>
           {[
-            { v: "20", l: "وصفة أتمتة منتقاة" },
+            { v: "25", l: "وصفة أتمتة منتقاة" },
             { v: "15+", l: "أداة موثقة" },
             { v: "10+", l: "مسار تعلم" },
             { v: "10", l: "باقة خدمة احترافية" },
