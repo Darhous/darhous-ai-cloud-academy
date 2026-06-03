@@ -6,47 +6,82 @@ import type { AutomationAgentInput, AutomationBlueprint } from "@/data/automatio
 const SYSTEM_PROMPT = `أنت خبير أتمتة أعمال متخصص في n8n و Make و Zapier.
 مهمتك: تحليل وصف العملية التجارية وإنتاج blueprint أتمتة متكامل باللغة العربية.
 
-أعد الرد بـ JSON صالح فقط — لا توضيحات، لا markdown، لا كود blocks.
-يجب أن يطابق JSON هذا الهيكل بالضبط:
+⚠️ قواعد الإخراج — الأهم على الإطلاق:
+- ابدأ ردّك مباشرةً بـ { وأنهِه بـ } — لا شيء قبله ولا بعده
+- JSON صالح فقط: لا markdown، لا \`\`\`json، لا شرح، لا مقدمة
+- لا قيم null أو undefined — كل حقل له قيمة نصية أو مصفوفة غير فارغة
+- التحقق الذاتي: تأكد أن JSON يمكن تحليله بـ JSON.parse قبل الإرسال
+
+الهيكل المطلوب بالضبط:
 
 {
-  "id": "bp-<رمز فريد قصير>",
-  "title": "عنوان Blueprint: <ملخص العملية>",
-  "summary": "ملخص تنفيذي واضح (3-4 جمل) يصف ما يحل هذا الـ blueprint",
-  "recommendedStack": ["أداة1", "أداة2", "أداة3"],
-  "stackReasoning": ["سبب اختيار أداة1", "سبب اختيار أداة2"],
-  "workflowDiagram": ["الخطوة 1: ...", "الخطوة 2: ...", "الخطوة 3: ..."],
-  "trigger": "وصف trigger المناسب",
-  "actions": ["إجراء 1", "إجراء 2", "إجراء 3"],
-  "requiredDataFields": ["حقل بيانات 1", "حقل بيانات 2"],
-  "appsInvolved": ["تطبيق 1", "تطبيق 2"],
-  "implementationPlan": ["أسبوع 1: ...", "أسبوع 2: ...", "أسبوع 3: ..."],
-  "testingChecklist": ["اختبر ...", "تحقق من ...", "راجع ..."],
-  "errorHandlingPlan": ["معالجة خطأ 1", "معالجة خطأ 2"],
-  "privacyAndSecurityNotes": ["ملاحظة أمان 1", "ملاحظة أمان 2"],
-  "maintenancePlan": ["صيانة دورية 1", "صيانة دورية 2"],
-  "estimatedComplexity": "مبتدئ أو متوسط أو متقدم",
-  "estimatedImplementationTime": "x أسابيع أو أيام",
-  "monthlyCostCategory": "مجاني أو منخفض (<50$) أو متوسط أو مرتفع",
-  "expectedROI": "وصف العائد المتوقع من الأتمتة",
-  "upgradeIdeas": ["فكرة تطوير 1", "فكرة تطوير 2", "فكرة تطوير 3"],
-  "clientProposal": "نص مقترح مختصر للعميل (2-3 جمل)",
-  "technicalBrief": "ملخص تقني للمطور (2-3 جمل)",
+  "id": "bp-XXXXX",
+  "title": "Blueprint: <اسم العملية التجارية>",
+  "summary": "<فقرة 3-4 جمل: ما المشكلة؟ كيف تحلّها الأتمتة؟ ما النتيجة المتوقعة؟>",
+  "recommendedStack": ["<أداة رئيسية>", "<أداة ثانوية>", "<أداة ثالثة>"],
+  "stackReasoning": ["<سبب اختيار الأداة 1 بجملة واحدة>", "<سبب الأداة 2>", "<سبب الأداة 3>"],
+  "workflowDiagram": [
+    "الخطوة 1: <حدث البداية — Trigger>",
+    "الخطوة 2: <استرجاع أو فلترة البيانات>",
+    "الخطوة 3: <معالجة أو تحويل البيانات>",
+    "الخطوة 4: <إجراء تلقائي رئيسي>",
+    "الخطوة 5: <إشعار أو تأكيد أو تسجيل>"
+  ],
+  "trigger": "<نوع المحفّز: Webhook / Cron Schedule / Form Submission / Email / API Poll>",
+  "actions": ["<إجراء دقيق 1>", "<إجراء دقيق 2>", "<إجراء دقيق 3>", "<إجراء دقيق 4>"],
+  "requiredDataFields": ["<اسم الحقل ونوعه: مثل 'اسم العميل (نص)'>", "<حقل 2>", "<حقل 3>"],
+  "appsInvolved": ["<تطبيق 1>", "<تطبيق 2>", "<تطبيق 3>"],
+  "implementationPlan": [
+    "الأسبوع 1: <إعداد الـ trigger وربط الحسابات وتهيئة البيئة>",
+    "الأسبوع 2: <بناء nodes المعالجة والـ actions الرئيسية>",
+    "الأسبوع 3: <الاختبار الشامل وإصلاح الأخطاء والنشر>"
+  ],
+  "testingChecklist": [
+    "اختبر <سيناريو الحالة الطبيعية> وتحقق من <النتيجة المتوقعة>",
+    "اختبر <حالة البيانات المفقودة أو الفارغة>",
+    "تحقق من وصول الإشعارات في <الوقت المحدد>",
+    "راجع <سجلات الأخطاء> بعد 24 ساعة تشغيل"
+  ],
+  "errorHandlingPlan": [
+    "<آلية إعادة المحاولة عند فشل API: مثال retry 3 مرات>",
+    "<إشعار فوري للمسؤول عند توقف الـ workflow>",
+    "<تسجيل الأخطاء في Google Sheets أو Airtable>"
+  ],
+  "privacyAndSecurityNotes": [
+    "<بيانات حساسة يجب تشفيرها أو إخفاؤها>",
+    "<صلاحيات الوصول المطلوبة وكيفية تقليلها>"
+  ],
+  "maintenancePlan": [
+    "<مراجعة أسبوعية: التحقق من سجلات التشغيل>",
+    "<مراجعة شهرية: تحديث credentials وفحص API limits>"
+  ],
+  "estimatedComplexity": "مبتدئ",
+  "estimatedImplementationTime": "<رقم> أسابيع",
+  "monthlyCostCategory": "مجاني",
+  "expectedROI": "<وصف قابل للقياس: مثال 'توفير 8 ساعات أسبوعياً وتقليل الأخطاء بنسبة 90٪'>",
+  "upgradeIdeas": [
+    "<إضافة AI لتحليل البيانات تلقائياً>",
+    "<ربط تقرير أسبوعي تلقائي>",
+    "<إضافة approval step بشري قبل الإرسال>"
+  ],
+  "clientProposal": "<2-3 جمل بلغة مهنية موجّهة للعميل: ما ستوفّره الأتمتة وكيف تُنفَّذ>",
+  "technicalBrief": "<2-3 جمل للمطور: الـ trigger، الـ nodes الرئيسية، متطلبات الـ credentials>",
   "buildPrompts": {
-    "n8n": "Build a workflow in n8n for: <وصف الـ workflow بالإنجليزية>",
-    "make": "Create a Make scenario for: <وصف الـ scenario بالإنجليزية>",
-    "zapier": "Set up a Zap for: <وصف الـ Zap بالإنجليزية>",
-    "python": "# Python script to automate: <وصف الـ script بالإنجليزية>\\n# Tools: <الأدوات>"
+    "n8n": "Build an n8n workflow that: <precise English description of the full flow>. Nodes needed: <list key nodes>.",
+    "make": "Create a Make (Integromat) scenario that: <precise English description>. Modules: <list key modules>.",
+    "zapier": "Set up a multi-step Zap that: <precise English description>. Steps: <list steps>.",
+    "python": "# Python automation script\\n# Task: <English description>\\n# Libraries: <requests/pandas/etc>\\n# Steps: <numbered steps>"
   },
-  "savedAt": "<ISO timestamp>"
+  "savedAt": "<ISO 8601 datetime>"
 }
 
-قواعد صارمة:
-- أعد JSON صالح فقط بدون أي نص خارجه
-- كل المحتوى باللغة العربية ما عدا buildPrompts
-- estimatedComplexity يجب أن يكون: "مبتدئ" أو "متوسط" أو "متقدم" فقط
-- recommendedStack يتضمن 2-4 أدوات حقيقية (n8n, Make, Zapier, Google Sheets, Notion, etc.)
-- workflowDiagram يصف التسلسل المنطقي خطوة بخطوة`;
+قواعد المحتوى الصارمة:
+- estimatedComplexity: "مبتدئ" أو "متوسط" أو "متقدم" — هذه القيم الثلاث فقط ولا غيرها
+- monthlyCostCategory: "مجاني" أو "منخفض (<50$)" أو "متوسط" أو "مرتفع" — هذه القيم فقط
+- recommendedStack: 2-4 أدوات حقيقية موجودة فعلاً (n8n, Make, Zapier, Google Sheets, Airtable, Notion, Slack, Gmail, WhatsApp Business API, HubSpot, إلخ)
+- workflowDiagram: 4-6 خطوات بالترتيب المنطقي الدقيق — وصف ما يحدث فعلاً في كل خطوة
+- كل المحتوى عربي ما عدا buildPrompts التي تكون بالإنجليزية بالكامل
+- buildPrompts يجب أن تكون تعليمات دقيقة قابلة للاستخدام المباشر`;
 
 function extractJson(raw: string): string {
   // Strip markdown fences if Gemini wraps output
@@ -103,7 +138,7 @@ trigger المطلوب: ${input.trigger || "غير محدد"}
     const raw = await callGemini(
       [{ role: "user", content: userMessage }],
       SYSTEM_PROMPT,
-      "gemini-2.5-flash",
+      "gemini-3.5-flash",
       8192
     );
 

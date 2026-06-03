@@ -128,13 +128,16 @@ export default function AutomationAgentClient({ onGenerate }: Props) {
 
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
-        const msg = (err as { error?: string }).error ?? `خطأ ${res.status}`;
-        // Rate limit or server error — fall back to demo
-        if (res.status === 503 || res.status === 429) {
-          setApiError(msg);
+        const serverMsg = (err as { error?: string }).error;
+        let msg: string;
+        if (res.status === 429) {
+          msg = serverMsg ?? "تجاوزت الحد المسموح به. انتظر دقيقة ثم حاول مجدداً.";
+        } else if (res.status === 503) {
+          msg = serverMsg ?? "وكيل الـ AI غير متاح حالياً. تأكد من إعداد مفتاح API.";
         } else {
-          setApiError(msg);
+          msg = serverMsg ?? `فشل توليد الـ Blueprint (خطأ ${res.status}). حاول مجدداً.`;
         }
+        setApiError(msg);
         return;
       }
 
