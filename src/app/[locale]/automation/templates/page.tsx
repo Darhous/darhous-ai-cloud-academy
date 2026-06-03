@@ -13,11 +13,11 @@ export async function generateMetadata({
   const isAr = locale === "ar";
   return {
     title: isAr
-      ? "مكتبة قوالب الأتمتة — 20 وصفة أتمتة | درهوس"
-      : "Automation Recipe Library — 20 Curated Workflows | Darhous",
+      ? "مكتبة قوالب الأتمتة — 25 وصفة أتمتة | درهوس"
+      : "Automation Recipe Library — 25 Curated Workflows | Darhous",
     description: isAr
-      ? "20 وصفة أتمتة منتقاة لأعمالك: مبيعات، تسويق، HR، تعليم، دعم عملاء، وأكثر."
-      : "20 curated automation workflows for sales, marketing, HR, education, customer support and more.",
+      ? "25 وصفة أتمتة منتقاة لأعمالك: مبيعات، تسويق، HR، تعليم، دعم عملاء، وأكثر."
+      : "25 curated automation workflows for sales, marketing, HR, education, customer support and more.",
   };
 }
 

@@ -12,8 +12,8 @@ export async function generateMetadata({
   return {
     title: isAr ? "أكاديمية درهوس للأتمتة | درهوس" : "Darhous Automation Academy | Darhous",
     description: isAr
-      ? "تعلم الأتمتة التجارية، استكشف 20 وصفة منتقاة، وابنِ workflows ذكية لأعمالك."
-      : "Learn business automation with 20 curated recipes, tools explorer, and workflow builder.",
+      ? "تعلم الأتمتة التجارية، استكشف 25 وصفة منتقاة، وابنِ workflows ذكية لأعمالك."
+      : "Learn business automation with 25 curated recipes, tools explorer, and workflow builder.",
     robots: { index: true },
   };
 }
@@ -23,8 +23,8 @@ const SECTIONS = [
     href: "/automation/templates",
     icon: <Layers size={22} />,
     titleAr: "مكتبة الوصفات",
-    descAr: "20 وصفة أتمتة منتقاة جاهزة للتنفيذ: من ترحيب الطلاب إلى أتمتة المبيعات والموارد البشرية.",
-    badge: "20 وصفة",
+    descAr: "25 وصفة أتمتة منتقاة جاهزة للتنفيذ: من ترحيب الطلاب إلى أتمتة المبيعات والموارد البشرية.",
+    badge: "25 وصفة",
     color: "#4ade80",
   },
   {

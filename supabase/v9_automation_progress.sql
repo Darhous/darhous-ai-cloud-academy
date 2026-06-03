@@ -52,6 +52,7 @@ ALTER TABLE public.automation_lab_progress ENABLE ROW LEVEL SECURITY;
 
 DROP POLICY IF EXISTS "Own lab progress select" ON public.automation_lab_progress;
 DROP POLICY IF EXISTS "Own lab progress upsert" ON public.automation_lab_progress;
+DROP POLICY IF EXISTS "Own lab progress update" ON public.automation_lab_progress;
 
 CREATE POLICY "Own lab progress select"
   ON public.automation_lab_progress FOR SELECT
@@ -63,7 +64,8 @@ CREATE POLICY "Own lab progress upsert"
 
 CREATE POLICY "Own lab progress update"
   ON public.automation_lab_progress FOR UPDATE
-  USING (auth.uid() = user_id);
+  USING (auth.uid() = user_id)
+  WITH CHECK (auth.uid() = user_id);
 
 -- ── automation_recipe_checklist_progress ─────────────────────
 -- Tracks interactive testing checklist per workflow template
@@ -95,7 +97,8 @@ CREATE POLICY "Own recipe checklist insert"
 
 CREATE POLICY "Own recipe checklist update"
   ON public.automation_recipe_checklist FOR UPDATE
-  USING (auth.uid() = user_id);
+  USING (auth.uid() = user_id)
+  WITH CHECK (auth.uid() = user_id);
 
 -- ============================================================
 -- END v9 Automation Progress
