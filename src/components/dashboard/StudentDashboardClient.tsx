@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { portals } from "@/config/portals";
 import { curatedWorkflows } from "@/data/automation/workflowLibrary";
+import { nanaBananaPrompts } from "@/data/nano-banana-prompts";
 import { getSaved } from "@/lib/automation/savedRecipes";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -376,6 +377,80 @@ function AIAcademyHubSection({ locale, isAr }: { locale: string; isAr: boolean }
           style={{ background: "rgba(208,188,255,0.08)", color: "#d0bcff", border: "1px solid rgba(208,188,255,0.2)" }}
         >
           🧠 {isAr ? "اسأل المرشد" : "Ask AI Mentor"}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+const NB_STORAGE_KEY = "nb_saved_prompt_ids";
+const FEATURED_NB = nanaBananaPrompts.filter((p) => p.featured).slice(0, 3);
+
+function NanoBananaHubSection({ locale, isAr }: { locale: string; isAr: boolean }) {
+  const [savedCount, setSavedCount] = useState(0);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(NB_STORAGE_KEY);
+      setSavedCount(raw ? (JSON.parse(raw) as string[]).length : 0);
+    } catch {
+      setSavedCount(0);
+    }
+  }, []);
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="font-display font-bold text-xl flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+          <span style={{ fontSize: "18px" }}>🍌</span>
+          {isAr ? "Nano Banana Lab" : "Nano Banana Lab"}
+        </h2>
+        {savedCount > 0 && (
+          <span
+            className="text-xs font-mono px-2 py-0.5 rounded-full"
+            style={{ background: "rgba(245,158,11,0.15)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.3)" }}
+          >
+            {savedCount} {isAr ? "محفوظ" : "saved"}
+          </span>
+        )}
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+        {FEATURED_NB.map((p) => (
+          <Link
+            key={p.id}
+            href={`/${locale}/nano-banana-prompts`}
+            className="rounded-2xl p-4 flex flex-col gap-2 transition-all hover:scale-[1.02]"
+            style={{ background: p.gradient, border: `1px solid ${p.accent}25`, textDecoration: "none" }}
+          >
+            <span style={{ fontSize: "28px" }}>{p.emoji}</span>
+            <p className="text-xs font-semibold leading-snug" style={{ color: "var(--color-on-surface)" }}>
+              {isAr ? p.titleAr : p.titleEn}
+            </p>
+            <span
+              className="text-[10px] font-mono px-2 py-0.5 rounded-full self-start"
+              style={{ background: `${p.accent}20`, color: p.accent, border: `1px solid ${p.accent}30` }}
+            >
+              {isAr ? p.categoryLabelAr : p.categoryLabelEn}
+            </span>
+          </Link>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href={`/${locale}/nano-banana-prompts`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(245,158,11,0.08)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.2)" }}
+        >
+          🍌 {isAr ? "استعرض كل البرومبتات" : "Browse All Prompts"}
+        </Link>
+        <Link
+          href={`/${locale}/nano-banana-prompts`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(139,92,246,0.08)", color: "#d0bcff", border: "1px solid rgba(139,92,246,0.2)" }}
+        >
+          ✨ {isAr ? "حسّن فكرتك بالذكاء الاصطناعي" : "AI Prompt Enhancer"}
         </Link>
       </div>
     </div>
@@ -767,6 +842,9 @@ export default function StudentDashboardClient({ locale }: Props) {
 
           {/* AI Academy section */}
           <AIAcademyHubSection locale={locale} isAr={isAr} />
+
+          {/* Nano Banana section */}
+          <NanoBananaHubSection locale={locale} isAr={isAr} />
         </div>
       )}
 

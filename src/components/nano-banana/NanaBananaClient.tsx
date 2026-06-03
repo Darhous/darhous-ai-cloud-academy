@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Copy, Check, Bookmark, BookmarkCheck, Shield, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
+import { Copy, Check, Bookmark, BookmarkCheck, Shield, Sparkles, ChevronDown, ChevronUp, Wand2, AlertCircle } from "lucide-react";
 import CommunitySignup from "@/components/community/CommunitySignup";
 import {
   nanaBananaPrompts,
@@ -169,6 +169,144 @@ function PromptCard({
   );
 }
 
+function PromptEnhancer({ isAr }: { isAr: boolean }) {
+  const [idea, setIdea] = useState("");
+  const [result, setResult] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  async function enhance() {
+    if (!idea.trim()) return;
+    setLoading(true);
+    setError(null);
+    setResult(null);
+    try {
+      const res = await fetch("/api/nano-banana/enhance", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ idea }),
+      });
+      const data = await res.json() as { prompt?: string; error?: string };
+      if (!res.ok) {
+        setError(data.error ?? `خطأ ${res.status}`);
+      } else {
+        setResult(data.prompt ?? null);
+      }
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "فشل الاتصال. حاول مجدداً.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function copyResult() {
+    if (!result) return;
+    navigator.clipboard.writeText(result);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
+
+  return (
+    <section className="container-xl pb-10">
+      <div
+        className="rounded-3xl p-6 md:p-8"
+        style={{
+          background: "linear-gradient(135deg, rgba(245,158,11,0.06) 0%, rgba(139,92,246,0.08) 100%)",
+          border: "1px solid rgba(245,158,11,0.2)",
+        }}
+      >
+        <div className="flex items-center gap-2 mb-2">
+          <Wand2 size={16} style={{ color: "#f59e0b" }} />
+          <span className="font-bold text-sm" style={{ color: "#f59e0b" }}>
+            {isAr ? "✨ محسّن البرومبت بالذكاء الاصطناعي" : "✨ AI Prompt Enhancer"}
+          </span>
+          <span
+            className="text-[10px] font-mono px-2 py-0.5 rounded-full"
+            style={{ background: "rgba(245,158,11,0.12)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.25)" }}
+          >
+            Nano Banana Pro
+          </span>
+        </div>
+        <p className="text-xs mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
+          {isAr
+            ? "اكتب فكرتك بشكل بسيط وسيحوّلها الذكاء الاصطناعي إلى برومبت Gemini احترافي جاهز للاستخدام."
+            : "Describe your idea simply and AI will turn it into a professional Gemini prompt ready to use."}
+        </p>
+
+        <div className="flex gap-3 flex-col sm:flex-row">
+          <input
+            type="text"
+            value={idea}
+            onChange={(e) => setIdea(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && !loading && enhance()}
+            maxLength={300}
+            placeholder={isAr ? "مثال: صورة بأسلوب أنيمي ياباني..." : "e.g. anime Japanese style portrait..."}
+            className="flex-1 rounded-2xl px-4 py-3 text-sm focus:outline-none"
+            style={{
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(245,158,11,0.25)",
+              color: "var(--color-on-surface)",
+            }}
+          />
+          <button
+            onClick={enhance}
+            disabled={loading || !idea.trim()}
+            className="flex items-center justify-center gap-2 px-6 py-3 rounded-2xl font-semibold text-sm transition-all shrink-0"
+            style={{
+              background: idea.trim() && !loading ? "linear-gradient(135deg, #f59e0b, #d97706)" : "rgba(255,255,255,0.06)",
+              color: idea.trim() && !loading ? "#0c0e12" : "var(--color-on-surface-variant)",
+              cursor: loading ? "wait" : "pointer",
+            }}
+          >
+            {loading ? (
+              <span className="animate-spin w-4 h-4 rounded-full border-2" style={{ borderColor: "#0c0e12", borderTopColor: "transparent" }} />
+            ) : (
+              <Wand2 size={15} />
+            )}
+            {loading
+              ? (isAr ? "جاري التحسين..." : "Enhancing...")
+              : (isAr ? "حسّن الفكرة" : "Enhance")}
+          </button>
+        </div>
+
+        {error && (
+          <div className="mt-4 flex items-start gap-2 text-xs rounded-xl px-4 py-3" style={{ background: "rgba(248,113,113,0.08)", border: "1px solid rgba(248,113,113,0.2)", color: "#f87171" }}>
+            <AlertCircle size={13} className="shrink-0 mt-0.5" />
+            {error}
+          </div>
+        )}
+
+        {result && (
+          <div className="mt-4">
+            <div
+              className="rounded-2xl p-4 text-xs font-mono leading-relaxed whitespace-pre-wrap"
+              style={{
+                background: "rgba(0,0,0,0.3)",
+                border: "1px solid rgba(245,158,11,0.2)",
+                color: "var(--color-on-surface-variant)",
+                direction: "rtl",
+              }}
+            >
+              {result}
+            </div>
+            <button
+              onClick={copyResult}
+              className="mt-3 flex items-center gap-2 text-xs px-4 py-2 rounded-xl font-semibold transition-all"
+              style={{ background: "rgba(245,158,11,0.15)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.3)" }}
+            >
+              {copied ? <Check size={13} /> : <Copy size={13} />}
+              {copied
+                ? (isAr ? "تم النسخ!" : "Copied!")
+                : (isAr ? "نسخ البرومبت المحسّن" : "Copy Enhanced Prompt")}
+            </button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 export default function NanaBananaClient({ locale }: { locale: string }) {
   const isAr = locale === "ar";
   const [activeCategory, setActiveCategory] = useState<NanaBananaCategory | "all">("all");
@@ -280,6 +418,9 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
           </div>
         </div>
       </section>
+
+      {/* ── AI Prompt Enhancer ───────────────────── */}
+      <PromptEnhancer isAr={isAr} />
 
       {/* ── Filters ─────────────────────────────── */}
       <section className="container-xl pb-6">

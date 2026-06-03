@@ -7,7 +7,7 @@ import {
   Shield, Activity, Database, AlertCircle, RefreshCw, LogOut,
   TrendingUp, MessageSquare, Search, Download, Bot,
   Globe, Award, Zap, Palette, Bell, ToggleLeft, ToggleRight,
-  Eye, EyeOff, Edit3, CheckCircle, BarChart2, ExternalLink, AlertTriangle,
+  Eye, EyeOff, Edit3, CheckCircle, BarChart2, ExternalLink, AlertTriangle, Sparkles,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -32,7 +32,7 @@ type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
   | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
-  | "career" | "iot-lab" | "ai-academy";
+  | "career" | "iot-lab" | "ai-academy" | "nano-banana";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -303,6 +303,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "career",         labelAr: "بوابة المهنة",         labelEn: "Career Hub",         icon: <Award size={15} /> },
     { id: "iot-lab",        labelAr: "مختبر IoT",            labelEn: "IoT Lab",            icon: <Wrench size={15} /> },
     { id: "ai-academy",     labelAr: "أكاديمية AI",          labelEn: "AI Academy",         icon: <Bot size={15} /> },
+    { id: "nano-banana",    labelAr: "🍌 Nano Banana",        labelEn: "🍌 Nano Banana",     icon: <Sparkles size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -1730,6 +1731,119 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
           </div>
         </div>
       )}
+
+      {/* ── NANO BANANA ───────────────────────────────────────── */}
+      {tab === "nano-banana" && (() => {
+        const featured = nanaBananaPrompts.filter((p) => p.featured);
+        const catCounts = nanaBananaPrompts.reduce<Record<string, number>>((acc, p) => {
+          acc[p.categoryLabelAr] = (acc[p.categoryLabelAr] ?? 0) + 1;
+          return acc;
+        }, {});
+        const diffCounts = nanaBananaPrompts.reduce<Record<string, number>>((acc, p) => {
+          acc[p.difficulty] = (acc[p.difficulty] ?? 0) + 1;
+          return acc;
+        }, {});
+        const DIFF_LABELS: Record<string, { ar: string; color: string }> = {
+          beginner:     { ar: "مبتدئ",   color: "#4ade80" },
+          intermediate: { ar: "متوسط",   color: "#f59e0b" },
+          advanced:     { ar: "متقدم",   color: "#f87171" },
+        };
+        return (
+          <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { label: isAr ? "إجمالي البرومبتات" : "Total Prompts", value: nanaBananaPrompts.length, color: "#f59e0b" },
+                { label: isAr ? "الفئات" : "Categories",               value: 6,                        color: "#d0bcff" },
+                { label: isAr ? "مميزة Featured" : "Featured",          value: featured.length,          color: "#4ade80" },
+                { label: isAr ? "المستويات" : "Levels",                 value: 3,                        color: "#8ed5ff" },
+              ].map((s) => (
+                <div key={s.label} className="glass-card rounded-2xl p-5 flex flex-col gap-1" style={{ border: `1px solid ${s.color}20` }}>
+                  <p className="font-mono font-bold text-2xl" style={{ color: s.color }}>{s.value}</p>
+                  <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(245,158,11,0.15)" }}>
+                <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#f59e0b" }}>
+                  <Database size={14} />{isAr ? "توزيع الفئات" : "Category Distribution"}
+                </h3>
+                <div className="flex flex-col gap-2">
+                  {Object.entries(catCounts).sort(([,a],[,b]) => b - a).map(([cat, count]) => (
+                    <div key={cat} className="flex items-center gap-3 text-sm">
+                      <span className="flex-1 text-xs truncate" style={{ color: "var(--color-on-surface)" }}>{cat}</span>
+                      <div className="w-20 h-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                        <div className="h-full rounded-full" style={{ width: `${(count / nanaBananaPrompts.length) * 100}%`, background: "#f59e0b" }} />
+                      </div>
+                      <span className="font-mono text-xs w-5 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(74,222,128,0.1)" }}>
+                <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#4ade80" }}>
+                  <BarChart2 size={14} />{isAr ? "توزيع المستويات" : "Difficulty Distribution"}
+                </h3>
+                <div className="flex flex-col gap-3">
+                  {Object.entries(diffCounts).map(([diff, count]) => {
+                    const meta = DIFF_LABELS[diff] ?? { ar: diff, color: "#8ed5ff" };
+                    return (
+                      <div key={diff} className="flex items-center gap-3">
+                        <span className="w-16 text-xs font-mono flex-shrink-0" style={{ color: meta.color }}>{isAr ? meta.ar : diff}</span>
+                        <div className="flex-1 h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                          <div className="h-full rounded-full" style={{ width: `${(count / nanaBananaPrompts.length) * 100}%`, background: meta.color }} />
+                        </div>
+                        <span className="font-mono text-xs w-6 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-card rounded-2xl p-5 overflow-x-auto" style={{ border: "1px solid rgba(245,158,11,0.1)" }}>
+              <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#f59e0b" }}>
+                <Database size={14} />{isAr ? `قائمة البرومبتات (${nanaBananaPrompts.length})` : `Prompts (${nanaBananaPrompts.length})`}
+              </h3>
+              <table className="w-full text-xs">
+                <thead>
+                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                    {["#", isAr ? "العنوان" : "Title", isAr ? "الفئة" : "Category", isAr ? "المستوى" : "Level", "★"].map((h) => (
+                      <th key={h} className="text-start pb-2 font-mono font-semibold pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {nanaBananaPrompts.map((p, i) => {
+                    const diff = DIFF_LABELS[p.difficulty] ?? { ar: p.difficulty, color: "#8ed5ff" };
+                    return (
+                      <tr key={p.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+                        <td className="py-1.5 font-mono pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{i + 1}</td>
+                        <td className="py-1.5 max-w-[180px] truncate pr-4" style={{ color: "var(--color-on-surface)" }}>{isAr ? p.titleAr : p.titleEn}</td>
+                        <td className="py-1.5 pr-4" style={{ color: "#f59e0b" }}>{isAr ? p.categoryLabelAr : p.categoryLabelEn}</td>
+                        <td className="py-1.5 font-mono pr-4" style={{ color: diff.color }}>{isAr ? diff.ar : p.difficulty}</td>
+                        <td className="py-1.5">{p.featured ? <span style={{ color: "#f59e0b" }}>★</span> : <span style={{ color: "rgba(255,255,255,0.15)" }}>—</span>}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            <a
+              href={`/${locale}/nano-banana-prompts`}
+              target="_blank"
+              rel="noreferrer"
+              className="self-start inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+              style={{ background: "rgba(245,158,11,0.08)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.2)", textDecoration: "none" }}
+            >
+              <ExternalLink size={13} />🍌 {isAr ? "فتح Nano Banana Lab" : "Open Nano Banana Lab"}
+            </a>
+          </div>
+        );
+      })()}
 
     </div>
   );
