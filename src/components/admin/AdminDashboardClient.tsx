@@ -117,6 +117,12 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [issueMsg, setIssueMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
   const [nbCustomPrompts, setNbCustomPrompts] = useState<Record<string, unknown>[]>([]);
 
+  /* Analytics state */
+  const [analyticsData, setAnalyticsData] = useState<{ portal: string; count: number }[]>([]);
+  const [analyticsEventCounts, setAnalyticsEventCounts] = useState<{ name: string; count: number }[]>([]);
+  const [analyticsLoading, setAnalyticsLoading] = useState(false);
+  const [analyticsTotal, setAnalyticsTotal] = useState(-1); // -1 = not yet fetched
+
   /* Blog CMS state */
   type DbBlogRow = { id: string; slug: string; title_ar: string; title_en: string; category: string; status: string; featured: boolean; reading_time: number; published_at: string; updated_at: string; cover_url: string | null };
   const [blogDbPosts, setBlogDbPosts] = useState<DbBlogRow[]>([]);
@@ -169,6 +175,39 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
       .catch(() => setHealth({ supabase: false, gemini: false, resend: false, portalsOk: false, portalsCount: 0 }))
       .finally(() => setHealthLoading(false));
   }, [isAdmin]);
+
+  // Fetch real portal analytics when analytics tab opens
+  useEffect(() => {
+    if (tab !== "analytics" || !isAdmin || analyticsTotal !== -1) return;
+    const supabase = createClient();
+    if (!supabase) return;
+    setAnalyticsLoading(true);
+    const PORTAL_EVENT_MAP: Record<string, string> = {
+      prompt_copied: "ai-academy", prompt_scored: "ai-academy",
+      prompt_battle: "ai-academy", nano_banana_saved: "ai-academy",
+      tool_compared: "ai-academy", challenge_submitted: "iot-lab",
+      project_started: "iot-lab", plan_saved: "career",
+    };
+    supabase
+      .from("analytics_events")
+      .select("event_name, entity_type, entity_slug")
+      .order("created_at", { ascending: false })
+      .limit(2000)
+      .then(({ data }) => {
+        const rows = data ?? [];
+        setAnalyticsTotal(rows.length);
+        const portalCounts: Record<string, number> = {};
+        const eventCounts: Record<string, number> = {};
+        for (const ev of rows) {
+          const portal = (ev.entity_slug as string | null) || PORTAL_EVENT_MAP[ev.event_name as string] || "other";
+          portalCounts[portal] = (portalCounts[portal] || 0) + 1;
+          eventCounts[ev.event_name as string] = (eventCounts[ev.event_name as string] || 0) + 1;
+        }
+        setAnalyticsData(Object.entries(portalCounts).sort((a, b) => b[1] - a[1]).map(([portal, count]) => ({ portal, count })));
+        setAnalyticsEventCounts(Object.entries(eventCounts).sort((a, b) => b[1] - a[1]).map(([name, count]) => ({ name, count })));
+        setAnalyticsLoading(false);
+      });
+  }, [tab, isAdmin, analyticsTotal]);
 
   // Load language results when language tab opens
   useEffect(() => {
@@ -1142,29 +1181,66 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
             <StatCard icon={<MessageSquare size={20} />} value={messages.length} label={isAr ? "رسائل التواصل" : "Contact Messages"} color="#f59e0b" />
           </div>
           <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(255,255,255,0.07)" }}>
-            <h3 className="font-bold text-sm mb-4" style={{ color: "var(--color-on-surface)" }}>
-              {isAr ? "البوابات الأكثر استخدامًا" : "Most Used Portals"}
-            </h3>
-            <div className="flex flex-col gap-3">
-              {allPortals.filter((p) => p.status === "available").map((portal, i) => {
-                const mockPct = Math.max(15, 100 - i * 15);
-                return (
-                  <div key={portal.id} className="flex items-center gap-3">
-                    <span className="text-lg flex-shrink-0">{portal.icon}</span>
-                    <p className="text-sm flex-shrink-0 w-36 truncate" style={{ color: "var(--color-on-surface)" }}>
-                      {isAr ? portal.titleAr : portal.titleEn}
-                    </p>
-                    <div className="flex-1 h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
-                      <div className="h-full rounded-full" style={{ width: `${mockPct}%`, background: portal.color }} />
-                    </div>
-                    <span className="text-xs font-mono flex-shrink-0" style={{ color: portal.color }}>{mockPct}%</span>
-                  </div>
-                );
-              })}
+            <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+              <h3 className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>
+                {isAr ? "نشاط البوابات (analytics_events)" : "Portal Activity (analytics_events)"}
+              </h3>
+              {analyticsTotal >= 0 && (
+                <span className="text-xs font-mono px-2.5 py-1 rounded-full" style={{ background: "rgba(142,213,255,0.08)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)" }}>
+                  {analyticsTotal} {isAr ? "حدث إجمالي" : "total events"}
+                </span>
+              )}
             </div>
-            <p className="text-[10px] font-mono mt-4" style={{ color: "var(--color-on-surface-variant)" }}>
-              * {isAr ? "بيانات تقديرية — سيتم ربطها بـ analytics_events قريبًا" : "Estimated data — will connect to analytics_events soon"}
-            </p>
+
+            {analyticsLoading ? (
+              <p className="text-xs font-mono text-center py-4" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "جارٍ التحميل…" : "Loading…"}</p>
+            ) : analyticsTotal === 0 ? (
+              <div className="text-center py-6">
+                <p className="text-2xl mb-2">📊</p>
+                <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                  {isAr ? "لا توجد أحداث مسجّلة بعد. ستظهر بيانات حقيقية هنا عند بدء المستخدمين التفاعل." : "No events recorded yet. Real data will appear here as users interact with the platform."}
+                </p>
+              </div>
+            ) : analyticsData.length > 0 ? (
+              <div className="flex flex-col gap-3">
+                {(() => {
+                  const maxCount = analyticsData[0]?.count ?? 1;
+                  return analyticsData.slice(0, 8).map(({ portal, count }) => {
+                    const portalMeta = allPortals.find((p) => p.id === portal);
+                    const pct = Math.round((count / maxCount) * 100);
+                    const color = portalMeta?.color ?? "#8ed5ff";
+                    return (
+                      <div key={portal} className="flex items-center gap-3">
+                        <span className="text-base flex-shrink-0">{portalMeta?.icon ?? "📊"}</span>
+                        <p className="text-xs flex-shrink-0 w-32 truncate" style={{ color: "var(--color-on-surface)" }}>
+                          {portalMeta ? (isAr ? portalMeta.titleAr : portalMeta.titleEn) : portal}
+                        </p>
+                        <div className="flex-1 h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                          <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, background: color }} />
+                        </div>
+                        <span className="text-xs font-mono flex-shrink-0 w-10 text-right" style={{ color }}>{count}</span>
+                      </div>
+                    );
+                  });
+                })()}
+              </div>
+            ) : null}
+
+            {/* Event breakdown */}
+            {analyticsEventCounts.length > 0 && (
+              <div className="mt-5 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                <p className="text-xs font-mono mb-3" style={{ color: "var(--color-on-surface-variant)" }}>
+                  {isAr ? "الأحداث الأكثر شيوعًا" : "Top Events"}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {analyticsEventCounts.slice(0, 10).map(({ name, count }) => (
+                    <span key={name} className="text-xs font-mono px-2.5 py-1 rounded-full" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                      {name} <strong style={{ color: "var(--color-primary)" }}>×{count}</strong>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
