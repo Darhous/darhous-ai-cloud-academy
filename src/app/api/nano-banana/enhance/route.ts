@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { callGemini } from "@/lib/gemini";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { aiGuard } from "@/lib/ai-guard";
 
 const SYSTEM_PROMPT = `أنت خبير في كتابة برومبتات Gemini لتحويل الصور.
 مهمتك: تحويل الفكرة البسيطة إلى برومبت احترافي يُعطى لـ Gemini لتحويل صورة شخصية.
@@ -25,6 +26,8 @@ export async function POST(req: NextRequest) {
       { status: 429, headers: { "Retry-After": String(rl.resetInSec) } }
     );
   }
+  const guard = await aiGuard(req);
+  if (guard instanceof Response) return guard;
 
   if (!process.env.GEMINI_API_KEY) {
     return NextResponse.json(

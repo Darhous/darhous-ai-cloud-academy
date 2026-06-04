@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { callGemini } from "@/lib/gemini";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { aiGuard } from "@/lib/ai-guard";
 
 export async function POST(req: NextRequest) {
   const ip = getClientIp(req);
@@ -11,6 +12,8 @@ export async function POST(req: NextRequest) {
       { status: 429, headers: { "Retry-After": String(rl.resetInSec) } }
     );
   }
+  const guard = await aiGuard(req);
+  if (guard instanceof Response) return guard;
 
   try {
     const { text, jobDescription } = await req.json();

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { callGemini } from "@/lib/gemini";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { aiGuard } from "@/lib/ai-guard";
 import type { AutomationAgentInput, AutomationBlueprint } from "@/data/automation/types";
 
 const SYSTEM_PROMPT = `أنت خبير أتمتة أعمال متخصص في n8n و Make و Zapier.
@@ -103,6 +104,8 @@ export async function POST(req: NextRequest) {
       { status: 429, headers: { "Retry-After": String(rl.resetInSec) } }
     );
   }
+  const guard = await aiGuard(req);
+  if (guard instanceof Response) return guard;
 
   if (!process.env.GEMINI_API_KEY) {
     return NextResponse.json({ error: "AI غير مهيأ. مفتاح API غير موجود.", missingKey: true }, { status: 503 });

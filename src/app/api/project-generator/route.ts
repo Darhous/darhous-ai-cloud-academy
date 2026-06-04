@@ -1,6 +1,7 @@
 import "server-only";
 import { NextResponse } from "next/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { aiGuard } from "@/lib/ai-guard";
 import { callGemini } from "@/lib/gemini";
 
 interface ProjectIdea {
@@ -57,6 +58,9 @@ export async function POST(req: Request) {
   if (!rl.allowed) {
     return NextResponse.json({ error: "Rate limited" }, { status: 429, headers: { "Retry-After": String(rl.resetInSec) } });
   }
+
+  const guard = await aiGuard(req);
+  if (guard instanceof Response) return guard;
 
   const body = await req.json().catch(() => ({}));
   const { level, goal, stack, timeAvailable, interests } = body as {

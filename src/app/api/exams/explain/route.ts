@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { callGemini } from "@/lib/gemini";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { aiGuard } from "@/lib/ai-guard";
 
 interface WrongAnswer {
   questionId: number;
@@ -18,6 +19,8 @@ export async function POST(req: NextRequest) {
       { status: 429, headers: { "Retry-After": String(rl.resetInSec) } }
     );
   }
+  const guard = await aiGuard(req);
+  if (guard instanceof Response) return guard;
 
   if (!process.env.GEMINI_API_KEY) {
     return NextResponse.json({ error: "AI غير مهيأ." }, { status: 503 });

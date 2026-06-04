@@ -3,6 +3,7 @@ import { mentorModes } from "@/data/mentor";
 import type { MentorModeId } from "@/data/mentor";
 import type { MentorApiRequest } from "@/lib/mentor-context";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { aiGuard } from "@/lib/ai-guard";
 
 const VALID_MODES: MentorModeId[] = ["ask", "prompt", "claude_code", "path", "tools", "project"];
 const MAX_MESSAGE_LENGTH = 4000;
@@ -20,6 +21,9 @@ export async function POST(req: NextRequest) {
       { status: 429, headers: { "Content-Type": "application/json", "Retry-After": String(rl.resetInSec) } }
     );
   }
+
+  const guard = await aiGuard(req);
+  if (guard instanceof Response) return guard;
 
   if (!process.env.GEMINI_API_KEY) {
     return new Response(
