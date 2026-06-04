@@ -1629,7 +1629,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                 isAr ? `✅ ${lessonsData.length} درس أردوينو من الأساسيات للمتقدم` : `✅ ${lessonsData.length} Arduino lessons from basic to advanced`,
                 isAr ? `✅ ${projectsData.length} مشروع تطبيقي مع أمثلة كود` : `✅ ${projectsData.length} projects with code examples`,
                 isAr ? `✅ ${challengesData.length} تحدي برمجي تفاعلي` : `✅ ${challengesData.length} interactive coding challenges`,
-                isAr ? "✅ 81 مكوّن إلكتروني في المكتبة" : "✅ 81 electronic components in library",
+                isAr ? "✅ 80 مكوّن إلكتروني في المكتبة" : "✅ 80 electronic components in library",
                 isAr ? "✅ محاكي أردوينو تفاعلي" : "✅ Interactive Arduino simulator",
                 isAr ? "✅ مسارات تعليمية مرتبة" : "✅ Structured learning paths",
               ].map((f, i) => (

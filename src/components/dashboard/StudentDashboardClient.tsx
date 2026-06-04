@@ -296,10 +296,10 @@ function IoTHubSection({ locale, isAr }: { locale: string; isAr: boolean }) {
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
         {[
-          { label: isAr ? "60 درس" : "60 Lessons", icon: "📚", href: `/${locale}/iot-lab/lessons`, color: "#f97316" },
-          { label: isAr ? "73 مشروع" : "73 Projects", icon: "🛠️", href: `/${locale}/iot-lab/projects`, color: "#4ade80" },
-          { label: isAr ? "41 تحدي" : "41 Challenges", icon: "⚡", href: `/${locale}/iot-lab/challenges`, color: "#8ed5ff" },
-          { label: isAr ? "81 مكوّن" : "81 Components", icon: "🔧", href: `/${locale}/iot-lab/components`, color: "#f59e0b" },
+          { label: isAr ? "59 درس" : "59 Lessons", icon: "📚", href: `/${locale}/iot-lab/lessons`, color: "#f97316" },
+          { label: isAr ? "72 مشروع" : "72 Projects", icon: "🛠️", href: `/${locale}/iot-lab/projects`, color: "#4ade80" },
+          { label: isAr ? "40 تحدي" : "40 Challenges", icon: "⚡", href: `/${locale}/iot-lab/challenges`, color: "#8ed5ff" },
+          { label: isAr ? "80 مكوّن" : "80 Components", icon: "🔧", href: `/${locale}/iot-lab/components`, color: "#f59e0b" },
         ].map((item) => (
           <Link
             key={item.href}
@@ -346,7 +346,7 @@ function AIAcademyHubSection({ locale, isAr }: { locale: string; isAr: boolean }
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
         {[
-          { label: isAr ? "19 دورة" : "19 Courses", icon: "🎓", href: `/${locale}/courses`, color: "#8ed5ff" },
+          { label: isAr ? "18 دورة" : "18 Courses", icon: "🎓", href: `/${locale}/courses`, color: "#8ed5ff" },
           { label: isAr ? "62 أداة AI" : "62 AI Tools", icon: "🛠️", href: `/${locale}/tools`, color: "#4ade80" },
           { label: isAr ? "27 برومبت" : "27 Prompts", icon: "✨", href: `/${locale}/prompts`, color: "#d0bcff" },
           { label: isAr ? "مرشد AI" : "AI Mentor", icon: "🧠", href: `/${locale}/mentor`, color: "#f59e0b" },

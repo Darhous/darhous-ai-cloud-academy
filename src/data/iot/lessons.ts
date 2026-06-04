@@ -6,7 +6,7 @@ import { lessonsDataPart4 } from "./lessons4";
 // Export the interface for use in the app
 export type { Lesson };
 
-// Combine all lesson parts into one main array (total 60 lessons)
+// Combine all lesson parts into one main array (total 59 lessons)
 export const lessonsData: Lesson[] = [
   ...lessonsDataPart1,
   ...lessonsDataPart2,

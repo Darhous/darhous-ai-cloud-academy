@@ -17,14 +17,14 @@ export async function generateMetadata({
   return {
     title: isAr ? "مختبر درهوس لإنترنت الأشياء والأردوينو | درهوس" : "Darhous IoT Lab | Darhous",
     description: isAr
-      ? "60+ درس أردوينو، 72 مشروع، 40+ تحدي برمجي، ومكتبة المكونات الإلكترونية الشاملة."
-      : "60+ Arduino lessons, 72 projects, 40+ coding challenges, and comprehensive component library.",
+      ? "59 درس أردوينو، 72 مشروع، 40 تحدي برمجي، ومكتبة المكونات الإلكترونية الشاملة."
+      : "59 Arduino lessons, 72 projects, 40 coding challenges, and comprehensive component library.",
     robots: { index: true },
     openGraph: {
       title: isAr ? "مختبر درهوس للـ IoT والأردوينو" : "Darhous IoT Lab",
       description: isAr
-        ? "60+ درس أردوينو، 72 مشروع عملي، 40+ تحدي، ومحاكي تفاعلي — ابدأ رحلتك في إنترنت الأشياء."
-        : "60+ Arduino lessons, 72 hands-on projects, 40+ challenges, and interactive simulator — start your IoT journey.",
+        ? "59 درس أردوينو، 72 مشروع عملي، 40 تحدي، ومحاكي تفاعلي — ابدأ رحلتك في إنترنت الأشياء."
+        : "59 Arduino lessons, 72 hands-on projects, 40 challenges, and interactive simulator — start your IoT journey.",
       url: `/${locale}/iot-lab`,
       images: [{ url: "/og-image.svg" }],
     },
