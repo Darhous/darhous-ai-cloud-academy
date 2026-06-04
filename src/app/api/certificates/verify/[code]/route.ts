@@ -92,6 +92,37 @@ export async function GET(
     });
   }
 
+  // ── 4. Admin-issued certificates (v16) ───────────────────────────────────
+  // Wrapped in try/catch so a missing table (migration not applied) never 500s.
+  try {
+    const { data: adminCert } = await adminSupabase
+      .from("admin_certificates")
+      .select("certificate_code, portal, holder_name, cert_type_label, box1_label, box1_value, box2_label, box2_value, body_line2, issued_at")
+      .eq("certificate_code", upper)
+      .maybeSingle();
+
+    if (adminCert) {
+      const detailParts = [
+        adminCert.body_line2,
+        adminCert.box1_label && adminCert.box1_value ? `${adminCert.box1_label}: ${adminCert.box1_value}` : null,
+        adminCert.box2_label && adminCert.box2_value ? `${adminCert.box2_label}: ${adminCert.box2_value}` : null,
+      ].filter(Boolean);
+      return NextResponse.json({
+        valid: true,
+        certificate: {
+          code: upper,
+          holderName: adminCert.holder_name,
+          type: adminCert.portal,
+          typeLabel: (adminCert.cert_type_label as string) || "Certificate of Completion",
+          detail: detailParts.join(" · "),
+          issuedAt: adminCert.issued_at,
+        },
+      });
+    }
+  } catch {
+    // admin_certificates table not present — ignore.
+  }
+
   return NextResponse.json({ valid: false }, { status: 404 });
 }
 

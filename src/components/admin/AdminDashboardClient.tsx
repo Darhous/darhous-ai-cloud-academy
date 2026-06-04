@@ -107,6 +107,12 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [nbImagePreview, setNbImagePreview] = useState<string | null>(null);
   const [nbSaving, setNbSaving] = useState(false);
   const [nbMsg, setNbMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
+
+  /* Certificate issuance form state (per-portal) */
+  const [issuePortal, setIssuePortal] = useState<string | null>(null);
+  const [issueForm, setIssueForm] = useState({ holderName: "", box1Value: "", box2Value: "", bodyLine2: "" });
+  const [issuing, setIssuing] = useState(false);
+  const [issueMsg, setIssueMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
   const [nbCustomPrompts, setNbCustomPrompts] = useState<Record<string, unknown>[]>([]);
 
   const fetchData = useCallback(async () => {
@@ -676,21 +682,67 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
       )}
 
       {/* 5 ── CERTIFICATES STUDIO ───────────────────────────────── */}
-      {tab === "certificates" && (
+      {tab === "certificates" && (() => {
+        const CERT_PORTALS = [
+          { icon: "🤖", t: isAr ? "شهادة أكاديمية AI" : "AI Academy Certificate",          color: "#8ed5ff", portal: "ai-academy",    b1: isAr ? "المستوى" : "Level",   b2: isAr ? "الحالة" : "Status",  ph1: "PRO",      ph2: "CERTIFIED" },
+          { icon: "🌐", t: isAr ? "شهادة اللغة الإنجليزية" : "English Language Certificate", color: "#d0bcff", portal: "language",      b1: isAr ? "مستوى CEFR" : "CEFR Level", b2: isAr ? "الدرجة" : "Score", ph1: "B2",       ph2: "82.5%" },
+          { icon: "💻", t: isAr ? "شهادة التحول الرقمي" : "Digital Exams Certificate",      color: "#3ce0fb", portal: "digital-exams", b1: isAr ? "الدرجة" : "Score",    b2: isAr ? "الحالة" : "Status",  ph1: "91%",      ph2: "PASSED" },
+          { icon: "💼", t: isAr ? "شهادة المهارات المهنية" : "Career Skills Certificate",    color: "#f59e0b", portal: "career",        b1: isAr ? "المسار" : "Track",    b2: isAr ? "الحالة" : "Status",  ph1: "CAREER",   ph2: "READY" },
+          { icon: "⚙️", t: isAr ? "شهادة الأتمتة" : "Automation Certificate",              color: "#4ade80", portal: "automation",    b1: isAr ? "المستوى" : "Level",   b2: isAr ? "الحالة" : "Status",  ph1: "ADVANCED", ph2: "CERTIFIED" },
+          { icon: "🔌", t: isAr ? "شهادة IoT & Arduino" : "IoT & Arduino Certificate",      color: "#f97316", portal: "iot-lab",       b1: isAr ? "المشاريع" : "Projects", b2: isAr ? "الحالة" : "Status", ph1: "12/12",    ph2: "CERTIFIED" },
+        ];
+        const active = CERT_PORTALS.find((c) => c.portal === issuePortal) ?? null;
+
+        async function handleIssueCert(e: React.FormEvent) {
+          e.preventDefault();
+          if (!issuePortal) return;
+          setIssuing(true);
+          setIssueMsg(null);
+          try {
+            const res = await fetch("/api/admin/certificates/issue", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ portal: issuePortal, ...issueForm }),
+            });
+            if (!res.ok) {
+              const j = await res.json().catch(() => ({} as { error?: string }));
+              setIssueMsg({ type: "err", text: j.error ?? `خطأ ${res.status}` });
+              return;
+            }
+            const code = res.headers.get("X-Certificate-Code");
+            const blob = await res.blob();
+            const url = URL.createObjectURL(blob);
+            window.open(url, "_blank");
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `darhous-${issuePortal}-${issueForm.holderName.replace(/\s+/g, "-")}.pdf`;
+            a.click();
+            setTimeout(() => URL.revokeObjectURL(url), 15000);
+            setIssueMsg({
+              type: "ok",
+              text: isAr ? `✅ تم إصدار الشهادة وتنزيلها — كود التحقق: ${code}` : `✅ Certificate issued & downloaded — verify code: ${code}`,
+            });
+          } catch (err) {
+            setIssueMsg({ type: "err", text: err instanceof Error ? err.message : (isAr ? "فشل الاتصال" : "Request failed") });
+          } finally {
+            setIssuing(false);
+          }
+        }
+
+        function openIssueForm(portal: string) {
+          setIssuePortal(portal);
+          setIssueForm({ holderName: "", box1Value: "", box2Value: "", bodyLine2: "" });
+          setIssueMsg(null);
+        }
+
+        return (
         <div className="flex flex-col gap-5">
           <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
             {isAr ? "استوديو الشهادات" : "Certificates Studio"}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { icon: "🤖", t: isAr ? "شهادة أكاديمية AI" : "AI Academy Certificate",          color: "#8ed5ff",  portal: "ai-academy" },
-              { icon: "🌐", t: isAr ? "شهادة اللغة الإنجليزية" : "English Language Certificate", color: "#d0bcff",  portal: "language" },
-              { icon: "💻", t: isAr ? "شهادة التحول الرقمي" : "Digital Exams Certificate",      color: "#3ce0fb",  portal: "digital-exams" },
-              { icon: "💼", t: isAr ? "شهادة المهارات المهنية" : "Career Skills Certificate",    color: "#f59e0b",  portal: "career" },
-              { icon: "⚙️", t: isAr ? "شهادة الأتمتة" : "Automation Certificate",              color: "#4ade80",  portal: "automation" },
-              { icon: "🔌", t: isAr ? "شهادة IoT & Arduino" : "IoT & Arduino Certificate",      color: "#f97316",  portal: "iot-lab" },
-            ].map((cert) => (
-              <div key={cert.t} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: `1px solid ${cert.color}15` }}>
+            {CERT_PORTALS.map((cert) => (
+              <div key={cert.t} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: `1px solid ${cert.color}${issuePortal === cert.portal ? "55" : "15"}` }}>
                 <span className="text-3xl">{cert.icon}</span>
                 <p className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{cert.t}</p>
                 <div className="flex gap-2 mt-auto flex-wrap">
@@ -703,24 +755,98 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                   >
                     {isAr ? "🔍 معاينة القالب" : "🔍 Preview"}
                   </a>
-                  <Link href={`/${locale}/certificates`}
-                    className="text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
-                    style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)", textDecoration: "none" }}>
-                    {isAr ? "إصدار" : "Issue"}
-                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => openIssueForm(cert.portal)}
+                    className="text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80 cursor-pointer"
+                    style={{ background: `${cert.color}22`, color: cert.color, border: `1px solid ${cert.color}35` }}>
+                    {isAr ? "📜 إصدار شهادة" : "📜 Issue"}
+                  </button>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* ── Issuance form (appears when a portal is selected) ── */}
+          {active && (
+            <form onSubmit={handleIssueCert} className="glass-card rounded-2xl p-6 flex flex-col gap-4" style={{ border: `1px solid ${active.color}40` }}>
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-base flex items-center gap-2" style={{ color: active.color }}>
+                  <span className="text-2xl">{active.icon}</span>
+                  {isAr ? `إصدار: ${active.t}` : `Issue: ${active.t}`}
+                </h3>
+                <button type="button" onClick={() => setIssuePortal(null)} className="text-xs px-3 py-1 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)" }}>
+                  {isAr ? "إغلاق ✕" : "Close ✕"}
+                </button>
+              </div>
+
+              <label className="flex flex-col gap-1">
+                <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "اسم الحاصل على الشهادة *" : "Holder name *"}</span>
+                <input
+                  required value={issueForm.holderName}
+                  onChange={(e) => setIssueForm((f) => ({ ...f, holderName: e.target.value }))}
+                  placeholder={isAr ? "مثال: أحمد محمد علي" : "e.g. Ahmed Mohamed Ali"}
+                  className="px-3 py-2 rounded-lg text-sm bg-transparent"
+                  style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }}
+                />
+              </label>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <label className="flex flex-col gap-1">
+                  <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{active.b1}</span>
+                  <input
+                    value={issueForm.box1Value}
+                    onChange={(e) => setIssueForm((f) => ({ ...f, box1Value: e.target.value }))}
+                    placeholder={`${isAr ? "افتراضي" : "default"}: ${active.ph1}`}
+                    className="px-3 py-2 rounded-lg text-sm bg-transparent"
+                    style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }}
+                  />
+                </label>
+                <label className="flex flex-col gap-1">
+                  <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{active.b2}</span>
+                  <input
+                    value={issueForm.box2Value}
+                    onChange={(e) => setIssueForm((f) => ({ ...f, box2Value: e.target.value }))}
+                    placeholder={`${isAr ? "افتراضي" : "default"}: ${active.ph2}`}
+                    className="px-3 py-2 rounded-lg text-sm bg-transparent"
+                    style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }}
+                  />
+                </label>
+              </div>
+
+              <label className="flex flex-col gap-1">
+                <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "سطر وصفي (اختياري)" : "Subtitle line (optional)"}</span>
+                <input
+                  value={issueForm.bodyLine2}
+                  onChange={(e) => setIssueForm((f) => ({ ...f, bodyLine2: e.target.value }))}
+                  placeholder={isAr ? "يُترك فارغًا لاستخدام النص الافتراضي للبوابة" : "Leave empty to use the portal default"}
+                  className="px-3 py-2 rounded-lg text-sm bg-transparent"
+                  style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }}
+                />
+              </label>
+
+              {issueMsg && (
+                <p className="text-xs font-mono px-3 py-2 rounded-lg" style={{ background: issueMsg.type === "ok" ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)", color: issueMsg.type === "ok" ? "#4ade80" : "#f87171" }}>
+                  {issueMsg.text}
+                </p>
+              )}
+
+              <button type="submit" disabled={issuing} className="self-start px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer disabled:opacity-50" style={{ background: active.color, color: "#0b0f1a" }}>
+                {issuing ? (isAr ? "جارٍ الإصدار…" : "Issuing…") : (isAr ? "📜 إصدار وتنزيل PDF" : "📜 Issue & Download PDF")}
+              </button>
+            </form>
+          )}
+
           <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(212,175,55,0.15)" }}>
             <p className="text-xs font-mono" style={{ color: "#d4af37" }}>
               ✨ {isAr
-                ? "تصميم فاخر جديد — ذهبي داكن + توقيع بخط اليد + QR للتحقق. اضغط «معاينة القالب» لكل بوابة لرؤية الشهادة."
-                : "New luxury design — dark gold + handwritten signature + QR verification. Click «Preview» for each portal to see the certificate."}
+                ? "اضغط «معاينة القالب» لرؤية التصميم، أو «إصدار شهادة» لإنشاء شهادة بأي بيانات تكتبها — تُنزَّل PDF فورًا وتصبح قابلة للتحقق عبر QR (يتطلب تطبيق migration v16 في Supabase)."
+                : "Click «Preview» to see the design, or «Issue» to create a certificate with any data you type — the PDF downloads instantly and becomes QR-verifiable (requires the v16 Supabase migration)."}
             </p>
           </div>
         </div>
-      )}
+        );
+      })()}
 
       {/* 6 ── AI MENTOR CONTROL ─────────────────────────────────── */}
       {tab === "mentor-control" && (
