@@ -1,16 +1,55 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { blogPosts } from "@/data/blog";
+import { blogPosts, type BlogPost } from "@/data/blog";
 import { tools } from "@/data/tools";
 import { courses } from "@/data/courses";
 import { getMdxPost, getMdxSlugs } from "@/lib/mdx";
+import { createClient } from "@/lib/supabase/server";
 import { Clock, CalendarDays, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 import AskThisPageButton from "@/components/ui/AskThisPageButton";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import MdxContent from "@/components/blog/MdxContent";
 
+export const dynamicParams = true;
+
 type Params = Promise<{ locale: string; slug: string }>;
+
+async function fetchDbPost(slug: string): Promise<BlogPost | null> {
+  try {
+    const supabase = await createClient();
+    if (!supabase) return null;
+    const { data } = await supabase
+      .from("blog_posts")
+      .select("*")
+      .eq("slug", slug)
+      .eq("status", "published")
+      .single();
+    if (!data) return null;
+    return {
+      id:             data.slug,
+      titleAr:        data.title_ar,
+      titleEn:        data.title_en,
+      excerptAr:      data.excerpt_ar,
+      excerptEn:      data.excerpt_en,
+      contentAr:      data.content_ar,
+      contentEn:      data.content_en,
+      keyTakeawaysAr: data.key_takeaways_ar ?? [],
+      keyTakeawaysEn: data.key_takeaways_en ?? [],
+      category:       data.category,
+      readingTime:    data.reading_time,
+      date:           (data.published_at as string).split("T")[0],
+      featured:       data.featured,
+      tags:           data.tags ?? [],
+      icon:           data.icon,
+      relatedPosts:   data.related_posts ?? [],
+      relatedTools:   data.related_tools ?? [],
+      relatedCourses: data.related_courses ?? [],
+    };
+  } catch {
+    return null;
+  }
+}
 
 export async function generateStaticParams() {
   const locales = ["ar", "en"];
@@ -33,7 +72,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       openGraph: { type: "article", publishedTime: mdx.frontmatter.date, tags: mdx.frontmatter.tags },
     };
   }
-  const post = blogPosts.find((p) => p.id === slug);
+  const post = blogPosts.find((p) => p.id === slug) ?? await fetchDbPost(slug);
   if (!post) return { title: "Post Not Found" };
   return {
     title: isAr ? post.titleAr : post.titleEn,
@@ -117,7 +156,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
     );
   }
 
-  const post = blogPosts.find((p) => p.id === slug);
+  const post = blogPosts.find((p) => p.id === slug) ?? await fetchDbPost(slug);
   if (!post) notFound();
 
   const content = isAr ? post.contentAr : post.contentEn;

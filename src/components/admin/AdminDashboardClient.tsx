@@ -20,7 +20,7 @@ import { lessonsData } from "@/data/iot/lessons";
 import { projectsData } from "@/data/iot/projects";
 import { challengesData } from "@/data/iot/challenges";
 import { projects } from "@/data/projects";
-import { blogPosts } from "@/data/blog";
+import { blogPosts, blogCategories } from "@/data/blog";
 import { prompts } from "@/data/prompts";
 import { nanaBananaPrompts } from "@/data/nano-banana-prompts";
 import { defaultMentorSettings } from "@/types/ai_mentor_settings";
@@ -33,7 +33,7 @@ type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
   | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
-  | "career" | "iot-lab" | "ai-academy" | "nano-banana";
+  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -116,6 +116,24 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [issuing, setIssuing] = useState(false);
   const [issueMsg, setIssueMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
   const [nbCustomPrompts, setNbCustomPrompts] = useState<Record<string, unknown>[]>([]);
+
+  /* Blog CMS state */
+  type DbBlogRow = { id: string; slug: string; title_ar: string; title_en: string; category: string; status: string; featured: boolean; reading_time: number; published_at: string; updated_at: string; cover_url: string | null };
+  const [blogDbPosts, setBlogDbPosts] = useState<DbBlogRow[]>([]);
+  const [blogLoading, setBlogLoading] = useState(false);
+  const [blogView, setBlogView] = useState<"list" | "form">("list");
+  const [blogEditId, setBlogEditId] = useState<string | null>(null);
+  const [blogSaving, setBlogSaving] = useState(false);
+  const [blogMsg, setBlogMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
+  const BLOG_FORM_DEFAULT = {
+    slug: "", title_ar: "", title_en: "", excerpt_ar: "", excerpt_en: "",
+    content_ar: "", content_en: "", category: "Learning", tags: "",
+    icon: "📝", reading_time: "6", featured: false, status: "published" as "published" | "draft" | "archived",
+  };
+  const [blogForm, setBlogForm] = useState(BLOG_FORM_DEFAULT);
+  const [blogPreviewLang, setBlogPreviewLang] = useState<"ar" | "en">("ar");
+  const [blogCoverFile, setBlogCoverFile] = useState<File | null>(null);
+  const [blogCoverPreview, setBlogCoverPreview] = useState<string | null>(null);
 
   const fetchData = useCallback(async () => {
     if (!user || !supabaseConfigured) return;
@@ -327,6 +345,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "iot-lab",        labelAr: "مختبر IoT",            labelEn: "IoT Lab",            icon: <Wrench size={15} /> },
     { id: "ai-academy",     labelAr: "أكاديمية AI",          labelEn: "AI Academy",         icon: <Bot size={15} /> },
     { id: "nano-banana",    labelAr: "🍌 Nano Banana",        labelEn: "🍌 Nano Banana",     icon: <Sparkles size={15} /> },
+    { id: "blog",           labelAr: "📰 المدونة",            labelEn: "📰 Blog CMS",         icon: <FileText size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -2414,6 +2433,348 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                   </button>
                 </form>
               </div>
+            )}
+          </div>
+        );
+      })()}
+
+      {/* BLOG CMS ─────────────────────────────────────────────── */}
+      {tab === "blog" && (() => {
+        const BLOG_CATS = [...new Set([...blogCategories, "AI Tools", "Career", "Automation", "Learning", "Cloud", "Security"])];
+
+        // Load blog posts from DB when tab opens
+        async function loadBlogPosts() {
+          setBlogLoading(true);
+          setBlogMsg(null);
+          try {
+            const res = await fetch("/api/admin/blog");
+            if (res.ok) setBlogDbPosts(await res.json());
+          } catch { /* silent */ } finally { setBlogLoading(false); }
+        }
+
+        function openCreate() {
+          setBlogEditId(null);
+          setBlogForm(BLOG_FORM_DEFAULT);
+          setBlogCoverFile(null);
+          setBlogCoverPreview(null);
+          setBlogMsg(null);
+          setBlogView("form");
+        }
+
+        async function openEdit(row: DbBlogRow) {
+          setBlogMsg(null);
+          try {
+            const res = await fetch(`/api/admin/blog/${row.id}`);
+            if (!res.ok) { setBlogMsg({ type: "err", text: isAr ? "فشل تحميل المقال" : "Failed to load post" }); return; }
+            const data = await res.json();
+            setBlogForm({
+              slug:       data.slug ?? "",
+              title_ar:   data.title_ar ?? "",
+              title_en:   data.title_en ?? "",
+              excerpt_ar: data.excerpt_ar ?? "",
+              excerpt_en: data.excerpt_en ?? "",
+              content_ar: data.content_ar ?? "",
+              content_en: data.content_en ?? "",
+              category:   data.category ?? "Learning",
+              tags:       (data.tags ?? []).join(", "),
+              icon:       data.icon ?? "📝",
+              reading_time: String(data.reading_time ?? 5),
+              featured:   data.featured ?? false,
+              status:     data.status ?? "published",
+            });
+            setBlogCoverPreview(data.cover_url ?? null);
+            setBlogEditId(row.id);
+            setBlogView("form");
+          } catch { setBlogMsg({ type: "err", text: "Error" }); }
+        }
+
+        async function handleArchive(row: DbBlogRow) {
+          if (!confirm(isAr ? `أرشفة "${row.title_ar}"؟` : `Archive "${row.title_en}"?`)) return;
+          const res = await fetch(`/api/admin/blog/${row.id}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: "archived" }) });
+          if (res.ok) { setBlogDbPosts((p) => p.map((x) => x.id === row.id ? { ...x, status: "archived" } : x)); }
+        }
+
+        async function handleDelete(row: DbBlogRow) {
+          if (!confirm(isAr ? `حذف "${row.title_ar}" نهائياً؟` : `Delete "${row.title_en}" permanently?`)) return;
+          const res = await fetch(`/api/admin/blog/${row.id}`, { method: "DELETE" });
+          if (res.ok) { setBlogDbPosts((p) => p.filter((x) => x.id !== row.id)); }
+        }
+
+        async function handleCoverUpload(file: File): Promise<string | null> {
+          const supabase = createClient();
+          if (!supabase) return null;
+          const path = `blog-covers/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
+          const { error } = await supabase.storage.from("blog-covers").upload(path, file, { upsert: true });
+          if (error) return null;
+          const { data } = supabase.storage.from("blog-covers").getPublicUrl(path);
+          return data.publicUrl;
+        }
+
+        async function handleSaveBlog(e: React.FormEvent) {
+          e.preventDefault();
+          setBlogSaving(true);
+          setBlogMsg(null);
+          try {
+            let coverUrl: string | null = blogCoverPreview;
+            if (blogCoverFile) {
+              const uploaded = await handleCoverUpload(blogCoverFile);
+              if (uploaded) coverUrl = uploaded;
+            }
+            const payload = {
+              slug:       blogForm.slug,
+              title_ar:   blogForm.title_ar,
+              title_en:   blogForm.title_en,
+              excerpt_ar: blogForm.excerpt_ar,
+              excerpt_en: blogForm.excerpt_en,
+              content_ar: blogForm.content_ar,
+              content_en: blogForm.content_en,
+              category:   blogForm.category,
+              tags:       blogForm.tags.split(",").map((t) => t.trim()).filter(Boolean),
+              icon:       blogForm.icon || "📝",
+              reading_time: Number(blogForm.reading_time) || 5,
+              featured:   blogForm.featured,
+              status:     blogForm.status,
+              cover_url:  coverUrl,
+            };
+            const url = blogEditId ? `/api/admin/blog/${blogEditId}` : "/api/admin/blog";
+            const method = blogEditId ? "PUT" : "POST";
+            const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+            if (!res.ok) {
+              const j = await res.json().catch(() => ({} as { error?: string }));
+              setBlogMsg({ type: "err", text: j.error ?? `Error ${res.status}` });
+              return;
+            }
+            setBlogMsg({ type: "ok", text: isAr ? "✅ تم الحفظ بنجاح" : "✅ Saved successfully" });
+            await loadBlogPosts();
+            setTimeout(() => setBlogView("list"), 1200);
+          } catch (err) {
+            setBlogMsg({ type: "err", text: err instanceof Error ? err.message : "Error" });
+          } finally {
+            setBlogSaving(false);
+          }
+        }
+
+        const slugify = (text: string) => text.toLowerCase().trim().replace(/[\s_]+/g, "-").replace(/[^a-z0-9-]/g, "").slice(0, 80);
+
+        const renderSimpleMarkdown = (md: string) => md.split("\n").slice(0, 6).map((l, i) => (
+          <p key={i} className="text-xs truncate" style={{ color: "var(--color-on-surface-variant)" }}>{l || " "}</p>
+        ));
+
+        return (
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+                {blogView === "list"
+                  ? (isAr ? "📰 إدارة المدونة" : "📰 Blog CMS")
+                  : (blogEditId ? (isAr ? "✏️ تعديل مقال" : "✏️ Edit Post") : (isAr ? "✏️ مقال جديد" : "✏️ New Post"))}
+              </h2>
+              <div className="flex gap-2 flex-wrap">
+                {blogView === "list" ? (
+                  <>
+                    <button onClick={loadBlogPosts} disabled={blogLoading} className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer disabled:opacity-50" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                      <RefreshCw size={12} className={blogLoading ? "animate-spin" : ""} /> {isAr ? "تحديث" : "Refresh"}
+                    </button>
+                    <button onClick={openCreate} className="flex items-center gap-1 text-xs font-mono px-4 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(142,213,255,0.12)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.25)" }}>
+                      + {isAr ? "مقال جديد" : "New Post"}
+                    </button>
+                  </>
+                ) : (
+                  <button onClick={() => setBlogView("list")} className="text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    ← {isAr ? "قائمة المقالات" : "Post List"}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {blogMsg && (
+              <p className="text-xs font-mono px-3 py-2 rounded-lg" style={{ background: blogMsg.type === "ok" ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)", color: blogMsg.type === "ok" ? "#4ade80" : "#f87171" }}>
+                {blogMsg.text}
+              </p>
+            )}
+
+            {/* ── LIST VIEW ── */}
+            {blogView === "list" && (
+              <div className="flex flex-col gap-3">
+                {blogLoading ? (
+                  <p className="text-xs font-mono text-center py-6" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "جارٍ التحميل…" : "Loading…"}</p>
+                ) : blogDbPosts.length === 0 ? (
+                  <div className="glass-card rounded-2xl p-8 text-center">
+                    <p className="text-3xl mb-3">📰</p>
+                    <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "لا توجد مقالات في قاعدة البيانات بعد. اضغط «مقال جديد» للبدء." : "No posts in DB yet. Click «New Post» to get started."}</p>
+                    <p className="text-xs mt-2 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "تذكّر تطبيق migration v18 في Supabase أولاً." : "Remember to apply migration v18 in Supabase first."}</p>
+                  </div>
+                ) : (
+                  blogDbPosts.map((row) => (
+                    <div key={row.id} className="glass-card rounded-xl p-4 flex items-center gap-4 flex-wrap" style={{ border: `1px solid ${row.status === "published" ? "rgba(74,222,128,0.15)" : row.status === "draft" ? "rgba(250,204,21,0.15)" : "rgba(255,255,255,0.06)"}` }}>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-xs font-mono px-2 py-0.5 rounded-full" style={{ background: row.status === "published" ? "rgba(74,222,128,0.12)" : row.status === "draft" ? "rgba(250,204,21,0.12)" : "rgba(255,255,255,0.06)", color: row.status === "published" ? "#4ade80" : row.status === "draft" ? "#fbbf24" : "#888" }}>
+                            {row.status}
+                          </span>
+                          {row.featured && <span className="text-xs font-mono" style={{ color: "#f59e0b" }}>⭐ featured</span>}
+                          <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{row.category}</span>
+                        </div>
+                        <p className="font-semibold text-sm mt-1 truncate" style={{ color: "var(--color-on-surface)" }}>{row.title_ar}</p>
+                        <p className="text-xs truncate" style={{ color: "var(--color-on-surface-variant)" }}>{row.title_en}</p>
+                        <p className="text-xs mt-1 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>/{row.slug} · {row.reading_time}min · {row.published_at?.split("T")[0]}</p>
+                      </div>
+                      <div className="flex gap-2 flex-shrink-0">
+                        <a href={`/ar/blog/${row.slug}`} target="_blank" rel="noreferrer" className="text-xs font-mono px-2.5 py-1.5 rounded-lg" style={{ background: "rgba(142,213,255,0.08)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)", textDecoration: "none" }}>
+                          {isAr ? "عرض" : "View"}
+                        </a>
+                        <button onClick={() => openEdit(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                          {isAr ? "تعديل" : "Edit"}
+                        </button>
+                        {row.status !== "archived" && (
+                          <button onClick={() => handleArchive(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(250,204,21,0.08)", color: "#fbbf24", border: "1px solid rgba(250,204,21,0.2)" }}>
+                            {isAr ? "أرشفة" : "Archive"}
+                          </button>
+                        )}
+                        <button onClick={() => handleDelete(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(239,68,68,0.08)", color: "#f87171", border: "1px solid rgba(239,68,68,0.2)" }}>
+                          {isAr ? "حذف" : "Delete"}
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            )}
+
+            {/* ── FORM VIEW ── */}
+            {blogView === "form" && (
+              <form onSubmit={handleSaveBlog} className="flex flex-col gap-5">
+
+                {/* Basic info */}
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "المعلومات الأساسية" : "Basic Info"}</h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label className="flex flex-col gap-1">
+                      <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "العنوان (عربي) *" : "Title (Arabic) *"}</span>
+                      <input required value={blogForm.title_ar} onChange={(e) => { setBlogForm((f) => ({ ...f, title_ar: e.target.value })); if (!blogEditId && !blogForm.slug) setBlogForm((f) => ({ ...f, slug: slugify(e.target.value) })); }} className="px-3 py-2 rounded-lg text-sm bg-transparent" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }} placeholder="عنوان المقال بالعربية" />
+                    </label>
+                    <label className="flex flex-col gap-1">
+                      <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "العنوان (إنجليزي)" : "Title (English)"}</span>
+                      <input value={blogForm.title_en} onChange={(e) => setBlogForm((f) => ({ ...f, title_en: e.target.value }))} className="px-3 py-2 rounded-lg text-sm bg-transparent" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }} placeholder="Post title in English" />
+                    </label>
+                  </div>
+
+                  <label className="flex flex-col gap-1">
+                    <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>Slug *</span>
+                    <input required value={blogForm.slug} onChange={(e) => setBlogForm((f) => ({ ...f, slug: slugify(e.target.value) }))} className="px-3 py-2 rounded-lg text-sm bg-transparent font-mono" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }} placeholder="post-slug-url" />
+                  </label>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label className="flex flex-col gap-1">
+                      <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "مختصر (عربي)" : "Excerpt (Arabic)"}</span>
+                      <textarea rows={2} value={blogForm.excerpt_ar} onChange={(e) => setBlogForm((f) => ({ ...f, excerpt_ar: e.target.value }))} className="px-3 py-2 rounded-lg text-sm bg-transparent resize-none" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }} placeholder="وصف مختصر للمقال" />
+                    </label>
+                    <label className="flex flex-col gap-1">
+                      <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "مختصر (إنجليزي)" : "Excerpt (English)"}</span>
+                      <textarea rows={2} value={blogForm.excerpt_en} onChange={(e) => setBlogForm((f) => ({ ...f, excerpt_en: e.target.value }))} className="px-3 py-2 rounded-lg text-sm bg-transparent resize-none" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }} placeholder="Brief post description" />
+                    </label>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <label className="flex flex-col gap-1">
+                      <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "الفئة" : "Category"}</span>
+                      <select value={blogForm.category} onChange={(e) => setBlogForm((f) => ({ ...f, category: e.target.value }))} className="px-3 py-2 rounded-lg text-sm" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)", background: "rgba(0,0,0,0.2)" }}>
+                        {BLOG_CATS.map((c) => <option key={c} value={c}>{c}</option>)}
+                      </select>
+                    </label>
+                    <label className="flex flex-col gap-1">
+                      <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "الأيقونة" : "Icon"}</span>
+                      <input value={blogForm.icon} onChange={(e) => setBlogForm((f) => ({ ...f, icon: e.target.value }))} className="px-3 py-2 rounded-lg text-sm bg-transparent text-center" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)", fontSize: "20px" }} maxLength={2} />
+                    </label>
+                    <label className="flex flex-col gap-1">
+                      <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "وقت القراءة (د)" : "Reading Time (min)"}</span>
+                      <input type="number" min={1} max={60} value={blogForm.reading_time} onChange={(e) => setBlogForm((f) => ({ ...f, reading_time: e.target.value }))} className="px-3 py-2 rounded-lg text-sm bg-transparent" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }} />
+                    </label>
+                    <label className="flex flex-col gap-1">
+                      <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>Status</span>
+                      <select value={blogForm.status} onChange={(e) => setBlogForm((f) => ({ ...f, status: e.target.value as "published" | "draft" | "archived" }))} className="px-3 py-2 rounded-lg text-sm" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)", background: "rgba(0,0,0,0.2)" }}>
+                        <option value="published">Published ✅</option>
+                        <option value="draft">Draft 📝</option>
+                        <option value="archived">Archived 🗄️</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label className="flex flex-col gap-1">
+                      <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "الوسوم (مفصولة بفواصل)" : "Tags (comma-separated)"}</span>
+                      <input value={blogForm.tags} onChange={(e) => setBlogForm((f) => ({ ...f, tags: e.target.value }))} className="px-3 py-2 rounded-lg text-sm bg-transparent" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }} placeholder="ai, learning, guide" />
+                    </label>
+                    <label className="flex flex-col gap-1 justify-end">
+                      <div className="flex items-center gap-3 px-3 py-2 rounded-lg" style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
+                        <span className="text-xs font-semibold flex-1" style={{ color: "var(--color-on-surface)" }}>{isAr ? "مميّز (Featured)" : "Featured"}</span>
+                        <button type="button" onClick={() => setBlogForm((f) => ({ ...f, featured: !f.featured }))} className="transition-all">
+                          {blogForm.featured ? <ToggleRight size={24} style={{ color: "var(--color-primary)" }} /> : <ToggleLeft size={24} style={{ color: "var(--color-on-surface-variant)" }} />}
+                        </button>
+                      </div>
+                    </label>
+                  </div>
+
+                  {/* Cover image */}
+                  <label className="flex flex-col gap-2">
+                    <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "صورة الغلاف (اختياري)" : "Cover Image (optional)"}</span>
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <input type="file" accept="image/*" onChange={(e) => { const f = e.target.files?.[0]; if (f) { setBlogCoverFile(f); setBlogCoverPreview(URL.createObjectURL(f)); } }} className="text-xs" style={{ color: "var(--color-on-surface-variant)" }} />
+                      {blogCoverPreview && (
+                        <div className="relative">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={blogCoverPreview} alt="" className="h-16 rounded-lg object-cover" />
+                          <button type="button" onClick={() => { setBlogCoverFile(null); setBlogCoverPreview(null); }} className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-xs flex items-center justify-center" style={{ background: "#ef4444", color: "#fff" }}>✕</button>
+                        </div>
+                      )}
+                    </div>
+                  </label>
+                </div>
+
+                {/* Content editor */}
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "المحتوى (Markdown)" : "Content (Markdown)"}</h3>
+                    <div className="flex gap-1">
+                      {(["ar", "en"] as const).map((lang) => (
+                        <button key={lang} type="button" onClick={() => setBlogPreviewLang(lang)} className="text-xs font-mono px-3 py-1 rounded-lg cursor-pointer" style={{ background: blogPreviewLang === lang ? "rgba(142,213,255,0.15)" : "rgba(255,255,255,0.04)", color: blogPreviewLang === lang ? "var(--color-primary)" : "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                          {lang === "ar" ? "عربي" : "EN"}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {blogPreviewLang === "ar" ? (
+                    <label className="flex flex-col gap-1">
+                      <span className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "المحتوى العربي (Markdown)" : "Arabic content (Markdown)"}</span>
+                      <textarea rows={14} value={blogForm.content_ar} onChange={(e) => setBlogForm((f) => ({ ...f, content_ar: e.target.value }))} className="px-3 py-2 rounded-lg text-sm bg-transparent resize-y font-mono" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)", direction: "rtl" }} placeholder="## العنوان&#10;&#10;محتوى المقال بالعربية..." />
+                    </label>
+                  ) : (
+                    <label className="flex flex-col gap-1">
+                      <span className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "المحتوى الإنجليزي (Markdown)" : "English content (Markdown)"}</span>
+                      <textarea rows={14} value={blogForm.content_en} onChange={(e) => setBlogForm((f) => ({ ...f, content_en: e.target.value }))} className="px-3 py-2 rounded-lg text-sm bg-transparent resize-y font-mono" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }} placeholder="## Heading&#10;&#10;Post content in English..." />
+                    </label>
+                  )}
+
+                  {/* Markdown preview */}
+                  {(blogPreviewLang === "ar" ? blogForm.content_ar : blogForm.content_en) && (
+                    <div className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                      <p className="text-xs font-mono mb-2" style={{ color: "var(--color-on-surface-variant)" }}>— preview —</p>
+                      {renderSimpleMarkdown(blogPreviewLang === "ar" ? blogForm.content_ar : blogForm.content_en)}
+                    </div>
+                  )}
+                </div>
+
+                {/* Save */}
+                <div className="flex gap-3">
+                  <button type="submit" disabled={blogSaving} className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold cursor-pointer disabled:opacity-50" style={{ background: "rgba(142,213,255,0.15)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.3)" }}>
+                    {blogSaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (blogEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر المقال" : "💾 Publish Post"))}
+                  </button>
+                  <button type="button" onClick={() => setBlogView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    {isAr ? "إلغاء" : "Cancel"}
+                  </button>
+                </div>
+              </form>
             )}
           </div>
         );

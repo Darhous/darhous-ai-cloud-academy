@@ -1,16 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CategoryFilter from "@/components/ui/CategoryFilter";
 import BlogCard from "@/components/cards/BlogCard";
-import { blogPosts, blogCategories } from "@/data/blog";
+import { blogPosts, blogCategories, type BlogPost } from "@/data/blog";
 
-export default function BlogClient({ locale }: { locale: string }) {
+interface Props {
+  locale: string;
+  dbPosts: BlogPost[];
+}
+
+export default function BlogClient({ locale, dbPosts }: Props) {
   const isAr = locale === "ar";
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const filtered = blogPosts.filter((p) =>
+  // Merge: DB posts first (newer), then static — deduplicate by id/slug
+  const allPosts = useMemo(() => {
+    const seen = new Set<string>();
+    const merged: BlogPost[] = [];
+    for (const p of [...dbPosts, ...blogPosts]) {
+      if (!seen.has(p.id)) {
+        seen.add(p.id);
+        merged.push(p);
+      }
+    }
+    // Sort by date descending
+    return merged.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  }, [dbPosts]);
+
+  // Compute categories from merged set
+  const categories = useMemo(() => {
+    const cats = [...new Set([...blogCategories, ...dbPosts.map((p) => p.category)])];
+    return cats;
+  }, [dbPosts]);
+
+  const filtered = allPosts.filter((p) =>
     activeCategory === "all" || p.category === activeCategory
   );
 
@@ -27,7 +52,7 @@ export default function BlogClient({ locale }: { locale: string }) {
       </div>
 
       <CategoryFilter
-        categories={blogCategories}
+        categories={categories}
         active={activeCategory}
         onChange={setActiveCategory}
         allLabel={isAr ? "جميع المقالات" : "All Posts"}
