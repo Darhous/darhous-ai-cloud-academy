@@ -11,6 +11,14 @@ export interface HealthCheckResult {
 }
 
 export async function GET() {
+  // Verify caller is an authenticated admin
+  const authSupabase = await createClient();
+  if (!authSupabase) return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
+  const { data: { user } } = await authSupabase.auth.getUser();
+  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const { data: profile } = await authSupabase.from("profiles").select("role").eq("id", user.id).single();
+  if (profile?.role !== "admin") return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+
   const result: HealthCheckResult = {
     supabase: false,
     gemini: false,
