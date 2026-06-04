@@ -9,8 +9,6 @@ import { lessonsData } from "@/data/iot/lessons";
 import { projectsData } from "@/data/iot/projects";
 import { challengesData } from "@/data/iot/challenges";
 import { componentsData } from "@/data/iot/components";
-import { examSubjects } from "@/data/digital-exam-subjects";
-
 const BASE_URL = "https://darhous-ai-cloud-academy.vercel.app";
 const locales = ["ar", "en"];
 
@@ -26,8 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/search", "/challenges", "/leaderboard",
     "/prompt-battle", "/prompt-score", "/compare-tools",
     "/project-generator",
-    // v4 ecosystem portals (public landing pages only — /assessment and /results are noindex)
-    "/ai-academy", "/language", "/language/assessment", "/language/history",
+    // v4 ecosystem portals (landing pages only — /assessment and /results are noindex, excluded from sitemap)
+    "/ai-academy", "/language", "/language/history",
     "/digital-exams", "/digital-exams/mixed", "/digital-exams/library",
     // v5 full native portals
     "/career", "/career/cv-analyzer", "/career/builder", "/career/jobs", "/career/interview", "/career/templates",
@@ -101,7 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }))
   );
 
-  // Automation Labs — 10 labs × 2 locales = 20 entries
+  // Automation Labs — 15 labs × 2 locales = 30 entries
   const labEntries = locales.flatMap((locale) =>
     automationLabsV2.map((lab) => ({
       url: `${BASE_URL}/${locale}/automation/labs/${lab.id}`,
@@ -148,15 +146,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  // Digital Exams — 9 subjects × 2 locales = 18 entries
-  const examSubjectEntries = locales.flatMap((locale) =>
-    examSubjects.map((subject) => ({
-      url: `${BASE_URL}/${locale}/digital-exams/${subject.id}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.75,
-    }))
-  );
+  // Digital Exams subjects are excluded from sitemap — each subject page is noindex
+  // (interactive exam pages, not landing content)
 
   return [
     ...staticEntries,
@@ -170,6 +161,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...iotProjectEntries,
     ...iotChallengeEntries,
     ...iotComponentEntries,
-    ...examSubjectEntries,
   ];
 }
