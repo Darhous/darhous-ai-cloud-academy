@@ -685,6 +685,136 @@ Create a system prompt that:
     bestModel: "Claude Sonnet",
     tags: ["claude", "system-prompt", "prompting"],
   },
+  // C2 additions
+  {
+    id: "explain-concept",
+    titleAr: "شرح مفهوم معقد ببساطة",
+    titleEn: "Explain a Complex Concept Simply",
+    category: "Learning",
+    useCaseAr: "تبسيط المفاهيم التقنية والعلمية لأي مستوى",
+    useCaseEn: "Simplify technical and scientific concepts for any level",
+    promptText: `Explain this concept in a clear, simple way:
+
+Concept: [CONCEPT_NAME]
+Audience level: [BEGINNER/INTERMEDIATE/EXPERT]
+Context: [WHERE_THEY_WILL_USE_THIS]
+
+Structure your explanation as:
+1. One-sentence definition
+2. Real-world analogy (no jargon)
+3. How it actually works (step by step)
+4. Concrete example they can relate to
+5. Common misconceptions
+6. Why it matters
+7. What to learn next`,
+    difficulty: "beginner",
+    bestModel: "Claude Sonnet",
+    tags: ["teaching", "learning", "simplify", "education"],
+  },
+  {
+    id: "data-analysis-prompt",
+    titleAr: "تحليل بيانات بالذكاء الاصطناعي",
+    titleEn: "Analyze Data with AI",
+    category: "Data",
+    useCaseAr: "تحليل جداول وCSV واستخراج الرؤى الرئيسية",
+    useCaseEn: "Analyze tables and CSV files to extract key insights",
+    promptText: `Analyze this dataset and provide actionable insights:
+
+Data: [PASTE DATA OR DESCRIBE IT]
+Business context: [WHAT_THIS_DATA_REPRESENTS]
+Key question to answer: [MAIN_QUESTION]
+
+Provide:
+1. Data quality assessment (missing values, outliers, issues)
+2. Key statistics (mean, median, distributions where relevant)
+3. Top 5 insights and patterns
+4. Answer to the key question with evidence
+5. Anomalies or interesting findings
+6. Recommendations based on the data
+7. Follow-up analyses worth doing`,
+    difficulty: "intermediate",
+    bestModel: "Claude Opus",
+    tags: ["data", "analysis", "csv", "insights", "statistics"],
+  },
+  {
+    id: "linkedin-post",
+    titleAr: "كتابة منشور LinkedIn احترافي",
+    titleEn: "Write a Professional LinkedIn Post",
+    category: "Business",
+    useCaseAr: "كتابة محتوى LinkedIn يجذب التفاعل ويبني الحضور المهني",
+    useCaseEn: "Write LinkedIn content that drives engagement and builds professional presence",
+    promptText: `Write an engaging LinkedIn post about:
+
+Topic: [TOPIC_OR_ACHIEVEMENT]
+My role/industry: [YOUR_BACKGROUND]
+Target audience: [WHO_YOU_WANT_TO_REACH]
+Goal: [AWARENESS/LEADS/NETWORK/JOBS]
+Tone: [PROFESSIONAL/PERSONAL/THOUGHT_LEADERSHIP]
+
+Requirements:
+- Hook in the first line (stop the scroll)
+- Share a specific insight or lesson, not generic advice
+- 3-5 short paragraphs max
+- End with a question to spark comments
+- 3-5 relevant hashtags
+- Optional: CTA (call to action)`,
+    difficulty: "beginner",
+    bestModel: "Claude Sonnet",
+    tags: ["linkedin", "social", "content", "personal-brand", "writing"],
+  },
+  {
+    id: "cv-review",
+    titleAr: "مراجعة وتحسين السيرة الذاتية",
+    titleEn: "Review and Improve a CV",
+    category: "Career",
+    useCaseAr: "تحليل CV وتحسينه للحصول على درجة ATS أعلى وانطباع أقوى",
+    useCaseEn: "Analyze and improve a CV for higher ATS score and stronger impression",
+    promptText: `Review and improve this CV for the following role:
+
+CV content: [PASTE_CV_TEXT]
+Target role: [JOB_TITLE_AND_INDUSTRY]
+Years of experience: [NUMBER]
+
+Analyze and provide:
+1. ATS compatibility score (0-100) and what's hurting it
+2. Missing keywords for this role
+3. Weak bullet points to rewrite (give improved versions)
+4. Skills section gaps
+5. Format and length issues
+6. Top 3 strengths to highlight more
+7. Fully rewritten summary/objective section
+8. Overall priority fixes (ordered by impact)`,
+    difficulty: "beginner",
+    bestModel: "Claude Sonnet",
+    tags: ["cv", "resume", "career", "ats", "job-search"],
+  },
+  {
+    id: "debug-performance",
+    titleAr: "تشخيص مشاكل الأداء",
+    titleEn: "Debug Performance Issues",
+    category: "Coding",
+    useCaseAr: "تحليل الكود البطيء وإيجاد اختناقات الأداء",
+    useCaseEn: "Analyze slow code and find performance bottlenecks",
+    promptText: `Diagnose and fix performance issues in this code:
+
+Code: [PASTE_CODE]
+Language/Framework: [TECH_STACK]
+Observed issue: [DESCRIBE_SLOWNESS_OR_PROBLEM]
+Scale: [USERS/REQUESTS_PER_SECOND]
+
+Provide:
+1. Performance bottleneck analysis (identify top issues)
+2. Big-O complexity analysis of key functions
+3. Memory usage issues
+4. Database query problems (N+1, missing indexes)
+5. Unnecessary re-renders or recomputations
+6. Optimized version of the code
+7. Benchmarking approach to verify improvement
+8. Monitoring recommendations`,
+    difficulty: "advanced",
+    bestModel: "Claude Opus",
+    tags: ["performance", "debugging", "optimization", "profiling"],
+  },
 ];
 
 export const promptCategories = [...new Set(prompts.map((p) => p.category))];
