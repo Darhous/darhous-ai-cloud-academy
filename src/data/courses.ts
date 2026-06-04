@@ -13,6 +13,11 @@ export interface LessonItem {
   titleEn: string;
   duration: string;
   type: "video" | "reading" | "project" | "quiz";
+  // C3: optional real lesson content (Markdown bodies)
+  bodyAr?: string;
+  bodyEn?: string;
+  codeExample?: string;
+  codeLanguage?: string;
 }
 
 export interface Course {

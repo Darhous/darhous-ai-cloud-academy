@@ -106,9 +106,14 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
               ))}
             </div>
             <div className="flex flex-wrap gap-3">
-              <button className="glow-button-primary text-white font-mono text-sm px-6 py-3 rounded-xl flex items-center gap-2">
-                {isAr ? "ابدأ الدورة" : "Start Course"} <Arrow size={16} />
-              </button>
+              {course.lessonOutline && course.lessonOutline.length > 0 && (
+                <Link
+                  href={`/${locale}/courses/${course.id}/lessons/1`}
+                  className="glow-button-primary text-white font-mono text-sm px-6 py-3 rounded-xl flex items-center gap-2"
+                >
+                  {isAr ? "ابدأ الدورة" : "Start Course"} <Arrow size={16} />
+                </Link>
+              )}
               <button
                 className="font-mono text-sm px-6 py-3 rounded-xl border transition-all hover:-translate-y-0.5"
                 style={{ borderColor: "var(--color-outline-variant)", color: "var(--color-on-surface)" }}
@@ -172,9 +177,10 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
               </h2>
               <div className="space-y-2">
                 {course.lessonOutline.map((lesson, i) => (
-                  <div
+                  <Link
                     key={i}
-                    className="flex items-center justify-between p-3 rounded-xl transition-colors"
+                    href={`/${locale}/courses/${course.id}/lessons/${i + 1}`}
+                    className="flex items-center justify-between p-3 rounded-xl transition-all hover:-translate-y-0.5 hover:opacity-90"
                     style={{ background: "var(--color-surface-container)" }}
                   >
                     <div className="flex items-center gap-3">
@@ -192,7 +198,7 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
                         {lesson.duration}
                       </span>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
