@@ -72,6 +72,83 @@ const AI_STUDIO_PATHS = [
 
 const PORTAL_PATHS = portals.map((p) => p.href);
 
+// Extracted outside Navbar to avoid "cannot create components during render" warning
+function NavAuthButton({
+  locale, isAr, supabaseConfigured, loading, user, isAdmin,
+}: {
+  locale: string; isAr: boolean; supabaseConfigured: boolean;
+  loading: boolean; user: unknown; isAdmin: boolean;
+}) {
+  if (!supabaseConfigured) {
+    return (
+      <Link
+        href={`/${locale}/dashboard`}
+        className="hidden md:flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+        style={{ background: "rgba(142,213,255,0.06)", borderColor: "rgba(142,213,255,0.2)", color: "var(--color-primary)" }}
+      >
+        <span className="text-[10px]">🔮</span>
+        {isAr ? "لوحة الطالب" : "Dashboard"}
+        <span className="px-1.5 py-0.5 rounded text-[9px] font-bold" style={{ background: "rgba(208,188,255,0.15)", color: "var(--color-secondary)" }}>
+          {isAr ? "قريبًا" : "Soon"}
+        </span>
+      </Link>
+    );
+  }
+  if (loading) return null;
+  if (!user) {
+    return (
+      <Link
+        href={`/${locale}/login`}
+        className="hidden md:flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+        style={{ background: "rgba(142,213,255,0.06)", borderColor: "rgba(142,213,255,0.2)", color: "var(--color-primary)" }}
+      >
+        <LogIn size={13} />
+        {isAr ? "تسجيل الدخول" : "Sign In"}
+      </Link>
+    );
+  }
+  if (isAdmin) {
+    return (
+      <div className="hidden md:flex items-center gap-1.5">
+        <Link
+          href={`/${locale}/admin`}
+          className="flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+          style={{ background: "rgba(239,68,68,0.06)", borderColor: "rgba(239,68,68,0.2)", color: "#ef4444" }}
+        >
+          <ShieldCheck size={13} />
+          {isAr ? "الإدارة" : "Admin"}
+        </Link>
+        <Link
+          href={`/${locale}/dashboard`}
+          className="flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+          style={{ background: "rgba(142,213,255,0.06)", borderColor: "rgba(142,213,255,0.2)", color: "var(--color-primary)" }}
+        >
+          <UserCircle size={13} />
+          {isAr ? "لوحتي" : "Dashboard"}
+        </Link>
+        <Link
+          href={`/${locale}/profile`}
+          className="flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+          style={{ background: "rgba(208,188,255,0.06)", borderColor: "rgba(208,188,255,0.2)", color: "var(--color-secondary)" }}
+        >
+          <UserCircle size={13} />
+          {isAr ? "حسابي" : "Profile"}
+        </Link>
+      </div>
+    );
+  }
+  return (
+    <Link
+      href={`/${locale}/dashboard`}
+      className="hidden md:flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
+      style={{ background: "rgba(142,213,255,0.06)", borderColor: "rgba(142,213,255,0.2)", color: "var(--color-primary)" }}
+    >
+      <UserCircle size={13} />
+      {isAr ? "لوحتي" : "Dashboard"}
+    </Link>
+  );
+}
+
 export default function Navbar({ locale }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [studioOpen, setStudioOpen] = useState(false);
@@ -118,102 +195,6 @@ export default function Navbar({ locale }: NavbarProps) {
   const isStudioActive = AI_STUDIO_PATHS.some((p) =>
     pathname.startsWith(`/${locale}${p}`)
   );
-
-  // Auth action button content
-  function AuthButton() {
-    if (!supabaseConfigured) {
-      return (
-        <Link
-          href={`/${locale}/dashboard`}
-          className="hidden md:flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
-          style={{
-            background: "rgba(142,213,255,0.06)",
-            borderColor: "rgba(142,213,255,0.2)",
-            color: "var(--color-primary)",
-          }}
-        >
-          <span className="text-[10px]">🔮</span>
-          {isAr ? "لوحة الطالب" : "Dashboard"}
-          <span className="px-1.5 py-0.5 rounded text-[9px] font-bold" style={{ background: "rgba(208,188,255,0.15)", color: "var(--color-secondary)" }}>
-            {isAr ? "قريبًا" : "Soon"}
-          </span>
-        </Link>
-      );
-    }
-    if (loading) return null;
-    if (!user) {
-      return (
-        <Link
-          href={`/${locale}/login`}
-          className="hidden md:flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
-          style={{
-            background: "rgba(142,213,255,0.06)",
-            borderColor: "rgba(142,213,255,0.2)",
-            color: "var(--color-primary)",
-          }}
-        >
-          <LogIn size={13} />
-          {isAr ? "تسجيل الدخول" : "Sign In"}
-        </Link>
-      );
-    }
-    if (isAdmin) {
-      return (
-        <div className="hidden md:flex items-center gap-1.5">
-          <Link
-            href={`/${locale}/admin`}
-            className="flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
-            style={{
-              background: "rgba(239,68,68,0.06)",
-              borderColor: "rgba(239,68,68,0.2)",
-              color: "#ef4444",
-            }}
-          >
-            <ShieldCheck size={13} />
-            {isAr ? "الإدارة" : "Admin"}
-          </Link>
-          <Link
-            href={`/${locale}/dashboard`}
-            className="flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
-            style={{
-              background: "rgba(142,213,255,0.06)",
-              borderColor: "rgba(142,213,255,0.2)",
-              color: "var(--color-primary)",
-            }}
-          >
-            <UserCircle size={13} />
-            {isAr ? "لوحتي" : "Dashboard"}
-          </Link>
-          <Link
-            href={`/${locale}/profile`}
-            className="flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
-            style={{
-              background: "rgba(208,188,255,0.06)",
-              borderColor: "rgba(208,188,255,0.2)",
-              color: "var(--color-secondary)",
-            }}
-          >
-            <UserCircle size={13} />
-            {isAr ? "حسابي" : "Profile"}
-          </Link>
-        </div>
-      );
-    }
-    return (
-      <Link
-        href={`/${locale}/dashboard`}
-        className="hidden md:flex items-center gap-1.5 text-xs font-mono px-3 py-2 rounded-lg border transition-all hover:opacity-80"
-        style={{
-          background: "rgba(142,213,255,0.06)",
-          borderColor: "rgba(142,213,255,0.2)",
-          color: "var(--color-primary)",
-        }}
-      >
-        <UserCircle size={13} />
-        {isAr ? "لوحتي" : "Dashboard"}
-      </Link>
-    );
-  }
 
   return (
     <nav
@@ -485,7 +466,7 @@ export default function Navbar({ locale }: NavbarProps) {
           <ThemeToggle />
           <LanguageToggle locale={locale} />
 
-          <AuthButton />
+          <NavAuthButton locale={locale} isAr={isAr} supabaseConfigured={supabaseConfigured} loading={loading} user={user} isAdmin={isAdmin} />
 
           {/* Mobile hamburger */}
           <button

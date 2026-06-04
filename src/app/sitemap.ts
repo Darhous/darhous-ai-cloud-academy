@@ -109,42 +109,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  // IoT Lab detail pages — lessons + projects + challenges + components × 2 locales
-  const iotLessonEntries = locales.flatMap((locale) =>
-    lessonsData.map((item) => ({
-      url: `${BASE_URL}/${locale}/iot-lab/lessons/${item.id}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    }))
-  );
+  // IoT Lab detail pages — Arabic only (content is currently Arabic-only)
+  // /en detail pages are excluded from sitemap to avoid noindex conflicts
+  const iotLessonEntries = lessonsData.map((item) => ({
+    url: `${BASE_URL}/ar/iot-lab/lessons/${item.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
 
-  const iotProjectEntries = locales.flatMap((locale) =>
-    projectsData.map((item) => ({
-      url: `${BASE_URL}/${locale}/iot-lab/projects/${item.id}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    }))
-  );
+  const iotProjectEntries = projectsData.map((item) => ({
+    url: `${BASE_URL}/ar/iot-lab/projects/${item.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
 
-  const iotChallengeEntries = locales.flatMap((locale) =>
-    challengesData.map((item) => ({
-      url: `${BASE_URL}/${locale}/iot-lab/challenges/${item.id}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    }))
-  );
+  const iotChallengeEntries = challengesData.map((item) => ({
+    url: `${BASE_URL}/ar/iot-lab/challenges/${item.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
 
-  const iotComponentEntries = locales.flatMap((locale) =>
-    componentsData.map((item) => ({
-      url: `${BASE_URL}/${locale}/iot-lab/component-library/${item.id}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.65,
-    }))
-  );
+  const iotComponentEntries = componentsData.map((item) => ({
+    url: `${BASE_URL}/ar/iot-lab/component-library/${item.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.65,
+  }));
 
   // Digital Exams subjects are excluded from sitemap — each subject page is noindex
   // (interactive exam pages, not landing content)

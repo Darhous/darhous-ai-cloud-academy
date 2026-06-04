@@ -55,8 +55,9 @@ export default async function PublicProfilePage({
   if (timestamps.length > 0) {
     const toDay = (ts: string) => ts.slice(0, 10);
     const uniqueDays = [...new Set(timestamps.map(toDay))].sort().reverse();
-    const today = new Date().toISOString().slice(0, 10);
-    const yesterday = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
+    const now = new Date();
+    const today = now.toISOString().slice(0, 10);
+    const yesterday = new Date(now.getTime() - 864e5).toISOString().slice(0, 10);
     if (uniqueDays[0] === today || uniqueDays[0] === yesterday) {
       streak = 1;
       for (let i = 1; i < uniqueDays.length; i++) {
