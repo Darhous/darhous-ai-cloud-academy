@@ -27,6 +27,7 @@ import { defaultMentorSettings } from "@/types/ai_mentor_settings";
 import { defaultFeatureFlags } from "@/types/feature_flags";
 import { defaultSiteSettings } from "@/types/site_settings";
 import type { UserProfile } from "@/lib/auth/roles";
+import { PORTAL_SMART_CONFIG } from "@/lib/certificates/portalConfig";
 
 type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
@@ -111,6 +112,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   /* Certificate issuance form state (per-portal) */
   const [issuePortal, setIssuePortal] = useState<string | null>(null);
   const [issueForm, setIssueForm] = useState({ holderName: "", box1Value: "", box2Value: "", bodyLine2: "" });
+  const [issueDropdowns, setIssueDropdowns] = useState<Record<string, string>>({});
   const [issuing, setIssuing] = useState(false);
   const [issueMsg, setIssueMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
   const [nbCustomPrompts, setNbCustomPrompts] = useState<Record<string, unknown>[]>([]);
@@ -684,18 +686,33 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
       {/* 5 ── CERTIFICATES STUDIO ───────────────────────────────── */}
       {tab === "certificates" && (() => {
         const CERT_PORTALS = [
-          { icon: "🤖", t: isAr ? "شهادة أكاديمية AI" : "AI Academy Certificate",          color: "#8ed5ff", portal: "ai-academy",    b1: isAr ? "المستوى" : "Level",   b2: isAr ? "الحالة" : "Status",  ph1: "PRO",      ph2: "CERTIFIED" },
-          { icon: "🌐", t: isAr ? "شهادة اللغة الإنجليزية" : "English Language Certificate", color: "#d0bcff", portal: "language",      b1: isAr ? "مستوى CEFR" : "CEFR Level", b2: isAr ? "الدرجة" : "Score", ph1: "B2",       ph2: "82.5%" },
-          { icon: "💻", t: isAr ? "شهادة التحول الرقمي" : "Digital Exams Certificate",      color: "#3ce0fb", portal: "digital-exams", b1: isAr ? "الدرجة" : "Score",    b2: isAr ? "الحالة" : "Status",  ph1: "91%",      ph2: "PASSED" },
-          { icon: "💼", t: isAr ? "شهادة المهارات المهنية" : "Career Skills Certificate",    color: "#f59e0b", portal: "career",        b1: isAr ? "المسار" : "Track",    b2: isAr ? "الحالة" : "Status",  ph1: "CAREER",   ph2: "READY" },
-          { icon: "⚙️", t: isAr ? "شهادة الأتمتة" : "Automation Certificate",              color: "#4ade80", portal: "automation",    b1: isAr ? "المستوى" : "Level",   b2: isAr ? "الحالة" : "Status",  ph1: "ADVANCED", ph2: "CERTIFIED" },
-          { icon: "🔌", t: isAr ? "شهادة IoT & Arduino" : "IoT & Arduino Certificate",      color: "#f97316", portal: "iot-lab",       b1: isAr ? "المشاريع" : "Projects", b2: isAr ? "الحالة" : "Status", ph1: "12/12",    ph2: "CERTIFIED" },
+          { icon: "🤖", t: isAr ? "شهادة أكاديمية AI" : "AI Academy Certificate",          color: "#8ed5ff", portal: "ai-academy" },
+          { icon: "🌐", t: isAr ? "شهادة اللغة الإنجليزية" : "English Language Certificate", color: "#d0bcff", portal: "language" },
+          { icon: "💻", t: isAr ? "شهادة التحول الرقمي" : "Digital Exams Certificate",      color: "#3ce0fb", portal: "digital-exams" },
+          { icon: "💼", t: isAr ? "شهادة المهارات المهنية" : "Career Skills Certificate",    color: "#f59e0b", portal: "career" },
+          { icon: "⚙️", t: isAr ? "شهادة الأتمتة" : "Automation Certificate",              color: "#4ade80", portal: "automation" },
+          { icon: "🔌", t: isAr ? "شهادة IoT & Arduino" : "IoT & Arduino Certificate",      color: "#f97316", portal: "iot-lab" },
         ];
         const active = CERT_PORTALS.find((c) => c.portal === issuePortal) ?? null;
+        const activeSmart = issuePortal ? PORTAL_SMART_CONFIG[issuePortal] : null;
+
+        // All required dropdowns must be selected + holder name filled
+        const dropdownsOk = !activeSmart || activeSmart.dropdowns.every((d) => !!issueDropdowns[d.key]);
+        const formReady = issueForm.holderName.trim().length > 0 && dropdownsOk && !!issueForm.box1Value && !!issueForm.box2Value;
+
+        function handleDropdown(portalKey: string, dropdownKey: string, val: string) {
+          setIssueDropdowns((prev) => ({ ...prev, [dropdownKey]: val }));
+          const smart = PORTAL_SMART_CONFIG[portalKey];
+          if (!smart) return;
+          const dd = smart.dropdowns.find((d) => d.key === dropdownKey);
+          if (!dd?.autoFills) return;
+          const fill = dd.autoFills[val];
+          if (fill) setIssueForm((f) => ({ ...f, ...fill }));
+        }
 
         async function handleIssueCert(e: React.FormEvent) {
           e.preventDefault();
-          if (!issuePortal) return;
+          if (!issuePortal || !formReady) return;
           setIssuing(true);
           setIssueMsg(null);
           try {
@@ -720,7 +737,9 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
             setTimeout(() => URL.revokeObjectURL(url), 15000);
             setIssueMsg({
               type: "ok",
-              text: isAr ? `✅ تم إصدار الشهادة وتنزيلها — كود التحقق: ${code}` : `✅ Certificate issued & downloaded — verify code: ${code}`,
+              text: isAr
+                ? `✅ تم إصدار الشهادة وتنزيلها — كود التحقق: ${code}`
+                : `✅ Certificate issued & downloaded — verify code: ${code}`,
             });
           } catch (err) {
             setIssueMsg({ type: "err", text: err instanceof Error ? err.message : (isAr ? "فشل الاتصال" : "Request failed") });
@@ -732,6 +751,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
         function openIssueForm(portal: string) {
           setIssuePortal(portal);
           setIssueForm({ holderName: "", box1Value: "", box2Value: "", bodyLine2: "" });
+          setIssueDropdowns({});
           setIssueMsg(null);
         }
 
@@ -742,7 +762,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {CERT_PORTALS.map((cert) => (
-              <div key={cert.t} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: `1px solid ${cert.color}${issuePortal === cert.portal ? "55" : "15"}` }}>
+              <div key={cert.portal} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: `1px solid ${cert.color}${issuePortal === cert.portal ? "55" : "15"}` }}>
                 <span className="text-3xl">{cert.icon}</span>
                 <p className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{cert.t}</p>
                 <div className="flex gap-2 mt-auto flex-wrap">
@@ -753,23 +773,23 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                     className="text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
                     style={{ background: `${cert.color}12`, color: cert.color, border: `1px solid ${cert.color}20`, textDecoration: "none" }}
                   >
-                    {isAr ? "🔍 معاينة القالب" : "🔍 Preview"}
+                    {isAr ? "🔍 معاينة" : "🔍 Preview"}
                   </a>
                   <button
                     type="button"
                     onClick={() => openIssueForm(cert.portal)}
                     className="text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80 cursor-pointer"
                     style={{ background: `${cert.color}22`, color: cert.color, border: `1px solid ${cert.color}35` }}>
-                    {isAr ? "📜 إصدار شهادة" : "📜 Issue"}
+                    {isAr ? "📜 إصدار" : "📜 Issue"}
                   </button>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* ── Issuance form (appears when a portal is selected) ── */}
+          {/* ── Smart issuance form ───────────────────────────────── */}
           {active && (
-            <form onSubmit={handleIssueCert} className="glass-card rounded-2xl p-6 flex flex-col gap-4" style={{ border: `1px solid ${active.color}40` }}>
+            <form onSubmit={handleIssueCert} className="glass-card rounded-2xl p-6 flex flex-col gap-5" style={{ border: `1px solid ${active.color}40` }}>
               <div className="flex items-center justify-between">
                 <h3 className="font-bold text-base flex items-center gap-2" style={{ color: active.color }}>
                   <span className="text-2xl">{active.icon}</span>
@@ -780,50 +800,70 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                 </button>
               </div>
 
+              {/* Holder name — only text field */}
               <label className="flex flex-col gap-1">
-                <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "اسم الحاصل على الشهادة *" : "Holder name *"}</span>
+                <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>
+                  {isAr ? "اسم الحاصل على الشهادة *" : "Holder name *"}
+                </span>
                 <input
-                  required value={issueForm.holderName}
+                  required
+                  value={issueForm.holderName}
                   onChange={(e) => setIssueForm((f) => ({ ...f, holderName: e.target.value }))}
                   placeholder={isAr ? "مثال: أحمد محمد علي" : "e.g. Ahmed Mohamed Ali"}
                   className="px-3 py-2 rounded-lg text-sm bg-transparent"
-                  style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }}
+                  style={{ border: "1px solid rgba(255,255,255,0.15)", color: "var(--color-on-surface)" }}
                 />
               </label>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <label className="flex flex-col gap-1">
-                  <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{active.b1}</span>
-                  <input
-                    value={issueForm.box1Value}
-                    onChange={(e) => setIssueForm((f) => ({ ...f, box1Value: e.target.value }))}
-                    placeholder={`${isAr ? "افتراضي" : "default"}: ${active.ph1}`}
-                    className="px-3 py-2 rounded-lg text-sm bg-transparent"
-                    style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }}
-                  />
-                </label>
-                <label className="flex flex-col gap-1">
-                  <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{active.b2}</span>
-                  <input
-                    value={issueForm.box2Value}
-                    onChange={(e) => setIssueForm((f) => ({ ...f, box2Value: e.target.value }))}
-                    placeholder={`${isAr ? "افتراضي" : "default"}: ${active.ph2}`}
-                    className="px-3 py-2 rounded-lg text-sm bg-transparent"
-                    style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }}
-                  />
-                </label>
-              </div>
+              {/* Smart dropdowns — auto-fill all other fields */}
+              {activeSmart && (
+                <div className={`grid grid-cols-1 ${activeSmart.dropdowns.length > 1 ? "sm:grid-cols-2" : ""} gap-4`}>
+                  {activeSmart.dropdowns.map((dd) => (
+                    <label key={dd.key} className="flex flex-col gap-1">
+                      <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>
+                        {isAr ? dd.labelAr : dd.labelEn} <span style={{ color: active.color }}>*</span>
+                      </span>
+                      <select
+                        required
+                        value={issueDropdowns[dd.key] ?? ""}
+                        onChange={(e) => handleDropdown(active.portal, dd.key, e.target.value)}
+                        className="px-3 py-2 rounded-lg text-sm"
+                        style={{
+                          border: `1px solid ${issueDropdowns[dd.key] ? active.color + "50" : "rgba(255,255,255,0.15)"}`,
+                          color: "var(--color-on-surface)",
+                          background: "rgba(0,0,0,0.25)",
+                        }}
+                      >
+                        <option value="">{isAr ? "— اختر —" : "— Select —"}</option>
+                        {dd.options.map((opt) => (
+                          <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        ))}
+                      </select>
+                    </label>
+                  ))}
+                </div>
+              )}
 
-              <label className="flex flex-col gap-1">
-                <span className="text-xs font-semibold" style={{ color: "var(--color-on-surface)" }}>{isAr ? "سطر وصفي (اختياري)" : "Subtitle line (optional)"}</span>
-                <input
-                  value={issueForm.bodyLine2}
-                  onChange={(e) => setIssueForm((f) => ({ ...f, bodyLine2: e.target.value }))}
-                  placeholder={isAr ? "يُترك فارغًا لاستخدام النص الافتراضي للبوابة" : "Leave empty to use the portal default"}
-                  className="px-3 py-2 rounded-lg text-sm bg-transparent"
-                  style={{ border: "1px solid rgba(255,255,255,0.12)", color: "var(--color-on-surface)" }}
-                />
-              </label>
+              {/* Auto-filled values preview */}
+              {(issueForm.box1Value || issueForm.box2Value || issueForm.bodyLine2) && (
+                <div className="flex flex-wrap gap-2">
+                  {issueForm.box1Value && (
+                    <span className="text-xs font-mono px-3 py-1.5 rounded-lg" style={{ background: `${active.color}12`, color: active.color, border: `1px solid ${active.color}25` }}>
+                      BOX 1 → {issueForm.box1Value}
+                    </span>
+                  )}
+                  {issueForm.box2Value && (
+                    <span className="text-xs font-mono px-3 py-1.5 rounded-lg" style={{ background: `${active.color}12`, color: active.color, border: `1px solid ${active.color}25` }}>
+                      BOX 2 → {issueForm.box2Value}
+                    </span>
+                  )}
+                  {issueForm.bodyLine2 && (
+                    <span className="text-xs font-mono px-3 py-1.5 rounded-lg max-w-xs truncate" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                      SUB → {issueForm.bodyLine2}
+                    </span>
+                  )}
+                </div>
+              )}
 
               {issueMsg && (
                 <p className="text-xs font-mono px-3 py-2 rounded-lg" style={{ background: issueMsg.type === "ok" ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)", color: issueMsg.type === "ok" ? "#4ade80" : "#f87171" }}>
@@ -831,17 +871,26 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                 </p>
               )}
 
-              <button type="submit" disabled={issuing} className="self-start px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer disabled:opacity-50" style={{ background: active.color, color: "#0b0f1a" }}>
-                {issuing ? (isAr ? "جارٍ الإصدار…" : "Issuing…") : (isAr ? "📜 إصدار وتنزيل PDF" : "📜 Issue & Download PDF")}
+              <button
+                type="submit"
+                disabled={issuing || !formReady}
+                className="self-start px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer disabled:opacity-40 transition-opacity hover:opacity-85"
+                style={{ background: active.color, color: "#0b0f1a" }}
+              >
+                {issuing
+                  ? (isAr ? "جارٍ الإصدار…" : "Issuing…")
+                  : !formReady
+                    ? (isAr ? "اختر كل الحقول أولاً" : "Select all fields first")
+                    : (isAr ? "📜 إصدار وتنزيل PDF" : "📜 Issue & Download PDF")}
               </button>
             </form>
           )}
 
-          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(212,175,55,0.15)" }}>
+          <div className="glass-card rounded-2xl p-4" style={{ border: "1px solid rgba(212,175,55,0.12)" }}>
             <p className="text-xs font-mono" style={{ color: "#d4af37" }}>
               ✨ {isAr
-                ? "اضغط «معاينة القالب» لرؤية التصميم، أو «إصدار شهادة» لإنشاء شهادة بأي بيانات تكتبها — تُنزَّل PDF فورًا وتصبح قابلة للتحقق عبر QR (يتطلب تطبيق migration v16 في Supabase)."
-                : "Click «Preview» to see the design, or «Issue» to create a certificate with any data you type — the PDF downloads instantly and becomes QR-verifiable (requires the v16 Supabase migration)."}
+                ? "اختر البوابة ← اكتب الاسم ← اختر من القوائم ← PDF يُولَّد تلقائيًا مع كود QR قابل للتحقق."
+                : "Select portal → enter name → choose from dropdowns → PDF auto-generates with a verifiable QR code."}
             </p>
           </div>
         </div>
