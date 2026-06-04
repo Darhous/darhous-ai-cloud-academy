@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Copy, Check, Bookmark, BookmarkCheck, Shield, Sparkles, ChevronDown, ChevronUp, Wand2, AlertCircle } from "lucide-react";
 import CommunitySignup from "@/components/community/CommunitySignup";
 import {
@@ -10,6 +10,53 @@ import {
   type NanaBananaCategory,
   type NanaBananaPrompt,
 } from "@/data/nano-banana-prompts";
+
+/** Shape returned by /api/nano-banana/prompts */
+interface CustomPromptRow {
+  id: string;
+  title_ar: string;
+  title_en: string;
+  description_ar: string;
+  description_en: string;
+  category: string;
+  category_label_ar: string;
+  category_label_en: string;
+  difficulty: string;
+  best_input_ar: string;
+  best_input_en: string;
+  prompt_ar: string;
+  prompt_en: string;
+  accent: string;
+  gradient: string;
+  emoji: string;
+  tags: string[];
+  featured: boolean;
+  image_url?: string;
+}
+
+function rowToPrompt(r: CustomPromptRow): NanaBananaPrompt {
+  return {
+    id: `custom-${r.id}`,
+    titleAr: r.title_ar,
+    titleEn: r.title_en,
+    descriptionAr: r.description_ar,
+    descriptionEn: r.description_en,
+    category: (r.category as NanaBananaCategory) ?? "fun",
+    categoryLabelAr: r.category_label_ar,
+    categoryLabelEn: r.category_label_en,
+    difficulty: (r.difficulty as NanaBananaPrompt["difficulty"]) ?? "beginner",
+    bestInputAr: r.best_input_ar,
+    bestInputEn: r.best_input_en,
+    promptAr: r.prompt_ar,
+    promptEn: r.prompt_en,
+    accent: r.accent ?? "#f59e0b",
+    gradient: r.gradient ?? `linear-gradient(135deg, ${r.accent ?? "#f59e0b"}30 0%, transparent 100%)`,
+    emoji: r.emoji ?? "🍌",
+    tags: r.tags ?? [],
+    featured: r.featured ?? false,
+    image: r.image_url ?? undefined,
+  };
+}
 
 const STORAGE_KEY = "nb_saved_prompt_ids";
 
@@ -328,7 +375,24 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
   const [activeDiff, setActiveDiff] = useState<string>("all");
   const { saved, toggle } = useSavedNanaBanana();
 
-  const filtered = nanaBananaPrompts.filter((p) => {
+  // Custom prompts from DB (merged with static array)
+  const [customPrompts, setCustomPrompts] = useState<NanaBananaPrompt[]>([]);
+
+  useEffect(() => {
+    fetch("/api/nano-banana/prompts")
+      .then((r) => r.ok ? r.json() : { prompts: [] })
+      .then((d: { prompts?: CustomPromptRow[] }) => {
+        if (Array.isArray(d.prompts) && d.prompts.length > 0) {
+          setCustomPrompts(d.prompts.map(rowToPrompt));
+        }
+      })
+      .catch(() => {/* silent — static prompts still show */});
+  }, []);
+
+  // Merge: custom first (so they appear at the top of the grid)
+  const allPrompts: NanaBananaPrompt[] = [...customPrompts, ...nanaBananaPrompts];
+
+  const filtered = allPrompts.filter((p) => {
     const catMatch = activeCategory === "all" || p.category === activeCategory;
     const diffMatch = activeDiff === "all" || p.difficulty === activeDiff;
     return catMatch && diffMatch;
@@ -375,7 +439,7 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
             {/* Stats */}
             <div className="flex items-center justify-center gap-8 text-sm font-mono">
               {[
-                { n: nanaBananaPrompts.length + "+", labelAr: "برومبت جاهز", labelEn: "Ready Prompts" },
+                { n: allPrompts.length + "+", labelAr: "برومبت جاهز", labelEn: "Ready Prompts" },
                 { n: nanaBananaCategories.length + "", labelAr: "فئة", labelEn: "Categories" },
                 { n: "3", labelAr: "مستويات", labelEn: "Difficulty Levels" },
               ].map((s) => (
