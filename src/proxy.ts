@@ -1,11 +1,11 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-  // If Supabase is not configured, skip middleware
+  // If Supabase is not configured, skip proxy
   if (!supabaseUrl || !supabaseAnonKey) {
     return NextResponse.next();
   }
@@ -31,7 +31,7 @@ export async function middleware(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser();
 
   // Protected routes — redirect to login if not authenticated
-  // API routes handle their own auth — skip middleware redirects for them
+  // API routes handle their own auth — skip proxy redirects for them
   const { pathname } = request.nextUrl;
   if (pathname.startsWith("/api/")) return supabaseResponse;
 
