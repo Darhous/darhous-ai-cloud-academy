@@ -9,18 +9,49 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | v14.0 — Nano Banana Admin Add Prompt COMPLETE ✅ |
+| **Version** | v15.0 — Certificates Redesign COMPLETE ✅ |
 | **Next Version** | ترقية وكيل AI + مفتاح Gemini حقيقي · توسعة محتوى الأتمتة |
-| **Status** | ✅ بوابة Nano Banana مكتملة بالكامل — API routes + Admin UI + Client merge |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings) — exit 0 |
-| **Last Tag** | `checkpoint/nano-banana-admin-add-complete` |
-| **Commit** | `b7d32f6` |
+| **Status** | ✅ نظام الشهادات مُعاد تصميمه بالكامل — تصميم فاخر + QR + توقيع + تحقق موحّد + معاينة أدمن |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 |
+| **Last Tag** | `checkpoint/certificates-redesign-complete` |
+| **Commit** | `d5f2663` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-04 (Nano Banana Admin Add complete) |
+| **Last Updated** | 2026-06-04 (Certificates Redesign v15.0) |
+
+---
+
+## ✅ v15.0 — Certificates Redesign COMPLETE (2026-06-04)
+
+**Tag:** `checkpoint/certificates-redesign-complete` · **Commits:** `7704aed` → `d5f2663`
+
+### ما اكتمل
+
+| الملف | ما تم |
+|-------|-------|
+| `src/lib/certificates/loadAssets.ts` | تسجيل خط Dancing Script (مؤقّت) + توليد QR مع cache + buildVerifyUrl |
+| `src/lib/certificates/CertificateTemplate.tsx` | قالب PDF موحّد فاخر: خلفية navy + إطار ذهبي مزدوج + زوايا ornamental + watermark + توقيع بخط يد + ختم دائري + QR |
+| `api/certificates/language/[id]/route.tsx` | يستخدم القالب الموحّد (تم الاستبدال) |
+| `api/certificates/exams/[id]/route.tsx` | يستخدم القالب الموحّد (تم الاستبدال) |
+| `api/certificates/verify/[code]/route.ts` | يتحقق من 3 أنظمة: language_results + digital_exam_results + certificates |
+| `api/certificates/preview/[portal]/route.tsx` | معاينة PDF للأدمن لكل بوابة (6 بوابات) بأدمن auth |
+| `[locale]/certificates/verify/[certId]/page.tsx` | صفحة تحقق موحّدة فاخرة مع زر تحميل |
+| `[locale]/language/verify/[certId]/page.tsx` | redirect إلى صفحة التحقق الموحّدة (backward compatible) |
+| `AdminDashboardClient.tsx` | زر "معاينة القالب" في Certificates Studio يفتح PDF مباشرة |
+
+### npm install
+- `qrcode` + `@types/qrcode`
+
+### QR + Verify URL
+- QR يشير إلى: `https://darhous-ai-cloud-academy.vercel.app/[locale]/certificates/verify/[certId]`
+- صفحة التحقق: `/ar/certificates/verify/[certId]` أو `/en/certificates/verify/[certId]`
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (pre-existing warnings only)
 
 ---
 
