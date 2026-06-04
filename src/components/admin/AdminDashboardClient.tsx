@@ -683,21 +683,26 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { icon: "🤖", t: isAr ? "شهادة أكاديمية AI" : "AI Academy Certificate", color: "#8ed5ff" },
-              { icon: "🌐", t: isAr ? "شهادة اللغة الإنجليزية" : "English Language Certificate", color: "#d0bcff" },
-              { icon: "💻", t: isAr ? "شهادة التحول الرقمي" : "Digital Transformation Certificate", color: "#3ce0fb" },
-              { icon: "💼", t: isAr ? "شهادة المهارات المهنية" : "Career Skills Certificate", color: "#f59e0b" },
-              { icon: "⚙️", t: isAr ? "شهادة الأتمتة" : "Automation Certificate", color: "#4ade80" },
-              { icon: "🔌", t: isAr ? "شهادة IoT & Arduino" : "IoT & Arduino Certificate", color: "#f97316" },
+              { icon: "🤖", t: isAr ? "شهادة أكاديمية AI" : "AI Academy Certificate",          color: "#8ed5ff",  portal: "ai-academy" },
+              { icon: "🌐", t: isAr ? "شهادة اللغة الإنجليزية" : "English Language Certificate", color: "#d0bcff",  portal: "language" },
+              { icon: "💻", t: isAr ? "شهادة التحول الرقمي" : "Digital Exams Certificate",      color: "#3ce0fb",  portal: "digital-exams" },
+              { icon: "💼", t: isAr ? "شهادة المهارات المهنية" : "Career Skills Certificate",    color: "#f59e0b",  portal: "career" },
+              { icon: "⚙️", t: isAr ? "شهادة الأتمتة" : "Automation Certificate",              color: "#4ade80",  portal: "automation" },
+              { icon: "🔌", t: isAr ? "شهادة IoT & Arduino" : "IoT & Arduino Certificate",      color: "#f97316",  portal: "iot-lab" },
             ].map((cert) => (
               <div key={cert.t} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: `1px solid ${cert.color}15` }}>
                 <span className="text-3xl">{cert.icon}</span>
                 <p className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{cert.t}</p>
                 <div className="flex gap-2 mt-auto flex-wrap">
-                  <button className="text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
-                    style={{ background: `${cert.color}12`, color: cert.color, border: `1px solid ${cert.color}20` }}>
-                    {isAr ? "عرض القالب" : "View Template"}
-                  </button>
+                  <a
+                    href={`/api/certificates/preview/${cert.portal}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
+                    style={{ background: `${cert.color}12`, color: cert.color, border: `1px solid ${cert.color}20`, textDecoration: "none" }}
+                  >
+                    {isAr ? "🔍 معاينة القالب" : "🔍 Preview"}
+                  </a>
                   <Link href={`/${locale}/certificates`}
                     className="text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
                     style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)", textDecoration: "none" }}>
@@ -707,9 +712,11 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
               </div>
             ))}
           </div>
-          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(251,191,36,0.1)" }}>
-            <p className="text-xs font-mono" style={{ color: "#fbbf24" }}>
-              ℹ️ {isAr ? "نظام الشهادات مرتبط بـ Supabase — راجع جدول certificates" : "Certificate system is linked to Supabase — check the certificates table"}
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(212,175,55,0.15)" }}>
+            <p className="text-xs font-mono" style={{ color: "#d4af37" }}>
+              ✨ {isAr
+                ? "تصميم فاخر جديد — ذهبي داكن + توقيع بخط اليد + QR للتحقق. اضغط «معاينة القالب» لكل بوابة لرؤية الشهادة."
+                : "New luxury design — dark gold + handwritten signature + QR verification. Click «Preview» for each portal to see the certificate."}
             </p>
           </div>
         </div>
