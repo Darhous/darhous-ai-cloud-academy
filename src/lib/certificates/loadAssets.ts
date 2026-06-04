@@ -7,30 +7,42 @@ import { Font } from "@react-pdf/renderer";
 import QRCode from "qrcode";
 
 // ── Font registration (module-level cache, runs once per server process) ─────
-let _fontsRegistered = false;
+// State: "unloaded" → not attempted, "ok" → font ready, "failed" → use fallback
+let _fontState: "unloaded" | "ok" | "failed" = "unloaded";
 
 /**
- * Dancing Script Bold TTF from Google Fonts CDN.
- * Falls back silently to Helvetica-Oblique if fetch fails.
+ * Dancing Script (700) static TTF from the Fontsource CDN (jsDelivr).
+ * A static TTF — NOT a variable/woff2 — so @react-pdf/renderer can parse it.
  */
-const DANCING_SCRIPT_URL =
-  "https://fonts.gstatic.com/s/dancingscript/v25/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7B1i0HTeB9ptDqpw.woff2";
-
-// react-pdf can also use a plain TTF url:
 const DANCING_SCRIPT_TTF =
-  "https://fonts.gstatic.com/s/dancingscript/v25/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7BMi0.ttf";
+  "https://cdn.jsdelivr.net/fontsource/fonts/dancing-script@latest/latin-700-normal.ttf";
 
-export function registerFonts(): void {
-  if (_fontsRegistered) return;
+/**
+ * Loads the handwriting signature font and registers it as a base64 data URL.
+ *
+ * IMPORTANT: we fetch the font ourselves and register a data: URL instead of
+ * passing a remote URL to Font.register(). If a remote URL is registered,
+ * react-pdf fetches it lazily *during* renderToBuffer() and THROWS if that
+ * fetch fails (e.g. 404) — which crashes the whole certificate route. By
+ * pre-fetching here we can fail gracefully and tell the caller to fall back
+ * to the built-in Helvetica-Oblique font instead.
+ *
+ * @returns true if the custom signature font is available; false → use fallback.
+ */
+export async function registerFonts(): Promise<boolean> {
+  if (_fontState !== "unloaded") return _fontState === "ok";
   try {
-    Font.register({
-      family: "DancingScript",
-      src: DANCING_SCRIPT_TTF,
-    });
+    const res = await fetch(DANCING_SCRIPT_TTF);
+    if (!res.ok) throw new Error(`font fetch failed: ${res.status}`);
+    const b64 = Buffer.from(await res.arrayBuffer()).toString("base64");
+    Font.register({ family: "DancingScript", src: `data:font/ttf;base64,${b64}` });
+    _fontState = "ok";
+    return true;
   } catch {
-    // silently ignore — signature falls back to Helvetica-Oblique
+    // Signature falls back to Helvetica-Oblique — render never crashes.
+    _fontState = "failed";
+    return false;
   }
-  _fontsRegistered = true;
 }
 
 // ── QR Code generation (LRU-style Map cache) ─────────────────────────────────

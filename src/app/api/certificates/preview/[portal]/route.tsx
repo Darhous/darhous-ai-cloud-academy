@@ -104,7 +104,7 @@ export async function GET(
   const issueDate = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
   const sampleCertId = "PREVIEW-DEMO";
 
-  registerFonts();
+  const fontOk = await registerFonts();
   // QR points to the verify page (preview only)
   const qrDataUrl = await generateQR("https://darhous-ai-cloud-academy.vercel.app/ar/certificates/verify/PREVIEW-DEMO");
 
@@ -125,7 +125,7 @@ export async function GET(
       certId={sampleCertId}
       qrDataUrl={qrDataUrl}
       year={year}
-      useDancingScript={true}
+      useDancingScript={fontOk}
     />,
   );
 

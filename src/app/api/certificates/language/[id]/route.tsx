@@ -52,7 +52,7 @@ export async function GET(
   }
 
   // Load assets
-  registerFonts();
+  const fontOk = await registerFonts();
   const verifyUrl = buildVerifyUrl(certId, "ar");
   const qrDataUrl = await generateQR(verifyUrl);
 
@@ -85,7 +85,7 @@ export async function GET(
       certId={certId}
       qrDataUrl={qrDataUrl}
       year={year}
-      useDancingScript={true}
+      useDancingScript={fontOk}
     />,
   );
 
