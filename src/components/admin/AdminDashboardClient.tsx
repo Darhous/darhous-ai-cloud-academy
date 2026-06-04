@@ -7,7 +7,7 @@ import {
   Shield, Activity, Database, AlertCircle, RefreshCw, LogOut,
   TrendingUp, MessageSquare, Search, Download, Bot,
   Globe, Award, Zap, Palette, Bell, ToggleLeft, ToggleRight,
-  Eye, EyeOff, Edit3, CheckCircle, BarChart2, ExternalLink, AlertTriangle, Sparkles,
+  Eye, EyeOff, Edit3, CheckCircle, BarChart2, ExternalLink, AlertTriangle, Sparkles, ImageIcon,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -93,6 +93,21 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [mentorSaving, setMentorSaving] = useState(false);
   const [flagsSaving, setFlagsSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState<string | null>(null);
+
+  /* Nano Banana sub-tab */
+  const [nbSubTab, setNbSubTab] = useState<"list" | "add">("list");
+  /* Nano Banana add-form state */
+  const [nbForm, setNbForm] = useState({
+    title_ar: "", title_en: "", description_ar: "", description_en: "",
+    category: "fun", category_label_ar: "ترفيه", category_label_en: "Fun",
+    difficulty: "beginner", best_input_ar: "صورة واضحة للوجه", best_input_en: "Clear face photo",
+    prompt_ar: "", prompt_en: "", accent: "#f59e0b", emoji: "🍌", tags: "", featured: false,
+  });
+  const [nbImageFile, setNbImageFile] = useState<File | null>(null);
+  const [nbImagePreview, setNbImagePreview] = useState<string | null>(null);
+  const [nbSaving, setNbSaving] = useState(false);
+  const [nbMsg, setNbMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
+  const [nbCustomPrompts, setNbCustomPrompts] = useState<Record<string, unknown>[]>([]);
 
   const fetchData = useCallback(async () => {
     if (!user || !supabaseConfigured) return;
@@ -1735,6 +1750,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
       {/* ── NANO BANANA ───────────────────────────────────────── */}
       {tab === "nano-banana" && (() => {
         const featured = nanaBananaPrompts.filter((p) => p.featured);
+        const totalAll = nanaBananaPrompts.length + nbCustomPrompts.length;
         const catCounts = nanaBananaPrompts.reduce<Record<string, number>>((acc, p) => {
           acc[p.categoryLabelAr] = (acc[p.categoryLabelAr] ?? 0) + 1;
           return acc;
@@ -1748,99 +1764,475 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
           intermediate: { ar: "متوسط",   color: "#f59e0b" },
           advanced:     { ar: "متقدم",   color: "#f87171" },
         };
+
+        const NB_CATEGORIES = [
+          { value: "portrait",     ar: "بورتريه",  en: "Portrait" },
+          { value: "art",          ar: "فن",       en: "Art" },
+          { value: "product",      ar: "منتج",     en: "Product" },
+          { value: "social",       ar: "سوشيال",   en: "Social" },
+          { value: "fun",          ar: "ترفيه",    en: "Fun" },
+          { value: "professional", ar: "احترافي",  en: "Professional" },
+        ];
+
+        async function handleNbSubmit(e: React.FormEvent) {
+          e.preventDefault();
+          setNbSaving(true);
+          setNbMsg(null);
+          try {
+            const fd = new FormData();
+            Object.entries(nbForm).forEach(([k, v]) => fd.append(k, String(v)));
+            if (nbImageFile) fd.append("image", nbImageFile);
+            const res = await fetch("/api/admin/nano-banana", { method: "POST", body: fd });
+            const json = await res.json() as { success?: boolean; error?: string; prompt?: Record<string, unknown> };
+            if (!res.ok) {
+              setNbMsg({ type: "err", text: json.error ?? `خطأ ${res.status}` });
+            } else {
+              setNbMsg({ type: "ok", text: isAr ? "✅ تمت الإضافة بنجاح!" : "✅ Prompt added successfully!" });
+              // Add to local list
+              if (json.prompt) setNbCustomPrompts((p) => [json.prompt as Record<string, unknown>, ...p]);
+              // Reset form
+              setNbForm({
+                title_ar: "", title_en: "", description_ar: "", description_en: "",
+                category: "fun", category_label_ar: "ترفيه", category_label_en: "Fun",
+                difficulty: "beginner", best_input_ar: "صورة واضحة للوجه", best_input_en: "Clear face photo",
+                prompt_ar: "", prompt_en: "", accent: "#f59e0b", emoji: "🍌", tags: "", featured: false,
+              });
+              setNbImageFile(null);
+              setNbImagePreview(null);
+            }
+          } catch (err) {
+            setNbMsg({ type: "err", text: err instanceof Error ? err.message : "فشل الاتصال" });
+          } finally {
+            setNbSaving(false);
+          }
+        }
+
+        async function handleNbDelete(id: string) {
+          if (!confirm(isAr ? "هل أنت متأكد من الحذف؟" : "Delete this prompt?")) return;
+          const res = await fetch(`/api/admin/nano-banana/${id}`, { method: "DELETE" });
+          if (res.ok) {
+            setNbCustomPrompts((p) => p.filter((x) => (x as { id: string }).id !== id));
+          }
+        }
+
+        // Load custom prompts when switching to list tab
+        async function loadCustom() {
+          const res = await fetch("/api/admin/nano-banana").catch(() => null);
+          if (res?.ok) {
+            const d = await res.json() as { prompts?: Record<string, unknown>[] };
+            setNbCustomPrompts(d.prompts ?? []);
+          }
+        }
+
         return (
           <div className="flex flex-col gap-6">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {[
-                { label: isAr ? "إجمالي البرومبتات" : "Total Prompts", value: nanaBananaPrompts.length, color: "#f59e0b" },
-                { label: isAr ? "الفئات" : "Categories",               value: 6,                        color: "#d0bcff" },
-                { label: isAr ? "مميزة Featured" : "Featured",          value: featured.length,          color: "#4ade80" },
-                { label: isAr ? "المستويات" : "Levels",                 value: 3,                        color: "#8ed5ff" },
-              ].map((s) => (
-                <div key={s.label} className="glass-card rounded-2xl p-5 flex flex-col gap-1" style={{ border: `1px solid ${s.color}20` }}>
-                  <p className="font-mono font-bold text-2xl" style={{ color: s.color }}>{s.value}</p>
-                  <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</p>
-                </div>
+            {/* Sub-tab bar */}
+            <div className="flex gap-2 flex-wrap">
+              {([
+                { id: "list", labelAr: "📊 القائمة",  labelEn: "📊 List" },
+                { id: "add",  labelAr: "➕ إضافة برومبت", labelEn: "➕ Add Prompt" },
+              ] as { id: "list" | "add"; labelAr: string; labelEn: string }[]).map((st) => (
+                <button
+                  key={st.id}
+                  onClick={() => {
+                    setNbSubTab(st.id);
+                    if (st.id === "list") loadCustom();
+                  }}
+                  className="px-4 py-1.5 rounded-xl text-xs font-mono font-semibold transition-all"
+                  style={{
+                    background: nbSubTab === st.id ? "rgba(245,158,11,0.18)" : "rgba(255,255,255,0.04)",
+                    color: nbSubTab === st.id ? "#f59e0b" : "var(--color-on-surface-variant)",
+                    border: `1px solid ${nbSubTab === st.id ? "rgba(245,158,11,0.4)" : "rgba(255,255,255,0.08)"}`,
+                  }}
+                >
+                  {isAr ? st.labelAr : st.labelEn}
+                </button>
               ))}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(245,158,11,0.15)" }}>
-                <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#f59e0b" }}>
-                  <Database size={14} />{isAr ? "توزيع الفئات" : "Category Distribution"}
-                </h3>
-                <div className="flex flex-col gap-2">
-                  {Object.entries(catCounts).sort(([,a],[,b]) => b - a).map(([cat, count]) => (
-                    <div key={cat} className="flex items-center gap-3 text-sm">
-                      <span className="flex-1 text-xs truncate" style={{ color: "var(--color-on-surface)" }}>{cat}</span>
-                      <div className="w-20 h-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
-                        <div className="h-full rounded-full" style={{ width: `${(count / nanaBananaPrompts.length) * 100}%`, background: "#f59e0b" }} />
-                      </div>
-                      <span className="font-mono text-xs w-5 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+            {/* ── SUB-TAB: القائمة ── */}
+            {nbSubTab === "list" && (
+              <>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {[
+                    { label: isAr ? "إجمالي البرومبتات" : "Total Prompts", value: totalAll, color: "#f59e0b" },
+                    { label: isAr ? "ثابتة" : "Static",                    value: nanaBananaPrompts.length, color: "#d0bcff" },
+                    { label: isAr ? "مضافة يدوياً" : "Custom Added",       value: nbCustomPrompts.length,  color: "#4ade80" },
+                    { label: isAr ? "مميزة" : "Featured",                   value: featured.length,          color: "#8ed5ff" },
+                  ].map((s) => (
+                    <div key={s.label} className="glass-card rounded-2xl p-5 flex flex-col gap-1" style={{ border: `1px solid ${s.color}20` }}>
+                      <p className="font-mono font-bold text-2xl" style={{ color: s.color }}>{s.value}</p>
+                      <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</p>
                     </div>
                   ))}
                 </div>
-              </div>
 
-              <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(74,222,128,0.1)" }}>
-                <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#4ade80" }}>
-                  <BarChart2 size={14} />{isAr ? "توزيع المستويات" : "Difficulty Distribution"}
-                </h3>
-                <div className="flex flex-col gap-3">
-                  {Object.entries(diffCounts).map(([diff, count]) => {
-                    const meta = DIFF_LABELS[diff] ?? { ar: diff, color: "#8ed5ff" };
-                    return (
-                      <div key={diff} className="flex items-center gap-3">
-                        <span className="w-16 text-xs font-mono flex-shrink-0" style={{ color: meta.color }}>{isAr ? meta.ar : diff}</span>
-                        <div className="flex-1 h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
-                          <div className="h-full rounded-full" style={{ width: `${(count / nanaBananaPrompts.length) * 100}%`, background: meta.color }} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(245,158,11,0.15)" }}>
+                    <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#f59e0b" }}>
+                      <Database size={14} />{isAr ? "توزيع الفئات" : "Category Distribution"}
+                    </h3>
+                    <div className="flex flex-col gap-2">
+                      {Object.entries(catCounts).sort(([,a],[,b]) => b - a).map(([cat, count]) => (
+                        <div key={cat} className="flex items-center gap-3 text-sm">
+                          <span className="flex-1 text-xs truncate" style={{ color: "var(--color-on-surface)" }}>{cat}</span>
+                          <div className="w-20 h-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                            <div className="h-full rounded-full" style={{ width: `${(count / nanaBananaPrompts.length) * 100}%`, background: "#f59e0b" }} />
+                          </div>
+                          <span className="font-mono text-xs w-5 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
                         </div>
-                        <span className="font-mono text-xs w-6 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
-                      </div>
-                    );
-                  })}
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(74,222,128,0.1)" }}>
+                    <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#4ade80" }}>
+                      <BarChart2 size={14} />{isAr ? "توزيع المستويات" : "Difficulty Distribution"}
+                    </h3>
+                    <div className="flex flex-col gap-3">
+                      {Object.entries(diffCounts).map(([diff, count]) => {
+                        const meta = DIFF_LABELS[diff] ?? { ar: diff, color: "#8ed5ff" };
+                        return (
+                          <div key={diff} className="flex items-center gap-3">
+                            <span className="w-16 text-xs font-mono flex-shrink-0" style={{ color: meta.color }}>{isAr ? meta.ar : diff}</span>
+                            <div className="flex-1 h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
+                              <div className="h-full rounded-full" style={{ width: `${(count / nanaBananaPrompts.length) * 100}%`, background: meta.color }} />
+                            </div>
+                            <span className="font-mono text-xs w-6 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <div className="glass-card rounded-2xl p-5 overflow-x-auto" style={{ border: "1px solid rgba(245,158,11,0.1)" }}>
-              <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#f59e0b" }}>
-                <Database size={14} />{isAr ? `قائمة البرومبتات (${nanaBananaPrompts.length})` : `Prompts (${nanaBananaPrompts.length})`}
-              </h3>
-              <table className="w-full text-xs">
-                <thead>
-                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                    {["#", isAr ? "العنوان" : "Title", isAr ? "الفئة" : "Category", isAr ? "المستوى" : "Level", "★"].map((h) => (
-                      <th key={h} className="text-start pb-2 font-mono font-semibold pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{h}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {nanaBananaPrompts.map((p, i) => {
-                    const diff = DIFF_LABELS[p.difficulty] ?? { ar: p.difficulty, color: "#8ed5ff" };
-                    return (
-                      <tr key={p.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
-                        <td className="py-1.5 font-mono pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{i + 1}</td>
-                        <td className="py-1.5 max-w-[180px] truncate pr-4" style={{ color: "var(--color-on-surface)" }}>{isAr ? p.titleAr : p.titleEn}</td>
-                        <td className="py-1.5 pr-4" style={{ color: "#f59e0b" }}>{isAr ? p.categoryLabelAr : p.categoryLabelEn}</td>
-                        <td className="py-1.5 font-mono pr-4" style={{ color: diff.color }}>{isAr ? diff.ar : p.difficulty}</td>
-                        <td className="py-1.5">{p.featured ? <span style={{ color: "#f59e0b" }}>★</span> : <span style={{ color: "rgba(255,255,255,0.15)" }}>—</span>}</td>
+                {/* Static prompts table */}
+                <div className="glass-card rounded-2xl p-5 overflow-x-auto" style={{ border: "1px solid rgba(245,158,11,0.1)" }}>
+                  <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#f59e0b" }}>
+                    <Database size={14} />{isAr ? `البرومبتات الثابتة (${nanaBananaPrompts.length})` : `Static Prompts (${nanaBananaPrompts.length})`}
+                  </h3>
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                        {["#", isAr ? "العنوان" : "Title", isAr ? "الفئة" : "Category", isAr ? "المستوى" : "Level", "★"].map((h) => (
+                          <th key={h} className="text-start pb-2 font-mono font-semibold pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{h}</th>
+                        ))}
                       </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+                    </thead>
+                    <tbody>
+                      {nanaBananaPrompts.map((p, i) => {
+                        const diff = DIFF_LABELS[p.difficulty] ?? { ar: p.difficulty, color: "#8ed5ff" };
+                        return (
+                          <tr key={p.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+                            <td className="py-1.5 font-mono pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{i + 1}</td>
+                            <td className="py-1.5 max-w-[180px] truncate pr-4" style={{ color: "var(--color-on-surface)" }}>{isAr ? p.titleAr : p.titleEn}</td>
+                            <td className="py-1.5 pr-4" style={{ color: "#f59e0b" }}>{isAr ? p.categoryLabelAr : p.categoryLabelEn}</td>
+                            <td className="py-1.5 font-mono pr-4" style={{ color: diff.color }}>{isAr ? diff.ar : p.difficulty}</td>
+                            <td className="py-1.5">{p.featured ? <span style={{ color: "#f59e0b" }}>★</span> : <span style={{ color: "rgba(255,255,255,0.15)" }}>—</span>}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
 
-            <a
-              href={`/${locale}/nano-banana-prompts`}
-              target="_blank"
-              rel="noreferrer"
-              className="self-start inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
-              style={{ background: "rgba(245,158,11,0.08)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.2)", textDecoration: "none" }}
-            >
-              <ExternalLink size={13} />🍌 {isAr ? "فتح Nano Banana Lab" : "Open Nano Banana Lab"}
-            </a>
+                {/* Custom prompts table */}
+                {nbCustomPrompts.length > 0 && (
+                  <div className="glass-card rounded-2xl p-5 overflow-x-auto" style={{ border: "1px solid rgba(74,222,128,0.15)" }}>
+                    <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#4ade80" }}>
+                      <Database size={14} />{isAr ? `برومبتات مضافة يدوياً (${nbCustomPrompts.length})` : `Custom Prompts (${nbCustomPrompts.length})`}
+                    </h3>
+                    <table className="w-full text-xs">
+                      <thead>
+                        <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                          {["#", isAr ? "العنوان" : "Title", isAr ? "الفئة" : "Category", isAr ? "الصورة" : "Image", isAr ? "حذف" : "Delete"].map((h) => (
+                            <th key={h} className="text-start pb-2 font-mono font-semibold pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{h}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {nbCustomPrompts.map((p, i) => {
+                          const row = p as { id: string; title_ar: string; title_en: string; category_label_ar: string; image_url?: string };
+                          return (
+                            <tr key={row.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+                              <td className="py-1.5 font-mono pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{i + 1}</td>
+                              <td className="py-1.5 max-w-[180px] truncate pr-4" style={{ color: "var(--color-on-surface)" }}>{isAr ? row.title_ar : row.title_en}</td>
+                              <td className="py-1.5 pr-4" style={{ color: "#4ade80" }}>{row.category_label_ar}</td>
+                              <td className="py-1.5 pr-4">
+                                {row.image_url
+                                  ? <span className="text-[10px] px-1.5 py-0.5 rounded" style={{ background: "rgba(74,222,128,0.12)", color: "#4ade80" }}>✓</span>
+                                  : <span style={{ color: "rgba(255,255,255,0.2)" }}>—</span>}
+                              </td>
+                              <td className="py-1.5">
+                                <button
+                                  onClick={() => handleNbDelete(row.id)}
+                                  className="text-[10px] px-2 py-0.5 rounded hover:opacity-80 transition-opacity"
+                                  style={{ background: "rgba(248,113,113,0.1)", color: "#f87171", border: "1px solid rgba(248,113,113,0.2)" }}
+                                >
+                                  {isAr ? "حذف" : "Delete"}
+                                </button>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+
+                <a
+                  href={`/${locale}/nano-banana-prompts`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="self-start inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+                  style={{ background: "rgba(245,158,11,0.08)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.2)", textDecoration: "none" }}
+                >
+                  <ExternalLink size={13} />🍌 {isAr ? "فتح Nano Banana Lab" : "Open Nano Banana Lab"}
+                </a>
+              </>
+            )}
+
+            {/* ── SUB-TAB: إضافة ── */}
+            {nbSubTab === "add" && (
+              <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(245,158,11,0.2)" }}>
+                <h3 className="font-bold text-base mb-6 flex items-center gap-2" style={{ color: "#f59e0b" }}>
+                  <Sparkles size={16} />{isAr ? "إضافة برومبت جديد" : "Add New Prompt"}
+                </h3>
+
+                {/* Feedback message */}
+                {nbMsg && (
+                  <div
+                    className="mb-4 p-3 rounded-xl text-sm font-mono"
+                    style={{
+                      background: nbMsg.type === "ok" ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)",
+                      color: nbMsg.type === "ok" ? "#4ade80" : "#f87171",
+                      border: `1px solid ${nbMsg.type === "ok" ? "rgba(74,222,128,0.25)" : "rgba(248,113,113,0.25)"}`,
+                    }}
+                  >
+                    {nbMsg.text}
+                  </div>
+                )}
+
+                <form onSubmit={handleNbSubmit} className="flex flex-col gap-5">
+                  {/* ── Image upload ── */}
+                  <div>
+                    <label className="block text-xs font-mono mb-2" style={{ color: "var(--color-on-surface-variant)" }}>
+                      {isAr ? "📷 صورة المعاينة (اختياري — يُرفع إلى Supabase Storage)" : "📷 Preview Image (optional — uploaded to Supabase Storage)"}
+                    </label>
+                    <div className="flex items-start gap-4">
+                      {nbImagePreview && (
+                        <div className="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0" style={{ border: "1px solid rgba(245,158,11,0.3)" }}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={nbImagePreview} alt="preview" className="w-full h-full object-cover" />
+                          <button
+                            type="button"
+                            onClick={() => { setNbImageFile(null); setNbImagePreview(null); }}
+                            className="absolute top-1 end-1 w-5 h-5 rounded-full flex items-center justify-center text-[10px]"
+                            style={{ background: "rgba(0,0,0,0.7)", color: "#f87171" }}
+                          >✕</button>
+                        </div>
+                      )}
+                      <label className="flex flex-col items-center justify-center gap-2 cursor-pointer rounded-xl px-4 py-3 text-xs font-mono transition-all hover:opacity-80"
+                        style={{ background: "rgba(245,158,11,0.08)", border: "1px dashed rgba(245,158,11,0.35)", color: "#f59e0b" }}>
+                        <ImageIcon size={18} />
+                        {isAr ? "اختر صورة من جهازك" : "Choose image from device"}
+                        <input
+                          type="file"
+                          accept="image/jpeg,image/png,image/webp,image/gif"
+                          className="hidden"
+                          onChange={(e) => {
+                            const f = e.target.files?.[0] ?? null;
+                            setNbImageFile(f);
+                            if (f) {
+                              const reader = new FileReader();
+                              reader.onload = (ev) => setNbImagePreview(ev.target?.result as string);
+                              reader.readAsDataURL(f);
+                            } else {
+                              setNbImagePreview(null);
+                            }
+                          }}
+                        />
+                      </label>
+                    </div>
+                    <p className="text-[10px] mt-1" style={{ color: "var(--color-on-surface-variant)", opacity: 0.6 }}>
+                      {isAr ? "حد الحجم: 5 ميجابايت — JPG / PNG / WebP / GIF" : "Max 5 MB — JPG / PNG / WebP / GIF"}
+                    </p>
+                  </div>
+
+                  {/* ── Core fields ── */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {isAr ? "اسم البرومبت (عربي) *" : "Prompt Name (Arabic) *"}
+                      </label>
+                      <input required value={nbForm.title_ar} onChange={(e) => setNbForm((f) => ({ ...f, title_ar: e.target.value }))}
+                        placeholder={isAr ? "مثال: صورة بأسلوب أنيمي" : "e.g. Anime Style Photo"}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {isAr ? "اسم البرومبت (إنجليزي)" : "Prompt Name (English)"}
+                      </label>
+                      <input value={nbForm.title_en} onChange={(e) => setNbForm((f) => ({ ...f, title_en: e.target.value }))}
+                        placeholder="e.g. Anime Style Photo"
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {isAr ? "الوصف (عربي)" : "Description (Arabic)"}
+                      </label>
+                      <input value={nbForm.description_ar} onChange={(e) => setNbForm((f) => ({ ...f, description_ar: e.target.value }))}
+                        placeholder={isAr ? "وصف مختصر للبرومبت..." : "Short description..."}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {isAr ? "الوصف (إنجليزي)" : "Description (English)"}
+                      </label>
+                      <input value={nbForm.description_en} onChange={(e) => setNbForm((f) => ({ ...f, description_en: e.target.value }))}
+                        placeholder="Short description..."
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                  </div>
+
+                  {/* ── Prompt text ── */}
+                  <div>
+                    <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                      {isAr ? "نص البرومبت (عربي) *" : "Prompt Text (Arabic) *"}
+                    </label>
+                    <textarea required value={nbForm.prompt_ar} onChange={(e) => setNbForm((f) => ({ ...f, prompt_ar: e.target.value }))}
+                      rows={5} placeholder={isAr ? "اكتب البرومبت هنا..." : "Write the prompt here..."}
+                      className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none resize-y font-mono"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)", direction: "ltr" }} />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                      {isAr ? "نص البرومبت (إنجليزي)" : "Prompt Text (English)"}
+                    </label>
+                    <textarea value={nbForm.prompt_en} onChange={(e) => setNbForm((f) => ({ ...f, prompt_en: e.target.value }))}
+                      rows={4} placeholder="Write the English prompt here..."
+                      className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none resize-y font-mono"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)", direction: "ltr" }} />
+                  </div>
+
+                  {/* ── Catalog / Category ── */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {isAr ? "الكتالوج / الفئة" : "Catalog / Category"}
+                      </label>
+                      <select
+                        value={nbForm.category}
+                        onChange={(e) => {
+                          const cat = NB_CATEGORIES.find((c) => c.value === e.target.value);
+                          setNbForm((f) => ({
+                            ...f,
+                            category: e.target.value,
+                            category_label_ar: cat?.ar ?? "ترفيه",
+                            category_label_en: cat?.en ?? "Fun",
+                          }));
+                        }}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }}
+                      >
+                        {NB_CATEGORIES.map((c) => (
+                          <option key={c.value} value={c.value}>{isAr ? c.ar : c.en}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {isAr ? "المستوى" : "Difficulty"}
+                      </label>
+                      <select value={nbForm.difficulty} onChange={(e) => setNbForm((f) => ({ ...f, difficulty: e.target.value }))}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }}
+                      >
+                        <option value="beginner">{isAr ? "مبتدئ" : "Beginner"}</option>
+                        <option value="intermediate">{isAr ? "متوسط" : "Intermediate"}</option>
+                        <option value="advanced">{isAr ? "متقدم" : "Advanced"}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* ── Best input + Tags ── */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {isAr ? "أفضل مدخل (عربي)" : "Best Input (Arabic)"}
+                      </label>
+                      <input value={nbForm.best_input_ar} onChange={(e) => setNbForm((f) => ({ ...f, best_input_ar: e.target.value }))}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {isAr ? "الوسوم (مفصولة بفاصلة)" : "Tags (comma separated)"}
+                      </label>
+                      <input value={nbForm.tags} onChange={(e) => setNbForm((f) => ({ ...f, tags: e.target.value }))}
+                        placeholder="anime, portrait, japan"
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                  </div>
+
+                  {/* ── Visual customization ── */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {isAr ? "الإيموجي" : "Emoji"}
+                      </label>
+                      <input value={nbForm.emoji} onChange={(e) => setNbForm((f) => ({ ...f, emoji: e.target.value }))}
+                        maxLength={4}
+                        className="w-full rounded-xl px-3 py-2.5 text-lg text-center focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                        {isAr ? "اللون" : "Accent Color"}
+                      </label>
+                      <div className="flex gap-2 items-center">
+                        <input type="color" value={nbForm.accent}
+                          onChange={(e) => setNbForm((f) => ({ ...f, accent: e.target.value }))}
+                          className="h-10 w-10 rounded-lg cursor-pointer border-0"
+                          style={{ padding: "2px" }} />
+                        <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{nbForm.accent}</span>
+                      </div>
+                    </div>
+                    <div className="sm:col-span-2 flex items-end">
+                      <label className="flex items-center gap-2 cursor-pointer select-none">
+                        <input type="checkbox" checked={nbForm.featured}
+                          onChange={(e) => setNbForm((f) => ({ ...f, featured: e.target.checked }))}
+                          className="w-4 h-4 rounded" />
+                        <span className="text-sm" style={{ color: "var(--color-on-surface)" }}>
+                          {isAr ? "★ مميز (Featured)" : "★ Mark as Featured"}
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    disabled={nbSaving}
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold transition-all hover:opacity-90 disabled:opacity-50"
+                    style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)", color: "#000" }}
+                  >
+                    {nbSaving
+                      ? (isAr ? "جاري الحفظ..." : "Saving...")
+                      : (isAr ? "💾 حفظ البرومبت" : "💾 Save Prompt")}
+                  </button>
+                </form>
+              </div>
+            )}
           </div>
         );
       })()}
