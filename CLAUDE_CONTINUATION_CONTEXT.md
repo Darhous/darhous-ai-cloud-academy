@@ -9,18 +9,58 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | v13.0 — المرحلة 3 (Platform Cleanup) COMPLETE ✅ |
-| **Next Version** | ترقية وكيل AI + مفتاح Gemini حقيقي · توسعة محتوى الأتمتة · بوابة Nano Banana |
-| **Status** | ✅ المراحل 0+1+2+3 منتهية — Platform Cleanup C1-C5 مكتمل — Vercel deployed |
+| **Version** | v14.0 — Nano Banana Admin Add Prompt COMPLETE ✅ |
+| **Next Version** | ترقية وكيل AI + مفتاح Gemini حقيقي · توسعة محتوى الأتمتة |
+| **Status** | ✅ بوابة Nano Banana مكتملة بالكامل — API routes + Admin UI + Client merge |
 | **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors (68 warnings) — exit 0 |
-| **Last Tag** | `checkpoint/phase-3-cleanup-complete` |
-| **Commit** | `71bc73a` |
+| **Last Tag** | `checkpoint/nano-banana-admin-add-complete` |
+| **Commit** | `b7d32f6` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-03 (Phase 3 Cleanup closed) |
+| **Last Updated** | 2026-06-04 (Nano Banana Admin Add complete) |
+
+---
+
+## ✅ v14.0 — Nano Banana Admin Add Prompt COMPLETE (2026-06-04)
+
+**Tag:** `checkpoint/nano-banana-admin-add-complete` · **Commits:** `be70860` → `b7d32f6`
+
+### ما اكتمل
+
+| الملف | ما تم |
+|-------|-------|
+| `supabase/v14_nano_banana_custom_prompts.sql` | جدول جديد + RLS (SELECT عام، ALL للأدمن) |
+| `src/app/api/admin/nano-banana/route.ts` | POST: رفع صورة إلى Storage + حفظ الصف · GET: قائمة للأدمن |
+| `src/app/api/admin/nano-banana/[id]/route.ts` | DELETE: حذف الصف + تنظيف الصورة من Storage |
+| `src/app/api/nano-banana/prompts/route.ts` | GET عام: يُرجع البرومبتات المخصصة للدمج في الكلاينت |
+| `src/components/admin/AdminDashboardClient.tsx` | Sub-tabs (القائمة / إضافة) + فورم كامل + جدول custom + حذف |
+| `src/components/nano-banana/NanaBananaClient.tsx` | useEffect يجلب البرومبتات المخصصة + يدمجها + يحدّث العداد |
+
+### كيف تعمل المنظومة
+1. أدمن يفتح Admin → Nano Banana → "إضافة"
+2. يرفع صورة من جهازه + يملأ الحقول → يضغط حفظ
+3. الصورة تُرفع إلى Supabase Storage bucket `nano-banana`
+4. الصف يُخزن في جدول `nano_banana_custom_prompts` بالـ `image_url`
+5. أي زائر يفتح صفحة Nano Banana يرى البرومبت الجديد فوراً (مع صورته) في أعلى الشبكة
+6. العداد في الـ Hero يزيد تلقائياً
+
+### ⚠️ يجب تنفيذه يدوياً في Supabase (قبل أن تعمل الإضافة)
+
+**الخطوة 1 — تشغيل SQL Migration:**
+- اذهب إلى: https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig → SQL Editor
+- شغّل محتوى ملف: `supabase/v14_nano_banana_custom_prompts.sql`
+
+**الخطوة 2 — إنشاء Storage bucket:**
+- اذهب إلى: Supabase Dashboard → Storage → New Bucket
+- الاسم: `nano-banana`
+- Public: **YES** (مفعّل)
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (68 warnings, pre-existing)
 
 ---
 
