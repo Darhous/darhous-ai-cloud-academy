@@ -1935,4 +1935,1723 @@ print(ask("كيف أُعيد ضبط طابعتي إلى إعدادات المص�
       codeLanguage: "python",
     },
   ],
+
+  // ─────────────────────────────────────────────────────────────
+  // C6 — python-for-ai (8 lessons) — added 2026-06-05
+  // ─────────────────────────────────────────────────────────────
+  "python-for-ai": [
+
+    // Lesson 1 — تثبيت Python وإعداد البيئة
+    {
+      bodyAr: `## تثبيت Python وإعداد البيئة
+
+قبل أن تكتب سطر كود واحد، تحتاج إلى بيئة عمل مناسبة.
+
+### لماذا Python؟
+
+Python هي اللغة الأولى في عالم الذكاء الاصطناعي:
+
+| الميزة | التفصيل |
+|--------|--------|
+| **سهولة القراءة** | صياغة تشبه الإنجليزية البسيطة |
+| **المكتبات** | NumPy · Pandas · TensorFlow · PyTorch |
+| **المجتمع** | أكبر مجتمع ML في العالم |
+| **الطلب الوظيفي** | 90%+ من وظائف Data Science تطلب Python |
+
+### خيار 1: Google Colab (موصى به للمبتدئين)
+
+Colab هو Jupyter Notebook سحابي من Google — لا تثبيت، لا إعداد، ومجاني.
+
+1. اذهب إلى: **colab.research.google.com**
+2. سجّل بحساب Google
+3. اضغط **New Notebook**
+4. اكتب \`print("مرحباً AI!")\` واضغط ▶
+
+**مميزاته:** GPU مجاني · مكتبات مثبّتة مسبقاً · لا يحتاج RAM من جهازك
+
+### خيار 2: التثبيت المحلي
+
+**الخطوة 1:** حمّل Python 3.11+ من **python.org/downloads**
+تأكد من تفعيل ✅ **Add Python to PATH** أثناء التثبيت.
+
+**الخطوة 2:** ثبّت VS Code من **code.visualstudio.com** + إضافة Python.
+
+**الخطوة 3 — بيئة افتراضية:**
+
+\`\`\`bash
+python -m venv ai-env
+# Windows:
+ai-env\\Scripts\\activate
+# Mac/Linux:
+source ai-env/bin/activate
+\`\`\`
+
+### pip — مدير الحزم
+
+\`\`\`bash
+pip install numpy pandas matplotlib scikit-learn
+pip list
+\`\`\`
+
+### التحقق من التثبيت
+
+\`\`\`python
+import sys, numpy as np, pandas as pd
+print(f"Python: {sys.version}")
+print(f"NumPy: {np.__version__}  Pandas: {pd.__version__}")
+print("كل شيء جاهز! ✅")
+\`\`\`
+
+### خلاصة الدرس
+
+- **Colab** = الخيار الأسرع والمثالي للتعلم
+- **Python.org** + **VS Code** = الخيار للعمل الجدي
+- **pip** = أداة تثبيت المكتبات
+- **Virtual Environment** = عزل مشاريعك عن بعضها`,
+
+      bodyEn: `## Installing Python and Setting Up Your Environment
+
+Before writing a single line of code, you need a proper working environment.
+
+### Why Python?
+
+Python is the #1 language in the AI world:
+
+| Feature | Detail |
+|---------|--------|
+| **Readability** | Syntax that reads like simple English |
+| **Libraries** | NumPy · Pandas · TensorFlow · PyTorch |
+| **Community** | Largest ML community in the world |
+| **Job demand** | 90%+ of Data Science roles require Python |
+
+### Option 1: Google Colab (Recommended)
+
+Colab is a cloud Jupyter Notebook from Google — no installation, no setup, free.
+
+1. Go to: **colab.research.google.com**
+2. Sign in with a Google account
+3. Click **New Notebook**
+4. Type \`print("Hello AI!")\` and press ▶
+
+**Advantages:** Free GPU · Pre-installed AI libraries · No RAM needed from your machine
+
+### Option 2: Local Installation
+
+**Step 1:** Download Python 3.11+ from **python.org/downloads**
+Enable ✅ **Add Python to PATH** during installation.
+
+**Step 2:** Install VS Code from **code.visualstudio.com** + Python extension.
+
+**Step 3 — Virtual Environment:**
+
+\`\`\`bash
+python -m venv ai-env
+# Windows: ai-env\\Scripts\\activate
+# Mac/Linux: source ai-env/bin/activate
+\`\`\`
+
+### pip — Package Manager
+
+\`\`\`bash
+pip install numpy pandas matplotlib scikit-learn
+pip list
+\`\`\`
+
+### Verifying Your Setup
+
+\`\`\`python
+import sys, numpy as np, pandas as pd
+print(f"Python: {sys.version}")
+print(f"NumPy: {np.__version__}  Pandas: {pd.__version__}")
+print("Everything is ready! ✅")
+\`\`\`
+
+### Lesson Summary
+
+- **Colab** = fastest option, ideal for learning
+- **Python.org** + **VS Code** = option for serious work
+- **pip** = library installation tool
+- **Virtual Environment** = isolate projects from each other`,
+
+      codeExample: `# ✅ التحقق من بيئة Python
+import sys
+print(f"إصدار Python: {sys.version}")
+
+# تثبيت المكتبات في Colab (الخلية الأولى دائماً)
+# !pip install numpy pandas matplotlib scikit-learn
+
+try:
+    import numpy as np
+    import pandas as pd
+    import matplotlib
+    print(f"✅ NumPy {np.__version__}")
+    print(f"✅ Pandas {pd.__version__}")
+    print(f"✅ Matplotlib {matplotlib.__version__}")
+    print("\n🎉 بيئتك جاهزة للذكاء الاصطناعي!")
+except ImportError as e:
+    print(f"❌ مكتبة ناقصة: {e}")
+    print("شغّل: pip install numpy pandas matplotlib")
+
+name = "مبرمج AI"
+print(f"مرحباً {name}! رحلتك في Python للـ AI بدأت الآن 🚀")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 2 — المتغيرات وأنواع البيانات
+    {
+      bodyAr: `## المتغيرات وأنواع البيانات
+
+المتغيرات هي الطريقة التي يخزّن بها برنامجك المعلومات. فهمها جيداً أساسٌ لكل ما سيأتي في AI.
+
+### ما هو المتغير؟
+
+في Python لا تحتاج لتحديد النوع مسبقاً — يكتشفه تلقائياً.
+
+\`\`\`python
+name = "Ahmed"        # نص (str)
+age = 25              # عدد صحيح (int)
+score = 98.5          # عدد عشري (float)
+is_student = True     # قيمة منطقية (bool)
+\`\`\`
+
+### أنواع البيانات الأساسية
+
+| النوع | الاسم | مثال | الاستخدام في AI |
+|------|------|------|----------------|
+| \`int\` | عدد صحيح | \`42\` | عدد epochs، حجم batch |
+| \`float\` | عدد عشري | \`0.001\` | learning rate، accuracy |
+| \`str\` | نص | \`"GPT"\` | أسماء النماذج، النصوص |
+| \`bool\` | منطقي | \`True\` | flags، شروط التدريب |
+
+### القائمة (List)
+
+\`\`\`python
+scores = [95, 87, 92, 88, 91]
+models = ["GPT-4", "Claude", "Gemini"]
+print(scores[0])    # 95
+print(models[-1])   # Gemini
+print(scores[1:3])  # [87, 92]
+models.append("Llama")
+\`\`\`
+
+### القاموس (Dict)
+
+\`\`\`python
+model_info = {
+    "name": "Claude",
+    "company": "Anthropic",
+    "context": 200000,
+}
+print(model_info["name"])    # Claude
+model_info["version"] = "claude-opus-4-5"
+\`\`\`
+
+### Tuple والـ Set
+
+\`\`\`python
+dimensions = (224, 224, 3)       # حجم صورة CNN — لا يتغير
+unique_labels = {0, 1, 2, 1, 0}
+print(unique_labels)  # {0, 1, 2}
+\`\`\`
+
+### f-Strings
+
+\`\`\`python
+model = "Claude"
+accuracy = 94.7
+result = f"النموذج {model} وصل لـ {accuracy}%"
+print(result)
+\`\`\`
+
+### خلاصة الدرس
+
+- المتغيرات: اسم يشير إلى قيمة في الذاكرة
+- الأنواع الأساسية: **int · float · str · bool**
+- القوائم: مرتّبة وقابلة للتعديل
+- القواميس: مفتاح-قيمة، سريعة البحث
+- **f-strings**: أفضل طريقة لبناء النصوص في Python الحديثة`,
+
+      bodyEn: `## Variables and Data Types
+
+Variables are how your program stores information. Understanding them is the foundation for everything in AI.
+
+### What is a Variable?
+
+In Python you don't need to declare the type — it's inferred automatically.
+
+\`\`\`python
+name = "Ahmed"        # text (str)
+age = 25              # integer (int)
+score = 98.5          # decimal (float)
+is_student = True     # boolean (bool)
+\`\`\`
+
+### Basic Data Types
+
+| Type | Name | Example | Use in AI |
+|------|------|---------|----------|
+| \`int\` | Integer | \`42\` | epoch count, batch size |
+| \`float\` | Decimal | \`0.001\` | learning rate, accuracy |
+| \`str\` | Text | \`"GPT"\` | model names, text data |
+| \`bool\` | Boolean | \`True\` | flags, training conditions |
+
+### List
+
+\`\`\`python
+scores = [95, 87, 92, 88, 91]
+models = ["GPT-4", "Claude", "Gemini"]
+print(scores[0])    # 95
+print(models[-1])   # Gemini
+print(scores[1:3])  # [87, 92]
+models.append("Llama")
+\`\`\`
+
+### Dictionary
+
+\`\`\`python
+model_info = {
+    "name": "Claude",
+    "company": "Anthropic",
+    "context": 200000,
+}
+print(model_info["name"])    # Claude
+model_info["version"] = "claude-opus-4-5"
+\`\`\`
+
+### Tuple and Set
+
+\`\`\`python
+dimensions = (224, 224, 3)       # CNN image size — immutable
+unique_labels = {0, 1, 2, 1, 0}
+print(unique_labels)  # {0, 1, 2}
+\`\`\`
+
+### f-Strings
+
+\`\`\`python
+model = "Claude"
+accuracy = 94.7
+result = f"Model {model} reached {accuracy}%"
+print(result)
+\`\`\`
+
+### Lesson Summary
+
+- Variables: a name pointing to a value in memory
+- Basic types: **int · float · str · bool**
+- Lists: ordered and mutable
+- Dictionaries: key-value, fast lookup
+- **f-strings**: best way to build strings in modern Python`,
+
+      codeExample: `# ─── متغيرات وأنواع البيانات في سياق AI ───
+
+model_name = "claude-opus-4-5"
+accuracy = 0.947
+training_epochs = 50
+is_deployed = True
+
+print(f"النموذج: {model_name}")
+print(f"الدقة: {accuracy * 100:.1f}%")
+
+epoch_losses = [2.5, 1.8, 1.2, 0.9, 0.7, 0.6, 0.55, 0.52]
+print(f"\nالـ loss الأول: {epoch_losses[0]}")
+print(f"الـ loss الأخير: {epoch_losses[-1]}")
+print(f"عدد epochs: {len(epoch_losses)}")
+
+models = {
+    "GPT-4":  {"company": "OpenAI",    "context": 128_000},
+    "Claude": {"company": "Anthropic", "context": 200_000},
+    "Gemini": {"company": "Google",    "context": 1_000_000},
+}
+
+print("\n--- مقارنة النماذج ---")
+for name, info in models.items():
+    print(f"{name}: {info['company']} | {info['context']:,} token")
+
+raw_score = "87.5"
+score_float = float(raw_score)
+score_int = int(score_float)
+print(f"\nالدرجة: {raw_score!r} → {score_float} → {score_int}")
+print(f"نوع accuracy: {type(accuracy).__name__}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 3 — الحلقات والشروط
+    {
+      bodyAr: `## الحلقات والشروط
+
+الحلقات والشروط هي العمود الفقري لأي برنامج. في AI تستخدمها في كل مكان: من حلقات التدريب إلى تصفية البيانات.
+
+### الشروط (if / elif / else)
+
+\`\`\`python
+score = 87
+if score >= 90:
+    grade = "ممتاز"
+elif score >= 75:
+    grade = "جيد جداً"
+elif score >= 60:
+    grade = "جيد"
+else:
+    grade = "يحتاج تحسين"
+print(f"الدرجة: {grade}")  # جيد جداً
+\`\`\`
+
+### تقييم نموذج AI
+
+\`\`\`python
+accuracy = 0.92
+if accuracy >= 0.95:
+    print("النموذج ممتاز — جاهز للإنتاج ✅")
+elif accuracy >= 0.85:
+    print("النموذج جيد — يحتاج تحسين 🔄")
+else:
+    print("النموذج يحتاج إعادة تدريب ❌")
+\`\`\`
+
+### حلقة for
+
+\`\`\`python
+models = ["GPT-4", "Claude", "Gemini", "Llama"]
+for model in models:
+    print(f"  - {model}")
+
+for epoch in range(1, 6):
+    loss = 2.5 / epoch
+    print(f"Epoch {epoch}: loss = {loss:.3f}")
+\`\`\`
+
+### for مع enumerate
+
+\`\`\`python
+results = [0.78, 0.85, 0.91, 0.93]
+for i, acc in enumerate(results, start=1):
+    print(f"Epoch {i}: {acc * 100:.1f}%")
+\`\`\`
+
+### حلقة while
+
+\`\`\`python
+loss, epoch = 1.0, 0
+while loss > 0.1:
+    loss *= 0.7
+    epoch += 1
+print(f"تقارب بعد {epoch} epochs!")
+\`\`\`
+
+### break و continue
+
+\`\`\`python
+for loss in [1.5, 0.8, 0.4, 0.05]:
+    if loss < 0.1:
+        print("توقف مبكر!")
+        break
+    if loss > 1.0:
+        continue
+    print(f"loss = {loss:.2f}")
+\`\`\`
+
+### List Comprehension
+
+\`\`\`python
+squares = [x ** 2 for x in range(5)]
+print(squares)  # [0, 1, 4, 9, 16]
+
+high_scores = [s for s in [72, 91, 65, 88, 55] if s >= 75]
+print(high_scores)  # [91, 88]
+\`\`\`
+
+### خلاصة الدرس
+
+- **if/elif/else**: اتخاذ القرار حسب الشروط
+- **for**: تكرار على قائمة أو range
+- **while**: تكرار حتى يتحقق شرط
+- **break/continue**: التحكم في سير الحلقة
+- **List Comprehension**: بناء القوائم بطريقة Python الأنيقة`,
+
+      bodyEn: `## Loops and Conditions
+
+Loops and conditions are the backbone of any program. In AI you use them everywhere.
+
+### Conditions (if / elif / else)
+
+\`\`\`python
+score = 87
+if score >= 90:
+    grade = "Excellent"
+elif score >= 75:
+    grade = "Very Good"
+elif score >= 60:
+    grade = "Good"
+else:
+    grade = "Needs Improvement"
+print(f"Grade: {grade}")  # Very Good
+\`\`\`
+
+### Evaluating an AI Model
+
+\`\`\`python
+accuracy = 0.92
+if accuracy >= 0.95:
+    print("Model is excellent — ready for production ✅")
+elif accuracy >= 0.85:
+    print("Model is good — needs minor improvement 🔄")
+else:
+    print("Model needs retraining ❌")
+\`\`\`
+
+### for Loop
+
+\`\`\`python
+models = ["GPT-4", "Claude", "Gemini", "Llama"]
+for model in models:
+    print(f"  - {model}")
+
+for epoch in range(1, 6):
+    loss = 2.5 / epoch
+    print(f"Epoch {epoch}: loss = {loss:.3f}")
+\`\`\`
+
+### for with enumerate
+
+\`\`\`python
+results = [0.78, 0.85, 0.91, 0.93]
+for i, acc in enumerate(results, start=1):
+    print(f"Epoch {i}: {acc * 100:.1f}%")
+\`\`\`
+
+### while Loop
+
+\`\`\`python
+loss, epoch = 1.0, 0
+while loss > 0.1:
+    loss *= 0.7
+    epoch += 1
+print(f"Converged after {epoch} epochs!")
+\`\`\`
+
+### break and continue
+
+\`\`\`python
+for loss in [1.5, 0.8, 0.4, 0.05]:
+    if loss < 0.1:
+        print("Early stopping!")
+        break
+    if loss > 1.0:
+        continue
+    print(f"loss = {loss:.2f}")
+\`\`\`
+
+### List Comprehension
+
+\`\`\`python
+squares = [x ** 2 for x in range(5)]
+print(squares)  # [0, 1, 4, 9, 16]
+
+high_scores = [s for s in [72, 91, 65, 88, 55] if s >= 75]
+print(high_scores)  # [91, 88]
+\`\`\`
+
+### Lesson Summary
+
+- **if/elif/else**: make decisions based on conditions
+- **for**: iterate over a list or range
+- **while**: repeat until a condition is met
+- **break/continue**: control loop flow
+- **List Comprehension**: build lists the Pythonic way`,
+
+      codeExample: `# ─── محاكاة حلقة تدريب AI بسيطة ───
+import random
+random.seed(42)
+
+learning_rate = 0.1
+loss = 2.0
+best_loss = float("inf")
+patience = 3
+no_improve = 0
+
+print("بدء التدريب...")
+print("-" * 40)
+
+for epoch in range(1, 21):
+    noise = random.uniform(-0.05, 0.1)
+    loss = loss * (1 - learning_rate) + noise
+    loss = max(loss, 0.05)
+
+    if loss < best_loss - 0.01:
+        best_loss = loss
+        no_improve = 0
+        status = "✅ تحسّن"
+    else:
+        no_improve += 1
+        status = f"⚠️  بلا تحسين ({no_improve}/{patience})"
+
+    bar = "█" * int((2.0 - loss) / 2.0 * 20)
+    print(f"Epoch {epoch:2d}: loss={loss:.4f} {bar} {status}")
+
+    if no_improve >= patience:
+        print(f"\n🛑 Early Stopping عند epoch {epoch}")
+        break
+
+print(f"\n🏆 أفضل loss: {best_loss:.4f}")
+
+accuracy = 1 - best_loss / 2.0
+if accuracy >= 0.90:
+    print(f"✅ النموذج ممتاز ({accuracy*100:.1f}%)")
+elif accuracy >= 0.75:
+    print(f"🔄 النموذج جيد ({accuracy*100:.1f}%)")
+else:
+    print(f"❌ النموذج ضعيف ({accuracy*100:.1f}%)")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 4 — الدوال والوحدات
+    {
+      bodyAr: `## الدوال والوحدات
+
+الدوال تحوّل الكود المتكرر إلى كتل قابلة لإعادة الاستخدام. في AI تبني مكتبتك الخاصة لتسريع عملك.
+
+### تعريف دالة بسيطة
+
+\`\`\`python
+def greet(name):
+    return f"مرحباً {name}!"
+
+print(greet("Ahmed"))  # مرحباً Ahmed!
+\`\`\`
+
+### المعاملات الافتراضية
+
+\`\`\`python
+def train_model(epochs=10, learning_rate=0.001, verbose=True):
+    if verbose:
+        print(f"بدء التدريب: {epochs} epochs | lr={learning_rate}")
+    return {"epochs": epochs, "lr": learning_rate}
+
+train_model()
+train_model(epochs=50, verbose=False)
+\`\`\`
+
+### *args و **kwargs
+
+\`\`\`python
+def sum_losses(*losses):
+    return sum(losses)
+
+print(sum_losses(0.5, 0.3, 0.2))  # 1.0
+
+def log_metrics(**metrics):
+    for key, value in metrics.items():
+        print(f"  {key}: {value:.4f}")
+
+log_metrics(accuracy=0.92, loss=0.15, f1=0.89)
+\`\`\`
+
+### دوال Lambda
+
+\`\`\`python
+square = lambda x: x ** 2
+print(square(5))  # 25
+
+models = [("GPT-4", 0.91), ("Claude", 0.94), ("Gemini", 0.89)]
+sorted_models = sorted(models, key=lambda m: m[1], reverse=True)
+\`\`\`
+
+### استيراد الوحدات
+
+\`\`\`python
+import math
+print(math.sqrt(16))  # 4.0
+
+import numpy as np
+import pandas as pd
+
+from random import shuffle, choice
+from datetime import datetime
+\`\`\`
+
+### المكتبات القياسية المفيدة
+
+\`\`\`python
+import os, json, time, random
+
+# قياس الوقت
+start = time.time()
+print(f"استغرق {time.time() - start:.2f} ثانية")
+
+# JSON
+data = {"model": "Claude", "tokens": 200_000}
+print(json.dumps(data, ensure_ascii=False))
+
+random.seed(42)  # للتكرارية في التجارب
+\`\`\`
+
+### خلاصة الدرس
+
+- **def**: تعريف دالة قابلة لإعادة الاستخدام
+- **المعاملات الافتراضية**: قيم تُستخدم إذا لم يمرّرها المستخدم
+- **args / kwargs**: دوال مرنة لعدد غير محدد من المعاملات
+- **lambda**: دوال مصغّرة لعمليات بسيطة
+- **import**: استيراد المكتبات الجاهزة`,
+
+      bodyEn: `## Functions and Modules
+
+Functions turn repetitive code into reusable blocks. In AI you build your own library to speed up your work.
+
+### Defining a Simple Function
+
+\`\`\`python
+def greet(name):
+    return f"Hello {name}!"
+
+print(greet("Ahmed"))  # Hello Ahmed!
+\`\`\`
+
+### Default Parameters
+
+\`\`\`python
+def train_model(epochs=10, learning_rate=0.001, verbose=True):
+    if verbose:
+        print(f"Training: {epochs} epochs | lr={learning_rate}")
+    return {"epochs": epochs, "lr": learning_rate}
+
+train_model()
+train_model(epochs=50, verbose=False)
+\`\`\`
+
+### *args and **kwargs
+
+\`\`\`python
+def sum_losses(*losses):
+    return sum(losses)
+
+print(sum_losses(0.5, 0.3, 0.2))  # 1.0
+
+def log_metrics(**metrics):
+    for key, value in metrics.items():
+        print(f"  {key}: {value:.4f}")
+
+log_metrics(accuracy=0.92, loss=0.15, f1=0.89)
+\`\`\`
+
+### Lambda Functions
+
+\`\`\`python
+square = lambda x: x ** 2
+print(square(5))  # 25
+
+models = [("GPT-4", 0.91), ("Claude", 0.94), ("Gemini", 0.89)]
+sorted_models = sorted(models, key=lambda m: m[1], reverse=True)
+\`\`\`
+
+### Importing Modules
+
+\`\`\`python
+import math
+print(math.sqrt(16))  # 4.0
+
+import numpy as np
+import pandas as pd
+
+from random import shuffle, choice
+from datetime import datetime
+\`\`\`
+
+### Useful Standard Library Modules
+
+\`\`\`python
+import os, json, time, random
+
+start = time.time()
+print(f"Took {time.time() - start:.2f} seconds")
+
+data = {"model": "Claude", "tokens": 200_000}
+print(json.dumps(data))
+
+random.seed(42)  # for reproducibility
+\`\`\`
+
+### Lesson Summary
+
+- **def**: define a reusable function
+- **Default parameters**: values used if not passed by caller
+- **args / kwargs**: flexible functions for variable argument counts
+- **lambda**: mini-functions for simple operations
+- **import**: use ready-made libraries`,
+
+      codeExample: `# ─── بناء مكتبة أدوات AI بسيطة ───
+import time, random
+random.seed(42)
+
+def normalize(data: list) -> list:
+    # تطبيع البيانات بين 0 و 1
+    min_val, max_val = min(data), max(data)
+    span = max_val - min_val or 1
+    return [(x - min_val) / span for x in data]
+
+def accuracy(predictions: list, labels: list) -> float:
+    correct = sum(p == l for p, l in zip(predictions, labels))
+    return correct / len(labels)
+
+def train(*, epochs: int = 10, lr: float = 0.01, verbose: bool = True) -> dict:
+    history = {"loss": [], "acc": []}
+    loss = 2.0
+    for epoch in range(1, epochs + 1):
+        loss *= (1 - lr) * random.uniform(0.85, 1.05)
+        loss = max(loss, 0.05)
+        acc  = min(1 - loss / 4, 0.99)
+        history["loss"].append(round(loss, 4))
+        history["acc"].append(round(acc, 4))
+        if verbose and (epoch % 5 == 0 or epoch == 1):
+            print(f"  Epoch {epoch:3d}: loss={loss:.4f} | acc={acc*100:.1f}%")
+    return history
+
+def evaluate_model(history: dict) -> None:
+    final_acc = history["acc"][-1]
+    best_acc  = max(history["acc"])
+    if final_acc >= 0.90:   verdict = "✅ ممتاز"
+    elif final_acc >= 0.75: verdict = "🔄 جيد"
+    else:                   verdict = "❌ يحتاج إعادة تدريب"
+    print(f"  الدقة النهائية : {final_acc*100:.1f}%")
+    print(f"  أفضل دقة      : {best_acc*100:.1f}%")
+    print(f"  الحكم          : {verdict}")
+
+print("=" * 40)
+start = time.time()
+history = train(epochs=20, lr=0.08, verbose=True)
+print("\n--- تقييم النموذج ---")
+evaluate_model(history)
+print(f"\n⏱  وقت التنفيذ: {(time.time()-start)*1000:.1f} مللي ثانية")
+
+raw = [10, 25, 5, 40, 15]
+norm = normalize(raw)
+print(f"\nقبل التطبيع : {raw}")
+print(f"بعد التطبيع : {[round(v, 2) for v in norm]}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 5 — مدخل إلى NumPy
+    {
+      bodyAr: `## مدخل إلى NumPy
+
+NumPy هي مكتبة الحسابات الرقمية الأساسية في Python. كل مكتبات AI الكبرى مبنية فوقها.
+
+### لماذا NumPy؟
+
+NumPy تنفّذ عمليات على كل المصفوفة دفعة واحدة (vectorized) — أسرع 100× من Python Lists.
+
+### إنشاء المصفوفات
+
+\`\`\`python
+import numpy as np
+
+arr   = np.array([1, 2, 3, 4, 5])
+zeros = np.zeros((3, 4))        # 3×4 من أصفار
+ones  = np.ones((2, 3))         # 2×3 من واحدات
+rng   = np.arange(0, 10, 2)    # [0 2 4 6 8]
+lin   = np.linspace(0, 1, 5)   # [0. 0.25 0.5 0.75 1.]
+
+np.random.seed(42)
+rand  = np.random.randn(3, 3)   # توزيع طبيعي
+\`\`\`
+
+### الـ Shape وإعادة التشكيل
+
+\`\`\`python
+arr = np.arange(12)
+matrix = arr.reshape(3, 4)   # (3, 4)
+flat   = matrix.reshape(-1)  # (12,)
+
+images = np.random.randn(100, 28, 28, 1)  # 100 صورة MNIST
+print(images.shape)  # (100, 28, 28, 1)
+\`\`\`
+
+### الفهرسة والتقطيع
+
+\`\`\`python
+m = np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(m[0, :])     # الصف الأول:   [1 2 3]
+print(m[:, 1])     # العمود الثاني: [2 5 8]
+
+data = np.array([1.2, -0.5, 3.1, -1.8])
+positive = data[data > 0]   # [1.2 3.1]
+\`\`\`
+
+### العمليات الرياضية
+
+\`\`\`python
+a = np.array([1, 2, 3, 4])
+b = np.array([10, 20, 30, 40])
+print(a + b)         # [11 22 33 44]
+print(a * b)         # [10 40 90 160]
+
+data = np.array([85, 92, 78, 96, 88])
+print(f"المتوسط: {data.mean():.1f}")
+print(f"الانحراف: {data.std():.1f}")
+\`\`\`
+
+### ضرب المصفوفات
+
+\`\`\`python
+W = np.random.randn(4, 3)   # أوزان طبقة
+x = np.random.randn(3)       # مدخل
+output = W @ x               # (4,)
+\`\`\`
+
+### خلاصة الدرس
+
+- NumPy أسرع بكثير من Python Lists للعمليات الرياضية
+- **ndarray**: له shape وdtype
+- **Vectorization**: عمليات على كل المصفوفة بدون loops
+- **Broadcasting**: عمليات بين مصفوفات بأشكال مختلفة
+- ضرب المصفوفات هو أساس الشبكات العصبية`,
+
+      bodyEn: `## Introduction to NumPy
+
+NumPy is the fundamental numerical computing library in Python. All major AI libraries are built on top of it.
+
+### Why NumPy?
+
+NumPy performs operations on the entire array at once (vectorized) — typically 100x faster than Python lists.
+
+### Creating Arrays
+
+\`\`\`python
+import numpy as np
+
+arr   = np.array([1, 2, 3, 4, 5])
+zeros = np.zeros((3, 4))        # 3x4 of zeros
+ones  = np.ones((2, 3))         # 2x3 of ones
+rng   = np.arange(0, 10, 2)    # [0 2 4 6 8]
+lin   = np.linspace(0, 1, 5)   # [0. 0.25 0.5 0.75 1.]
+
+np.random.seed(42)
+rand  = np.random.randn(3, 3)   # normal distribution
+\`\`\`
+
+### Shape and Reshaping
+
+\`\`\`python
+arr = np.arange(12)
+matrix = arr.reshape(3, 4)   # (3, 4)
+flat   = matrix.reshape(-1)  # (12,)
+
+images = np.random.randn(100, 28, 28, 1)  # 100 MNIST images
+print(images.shape)  # (100, 28, 28, 1)
+\`\`\`
+
+### Indexing and Slicing
+
+\`\`\`python
+m = np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(m[0, :])     # first row:    [1 2 3]
+print(m[:, 1])     # second col:   [2 5 8]
+
+data = np.array([1.2, -0.5, 3.1, -1.8])
+positive = data[data > 0]   # [1.2 3.1]
+\`\`\`
+
+### Mathematical Operations
+
+\`\`\`python
+a = np.array([1, 2, 3, 4])
+b = np.array([10, 20, 30, 40])
+print(a + b)         # [11 22 33 44]
+print(a * b)         # [10 40 90 160]
+
+data = np.array([85, 92, 78, 96, 88])
+print(f"Mean: {data.mean():.1f}")
+print(f"Std: {data.std():.1f}")
+\`\`\`
+
+### Matrix Multiplication
+
+\`\`\`python
+W = np.random.randn(4, 3)   # layer weights
+x = np.random.randn(3)       # input vector
+output = W @ x               # shape (4,)
+\`\`\`
+
+### Lesson Summary
+
+- NumPy is much faster than Python lists for math operations
+- **ndarray**: has shape and dtype
+- **Vectorization**: operations on entire array without loops
+- **Broadcasting**: automatic operations between different shapes
+- Matrix multiplication is the foundation of neural networks`,
+
+      codeExample: `# ─── NumPy في تطبيقات AI حقيقية ───
+import numpy as np
+
+np.random.seed(42)
+print("=" * 45)
+print("    محاكاة طبقة شبكة عصبية بـ NumPy")
+print("=" * 45)
+
+# 1. تمثيل بيانات الصور
+images = np.random.rand(8, 4, 4, 1)
+print(f"\nالشكل الأصلي : {images.shape}")
+
+flat = images.reshape(8, -1)
+print(f"بعد Flatten  : {flat.shape}  ({flat.shape[1]} ميزة)")
+
+# 2. تطبيع البيانات
+images_norm = (images - images.mean()) / (images.std() + 1e-8)
+print(f"\nقبل التطبيع — mean={images.mean():.3f} | std={images.std():.3f}")
+print(f"بعد التطبيع — mean={images_norm.mean():.3f} | std={images_norm.std():.3f}")
+
+# 3. طبقة Dense بسيطة
+input_size, hidden_size = 16, 8
+W = np.random.randn(input_size, hidden_size) * 0.1
+b = np.zeros(hidden_size)
+
+X = flat
+Z = X @ W + b           # (8,16) @ (16,8) → (8,8)
+A = np.maximum(0, Z)    # ReLU
+
+print(f"\nالمدخل  : {X.shape}")
+print(f"الأوزان : {W.shape}")
+print(f"الخرج Z : {Z.shape}")
+print(f"بعد ReLU: {A.shape}")
+
+# 4. إحصاء
+per_sample_mean = A.mean(axis=1)
+print(f"\nمتوسط تفعيل كل عينة: {np.round(per_sample_mean, 3)}")
+
+# 5. Boolean indexing
+scores = np.random.rand(20) * 100
+passed = scores[scores >= 60]
+print(f"\nعدد الناجحين: {len(passed)}/20")
+print(f"متوسط درجات الناجحين: {passed.mean():.1f}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 6 — مدخل إلى Pandas
+    {
+      bodyAr: `## مدخل إلى Pandas
+
+Pandas هي أقوى مكتبة لتحليل البيانات الجدولية في Python. أي مشروع AI يبدأ بتحميل وتنظيف البيانات — وهنا يكون Pandas.
+
+### الكائنان الأساسيان
+
+| الكائن | الوصف | متى تستخدمه |
+|--------|------|------------|
+| **Series** | عمود واحد بفهرس | بيانات أحادية البعد |
+| **DataFrame** | جدول 2D | أي مجموعة بيانات |
+
+\`\`\`python
+import pandas as pd
+
+scores = pd.Series([85, 92, 78, 96, 88],
+                   index=["Ahmed", "Sara", "Ali", "Nour", "Omar"])
+print(scores.mean())  # 87.8
+
+data = {"name": ["Ahmed", "Sara"], "score": [85, 92]}
+df = pd.DataFrame(data)
+\`\`\`
+
+### تحميل البيانات
+
+\`\`\`python
+df = pd.read_csv("data.csv")
+df = pd.read_json("data.json")
+df = pd.read_excel("report.xlsx")
+\`\`\`
+
+### الاستكشاف الأولي
+
+\`\`\`python
+print(df.head(3))       # أول 3 صفوف
+print(df.shape)         # (عدد الصفوف، عدد الأعمدة)
+print(df.dtypes)        # نوع كل عمود
+print(df.info())        # ملخص شامل
+print(df.describe())    # إحصاء الأعمدة الرقمية
+\`\`\`
+
+### الاختيار والتصفية
+
+\`\`\`python
+ages    = df["age"]
+subset  = df[["name", "salary"]]
+ai_team = df[df["department"] == "AI"]
+senior  = df[df["age"] > 30]
+top     = df[(df["salary"] > 10000) & (df["dept"] == "ML")]
+result  = df.query("age > 28 and salary > 9000")
+\`\`\`
+
+### إضافة أعمدة وتعديلها
+
+\`\`\`python
+df["monthly"] = df["salary"] / 12
+df["level"] = df["age"].apply(lambda a: "senior" if a > 30 else "junior")
+df.rename(columns={"salary": "annual"}, inplace=True)
+df.drop(columns=["monthly"], inplace=True)
+\`\`\`
+
+### groupby — الأداة الأقوى
+
+\`\`\`python
+dept_avg = df.groupby("department")["salary"].mean()
+
+summary = df.groupby("department").agg({
+    "salary": ["mean", "max"],
+    "age": "mean",
+})
+\`\`\`
+
+### القيم الناقصة
+
+\`\`\`python
+print(df.isnull().sum())
+df_clean = df.dropna()
+df["salary"].fillna(df["salary"].median(), inplace=True)
+\`\`\`
+
+### خلاصة الدرس
+
+- **DataFrame** = جدول بيانات مرن وقوي
+- **read_csv()** = نقطة البداية لأي مشروع AI
+- **head/info/describe()** = الاستكشاف الأولي الإلزامي
+- **Boolean indexing** = تصفية البيانات بسهولة
+- **groupby()** = تجميع وتلخيص البيانات`,
+
+      bodyEn: `## Introduction to Pandas
+
+Pandas is the most powerful library for tabular data analysis in Python. Every AI project starts with loading and cleaning data.
+
+### The Two Core Objects
+
+| Object | Description | When to use |
+|--------|------------|-------------|
+| **Series** | Single column with index | One-dimensional data |
+| **DataFrame** | 2D table | Any dataset |
+
+\`\`\`python
+import pandas as pd
+
+scores = pd.Series([85, 92, 78, 96, 88],
+                   index=["Ahmed", "Sara", "Ali", "Nour", "Omar"])
+print(scores.mean())  # 87.8
+
+data = {"name": ["Ahmed", "Sara"], "score": [85, 92]}
+df = pd.DataFrame(data)
+\`\`\`
+
+### Loading Data
+
+\`\`\`python
+df = pd.read_csv("data.csv")
+df = pd.read_json("data.json")
+df = pd.read_excel("report.xlsx")
+\`\`\`
+
+### Initial Exploration
+
+\`\`\`python
+print(df.head(3))       # first 3 rows
+print(df.shape)         # (num_rows, num_cols)
+print(df.dtypes)        # each column type
+print(df.info())        # comprehensive summary
+print(df.describe())    # statistics for numeric columns
+\`\`\`
+
+### Selection and Filtering
+
+\`\`\`python
+ages    = df["age"]
+subset  = df[["name", "salary"]]
+ai_team = df[df["department"] == "AI"]
+senior  = df[df["age"] > 30]
+top     = df[(df["salary"] > 10000) & (df["dept"] == "ML")]
+result  = df.query("age > 28 and salary > 9000")
+\`\`\`
+
+### Adding and Modifying Columns
+
+\`\`\`python
+df["monthly"] = df["salary"] / 12
+df["level"] = df["age"].apply(lambda a: "senior" if a > 30 else "junior")
+df.rename(columns={"salary": "annual"}, inplace=True)
+df.drop(columns=["monthly"], inplace=True)
+\`\`\`
+
+### groupby — The Most Powerful Tool
+
+\`\`\`python
+dept_avg = df.groupby("department")["salary"].mean()
+
+summary = df.groupby("department").agg({
+    "salary": ["mean", "max"],
+    "age": "mean",
+})
+\`\`\`
+
+### Handling Missing Values
+
+\`\`\`python
+print(df.isnull().sum())
+df_clean = df.dropna()
+df["salary"].fillna(df["salary"].median(), inplace=True)
+\`\`\`
+
+### Lesson Summary
+
+- **DataFrame** = flexible and powerful data table
+- **read_csv()** = starting point for every AI project
+- **head/info/describe()** = mandatory initial exploration
+- **Boolean indexing** = easy data filtering
+- **groupby()** = group and summarize data`,
+
+      codeExample: `# ─── تحليل بيانات موظفي قسم AI بـ Pandas ───
+import pandas as pd, io
+
+raw = (
+    "name,age,role,salary,experience,department\n"
+    "Ahmed,28,Data Scientist,12000,3,AI\n"
+    "Sara,32,ML Engineer,18000,7,ML\n"
+    "Ali,25,AI Intern,6500,1,AI\n"
+    "Nour,35,Cloud Architect,22000,10,Cloud\n"
+    "Omar,29,NLP Engineer,14000,4,AI\n"
+    "Layla,27,Data Analyst,9000,2,ML\n"
+    "Karim,38,MLOps Engineer,20000,12,ML\n"
+    "Hana,24,AI Intern,6000,1,AI\n"
+    "Tarek,31,Data Scientist,13500,6,Cloud\n"
+    "Mona,26,CV Engineer,11000,3,AI"
+)
+
+df = pd.read_csv(io.StringIO(raw))
+
+print("=" * 50)
+print("       بيانات فريق AI")
+print("=" * 50)
+print(f"\nعدد الموظفين : {len(df)}")
+
+df["salary_monthly"] = df["salary"] / 12
+df["level"] = df["experience"].apply(
+    lambda e: "مبتدئ" if e <= 2 else "متوسط" if e <= 6 else "خبير"
+)
+
+print("\n--- إحصاء الرواتب ---")
+print(df["salary"].describe().round(0))
+
+print("\n--- متوسط الراتب لكل قسم ---")
+dept = df.groupby("department")["salary"].agg(["mean","max","count"])
+dept.columns = ["المتوسط", "الأعلى", "العدد"]
+print(dept.round(0))
+
+print("\n--- الموظفون بأعلى راتب في كل قسم ---")
+top = df.loc[df.groupby("department")["salary"].idxmax(),
+             ["name","department","salary","role"]]
+print(top.to_string(index=False))
+
+pass_rate = (df["salary"] > 10000).mean() * 100
+print(f"\n📊 نسبة ذوي الرواتب المرتفعة: {pass_rate:.0f}%")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 7 — تصور البيانات مع Matplotlib
+    {
+      bodyAr: `## تصور البيانات مع Matplotlib
+
+البيانات بدون تصوير هي أرقام عمياء. Matplotlib تحوّل تلك الأرقام إلى رسوم بيانية تكشف الأنماط فوراً.
+
+### المفهوم الأساسي: Figure و Axes
+
+\`\`\`python
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.plot([1, 2, 3, 4], [10, 20, 15, 25])
+ax.set_title("عنوان الرسم")
+ax.set_xlabel("المحور X")
+ax.set_ylabel("المحور Y")
+plt.tight_layout()
+plt.show()
+\`\`\`
+
+### المخطط الخطي (Line Plot) — سجل التدريب
+
+\`\`\`python
+epochs     = range(1, 11)
+train_loss = [2.5, 1.8, 1.3, 1.0, 0.8, 0.65, 0.55, 0.48, 0.43, 0.40]
+val_loss   = [2.6, 2.0, 1.5, 1.2, 1.0, 0.90, 0.85, 0.82, 0.80, 0.79]
+
+fig, ax = plt.subplots(figsize=(9, 5))
+ax.plot(epochs, train_loss, label="Train",      color="blue",   lw=2)
+ax.plot(epochs, val_loss,   label="Validation", color="orange", lw=2, ls="--")
+ax.set_title("Training vs Validation Loss")
+ax.legend(); ax.grid(True, alpha=0.3)
+plt.show()
+\`\`\`
+
+### المخطط الشريطي (Bar Chart)
+
+\`\`\`python
+models = ["GPT-4", "Claude", "Gemini", "Llama 3"]
+scores = [91.2, 93.7, 90.5, 88.9]
+
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.bar(models, scores,
+       color=["#4285F4","#FF6B35","#34A853","#EA4335"])
+ax.set_title("مقارنة أداء نماذج AI")
+ax.set_ylim(85, 97)
+plt.show()
+\`\`\`
+
+### المخطط المبعثر (Scatter Plot)
+
+\`\`\`python
+import numpy as np
+np.random.seed(42)
+experience = np.random.randint(1, 15, 50)
+salary = experience * 1200 + np.random.randn(50) * 2000
+
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.scatter(experience, salary, alpha=0.7, s=80)
+ax.set_title("العلاقة بين الخبرة والراتب")
+plt.show()
+\`\`\`
+
+### المدرّج التكراري (Histogram)
+
+\`\`\`python
+scores = np.random.normal(loc=75, scale=12, size=200)
+
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.hist(scores, bins=20, color="#4A90E2", edgecolor="white")
+ax.axvline(scores.mean(), color="red", ls="--", lw=2)
+ax.set_title("توزيع درجات الطلاب")
+plt.show()
+\`\`\`
+
+### عدة مخططات (Subplots)
+
+\`\`\`python
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+axes[0].plot(range(10), [x**2 for x in range(10)])
+axes[1].bar(["A","B","C"], [30,50,20])
+plt.tight_layout(); plt.show()
+\`\`\`
+
+### حفظ المخطط
+
+\`\`\`python
+fig.savefig("chart.png", dpi=150, bbox_inches="tight")
+\`\`\`
+
+### خلاصة الدرس
+
+- **plt.subplots()**: الطريقة المهنية لإنشاء المخططات
+- **plot()**: للبيانات الزمنية والمستمرة
+- **bar()**: للمقارنة بين فئات
+- **scatter()**: لاستكشاف العلاقات بين المتغيرات
+- **hist()**: لفهم توزيع البيانات
+- **grid + legend + title**: ضرورية لكل مخطط احترافي`,
+
+      bodyEn: `## Data Visualization with Matplotlib
+
+Data without visualization is blind numbers. Matplotlib transforms those numbers into charts that instantly reveal patterns.
+
+### Core Concept: Figure and Axes
+
+\`\`\`python
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.plot([1, 2, 3, 4], [10, 20, 15, 25])
+ax.set_title("Chart Title")
+ax.set_xlabel("X Axis")
+ax.set_ylabel("Y Axis")
+plt.tight_layout()
+plt.show()
+\`\`\`
+
+### Line Plot — Training History
+
+\`\`\`python
+epochs     = range(1, 11)
+train_loss = [2.5, 1.8, 1.3, 1.0, 0.8, 0.65, 0.55, 0.48, 0.43, 0.40]
+val_loss   = [2.6, 2.0, 1.5, 1.2, 1.0, 0.90, 0.85, 0.82, 0.80, 0.79]
+
+fig, ax = plt.subplots(figsize=(9, 5))
+ax.plot(epochs, train_loss, label="Train",      color="blue",   lw=2)
+ax.plot(epochs, val_loss,   label="Validation", color="orange", lw=2, ls="--")
+ax.set_title("Training vs Validation Loss")
+ax.legend(); ax.grid(True, alpha=0.3)
+plt.show()
+\`\`\`
+
+### Bar Chart
+
+\`\`\`python
+models = ["GPT-4", "Claude", "Gemini", "Llama 3"]
+scores = [91.2, 93.7, 90.5, 88.9]
+
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.bar(models, scores,
+       color=["#4285F4","#FF6B35","#34A853","#EA4335"])
+ax.set_title("AI Model Performance Comparison")
+ax.set_ylim(85, 97)
+plt.show()
+\`\`\`
+
+### Scatter Plot
+
+\`\`\`python
+import numpy as np
+np.random.seed(42)
+experience = np.random.randint(1, 15, 50)
+salary = experience * 1200 + np.random.randn(50) * 2000
+
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.scatter(experience, salary, alpha=0.7, s=80)
+ax.set_title("Experience vs Salary")
+plt.show()
+\`\`\`
+
+### Histogram
+
+\`\`\`python
+scores = np.random.normal(loc=75, scale=12, size=200)
+
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.hist(scores, bins=20, color="#4A90E2", edgecolor="white")
+ax.axvline(scores.mean(), color="red", ls="--", lw=2)
+ax.set_title("Student Score Distribution")
+plt.show()
+\`\`\`
+
+### Multiple Charts (Subplots)
+
+\`\`\`python
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+axes[0].plot(range(10), [x**2 for x in range(10)])
+axes[1].bar(["A","B","C"], [30,50,20])
+plt.tight_layout(); plt.show()
+\`\`\`
+
+### Saving a Chart
+
+\`\`\`python
+fig.savefig("chart.png", dpi=150, bbox_inches="tight")
+\`\`\`
+
+### Lesson Summary
+
+- **plt.subplots()**: the professional way to create charts
+- **plot()**: for time-series and continuous data
+- **bar()**: for category comparison
+- **scatter()**: for exploring variable relationships
+- **hist()**: for understanding data distribution
+- **grid + legend + title**: required for every professional chart`,
+
+      codeExample: `# ─── لوحة تحليل نموذج AI الشاملة ───
+import matplotlib.pyplot as plt
+import numpy as np
+
+np.random.seed(42)
+
+epochs     = np.arange(1, 31)
+train_loss = 2.5 * np.exp(-0.15 * epochs) + np.random.randn(30) * 0.03
+val_loss   = 2.5 * np.exp(-0.13 * epochs) + np.random.randn(30) * 0.04 + 0.1
+train_acc  = 1 - train_loss / 3
+val_acc    = 1 - val_loss   / 3
+
+models_cmp = ["GPT-4", "Claude", "Gemini", "Llama 3", "Mistral"]
+acc_cmp    = [91.2, 93.7, 90.5, 88.9, 87.1]
+conf_mat   = np.array([[45,3,2],[4,38,3],[1,2,42]])
+
+fig, axes = plt.subplots(2, 2, figsize=(14, 9))
+fig.suptitle("لوحة تحليل النموذج الشاملة", fontsize=15, fontweight="bold")
+
+# 1. Loss curves
+axes[0,0].plot(epochs, train_loss, label="Train", color="#2196F3", lw=2)
+axes[0,0].plot(epochs, val_loss,   label="Val",   color="#FF5722", lw=2, ls="--")
+axes[0,0].set_title("منحنى الـ Loss")
+axes[0,0].legend(); axes[0,0].grid(True, alpha=0.3)
+
+# 2. Accuracy curves
+axes[0,1].plot(epochs, train_acc*100, label="Train", color="#4CAF50", lw=2)
+axes[0,1].plot(epochs, val_acc*100,   label="Val",   color="#9C27B0", lw=2, ls="--")
+axes[0,1].set_title("منحنى الدقة")
+axes[0,1].legend(); axes[0,1].grid(True, alpha=0.3)
+
+# 3. Model comparison
+clrs = ["#4285F4","#FF6B35","#34A853","#EA4335","#673AB7"]
+bars = axes[1,0].bar(models_cmp, acc_cmp, color=clrs)
+for b, s in zip(bars, acc_cmp):
+    axes[1,0].text(b.get_x()+b.get_width()/2, b.get_height()+0.1,
+                   f"{s}%", ha="center", fontsize=8, fontweight="bold")
+axes[1,0].set_title("مقارنة النماذج"); axes[1,0].set_ylim(84, 97)
+axes[1,0].tick_params(axis="x", labelsize=8)
+
+# 4. Confusion matrix
+im = axes[1,1].imshow(conf_mat, cmap="Blues")
+axes[1,1].set_title("Confusion Matrix")
+cls = ["Cat","Dog","Bird"]
+axes[1,1].set_xticks(range(3)); axes[1,1].set_xticklabels(cls)
+axes[1,1].set_yticks(range(3)); axes[1,1].set_yticklabels(cls)
+for i in range(3):
+    for j in range(3):
+        axes[1,1].text(j, i, conf_mat[i,j], ha="center", va="center",
+                       fontweight="bold",
+                       color="white" if conf_mat[i,j] > 30 else "black")
+plt.colorbar(im, ax=axes[1,1])
+
+plt.tight_layout()
+plt.savefig("model_dashboard.png", dpi=120, bbox_inches="tight")
+plt.show()
+print("✅ تم حفظ اللوحة في model_dashboard.png")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 8 — مشروع: تحليل بيانات CSV كاملة
+    {
+      bodyAr: `## مشروع: تحليل بيانات CSV كاملة
+
+في هذا الدرس تطبّق كل ما تعلّمته في مشروع متكامل — من تحميل البيانات إلى الرسوم البيانية والاستنتاجات.
+
+### المشروع: تحليل سوق وظائف AI
+
+**الهدف:** تحليل مجموعة بيانات وظائف AI لاستخراج رؤى تساعد في بناء مسار مهني.
+
+**المهارات المستخدمة:** Python · NumPy · Pandas · Matplotlib
+
+### الخطوة 1: تحضير البيانات
+
+\`\`\`python
+import pandas as pd, numpy as np, matplotlib.pyplot as plt, io
+
+# البيانات كنص CSV مدمج مباشرة في الكود
+raw = 'job,salary,exp,skill\nData Scientist,120000,3,Python\nML Engineer,150000,5,PyTorch'
+df = pd.read_csv(io.StringIO(raw))
+\`\`\`
+
+### الخطوة 2: الاستكشاف الأولي
+
+\`\`\`python
+print(f"الحجم: {df.shape}")
+print(df.describe().round(0))
+\`\`\`
+
+### الخطوة 3: إثراء البيانات
+
+\`\`\`python
+df["monthly"]   = (df["salary"] / 12).astype(int)
+df["seniority"] = pd.cut(df["exp"], bins=[0,2,5,99],
+                          labels=["مبتدئ","متوسط","خبير"])
+df["roi"]       = (df["demand"] * df["salary"] / 100_000).round(2)
+\`\`\`
+
+### الخطوة 4: تحليل واستنتاجات
+
+\`\`\`python
+corr = df["exp"].corr(df["salary"])
+print(f"ارتباط الخبرة بالراتب: {corr:.2f}")
+
+top3 = df.nlargest(3, "salary")[["job","salary"]]
+print(top3.to_string(index=False))
+
+level_avg = df.groupby("seniority", observed=True)["salary"].mean()
+print(level_avg)
+\`\`\`
+
+### الخطوة 5: التصوير
+
+\`\`\`python
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+axes[0].barh(df["job"], df["salary"]/1000, color="#2196F3")
+axes[0].set_title("الراتب (ألف $)")
+axes[1].scatter(df["exp"], df["salary"]/1000, alpha=0.8)
+axes[1].set_title("الخبرة × الراتب")
+plt.tight_layout()
+plt.savefig("ai_jobs.png", dpi=120, bbox_inches="tight")
+plt.show()
+\`\`\`
+
+### الخطوة 6: التوصيات
+
+\`\`\`python
+best = df.loc[df["roi"].idxmax()]
+print(f"✅ أفضل وظيفة: {best['job']} (\${best['salary']:,})")
+print("💡 مسار: Python → ML → APIs → Deploy")
+\`\`\`
+
+### خلاصة المشروع
+
+1. ✅ حمّلنا بيانات وفهمنا هيكلها
+2. ✅ نظّفناها وأضفنا أعمدة محسوبة
+3. ✅ حللنا البيانات وأجبنا على أسئلة حقيقية
+4. ✅ صوّرنا النتائج في لوحة احترافية
+5. ✅ استخرجنا توصيات قابلة للتنفيذ
+
+هذا هو بالضبط سير عمل Data Scientist الحقيقي.`,
+
+      bodyEn: `## Project: Complete CSV Data Analysis
+
+In this lesson you apply everything learned in one integrated real project — from loading data to charts and conclusions.
+
+### The Project: AI Jobs Market Analysis
+
+**Goal:** Analyze an AI jobs dataset to extract insights that help build a career path.
+
+**Skills Used:** Python · NumPy · Pandas · Matplotlib
+
+### Step 1: Prepare the Data
+
+\`\`\`python
+import pandas as pd, numpy as np, matplotlib.pyplot as plt, io
+
+# Inline CSV data
+raw = 'job,salary,exp,skill\nData Scientist,120000,3,Python\nML Engineer,150000,5,PyTorch'
+df = pd.read_csv(io.StringIO(raw))
+\`\`\`
+
+### Step 2: Initial Exploration
+
+\`\`\`python
+print(f"Shape: {df.shape}")
+print(df.describe().round(0))
+\`\`\`
+
+### Step 3: Enrich the Data
+
+\`\`\`python
+df["monthly"]   = (df["salary"] / 12).astype(int)
+df["seniority"] = pd.cut(df["exp"], bins=[0,2,5,99],
+                          labels=["junior","mid","senior"])
+df["roi"]       = (df["demand"] * df["salary"] / 100_000).round(2)
+\`\`\`
+
+### Step 4: Analysis and Insights
+
+\`\`\`python
+corr = df["exp"].corr(df["salary"])
+print(f"Experience-salary correlation: {corr:.2f}")
+
+top3 = df.nlargest(3, "salary")[["job","salary"]]
+print(top3.to_string(index=False))
+
+level_avg = df.groupby("seniority", observed=True)["salary"].mean()
+print(level_avg)
+\`\`\`
+
+### Step 5: Visualization
+
+\`\`\`python
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+axes[0].barh(df["job"], df["salary"]/1000, color="#2196F3")
+axes[0].set_title("Annual Salary (thousands)")
+axes[1].scatter(df["exp"], df["salary"]/1000, alpha=0.8)
+axes[1].set_title("Experience vs Salary")
+plt.tight_layout()
+plt.savefig("ai_jobs.png", dpi=120, bbox_inches="tight")
+plt.show()
+\`\`\`
+
+### Step 6: Recommendations
+
+\`\`\`python
+best = df.loc[df["roi"].idxmax()]
+print(f"Best role: {best['job']} (\${best['salary']:,})")
+print("Path: Python → ML → APIs → Deploy")
+\`\`\`
+
+### Project Summary
+
+1. ✅ Loaded data and understood its structure
+2. ✅ Cleaned it and added computed columns
+3. ✅ Analyzed the data and answered real questions
+4. ✅ Visualized results in a professional dashboard
+5. ✅ Extracted actionable recommendations
+
+This is exactly the real Data Scientist workflow.`,
+
+      codeExample: `# ─── المشروع الكامل: تحليل سوق وظائف AI ───
+import pandas as pd, numpy as np, matplotlib.pyplot as plt, io
+
+lines = [
+    "job_title,salary_usd,exp_yr,top_skill,remote,demand_score",
+    "Data Scientist,120000,3,Python,True,9.2",
+    "ML Engineer,150000,5,PyTorch,True,9.5",
+    "AI Researcher,160000,7,Research,False,8.8",
+    "Data Analyst,85000,2,SQL,True,8.5",
+    "NLP Engineer,140000,4,NLP,True,8.9",
+    "CV Engineer,135000,4,OpenCV,False,8.7",
+    "MLOps Engineer,145000,6,Docker,True,9.0",
+    "AI Product Mgr,130000,5,Strategy,True,8.3",
+    "Data Engineer,125000,4,Spark,False,8.8",
+    "LLM Engineer,155000,3,LangChain,True,9.4",
+]
+df = pd.read_csv(io.StringIO("\n".join(lines)))
+
+print("=== الاستكشاف ===")
+print(f"الحجم: {df.shape[0]} وظيفة x {df.shape[1]} خاصية")
+
+df["monthly"]   = (df["salary_usd"] / 12).astype(int)
+df["seniority"] = pd.cut(df["exp_yr"], bins=[0,2,5,99],
+                          labels=["مبتدئ","متوسط","خبير"])
+df["roi"]       = (df["demand_score"] * df["salary_usd"] / 100_000).round(2)
+
+print("\n=== إحصاء الرواتب ($) ===")
+print(df["salary_usd"].describe().apply(lambda x: f"\${x:,.0f}"))
+
+corr = np.corrcoef(df["exp_yr"], df["salary_usd"])[0,1]
+print(f"\n📈 ارتباط الخبرة بالراتب: {corr:.3f}")
+
+print("\n🏆 أعلى 3 رواتب:")
+top = df.nlargest(3,"salary_usd")[["job_title","salary_usd"]]
+print(top.to_string(index=False))
+
+print("\n=== متوسط الراتب حسب المستوى ===")
+lv = df.groupby("seniority", observed=True)["salary_usd"].agg(["mean","count"])
+for lvl, row in lv.iterrows():
+    print(f"  {lvl}: \${row['mean']:,.0f}  ({int(row['count'])} وظيفة)")
+
+remote_pct = df["remote"].mean() * 100
+print(f"\n🏠 وظائف عن بُعد: {remote_pct:.0f}%")
+
+fig, axes = plt.subplots(2, 2, figsize=(14, 9))
+fig.suptitle("تحليل سوق وظائف الذكاء الاصطناعي 2025",
+             fontsize=14, fontweight="bold")
+
+sd = df.sort_values("salary_usd")
+clr = ["#4CAF50" if r else "#F44336" for r in sd["remote"]]
+axes[0,0].barh(sd["job_title"], sd["salary_usd"]/1000, color=clr, alpha=0.85)
+axes[0,0].set_title("الراتب (أخضر=بُعد، أحمر=حضوري)")
+
+sc = axes[0,1].scatter(df["exp_yr"], df["salary_usd"]/1000,
+                        c=df["demand_score"], cmap="RdYlGn",
+                        s=df["demand_score"]*18, alpha=0.8)
+plt.colorbar(sc, ax=axes[0,1], label="الطلب")
+axes[0,1].set_title("الخبرة × الراتب")
+
+rs = df.sort_values("roi", ascending=False)
+axes[1,0].bar(range(len(rs)), rs["roi"], color="#9C27B0", alpha=0.8)
+axes[1,0].set_xticks(range(len(rs)))
+axes[1,0].set_xticklabels([t.split()[0] for t in rs["job_title"]],
+                            rotation=45, ha="right", fontsize=8)
+axes[1,0].set_title("ROI Score")
+
+axes[1,1].hist(df["demand_score"], bins=8, color="#2196F3", edgecolor="white")
+axes[1,1].axvline(df["demand_score"].mean(), color="red", ls="--", lw=2,
+                   label=f"μ={df['demand_score'].mean():.2f}")
+axes[1,1].set_title("توزيع درجة الطلب"); axes[1,1].legend()
+
+plt.tight_layout()
+plt.savefig("ai_jobs_analysis.png", dpi=120, bbox_inches="tight")
+plt.show()
+
+best = df.loc[df["roi"].idxmax()]
+print("\n" + "="*40)
+print("      التوصيات النهائية")
+print("="*40)
+print(f"🥇 أفضل وظيفة ROI : {best['job_title']}")
+print(f"   الراتب          : \${best['salary_usd']:,}")
+print(f"   المهارة         : {best['top_skill']}")
+print(f"\n💡 مسار: Python → NumPy/Pandas → ML → LLMs → Deploy")
+print("✅ تم حفظ التحليل في: ai_jobs_analysis.png")`,
+      codeLanguage: "python",
+    },
+  ],
 };
