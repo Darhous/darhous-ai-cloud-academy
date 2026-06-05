@@ -5,10 +5,11 @@ export async function generateMetadata({
   params,
 }: { params: Promise<{ code: string }> }): Promise<Metadata> {
   const { code } = await params;
+  void code;
   return {
-    title: `Certificate Verification | ${code}`,
+    title: "Certificate Verification | Darhous Academy",
     description: "Verify the authenticity of a Darhous AI Academy certificate",
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: false },
   };
 }
 

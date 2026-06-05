@@ -344,25 +344,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     );
   }
 
-  if (!user || !isAdmin) {
-    return (
-      <div className="container-xl py-20 text-center">
-        <div className="inline-flex flex-col items-center gap-4 px-8 py-10 rounded-3xl"
-          style={{ background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.2)" }}>
-          <Shield size={40} style={{ color: "#ef4444" }} />
-          <h1 className="font-display font-bold text-2xl" style={{ color: "var(--color-on-surface)" }}>
-            {isAr ? "غير مصرح لك" : "Unauthorized"}
-          </h1>
-          <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-            {isAr ? "هذه الصفحة متاحة للمشرفين فقط." : "This page is for admins only."}
-          </p>
-          <Link href={`/${locale}/dashboard`} className="glow-button-secondary text-sm font-mono px-5 py-2 rounded-xl">
-            {isAr ? "My Darhous Hub" : "My Darhous Hub"}
-          </Link>
-        </div>
-      </div>
-    );
-  }
+  // Auth is enforced server-side in page.tsx — no client-side gate needed.
 
   /* ── Tabs config ──────────────────────────────────────────────────────── */
   const tabs: { id: AdminTab; labelAr: string; labelEn: string; icon: React.ReactNode }[] = [
@@ -402,7 +384,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
             {isAr ? "استوديو الإدارة" : "Darhous Admin Studio"}
           </h1>
           <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>
-            {(profile as UserProfile & { email?: string })?.email ?? user.email}
+            {(profile as UserProfile & { email?: string })?.email ?? user?.email}
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -704,7 +686,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                       {isAr ? "ترقية" : "Promote"}
                     </button>
                   )}
-                  {u.role === "admin" && u.id !== user.id && (
+                  {u.role === "admin" && u.id !== user?.id && (
                     <button onClick={() => promoteUser(u.id, "student")}
                       className="text-[11px] font-mono px-2 py-0.5 rounded-lg transition-opacity hover:opacity-70"
                       style={{ background: "rgba(142,213,255,0.06)", color: "var(--color-on-surface-variant)", border: "1px solid var(--color-outline-variant)" }}>

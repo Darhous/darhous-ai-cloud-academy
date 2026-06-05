@@ -1,9 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
 const ALLOWED_TYPES = ["application/pdf", "text/plain"];
 
 export async function POST(req: NextRequest) {
+  const ip = getClientIp(req);
+  const rl = checkRateLimit(`career-upload-cv:${ip}`, { limit: 10, windowSec: 60 });
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: `طلبات كثيرة. انتظر ${rl.resetInSec} ثانية.` },
+      { status: 429, headers: { "Retry-After": String(rl.resetInSec) } }
+    );
+  }
+
   try {
     const formData = await req.formData();
     const file = formData.get("cv") as File | null;
