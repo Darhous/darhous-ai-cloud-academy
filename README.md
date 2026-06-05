@@ -245,8 +245,17 @@ For deployment details, environment configuration, and release guidance, see [`D
 
 **ابنِ مهاراتك، طبّق معرفتك، وتقدّم مع الذكاء الاصطناعي**
 
-[Explore the Academy](https://darhous-ai-cloud-academy.vercel.app) · [Arabic Experience](https://darhous-ai-cloud-academy.vercel.app/ar) · [English Experience](https://darhous-ai-cloud-academy.vercel.app/en)
+<br />
 
-<sub>Darhous AI Cloud Academy · Practical technology education for the next generation of builders</sub>
+[![Instagram](https://img.shields.io/badge/Instagram-Darhous-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/darhous/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Darhous-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/darhous/)
+[![Facebook](https://img.shields.io/badge/Facebook-Darhous-0866FF?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/ahmed.darhous)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Contact-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/201030002331)
+
+<br />
+
+**Darhous / درهوس**
+
+<sub>designed by <a href="mailto:ahmeddarhous@gmail.com">Ahmed Darhous</a> ©</sub>
 
 </div>
