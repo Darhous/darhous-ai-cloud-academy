@@ -9,18 +9,50 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | v15.0 — Certificates Redesign COMPLETE ✅ |
-| **Next Version** | ترقية وكيل AI + مفتاح Gemini حقيقي · توسعة محتوى الأتمتة |
-| **Status** | ✅ نظام الشهادات مُعاد تصميمه بالكامل — تصميم فاخر + QR + توقيع + تحقق موحّد + معاينة أدمن |
+| **Version** | C4 — IoT Lessons English Fields COMPLETE ✅ |
+| **Next Version** | C5 (I1) — لا تبدأ إلا بعد تأكيد المستخدم |
+| **Status** | ✅ 59 IoT lessons + En fields + locale-aware page + sitemap expanded |
 | **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 |
-| **Last Tag** | `checkpoint/certificates-redesign-complete` |
-| **Commit** | `d5f2663` |
+| **Last Tag** | `checkpoint/phase-C4-iot-lessons-en` |
+| **Commit** | `64ec250` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-04 (Certificates Redesign v15.0) |
+| **Last Updated** | 2026-06-05 (C4 IoT Lessons En) |
+
+---
+
+## ✅ C4 — IoT Lessons English Fields COMPLETE (2026-06-05)
+
+**Tag:** `checkpoint/phase-C4-iot-lessons-en` · **Commit:** `64ec250`
+
+### ما اكتمل
+
+| الملف | ما تم |
+|-------|-------|
+| `src/data/iot/lessons1.ts` | إضافة 6 حقول اختيارية للـ Lesson interface + ملء En لـ 15 درس |
+| `src/data/iot/lessons2.ts` | ملء En لـ 15 درس |
+| `src/data/iot/lessons3.ts` | ملء En لـ 15 درس |
+| `src/data/iot/lessons4.ts` | ملء En لـ 14 درس |
+| `src/app/[locale]/iot-lab/lessons/[slug]/page.tsx` | locale-aware: dir/labels/content حسب اللغة + fallback للعربية |
+| `src/app/sitemap.ts` | IoT lesson entries من /ar/ فقط → كلا /ar/ + /en/ (+59 مسار) |
+
+### الحقول الجديدة في الـ interface
+```ts
+titleEn?: string
+categoryEn?: string
+descriptionEn?: string
+contentEn?: string
+wiringNotesEn?: string
+commonMistakesEn?: string
+```
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (73 warnings, all pre-existing)
+- `npm run build` → ✅ exit 0
 
 ---
 
