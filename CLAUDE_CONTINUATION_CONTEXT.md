@@ -9,18 +9,71 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | C5 — AI Academy Lesson Content Completion COMPLETE ✅ |
-| **Next Version** | C6 — لا تبدأ إلا بعد تأكيد المستخدم |
-| **Status** | ✅ 5 دروس مكتملة: ai-foundations (5-8) + prompt-engineering (5) |
+| **Version** | C6 — python-for-ai Lesson Content COMPLETE ✅ |
+| **Next Version** | C7 — لا تبدأ إلا بعد تأكيد المستخدم |
+| **Status** | ✅ 8 دروس مكتملة: python-for-ai (1-8) |
 | **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 |
-| **Last Tag** | `checkpoint/phase-C5-content-completion` |
-| **Commit** | `ee2bcac` |
+| **Last Tag** | `checkpoint/phase-C6-python-for-ai` |
+| **Commit** | `22a3ebd` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-05 (C5 AI Academy Lesson Content) |
+| **Last Updated** | 2026-06-05 (C6 python-for-ai Lesson Content) |
+
+---
+
+## ✅ C6 — python-for-ai Lesson Content COMPLETE (2026-06-05)
+
+**Tag:** `checkpoint/phase-C6-python-for-ai` · **Commit:** `22a3ebd`
+
+### ما اكتمل
+
+| الملف | ما تم |
+|-------|-------|
+| `src/data/lessons/content.ts` | إضافة 8 دروس كاملة لدورة python-for-ai (1719 سطر إضافي) |
+
+### الدروس المُكتملة
+
+| # | العنوان | نوع المحتوى |
+|---|---------|------------|
+| 1 | تثبيت Python وإعداد البيئة | bodyAr + bodyEn + codeExample |
+| 2 | المتغيرات وأنواع البيانات | bodyAr + bodyEn + codeExample |
+| 3 | الحلقات والشروط | bodyAr + bodyEn + codeExample |
+| 4 | الدوال والوحدات | bodyAr + bodyEn + codeExample |
+| 5 | مدخل إلى NumPy | bodyAr + bodyEn + codeExample |
+| 6 | مدخل إلى Pandas | bodyAr + bodyEn + codeExample |
+| 7 | تصور البيانات مع Matplotlib | bodyAr + bodyEn + codeExample |
+| 8 | مشروع: تحليل بيانات CSV كاملة | bodyAr + bodyEn + codeExample |
+
+### ملاحظات تقنية
+- جميع الـ backticks داخل TypeScript template literals محمية بـ `\`` عبر دالة `ts()` في السكريبت
+- جميع `${...}` في كود Python محمية بـ `\${` لمنع TypeScript من تفسيرها كـ template expressions
+- سكريبت التوليد محفوظ في: `scripts/gen_c6_content.py`
+
+### حالة الـ null في الدورات بعد C6
+
+| الدورة | الدروس الكاملة | الدروس null |
+|--------|--------------|------------|
+| `ai-foundations` | 8/8 ✅ | 0 ✅ |
+| `prompt-engineering` | 5/5 ✅ | 0 ✅ |
+| `python-for-ai` | 8/8 ✅ | 0 ✅ |
+| باقي الدورات (15) | — | كل الدروس (لم تُحدَّد بعد) |
+
+### الدورات المرشحة لـ C7 (ترتيب مقترح)
+
+| الدورة | lessonOutline | المستوى | ملاحظة |
+|--------|--------------|---------|--------|
+| `claude-mastery` | 7 دروس | متوسط | ⭐ Featured · مرتبطة بـ Claude API |
+| `machine-learning` | 8 دروس | متوسط | ⭐ Featured · تالي لـ python-for-ai |
+| `generative-ai` | 5 دروس | متوسط | ⭐ Featured · LLMs + RAG |
+| `ai-for-business` | 3 دروس | مبتدئ | سريع الإنجاز |
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (73 warnings, pre-existing)
+- `npm run build` → ✅ exit 0
 
 ---
 
