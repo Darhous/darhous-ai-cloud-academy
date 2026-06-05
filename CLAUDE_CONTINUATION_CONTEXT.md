@@ -9,19 +9,45 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | Phase 0 — Main Alignment COMPLETE ✅ |
-| **Next Phase** | Phase 1 — Emergency Privacy & Security Hotfixes 🔴 — **تنتظر تأكيد المستخدم** |
-| **خطة التنفيذ** | `reports/خطة-التنفيذ.md` (v2 — معتمدة — على main الآن) |
-| **Status** | ✅ main محاذى + GitHub polish + تقرير الشهادات + الخطة على main |
+| **Version** | Phase 1 — Emergency Privacy & Security Hotfixes COMPLETE ✅ |
+| **Next Phase** | Phase 2 — Launch-Critical SEO & Sitemap 🟡 — **تنتظر تأكيد المستخدم** |
+| **خطة التنفيذ** | `reports/خطة-التنفيذ.md` (v2 — معتمدة — على main) |
+| **Status** | ✅ Privacy + Security headers + Rate limit + Admin client fix |
 | **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 — 1265 pages |
-| **Last Tag** | `checkpoint/main-realigned` |
-| **Commit** | `0070cc2` (آخر commit بعد ff-merge) |
+| **Last Tag** | `checkpoint/prelaunch-security-privacy` |
+| **Commit** | `435fe39` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
-| **Branch** | `main` (العمل على main فقط من الآن) |
-| **Last Updated** | 2026-06-06 (Phase 0 — Branch Safety & Main Alignment) |
+| **Branch** | `main` (العمل على main فقط) |
+| **Last Updated** | 2026-06-06 (Phase 1 — Emergency Privacy & Security Hotfixes) |
+
+---
+
+## ✅ Phase 1 — Emergency Privacy & Security Hotfixes COMPLETE (2026-06-06)
+
+**Tag:** `checkpoint/prelaunch-security-privacy` · **Commit:** `435fe39`
+
+### ما اكتمل
+
+| الملف | الإصلاح | ISS |
+|-------|---------|-----|
+| `src/app/certificates/verify/[code]/page.tsx` | `robots: {index:false,follow:false}` + إزالة الكود من العنوان | Privacy |
+| `next.config.ts` | Security headers: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy, Permissions-Policy, HSTS | ISS-012 |
+| `src/app/api/career/upload-cv/route.ts` | Rate limit: 10 req/min per IP | ISS-005 |
+| `src/components/admin/AdminDashboardClient.tsx` | حذف الـ redundant client-side admin gate (server page.tsx يتكفل بالحماية) | ISS-006 |
+| `src/proxy.ts` | موجود بالفعل — session refresh + admin redirect | ISS-004 ✅ |
+
+### ملاحظات
+- `proxy.ts` (Next.js 16 equivalent لـ middleware) كان موجودًا بالفعل ويحتوي على session refresh + حماية routes → لا تعارض
+- `middleware.ts` الذي كنت أريد إنشاءه كان يتعارض مع `proxy.ts` → حُذف مباشرةً
+- Security headers لا تشمل CSP (تحتاج اختباراً دقيقاً — مؤجّلة لمرحلة لاحقة)
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors
+- `npm run build` → ✅ exit 0 — 1265 pages
 
 ---
 
