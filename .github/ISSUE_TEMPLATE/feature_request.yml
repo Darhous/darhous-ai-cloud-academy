@@ -1,0 +1,77 @@
+name: Feature request
+description: Propose an improvement to the Darhous learning ecosystem
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the learner or platform need before proposing implementation details. Major changes may require further product discussion.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature summary
+      description: Give the proposal a concise, outcome-focused description.
+      placeholder: What should be added or improved?
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem solved
+      description: Explain the user need, limitation, or opportunity this addresses.
+      placeholder: Who is affected, and why does this matter?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Suggested solution
+      description: Describe the desired behavior without exposing credentials or private data.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: portal
+    attributes:
+      label: Affected portal
+      options:
+        - Platform-wide
+        - AI Academy
+        - Language Portal
+        - Digital Exams
+        - Automation Academy
+        - Career Hub
+        - IoT Lab
+        - Dashboard
+        - Admin
+        - AI Mentor
+        - Auth
+        - Certificates
+        - SEO
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Select the suggested priority based on user impact.
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add examples, mockups, alternatives, or other useful context.
