@@ -9,18 +9,59 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | C4 — IoT Lessons English Fields COMPLETE ✅ |
-| **Next Version** | C5 (I1) — لا تبدأ إلا بعد تأكيد المستخدم |
-| **Status** | ✅ 59 IoT lessons + En fields + locale-aware page + sitemap expanded |
+| **Version** | C5 — AI Academy Lesson Content Completion COMPLETE ✅ |
+| **Next Version** | C6 — لا تبدأ إلا بعد تأكيد المستخدم |
+| **Status** | ✅ 5 دروس مكتملة: ai-foundations (5-8) + prompt-engineering (5) |
 | **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 |
-| **Last Tag** | `checkpoint/phase-C4-iot-lessons-en` |
-| **Commit** | `64ec250` |
+| **Last Tag** | `checkpoint/phase-C5-content-completion` |
+| **Commit** | `ee2bcac` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` |
-| **Last Updated** | 2026-06-05 (C4 IoT Lessons En) |
+| **Last Updated** | 2026-06-05 (C5 AI Academy Lesson Content) |
+
+---
+
+## ✅ C5 — AI Academy Lesson Content Completion COMPLETE (2026-06-05)
+
+**Tag:** `checkpoint/phase-C5-content-completion` · **Commit:** `ee2bcac`
+
+### ما اكتمل
+
+| الملف | ما تم |
+|-------|-------|
+| `src/data/lessons/content.ts` | إضافة 5 دروس كاملة (1067 سطر إضافي) |
+
+### الدروس المُكتملة
+
+| الدورة | الدرس | الموضوع | نوع المحتوى |
+|--------|-------|---------|------------|
+| `ai-foundations` | 5 (index 4) | مقدمة في النماذج الكبيرة (LLMs) | bodyAr + bodyEn + codeExample |
+| `ai-foundations` | 6 (index 5) | جولة على أشهر أدوات AI | bodyAr + bodyEn |
+| `ai-foundations` | 7 (index 6) | مشروع: بناء أول Chatbot | bodyAr + bodyEn + codeExample |
+| `ai-foundations` | 8 (index 7) | مراجعة الوحدة الأولى (Quiz Prep) | bodyAr + bodyEn |
+| `prompt-engineering` | 5 (index 4) | System Prompts | bodyAr + bodyEn + codeExample |
+
+### بنية كل درس
+- `bodyAr`: محتوى كامل بالعربية مع headings + tables + code blocks
+- `bodyEn`: نفس المحتوى بالإنجليزية
+- `codeExample`: كود Python للدروس التطبيقية (3 دروس من 5)
+- `codeLanguage`: "python"
+
+### حالة الـ null في الدورات بعد C5
+
+| الدورة | الدروس الكاملة | الدروس null |
+|--------|--------------|------------|
+| `ai-foundations` | 8/8 ✅ | 0 ✅ |
+| `prompt-engineering` | 5/5 ✅ | 0 ✅ |
+| باقي الدورات | — | كل الدروس (لم تُحدَّد بعد) |
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run lint` → ✅ 0 errors (73 warnings, pre-existing)
+- `npm run build` → ✅ exit 0
 
 ---
 
