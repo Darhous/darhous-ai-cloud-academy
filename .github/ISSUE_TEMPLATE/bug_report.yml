@@ -1,0 +1,87 @@
+name: Bug report
+description: Report a reproducible problem in the Darhous platform
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a problem. Do not include secrets, credentials, personal data, or security vulnerability details.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly describe the problem and its impact.
+      placeholder: What went wrong?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area affected
+      options:
+        - AI Academy
+        - Language Portal
+        - Digital Exams
+        - Automation Academy
+        - Career Hub
+        - IoT Lab
+        - Dashboard
+        - Admin
+        - AI Mentor
+        - Auth
+        - Certificates
+        - SEO
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Provide the smallest reliable sequence that reproduces the issue.
+      placeholder: |
+        1. Go to ...
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: What happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or logs
+      description: Add relevant screenshots or sanitized logs. Remove secrets and personal data.
+
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and device
+      description: Include browser version, operating system, and device type.
+      placeholder: Chrome 135, Windows 11, desktop
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any other non-sensitive information that may help investigation.
