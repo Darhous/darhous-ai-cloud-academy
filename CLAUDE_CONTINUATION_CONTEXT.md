@@ -9,18 +9,53 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | C6 — python-for-ai Lesson Content COMPLETE ✅ |
-| **Next Version** | C7 — لا تبدأ إلا بعد تأكيد المستخدم |
-| **Status** | ✅ 8 دروس مكتملة: python-for-ai (1-8) |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 |
-| **Last Tag** | `checkpoint/phase-C6-python-for-ai` |
-| **Commit** | `22a3ebd` |
+| **Version** | Phase 0 — Main Alignment COMPLETE ✅ |
+| **Next Phase** | Phase 1 — Emergency Privacy & Security Hotfixes 🔴 — **تنتظر تأكيد المستخدم** |
+| **خطة التنفيذ** | `reports/خطة-التنفيذ.md` (v2 — معتمدة — على main الآن) |
+| **Status** | ✅ main محاذى + GitHub polish + تقرير الشهادات + الخطة على main |
+| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 — 1265 pages |
+| **Last Tag** | `checkpoint/main-realigned` |
+| **Commit** | `0070cc2` (آخر commit بعد ff-merge) |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
-| **Branch** | `main` |
-| **Last Updated** | 2026-06-05 (C6 python-for-ai Lesson Content) |
+| **Branch** | `main` (العمل على main فقط من الآن) |
+| **Last Updated** | 2026-06-06 (Phase 0 — Branch Safety & Main Alignment) |
+
+---
+
+## ✅ Phase 0 — Branch Safety & Main Alignment COMPLETE (2026-06-06)
+
+**Tag:** `checkpoint/main-realigned` · **Commit:** `0070cc2`
+
+### ما اكتمل
+
+| الخطوة | التفاصيل |
+|--------|----------|
+| فحص working tree | نظيف — لا uncommitted changes |
+| فحص commits | 3 commits توثيقية فقط (docs/.github/reports) — صفر تغيير على src/ أو APIs أو Supabase |
+| fast-forward merge | `github-repository-polish` → `main` (ff-only) — نجح |
+| typecheck | ✅ 0 errors |
+| lint | ✅ 0 errors (pre-existing warnings فقط) |
+| build | ✅ exit 0 — 1265 pages |
+| tag | `checkpoint/main-realigned` |
+| push | main + tag → GitHub + Vercel deployment |
+
+### الملفات التي وصلت إلى main
+
+| الملف | الوصف |
+|-------|-------|
+| `reports/خطة-التنفيذ.md` | خطة التنفيذ الرئيسية v2 — Phases 0-7 |
+| `reports/تقرير-الشهادات.md` | تقرير المراجعة الشاملة لنظام الشهادات |
+| `docs/GITHUB_REPOSITORY_POLISH.md` | توثيق GitHub repository polish |
+| `.github/ISSUE_TEMPLATE/` | قوالب GitHub Issues (bug/feature/config) |
+| `.github/PULL_REQUEST_TEMPLATE.md` | قالب Pull Request |
+| `CONTRIBUTING.md` · `LICENSE` · `SECURITY.md` | ملفات المجتمع القياسية |
+
+### الخطوة التالية
+**Phase 1 — Emergency Privacy & Security Hotfixes 🔴** — تنتظر تأكيد المستخدم.
+انظر `reports/خطة-التنفيذ.md` للتفاصيل الكاملة.
 
 ---
 
