@@ -19,9 +19,21 @@ export async function generateMetadata({
   const subject = getSubjectById(subjectId);
   if (!subject) return { title: "Exam Not Found" };
   const isAr = locale === "ar";
+  const title = isAr
+    ? `اختبار ${subject.labelAr} | درهوس`
+    : `${subject.label} Practice Exam | Darhous`;
+  const description = isAr
+    ? `اختبر معرفتك في ${subject.labelAr} — ${subject.descriptionAr}. أسئلة MCQ وصح/خطأ مع شرح فوري.`
+    : `Test your ${subject.label} knowledge — ${subject.description}. MCQ and True/False with instant explanations.`;
   return {
-    title: isAr ? `${subject.labelAr} | درهوس` : `${subject.label} | Darhous`,
-    robots: { index: false },
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website",
+    },
+    twitter: { card: "summary" },
   };
 }
 

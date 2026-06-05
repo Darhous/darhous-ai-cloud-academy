@@ -9,6 +9,7 @@ import { lessonsData } from "@/data/iot/lessons";
 import { projectsData } from "@/data/iot/projects";
 import { challengesData } from "@/data/iot/challenges";
 import { componentsData } from "@/data/iot/components";
+import { examSubjects } from "@/data/digital-exam-subjects";
 const BASE_URL = "https://darhous-ai-cloud-academy.vercel.app";
 const locales = ["ar", "en"];
 
@@ -119,29 +120,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  const iotProjectEntries = projectsData.map((item) => ({
-    url: `${BASE_URL}/ar/iot-lab/projects/${item.id}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const iotProjectEntries = locales.flatMap((locale) =>
+    projectsData.map((item) => ({
+      url: `${BASE_URL}/${locale}/iot-lab/projects/${item.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }))
+  );
 
-  const iotChallengeEntries = challengesData.map((item) => ({
-    url: `${BASE_URL}/ar/iot-lab/challenges/${item.id}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const iotChallengeEntries = locales.flatMap((locale) =>
+    challengesData.map((item) => ({
+      url: `${BASE_URL}/${locale}/iot-lab/challenges/${item.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }))
+  );
 
-  const iotComponentEntries = componentsData.map((item) => ({
-    url: `${BASE_URL}/ar/iot-lab/component-library/${item.id}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.65,
-  }));
+  const iotComponentEntries = locales.flatMap((locale) =>
+    componentsData.map((item) => ({
+      url: `${BASE_URL}/${locale}/iot-lab/component-library/${item.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    }))
+  );
 
-  // Digital Exams subjects are excluded from sitemap — each subject page is noindex
-  // (interactive exam pages, not landing content)
+  // Digital Exams subject landing pages — 9 subjects × 2 locales = 18 entries (ISS-003)
+  const digitalExamEntries = locales.flatMap((locale) =>
+    examSubjects.map((s) => ({
+      url: `${BASE_URL}/${locale}/digital-exams/${s.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.72,
+    }))
+  );
 
   return [
     ...staticEntries,
@@ -155,5 +169,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...iotProjectEntries,
     ...iotChallengeEntries,
     ...iotComponentEntries,
+    ...digitalExamEntries,
   ];
 }
