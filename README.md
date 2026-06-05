@@ -1,156 +1,252 @@
-# أكاديمية درهوس للذكاء الاصطناعي والكلاود
-## Darhous AI Cloud Academy
+<div align="center">
 
-A bilingual (Arabic/English) AI and Cloud learning platform built with Next.js 16, TypeScript, and Tailwind CSS v4.
+<img src="./public/og-image.svg" alt="Darhous AI Cloud Academy" width="100%" />
+
+<br />
+
+# Darhous AI Cloud Academy
+
+### أكاديمية درهوس للذكاء الاصطناعي والكلاود
+
+**A bilingual digital learning ecosystem for AI, cloud, automation, career development, language assessment, digital skills, and IoT.**
+
+[![Live Platform](https://img.shields.io/badge/Explore_Live_Platform-00668A?style=for-the-badge&logo=vercel&logoColor=white)](https://darhous-ai-cloud-academy.vercel.app)
+[![Arabic](https://img.shields.io/badge/العربية-0F766E?style=for-the-badge)](https://darhous-ai-cloud-academy.vercel.app/ar)
+[![English](https://img.shields.io/badge/English-571BC1?style=for-the-badge)](https://darhous-ai-cloud-academy.vercel.app/en)
+
+<br />
+
+[![Next.js](https://img.shields.io/badge/Next.js_16-000000?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript_5-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Supabase](https://img.shields.io/badge/Supabase-181818?style=flat-square&logo=supabase&logoColor=3ECF8E)](https://supabase.com/)
+[![Vercel](https://img.shields.io/badge/Deployed_on_Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/)
+
+</div>
 
 ---
 
-## Tech Stack
+## One Platform. Multiple Learning Portals.
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 App Router |
-| Language | TypeScript 5 |
-| Styling | Tailwind CSS v4 (CSS-based config) |
-| Animation | Framer Motion |
-| Icons | Lucide React v1 |
-| AI Mentor | Google Gemini API (server-side only) |
-| Deployment | Vercel |
+Darhous AI Cloud Academy is more than a course catalog. It is a production-grade EdTech platform that brings structured learning, practical labs, intelligent tools, assessments, projects, progress tracking, and certificates into one Arabic-first, bilingual experience.
+
+The platform is designed for learners who want to move from **understanding concepts** to **building real skills** across modern technology and career domains.
+
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <h3>🤖 AI Academy</h3>
+      <p>AI courses, tools, prompt engineering, intelligent labs, practical projects, challenges, and an AI mentor.</p>
+      <a href="https://darhous-ai-cloud-academy.vercel.app/ar/ai-academy">Enter portal →</a>
+    </td>
+    <td width="33%" valign="top">
+      <h3>🌐 Language Portal</h3>
+      <p>English level assessment, skill evaluation, instant results, and personalized learning recommendations.</p>
+      <a href="https://darhous-ai-cloud-academy.vercel.app/ar/language">Test your level →</a>
+    </td>
+    <td width="33%" valign="top">
+      <h3>💻 Digital Exams</h3>
+      <p>Assessments for IT, Microsoft Office, cybersecurity, and essential digital transformation skills.</p>
+      <a href="https://darhous-ai-cloud-academy.vercel.app/ar/digital-exams">Start an exam →</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
+      <h3>💼 Career Hub</h3>
+      <p>AI-powered CV analysis, ATS scoring, CV building, job matching, and interview preparation.</p>
+      <a href="https://darhous-ai-cloud-academy.vercel.app/ar/career">Build your career →</a>
+    </td>
+    <td width="33%" valign="top">
+      <h3>⚙️ Automation Academy</h3>
+      <p>Business automation learning paths, curated workflow recipes, practical labs, and a workflow builder.</p>
+      <a href="https://darhous-ai-cloud-academy.vercel.app/ar/automation">Explore automation →</a>
+    </td>
+    <td width="33%" valign="top">
+      <h3>🔌 IoT & Arduino Lab</h3>
+      <p>Arduino lessons, applied projects, coding challenges, component references, and an interactive simulator.</p>
+      <a href="https://darhous-ai-cloud-academy.vercel.app/ar/iot-lab">Enter the lab →</a>
+    </td>
+  </tr>
+</table>
 
 ---
 
-## Features
+## Platform Highlights
 
-- **Bilingual** — Full Arabic (RTL) and English (LTR) support
-- **Dark / Light mode** — CSS variable system, persisted in localStorage
-- **221 static pages** — SSG via Next.js App Router
-- **AI Mentor** — Powered by Gemini 2.5 Flash, 6 specialized modes, with UX polish and API protection
-- **AI Studio** — 4 standalone AI tools (Prompt Studio, Claude Code Generator, Tool Recommender, Roadmap Generator)
-- **Ask This Page** — Every detail page (course/tool/project/blog) links to AI Mentor with context
-- **Saved Prompts** — localStorage-based, saves AI-generated prompts from all Studio tools
-- **Command Palette** — Ctrl+K / Cmd+K global search across all content + page shortcuts
-- **Favorites** — localStorage-based, works without login
+| Experience | What it delivers |
+| --- | --- |
+| **Arabic + English** | Locale-aware Arabic RTL and English LTR experiences across the platform |
+| **AI learning workspace** | AI mentor, prompt studio, prompt scoring, tool recommendations, project generation, and personalized roadmaps |
+| **Structured education** | Courses, lessons, paths, challenges, glossaries, blogs, projects, and hands-on labs |
+| **Assessment engine** | Language assessment, digital exams, mixed exams, result history, and explanation workflows |
+| **Career intelligence** | CV analysis, ATS-oriented tooling, interview practice, templates, and job exploration |
+| **Learner identity** | Authentication, onboarding, profiles, public profile pages, dashboard, progress, and leaderboards |
+| **Proof of achievement** | Certificate issuing, previews, verification pages, and portal-specific certificate workflows |
+| **Discovery at scale** | Search, tool comparison, categorized content, favorites, and saved learning resources |
+| **Modern UX** | Responsive interface, theme support, motion, charts, command-oriented navigation, and installable PWA metadata |
 
-### Pages
-Home, Courses (18), Learning Paths (6), AI Tools Hub (40+), Claude Mastery, Cloud Academy, Projects (14), Prompt Library (25), Blog (12), Glossary (40 terms), About, Contact, Dashboard, **AI Mentor**, **Prompt Studio**, **Claude Code Generator**, **Tool Recommender**, **AI Roadmap Generator**
+---
 
-### AI Studio Tools
+## AI Studio
+
+The Academy includes focused AI experiences for learning and building, rather than a single generic chat interface.
+
 | Tool | Route | Purpose |
-|---|---|---|
-| AI Mentor ✨ | `/[locale]/mentor` | 6-mode chat assistant |
-| Prompt Studio ⚡ | `/[locale]/prompt-studio` | Improve any prompt with AI |
-| Claude Code Generator 🛠️ | `/[locale]/claude-code-generator` | Build full Claude Code prompts |
-| Tool Recommender 🔎 | `/[locale]/tool-recommender` | Find the right AI tool for your goal |
-| Roadmap Generator 🗺️ | `/[locale]/roadmap-generator` | AI-personalized learning plans |
-| Saved Items 📂 | `/[locale]/dashboard` | All saved prompts + favorites |
+| --- | --- | --- |
+| **AI Mentor** | `/[locale]/mentor` | Context-aware academy guidance and learning support |
+| **Prompt Studio** | `/[locale]/prompt-studio` | Improve and structure prompts for stronger outputs |
+| **Prompt Score** | `/[locale]/prompt-score` | Evaluate prompt quality and identify improvements |
+| **Prompt Battle** | `/[locale]/prompt-battle` | Practice prompt engineering through interactive challenges |
+| **Claude Code Generator** | `/[locale]/claude-code-generator` | Build detailed implementation prompts for coding workflows |
+| **Tool Recommender** | `/[locale]/tool-recommender` | Match learner goals with suitable AI tools |
+| **Roadmap Generator** | `/[locale]/roadmap-generator` | Generate personalized learning roadmaps |
+| **Project Generator** | `/[locale]/project-generator` | Turn ideas into structured, buildable project plans |
 
-### AI Mentor Modes
-| Mode | Purpose |
-|---|---|
-| Ask the Academy 🎓 | Q&A about AI, Cloud, tools, courses |
-| Prompt Optimizer ⚡ | Transform weak prompts into professional ones |
-| Claude Code Builder 🛠️ | Generate Claude Code prompts |
-| Learning Path Planner 🗺️ | Personalized learning plans |
-| Tool Finder 🔎 | Recommend tools from AI Hub |
-| Project Builder 🏗️ | Turn ideas into full AI projects |
+---
+
+## Architecture at a Glance
+
+```text
+src/
+├── app/
+│   ├── [locale]/                 # Localized learner-facing portal routes
+│   ├── api/                      # AI, assessment, progress, email, and admin APIs
+│   ├── certificates/             # Public certificate verification
+│   ├── og/                       # Dynamic Open Graph output
+│   ├── sitemap.ts
+│   └── robots.ts
+├── components/                   # Portal, feature, layout, and UI components
+├── config/                       # Central platform and portal configuration
+├── data/                         # Academy content and structured learning data
+├── hooks/                        # Client-side behavior and persisted learner state
+├── lib/                          # Integrations, services, and shared utilities
+└── messages/                     # Arabic and English translations
+```
+
+The application currently contains **87 page entry files** and **48 API route files**, organized around the Next.js App Router.
+
+---
+
+## Technology
+
+| Area | Technology |
+| --- | --- |
+| **Framework** | Next.js 16.2, React 19.2 |
+| **Language** | TypeScript 5 |
+| **Styling** | Tailwind CSS 4, CSS variables, `tailwind-merge`, `clsx` |
+| **Motion & UI** | Framer Motion, Lucide React, React Icons |
+| **Data & Auth** | Supabase SSR and Supabase JS |
+| **Content** | MDX Remote, Gray Matter |
+| **Search** | Fuse.js |
+| **Visualization** | Recharts |
+| **Documents** | React PDF, PDF parsing, QR codes |
+| **Email** | Resend |
+| **Deployment** | Vercel |
 
 ---
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js compatible with Next.js 16
+- npm
+- Required service credentials configured locally
+
+### Local development
+
 ```bash
-# Install dependencies
+git clone https://github.com/Darhous/darhous-ai-cloud-academy.git
+cd darhous-ai-cloud-academy
 npm install
-
-# Copy environment variables
 copy .env.example .env.local
-# Then edit .env.local and add your GEMINI_API_KEY
-
-# Start development server
 npm run dev
 ```
 
-Open:
-- Arabic: http://localhost:3000/ar
-- English: http://localhost:3000/en
-- AI Mentor: http://localhost:3000/ar/mentor
-- Prompt Studio: http://localhost:3000/ar/prompt-studio
-- Claude Code Generator: http://localhost:3000/ar/claude-code-generator
-- Tool Recommender: http://localhost:3000/ar/tool-recommender
-- Roadmap Generator: http://localhost:3000/ar/roadmap-generator
+Open [http://localhost:3000](http://localhost:3000). The root route directs visitors into the localized platform experience.
+
+> Keep credentials in `.env.local`. Never commit local environment files or expose server-only keys through public environment variables.
+
+### Available scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Next.js development server |
+| `npm run build` | Create a production build |
+| `npm run start` | Start the production server |
+| `npm run lint` | Run ESLint |
+| `npm run typecheck` | Run TypeScript without emitting files |
+| `npm run check` | Run linting, type checking, and the production build |
 
 ---
 
-## Environment Variables
+## Key Routes
 
-| Variable | Required | Description |
-|---|---|---|
-| `GEMINI_API_KEY` | Yes (for AI Mentor) | Google Gemini API key |
-| `GEMINI_MODEL` | No | Defaults to `gemini-2.5-flash` |
-
-Get your API key at: https://aistudio.google.com/app/apikey
-
-> **Security:** `GEMINI_API_KEY` is server-only. Never prefix with `NEXT_PUBLIC_`.
-
----
-
-## Project Structure
-
-```
-src/
-├── app/
-│   ├── api/mentor/route.ts          ← AI Mentor API (server-side, protected)
-│   ├── [locale]/
-│   │   ├── mentor/                  ← AI Mentor page
-│   │   ├── prompt-studio/           ← Prompt Studio page
-│   │   ├── claude-code-generator/   ← Claude Code Generator page
-│   │   ├── tool-recommender/        ← Tool Recommender page
-│   │   └── roadmap-generator/       ← Roadmap Generator page
-│   ├── sitemap.ts
-│   └── robots.ts
-├── components/
-│   ├── mentor/                      ← 8 AI Mentor components
-│   ├── prompt-studio/               ← PromptStudioClient
-│   ├── claude-generator/            ← ClaudeCodeGeneratorClient
-│   ├── tool-recommender/            ← ToolRecommenderClient
-│   ├── roadmap-generator/           ← RoadmapGeneratorClient
-│   ├── layout/                      ← Navbar, Footer, TopShowcaseBar
-│   ├── cards/                       ← CourseCard, ToolCard, etc.
-│   ├── ui/                          ← Button, Badge, AskThisPageButton
-│   └── features/                    ← CommandPalette, Favorites, SavedPromptsPanel
-├── data/                            ← All content (no database)
-│   └── mentor.ts                    ← AI Mentor modes + system prompts
-├── hooks/
-│   ├── useLocalFavorites.ts         ← Favorites (tools/courses/prompts/projects)
-│   └── useSavedPrompts.ts           ← AI-generated prompt storage
-├── lib/
-│   ├── gemini.ts                    ← Server-only Gemini client
-│   └── mentor-context.ts            ← Shared types and helpers
-└── messages/
-    ├── ar.json
-    └── en.json
+```text
+/{locale}                              Platform home
+/{locale}/ai-academy                   AI learning portal
+/{locale}/language                     English assessment portal
+/{locale}/digital-exams                Digital skills examination portal
+/{locale}/career                       Career development hub
+/{locale}/automation                   Automation academy
+/{locale}/iot-lab                      IoT and Arduino learning lab
+/{locale}/courses                      Course catalog
+/{locale}/projects                     Applied project library
+/{locale}/tools                        AI tools directory
+/{locale}/dashboard                    Learner dashboard
+/{locale}/certificates                 Learner certificates
+/{locale}/leaderboard                  Community leaderboard
 ```
 
----
-
-## Deploy to Vercel
-
-1. Push to GitHub (see `GITHUB_RELEASE_GUIDE.md`)
-2. Import repo at [vercel.com](https://vercel.com)
-3. Add `GEMINI_API_KEY` in Vercel Settings → Environment Variables
-4. Deploy
-
-See `DEPLOYMENT_GUIDE.md` for full instructions.
+Use `ar` or `en` as the locale segment.
 
 ---
 
-## Documentation
+## Quality Workflow
 
-| File | Contents |
-|---|---|
-| `CLAUDE_CONTINUATION_CONTEXT.md` | Full context for AI-assisted development |
-| `DEVELOPMENT_GUIDE.md` | Setup, commands, code style |
-| `CONTENT_ARCHITECTURE.md` | Data schemas for all content types |
-| `DEPLOYMENT_GUIDE.md` | Vercel deployment + env vars |
-| `FUTURE_ROADMAP.md` | Planned phases and features |
-| `GITHUB_RELEASE_GUIDE.md` | First push to GitHub |
+Run the complete local verification pipeline before opening a pull request:
+
+```bash
+npm run check
+```
+
+This executes ESLint, TypeScript validation, and a production build in sequence.
+
+---
+
+## Project Documentation
+
+| Document | Purpose |
+| --- | --- |
+| [`DEVELOPMENT_GUIDE.md`](./DEVELOPMENT_GUIDE.md) | Local setup, development workflow, and coding conventions |
+| [`CONTENT_ARCHITECTURE.md`](./CONTENT_ARCHITECTURE.md) | Content models and platform data architecture |
+| [`PLATFORM_BLUEPRINT.md`](./PLATFORM_BLUEPRINT.md) | Product structure and platform direction |
+| [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md) | Deployment workflow and production setup |
+| [`SUPABASE_SETUP.md`](./SUPABASE_SETUP.md) | Supabase configuration guidance |
+| [`ADMIN_GUIDE.md`](./ADMIN_GUIDE.md) | Administration features and operations |
+| [`FUTURE_ROADMAP.md`](./FUTURE_ROADMAP.md) | Planned platform evolution |
+
+---
+
+## Deployment
+
+The production application is deployed on Vercel:
+
+### [darhous-ai-cloud-academy.vercel.app](https://darhous-ai-cloud-academy.vercel.app)
+
+For deployment details, environment configuration, and release guidance, see [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md).
+
+---
+
+<div align="center">
+
+### Build skills. Create projects. Advance with AI.
+
+**ابنِ مهاراتك، طبّق معرفتك، وتقدّم مع الذكاء الاصطناعي**
+
+[Explore the Academy](https://darhous-ai-cloud-academy.vercel.app) · [Arabic Experience](https://darhous-ai-cloud-academy.vercel.app/ar) · [English Experience](https://darhous-ai-cloud-academy.vercel.app/en)
+
+<sub>Darhous AI Cloud Academy · Practical technology education for the next generation of builders</sub>
+
+</div>
