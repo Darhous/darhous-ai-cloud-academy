@@ -9,19 +9,40 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | Phase 1 — Emergency Privacy & Security Hotfixes COMPLETE ✅ |
-| **Next Phase** | Phase 2 — Launch-Critical SEO & Sitemap 🟡 — **تنتظر تأكيد المستخدم** |
+| **Version** | Phase 2 — Launch-Critical SEO & Sitemap COMPLETE ✅ |
+| **Next Phase** | Phase 3 — Launch-Critical Correctness Guards 🔴 — **تنتظر تأكيد المستخدم** |
 | **خطة التنفيذ** | `reports/خطة-التنفيذ.md` (v2 — معتمدة — على main) |
-| **Status** | ✅ Privacy + Security headers + Rate limit + Admin client fix |
+| **Status** | ✅ Sitemap bilingual IoT + Digital Exams subjects indexable |
 | **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 — 1265 pages |
-| **Last Tag** | `checkpoint/prelaunch-security-privacy` |
-| **Commit** | `435fe39` |
+| **Last Tag** | `checkpoint/prelaunch-seo-sitemap` |
+| **Commit** | `c376024` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` (العمل على main فقط) |
 | **Last Updated** | 2026-06-06 (Phase 1 — Emergency Privacy & Security Hotfixes) |
+
+---
+
+## ✅ Phase 2 — Launch-Critical SEO & Sitemap COMPLETE (2026-06-06)
+
+**Tag:** `checkpoint/prelaunch-seo-sitemap` · **Commit:** `c376024`
+
+### ما اكتمل
+
+| البند | التفاصيل | ISS |
+|-------|----------|-----|
+| IoT projects/challenges/components sitemap | `locales.flatMap()` — +194 EN URLs (كانت AR فقط) | ISS-002 |
+| Digital Exams subjects في sitemap | 9 مواد × 2 locales = 18 مسار جديد | ISS-003 |
+| Digital Exams subject pages | أُزيل noindex + أُضيف title/description/OG | ISS-003 |
+| OG للبوابات الخمس | ✅ موجود من قبل (language/digital-exams/career/ai-academy/iot-lab) | ISS-014 |
+| JSON-LD Organization | ✅ موجود من قبل (EducationalOrganization + WebSite في layout) | ISS-015 |
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run build` → ✅ exit 0 — 1265 pages
+- Vercel → ✅ Ready — 2 min
 
 ---
 
