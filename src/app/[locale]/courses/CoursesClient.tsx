@@ -12,6 +12,7 @@ export default function CoursesClient({ locale }: { locale: string }) {
   const [activeLevel, setActiveLevel] = useState("all");
 
   const filtered = courses.filter((c) => {
+    if (c.comingSoon) return false;
     const catMatch = activeCategory === "all" || c.category === activeCategory;
     const levelMatch = activeLevel === "all" || c.level === activeLevel;
     return catMatch && levelMatch;

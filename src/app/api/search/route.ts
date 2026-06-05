@@ -46,7 +46,7 @@ export async function GET(req: Request) {
 
   // Courses
   if (type === "all" || type === "course") {
-    for (const c of courses) {
+    for (const c of courses.filter((c) => !c.comingSoon)) {
       const searchText = `${c.titleAr} ${c.titleEn} ${c.descriptionAr} ${c.descriptionEn} ${c.category} ${c.skills?.join(" ") ?? ""}`;
       const score = scoreMatch(searchText, q);
       if (score > 0) {

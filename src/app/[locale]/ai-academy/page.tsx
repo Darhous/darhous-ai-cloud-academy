@@ -76,7 +76,7 @@ export default async function AIAcademyPage({
   const Arrow = isAr ? ArrowLeft : ArrowRight;
   const studioLinks = aiStudioLinks[isAr ? "ar" : "en"];
 
-  const featuredCourses = courses.filter((c) => c.featured).slice(0, 6);
+  const featuredCourses = courses.filter((c) => c.featured && !c.comingSoon).slice(0, 6);
   const featuredTools = tools.filter((t) => t.featured).slice(0, 6);
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 

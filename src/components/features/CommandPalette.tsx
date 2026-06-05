@@ -49,7 +49,7 @@ function buildIndex(locale: string): SearchItem[] {
   const isAr = locale === "ar";
   const items: SearchItem[] = [
     ...buildPageItems(locale),
-    ...courses.map((c) => ({
+    ...courses.filter((c) => !c.comingSoon).map((c) => ({
       id: c.id, type: "course" as const,
       title: isAr ? c.titleAr : c.titleEn,
       description: isAr ? c.descriptionAr : c.descriptionEn,
