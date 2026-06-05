@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock, AlertTriangle, Cpu, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowLeft, Clock, AlertTriangle, Cpu, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import { lessonsData } from "@/data/iot/lessons";
 
@@ -9,10 +9,13 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  const isAr = locale === "ar";
   const lesson = lessonsData.find((l) => l.id === slug);
   if (!lesson) return { title: "Not Found" };
-  return { title: `${lesson.title} | مختبر درهوس`, description: lesson.description };
+  const title = isAr ? lesson.title : (lesson.titleEn ?? lesson.title);
+  const description = isAr ? lesson.description : (lesson.descriptionEn ?? lesson.description);
+  return { title: `${title} | Darhous IoT Lab`, description };
 }
 
 export async function generateStaticParams() {
@@ -25,42 +28,69 @@ export default async function IotLessonDetailPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
+  const isAr = locale === "ar";
   const lesson = lessonsData.find((l) => l.id === slug);
   if (!lesson) notFound();
 
   const nextLesson = lesson.nextLessonId ? lessonsData.find((l) => l.id === lesson.nextLessonId) : null;
 
+  const t = {
+    backToLessons: isAr ? "العودة للدروس" : "Back to Lessons",
+    lessonContent: isAr ? "محتوى الدرس" : "Lesson Content",
+    componentsNeeded: isAr ? "المكونات المطلوبة" : "Components Needed",
+    wiringNotes: isAr ? "ملاحظات التوصيل" : "Wiring Notes",
+    codeExample: isAr ? "مثال الكود" : "Code Example",
+    commonMistakes: isAr ? "الأخطاء الشائعة" : "Common Mistakes",
+    tryInSimulator: isAr ? "جرّب في المحاكي" : "Try in Simulator",
+    openInWokwi: isAr ? "فتح في Wokwi Simulator" : "Open in Wokwi Simulator",
+    nextLesson: isAr ? "الدرس التالي" : "Next Lesson",
+  };
+
+  const title = isAr ? lesson.title : (lesson.titleEn ?? lesson.title);
+  const category = isAr ? lesson.category : (lesson.categoryEn ?? lesson.category);
+  const description = isAr ? lesson.description : (lesson.descriptionEn ?? lesson.description);
+  const content = isAr ? lesson.content : (lesson.contentEn ?? lesson.content);
+  const wiringNotes = isAr ? lesson.wiringNotes : (lesson.wiringNotesEn ?? lesson.wiringNotes);
+  const commonMistakes = isAr ? lesson.commonMistakes : (lesson.commonMistakesEn ?? lesson.commonMistakes);
+  const nextTitle = nextLesson
+    ? (isAr ? nextLesson.title : (nextLesson.titleEn ?? nextLesson.title))
+    : null;
+
+  const dir = isAr ? "rtl" : "ltr";
+  const ArrowBack = isAr ? ArrowRight : ArrowLeft;
+  const ArrowForward = isAr ? ArrowLeft : ArrowRight;
+
   return (
-    <div className="container-xl py-12 max-w-4xl" dir="rtl">
+    <div className="container-xl py-12 max-w-4xl" dir={dir}>
       <Link href={`/${locale}/iot-lab/lessons`} className="inline-flex items-center gap-2 text-sm font-mono mb-8 transition-opacity hover:opacity-70" style={{ color: "var(--color-on-surface-variant)" }}>
-        <ArrowRight size={14} />العودة للدروس
+        <ArrowBack size={14} />{t.backToLessons}
       </Link>
 
       {/* Header */}
       <div className="glass-card rounded-3xl p-8 mb-8" style={{ border: "1px solid rgba(249,115,22,0.2)" }}>
         <div className="flex items-center gap-3 mb-4">
           <span className="text-xs font-mono px-3 py-1 rounded-full" style={{ background: "rgba(249,115,22,0.12)", color: "#f97316", border: "1px solid rgba(249,115,22,0.25)" }}>
-            {lesson.category}
+            {category}
           </span>
           <span className="flex items-center gap-1 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
             <Clock size={11} />{lesson.duration}
           </span>
         </div>
-        <h1 className="font-display font-bold text-3xl mb-4" style={{ color: "var(--color-on-surface)" }}>{lesson.title}</h1>
-        <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{lesson.description}</p>
+        <h1 className="font-display font-bold text-3xl mb-4" style={{ color: "var(--color-on-surface)" }}>{title}</h1>
+        <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{description}</p>
       </div>
 
       {/* Content */}
       <div className="glass-card rounded-2xl p-6 mb-6" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
-        <h2 className="font-semibold text-sm mb-4" style={{ color: "var(--color-on-surface)" }}>محتوى الدرس</h2>
-        <div className="text-sm leading-relaxed whitespace-pre-line" style={{ color: "var(--color-on-surface-variant)" }}>{lesson.content}</div>
+        <h2 className="font-semibold text-sm mb-4" style={{ color: "var(--color-on-surface)" }}>{t.lessonContent}</h2>
+        <div className="text-sm leading-relaxed whitespace-pre-line" style={{ color: "var(--color-on-surface-variant)" }}>{content}</div>
       </div>
 
       {/* Components needed */}
       {lesson.componentsNeeded.length > 0 && (
         <div className="glass-card rounded-2xl p-5 mb-6" style={{ border: "1px solid rgba(249,115,22,0.12)" }}>
           <h2 className="font-semibold text-sm mb-3 flex items-center gap-2" style={{ color: "#f97316" }}>
-            <Cpu size={15} /> المكونات المطلوبة
+            <Cpu size={15} /> {t.componentsNeeded}
           </h2>
           <div className="flex flex-wrap gap-2">
             {lesson.componentsNeeded.map((c, i) => (
@@ -71,17 +101,17 @@ export default async function IotLessonDetailPage({
       )}
 
       {/* Wiring notes */}
-      {lesson.wiringNotes && (
+      {wiringNotes && (
         <div className="glass-card rounded-2xl p-5 mb-6" style={{ border: "1px solid rgba(142,213,255,0.12)" }}>
-          <h2 className="font-semibold text-sm mb-3" style={{ color: "#8ed5ff" }}>ملاحظات التوصيل</h2>
-          <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{lesson.wiringNotes}</p>
+          <h2 className="font-semibold text-sm mb-3" style={{ color: "#8ed5ff" }}>{t.wiringNotes}</h2>
+          <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{wiringNotes}</p>
         </div>
       )}
 
       {/* Code example */}
       {lesson.codeExample && lesson.codeExample !== "// فهم المبادئ لا يحتاج لكود" && (
         <div className="mb-6">
-          <h2 className="font-semibold text-sm mb-3" style={{ color: "var(--color-on-surface)" }}>مثال الكود</h2>
+          <h2 className="font-semibold text-sm mb-3" style={{ color: "var(--color-on-surface)" }}>{t.codeExample}</h2>
           <pre className="rounded-2xl p-5 text-sm overflow-x-auto" style={{ background: "#0d1117", color: "#79c0ff", fontFamily: "JetBrains Mono, monospace", direction: "ltr", textAlign: "left" }} dir="ltr">
             <code>{lesson.codeExample}</code>
           </pre>
@@ -89,34 +119,35 @@ export default async function IotLessonDetailPage({
       )}
 
       {/* Common mistakes */}
-      {lesson.commonMistakes && (
+      {commonMistakes && (
         <div className="glass-card rounded-2xl p-5 mb-6" style={{ border: "1px solid rgba(248,113,113,0.12)" }}>
           <h2 className="font-semibold text-sm mb-3 flex items-center gap-2" style={{ color: "#f87171" }}>
-            <AlertTriangle size={15} /> الأخطاء الشائعة
+            <AlertTriangle size={15} /> {t.commonMistakes}
           </h2>
-          <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{lesson.commonMistakes}</p>
+          <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{commonMistakes}</p>
         </div>
       )}
 
       {/* Simulator link */}
       {lesson.simulatorLink && (
         <div className="glass-card rounded-2xl p-5 mb-8" style={{ border: "1px solid rgba(60,224,251,0.15)" }}>
-          <h2 className="font-semibold text-sm mb-3" style={{ color: "#3ce0fb" }}>جرّب في المحاكي</h2>
+          <h2 className="font-semibold text-sm mb-3" style={{ color: "#3ce0fb" }}>{t.tryInSimulator}</h2>
           <a href={lesson.simulatorLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-xl transition-opacity hover:opacity-80" style={{ background: "rgba(60,224,251,0.1)", color: "#3ce0fb", border: "1px solid rgba(60,224,251,0.25)" }}>
-            <ExternalLink size={14} /> فتح في Wokwi Simulator
+            <ExternalLink size={14} /> {t.openInWokwi}
           </a>
         </div>
       )}
 
       {/* Navigation */}
-      {nextLesson && (
-        <div className="flex justify-start">
+      {nextLesson && nextTitle && (
+        <div className={`flex ${isAr ? "justify-start" : "justify-end"}`}>
           <Link href={`/${locale}/iot-lab/lessons/${nextLesson.id}`} className="flex items-center gap-3 px-5 py-3 rounded-2xl transition-all hover:scale-[1.02]" style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.25)", color: "#f97316", textDecoration: "none" }}>
+            {isAr && <ArrowForward size={16} style={{ transform: "rotate(180deg)" }} />}
             <div>
-              <p className="text-[10px] font-mono opacity-70">الدرس التالي</p>
-              <p className="text-sm font-semibold">{nextLesson.title}</p>
+              <p className="text-[10px] font-mono opacity-70">{t.nextLesson}</p>
+              <p className="text-sm font-semibold">{nextTitle}</p>
             </div>
-            <ArrowRight size={16} style={{ transform: "rotate(180deg)" }} />
+            {!isAr && <ArrowForward size={16} />}
           </Link>
         </div>
       )}

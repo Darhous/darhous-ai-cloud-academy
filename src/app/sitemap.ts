@@ -109,14 +109,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  // IoT Lab detail pages — Arabic only (content is currently Arabic-only)
-  // /en detail pages are excluded from sitemap to avoid noindex conflicts
-  const iotLessonEntries = lessonsData.map((item) => ({
-    url: `${BASE_URL}/ar/iot-lab/lessons/${item.id}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  // IoT Lab lesson detail pages — bilingual (C4: English fields added)
+  const iotLessonEntries = locales.flatMap((locale) =>
+    lessonsData.map((item) => ({
+      url: `${BASE_URL}/${locale}/iot-lab/lessons/${item.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }))
+  );
 
   const iotProjectEntries = projectsData.map((item) => ({
     url: `${BASE_URL}/ar/iot-lab/projects/${item.id}`,
