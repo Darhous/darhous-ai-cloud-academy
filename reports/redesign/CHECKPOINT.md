@@ -1,6 +1,7 @@
-# Redesign Checkpoint — Phase 6 Complete
+# Redesign Checkpoint — Phase 7 Complete
 
-> **Latest tag:** `checkpoint/redesign-p6-auth-admin` · commit `88f4281`
+> **Latest tag:** `checkpoint/redesign-p7-certificates` · commit `c585e8a`
+> **Phase 6 tag:** `checkpoint/redesign-p6-auth-admin` · commit `88f4281`
 > **Phase 3 tag:** `checkpoint/redesign-p3-portal-identity` · commit TBD
 > **Phase 2 tag:** `checkpoint/redesign-p2-landing` · commit `8c042ed`
 > **Phase 1 tag:** `checkpoint/redesign-p1-foundation` · commit `c88404e`
@@ -42,6 +43,7 @@
 | **Phase 5d — IoT Lab clients** | ✅ **COMPLETE** — `bb9789d` |
 | **Phase 5e — Nano Banana client** | ✅ **COMPLETE** — `f647b3a` |
 | **Phase 6 — Auth / Admin polish** | ✅ **COMPLETE** — `88f4281` |
+| **Phase 7 — Certificates polish + privacy** | ✅ **COMPLETE** — `c585e8a` |
 
 ---
 
@@ -134,6 +136,31 @@ After full audit of all Phase 6 files (AdminDashboardClient, StudentDashboardCli
 - Mentor components `rgba(142,213,255,...)` / `rgba(208,188,255,...)` — global primary/secondary, correct
 - AI Studio tool active states — global primary/secondary/tertiary, correct
 
+## WHAT WAS DONE IN PHASE 7
+
+**Privacy fix (2 files):**
+- `certificates/verify/[code]/page.tsx` — added `noarchive: true` to robots (was index:false,follow:false only)
+- `[locale]/certificates/verify/[certId]/page.tsx` — added `noarchive: true` to robots
+
+**Emoji → Lucide icon replacements:**
+- `UnifiedVerifyClient.tsx` — logo strip `🎓` → `<GraduationCap size={28}>` (gold #d4af37)
+- `CertificatesClient.tsx` — unauthenticated state `🎓` → `<GraduationCap size={56}>` (gold)
+- `CertificatesClient.tsx` — empty state `🎓` → `<GraduationCap size={44}>` (gold)
+- `CertificatesClient.tsx` — "Ready to claim" `🏆` → `<Trophy size={16}>` (green, semantic)
+- `CertificatesClient.tsx` — cert code `🔐` → `<Lock size={10}>` (gold, inline flex)
+- `CertificateVerifyClient.tsx` (legacy) — `🎓` → `<GraduationCap size={40}>` (gold #fbbf24)
+
+**Atmospheric polish:**
+- `CertificatesClient.tsx` — added ambient gold radial-gradient orb at top of authenticated view
+- `CertificateVerifyClient.tsx` (legacy) — upgraded background from flat `#0a0f1e` to premium
+  gold+violet radial-gradient (`#080d1f` base) + added logo strip (GraduationCap + "DARHOUS ACADEMY")
+
+**Unchanged (correct):**
+- All cert APIs, verification logic, QR/PDF generation, Supabase queries — untouched
+- `handlePrint()` HTML template — untouched
+- Gold (#fbbf24, #d4af37) and green (#4ade80) semantic colors kept as certificate brand colors
+- Download, Share, Issue Certificate button logic — untouched
+
 ## NEXT STEP
 
-➡️ **Phase 7** — Certificate / verify style-only polish + privacy fix — per MASTER_REDESIGN_PLAN.md (await user GO/NO-GO)
+➡️ **Phase 8** — QA, release readiness, GitHub release — per MASTER_REDESIGN_PLAN.md (await user GO/NO-GO)
