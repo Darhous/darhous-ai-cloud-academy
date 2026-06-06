@@ -10909,4 +10909,1546 @@ print("\\n🎉 مبروك! أكملت دورة التعلم العميق")`,
     },
   ],
 
+  "ai-automation": [
+    // Lesson 1: مدخل إلى الأتمتة
+    {
+      bodyAr: `
+## ما هي الأتمتة؟
+
+**الأتمتة** هي تحويل المهام المتكررة إلى عمليات تعمل تلقائياً بدون تدخل بشري.
+
+### لماذا الأتمتة مهمة؟
+
+- ⏰ **توفير الوقت:** مهمة تستغرق ساعتين يومياً تُنجز في ثوانٍ
+- 🎯 **تقليل الأخطاء:** الأتمتة تتبع القواعد بدقة 100%
+- 📈 **قابلية التوسع:** معالجة آلاف الطلبات بنفس جهد معالجة طلب واحد
+- 💰 **خفض التكاليف:** تُحرر وقت الفريق للعمل الإبداعي
+
+### أنواع الأتمتة
+
+| النوع | الوصف | مثال |
+|-------|-------|------|
+| **Rule-Based** | قواعد ثابتة محددة مسبقاً | "إذا وصل بريد → نقله لمجلد" |
+| **AI-Powered** | يفهم السياق ويتخذ قرارات | تصنيف ذكي للبريد |
+| **Hybrid** | يجمع القواعد والذكاء | فلتر أولي + AI للحالات المعقدة |
+
+### مقارنة أدوات الأتمتة
+
+**n8n (اختيارنا في هذا الكورس):**
+- مفتوح المصدر وسيلف-هوستد ✅
+- أكثر من 400 تكامل ✅
+- مجاني تماماً ✅
+
+**Make (سابقاً Integromat):**
+- واجهة بصرية ممتازة
+- خطة مجانية محدودة
+
+**Zapier:**
+- الأشهر في السوق وسهل للمبتدئين
+- مكلف للاستخدام الجاد
+
+### المفاهيم الأساسية
+
+**Trigger (المحفّز):** الحدث الذي يبدأ سير العمل.
+
+\`\`\`
+أمثلة على Triggers:
+• "وصل بريد إلكتروني جديد"
+• "نموذج جديد مُرسَل"
+• "كل ساعة" (Cron Job)
+• "طلب HTTP وارد" (Webhook)
+\`\`\`
+
+**Action (الإجراء):** ما يحدث بعد المحفّز.
+
+\`\`\`
+أمثلة على Actions:
+• إرسال رسالة Slack
+• إضافة صف في Google Sheets
+• استدعاء Claude API
+• إرسال بريد إلكتروني
+\`\`\`
+
+**Webhook:** رابط URL خاص تُعطيه للتطبيقات الأخرى لترسل إليك بيانات عند حدوث أحداث معينة.
+
+### مثال سير عمل كامل
+
+\`\`\`
+[Gmail: بريد جديد]
+       ↓
+[فلتر: يحتوي "عاجل"؟]
+    ↓ نعم
+[Claude: صنّف وصغ رداً]
+       ↓
+[Slack: أرسل لـ #support]
+       ↓
+[Google Sheets: سجّل]
+\`\`\`
+
+في هذا الكورس ستبني هذا بالضبط وأكثر!
+`,
+      bodyEn: `
+## What is Automation?
+
+**Automation** converts repetitive manual tasks into automatic workflows that run without human intervention.
+
+### Why Does Automation Matter?
+
+- ⏰ **Time savings:** A 2-hour daily task done in seconds
+- 🎯 **Error reduction:** Automation follows rules with 100% precision
+- 📈 **Scalability:** Handle thousands of requests with the same effort
+- 💰 **Cost reduction:** Frees your team for creative work
+
+### Types of Automation
+
+| Type | Description | Example |
+|------|-------------|---------|
+| **Rule-Based** | Fixed predefined rules | "If email → move to folder" |
+| **AI-Powered** | Understands context and decides | Smart email classification |
+| **Hybrid** | Combines rules and intelligence | Filter + AI for complex cases |
+
+### Tool Comparison
+
+**n8n (our choice):**
+- Open source and self-hosted ✅
+- 400+ integrations ✅
+- Completely free ✅
+
+**Make (formerly Integromat):**
+- Excellent visual interface
+- Limited free plan
+
+**Zapier:**
+- Most popular, easy for beginners
+- Expensive for serious use
+
+### Core Concepts
+
+**Trigger:** The event that starts the workflow.
+
+\`\`\`
+Trigger Examples:
+• "New email received"
+• "New form submitted"
+• "Every hour" (Cron Job)
+• "HTTP request received" (Webhook)
+\`\`\`
+
+**Action:** What happens after the trigger.
+
+\`\`\`
+Action Examples:
+• Send a Slack message
+• Add a row in Google Sheets
+• Call the Claude API
+• Send an email
+\`\`\`
+
+**Webhook:** A special URL you give to other apps so they send you data when specific events occur.
+
+### Complete Workflow Example
+
+\`\`\`
+[Gmail: New email]
+       ↓
+[Filter: Contains "urgent"?]
+    ↓ Yes
+[Claude: Classify and draft reply]
+       ↓
+[Slack: Send to #support]
+       ↓
+[Google Sheets: Log entry]
+\`\`\`
+
+In this course you will build exactly this and more!
+`,
+      codeExample: `# محاكاة مفاهيم الأتمتة — Automation Core Concepts Demo
+import time
+import json
+from dataclasses import dataclass
+from typing import Callable
+
+@dataclass
+class Node:
+    name: str
+    fn: Callable[[dict], dict]
+    node_type: str = "action"
+
+class Workflow:
+    """محاكاة بسيطة لـ n8n Workflow"""
+    def __init__(self, name: str):
+        self.name = name
+        self.nodes: list[Node] = []
+
+    def add_node(self, node: Node) -> "Workflow":
+        self.nodes.append(node)
+        return self
+
+    def run(self, trigger_data: dict) -> dict:
+        icons = {"trigger": "⚡", "transform": "🔄", "action": "▶", "filter": "🔀"}
+        print(f"\\n🚀 [{self.name}] بدأ")
+        print(f"   المحفّز: {trigger_data.get('subject', trigger_data)}")
+        data = trigger_data.copy()
+        for node in self.nodes:
+            icon = icons.get(node.node_type, "▶")
+            print(f"  {icon} {node.name}...", end=" ")
+            data = node.fn(data)
+            print("✅")
+        print(f"✅ [{self.name}] اكتمل")
+        return data
+
+# ─── تعريف الـ Nodes ──────────────────────────────────────
+def check_priority(data: dict) -> dict:
+    keywords = ["عاجل", "urgent", "ASAP", "طارئ"]
+    data["is_urgent"] = any(k in data.get("subject", "") for k in keywords)
+    return data
+
+def classify_email(data: dict) -> dict:
+    s = data.get("subject", "").lower()
+    data["category"] = (
+        "billing"   if any(w in s for w in ["فاتورة", "invoice"]) else
+        "technical" if any(w in s for w in ["خطأ", "error", "bug"]) else
+        "sales"     if any(w in s for w in ["طلب", "order", "سعر"]) else
+        "general"
+    )
+    return data
+
+def generate_reply(data: dict) -> dict:
+    replies = {
+        "billing":   "سيتولى فريق الفوترة الرد خلال 24 ساعة.",
+        "technical": "سيتواصل معك مهندس الدعم خلال ساعتين.",
+        "sales":     "سيتواصل معك فريق المبيعات قريباً.",
+        "general":   "شكراً لرسالتك. سنرد قريباً.",
+    }
+    data["auto_reply"] = replies.get(data["category"], replies["general"])
+    return data
+
+def log_to_sheet(data: dict) -> dict:
+    print(f"\\n     📊 تسجيل: {data['category']} | {'عاجل' if data['is_urgent'] else 'عادي'}")
+    return {**data, "logged": True}
+
+def notify_slack(data: dict) -> dict:
+    if data.get("is_urgent"):
+        print(f"\\n     📢 Slack #urgent: بريد عاجل من {data.get('from')}")
+    return data
+
+# ─── بناء سير العمل ───────────────────────────────────────
+workflow = (
+    Workflow("معالجة البريد الإلكتروني")
+    .add_node(Node("تحديد الأولوية",   check_priority,  "transform"))
+    .add_node(Node("تصنيف البريد",     classify_email,  "transform"))
+    .add_node(Node("توليد الرد",       generate_reply,  "transform"))
+    .add_node(Node("تسجيل في Sheets",  log_to_sheet,    "action"))
+    .add_node(Node("إرسال Slack",      notify_slack,    "action"))
+)
+
+# ─── تشغيل ────────────────────────────────────────────────
+emails = [
+    {"from": "client@co.com",      "subject": "مشكلة عاجلة في الخادم"},
+    {"from": "billing@vendor.com", "subject": "فاتورة شهر يونيو"},
+    {"from": "friend@email.com",   "subject": "مرحباً كيف حالك"},
+]
+
+for email in emails:
+    result = workflow.run(email)
+    print(f"   الرد: {result['auto_reply']}\\n")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 2: n8n التثبيت والإعداد
+    {
+      bodyAr: `
+## ما هو n8n؟
+
+**n8n** (تُنطق "n-eight-n") هو منصة أتمتة مفتوحة المصدر يمكنك استضافتها على سيرفرك الخاص. الاسم اختصار لـ "nodemation" — أتمتة قائمة على الـ Nodes.
+
+### لماذا n8n تحديداً؟
+
+- **مجاني 100%** للتوستف الذاتي
+- **خصوصية كاملة:** بياناتك تبقى عندك
+- **مرن جداً:** يمكنك كتابة كود JavaScript مخصص
+- **400+ تكامل** جاهز مع الخدمات الشهيرة
+
+### طرق التثبيت
+
+#### 1. Docker (موصى به)
+
+\`\`\`bash
+# تشغيل n8n مع Docker
+docker run -it --rm \\
+  --name n8n \\
+  -p 5678:5678 \\
+  -v ~/.n8n:/home/node/.n8n \\
+  docker.n8n.io/n8nio/n8n
+
+# تشغيل في الخلفية
+docker run -d \\
+  --name n8n \\
+  --restart unless-stopped \\
+  -p 5678:5678 \\
+  -v ~/.n8n:/home/node/.n8n \\
+  docker.n8n.io/n8nio/n8n
+\`\`\`
+
+#### 2. npm (للتطوير المحلي)
+
+\`\`\`bash
+# تثبيت n8n عالمياً
+npm install n8n -g
+
+# تشغيل n8n
+n8n start
+
+# تشغيل مع التونلينج (للاختبار مع Webhooks)
+n8n start --tunnel
+\`\`\`
+
+#### 3. npx (بدون تثبيت)
+
+\`\`\`bash
+npx n8n
+\`\`\`
+
+بعد التشغيل افتح: \`http://localhost:5678\`
+
+### الواجهة الرئيسية
+
+\`\`\`
+┌─────────────────────────────────────────┐
+│  n8n Interface                          │
+├───────────────┬─────────────────────────┤
+│  Workflows    │  Canvas (مساحة العمل)   │
+│  ─────────── │  ┌──────┐ → ┌────────┐  │
+│  My Workflow  │  │Trigger│   │ Action │  │
+│  Email Bot    │  └──────┘   └────────┘  │
+├───────────────┤─────────────────────────┤
+│  Credentials  │  Node Panel             │
+│  Executions   │  Parameters & Settings  │
+└───────────────┴─────────────────────────┘
+\`\`\`
+
+### أقسام الواجهة
+
+| القسم | الوظيفة |
+|-------|---------|
+| **Workflows** | قائمة كل سير العمل لديك |
+| **Canvas** | مساحة رسم سير العمل بصرياً |
+| **Credentials** | مفاتيح API المشفرة |
+| **Executions** | سجل كل عمليات التشغيل |
+| **Node Panel** | مكتبة الـ Nodes المتاحة |
+
+### أول إعداد: إضافة Anthropic Credential
+
+1. اضغط **Credentials** من القائمة الجانبية
+2. اضغط **New credential**
+3. ابحث عن **Anthropic**
+4. أدخل مفتاح API الخاص بك
+5. اضغط **Save**
+
+الآن يمكن لأي Workflow استخدام هذا المفتاح بأمان!
+`,
+      bodyEn: `
+## What is n8n?
+
+**n8n** (pronounced "n-eight-n") is an open-source automation platform you can self-host. The name is short for "nodemation" — automation built on Nodes.
+
+### Why n8n Specifically?
+
+- **100% free** for self-hosting
+- **Complete privacy:** your data stays with you
+- **Very flexible:** write custom JavaScript code
+- **400+ integrations** with popular services
+
+### Installation Methods
+
+#### 1. Docker (Recommended)
+
+\`\`\`bash
+# Run n8n with Docker
+docker run -it --rm \\
+  --name n8n \\
+  -p 5678:5678 \\
+  -v ~/.n8n:/home/node/.n8n \\
+  docker.n8n.io/n8nio/n8n
+
+# Run in background
+docker run -d \\
+  --name n8n \\
+  --restart unless-stopped \\
+  -p 5678:5678 \\
+  -v ~/.n8n:/home/node/.n8n \\
+  docker.n8n.io/n8nio/n8n
+\`\`\`
+
+#### 2. npm (For Local Development)
+
+\`\`\`bash
+# Install n8n globally
+npm install n8n -g
+
+# Start n8n
+n8n start
+
+# Start with tunneling (for Webhook testing)
+n8n start --tunnel
+\`\`\`
+
+#### 3. npx (No Installation)
+
+\`\`\`bash
+npx n8n
+\`\`\`
+
+After starting, open: \`http://localhost:5678\`
+
+### Main Interface
+
+\`\`\`
+┌─────────────────────────────────────────┐
+│  n8n Interface                          │
+├───────────────┬─────────────────────────┤
+│  Workflows    │  Canvas (Work area)     │
+│  ─────────── │  ┌──────┐ → ┌────────┐  │
+│  My Workflow  │  │Trigger│   │ Action │  │
+│  Email Bot    │  └──────┘   └────────┘  │
+├───────────────┤─────────────────────────┤
+│  Credentials  │  Node Panel             │
+│  Executions   │  Parameters & Settings  │
+└───────────────┴─────────────────────────┘
+\`\`\`
+
+### Interface Sections
+
+| Section | Function |
+|---------|----------|
+| **Workflows** | List all your workflows |
+| **Canvas** | Visual workflow building area |
+| **Credentials** | Encrypted API keys |
+| **Executions** | Log of all runs |
+| **Node Panel** | Library of available Nodes |
+
+### First Setup: Adding Anthropic Credential
+
+1. Click **Credentials** in the sidebar
+2. Click **New credential**
+3. Search for **Anthropic**
+4. Enter your API key
+5. Click **Save**
+
+Now any Workflow can securely use this key!
+`,
+      codeExample: `# محاكاة n8n Webhook Server — Python Simulation
+import json
+import time
+import threading
+import urllib.request
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse
+from dataclasses import dataclass, field
+from datetime import datetime
+
+# ─── Webhook Event ────────────────────────────────────────
+@dataclass
+class WebhookEvent:
+    path: str
+    source: str
+    payload: dict
+    received_at: str = field(
+        default_factory=lambda: datetime.now().strftime("%H:%M:%S")
+    )
+
+received_events: list[WebhookEvent] = []
+
+# ─── Webhook Server (مثل n8n Webhook Trigger Node) ───────
+class WebhookHandler(BaseHTTPRequestHandler):
+    """يستقبل البيانات الواردة مثل n8n Webhook Trigger"""
+
+    def do_POST(self):
+        content_len = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(content_len)
+        try:
+            payload = json.loads(body)
+        except Exception:
+            payload = {"raw": body.decode()}
+
+        event = WebhookEvent(
+            path=urlparse(self.path).path,
+            source=self.headers.get("X-Source", "unknown"),
+            payload=payload,
+        )
+        received_events.append(event)
+
+        print(f"\\n📨 [{event.received_at}] Webhook: {event.path}")
+        print(f"   المصدر: {event.source}")
+        print(f"   البيانات: {json.dumps(event.payload, ensure_ascii=False)}")
+
+        # توجيه حسب المسار (مثل n8n Router)
+        if "email" in event.path:
+            subject = event.payload.get("subject", "")
+            is_urgent = any(w in subject for w in ["عاجل", "urgent"])
+            print(f"   📧 بريد {'🔴 عاجل' if is_urgent else '🟢 عادي'}: {subject}")
+        elif "payment" in event.path:
+            amount = event.payload.get("amount", 0)
+            print(f"   💳 دفعة: {amount} ريال")
+
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        resp = {"status": "ok", "event_id": len(received_events)}
+        self.wfile.write(json.dumps(resp).encode())
+
+    def log_message(self, *args):
+        pass  # إخفاء سجلات HTTP الافتراضية
+
+# ─── تشغيل السيرفر ────────────────────────────────────────
+server = HTTPServer(("localhost", 9100), WebhookHandler)
+t = threading.Thread(target=server.serve_forever, daemon=True)
+t.start()
+print("🌐 n8n Webhook Simulator: http://localhost:9100")
+print("   جاهز لاستقبال الأحداث...\\n")
+time.sleep(0.3)
+
+# ─── محاكاة إرسال Webhooks من تطبيقات خارجية ─────────────
+def fire_webhook(path: str, data: dict, source: str) -> dict:
+    body = json.dumps(data).encode()
+    req = urllib.request.Request(
+        f"http://localhost:9100{path}",
+        data=body,
+        headers={"Content-Type": "application/json", "X-Source": source},
+        method="POST",
+    )
+    with urllib.request.urlopen(req) as r:
+        return json.loads(r.read())
+
+# أحداث تجريبية
+events = [
+    ("/webhook/email",   {"from": "client@co.com", "subject": "مشكلة عاجلة في النظام"}, "Gmail"),
+    ("/webhook/email",   {"from": "news@daily.com", "subject": "النشرة الأسبوعية"}, "Gmail"),
+    ("/webhook/payment", {"amount": 499, "status": "completed", "plan": "Pro"}, "Stripe"),
+    ("/webhook/email",   {"from": "boss@co.com", "subject": "تقرير urgent مطلوب الآن"}, "Outlook"),
+]
+
+for path, data, source in events:
+    result = fire_webhook(path, data, source)
+    print(f"   ✅ رد: {result}")
+    time.sleep(0.3)
+
+server.shutdown()
+print(f"\\n📊 إجمالي الأحداث المستلمة: {len(received_events)}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 3: أول سير عمل في n8n
+    {
+      bodyAr: `
+## فهم الـ Canvas
+
+عندما تفتح Workflow جديد في n8n، ترى **Canvas** — مساحة بيضاء تضع عليها الـ Nodes وتربط بينها بخطوط.
+
+### أنواع الـ Nodes الأساسية
+
+\`\`\`
+┌────────────────────────────────────────────┐
+│          أنواع الـ Nodes في n8n            │
+├─────────────┬──────────────────────────────┤
+│  Trigger    │  يبدأ سير العمل             │
+│  (أخضر)    │  Webhook, Schedule, Gmail... │
+├─────────────┼──────────────────────────────┤
+│  Regular    │  يعالج البيانات              │
+│  (رمادي)   │  HTTP Request, Set, IF...    │
+├─────────────┼──────────────────────────────┤
+│  AI         │  نماذج الذكاء الاصطناعي     │
+│  (بنفسجي)  │  Anthropic, GPT, Chains...   │
+└─────────────┴──────────────────────────────┘
+\`\`\`
+
+### بناء أول Workflow: HTTP → Process → Notify
+
+**الخطوة 1: Schedule Trigger**
+
+1. اضغط **+** في الـ Canvas
+2. ابحث عن **Schedule**
+3. اضبط: كل دقيقة (للتجريب)
+
+**الخطوة 2: HTTP Request Node**
+
+1. أضف **HTTP Request** Node
+2. الإعدادات:
+   - Method: GET
+   - URL: \`https://jsonplaceholder.typicode.com/posts/1\`
+
+**الخطوة 3: Set Node (تحويل البيانات)**
+
+1. أضف **Set** Node
+2. اضغط **Add field**:
+   - Name: \`processed_title\`
+   - Value (Expression): \`{{ $json.title.toUpperCase() }}\`
+
+**الخطوة 4: IF Node (فلتر)**
+
+1. أضف **IF** Node
+2. الشرط: قيمة \`{{ $json.userId }}\` تساوي \`1\`
+
+**الخطوة 5: تشغيل واختبار**
+
+1. اضغط **Execute Workflow** (زر التشغيل الأخضر)
+2. راقب البيانات تتدفق عبر الـ Nodes
+3. اضغط على أي Node لتعرض بياناته
+
+### Expressions في n8n
+
+n8n يستخدم \`{{ }}\` للوصول إلى البيانات:
+
+\`\`\`javascript
+// الوصول لبيانات الـ Node السابق
+{{ $json.fieldName }}
+
+// تحويل نص
+{{ $json.title.toUpperCase() }}
+{{ $json.email.split("@")[0] }}
+
+// تاريخ ووقت
+{{ $now.toISO() }}
+{{ $now.format("YYYY-MM-DD") }}
+
+// منطق شرطي
+{{ $json.amount > 100 ? "كبير" : "صغير" }}
+
+// بيانات من Node محدد بالاسم
+{{ $("HTTP Request").first().json.title }}
+\`\`\`
+
+### تعامل مع الأخطاء
+
+\`\`\`
+في إعدادات أي Node → Settings:
+┌─────────────────────────────────┐
+│ On Error:                       │
+│ ○ Stop Workflow                 │
+│ ● Continue (Skip the error)     │
+│ ○ Continue (Use Error Output)   │
+│                                 │
+│ Retry on Fail: ✅               │
+│ Max Tries: 3                    │
+│ Wait Between Tries: 5s          │
+└─────────────────────────────────┘
+\`\`\`
+
+### نصائح عملية
+
+- 🧪 **اختبر كل Node منفرداً** قبل الربط
+- 📋 **أعد تسمية الـ Nodes** بأسماء واضحة
+- 💾 **احفظ دائماً** (Ctrl+S) قبل التشغيل
+- 🔍 **استخدم Executions** لتتبع سجل التشغيل
+`,
+      bodyEn: `
+## Understanding the Canvas
+
+When you open a new Workflow in n8n, you see the **Canvas** — a blank area where you place Nodes and connect them with lines.
+
+### Core Node Types
+
+\`\`\`
+┌────────────────────────────────────────────┐
+│          n8n Node Types                    │
+├─────────────┬──────────────────────────────┤
+│  Trigger    │  Starts the workflow         │
+│  (green)    │  Webhook, Schedule, Gmail... │
+├─────────────┼──────────────────────────────┤
+│  Regular    │  Processes data              │
+│  (grey)     │  HTTP Request, Set, IF...    │
+├─────────────┼──────────────────────────────┤
+│  AI         │  AI models                   │
+│  (purple)   │  Anthropic, GPT, Chains...   │
+└─────────────┴──────────────────────────────┘
+\`\`\`
+
+### Building Your First Workflow: HTTP → Process → Notify
+
+**Step 1: Schedule Trigger**
+
+1. Click **+** on the Canvas
+2. Search for **Schedule**
+3. Set: every 1 minute (for testing)
+
+**Step 2: HTTP Request Node**
+
+1. Add **HTTP Request** Node
+2. Settings:
+   - Method: GET
+   - URL: \`https://jsonplaceholder.typicode.com/posts/1\`
+
+**Step 3: Set Node (Transform Data)**
+
+1. Add a **Set** Node
+2. Click **Add field**:
+   - Name: \`processed_title\`
+   - Value (Expression): \`{{ $json.title.toUpperCase() }}\`
+
+**Step 4: IF Node (Filter)**
+
+1. Add an **IF** Node
+2. Condition: value \`{{ $json.userId }}\` equals \`1\`
+
+**Step 5: Run and Test**
+
+1. Click **Execute Workflow** (green run button)
+2. Watch data flow through the Nodes
+3. Click any Node to inspect its data
+
+### n8n Expressions
+
+n8n uses \`{{ }}\` to access data:
+
+\`\`\`javascript
+// Access data from previous Node
+{{ $json.fieldName }}
+
+// Transform text
+{{ $json.title.toUpperCase() }}
+{{ $json.email.split("@")[0] }}
+
+// Date and time
+{{ $now.toISO() }}
+{{ $now.format("YYYY-MM-DD") }}
+
+// Conditional logic
+{{ $json.amount > 100 ? "large" : "small" }}
+
+// Data from a specific named Node
+{{ $("HTTP Request").first().json.title }}
+\`\`\`
+
+### Error Handling
+
+\`\`\`
+In any Node's settings → Settings tab:
+┌─────────────────────────────────┐
+│ On Error:                       │
+│ ○ Stop Workflow                 │
+│ ● Continue (Skip the error)     │
+│ ○ Continue (Use Error Output)   │
+│                                 │
+│ Retry on Fail: ✅               │
+│ Max Tries: 3                    │
+│ Wait Between Tries: 5s          │
+└─────────────────────────────────┘
+\`\`\`
+
+### Practical Tips
+
+- 🧪 **Test each Node individually** before connecting
+- 📋 **Rename Nodes** with descriptive names
+- 💾 **Always save** (Ctrl+S) before running
+- 🔍 **Use Executions** to trace run history
+`,
+      codeExample: `# محاكاة n8n Workflow Nodes بـ Python
+# Simulating n8n Workflow Nodes in Python
+import json
+import time
+import urllib.request
+from dataclasses import dataclass
+from typing import Any
+
+# ─── Node Classes ─────────────────────────────────────────
+class HTTPRequestNode:
+    """محاكاة HTTP Request Node في n8n"""
+    def __init__(self, url: str, method: str = "GET"):
+        self.url = url
+        self.method = method
+
+    def execute(self, _: dict) -> dict:
+        req = urllib.request.Request(self.url, method=self.method)
+        try:
+            with urllib.request.urlopen(req, timeout=5) as resp:
+                data = json.loads(resp.read())
+                print(f"     🌐 HTTP {self.method} → {resp.status}")
+                return {"success": True, "data": data, "status": resp.status}
+        except Exception as e:
+            print(f"     ⚠️  HTTP Error: {e}")
+            return {"success": False, "error": str(e), "data": {}}
+
+class SetNode:
+    """محاكاة Set Node — يضيف أو يعدّل حقولاً"""
+    def __init__(self, mappings: dict[str, Any]):
+        self.mappings = mappings
+
+    def execute(self, data: dict) -> dict:
+        result = data.copy()
+        for key, value in self.mappings.items():
+            result[key] = value(data) if callable(value) else value
+        print(f"     🔄 Set: أضاف {list(self.mappings.keys())}")
+        return result
+
+class IFNode:
+    """محاكاة IF Node — يشعّب سير العمل"""
+    def __init__(self, condition: callable, label: str = ""):
+        self.condition = condition
+        self.label = label
+
+    def execute(self, data: dict) -> tuple:
+        passed = self.condition(data)
+        marker = "✅ True" if passed else "❌ False"
+        print(f"     🔀 IF [{self.label}]: {marker}")
+        return (data, None) if passed else (None, data)
+
+# ─── بناء Workflow ────────────────────────────────────────
+print("🏗️  سير العمل: جلب بيانات → معالجة → تصفية → إشعار")
+print("="*55)
+
+# الـ Nodes
+http_node = HTTPRequestNode("https://jsonplaceholder.typicode.com/users/1")
+
+set_node = SetNode({
+    "processed_at":  lambda _: time.strftime("%Y-%m-%d %H:%M"),
+    "name_upper":    lambda d: d.get("data", {}).get("name", "").upper(),
+    "email_domain":  lambda d: d.get("data", {}).get("email", "@").split("@")[-1],
+    "is_important":  lambda d: d.get("data", {}).get("id", 0) <= 5,
+})
+
+filter_node = IFNode(
+    condition=lambda d: d.get("is_important", False),
+    label="المستخدم مهم؟",
+)
+
+# ─── تشغيل ────────────────────────────────────────────────
+print("\\n▶ تشغيل سير العمل...")
+t0 = time.time()
+
+step1 = http_node.execute({})
+step2 = set_node.execute(step1)
+passed, rejected = filter_node.execute(step2)
+
+elapsed = round((time.time() - t0) * 1000)
+
+if passed:
+    print(f"\\n✅ اكتمل في {elapsed}ms")
+    print(f"   الاسم:    {passed.get('name_upper')}")
+    print(f"   الدومين:  {passed.get('email_domain')}")
+    print(f"   الوقت:    {passed.get('processed_at')}")
+    print(f"   الحالة:   مهم → سيُرسل إشعار Slack")
+else:
+    print(f"\\n⏭️  غير مهم — تخطّي الإشعار ({elapsed}ms)")
+
+# ─── محاكاة Executions Log ───────────────────────────────
+print("\\n📋 Executions Log:")
+for i, node_name in enumerate(["HTTP Request", "Set Fields", "IF Filter"], 1):
+    status = "✅" if not (i == 3 and rejected) else "⏭️"
+    print(f"   {i}. {status} {node_name}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 4: ربط Claude بـ n8n
+    {
+      bodyAr: `
+## Claude API في n8n
+
+يمكنك استخدام Claude في n8n بطريقتين: عبر **Anthropic Node** المدمج، أو عبر **HTTP Request Node** للتحكم الكامل.
+
+### الطريقة 1: Anthropic Node (الأسهل)
+
+1. أضف Node → ابحث عن **Anthropic Chat Model**
+2. اختر الـ Credential الذي أنشأته
+3. اختر النموذج: \`claude-haiku-4-5-20251001\` (سرعة + تكلفة منخفضة)
+4. اربطه بـ **AI Agent** أو **Basic LLM Chain**
+
+### الطريقة 2: HTTP Request Node (تحكم كامل)
+
+\`\`\`
+Method: POST
+URL: https://api.anthropic.com/v1/messages
+
+Headers:
+  x-api-key: {{ $credentials.anthropicApi.apiKey }}
+  anthropic-version: 2023-06-01
+  content-type: application/json
+
+Body (JSON):
+{
+  "model": "claude-haiku-4-5-20251001",
+  "max_tokens": 600,
+  "system": "{{ $json.system_prompt }}",
+  "messages": [
+    {
+      "role": "user",
+      "content": "{{ $json.user_message }}"
+    }
+  ]
+}
+\`\`\`
+
+### تمرير بيانات من Nodes سابقة
+
+\`\`\`javascript
+// Prompt ديناميكي يستخدم بيانات Gmail Trigger
+{
+  "model": "claude-haiku-4-5-20251001",
+  "max_tokens": 500,
+  "messages": [{
+    "role": "user",
+    "content": "من: {{ $('Gmail Trigger').first().json.from }}\\nالموضوع: {{ $('Gmail Trigger').first().json.subject }}"
+  }]
+}
+\`\`\`
+
+### استخراج النتيجة
+
+بعد استدعاء Claude:
+
+\`\`\`javascript
+// استخراج النص من رد Claude
+{{ $json.content[0].text }}
+
+// إذا أرجع Claude JSON نظيف
+{{ JSON.parse($json.content[0].text).category }}
+{{ JSON.parse($json.content[0].text).priority }}
+\`\`\`
+
+### سير عمل كامل: Gmail → Claude → Slack
+
+\`\`\`
+[Gmail Trigger]
+       ↓
+[HTTP Request: Claude API]
+  يُرسل: from + subject + body
+       ↓
+[Set Node]
+  analysis = JSON.parse(رد Claude)
+  priority = analysis.priority
+       ↓
+[IF Node: priority == "high"?]
+  ↓ نعم              ↓ لا
+[Slack Alert]   [Gmail Auto Reply]
+       ↓
+[Google Sheets: تسجيل]
+\`\`\`
+
+### Rate Limiting
+
+أضف **Wait Node** بين طلبات Claude المتعاقبة:
+
+\`\`\`
+[Loop] → [Claude API] → [Wait: 1s] → [Next Item]
+\`\`\`
+`,
+      bodyEn: `
+## Claude API in n8n
+
+You can use Claude in n8n in two ways: via the built-in **Anthropic Node**, or via the **HTTP Request Node** for full control.
+
+### Method 1: Anthropic Node (Easiest)
+
+1. Add Node → Search for **Anthropic Chat Model**
+2. Select your Credential
+3. Choose model: \`claude-haiku-4-5-20251001\` (speed + low cost)
+4. Connect to **AI Agent** or **Basic LLM Chain**
+
+### Method 2: HTTP Request Node (Full Control)
+
+\`\`\`
+Method: POST
+URL: https://api.anthropic.com/v1/messages
+
+Headers:
+  x-api-key: {{ $credentials.anthropicApi.apiKey }}
+  anthropic-version: 2023-06-01
+  content-type: application/json
+
+Body (JSON):
+{
+  "model": "claude-haiku-4-5-20251001",
+  "max_tokens": 600,
+  "system": "{{ $json.system_prompt }}",
+  "messages": [
+    {
+      "role": "user",
+      "content": "{{ $json.user_message }}"
+    }
+  ]
+}
+\`\`\`
+
+### Passing Data from Previous Nodes
+
+\`\`\`javascript
+// Dynamic prompt using Gmail Trigger data
+{
+  "model": "claude-haiku-4-5-20251001",
+  "max_tokens": 500,
+  "messages": [{
+    "role": "user",
+    "content": "From: {{ $('Gmail Trigger').first().json.from }}\\nSubject: {{ $('Gmail Trigger').first().json.subject }}"
+  }]
+}
+\`\`\`
+
+### Extracting the Result
+
+After calling Claude:
+
+\`\`\`javascript
+// Extract text from Claude's response
+{{ $json.content[0].text }}
+
+// If Claude returns clean JSON
+{{ JSON.parse($json.content[0].text).category }}
+{{ JSON.parse($json.content[0].text).priority }}
+\`\`\`
+
+### Complete Workflow: Gmail → Claude → Slack
+
+\`\`\`
+[Gmail Trigger]
+       ↓
+[HTTP Request: Claude API]
+  sends: from + subject + body
+       ↓
+[Set Node]
+  analysis = JSON.parse(Claude reply)
+  priority = analysis.priority
+       ↓
+[IF Node: priority == "high"?]
+  ↓ Yes            ↓ No
+[Slack Alert]  [Gmail Auto Reply]
+       ↓
+[Google Sheets: Log]
+\`\`\`
+
+### Rate Limiting
+
+Add a **Wait Node** between sequential Claude requests:
+
+\`\`\`
+[Loop] → [Claude API] → [Wait: 1s] → [Next Item]
+\`\`\`
+`,
+      codeExample: `# ربط Claude API بـ n8n — Python Simulation
+# Connecting Claude API to n8n — Full Workflow Simulation
+
+import os
+import json
+import anthropic
+
+client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", "your-key"))
+
+SYSTEM_PROMPT = """أنت نظام ذكي لتصنيف البريد الإلكتروني.
+حلّل البريد وأعد JSON بهذا الشكل فقط:
+{
+  "category": "technical|billing|sales|hr|general",
+  "priority": "high|medium|low",
+  "sentiment": "positive|neutral|negative|urgent",
+  "auto_reply": "رد مهني ومناسب للعميل",
+  "requires_human": false,
+  "summary": "ملخص موجز في جملة واحدة"
+}"""
+
+def claude_node(email_data: dict) -> dict:
+    """
+    محاكاة n8n HTTP Request Node → Claude API
+    في n8n الفعلي: POST https://api.anthropic.com/v1/messages
+    """
+    prompt = (
+        f"بريد وارد:\\n"
+        f"من: {email_data['from']}\\n"
+        f"الموضوع: {email_data['subject']}\\n"
+        f"المحتوى:\\n{email_data['body']}"
+    )
+
+    response = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=600,
+        system=SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": prompt}],
+    )
+
+    raw = response.content[0].text.strip()
+    if raw.startswith("\`\`\`"):
+        raw = raw.split("\`\`\`")[1].replace("json", "").strip()
+
+    return {
+        "analysis": json.loads(raw),
+        "tokens": response.usage.input_tokens + response.usage.output_tokens,
+        "model": response.model,
+    }
+
+def set_node(data: dict) -> dict:
+    """محاكاة n8n Set Node — تعيين الحقول"""
+    a = data["analysis"]
+    return {
+        **data,
+        "priority":       a.get("priority", "low"),
+        "category":       a.get("category", "general"),
+        "sentiment":      a.get("sentiment", "neutral"),
+        "auto_reply":     a.get("auto_reply", ""),
+        "requires_human": a.get("requires_human", False),
+        "summary":        a.get("summary", ""),
+    }
+
+def if_node_urgent(data: dict) -> bool:
+    """محاكاة n8n IF Node"""
+    return data.get("priority") == "high"
+
+def slack_node(data: dict):
+    """Action: Slack تنبيه للحالات العاجلة"""
+    print(f"\\n  📢 Slack #urgent @here:")
+    print(f"     من: {data['email']['from']}")
+    print(f"     الفئة: {data['category']} | {data['sentiment']}")
+    print(f"     الملخص: {data['summary']}")
+
+def gmail_reply_node(data: dict):
+    """Action: إرسال رد تلقائي بـ Gmail"""
+    if data.get("auto_reply") and not data.get("requires_human"):
+        print(f"\\n  📧 Gmail Reply → {data['email']['from']}")
+        print(f"     '{data['auto_reply'][:70]}...'")
+
+def sheets_node(data: dict):
+    """Action: تسجيل في Google Sheets"""
+    row = (f"{data['email']['from']} | {data['category']} | "
+           f"{data['priority']} | {data['tokens']} tokens")
+    print(f"\\n  📊 Google Sheets: {row}")
+
+# ─── تشغيل سير العمل ──────────────────────────────────────
+def run_workflow(email: dict):
+    print(f"\\n{'='*58}")
+    print(f"📨 معالجة: {email['subject'][:50]}")
+
+    result = claude_node(email)
+    result["email"] = email
+    result = set_node(result)
+    print(f"  🔄 Set: {result['category']} | {result['priority']} | {result['tokens']}t")
+
+    if if_node_urgent(result):
+        slack_node(result)
+    else:
+        gmail_reply_node(result)
+
+    sheets_node(result)
+    return result
+
+# ─── بيانات الاختبار ─────────────────────────────────────
+test_emails = [
+    {
+        "from": "vip@enterprise.com",
+        "subject": "الخادم معطل منذ ساعتين — نفقد الطلبات!",
+        "body": "نظامنا لا يعمل والمبيعات تتأثر. نحتاج حلاً فورياً.",
+    },
+    {
+        "from": "happy@customer.com",
+        "subject": "شكراً على الخدمة الرائعة",
+        "body": "كل شيء يعمل بشكل ممتاز. أريد ترقية خطتي.",
+    },
+]
+
+for email in test_emails:
+    run_workflow(email)
+
+print("\\n🎉 اكتمل سير العمل!")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 5: مشروع أتمتة ردود البريد
+    {
+      bodyAr: `
+## مشروع: بوت أتمتة ردود البريد
+
+سنبني نظاماً كاملاً يعالج البريد الوارد تلقائياً باستخدام Claude AI وn8n.
+
+### معمارية المشروع
+
+\`\`\`
+                  ┌─────────────────┐
+  بريد وارد ────▶ │  Gmail Trigger  │
+                  └────────┬────────┘
+                           ↓
+                  ┌─────────────────┐
+                  │  Claude AI Node │  تحليل + تصنيف
+                  └────────┬────────┘
+                           ↓
+                  ┌─────────────────┐
+                  │   Router Node   │  توجيه حسب الأولوية
+                  └──┬──────────┬───┘
+             عاجل ↓              ↓ عادي
+        ┌──────────────┐  ┌──────────────┐
+        │  Slack Alert │  │  Auto Reply  │
+        └──────┬───────┘  └──────┬───────┘
+               └──────────┬──────┘
+                          ↓
+                 ┌────────────────┐
+                 │ Google Sheets  │  تسجيل كل البريد
+                 └────────────────┘
+\`\`\`
+
+### إعداد المشروع في n8n
+
+**1. Gmail Trigger Node**
+
+\`\`\`
+Resource: Message
+Operation: Get Many
+Filters: unread: true, maxResults: 10
+Poll Every: 1 minute
+\`\`\`
+
+**2. HTTP Request Node (Claude API)**
+
+\`\`\`
+Method: POST
+URL: https://api.anthropic.com/v1/messages
+Auth: Header Auth (x-api-key من Credentials)
+
+Body:
+{
+  "model": "claude-haiku-4-5-20251001",
+  "max_tokens": 600,
+  "system": "نظام تصنيف البريد — أعد JSON فقط",
+  "messages": [{
+    "role": "user",
+    "content": "من: {{ $json.from }}\\nالموضوع: {{ $json.subject }}"
+  }]
+}
+\`\`\`
+
+**3. Code Node (معالجة الرد)**
+
+\`\`\`javascript
+// استخراج JSON من رد Claude
+const rawText = $input.first().json.content[0].text.trim();
+const analysis = JSON.parse(rawText);
+
+return [{
+  json: {
+    ...analysis,
+    email_from: $("Gmail Trigger").first().json.from,
+    email_subject: $("Gmail Trigger").first().json.subject,
+    processed_at: new Date().toISOString(),
+  }
+}];
+\`\`\`
+
+**4. Switch Node (Router)**
+
+\`\`\`
+الحالة 1: {{ $json.priority === "high" }}   → Slack + Mark Important
+الحالة 2: {{ $json.requires_human === false }} → Send Auto Reply
+Default:                                      → Human Review Queue
+\`\`\`
+
+**5. Google Sheets Node**
+
+\`\`\`
+Operation: Append Row
+القيم: from | subject | category | priority | sentiment | processed_at
+\`\`\`
+
+### نصائح للإنتاج
+
+- 🔐 **أمان:** استخدم n8n Credentials دائماً — لا تضع API keys مباشرة
+- 📊 **مراقبة:** فعّل Error Workflow لتلقي تنبيهات الأخطاء
+- 🔄 **إعادة المحاولة:** فعّل Retry on Fail (3 مرات) في كل HTTP Node
+- 📝 **تسجيل:** احتفظ بـ Execution log لمدة 30 يوماً للتدقيق
+- 🚦 **Rate Limit:** أضف Wait Node (1 ثانية) بين طلبات Claude المتعددة
+`,
+      bodyEn: `
+## Project: Email Response Automation Bot
+
+We'll build a complete system that automatically processes incoming emails using Claude AI and n8n.
+
+### Project Architecture
+
+\`\`\`
+                  ┌─────────────────┐
+  Incoming email ▶ │  Gmail Trigger  │
+                  └────────┬────────┘
+                           ↓
+                  ┌─────────────────┐
+                  │  Claude AI Node │  analyze + classify
+                  └────────┬────────┘
+                           ↓
+                  ┌─────────────────┐
+                  │   Router Node   │  route by priority
+                  └──┬──────────┬───┘
+            urgent ↓              ↓ normal
+        ┌──────────────┐  ┌──────────────┐
+        │  Slack Alert │  │  Auto Reply  │
+        └──────┬───────┘  └──────┬───────┘
+               └──────────┬──────┘
+                          ↓
+                 ┌────────────────┐
+                 │ Google Sheets  │  log all emails
+                 └────────────────┘
+\`\`\`
+
+### Project Setup in n8n
+
+**1. Gmail Trigger Node**
+
+\`\`\`
+Resource: Message
+Operation: Get Many
+Filters: unread: true, maxResults: 10
+Poll Every: 1 minute
+\`\`\`
+
+**2. HTTP Request Node (Claude API)**
+
+\`\`\`
+Method: POST
+URL: https://api.anthropic.com/v1/messages
+Auth: Header Auth (x-api-key from Credentials)
+
+Body:
+{
+  "model": "claude-haiku-4-5-20251001",
+  "max_tokens": 600,
+  "system": "Email classification system — return JSON only",
+  "messages": [{
+    "role": "user",
+    "content": "From: {{ $json.from }}\\nSubject: {{ $json.subject }}"
+  }]
+}
+\`\`\`
+
+**3. Code Node (Parse Response)**
+
+\`\`\`javascript
+// Extract JSON from Claude's response
+const rawText = $input.first().json.content[0].text.trim();
+const analysis = JSON.parse(rawText);
+
+return [{
+  json: {
+    ...analysis,
+    email_from: $("Gmail Trigger").first().json.from,
+    email_subject: $("Gmail Trigger").first().json.subject,
+    processed_at: new Date().toISOString(),
+  }
+}];
+\`\`\`
+
+**4. Switch Node (Router)**
+
+\`\`\`
+Case 1: {{ $json.priority === "high" }}      → Slack + Mark Important
+Case 2: {{ $json.requires_human === false }} → Send Auto Reply
+Default:                                     → Human Review Queue
+\`\`\`
+
+**5. Google Sheets Node**
+
+\`\`\`
+Operation: Append Row
+Values: from | subject | category | priority | sentiment | processed_at
+\`\`\`
+
+### Production Tips
+
+- 🔐 **Security:** Always use n8n Credentials — never put API keys directly in nodes
+- 📊 **Monitoring:** Enable Error Workflow to receive alerts
+- 🔄 **Retries:** Enable Retry on Fail (3 attempts) in every HTTP Node
+- 📝 **Logging:** Keep Execution logs for 30 days for audit
+- 🚦 **Rate Limit:** Add a Wait Node (1 second) between multiple Claude requests
+`,
+      codeExample: `#!/usr/bin/env python3
+"""
+مشروع: بوت أتمتة ردود البريد الإلكتروني
+Project: Email Response Automation Bot
+
+Architecture: Emails → Claude AI → Route → Auto-reply + Log
+"""
+
+import os
+import json
+import time
+import anthropic
+from dataclasses import dataclass, field
+from datetime import datetime
+from typing import Optional
+
+@dataclass
+class Email:
+    id: str
+    from_addr: str
+    subject: str
+    body: str
+    received_at: str = field(
+        default_factory=lambda: datetime.now().strftime("%H:%M:%S")
+    )
+
+@dataclass
+class EmailAnalysis:
+    category: str = "general"
+    priority: str = "low"
+    sentiment: str = "neutral"
+    auto_reply: str = ""
+    requires_human: bool = False
+    summary: str = ""
+    tokens_used: int = 0
+
+class EmailAutomationBot:
+    """
+    بوت أتمتة كامل لمعالجة البريد الإلكتروني بـ Claude
+    Full email automation bot powered by Claude AI
+    """
+
+    SYSTEM_PROMPT = """أنت نظام ذكي لمعالجة البريد الإلكتروني.
+حلّل كل بريد وارد وأعد JSON بهذا الشكل بالضبط:
+{
+  "category": "technical|billing|sales|hr|general|spam",
+  "priority": "high|normal|low",
+  "sentiment": "positive|neutral|negative|angry",
+  "auto_reply": "رد مهني ومناسب بالعربية (2-3 جمل)",
+  "requires_human": false,
+  "summary": "ملخص في جملة واحدة"
+}
+requires_human = true فقط للمشاكل التقنية العميقة أو طلبات استرداد كبيرة."""
+
+    def __init__(self):
+        self.claude = anthropic.Anthropic(
+            api_key=os.environ.get("ANTHROPIC_API_KEY", "demo")
+        )
+        self.processed: list[tuple[Email, EmailAnalysis]] = []
+        self.stats = {"total": 0, "auto": 0, "human": 0, "errors": 0, "tokens": 0}
+
+    # ─── Nodes (كل دالة = Node واحد في n8n) ──────────────
+
+    def gmail_trigger(self, emails: list[Email]) -> list[Email]:
+        """Node 1: Gmail Trigger"""
+        print(f"⚡ Gmail Trigger: {len(emails)} بريد وارد")
+        return emails
+
+    def claude_node(self, email: Email) -> EmailAnalysis:
+        """Node 2: HTTP Request → Claude API"""
+        prompt = (
+            f"من: {email.from_addr}\\n"
+            f"الموضوع: {email.subject}\\n"
+            f"المحتوى:\\n{email.body}"
+        )
+        msg = self.claude.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=600,
+            system=self.SYSTEM_PROMPT,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw = msg.content[0].text.strip()
+        if raw.startswith("\`\`\`"):
+            raw = raw.split("\`\`\`")[1].replace("json", "").strip()
+
+        data = json.loads(raw)
+        tokens = msg.usage.input_tokens + msg.usage.output_tokens
+        self.stats["tokens"] += tokens
+
+        return EmailAnalysis(
+            category=data.get("category", "general"),
+            priority=data.get("priority", "low"),
+            sentiment=data.get("sentiment", "neutral"),
+            auto_reply=data.get("auto_reply", ""),
+            requires_human=data.get("requires_human", False),
+            summary=data.get("summary", ""),
+            tokens_used=tokens,
+        )
+
+    def router_node(self, analysis: EmailAnalysis) -> str:
+        """Node 3: Switch Router"""
+        if analysis.priority == "high":
+            return "urgent"
+        elif not analysis.requires_human:
+            return "auto_reply"
+        return "human_queue"
+
+    def slack_alert_node(self, email: Email, analysis: EmailAnalysis):
+        """Node 4a: Slack Alert"""
+        print(f"  📢 Slack #urgent @here:")
+        print(f"     من: {email.from_addr}")
+        print(f"     الملخص: {analysis.summary}")
+
+    def auto_reply_node(self, email: Email, analysis: EmailAnalysis):
+        """Node 4b: Gmail Auto Reply"""
+        print(f"  📧 Auto Reply → {email.from_addr}")
+        print(f"     '{analysis.auto_reply[:70]}...'")
+
+    def human_queue_node(self, email: Email, analysis: EmailAnalysis):
+        """Node 4c: Human Review Queue"""
+        print(f"  🔔 Human Queue [{analysis.category}]: {email.subject[:40]}")
+
+    def sheets_node(self, email: Email, analysis: EmailAnalysis):
+        """Node 5: Google Sheets"""
+        row = (f"{email.from_addr} | {analysis.category} | "
+               f"{analysis.priority} | {analysis.tokens_used}t")
+        print(f"  📊 Sheets: {row}")
+
+    # ─── تشغيل سير العمل ──────────────────────────────────
+
+    def process_single(self, email: Email):
+        t0 = time.time()
+        self.stats["total"] += 1
+        try:
+            print(f"\\n{'─'*55}")
+            print(f"📨 [{email.id}] {email.subject[:48]}")
+
+            analysis = self.claude_node(email)
+            route = self.router_node(analysis)
+
+            p_icon = {"high": "🔴", "normal": "🟡", "low": "🟢"}.get(
+                analysis.priority, "⚪"
+            )
+            print(f"  {p_icon} {analysis.category} | {analysis.sentiment} | {route}")
+
+            if route == "urgent":
+                self.slack_alert_node(email, analysis)
+                self.stats["human"] += 1
+            elif route == "auto_reply":
+                self.auto_reply_node(email, analysis)
+                self.stats["auto"] += 1
+            else:
+                self.human_queue_node(email, analysis)
+                self.stats["human"] += 1
+
+            self.sheets_node(email, analysis)
+            self.processed.append((email, analysis))
+
+        except Exception as e:
+            self.stats["errors"] += 1
+            print(f"  ⚠️  Error: {e}")
+
+        print(f"  ⏱️  {round((time.time()-t0)*1000)}ms")
+
+    def run(self, emails: list[Email]):
+        print("🤖 Email Automation Bot — بدأ")
+        print("="*55)
+        triggered = self.gmail_trigger(emails)
+        for email in triggered:
+            self.process_single(email)
+
+        total = self.stats["total"]
+        auto_pct = self.stats["auto"] / max(total, 1) * 100
+        print(f"\\n{'='*55}")
+        print(f"📊 الإحصائيات:")
+        print(f"   إجمالي: {total} | تلقائي: {self.stats['auto']} | بشري: {self.stats['human']}")
+        print(f"   إجمالي Tokens: {self.stats['tokens']:,}")
+        print(f"   معدل الأتمتة: {auto_pct:.0f}%")
+        print("\\n✅ مشروع الأتمتة مكتمل! 🎉")
+
+# ─── تشغيل المشروع ────────────────────────────────────────
+bot = EmailAutomationBot()
+
+sample_emails = [
+    Email("E001", "angry@enterprise.com",
+          "الموقع معطل منذ 3 ساعات ونفقد الطلبات!",
+          "نظامنا لا يعمل والمبيعات تتوقف. هذا غير مقبول تماماً."),
+    Email("E002", "happy@user.com",
+          "شكراً على الخدمة الرائعة",
+          "المنتج رائع. أريد ترقية خطتي للخطة المتقدمة."),
+    Email("E003", "info@company.com",
+          "استفسار عن أسعار الخطة المؤسسية",
+          "نحن فريق 200 موظف. ما هي الأسعار والعقود السنوية؟"),
+    Email("E004", "cfo@bigcorp.com",
+          "طلب استرداد مبلغ 12000 دولار بسبب الانقطاع",
+          "بسبب الانقطاع الذي استمر 48 ساعة نطالب باسترداد كامل رسوم الشهر."),
+]
+
+bot.run(sample_emails)`,
+      codeLanguage: "python",
+    },
+  ],
+
 };

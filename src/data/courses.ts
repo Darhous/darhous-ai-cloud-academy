@@ -420,7 +420,7 @@ export const courses: Course[] = [
     descriptionEn: "Build automated workflows using n8n, Make, Zapier, and AI Agents.",
     level: "intermediate", lessons: 20, hours: 15, projects: 4,
     skills: ["n8n", "Make", "Zapier", "AI Agents", "Webhooks"],
-    category: "Automation", icon: "⚡", featured: false, color: "green", comingSoon: true,
+    category: "Automation", icon: "⚡", featured: false, color: "green",
     overviewAr: "أتمتة الذكاء الاصطناعي تحوّل ساعات من العمل إلى ثوانٍ. ستتعلم كيف تبني سير عمل ذكية تجمع بين AI وأدوات SaaS لأتمتة المهام المتكررة.",
     overviewEn: "AI automation transforms hours of work into seconds. You'll learn how to build smart workflows combining AI with SaaS tools to automate repetitive tasks.",
     forWhoAr: ["أصحاب الأعمال", "المسوقون الرقميون", "المطورون المهتمون بالأتمتة"],
