@@ -96,7 +96,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [saveMsg, setSaveMsg] = useState<string | null>(null);
 
   /* Nano Banana sub-tab */
-  const [nbSubTab, setNbSubTab] = useState<"list" | "add">("list");
+  const [nbSubTab, setNbSubTab] = useState<"list" | "add" | "edit">("list");
   /* Nano Banana add-form state */
   const [nbForm, setNbForm] = useState({
     title_ar: "", title_en: "", description_ar: "", description_en: "",
@@ -116,6 +116,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [issuing, setIssuing] = useState(false);
   const [issueMsg, setIssueMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
   const [nbCustomPrompts, setNbCustomPrompts] = useState<Record<string, unknown>[]>([]);
+  const [nbEditId, setNbEditId] = useState<string | null>(null);
 
   /* Analytics state */
   const [analyticsData, setAnalyticsData] = useState<{ portal: string; count: number }[]>([]);
@@ -2083,6 +2084,92 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
           }
         }
 
+        async function handleNbArchive(id: string) {
+          if (!confirm(isAr ? "أرشفة البرومبت؟ لن يظهر للمستخدمين." : "Archive this prompt? It will be hidden from users.")) return;
+          const res = await fetch(`/api/admin/nano-banana/${id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ status: "archived" }),
+          });
+          if (res.ok) {
+            setNbCustomPrompts((p) => p.map((x) => {
+              const row = x as { id: string };
+              return row.id === id ? { ...x, status: "archived" } : x;
+            }));
+          }
+        }
+
+        async function handleNbUnarchive(id: string) {
+          const res = await fetch(`/api/admin/nano-banana/${id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ status: "published" }),
+          });
+          if (res.ok) {
+            setNbCustomPrompts((p) => p.map((x) => {
+              const row = x as { id: string };
+              return row.id === id ? { ...x, status: "published" } : x;
+            }));
+          }
+        }
+
+        async function handleNbUpdate(e: React.FormEvent) {
+          e.preventDefault();
+          if (!nbEditId) return;
+          setNbSaving(true);
+          setNbMsg(null);
+          try {
+            const tagsArr = nbForm.tags
+              ? nbForm.tags.split(",").map((t: string) => t.trim()).filter(Boolean)
+              : [];
+            const res = await fetch(`/api/admin/nano-banana/${nbEditId}`, {
+              method: "PATCH",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                title_ar: nbForm.title_ar,
+                title_en: nbForm.title_en,
+                description_ar: nbForm.description_ar,
+                description_en: nbForm.description_en,
+                category: nbForm.category,
+                category_label_ar: nbForm.category_label_ar,
+                category_label_en: nbForm.category_label_en,
+                difficulty: nbForm.difficulty,
+                best_input_ar: nbForm.best_input_ar,
+                best_input_en: nbForm.best_input_en,
+                prompt_ar: nbForm.prompt_ar,
+                prompt_en: nbForm.prompt_en,
+                accent: nbForm.accent,
+                emoji: nbForm.emoji,
+                tags: tagsArr,
+                featured: nbForm.featured,
+              }),
+            });
+            const json = await res.json() as { success?: boolean; error?: string };
+            if (!res.ok) {
+              setNbMsg({ type: "err", text: json.error ?? `خطأ ${res.status}` });
+            } else {
+              setNbMsg({ type: "ok", text: isAr ? "✅ تم التعديل بنجاح!" : "✅ Prompt updated!" });
+              setNbCustomPrompts((p) => p.map((x) => {
+                const row = x as { id: string };
+                return row.id === nbEditId
+                  ? { ...x, title_ar: nbForm.title_ar, title_en: nbForm.title_en,
+                      description_ar: nbForm.description_ar, description_en: nbForm.description_en,
+                      category: nbForm.category, category_label_ar: nbForm.category_label_ar,
+                      category_label_en: nbForm.category_label_en, difficulty: nbForm.difficulty,
+                      best_input_ar: nbForm.best_input_ar, best_input_en: nbForm.best_input_en,
+                      prompt_ar: nbForm.prompt_ar, prompt_en: nbForm.prompt_en,
+                      accent: nbForm.accent, emoji: nbForm.emoji, tags: tagsArr, featured: nbForm.featured }
+                  : x;
+              }));
+              setTimeout(() => { setNbSubTab("list"); setNbEditId(null); }, 1500);
+            }
+          } catch (err) {
+            setNbMsg({ type: "err", text: err instanceof Error ? err.message : "فشل الاتصال" });
+          } finally {
+            setNbSaving(false);
+          }
+        }
+
         return (
           <div className="flex flex-col gap-6">
             {/* Sub-tab bar */}
@@ -2090,7 +2177,8 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
               {([
                 { id: "list", labelAr: "📊 القائمة",  labelEn: "📊 List" },
                 { id: "add",  labelAr: "➕ إضافة برومبت", labelEn: "➕ Add Prompt" },
-              ] as { id: "list" | "add"; labelAr: string; labelEn: string }[]).map((st) => (
+                ...(nbEditId ? [{ id: "edit" as const, labelAr: "✏️ تعديل البرومبت", labelEn: "✏️ Edit Prompt" }] : []),
+              ] as { id: "list" | "add" | "edit"; labelAr: string; labelEn: string }[]).map((st) => (
                 <button
                   key={st.id}
                   onClick={() => {
@@ -2204,32 +2292,90 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                     <table className="w-full text-xs">
                       <thead>
                         <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                          {["#", isAr ? "العنوان" : "Title", isAr ? "الفئة" : "Category", isAr ? "الصورة" : "Image", isAr ? "حذف" : "Delete"].map((h) => (
-                            <th key={h} className="text-start pb-2 font-mono font-semibold pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{h}</th>
+                          {["#", isAr ? "العنوان" : "Title", isAr ? "الحالة" : "Status", isAr ? "الصورة" : "Img", isAr ? "إجراءات" : "Actions"].map((h) => (
+                            <th key={h} className="text-start pb-2 font-mono font-semibold pr-3" style={{ color: "var(--color-on-surface-variant)" }}>{h}</th>
                           ))}
                         </tr>
                       </thead>
                       <tbody>
                         {nbCustomPrompts.map((p, i) => {
-                          const row = p as { id: string; title_ar: string; title_en: string; category_label_ar: string; image_url?: string };
+                          const row = p as { id: string; title_ar: string; title_en: string; category_label_ar: string; image_url?: string; status?: string };
+                          const isArchived = row.status === "archived";
                           return (
-                            <tr key={row.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
-                              <td className="py-1.5 font-mono pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{i + 1}</td>
-                              <td className="py-1.5 max-w-[180px] truncate pr-4" style={{ color: "var(--color-on-surface)" }}>{isAr ? row.title_ar : row.title_en}</td>
-                              <td className="py-1.5 pr-4" style={{ color: "#4ade80" }}>{row.category_label_ar}</td>
-                              <td className="py-1.5 pr-4">
+                            <tr key={row.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.03)", opacity: isArchived ? 0.55 : 1 }}>
+                              <td className="py-1.5 font-mono pr-3" style={{ color: "var(--color-on-surface-variant)" }}>{i + 1}</td>
+                              <td className="py-1.5 max-w-[160px] truncate pr-3" style={{ color: "var(--color-on-surface)" }}>{isAr ? row.title_ar : row.title_en}</td>
+                              <td className="py-1.5 pr-3">
+                                <span className="text-[10px] px-1.5 py-0.5 rounded font-mono" style={{
+                                  background: isArchived ? "rgba(248,113,113,0.1)" : "rgba(74,222,128,0.1)",
+                                  color: isArchived ? "#f87171" : "#4ade80",
+                                  border: `1px solid ${isArchived ? "rgba(248,113,113,0.2)" : "rgba(74,222,128,0.2)"}`,
+                                }}>
+                                  {isArchived ? (isAr ? "مؤرشف" : "archived") : (isAr ? "منشور" : "published")}
+                                </span>
+                              </td>
+                              <td className="py-1.5 pr-3">
                                 {row.image_url
                                   ? <span className="text-[10px] px-1.5 py-0.5 rounded" style={{ background: "rgba(74,222,128,0.12)", color: "#4ade80" }}>✓</span>
                                   : <span style={{ color: "rgba(255,255,255,0.2)" }}>—</span>}
                               </td>
                               <td className="py-1.5">
-                                <button
-                                  onClick={() => handleNbDelete(row.id)}
-                                  className="text-[10px] px-2 py-0.5 rounded hover:opacity-80 transition-opacity"
-                                  style={{ background: "rgba(248,113,113,0.1)", color: "#f87171", border: "1px solid rgba(248,113,113,0.2)" }}
-                                >
-                                  {isAr ? "حذف" : "Delete"}
-                                </button>
+                                <div className="flex gap-1.5 flex-wrap">
+                                  <button
+                                    onClick={() => {
+                                      setNbEditId(row.id);
+                                      setNbForm({
+                                        title_ar: row.title_ar, title_en: row.title_en ?? "",
+                                        description_ar: (row as Record<string, unknown>).description_ar as string ?? "",
+                                        description_en: (row as Record<string, unknown>).description_en as string ?? "",
+                                        category: (row as Record<string, unknown>).category as string ?? "fun",
+                                        category_label_ar: row.category_label_ar ?? "ترفيه",
+                                        category_label_en: (row as Record<string, unknown>).category_label_en as string ?? "Fun",
+                                        difficulty: (row as Record<string, unknown>).difficulty as string ?? "beginner",
+                                        best_input_ar: (row as Record<string, unknown>).best_input_ar as string ?? "",
+                                        best_input_en: (row as Record<string, unknown>).best_input_en as string ?? "",
+                                        prompt_ar: (row as Record<string, unknown>).prompt_ar as string ?? "",
+                                        prompt_en: (row as Record<string, unknown>).prompt_en as string ?? "",
+                                        accent: (row as Record<string, unknown>).accent as string ?? "#f59e0b",
+                                        emoji: (row as Record<string, unknown>).emoji as string ?? "🍌",
+                                        tags: Array.isArray((row as Record<string, unknown>).tags)
+                                          ? ((row as Record<string, unknown>).tags as string[]).join(", ")
+                                          : "",
+                                        featured: !!(row as Record<string, unknown>).featured,
+                                      });
+                                      setNbSubTab("edit");
+                                      setNbMsg(null);
+                                    }}
+                                    className="text-[10px] px-2 py-0.5 rounded hover:opacity-80 transition-opacity"
+                                    style={{ background: "rgba(142,213,255,0.1)", color: "#8ed5ff", border: "1px solid rgba(142,213,255,0.2)" }}
+                                  >
+                                    {isAr ? "تعديل" : "Edit"}
+                                  </button>
+                                  {isArchived ? (
+                                    <button
+                                      onClick={() => handleNbUnarchive(row.id)}
+                                      className="text-[10px] px-2 py-0.5 rounded hover:opacity-80 transition-opacity"
+                                      style={{ background: "rgba(74,222,128,0.1)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.2)" }}
+                                    >
+                                      {isAr ? "نشر" : "Publish"}
+                                    </button>
+                                  ) : (
+                                    <button
+                                      onClick={() => handleNbArchive(row.id)}
+                                      className="text-[10px] px-2 py-0.5 rounded hover:opacity-80 transition-opacity"
+                                      style={{ background: "rgba(192,132,252,0.1)", color: "#c084fc", border: "1px solid rgba(192,132,252,0.2)" }}
+                                    >
+                                      {isAr ? "أرشفة" : "Archive"}
+                                    </button>
+                                  )}
+                                  <button
+                                    onClick={() => handleNbDelete(row.id)}
+                                    className="text-[10px] px-2 py-0.5 rounded hover:opacity-80 transition-opacity"
+                                    style={{ background: "rgba(248,113,113,0.1)", color: "#f87171", border: "1px solid rgba(248,113,113,0.2)" }}
+                                  >
+                                    {isAr ? "حذف" : "Delete"}
+                                  </button>
+                                </div>
                               </td>
                             </tr>
                           );
@@ -2249,6 +2395,143 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                   <ExternalLink size={13} />🍌 {isAr ? "فتح Nano Banana Lab" : "Open Nano Banana Lab"}
                 </a>
               </>
+            )}
+
+            {/* ── SUB-TAB: تعديل ── */}
+            {nbSubTab === "edit" && nbEditId && (
+              <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(142,213,255,0.25)" }}>
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="font-bold text-base flex items-center gap-2" style={{ color: "#8ed5ff" }}>
+                    <Edit3 size={16} />{isAr ? "تعديل البرومبت" : "Edit Prompt"}
+                  </h3>
+                  <button
+                    onClick={() => { setNbSubTab("list"); setNbEditId(null); setNbMsg(null); }}
+                    className="text-xs px-3 py-1 rounded-lg hover:opacity-80"
+                    style={{ background: "rgba(255,255,255,0.06)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}
+                  >
+                    {isAr ? "← إلغاء" : "← Cancel"}
+                  </button>
+                </div>
+
+                {nbMsg && (
+                  <div className="mb-4 p-3 rounded-xl text-sm font-mono" style={{
+                    background: nbMsg.type === "ok" ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)",
+                    color: nbMsg.type === "ok" ? "#4ade80" : "#f87171",
+                    border: `1px solid ${nbMsg.type === "ok" ? "rgba(74,222,128,0.25)" : "rgba(248,113,113,0.25)"}`,
+                  }}>
+                    {nbMsg.text}
+                  </div>
+                )}
+
+                <form onSubmit={handleNbUpdate} className="flex flex-col gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "اسم البرومبت (عربي) *" : "Prompt Name (Arabic) *"}</label>
+                      <input required value={nbForm.title_ar} onChange={(e) => setNbForm((f) => ({ ...f, title_ar: e.target.value }))}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(142,213,255,0.2)", color: "var(--color-on-surface)" }} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "اسم البرومبت (إنجليزي)" : "Prompt Name (English)"}</label>
+                      <input value={nbForm.title_en} onChange={(e) => setNbForm((f) => ({ ...f, title_en: e.target.value }))}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "الوصف (عربي)" : "Description (Arabic)"}</label>
+                      <input value={nbForm.description_ar} onChange={(e) => setNbForm((f) => ({ ...f, description_ar: e.target.value }))}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "الوصف (إنجليزي)" : "Description (English)"}</label>
+                      <input value={nbForm.description_en} onChange={(e) => setNbForm((f) => ({ ...f, description_en: e.target.value }))}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "نص البرومبت (عربي) *" : "Prompt Text (Arabic) *"}</label>
+                    <textarea required value={nbForm.prompt_ar} onChange={(e) => setNbForm((f) => ({ ...f, prompt_ar: e.target.value }))}
+                      rows={5} className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none resize-y font-mono"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(142,213,255,0.2)", color: "var(--color-on-surface)", direction: "ltr" }} />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "نص البرومبت (إنجليزي)" : "Prompt Text (English)"}</label>
+                    <textarea value={nbForm.prompt_en} onChange={(e) => setNbForm((f) => ({ ...f, prompt_en: e.target.value }))}
+                      rows={4} className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none resize-y font-mono"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)", direction: "ltr" }} />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "الكتالوج / الفئة" : "Catalog / Category"}</label>
+                      <select value={nbForm.category}
+                        onChange={(e) => {
+                          const cat = NB_CATEGORIES.find((c) => c.value === e.target.value);
+                          setNbForm((f) => ({ ...f, category: e.target.value, category_label_ar: cat?.ar ?? "ترفيه", category_label_en: cat?.en ?? "Fun" }));
+                        }}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }}>
+                        {NB_CATEGORIES.map((c) => <option key={c.value} value={c.value}>{isAr ? c.ar : c.en}</option>)}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "المستوى" : "Difficulty"}</label>
+                      <select value={nbForm.difficulty} onChange={(e) => setNbForm((f) => ({ ...f, difficulty: e.target.value }))}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }}>
+                        <option value="beginner">{isAr ? "مبتدئ" : "Beginner"}</option>
+                        <option value="intermediate">{isAr ? "متوسط" : "Intermediate"}</option>
+                        <option value="advanced">{isAr ? "متقدم" : "Advanced"}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "أفضل مدخل (عربي)" : "Best Input (Arabic)"}</label>
+                      <input value={nbForm.best_input_ar} onChange={(e) => setNbForm((f) => ({ ...f, best_input_ar: e.target.value }))}
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "الوسوم (مفصولة بفاصلة)" : "Tags (comma separated)"}</label>
+                      <input value={nbForm.tags} onChange={(e) => setNbForm((f) => ({ ...f, tags: e.target.value }))}
+                        placeholder="anime, portrait, japan"
+                        className="w-full rounded-xl px-3 py-2.5 text-sm focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "الإيموجي" : "Emoji"}</label>
+                      <input value={nbForm.emoji} onChange={(e) => setNbForm((f) => ({ ...f, emoji: e.target.value }))} maxLength={4}
+                        className="w-full rounded-xl px-3 py-2.5 text-lg text-center focus:outline-none"
+                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "اللون" : "Accent Color"}</label>
+                      <div className="flex gap-2 items-center">
+                        <input type="color" value={nbForm.accent} onChange={(e) => setNbForm((f) => ({ ...f, accent: e.target.value }))}
+                          className="h-10 w-10 rounded-lg cursor-pointer border-0" style={{ padding: "2px" }} />
+                        <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{nbForm.accent}</span>
+                      </div>
+                    </div>
+                    <div className="sm:col-span-2 flex items-end">
+                      <label className="flex items-center gap-2 cursor-pointer select-none">
+                        <input type="checkbox" checked={nbForm.featured} onChange={(e) => setNbForm((f) => ({ ...f, featured: e.target.checked }))} className="w-4 h-4 rounded" />
+                        <span className="text-sm" style={{ color: "var(--color-on-surface)" }}>{isAr ? "★ مميز (Featured)" : "★ Mark as Featured"}</span>
+                      </label>
+                    </div>
+                  </div>
+                  <button type="submit" disabled={nbSaving}
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold transition-all hover:opacity-90 disabled:opacity-50"
+                    style={{ background: "linear-gradient(135deg, #8ed5ff, #60b4e8)", color: "#000" }}>
+                    {nbSaving ? (isAr ? "جاري الحفظ..." : "Saving...") : (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes")}
+                  </button>
+                </form>
+              </div>
             )}
 
             {/* ── SUB-TAB: إضافة ── */}

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Copy, Check, Bookmark, BookmarkCheck, Shield, Sparkles, ChevronDown, ChevronUp, Wand2, AlertCircle } from "lucide-react";
+import Link from "next/link";
+import { Copy, Check, Bookmark, BookmarkCheck, Shield, Sparkles, ChevronDown, ChevronUp, Wand2, AlertCircle, Pencil, Archive, Trash2, Plus } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 import CommunitySignup from "@/components/community/CommunitySignup";
 import {
   nanaBananaPrompts,
@@ -86,11 +88,19 @@ function PromptCard({
   isAr,
   isSaved,
   onSave,
+  isAdmin,
+  onAdminEdit,
+  onAdminArchive,
+  onAdminDelete,
 }: {
   item: NanaBananaPrompt;
   isAr: boolean;
   isSaved: boolean;
   onSave: () => void;
+  isAdmin?: boolean;
+  onAdminEdit?: (item: NanaBananaPrompt) => void;
+  onAdminArchive?: (id: string) => void;
+  onAdminDelete?: (id: string) => void;
 }) {
   const [copied, setCopied] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -226,6 +236,47 @@ function PromptCard({
             ? (isAr ? "تم النسخ!" : "Copied!")
             : (isAr ? "نسخ البرومبت" : "Copy Prompt")}
         </button>
+
+        {/* Admin action bar — custom prompts only, admins only */}
+        {isAdmin && item.id.startsWith("custom-") && (
+          <div
+            className="flex gap-1.5 pt-2 mt-1 flex-wrap"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+          >
+            <button
+              onClick={() => onAdminEdit?.(item)}
+              className="flex items-center gap-1 text-[10px] px-2 py-1 rounded-lg hover:opacity-80 transition-opacity"
+              style={{ background: "rgba(142,213,255,0.1)", color: "#8ed5ff", border: "1px solid rgba(142,213,255,0.2)" }}
+              title={isAr ? "تعديل" : "Edit"}
+            >
+              <Pencil size={10} />{isAr ? "تعديل" : "Edit"}
+            </button>
+            <button
+              onClick={() => onAdminArchive?.(item.id)}
+              className="flex items-center gap-1 text-[10px] px-2 py-1 rounded-lg hover:opacity-80 transition-opacity"
+              style={{ background: "rgba(192,132,252,0.1)", color: "#c084fc", border: "1px solid rgba(192,132,252,0.2)" }}
+              title={isAr ? "أرشفة" : "Archive"}
+            >
+              <Archive size={10} />{isAr ? "أرشفة" : "Archive"}
+            </button>
+            <button
+              onClick={() => onAdminDelete?.(item.id)}
+              className="flex items-center gap-1 text-[10px] px-2 py-1 rounded-lg hover:opacity-80 transition-opacity"
+              style={{ background: "rgba(248,113,113,0.1)", color: "#f87171", border: "1px solid rgba(248,113,113,0.2)" }}
+              title={isAr ? "حذف" : "Delete"}
+            >
+              <Trash2 size={10} />{isAr ? "حذف" : "Delete"}
+            </button>
+          </div>
+        )}
+        {/* Static prompt badge for admins */}
+        {isAdmin && !item.id.startsWith("custom-") && (
+          <div className="mt-1 pt-2" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            <span className="text-[9px] font-mono px-2 py-0.5 rounded" style={{ background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.3)" }}>
+              static — edit via code
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -374,9 +425,19 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
   const [activeCategory, setActiveCategory] = useState<NanaBananaCategory | "all">("all");
   const [activeDiff, setActiveDiff] = useState<string>("all");
   const { saved, toggle } = useSavedNanaBanana();
+  const { isAdmin } = useAuth();
 
   // Custom prompts from DB (merged with static array)
   const [customPrompts, setCustomPrompts] = useState<NanaBananaPrompt[]>([]);
+
+  // Edit modal state
+  const [editTarget, setEditTarget] = useState<{ rawId: string; item: NanaBananaPrompt } | null>(null);
+  const [editForm, setEditForm] = useState({
+    title_ar: "", title_en: "", description_ar: "", description_en: "",
+    prompt_ar: "", prompt_en: "", featured: false,
+  });
+  const [editSaving, setEditSaving] = useState(false);
+  const [editMsg, setEditMsg] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/nano-banana/prompts")
@@ -388,6 +449,83 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
       })
       .catch(() => {/* silent — static prompts still show */});
   }, []);
+
+  // ── Admin handlers ────────────────────────────────────────────
+  async function handleAdminDelete(promptId: string) {
+    const rawId = promptId.replace("custom-", "");
+    if (!confirm(isAr ? "هل أنت متأكد من الحذف النهائي؟" : "Permanently delete this prompt?")) return;
+    const res = await fetch(`/api/admin/nano-banana/${rawId}`, { method: "DELETE" });
+    if (res.ok) {
+      setCustomPrompts((p) => p.filter((x) => x.id !== promptId));
+    }
+  }
+
+  async function handleAdminArchive(promptId: string) {
+    const rawId = promptId.replace("custom-", "");
+    if (!confirm(isAr ? "أرشفة البرومبت؟ لن يظهر للمستخدمين." : "Archive? It will be hidden from users.")) return;
+    const res = await fetch(`/api/admin/nano-banana/${rawId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status: "archived" }),
+    });
+    if (res.ok) {
+      setCustomPrompts((p) => p.filter((x) => x.id !== promptId));
+    }
+  }
+
+  function openEditModal(item: NanaBananaPrompt) {
+    const rawId = item.id.replace("custom-", "");
+    setEditTarget({ rawId, item });
+    setEditForm({
+      title_ar: item.titleAr,
+      title_en: item.titleEn,
+      description_ar: item.descriptionAr,
+      description_en: item.descriptionEn,
+      prompt_ar: item.promptAr,
+      prompt_en: item.promptEn,
+      featured: item.featured ?? false,
+    });
+    setEditMsg(null);
+  }
+
+  async function handleEditSave(e: React.FormEvent) {
+    e.preventDefault();
+    if (!editTarget) return;
+    setEditSaving(true);
+    setEditMsg(null);
+    try {
+      const res = await fetch(`/api/admin/nano-banana/${editTarget.rawId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(editForm),
+      });
+      if (res.ok) {
+        setEditMsg(isAr ? "✅ تم الحفظ" : "✅ Saved");
+        setCustomPrompts((p) => p.map((x) =>
+          x.id === editTarget.item.id
+            ? {
+                ...x,
+                titleAr: editForm.title_ar,
+                titleEn: editForm.title_en,
+                descriptionAr: editForm.description_ar,
+                descriptionEn: editForm.description_en,
+                promptAr: editForm.prompt_ar,
+                promptEn: editForm.prompt_en,
+                featured: editForm.featured,
+              }
+            : x
+        ));
+        setTimeout(() => setEditTarget(null), 1200);
+      } else {
+        const json = await res.json() as { error?: string };
+        setEditMsg(`❌ ${json.error ?? "خطأ"}`);
+      }
+    } catch {
+      setEditMsg("❌ " + (isAr ? "فشل الاتصال" : "Connection failed"));
+    } finally {
+      setEditSaving(false);
+    }
+  }
 
   // Merge: custom first (so they appear at the top of the grid)
   const allPrompts: NanaBananaPrompt[] = [...customPrompts, ...nanaBananaPrompts];
@@ -583,6 +721,10 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
                 isAr={isAr}
                 isSaved={saved.includes(item.id)}
                 onSave={() => toggle(item.id)}
+                isAdmin={isAdmin}
+                onAdminEdit={openEditModal}
+                onAdminArchive={handleAdminArchive}
+                onAdminDelete={handleAdminDelete}
               />
             ))}
           </div>
@@ -593,6 +735,118 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
       <section className="container-xl pb-20">
         <CommunitySignup locale={locale} variant="hero" source="nano-banana" />
       </section>
+
+      {/* ── Admin floating button ─────────────────────────────── */}
+      {isAdmin && (
+        <div className="fixed bottom-6 end-6 z-50 flex flex-col gap-2 items-end">
+          <Link
+            href={`/${locale}/admin`}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-bold shadow-xl transition-all hover:scale-105"
+            style={{
+              background: "linear-gradient(135deg, #f59e0b, #d97706)",
+              color: "#000",
+              textDecoration: "none",
+              boxShadow: "0 8px 32px rgba(245,158,11,0.35)",
+            }}
+          >
+            <Plus size={16} />
+            {isAr ? "إضافة برومبت" : "Add Prompt"}
+          </Link>
+        </div>
+      )}
+
+      {/* ── Admin edit modal ──────────────────────────────────── */}
+      {isAdmin && editTarget && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+          style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(6px)" }}
+          onClick={(e) => { if (e.target === e.currentTarget) setEditTarget(null); }}
+        >
+          <div
+            className="w-full max-w-lg rounded-3xl p-6 overflow-y-auto max-h-[90vh]"
+            style={{ background: "var(--color-surface-container)", border: "1px solid rgba(142,213,255,0.25)" }}
+          >
+            <div className="flex items-center justify-between mb-5">
+              <h2 className="font-bold text-base flex items-center gap-2" style={{ color: "#8ed5ff" }}>
+                <Pencil size={15} />{isAr ? "تعديل البرومبت" : "Edit Prompt"}
+              </h2>
+              <button
+                onClick={() => setEditTarget(null)}
+                className="w-8 h-8 rounded-full flex items-center justify-center hover:opacity-80"
+                style={{ background: "rgba(255,255,255,0.08)", color: "var(--color-on-surface-variant)" }}
+              >✕</button>
+            </div>
+
+            {editMsg && (
+              <div className="mb-4 p-3 rounded-xl text-sm font-mono text-center" style={{
+                background: editMsg.startsWith("✅") ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)",
+                color: editMsg.startsWith("✅") ? "#4ade80" : "#f87171",
+              }}>
+                {editMsg}
+              </div>
+            )}
+
+            <form onSubmit={handleEditSave} className="flex flex-col gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-mono mb-1" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "الاسم (عربي) *" : "Name (Arabic) *"}</label>
+                  <input required value={editForm.title_ar} onChange={(e) => setEditForm((f) => ({ ...f, title_ar: e.target.value }))}
+                    className="w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(142,213,255,0.25)", color: "var(--color-on-surface)" }} />
+                </div>
+                <div>
+                  <label className="block text-xs font-mono mb-1" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "الاسم (إنجليزي)" : "Name (English)"}</label>
+                  <input value={editForm.title_en} onChange={(e) => setEditForm((f) => ({ ...f, title_en: e.target.value }))}
+                    className="w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-mono mb-1" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "الوصف (عربي)" : "Description (Arabic)"}</label>
+                  <input value={editForm.description_ar} onChange={(e) => setEditForm((f) => ({ ...f, description_ar: e.target.value }))}
+                    className="w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                </div>
+                <div>
+                  <label className="block text-xs font-mono mb-1" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "الوصف (إنجليزي)" : "Description (English)"}</label>
+                  <input value={editForm.description_en} onChange={(e) => setEditForm((f) => ({ ...f, description_en: e.target.value }))}
+                    className="w-full rounded-xl px-3 py-2 text-sm focus:outline-none"
+                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)" }} />
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-mono mb-1" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "نص البرومبت (عربي) *" : "Prompt (Arabic) *"}</label>
+                <textarea required value={editForm.prompt_ar} onChange={(e) => setEditForm((f) => ({ ...f, prompt_ar: e.target.value }))}
+                  rows={4} className="w-full rounded-xl px-3 py-2 text-sm focus:outline-none resize-y font-mono"
+                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(142,213,255,0.25)", color: "var(--color-on-surface)", direction: "ltr" }} />
+              </div>
+              <div>
+                <label className="block text-xs font-mono mb-1" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "نص البرومبت (إنجليزي)" : "Prompt (English)"}</label>
+                <textarea value={editForm.prompt_en} onChange={(e) => setEditForm((f) => ({ ...f, prompt_en: e.target.value }))}
+                  rows={3} className="w-full rounded-xl px-3 py-2 text-sm focus:outline-none resize-y font-mono"
+                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--color-on-surface)", direction: "ltr" }} />
+              </div>
+              <label className="flex items-center gap-2 cursor-pointer select-none">
+                <input type="checkbox" checked={editForm.featured} onChange={(e) => setEditForm((f) => ({ ...f, featured: e.target.checked }))} className="w-4 h-4 rounded" />
+                <span className="text-sm" style={{ color: "var(--color-on-surface)" }}>{isAr ? "★ مميز (Featured)" : "★ Mark as Featured"}</span>
+              </label>
+              <div className="flex gap-3">
+                <button type="button" onClick={() => setEditTarget(null)}
+                  className="flex-1 py-2.5 rounded-xl text-sm font-semibold"
+                  style={{ background: "rgba(255,255,255,0.06)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  {isAr ? "إلغاء" : "Cancel"}
+                </button>
+                <button type="submit" disabled={editSaving}
+                  className="flex-1 py-2.5 rounded-xl text-sm font-bold transition-all hover:opacity-90 disabled:opacity-50"
+                  style={{ background: "linear-gradient(135deg, #8ed5ff, #60b4e8)", color: "#000" }}>
+                  {editSaving ? (isAr ? "جاري الحفظ..." : "Saving...") : (isAr ? "💾 حفظ" : "💾 Save")}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -18,6 +18,64 @@ async function verifyAdmin() {
   return { supabase, user };
 }
 
+/** PATCH — update fields or archive a custom prompt */
+export async function PATCH(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  try {
+    const { id } = await params;
+    const { supabase, user } = await verifyAdmin();
+    if (!supabase || !user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const body = await req.json() as Record<string, unknown>;
+
+    const ALLOWED_FIELDS = [
+      "title_ar", "title_en", "description_ar", "description_en",
+      "category", "category_label_ar", "category_label_en",
+      "difficulty", "best_input_ar", "best_input_en",
+      "prompt_ar", "prompt_en", "accent", "emoji",
+      "tags", "featured", "status",
+    ];
+
+    const updates: Record<string, unknown> = {};
+    for (const key of ALLOWED_FIELDS) {
+      if (key in body) updates[key] = body[key];
+    }
+
+    if (Object.keys(updates).length === 0) {
+      return NextResponse.json({ error: "No valid fields to update" }, { status: 400 });
+    }
+
+    if (
+      "status" in updates &&
+      !["published", "archived", "draft"].includes(updates.status as string)
+    ) {
+      return NextResponse.json({ error: "Invalid status value" }, { status: 400 });
+    }
+
+    const { data, error: dbError } = await supabase
+      .from("nano_banana_custom_prompts")
+      .update(updates)
+      .eq("id", id)
+      .select()
+      .single();
+
+    if (dbError) {
+      return NextResponse.json({ error: dbError.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ success: true, prompt: data });
+  } catch (err) {
+    return NextResponse.json(
+      { error: err instanceof Error ? err.message : "Server error" },
+      { status: 500 },
+    );
+  }
+}
+
 export async function DELETE(
   _req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
