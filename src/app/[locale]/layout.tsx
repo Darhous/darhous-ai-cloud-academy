@@ -141,7 +141,20 @@ export default async function LocaleLayout({
         />
       </head>
       <body dir={dir} className="bg-grid-overlay min-h-screen flex flex-col" suppressHydrationWarning>
-        {/* Fixed full-viewport ambient orbs */}
+        {/* Skip to main content — keyboard / screen-reader a11y */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:z-[200] focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium"
+          style={{
+            background: "var(--color-primary)",
+            color: "#0c0e12",
+            insetInlineStart: "1rem",
+          }}
+        >
+          {isAr ? "تخطى إلى المحتوى الرئيسي" : "Skip to main content"}
+        </a>
+
+        {/* Single ambient orb — reduced from 3 for visual calm + performance */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
           <div
             className="absolute top-[-10%] right-[-5%] rounded-full"
@@ -152,31 +165,13 @@ export default async function LocaleLayout({
               filter: "blur(80px)",
             }}
           />
-          <div
-            className="absolute bottom-[-10%] left-[-5%] rounded-full"
-            style={{
-              width: "45vw",
-              height: "45vw",
-              background: "radial-gradient(circle, rgba(87,27,193,0.08) 0%, transparent 70%)",
-              filter: "blur(80px)",
-            }}
-          />
-          <div
-            className="absolute top-[40%] left-[30%] rounded-full"
-            style={{
-              width: "30vw",
-              height: "30vw",
-              background: "radial-gradient(circle, rgba(60,224,251,0.04) 0%, transparent 70%)",
-              filter: "blur(60px)",
-            }}
-          />
         </div>
 
         <Navbar locale={locale} />
         <CommandPaletteProvider locale={locale} />
         <MentorFloatingButton locale={locale} />
         <ScrollToTop />
-        <main className="flex-1 relative z-10" style={{ paddingTop: "64px" }}>
+        <main id="main-content" className="flex-1 relative z-10" style={{ paddingTop: "64px" }}>
           {children}
         </main>
         <Footer locale={locale} />

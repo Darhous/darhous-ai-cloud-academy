@@ -198,6 +198,7 @@ export default function Navbar({ locale }: NavbarProps) {
 
   return (
     <nav
+      aria-label={isAr ? "القائمة الرئيسية" : "Main navigation"}
       className="fixed top-0 w-full z-50"
       style={{
         background: "rgba(17,19,24,0.82)",
@@ -268,6 +269,9 @@ export default function Navbar({ locale }: NavbarProps) {
             <button
               onClick={() => setPortalsOpen((v) => !v)}
               onMouseEnter={() => setPortalsOpen(true)}
+              aria-expanded={portalsOpen}
+              aria-haspopup="true"
+              aria-label={isAr ? "قائمة البوابات" : "Portals menu"}
               className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200"
               style={{
                 color: isPortalsActive ? "var(--color-secondary)" : "var(--color-on-surface-variant)",
@@ -360,6 +364,9 @@ export default function Navbar({ locale }: NavbarProps) {
             <button
               onClick={() => setStudioOpen((v) => !v)}
               onMouseEnter={() => setStudioOpen(true)}
+              aria-expanded={studioOpen}
+              aria-haspopup="true"
+              aria-label={isAr ? "قائمة AI Studio" : "AI Studio menu"}
               className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200"
               style={{
                 color: isStudioActive ? "var(--color-tertiary)" : "var(--color-on-surface-variant)",
@@ -514,6 +521,8 @@ export default function Navbar({ locale }: NavbarProps) {
             <div>
               <button
                 onClick={() => setMobilePortalsOpen((v) => !v)}
+                aria-expanded={mobilePortalsOpen}
+                aria-label={isAr ? "قائمة البوابات" : "Portals menu"}
                 className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all"
                 style={{
                   color: isPortalsActive ? "var(--color-secondary)" : "var(--color-on-surface-variant)",
@@ -565,6 +574,8 @@ export default function Navbar({ locale }: NavbarProps) {
             <div>
               <button
                 onClick={() => setMobileStudioOpen((v) => !v)}
+                aria-expanded={mobileStudioOpen}
+                aria-label={isAr ? "قائمة AI Studio" : "AI Studio menu"}
                 className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all"
                 style={{
                   color: isStudioActive ? "var(--color-tertiary)" : "var(--color-on-surface-variant)",
