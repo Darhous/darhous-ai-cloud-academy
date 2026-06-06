@@ -42,7 +42,7 @@ export default function DigitalExamsLibraryClient({ locale }: { locale: string }
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
           <h1 className="font-display font-bold text-3xl flex items-center gap-3" style={{ color: "var(--color-on-surface)" }}>
-            <BookOpen size={28} style={{ color: "#3ce0fb" }} />
+            <BookOpen size={28} style={{ color: "var(--portal-color)" }} />
             {isAr ? "المكتبة الرقمية" : "Digital Library"}
           </h1>
           <p className="text-sm mt-1" style={{ color: "var(--color-on-surface-variant)" }}>
@@ -52,7 +52,7 @@ export default function DigitalExamsLibraryClient({ locale }: { locale: string }
         <Link
           href={`/${locale}/digital-exams`}
           className="flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-xl"
-          style={{ background: "rgba(60,224,251,0.08)", border: "1px solid rgba(60,224,251,0.2)", color: "#3ce0fb" }}
+          style={{ background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-glow)", color: "var(--portal-color)" }}
         >
           {isAr ? "الاختبارات" : "Exams"} <Arrow size={14} />
         </Link>
@@ -88,9 +88,9 @@ export default function DigitalExamsLibraryClient({ locale }: { locale: string }
               onClick={() => setSelectedSubject(s.id)}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all"
               style={{
-                background: selectedSubject === s.id ? "rgba(60,224,251,0.12)" : "rgba(255,255,255,0.03)",
-                border: `1px solid ${selectedSubject === s.id ? "rgba(60,224,251,0.3)" : "rgba(255,255,255,0.06)"}`,
-                color: selectedSubject === s.id ? "#3ce0fb" : "var(--color-on-surface-variant)",
+                background: selectedSubject === s.id ? "var(--portal-color-subtle)" : "rgba(255,255,255,0.03)",
+                border: `1px solid ${selectedSubject === s.id ? "var(--portal-color-glow)" : "rgba(255,255,255,0.06)"}`,
+                color: selectedSubject === s.id ? "var(--portal-color)" : "var(--color-on-surface-variant)",
               }}
             >
               <span>{s.icon}</span>
@@ -103,7 +103,7 @@ export default function DigitalExamsLibraryClient({ locale }: { locale: string }
       {/* Content */}
       {loading ? (
         <div className="py-16 flex flex-col items-center gap-4">
-          <div className="w-8 h-8 rounded-full border-4 border-t-transparent animate-spin" style={{ borderColor: "#3ce0fb", borderTopColor: "transparent" }} />
+          <div className="w-8 h-8 rounded-full border-4 border-t-transparent animate-spin" style={{ borderColor: "var(--portal-color)", borderTopColor: "transparent" }} />
         </div>
       ) : filtered.length === 0 ? (
         <div className="glass-card rounded-2xl p-12 text-center flex flex-col items-center gap-4">

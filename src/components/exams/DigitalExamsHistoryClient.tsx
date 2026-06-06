@@ -68,7 +68,7 @@ export default function DigitalExamsHistoryClient({ locale }: { locale: string }
   if (fetching || loading) {
     return (
       <div className="container-xl py-24 flex flex-col items-center gap-6">
-        <div className="w-10 h-10 rounded-full border-4 border-t-transparent animate-spin" style={{ borderColor: "#3ce0fb", borderTopColor: "transparent" }} />
+        <div className="w-10 h-10 rounded-full border-4 border-t-transparent animate-spin" style={{ borderColor: "var(--portal-color)", borderTopColor: "transparent" }} />
         <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "جاري التحميل..." : "Loading..."}</p>
       </div>
     );
@@ -116,7 +116,7 @@ export default function DigitalExamsHistoryClient({ locale }: { locale: string }
         <Link
           href={`/${locale}/digital-exams`}
           className="flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-xl"
-          style={{ background: "rgba(60,224,251,0.08)", border: "1px solid rgba(60,224,251,0.2)", color: "#3ce0fb" }}
+          style={{ background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-glow)", color: "var(--portal-color)" }}
         >
           {isAr ? "اختبارات جديدة" : "New Exam"} <Arrow size={14} />
         </Link>
@@ -155,7 +155,7 @@ export default function DigitalExamsHistoryClient({ locale }: { locale: string }
 
           {/* Bar chart */}
           {chartData.length > 0 && (
-            <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(60,224,251,0.1)" }}>
+            <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid var(--portal-color-border)" }}>
               <h2 className="font-bold text-base mb-5" style={{ color: "var(--color-on-surface)" }}>
                 {isAr ? "مقارنة الأداء حسب المادة" : "Performance by Subject"}
               </h2>
