@@ -85,7 +85,7 @@ export default async function AIAcademyPage({
 
       {/* Hero */}
       <section className="container-xl pt-10 relative">
-        <div className="absolute top-0 end-0 pointer-events-none" style={{ width: "45vw", height: "45vw", background: "radial-gradient(circle, rgba(142,213,255,0.08) 0%, transparent 65%)", filter: "blur(100px)" }} />
+        <div className="absolute top-0 end-0 pointer-events-none" style={{ width: "45vw", height: "45vw", background: "radial-gradient(circle, var(--portal-color-subtle) 0%, transparent 65%)", filter: "blur(100px)" }} />
 
         <div className="relative z-10 mb-8">
           {/* Back */}
@@ -102,7 +102,7 @@ export default async function AIAcademyPage({
             <div>
               <div
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-mono mb-4"
-                style={{ background: "rgba(142,213,255,0.08)", borderColor: "rgba(142,213,255,0.25)", color: "var(--color-primary)" }}
+                style={{ background: "var(--portal-color-subtle)", borderColor: "var(--portal-color-glow)", color: "var(--portal-color)" }}
               >
                 🤖 {isAr ? "بوابة الذكاء الاصطناعي" : "AI Portal"} &nbsp;·&nbsp;
                 <span className="text-green-400">{isAr ? "متاح الآن" : "Available Now"}</span>
@@ -225,7 +225,7 @@ export default async function AIAcademyPage({
       <div className="container-xl">
         <div
           className="rounded-2xl p-6 flex flex-wrap items-center justify-between gap-4"
-          style={{ background: "rgba(142,213,255,0.04)", border: "1px solid rgba(142,213,255,0.1)" }}
+          style={{ background: "var(--portal-color-faint)", border: "1px solid var(--portal-color-border)" }}
         >
           <div>
             <p className="font-bold text-base mb-1" style={{ color: "var(--color-on-surface)" }}>
@@ -248,9 +248,9 @@ export default async function AIAcademyPage({
                 href={`/${locale}${l.href}`}
                 className="text-xs px-3 py-1.5 rounded-lg font-mono transition-all hover:opacity-80"
                 style={{
-                  background: "rgba(142,213,255,0.06)",
-                  border: "1px solid rgba(142,213,255,0.15)",
-                  color: "var(--color-primary)",
+                  background: "var(--portal-color-subtle)",
+                  border: "1px solid var(--portal-color-border)",
+                  color: "var(--portal-color)",
                 }}
               >
                 {isAr ? l.labelAr : l.labelEn}

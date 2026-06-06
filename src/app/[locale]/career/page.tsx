@@ -99,7 +99,7 @@ export default async function CareerHubPage({
           right: 0,
           width: "55vw",
           height: "55vw",
-          background: "radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 70%)",
+          background: "radial-gradient(circle, var(--portal-color-subtle) 0%, transparent 70%)",
           filter: "blur(100px)",
         }}
       />
@@ -110,7 +110,7 @@ export default async function CareerHubPage({
           left: 0,
           width: "40vw",
           height: "40vw",
-          background: "radial-gradient(circle, rgba(251,191,36,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(circle, var(--portal-color-faint) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -130,7 +130,7 @@ export default async function CareerHubPage({
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-mono mb-6"
-            style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.25)", color: "#f59e0b" }}
+            style={{ background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-glow)", color: "var(--portal-color)" }}
           >
             <Sparkles size={14} />
             مدعومة بالذكاء الاصطناعي
@@ -138,7 +138,7 @@ export default async function CareerHubPage({
 
           <div
             className="w-20 h-20 rounded-3xl flex items-center justify-center text-4xl mx-auto mb-6"
-            style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", boxShadow: "0 0 60px rgba(245,158,11,0.15)" }}
+            style={{ background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-glow)", boxShadow: "0 0 60px var(--portal-color-glow)" }}
           >
             💼
           </div>
@@ -168,7 +168,7 @@ export default async function CareerHubPage({
         </div>
 
         {/* Stats bar */}
-        <div className="flex flex-wrap justify-center gap-8 mb-16 py-6 rounded-2xl" style={{ background: "rgba(245,158,11,0.04)", border: "1px solid rgba(245,158,11,0.1)" }}>
+        <div className="flex flex-wrap justify-center gap-8 mb-16 py-6 rounded-2xl" style={{ background: "var(--portal-color-faint)", border: "1px solid var(--portal-color-border)" }}>
           {[
             { value: "AI", label: "تحليل سيرة ذاتية ذكي" },
             { value: "5", label: "أدوات مهنية متكاملة" },
@@ -176,7 +176,7 @@ export default async function CareerHubPage({
             { value: "عربي", label: "أول بالكامل" },
           ].map((s, i) => (
             <div key={i} className="text-center">
-              <div className="text-2xl font-bold font-mono mb-1" style={{ color: "#f59e0b" }}>{s.value}</div>
+              <div className="text-2xl font-bold font-mono mb-1" style={{ color: "var(--portal-color)" }}>{s.value}</div>
               <div className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</div>
             </div>
           ))}
@@ -228,7 +228,7 @@ export default async function CareerHubPage({
         {/* Bottom CTA */}
         <div
           className="text-center rounded-3xl p-10 relative overflow-hidden"
-          style={{ background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.12)" }}
+          style={{ background: "var(--portal-color-faint)", border: "1px solid var(--portal-color-border)" }}
         >
           <h2 className="font-bold text-2xl mb-3" style={{ color: "var(--color-on-surface)" }}>
             ابدأ برحلتك المهنية الآن
@@ -239,7 +239,7 @@ export default async function CareerHubPage({
           <Link
             href={`/${locale}/career/cv-analyzer`}
             className="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-semibold text-sm transition-all"
-            style={{ background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0c0e12", boxShadow: "0 0 30px rgba(245,158,11,0.3)" }}
+            style={{ background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0c0e12", boxShadow: "0 0 30px var(--portal-color-glow)" }}
           >
             <TrendingUp size={16} />
             ابدأ التحليل مجاناً

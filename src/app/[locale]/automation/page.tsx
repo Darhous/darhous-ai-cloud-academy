@@ -92,11 +92,11 @@ export default async function AutomationPage({
       {/* Ambient orbs */}
       <div
         className="fixed pointer-events-none z-0"
-        style={{ top: 0, right: 0, width: "55vw", height: "55vw", background: "radial-gradient(circle, rgba(74,222,128,0.06) 0%, transparent 70%)", filter: "blur(100px)" }}
+        style={{ top: 0, right: 0, width: "55vw", height: "55vw", background: "radial-gradient(circle, var(--portal-color-subtle) 0%, transparent 70%)", filter: "blur(100px)" }}
       />
       <div
         className="fixed pointer-events-none z-0"
-        style={{ bottom: 0, left: 0, width: "40vw", height: "40vw", background: "radial-gradient(circle, rgba(34,197,94,0.04) 0%, transparent 70%)", filter: "blur(80px)" }}
+        style={{ bottom: 0, left: 0, width: "40vw", height: "40vw", background: "radial-gradient(circle, var(--portal-color-faint) 0%, transparent 70%)", filter: "blur(80px)" }}
       />
 
       <div className="container-xl py-16 relative z-10">
@@ -106,10 +106,10 @@ export default async function AutomationPage({
 
         {/* Hero */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-mono mb-6" style={{ background: "rgba(74,222,128,0.1)", border: "1px solid rgba(74,222,128,0.25)", color: "#4ade80" }}>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-mono mb-6" style={{ background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-glow)", color: "var(--portal-color)" }}>
             <Sparkles size={14} />أكاديمية متخصصة في الأتمتة
           </div>
-          <div className="w-20 h-20 rounded-3xl flex items-center justify-center text-4xl mx-auto mb-6" style={{ background: "rgba(74,222,128,0.1)", border: "1px solid rgba(74,222,128,0.2)", boxShadow: "0 0 60px rgba(74,222,128,0.15)" }}>
+          <div className="w-20 h-20 rounded-3xl flex items-center justify-center text-4xl mx-auto mb-6" style={{ background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-glow)", boxShadow: "0 0 60px var(--portal-color-glow)" }}>
             ⚙️
           </div>
           <h1 className="font-display font-bold text-4xl md:text-5xl mb-4 leading-tight" style={{ color: "var(--color-on-surface)" }}>
@@ -124,7 +124,7 @@ export default async function AutomationPage({
         </div>
 
         {/* Stats bar */}
-        <div className="flex flex-wrap justify-center gap-8 mb-16 py-6 rounded-2xl" style={{ background: "rgba(74,222,128,0.04)", border: "1px solid rgba(74,222,128,0.1)" }}>
+        <div className="flex flex-wrap justify-center gap-8 mb-16 py-6 rounded-2xl" style={{ background: "var(--portal-color-faint)", border: "1px solid var(--portal-color-border)" }}>
           {[
             { v: "25", l: "وصفة أتمتة منتقاة" },
             { v: "15+", l: "أداة موثقة" },
@@ -132,7 +132,7 @@ export default async function AutomationPage({
             { v: "10", l: "باقة خدمة احترافية" },
           ].map((s, i) => (
             <div key={i} className="text-center">
-              <div className="text-2xl font-bold font-mono mb-1" style={{ color: "#4ade80" }}>{s.v}</div>
+              <div className="text-2xl font-bold font-mono mb-1" style={{ color: "var(--portal-color)" }}>{s.v}</div>
               <div className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.l}</div>
             </div>
           ))}
@@ -174,18 +174,18 @@ export default async function AutomationPage({
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {automationUseCases.map((uc) => (
-              <div key={uc.id} className="glass-card rounded-2xl p-4 flex flex-col gap-3" style={{ border: "1px solid rgba(74,222,128,0.1)" }}>
-                <h3 className="font-bold text-sm" style={{ color: "#4ade80" }}>{uc.title}</h3>
+              <div key={uc.id} className="glass-card rounded-2xl p-4 flex flex-col gap-3" style={{ border: "1px solid var(--portal-color-border)" }}>
+                <h3 className="font-bold text-sm" style={{ color: "var(--portal-color)" }}>{uc.title}</h3>
                 <div className="space-y-1">
                   {uc.operationalWins.map((w, i) => (
                     <div key={i} className="flex items-center gap-1.5 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
-                      <CheckCircle2 size={10} style={{ color: "#4ade80", flexShrink: 0 }} />{w}
+                      <CheckCircle2 size={10} style={{ color: "var(--portal-color)", flexShrink: 0 }} />{w}
                     </div>
                   ))}
                 </div>
                 <div className="flex flex-wrap gap-1 pt-1 border-t" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
                   {uc.examples.slice(0, 3).map((ex, i) => (
-                    <span key={i} className="text-[10px] px-1.5 py-0.5 rounded" style={{ background: "rgba(74,222,128,0.06)", border: "1px solid rgba(74,222,128,0.12)", color: "var(--color-on-surface-variant)" }}>{ex}</span>
+                    <span key={i} className="text-[10px] px-1.5 py-0.5 rounded" style={{ background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-border)", color: "var(--color-on-surface-variant)" }}>{ex}</span>
                   ))}
                 </div>
               </div>
@@ -232,10 +232,10 @@ export default async function AutomationPage({
         </section>
 
         {/* Bottom CTA */}
-        <div className="text-center rounded-3xl p-10" style={{ background: "rgba(74,222,128,0.05)", border: "1px solid rgba(74,222,128,0.12)" }}>
+        <div className="text-center rounded-3xl p-10" style={{ background: "var(--portal-color-faint)", border: "1px solid var(--portal-color-border)" }}>
           <h2 className="font-bold text-2xl mb-3" style={{ color: "var(--color-on-surface)" }}>ابدأ رحلتك في الأتمتة</h2>
           <p className="text-sm mb-6" style={{ color: "var(--color-on-surface-variant)" }}>استكشف القوالب الجاهزة وطبّق أول automation في عملك اليوم.</p>
-          <Link href={`/${locale}/automation/templates`} className="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-semibold text-sm transition-all" style={{ background: "linear-gradient(135deg, #4ade80, #22c55e)", color: "#0c0e12", boxShadow: "0 0 30px rgba(74,222,128,0.3)" }}>
+          <Link href={`/${locale}/automation/templates`} className="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-semibold text-sm transition-all" style={{ background: "linear-gradient(135deg, #4ade80, #22c55e)", color: "#0c0e12", boxShadow: "0 0 30px var(--portal-color-glow)" }}>
             <Layers size={16} />استعرض القوالب
           </Link>
         </div>

@@ -10,16 +10,16 @@ export default async function IoTLabLayout({
   const { locale } = await params;
 
   return (
-    <>
+    <div data-portal="iot-lab">
       {locale === "en" && (
         <div
           className="w-full py-3 px-4 flex items-center justify-center gap-3 flex-wrap text-sm"
           style={{
-            background: "rgba(249,115,22,0.12)",
-            borderBottom: "1px solid rgba(249,115,22,0.3)",
+            background: "var(--portal-color-subtle)",
+            borderBottom: "1px solid var(--portal-color-glow)",
           }}
         >
-          <span style={{ color: "#f97316" }}>🌐</span>
+          <span style={{ color: "var(--portal-color)" }}>🌐</span>
           <p style={{ color: "#fed7aa" }}>
             IoT Lab content is currently available in Arabic only.
             We&apos;re working on an English version.
@@ -28,9 +28,9 @@ export default async function IoTLabLayout({
             href="/ar/iot-lab"
             className="text-xs font-mono px-3 py-1 rounded-full flex-shrink-0 transition-opacity hover:opacity-80"
             style={{
-              background: "rgba(249,115,22,0.2)",
-              color: "#f97316",
-              border: "1px solid rgba(249,115,22,0.4)",
+              background: "var(--portal-color-glow)",
+              color: "var(--portal-color)",
+              border: "1px solid var(--portal-color-glow)",
             }}
           >
             عرض بالعربية →
@@ -38,6 +38,6 @@ export default async function IoTLabLayout({
         </div>
       )}
       {children}
-    </>
+    </div>
   );
 }

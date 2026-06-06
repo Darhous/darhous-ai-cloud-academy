@@ -42,7 +42,7 @@ export default async function DigitalExamsPage({
   return (
     <div className="flex flex-col gap-20 pb-20 relative">
       {/* Ambient */}
-      <div className="fixed top-0 start-0 pointer-events-none z-0" style={{ width: "50vw", height: "50vw", background: "radial-gradient(circle, rgba(60,224,251,0.05) 0%, transparent 65%)", filter: "blur(120px)" }} />
+      <div className="fixed top-0 start-0 pointer-events-none z-0" style={{ width: "50vw", height: "50vw", background: "radial-gradient(circle, var(--portal-color-faint) 0%, transparent 65%)", filter: "blur(120px)" }} />
 
       <div className="container-xl pt-10 relative z-10">
         {/* Back */}
@@ -54,7 +54,7 @@ export default async function DigitalExamsPage({
         {/* Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-mono mb-4" style={{ background: "rgba(60,224,251,0.08)", borderColor: "rgba(60,224,251,0.25)", color: "#3ce0fb" }}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-mono mb-4" style={{ background: "var(--portal-color-subtle)", borderColor: "var(--portal-color-glow)", color: "var(--portal-color)" }}>
               💻 {isAr ? "اختبارات التحول الرقمي" : "Digital Exams Portal"} &nbsp;·&nbsp;
               <span className="text-green-400">{isAr ? "متاح الآن" : "Available Now"}</span>
             </div>
@@ -69,9 +69,9 @@ export default async function DigitalExamsPage({
           </div>
 
           {/* CTA card */}
-          <div className="glass-card rounded-2xl p-6 min-w-[260px] flex flex-col gap-4" style={{ border: "1px solid rgba(60,224,251,0.15)" }}>
+          <div className="glass-card rounded-2xl p-6 min-w-[260px] flex flex-col gap-4" style={{ border: "1px solid var(--portal-color-border)" }}>
             <div className="flex items-center gap-2">
-              <Monitor size={18} style={{ color: "#3ce0fb" }} />
+              <Monitor size={18} style={{ color: "var(--portal-color)" }} />
               <p className="text-sm font-bold" style={{ color: "var(--color-on-surface)" }}>
                 {isAr ? "ابدأ الاختبار الآن" : "Start Your Exam Now"}
               </p>
@@ -87,7 +87,7 @@ export default async function DigitalExamsPage({
               <Link href={`/${locale}/digital-exams/mixed`} className="flex items-center gap-1.5 text-xs font-bold" style={{ color: "#f59e0b" }}>
                 🏆 {isAr ? "الامتحان المجمع الشامل" : "Mixed Comprehensive Exam"}
               </Link>
-              <Link href={`/${locale}/digital-exams/library`} className="flex items-center gap-1.5 text-xs font-bold" style={{ color: "#3ce0fb" }}>
+              <Link href={`/${locale}/digital-exams/library`} className="flex items-center gap-1.5 text-xs font-bold" style={{ color: "var(--portal-color)" }}>
                 📚 {isAr ? "المكتبة الرقمية" : "Digital Library"}
               </Link>
               <Link href={`/${locale}/digital-exams/history`} className="flex items-center gap-1.5 text-xs font-bold" style={{ color: "#8ed5ff" }}>

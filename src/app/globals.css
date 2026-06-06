@@ -170,13 +170,13 @@ html.light .env-orb-blue   { background: radial-gradient(circle, rgba(2,132,199,
 html.light .env-orb-violet { background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%); }
 
 /* ─── Portal Identity Tokens ─── */
-[data-portal="ai-academy"]    { --portal-color: #8ed5ff; --portal-color-subtle: rgba(142,213,255,0.08); --portal-color-glow: rgba(142,213,255,0.2); }
-[data-portal="language"]      { --portal-color: #c084fc; --portal-color-subtle: rgba(192,132,252,0.08); --portal-color-glow: rgba(192,132,252,0.2); }
-[data-portal="digital-exams"] { --portal-color: #3ce0fb; --portal-color-subtle: rgba(60,224,251,0.08);  --portal-color-glow: rgba(60,224,251,0.2);  }
-[data-portal="career"]        { --portal-color: #fbbf24; --portal-color-subtle: rgba(251,191,36,0.08);  --portal-color-glow: rgba(251,191,36,0.2);  }
-[data-portal="automation"]    { --portal-color: #4ade80; --portal-color-subtle: rgba(74,222,128,0.08);  --portal-color-glow: rgba(74,222,128,0.2);  }
-[data-portal="iot-lab"]       { --portal-color: #f97316; --portal-color-subtle: rgba(249,115,22,0.08);  --portal-color-glow: rgba(249,115,22,0.2);  }
-[data-portal="nano-banana"]   { --portal-color: #f59e0b; --portal-color-subtle: rgba(245,158,11,0.08);  --portal-color-glow: rgba(245,158,11,0.2);  }
+[data-portal="ai-academy"]    { --portal-color: #8ed5ff; --portal-color-subtle: rgba(142,213,255,0.08); --portal-color-faint: rgba(142,213,255,0.04); --portal-color-border: rgba(142,213,255,0.15); --portal-color-glow: rgba(142,213,255,0.2); }
+[data-portal="language"]      { --portal-color: #c084fc; --portal-color-subtle: rgba(192,132,252,0.08); --portal-color-faint: rgba(192,132,252,0.04); --portal-color-border: rgba(192,132,252,0.15); --portal-color-glow: rgba(192,132,252,0.2); }
+[data-portal="digital-exams"] { --portal-color: #3ce0fb; --portal-color-subtle: rgba(60,224,251,0.08);  --portal-color-faint: rgba(60,224,251,0.04);  --portal-color-border: rgba(60,224,251,0.15);  --portal-color-glow: rgba(60,224,251,0.2);  }
+[data-portal="career"]        { --portal-color: #fbbf24; --portal-color-subtle: rgba(251,191,36,0.08);  --portal-color-faint: rgba(251,191,36,0.04);  --portal-color-border: rgba(251,191,36,0.15);  --portal-color-glow: rgba(251,191,36,0.2);  }
+[data-portal="automation"]    { --portal-color: #4ade80; --portal-color-subtle: rgba(74,222,128,0.08);  --portal-color-faint: rgba(74,222,128,0.04);  --portal-color-border: rgba(74,222,128,0.15);  --portal-color-glow: rgba(74,222,128,0.2);  }
+[data-portal="iot-lab"]       { --portal-color: #f97316; --portal-color-subtle: rgba(249,115,22,0.08);  --portal-color-faint: rgba(249,115,22,0.04);  --portal-color-border: rgba(249,115,22,0.15);  --portal-color-glow: rgba(249,115,22,0.2);  }
+[data-portal="nano-banana"]   { --portal-color: #f59e0b; --portal-color-subtle: rgba(245,158,11,0.08);  --portal-color-faint: rgba(245,158,11,0.04);  --portal-color-border: rgba(245,158,11,0.15);  --portal-color-glow: rgba(245,158,11,0.2);  }
 
 /* ─── Marquee ─── */
 .marquee-container { overflow: hidden; white-space: nowrap; }

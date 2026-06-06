@@ -61,7 +61,7 @@ export default async function LanguagePortalPage({
   return (
     <div className="flex flex-col gap-20 pb-20 relative">
       {/* Ambient */}
-      <div className="fixed top-0 end-0 pointer-events-none z-0" style={{ width: "55vw", height: "55vw", background: "radial-gradient(circle, rgba(208,188,255,0.06) 0%, transparent 65%)", filter: "blur(120px)" }} />
+      <div className="fixed top-0 end-0 pointer-events-none z-0" style={{ width: "55vw", height: "55vw", background: "radial-gradient(circle, var(--portal-color-subtle) 0%, transparent 65%)", filter: "blur(120px)" }} />
 
       <div className="container-xl pt-10 relative z-10">
         {/* Back */}
@@ -73,7 +73,7 @@ export default async function LanguagePortalPage({
         {/* Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-mono mb-4" style={{ background: "rgba(208,188,255,0.08)", borderColor: "rgba(208,188,255,0.25)", color: "#d0bcff" }}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-mono mb-4" style={{ background: "var(--portal-color-subtle)", borderColor: "var(--portal-color-glow)", color: "var(--portal-color)" }}>
               🌐 {isAr ? "بوابة اللغة" : "Language Portal"} &nbsp;·&nbsp;
               <span className="text-green-400">{isAr ? "متاح الآن" : "Available Now"}</span>
             </div>
@@ -90,7 +90,7 @@ export default async function LanguagePortalPage({
           {/* CTA card */}
           <div
             className="glass-card rounded-2xl p-6 min-w-[260px] flex flex-col gap-4"
-            style={{ border: "1px solid rgba(208,188,255,0.15)" }}
+            style={{ border: "1px solid var(--portal-color-border)" }}
           >
             <div className="flex items-center gap-2 px-2.5 py-1 rounded-full self-start text-xs font-mono" style={{ background: "rgba(74,222,128,0.08)", border: "1px solid rgba(74,222,128,0.2)", color: "#4ade80" }}>
               <CheckCircle size={11} />
@@ -107,7 +107,7 @@ export default async function LanguagePortalPage({
             <Link
               href={`/${locale}/language/assessment`}
               className="inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-mono transition-all hover:opacity-80"
-              style={{ background: "rgba(208,188,255,0.12)", border: "1px solid rgba(208,188,255,0.3)", color: "#d0bcff" }}
+              style={{ background: "var(--portal-color-border)", border: "1px solid var(--portal-color-glow)", color: "var(--portal-color)" }}
             >
               <Sparkles size={14} />
               {isAr ? "ابدأ التقييم" : "Start Assessment"}
@@ -122,7 +122,7 @@ export default async function LanguagePortalPage({
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((feat, i) => (
-              <div key={i} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: "1px solid rgba(208,188,255,0.1)" }}>
+              <div key={i} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: "1px solid var(--portal-color-border)" }}>
                 <span className="text-3xl">{feat.icon}</span>
                 <h3 className="font-bold text-base" style={{ color: "var(--color-on-surface)" }}>{feat.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{feat.desc}</p>
