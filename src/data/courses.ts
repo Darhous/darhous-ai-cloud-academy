@@ -664,7 +664,7 @@ export const courses: Course[] = [
     descriptionEn: "Linear algebra, calculus, and statistics essential for understanding ML algorithms.",
     level: "beginner", lessons: 20, hours: 15, projects: 2,
     skills: ["Linear Algebra", "Calculus", "Statistics", "Probability"],
-    category: "Math", icon: "📐", featured: false, color: "violet", comingSoon: true,
+    category: "Math", icon: "📐", featured: false, color: "violet",
     overviewAr: "الرياضيات هي لغة الذكاء الاصطناعي. لن تحتاج إلى أن تكون عبقرياً في الرياضيات، لكن فهم المفاهيم الأساسية يجعلك مطوراً AI أفضل بكثير.",
     overviewEn: "Mathematics is the language of AI. You don't need to be a math genius, but understanding the core concepts makes you a much better AI developer.",
     forWhoAr: ["طلاب AI الذين يريدون فهم عميق", "المطورون الذين يريدون فهم النماذج"],

@@ -16826,4 +16826,583 @@ print(f"🎉 مبروك! أتممت دورة MLOps")`,
     },
   ],
 
+  "math-for-ai": [
+    {
+      bodyAr: `## المتجهات والمصفوفات
+
+**المتجهات والمصفوفات** هي أساس الجبر الخطي وعمود فقري كل خوارزميات AI.
+
+### المتجه (Vector):
+قائمة من الأرقام تمثّل نقطة في فضاء متعدد الأبعاد. في AI كل شيء يُمثَّل كمتجه:
+- **Embeddings** — كلمة تصبح متجهاً من 768 أو 1536 رقم
+- **صور** — كل بكسل يُمثَّل بأرقام
+- **بيانات المستخدم** — عمر، دخل، سلوك... كلها أرقام
+
+### المصفوفة (Matrix):
+جدول من الأرقام (صفوف × أعمدة). في Neural Networks:
+- **أوزان Layer** — مصفوفة تحوّل المدخلات إلى مخرجات
+- **Attention Matrix** — في Transformers
+
+### عمليتان أساسيتان:
+- **Dot Product** — قياس التشابه بين متجهين
+- **Cosine Similarity** — درجة التشابه بين 0 و1`,
+      bodyEn: `## Vectors and Matrices
+
+**Vectors and matrices** are the foundation of linear algebra and the backbone of all AI algorithms.
+
+### Vector:
+A list of numbers representing a point in multi-dimensional space. In AI everything is represented as a vector:
+- **Embeddings** — a word becomes a vector of 768 or 1536 numbers
+- **Images** — each pixel represented by numbers
+- **User data** — age, income, behavior... all numbers
+
+### Matrix:
+A table of numbers (rows × columns). In Neural Networks:
+- **Layer weights** — matrix that transforms inputs to outputs
+- **Attention Matrix** — in Transformers
+
+### Two Core Operations:
+- **Dot Product** — measuring similarity between two vectors
+- **Cosine Similarity** — similarity degree between 0 and 1`,
+      codeExample: `import math
+from typing import List
+
+# ─── Vector ────────────────────────────────────────────────
+class Vector:
+    def __init__(self, data: List[float]):
+        self.data = data
+        self.dim  = len(data)
+
+    def __repr__(self) -> str:
+        vals = ", ".join(f"{x:.2f}" for x in self.data)
+        return f"Vector([{vals}])"
+
+    def magnitude(self) -> float:
+        return math.sqrt(sum(x**2 for x in self.data))
+
+    def normalize(self) -> "Vector":
+        mag = self.magnitude()
+        return Vector([x / mag for x in self.data]) if mag > 0 else Vector([0.0]*self.dim)
+
+    def dot(self, other: "Vector") -> float:
+        return sum(a * b for a, b in zip(self.data, other.data))
+
+    def cosine_similarity(self, other: "Vector") -> float:
+        denom = self.magnitude() * other.magnitude()
+        return self.dot(other) / denom if denom > 0 else 0.0
+
+    def __add__(self, other: "Vector") -> "Vector":
+        return Vector([a + b for a, b in zip(self.data, other.data)])
+
+    def scale(self, s: float) -> "Vector":
+        return Vector([x * s for x in self.data])
+
+# ─── Matrix ────────────────────────────────────────────────
+class Matrix:
+    def __init__(self, data: List[List[float]]):
+        self.data = data
+        self.rows = len(data)
+        self.cols = len(data[0]) if data else 0
+
+    @classmethod
+    def zeros(cls, r: int, c: int) -> "Matrix":
+        return cls([[0.0]*c for _ in range(r)])
+
+    @classmethod
+    def identity(cls, n: int) -> "Matrix":
+        m = cls.zeros(n, n)
+        for i in range(n): m.data[i][i] = 1.0
+        return m
+
+    def transpose(self) -> "Matrix":
+        return Matrix([[self.data[r][c] for r in range(self.rows)]
+                       for c in range(self.cols)])
+
+    def matmul(self, B: "Matrix") -> "Matrix":
+        C = Matrix.zeros(self.rows, B.cols)
+        for i in range(self.rows):
+            for j in range(B.cols):
+                C.data[i][j] = sum(self.data[i][k] * B.data[k][j] for k in range(self.cols))
+        return C
+
+    def show(self, name: str = ""):
+        shape = f"{self.rows}×{self.cols}"
+        if name: print(f"\\n{name} ({shape}):")
+        for row in self.data:
+            cells = "  ".join(f"{x:6.2f}" for x in row)
+            print(f"  [ {cells} ]")
+
+# ─── Embeddings ────────────────────────────────────────────
+print("🔢 المتجهات في AI — Word Embeddings:")
+print("=" * 52)
+
+words = {
+    "ملك":   Vector([0.90, 0.10, 0.80, 0.20]),
+    "ملكة":  Vector([0.90, 0.90, 0.80, 0.20]),
+    "رجل":   Vector([0.80, 0.10, 0.10, 0.30]),
+    "امرأة": Vector([0.80, 0.90, 0.10, 0.30]),
+}
+
+print("\\n📐 Cosine Similarity بين الكلمات:")
+keys = list(words.keys())
+for i in range(len(keys)):
+    for j in range(i+1, len(keys)):
+        w1, w2 = keys[i], keys[j]
+        sim = words[w1].cosine_similarity(words[w2])
+        bar = "█" * int(sim * 10)
+        print(f"  {w1:<8} ↔ {w2:<8}: {sim:.3f} {bar}")
+
+# ─── Matrix Operations ─────────────────────────────────────
+print(f"\\n\\n📊 المصفوفات في Neural Networks:")
+# Input: 3 samples × 4 features
+X = Matrix([[1.0, 0.5, 0.8, 0.2],
+            [0.3, 0.9, 0.1, 0.7],
+            [0.7, 0.4, 0.6, 0.5]])
+# Weights: 4 → 2
+W = Matrix([[0.1, 0.4],
+            [0.3, 0.2],
+            [0.2, 0.5],
+            [0.4, 0.1]])
+
+X.show("X (3 عينات × 4 ميزات)")
+W.show("W (4 → 2 أوزان)")
+Z = X.matmul(W)
+Z.show("Z = X @ W (3 عينات × 2 مخرجات)")
+
+# Transpose
+WT = W.transpose()
+WT.show("Wᵀ (2 × 4)")
+print(f"\\n✅ فهم المتجهات = فهم كيف يفكر النموذج!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## عمليات المصفوفات
+
+عمليات المصفوفات هي التحويلات الحسابية الأساسية التي تُنفَّذ في كل طبقة من طبقات الشبكة العصبية.
+
+### عمليات جوهرية:
+- **Transpose (Aᵀ)** — قلب الصفوف والأعمدة
+- **Matrix Multiplication (@)** — تحويل المدخلات للمخرجات
+- **Inverse (A⁻¹)** — حل معادلات خطية (لا يوجد دائماً)
+- **Determinant** — يقيس "حجم" تحويل المصفوفة
+
+### ضرب المصفوفات في AI:
+كل Layer في Neural Network هو:
+**output = activation(input @ W + b)**
+حيث W هي أوزان المصفوفة وb هو التحيز (bias)
+
+### Broadcasting:
+في NumPy وPyTorch، يمكن جمع مصفوفة 100×4 مع متجه 4 تلقائياً (تُكرَّر أفقياً). هذا يجعل إضافة التحيز للدفعات فعّالاً جداً.`,
+      bodyEn: `## Matrix Operations
+
+Matrix operations are the core computational transformations performed in every layer of a neural network.
+
+### Core Operations:
+- **Transpose (Aᵀ)** — flipping rows and columns
+- **Matrix Multiplication (@)** — transforming inputs to outputs
+- **Inverse (A⁻¹)** — solving linear equations (doesn't always exist)
+- **Determinant** — measures the "volume" of a matrix transformation
+
+### Matrix Multiplication in AI:
+Every Layer in a Neural Network is:
+**output = activation(input @ W + b)**
+where W is the weight matrix and b is the bias
+
+### Broadcasting:
+In NumPy and PyTorch, you can add a 100×4 matrix with a 4-element vector automatically (repeated horizontally). This makes adding bias to batches very efficient.`,
+      codeExample: `import math
+from typing import List, Optional
+
+class Matrix:
+    def __init__(self, data: List[List[float]]):
+        self.data = data
+        self.rows = len(data)
+        self.cols = len(data[0]) if data else 0
+
+    @classmethod
+    def zeros(cls, r: int, c: int) -> "Matrix":
+        return cls([[0.0]*c for _ in range(r)])
+
+    def transpose(self) -> "Matrix":
+        return Matrix([[self.data[r][c] for r in range(self.rows)]
+                       for c in range(self.cols)])
+
+    def matmul(self, B: "Matrix") -> "Matrix":
+        C = Matrix.zeros(self.rows, B.cols)
+        for i in range(self.rows):
+            for j in range(B.cols):
+                C.data[i][j] = sum(self.data[i][k]*B.data[k][j]
+                                   for k in range(self.cols))
+        return C
+
+    def det2(self) -> float:
+        assert self.rows == self.cols == 2
+        return self.data[0][0]*self.data[1][1] - self.data[0][1]*self.data[1][0]
+
+    def inverse2(self) -> "Matrix":
+        d = self.det2()
+        assert abs(d) > 1e-10, "المصفوفة منفردة (singular) — لا معكوس لها"
+        return Matrix([[ self.data[1][1]/d, -self.data[0][1]/d],
+                       [-self.data[1][0]/d,  self.data[0][0]/d]])
+
+    def add_bias(self, bias: List[float]) -> "Matrix":
+        """Broadcasting: إضافة متجه تحيز لكل صف"""
+        return Matrix([[self.data[i][j] + bias[j]
+                        for j in range(self.cols)]
+                       for i in range(self.rows)])
+
+    def apply(self, fn) -> "Matrix":
+        return Matrix([[fn(x) for x in row] for row in self.data])
+
+    def show(self, label: str = ""):
+        shape = f"{self.rows}×{self.cols}"
+        if label: print(f"\\n{label} ({shape}):")
+        for row in self.data:
+            cells = "  ".join(f"{x:7.3f}" for x in row)
+            print(f"  [ {cells} ]")
+
+# ─── عمليات أساسية ─────────────────────────────────────────
+print("📊 عمليات المصفوفات:")
+print("=" * 50)
+
+A = Matrix([[1, 2, 3], [4, 5, 6]])
+B = Matrix([[7, 8], [9, 10], [11, 12]])
+A.show("A (2×3)")
+B.show("B (3×2)")
+
+C = A.matmul(B)
+C.show("A @ B = C (2×2)")
+
+AT = A.transpose()
+AT.show("Aᵀ (3×2)")
+
+# المعكوسة
+print(f"\\n🔄 المعكوسة (Inverse) وتطبيقها:")
+M  = Matrix([[4.0, 7.0], [2.0, 6.0]])
+MI = M.inverse2()
+I  = M.matmul(MI)
+M.show("M")
+MI.show("M⁻¹")
+I.show("M @ M⁻¹ ≈ Identity")
+
+det_str = f"{M.det2():.2f}"
+print(f"  det(M) = {det_str}")
+
+# ─── Forward Pass في Neural Network ───────────────────────
+print(f"\\n\\n🧠 Forward Pass — Neural Network Layer:")
+print("-" * 48)
+
+def relu(x: float) -> float: return max(0.0, x)
+def sigmoid(x: float) -> float: return 1 / (1 + math.exp(-x))
+
+# Batch: 4 عينات، 3 ميزات
+X = Matrix([[0.9, 0.1, 0.8],
+            [0.2, 0.7, 0.4],
+            [0.5, 0.5, 0.6],
+            [0.1, 0.9, 0.2]])
+# Layer 1: 3 → 4
+W1 = Matrix([[0.2, 0.4, 0.1, 0.3],
+             [0.5, 0.1, 0.6, 0.2],
+             [0.3, 0.3, 0.2, 0.4]])
+b1 = [0.1, 0.1, 0.1, 0.1]
+# Layer 2: 4 → 2
+W2 = Matrix([[0.3, 0.7],
+             [0.5, 0.2],
+             [0.4, 0.6],
+             [0.1, 0.8]])
+b2 = [0.05, 0.05]
+
+X.show("X — Input batch (4×3)")
+Z1 = X.matmul(W1).add_bias(b1)
+A1 = Z1.apply(relu)
+A1.show("A1 = ReLU(X@W1+b1) (4×4)")
+Z2 = A1.matmul(W2).add_bias(b2)
+A2 = Z2.apply(sigmoid)
+A2.show("Output = σ(A1@W2+b2) (4×2)")
+print(f"\\n✅ هذا هو Forward Pass في Neural Network!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## المشتقات والتدرجات
+
+**المشتقات والتدرجات** هي الأداة الرياضية التي تتعلم بها الشبكات العصبية.
+
+### المشتق (Derivative):
+يقيس معدل تغيّر دالة. f'(x) = كم تتغير f عندما يتغير x قليلاً.
+
+### التدرج (Gradient):
+مشتق دالة متعددة المتغيرات. يشير ناحية أكبر زيادة في الدالة.
+
+### Gradient Descent:
+الخوارزمية الأساسية للتعلم:
+**w = w - lr × ∇f(w)**
+حيث lr هو معدل التعلم (Learning Rate) والتدرج يشير لاتجاه الزيادة (فنطرحه للتقليل)
+
+### Backpropagation = Chain Rule:
+لحساب تدرج الدالة المركبة y = f(g(x)) نطبق قاعدة السلسلة:
+**dy/dx = dy/dg × dg/dx**
+
+### تأثير Learning Rate:
+- **صغير جداً** → تعلم بطيء جداً
+- **كبير جداً** → لا يتقارب، يتذبذب
+- **مناسب** → تقارب سريع وسلس`,
+      bodyEn: `## Derivatives and Gradients
+
+**Derivatives and gradients** are the mathematical tools that neural networks use to learn.
+
+### Derivative:
+Measures the rate of change of a function. f'(x) = how much f changes when x changes slightly.
+
+### Gradient:
+Derivative of a multi-variable function. Points in the direction of greatest increase in the function.
+
+### Gradient Descent:
+The fundamental learning algorithm:
+**w = w - lr × ∇f(w)**
+where lr is the Learning Rate and the gradient points toward increase (we subtract it to decrease)
+
+### Backpropagation = Chain Rule:
+To compute the gradient of a composite function y = f(g(x)) apply the chain rule:
+**dy/dx = dy/dg × dg/dx**
+
+### Learning Rate Effect:
+- **Too small** → very slow learning
+- **Too large** → doesn't converge, oscillates
+- **Just right** → fast and smooth convergence`,
+      codeExample: `import math
+from typing import Callable, List, Tuple
+
+# ─── مشتق عددي ─────────────────────────────────────────────
+def deriv(f: Callable[[float], float], x: float, h: float = 1e-5) -> float:
+    """المشتق العددي بالفرق المركزي"""
+    return (f(x + h) - f(x - h)) / (2 * h)
+
+def gradient(f: Callable[[List[float]], float],
+             params: List[float], h: float = 1e-5) -> List[float]:
+    """تدرج دالة متعددة المتغيرات"""
+    grads = []
+    for i in range(len(params)):
+        p1, p2 = params[:], params[:]
+        p1[i] += h
+        p2[i] -= h
+        grads.append((f(p1) - f(p2)) / (2 * h))
+    return grads
+
+# ─── دوال التفعيل ──────────────────────────────────────────
+def sigmoid(x: float)  -> float: return 1 / (1 + math.exp(-x))
+def relu(x: float)     -> float: return max(0.0, x)
+def tanh_fn(x: float)  -> float: return math.tanh(x)
+
+# ─── Gradient Descent ──────────────────────────────────────
+def gd_demo(f, df, w0: float, lr: float, epochs: int, label: str):
+    """محاكاة Gradient Descent"""
+    w = w0
+    losses = [f(w)]
+    for _ in range(epochs):
+        w = w - lr * df(w)
+        losses.append(f(w))
+    init_str  = f"{losses[0]:.4f}"
+    final_str = f"{losses[-1]:.4f}"
+    w_str     = f"{w:.4f}"
+    conv = "✅" if abs(losses[-1] - losses[0]) > abs(losses[0]) * 0.5 else "⚠️ "
+    print(f"  {label}")
+    print(f"    Loss: {init_str} → {final_str}  |  w* = {w_str}  {conv}")
+    return w
+
+# ─── عرض مشتقات دوال التفعيل ──────────────────────────────
+print("📐 مشتقات دوال التفعيل:")
+print("=" * 52)
+
+funcs = [("sigmoid", sigmoid), ("relu", relu), ("tanh", tanh_fn)]
+points = [-2.0, -1.0, 0.0, 1.0, 2.0]
+
+for name, fn in funcs:
+    print(f"\\n  {name}(x) → f(x)  |  f'(x):")
+    for x in points:
+        val  = fn(x)
+        grad = deriv(fn, x)
+        bar  = "▓" * max(0, int(abs(grad) * 8))
+        print(f"    x={x:+.1f} → {val:.3f}  |  {grad:.3f}  {bar}")
+
+# ─── Gradient Descent ──────────────────────────────────────
+print(f"\\n\\n📉 Gradient Descent — تقليل f(w) = w² + 2w - 3:")
+print("  (الحد الأدنى الحقيقي: w = -1)")
+print("-" * 52)
+
+def f(w):  return w**2 + 2*w - 3
+def df(w): return 2*w + 2
+
+configs = [
+    (5.0, 0.01, 40, "LR=0.01 (بطيء)   "),
+    (5.0, 0.1,  20, "LR=0.10 (مناسب)  "),
+    (5.0, 0.95, 15, "LR=0.95 (كبير جداً)"),
+]
+for w0, lr, ep, label in configs:
+    gd_demo(f, df, w0, lr, ep, label)
+
+# ─── Chain Rule ────────────────────────────────────────────
+print(f"\\n\\n⛓️  Chain Rule — قلب Backpropagation:")
+print("-" * 52)
+x, w, b = 2.0, 0.5, -0.3
+
+z     = x * w + b
+r     = relu(z)
+y     = sigmoid(r)
+
+dy_dr = deriv(sigmoid, r)
+dr_dz = 1.0 if z > 0 else 0.0  # مشتق ReLU
+dz_dw = x
+dy_dw = dy_dr * dr_dz * dz_dw
+
+print(f"  الشبكة: y = sigmoid(relu(x·w + b))")
+print(f"  x={x}, w={w}, b={b}")
+print(f"  z = {z:.3f}, r = {r:.3f}, y = {y:.4f}")
+print(f"  dy/dr = {dy_dr:.4f}")
+print(f"  dr/dz = {dr_dz:.1f}")
+print(f"  dz/dw = {dz_dw:.1f}")
+dw_str = f"{dy_dw:.5f}"
+print(f"  dy/dw = {dw_str}  ← نُحدّث w بهذا التدرج")
+print(f"\\n✅ Chain Rule يُمكّن تعلم الشبكات العصبية!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## الإحصاء الأساسي للذكاء الاصطناعي
+
+**الإحصاء** يُمكّنك من فهم البيانات، تقييم النماذج، واتخاذ قرارات مبنية على الأدلة.
+
+### المقاييس الإحصائية الأساسية:
+- **Mean (المتوسط)** — مركز البيانات، حساس للقيم الشاذة
+- **Median (الوسيط)** — الأقل تأثراً بالقيم الشاذة
+- **Std (الانحراف المعياري)** — مدى تفرق البيانات
+- **Variance** — مربع الانحراف المعياري
+
+### التوزيع الطبيعي:
+أهم توزيع في الإحصاء — كثير من الظواهر الطبيعية تتبعه:
+- **قاعدة 68-95-99.7**: 68% من البيانات تقع ضمن σ±1
+- أوزان النماذج تُهيَّأ من توزيع طبيعي
+
+### تقييم النماذج:
+- **t-test** — هل الفرق بين نموذجين معنوي إحصائياً؟
+- **Confidence Intervals** — ما مدى ثقتنا في النتيجة؟
+- **p-value** — احتمال أن الفرق عشوائي`,
+      bodyEn: `## Basic Statistics for AI
+
+**Statistics** enables you to understand data, evaluate models, and make evidence-based decisions.
+
+### Core Statistical Measures:
+- **Mean** — center of data, sensitive to outliers
+- **Median** — less affected by outliers
+- **Std (Standard Deviation)** — how spread out the data is
+- **Variance** — square of standard deviation
+
+### Normal Distribution:
+The most important distribution in statistics — many natural phenomena follow it:
+- **68-95-99.7 rule**: 68% of data falls within ±1σ
+- Model weights are initialized from a normal distribution
+
+### Model Evaluation:
+- **t-test** — is the difference between two models statistically significant?
+- **Confidence Intervals** — how confident are we in the result?
+- **p-value** — probability that the difference is random`,
+      codeExample: `import math
+import random
+from typing import List, Dict, Tuple
+
+# ─── إحصاء أساسي ───────────────────────────────────────────
+def mean(d: List[float]) -> float:
+    return sum(d) / len(d)
+
+def median(d: List[float]) -> float:
+    s = sorted(d)
+    n = len(s)
+    return (s[n//2 - 1] + s[n//2]) / 2 if n % 2 == 0 else s[n//2]
+
+def std(d: List[float]) -> float:
+    m = mean(d)
+    return math.sqrt(sum((x - m)**2 for x in d) / len(d))
+
+def variance(d: List[float]) -> float:
+    m = mean(d)
+    return sum((x - m)**2 for x in d) / len(d)
+
+def percentile(d: List[float], p: float) -> float:
+    s   = sorted(d)
+    idx = p / 100 * (len(s) - 1)
+    lo  = int(idx)
+    hi  = min(lo + 1, len(s) - 1)
+    return s[lo] + (idx - lo) * (s[hi] - s[lo])
+
+def describe(d: List[float], name: str):
+    p25, p75 = percentile(d, 25), percentile(d, 75)
+    print(f"\\n📊 {name} (n={len(d)}):")
+    print(f"  Mean     : {mean(d):.4f}")
+    print(f"  Median   : {median(d):.4f}")
+    print(f"  Std      : {std(d):.4f}")
+    print(f"  Min/Max  : {min(d):.3f} / {max(d):.3f}")
+    iqr_str = f"{p75 - p25:.3f}"
+    print(f"  IQR      : {iqr_str} (P25={p25:.3f}, P75={p75:.3f})")
+
+# ─── التوزيع الطبيعي ───────────────────────────────────────
+def normal_pdf(x: float, mu: float = 0, sigma: float = 1) -> float:
+    c = 1 / (sigma * math.sqrt(2 * math.pi))
+    return c * math.exp(-((x - mu)**2) / (2 * sigma**2))
+
+def box_muller(mu: float, sigma: float, n: int, seed: int = 42) -> List[float]:
+    """توليد عينات طبيعية بـ Box-Muller"""
+    random.seed(seed)
+    out = []
+    while len(out) < n:
+        u1, u2 = random.random(), random.random()
+        z1 = math.sqrt(-2 * math.log(u1 + 1e-10)) * math.cos(2 * math.pi * u2)
+        z2 = math.sqrt(-2 * math.log(u1 + 1e-10)) * math.sin(2 * math.pi * u2)
+        out.extend([mu + sigma * z1, mu + sigma * z2])
+    return [max(0.0, min(1.0, x)) for x in out[:n]]
+
+# ─── t-test ────────────────────────────────────────────────
+def t_test(a: List[float], b: List[float]) -> Dict:
+    n1, n2 = len(a), len(b)
+    m1, m2 = mean(a), mean(b)
+    se = math.sqrt(variance(a)/n1 + variance(b)/n2)
+    if se < 1e-10:
+        return {"t": 0.0, "diff": 0.0, "significant": False}
+    t = (m1 - m2) / se
+    return {"t": round(t, 3), "diff": round(m1 - m2, 5),
+            "significant": abs(t) > 1.96}  # p < 0.05 تقريباً
+
+# ─── تحليل أداء نموذجين ───────────────────────────────────
+print("📐 الإحصاء في AI — مقارنة النماذج:")
+print("=" * 52)
+
+acc_A = box_muller(mu=0.87, sigma=0.03, n=100, seed=1)
+acc_B = box_muller(mu=0.91, sigma=0.02, n=100, seed=2)
+
+describe(acc_A, "Model A — DistilBERT")
+describe(acc_B, "Model B — RoBERTa")
+
+test = t_test(acc_A, acc_B)
+print(f"\\n📊 t-test (هل RoBERTa أفضل فعلاً؟):")
+sig_str  = "نعم ✅ (p < 0.05)" if test["significant"] else "لا ❌ (p >= 0.05)"
+t_str    = f"{test['t']:.3f}"
+diff_str = f"{test['diff']:.5f}"
+print(f"  t-statistic        : {t_str}")
+print(f"  فرق المتوسطات      : {diff_str}")
+print(f"  الفرق معنوي إحصائياً؟ : {sig_str}")
+
+# ─── التوزيع الطبيعي ───────────────────────────────────────
+print(f"\\n\\n🔔 التوزيع الطبيعي (μ=0, σ=1):")
+print("-" * 48)
+for x in [-2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0]:
+    p   = normal_pdf(x)
+    bar = "█" * int(p * 42)
+    x_s = f"{x:+.1f}"
+    p_s = f"{p:.4f}"
+    print(f"  x={x_s}: {p_s} {bar}")
+
+print(f"\\n  📌 قاعدة 68-95-99.7:")
+print(f"  ±1σ → ~68%  |  ±2σ → ~95%  |  ±3σ → ~99.7%")
+print(f"\\n✅ الإحصاء يُحوّل الأرقام إلى قرارات مبنية على أدلة!")`,
+      codeLanguage: "python",
+    },
+  ],
+
 };
