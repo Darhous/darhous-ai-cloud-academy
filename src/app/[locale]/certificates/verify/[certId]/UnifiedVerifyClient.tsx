@@ -54,7 +54,7 @@ export default function UnifiedVerifyClient({
     >
       {/* Logo strip */}
       <div className="mb-8 flex items-center gap-3">
-        <span className="text-2xl">🎓</span>
+        <GraduationCap size={28} style={{ color: "#d4af37" }} />
         <span className="font-display font-bold text-lg tracking-widest" style={{ color: "#d4af37" }}>
           DARHOUS ACADEMY
         </span>

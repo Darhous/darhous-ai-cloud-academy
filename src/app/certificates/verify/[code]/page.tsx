@@ -9,7 +9,7 @@ export async function generateMetadata({
   return {
     title: "Certificate Verification | Darhous Academy",
     description: "Verify the authenticity of a Darhous AI Academy certificate",
-    robots: { index: false, follow: false },
+    robots: { index: false, follow: false, noarchive: true },
   };
 }
 

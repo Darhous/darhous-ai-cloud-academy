@@ -4,7 +4,7 @@ import UnifiedVerifyClient from "./UnifiedVerifyClient";
 export const metadata: Metadata = {
   title: "Certificate Verification — Darhous Academy",
   description: "Verify the authenticity of a Darhous Academy certificate.",
-  robots: { index: false },
+  robots: { index: false, noarchive: true },
 };
 
 export default async function CertVerifyPage({

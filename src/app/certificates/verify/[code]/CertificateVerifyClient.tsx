@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { CheckCircle, XCircle, Loader2 } from "lucide-react";
+import { CheckCircle, XCircle, Loader2, GraduationCap } from "lucide-react";
 
 interface CertData {
   code: string;
@@ -28,7 +28,21 @@ export default function CertificateVerifyClient({ code }: { code: string }) {
   }, [code]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6" style={{ background: "#0a0f1e" }}>
+    <div
+      className="min-h-screen flex flex-col items-center justify-center p-6"
+      style={{
+        background:
+          "radial-gradient(ellipse at 30% 20%, rgba(212,175,55,0.06) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.04) 0%, transparent 60%), #080d1f",
+      }}
+    >
+      {/* Logo strip */}
+      <div className="mb-8 flex items-center gap-3">
+        <GraduationCap size={28} style={{ color: "#d4af37" }} />
+        <span className="font-display font-bold text-lg tracking-widest" style={{ color: "#d4af37" }}>
+          DARHOUS ACADEMY
+        </span>
+      </div>
+
       <div className="max-w-md w-full flex flex-col items-center gap-6">
         {loading ? (
           <>
@@ -38,7 +52,7 @@ export default function CertificateVerifyClient({ code }: { code: string }) {
         ) : valid && cert ? (
           <div className="w-full rounded-3xl p-8 text-center" style={{ background: "linear-gradient(135deg, #0a1628, #1a2236)", border: "2px solid #fbbf24" }}>
             <CheckCircle size={48} className="mx-auto mb-4" style={{ color: "#4ade80" }} />
-            <div className="text-3xl mb-3">🎓</div>
+            <GraduationCap size={40} className="mx-auto mb-3" style={{ color: "#fbbf24" }} />
             <h1 className="font-bold text-xl mb-1" style={{ color: "#fbbf24" }}>Certificate Verified ✓</h1>
             <p className="text-sm mb-6" style={{ color: "#64748b" }}>This is an authentic Darhous AI Academy certificate</p>
 

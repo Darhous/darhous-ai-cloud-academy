@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Award, Download, Share2, LogIn, Loader2, ExternalLink, CheckCircle } from "lucide-react";
+import { Award, Download, Share2, LogIn, Loader2, ExternalLink, CheckCircle, GraduationCap, Trophy, Lock } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { courses } from "@/data/courses";
 
@@ -82,7 +82,9 @@ function CertificateCard({ cert, isAr, locale }: { cert: Certificate; isAr: bool
       </div>
 
       <div className="flex items-center gap-2 px-3 py-2 rounded-xl" style={{ background: "var(--color-surface-container)" }}>
-        <p className="text-xs font-mono flex-1 truncate" style={{ color: "#fbbf24" }}>🔐 {cert.certificate_code}</p>
+        <p className="flex items-center gap-1.5 text-xs font-mono flex-1 truncate" style={{ color: "#fbbf24" }}>
+            <Lock size={10} style={{ flexShrink: 0 }} /> {cert.certificate_code}
+          </p>
         <Link
           href={`/certificates/verify/${cert.certificate_code}`}
           target="_blank"
@@ -171,7 +173,7 @@ export default function CertificatesClient({ locale }: { locale: string }) {
   if (!user) {
     return (
       <div className="container-xl py-16 text-center">
-        <div className="text-5xl mb-5">🎓</div>
+        <GraduationCap size={56} className="mx-auto mb-5" style={{ color: "#fbbf24" }} />
         <h1 className="font-display font-bold text-3xl mb-3" style={{ color: "var(--color-on-surface)" }}>
           {isAr ? "شهاداتي" : "My Certificates"}
         </h1>
@@ -186,8 +188,11 @@ export default function CertificatesClient({ locale }: { locale: string }) {
   }
 
   return (
-    <div className="container-xl py-12 flex flex-col gap-10">
-      <div className="text-center">
+    <div className="container-xl py-12 flex flex-col gap-10 relative">
+      {/* Ambient atmosphere — certificate gold */}
+      <div className="absolute inset-x-0 top-0 h-96 pointer-events-none" aria-hidden="true"
+           style={{ background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(251,191,36,0.05) 0%, transparent 100%)" }} />
+      <div className="text-center relative">
         <div className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-full mb-4" style={{ background: "rgba(251,191,36,0.1)", border: "1px solid rgba(251,191,36,0.25)", color: "#fbbf24" }}>
           <Award size={12} /> {isAr ? "شهاداتي" : "My Certificates"}
         </div>
@@ -203,8 +208,8 @@ export default function CertificatesClient({ locale }: { locale: string }) {
           {/* Available to claim */}
           {availableForCert.length > 0 && (
             <div>
-              <h2 className="font-bold text-lg mb-4" style={{ color: "#4ade80" }}>
-                {isAr ? "🏆 جاهز للحصول على شهادة!" : "🏆 Ready to claim!"}
+              <h2 className="font-bold text-lg mb-4 flex items-center gap-2" style={{ color: "#4ade80" }}>
+                <Trophy size={16} /> {isAr ? "جاهز للحصول على شهادة!" : "Ready to claim!"}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {availableForCert.map((cp) => {
@@ -248,7 +253,7 @@ export default function CertificatesClient({ locale }: { locale: string }) {
             </div>
           ) : (
             <div className="glass-card rounded-2xl p-10 text-center">
-              <div className="text-4xl mb-3">🎓</div>
+              <GraduationCap size={44} className="mx-auto mb-3" style={{ color: "#fbbf24" }} />
               <p className="font-semibold mb-2" style={{ color: "var(--color-on-surface)" }}>
                 {isAr ? "لا توجد شهادات بعد" : "No certificates yet"}
               </p>
