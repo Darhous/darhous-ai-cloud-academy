@@ -9,19 +9,53 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | Phase 2 — Launch-Critical SEO & Sitemap COMPLETE ✅ |
-| **Next Phase** | Phase 3 — Launch-Critical Correctness Guards 🔴 — **تنتظر تأكيد المستخدم** |
+| **Version** | Phase 3 — Launch-Critical Correctness Guards COMPLETE ✅ |
+| **Next Phase** | Phase 4 — Content Completion (C7: claude-mastery → machine-learning → ...) — **تنتظر تأكيد المستخدم** |
 | **خطة التنفيذ** | `reports/خطة-التنفيذ.md` (v2 — معتمدة — على main) |
-| **Status** | ✅ Sitemap bilingual IoT + Digital Exams subjects indexable |
-| **Build** | ✅ Clean — 0 TypeScript errors — 0 lint errors — exit 0 — 1265 pages |
-| **Last Tag** | `checkpoint/prelaunch-seo-sitemap` |
-| **Commit** | `c376024` |
+| **Status** | ✅ comingSoon guard (15 courses) + Arabic/RTL cert fix (Amiri + bidi) |
+| **Build** | ✅ Clean — 0 TypeScript errors — exit 0 |
+| **Last Tag** | `checkpoint/cert-arabic-rtl-fix` |
+| **Commit** | `bf3bdcd` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` (العمل على main فقط) |
-| **Last Updated** | 2026-06-06 (Phase 1 — Emergency Privacy & Security Hotfixes) |
+| **Last Updated** | 2026-06-06 (Phase 3 — Correctness Guards) |
+
+---
+
+## ✅ Phase 3 — Launch-Critical Correctness Guards COMPLETE (2026-06-06)
+
+**Tags:** `checkpoint/content-comingsoon-guard` (3A) · `checkpoint/cert-arabic-rtl-fix` (3B)
+**Commits:** `36c9d97` (3A) · `bf3bdcd` (3B)
+
+### 3A — Empty-Courses Coming-Soon Guard (ISS-001)
+
+| الملف | الإصلاح |
+|-------|---------|
+| `src/data/courses.ts` | `comingSoon?: boolean` في الـ interface + `comingSoon: true` على 15 دورة فارغة (بلا محتوى في `lessonContent`) |
+| `src/app/[locale]/courses/CoursesClient.tsx` | `if (c.comingSoon) return false;` في الـ filter |
+| `src/app/[locale]/ai-academy/page.tsx` | `courses.filter((c) => c.featured && !c.comingSoon)` |
+| `src/components/features/CommandPalette.tsx` | `courses.filter((c) => !c.comingSoon).map(...)` |
+| `src/app/api/search/route.ts` | `courses.filter((c) => !c.comingSoon)` |
+
+**الدورات الـ 15 المُفلترة:** machine-learning · deep-learning · generative-ai · claude-mastery · ai-automation · cloud-foundations · docker-linux · aws-for-ai · mlops · ai-for-business · math-for-ai · azure-for-ai · gcp-for-ai · oracle-cloud-labs · cloud-security
+**الدورات المتاحة (3):** ai-foundations · python-for-ai · prompt-engineering
+
+### 3B — Arabic/RTL Certificate Name Fix
+
+**Spike Result:** fontkit v2.0.4 + bidi-js نفّذ Arabic GSUB shaping نظيفاً (confirmed via ToUnicode CMap — two different GIDs for ل in "الله"). لا حاجة لـ `arabic-reshaper` أو bidi JS خارجي.
+
+| الملف | الإصلاح |
+|-------|---------|
+| `src/lib/certificates/loadAssets.ts` | إضافة `registerArabicFont()` (Amiri 400 من Fontsource CDN) تعمل بالتوازي مع DancingScript داخل `registerFonts()`. إضافة `isArabicFontAvailable()` getter. لا تغيير لـ routes |
+| `src/lib/certificates/CertificateTemplate.tsx` | auto-detect Arabic عبر `/[؀-ۿ]/` → `fontFamily: "ArabicDisplay"`, `direction: "rtl"`, `textAlign: "right"`, auto-shrink: 31→24→20pt للأسماء الطويلة. لا تغيير لـ `CertTemplateProps` |
+
+### Build Result
+- `npm run typecheck` → ✅ 0 errors
+- `npm run build` → ✅ exit 0
+- Vercel → ✅ Ready
 
 ---
 
