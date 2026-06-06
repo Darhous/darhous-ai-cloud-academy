@@ -29,8 +29,11 @@ export default async function RegisterPage({
   const isAr = locale === "ar";
 
   return (
-    <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md">
+    <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 py-12 relative overflow-hidden">
+      {/* Ambient atmosphere — Digital Depth */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ background: "radial-gradient(ellipse 70% 50% at 50% 15%, rgba(208,188,255,0.07) 0%, transparent 70%)" }} />
+      <div className="absolute bottom-0 inset-x-0 h-64 pointer-events-none" aria-hidden="true" style={{ background: "radial-gradient(ellipse 60% 80% at 50% 100%, rgba(142,213,255,0.05) 0%, transparent 70%)" }} />
+      <div className="w-full max-w-md relative z-10">
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href={`/${locale}`} className="inline-flex items-center gap-2 font-display font-bold text-xl mb-2" style={{ color: "var(--color-primary)" }}>
@@ -53,6 +56,7 @@ export default async function RegisterPage({
           style={{
             background: "var(--color-surface-container)",
             border: "1px solid var(--color-outline-variant)",
+            boxShadow: "0 0 40px rgba(208,188,255,0.04)",
           }}
         >
           {supabaseConfigured ? (

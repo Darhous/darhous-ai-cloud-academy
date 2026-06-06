@@ -380,7 +380,13 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
       {/* ── Header ─ */}
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs font-mono" style={{ color: "var(--color-tertiary)" }}>DARHOUS ADMIN STUDIO v6.0</p>
+          <div className="flex items-center gap-2 mb-1">
+            <p className="text-xs font-mono" style={{ color: "var(--color-tertiary)" }}>DARHOUS ADMIN STUDIO v6.0</p>
+            <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full" style={{ background: "rgba(239,68,68,0.08)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.2)" }}>
+              <Shield size={9} />
+              ADMIN
+            </span>
+          </div>
           <h1 className="font-display font-bold text-2xl" style={{ color: "var(--color-on-surface)" }}>
             {isAr ? "استوديو الإدارة" : "Darhous Admin Studio"}
           </h1>

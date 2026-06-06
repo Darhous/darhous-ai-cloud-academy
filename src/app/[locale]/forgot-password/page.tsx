@@ -29,8 +29,11 @@ export default async function ForgotPasswordPage({
   const isAr = locale === "ar";
 
   return (
-    <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md">
+    <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 py-12 relative overflow-hidden">
+      {/* Ambient atmosphere — Digital Depth */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{ background: "radial-gradient(ellipse 70% 50% at 50% 15%, rgba(60,224,251,0.06) 0%, transparent 70%)" }} />
+      <div className="absolute bottom-0 inset-x-0 h-64 pointer-events-none" aria-hidden="true" style={{ background: "radial-gradient(ellipse 60% 80% at 50% 100%, rgba(142,213,255,0.04) 0%, transparent 70%)" }} />
+      <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-8">
           <Link
             href={`/${locale}`}
@@ -58,6 +61,7 @@ export default async function ForgotPasswordPage({
           style={{
             background: "var(--color-surface-container)",
             border: "1px solid var(--color-outline-variant)",
+            boxShadow: "0 0 40px rgba(60,224,251,0.04)",
           }}
         >
           {supabaseConfigured ? (
