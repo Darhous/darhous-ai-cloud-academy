@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowLeft, CheckCircle, Sparkles } from "lucide-react";
 import CommunitySignup from "@/components/community/CommunitySignup";
 import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
+import PortalIdentityIntro from "@/components/portal/PortalIdentityIntro";
 
 export async function generateMetadata({
   params,
@@ -116,6 +117,9 @@ export default async function LanguagePortalPage({
             </Link>
           </div>
         </div>
+
+        {/* Portal identity intro — Phase 9C */}
+        <PortalIdentityIntro portalKey="language" locale={locale} sectionClass="mb-14" />
 
         {/* Features */}
         <div className="mb-16">

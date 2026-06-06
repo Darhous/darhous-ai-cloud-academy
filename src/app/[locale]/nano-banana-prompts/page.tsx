@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import NanaBananaClient from "@/components/nano-banana/NanaBananaClient";
 import NanoBananaVisualPreview from "@/components/nano-banana/NanoBananaVisualPreview";
 import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
+import PortalIdentityIntro from "@/components/portal/PortalIdentityIntro";
 
 export async function generateMetadata({
   params,
@@ -39,6 +40,10 @@ export default async function NanaBananaPromptsPage({
     <PortalPageWrapper>
       <div className="flex flex-col gap-16 pb-16">
         <NanoBananaVisualPreview locale={locale} />
+
+        {/* Portal identity intro — Phase 9C */}
+        <PortalIdentityIntro portalKey="nano-banana" locale={locale} />
+
         <NanaBananaClient locale={locale} />
       </div>
     </PortalPageWrapper>

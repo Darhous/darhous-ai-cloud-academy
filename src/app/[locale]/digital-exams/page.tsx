@@ -4,6 +4,7 @@ import { ArrowRight, ArrowLeft, CheckCircle, Monitor } from "lucide-react";
 import CommunitySignup from "@/components/community/CommunitySignup";
 import { examSubjects } from "@/data/digital-exam-subjects";
 import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
+import PortalIdentityIntro from "@/components/portal/PortalIdentityIntro";
 
 export async function generateMetadata({
   params,
@@ -98,6 +99,9 @@ export default async function DigitalExamsPage({
             </div>
           </div>
         </div>
+
+        {/* Portal identity intro — Phase 9C */}
+        <PortalIdentityIntro portalKey="digital-exams" locale={locale} sectionClass="mb-12" />
 
         {/* Exam categories */}
         <div className="mb-16">

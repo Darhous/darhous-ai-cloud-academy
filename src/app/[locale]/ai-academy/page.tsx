@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft, BookOpen, Sparkles } from "lucide-react";
 import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
+import PortalIdentityIntro from "@/components/portal/PortalIdentityIntro";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CourseCard from "@/components/cards/CourseCard";
 import ToolCard from "@/components/cards/ToolCard";
@@ -134,6 +135,9 @@ export default async function AIAcademyPage({
         {/* Stats */}
         <Stats locale={locale} />
       </section>
+
+      {/* Portal identity intro — Phase 9C */}
+      <PortalIdentityIntro portalKey="ai-academy" locale={locale} />
 
       {/* AI Studio Grid */}
       <section className="container-xl">

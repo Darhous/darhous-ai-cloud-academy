@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Cpu, Trophy, Package, Monitor, FileCheck, Sparkles } from "lucide-react";
 import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
+import PortalIdentityIntro from "@/components/portal/PortalIdentityIntro";
 import { lessonsData } from "@/data/iot/lessons";
 import { projectsData } from "@/data/iot/projects";
 import { challengesData } from "@/data/iot/challenges";
@@ -151,6 +152,9 @@ export default async function IotLabPage({
             </div>
           ))}
         </div>
+
+        {/* Portal identity intro — Phase 9C */}
+        <PortalIdentityIntro portalKey="iot-lab" locale={locale} sectionClass="mb-16" />
 
         {/* Section cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">

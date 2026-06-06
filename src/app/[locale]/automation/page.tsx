@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles, Layers, Wrench, BookOpen, Briefcase, FlaskConical
 import { automationCaseStudies } from "@/data/automation/automationCaseStudies";
 import { automationUseCases } from "@/data/automation/automationUseCases";
 import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
+import PortalIdentityIntro from "@/components/portal/PortalIdentityIntro";
 
 export async function generateMetadata({
   params,
@@ -139,6 +140,9 @@ export default async function AutomationPage({
             </div>
           ))}
         </div>
+
+        {/* Portal identity intro — Phase 9C */}
+        <PortalIdentityIntro portalKey="automation" locale={locale} sectionClass="mb-16" />
 
         {/* Section cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">

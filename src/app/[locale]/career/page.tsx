@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FileText, Briefcase, MessageSquare, LayoutTemplate, TrendingUp, ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
+import PortalIdentityIntro from "@/components/portal/PortalIdentityIntro";
 
 export async function generateMetadata({
   params,
@@ -183,6 +184,9 @@ export default async function CareerHubPage({
             </div>
           ))}
         </div>
+
+        {/* Portal identity intro — Phase 9C */}
+        <PortalIdentityIntro portalKey="career" locale={locale} sectionClass="mb-16" />
 
         {/* Feature cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
