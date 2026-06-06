@@ -67,12 +67,12 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
         className="rounded-3xl p-8 md:p-12 relative overflow-hidden"
         style={{
           background: "linear-gradient(135deg, rgba(0,102,138,0.15) 0%, rgba(87,27,193,0.1) 100%)",
-          border: "1px solid rgba(142,213,255,0.1)",
+          border: "1px solid var(--portal-color-border)",
         }}
       >
         <div
           className="absolute top-0 end-0 w-64 h-64 rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(142,213,255,0.08) 0%, transparent 70%)", filter: "blur(40px)" }}
+          style={{ background: "radial-gradient(circle, var(--portal-color-subtle) 0%, transparent 70%)", filter: "blur(40px)" }}
         />
         <div className="relative z-10 flex flex-col md:flex-row md:items-start gap-8">
           <div className="text-6xl flex-shrink-0">{course.icon}</div>
@@ -252,8 +252,8 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
                   key={skill}
                   className="px-3 py-1.5 rounded-full text-xs font-mono border"
                   style={{
-                    background: "rgba(142,213,255,0.08)",
-                    borderColor: "rgba(142,213,255,0.2)",
+                    background: "var(--portal-color-subtle)",
+                    borderColor: "var(--portal-color-border)",
                     color: "var(--color-primary)",
                   }}
                 >
@@ -305,7 +305,7 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
           {/* CTA */}
           <div
             className="glass-card rounded-2xl p-6 text-center"
-            style={{ border: "1px solid rgba(142,213,255,0.15)" }}
+            style={{ border: "1px solid var(--portal-color-border)" }}
           >
             <p className="font-display font-bold text-lg mb-2" style={{ color: "var(--color-on-surface)" }}>
               {isAr ? "جاهز للبدء؟" : "Ready to Start?"}
