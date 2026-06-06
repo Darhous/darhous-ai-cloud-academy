@@ -1,6 +1,6 @@
-# Redesign Checkpoint — Phase 3 Complete
+# Redesign Checkpoint — Phase 5 Complete
 
-> **Latest tag:** `checkpoint/redesign-p4b-automation` · commit `1ea3f73`
+> **Latest tag:** `checkpoint/redesign-p5e-nano-banana` · commit `f647b3a`
 > **Phase 3 tag:** `checkpoint/redesign-p3-portal-identity` · commit TBD
 > **Phase 2 tag:** `checkpoint/redesign-p2-landing` · commit `8c042ed`
 > **Phase 1 tag:** `checkpoint/redesign-p1-foundation` · commit `c88404e`
@@ -36,6 +36,11 @@
 | digital-exams/page.tsx — tokens wired | ✅ Ambient, badge, CTA card |
 | **Phase 4a — Language client components** | ✅ **COMPLETE** — `1ea3f73` |
 | **Phase 4b — Automation TemplatesClient** | ✅ **COMPLETE** — `1ea3f73` |
+| **Phase 5a — Career client components** | ✅ **COMPLETE** — `1cc3319` |
+| **Phase 5b — AI Academy course detail** | ✅ **COMPLETE** — `f713cfa` |
+| **Phase 5c — Digital Exams clients** | ✅ **COMPLETE** — `b408e5e` |
+| **Phase 5d — IoT Lab clients** | ✅ **COMPLETE** — `bb9789d` |
+| **Phase 5e — Nano Banana client** | ✅ **COMPLETE** — `f647b3a` |
 
 ---
 
@@ -96,6 +101,16 @@
 3. **LanguageHistoryClient.tsx** — spinner, latest-level banner, level badge, view link, TrendingUp icon, attempts list rows, level column, empty state → portal tokens. LineChart `stroke`/`dot fill` → `#c084fc` (actual hex; SVG presentation attrs don't resolve CSS vars). "Total Attempts" stat → `#c084fc` (template literal interpolation).
 4. **TemplatesClient.tsx** — template card borders, filter button active state, workflow summary label, CTA link → portal tokens. ACCESS_COLORS, DIFF_COLORS, tool chips (AI Academy blue `#8ed5ff`) kept as semantic values.
 
+---
+
+## WHAT WAS DONE IN PHASE 5
+
+1. **CVBuilderClient, CVAnalyzerClient, InterviewPrepClient, JobsClient** (Career `#fbbf24`) — card/panel borders, active tabs, CTA buttons, icons, ATS gauge ring → portal tokens. scoreColor thresholds + CTA gradient kept as semantic/brand values.
+2. **courses/[slug]/page.tsx** (AI Academy `#8ed5ff`) — hero border, ambient orb, skills chips, CTA card border → portal tokens. No dedicated components folder; token wiring complete.
+3. **DigitalExamsHistoryClient, DigitalExamsLibraryClient** (`#3ce0fb`) — spinners, nav links, chart card border, header icon, filter active state → portal tokens. Bar chart `fill` + stats-array color kept as hex (Recharts SVG attr + template literal). `sub?.color` data fallback kept.
+4. **IotExamsClient, IotLessonsClient** (`#f97316`) — exam card borders, icon boxes, question numbering, selected option, result card, category filter, lesson card borders, read link → portal tokens. Submit gradient + score thresholds kept. `DIFF_COLOR` map (IotProjectsClient) untouched.
+5. **NanaBananaClient** (`#f59e0b` + multi-color identity) — Enhancer section bg/border, Wand2 icon, badge, textarea border, result card, copy button, hero orb, hero badge, stats numbers, step badges, safety disclaimer, category filter active state → portal tokens. Hero multi-color gradient, "Gemini" branded text, Enhance/Admin CTA gradients, `item.accent` data-driven card colors all kept.
+
 ## NEXT STEP
 
-➡️ **Phase 5+** — per MASTER_REDESIGN_PLAN.md (await user GO/NO-GO)
+➡️ **Phase 6** — Dashboards / Admin / Auth / Profile / AI Studio — per MASTER_REDESIGN_PLAN.md (await user GO/NO-GO)
