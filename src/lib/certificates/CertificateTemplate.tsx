@@ -16,6 +16,9 @@ import {
   Image,
   StyleSheet,
 } from "@react-pdf/renderer";
+import { isArabicFontAvailable } from "./loadAssets";
+
+const HAS_ARABIC = /[؀-ۿ]/;
 
 // ── Palette ───────────────────────────────────────────────────────────────────
 const C = {
@@ -182,6 +185,13 @@ const S = StyleSheet.create({
     marginBottom: 4,
     letterSpacing: 0.5,
   },
+  holderAr: {
+    fontFamily: "ArabicDisplay",
+    color: C.cream,
+    textAlign: "right",
+    marginBottom: 4,
+    letterSpacing: 0,
+  },
   holderLine: {
     height: 1.2,
     width: 310,
@@ -297,6 +307,10 @@ export function CertificateTemplate(props: CertTemplateProps) {
     useDancingScript = true,
   } = props;
 
+  const isAr = HAS_ARABIC.test(holderName) && isArabicFontAvailable();
+  // Auto-shrink for long names (Arabic names are often longer)
+  const holderFontSize = holderName.length > 22 ? 20 : holderName.length > 16 ? 24 : 31;
+
   return (
     <Document>
       <Page size={[842, 595]} style={S.page}>
@@ -360,7 +374,11 @@ export function CertificateTemplate(props: CertTemplateProps) {
           <Text style={S.certify}>This is to certify that</Text>
 
           {/* Holder name */}
-          <Text style={S.holder}>{holderName}</Text>
+          {isAr ? (
+            <Text style={[S.holderAr, { fontSize: holderFontSize }]}>{holderName}</Text>
+          ) : (
+            <Text style={[S.holder, { fontSize: holderFontSize }]}>{holderName}</Text>
+          )}
           <View style={[S.holderLine, { backgroundColor: box1Color }]} />
 
           {/* Achievement body */}
