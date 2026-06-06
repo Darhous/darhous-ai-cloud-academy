@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronUp, Info } from "lucide-react";
+import { ChevronUp, Info } from "lucide-react";
 import type { WorkflowMapNode } from "@/data/automation/types";
 
 interface Props {

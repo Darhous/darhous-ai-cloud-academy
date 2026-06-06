@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Fuse from "fuse.js";
-import { Search, BookOpen, Wrench, FolderGit2, FileText, BookMarked, X, Sparkles, Zap, Map } from "lucide-react";
+import { Search, BookOpen, Wrench, FolderGit2, FileText, BookMarked, X, Sparkles } from "lucide-react";
 import { courses } from "@/data/courses";
 import { tools } from "@/data/tools";
 import { projects } from "@/data/projects";

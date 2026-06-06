@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import {
-  Users, Mail, BookOpen, Wrench, FileText, Settings,
+  Users, Mail, BookOpen, Wrench, FileText,
   Shield, Activity, Database, AlertCircle, RefreshCw, LogOut,
   TrendingUp, MessageSquare, Search, Download, Bot,
   Globe, Award, Zap, Palette, Bell, ToggleLeft, ToggleRight,
@@ -280,7 +280,6 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
         .then(({ flags }) => { if (flags) setFeatureFlags(flags); })
         .catch(() => {});
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tab]);
 
   async function saveSiteSettings() {

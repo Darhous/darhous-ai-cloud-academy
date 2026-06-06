@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { CheckCircle2, XCircle, Loader2, Download, GraduationCap, Globe, Monitor, BookOpen, Zap, Cpu } from "lucide-react";
+import { CheckCircle2, XCircle, Loader2, Download, GraduationCap, Globe, Monitor } from "lucide-react";
 
 interface CertData {
   code: string;

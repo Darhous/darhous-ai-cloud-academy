@@ -80,7 +80,6 @@ export default function CVBuilderClient() {
         {/* Step tabs */}
         <div className="flex overflow-x-auto gap-1 p-3" style={{ background: "rgba(255,255,255,0.02)", borderBottom: "1px solid var(--color-outline-variant)" }}>
           {STEPS.map((s, idx) => {
-            const Icon = s.icon;
             const isActive = idx === step;
             const isPast = idx < step;
             return (

@@ -13,7 +13,7 @@ export default function SectionHeader({
   titleHighlight,
   subtitle,
   align = "center",
-  locale,
+  locale: _locale,
 }: SectionHeaderProps) {
   const alignClass = {
     left: "text-start items-start",

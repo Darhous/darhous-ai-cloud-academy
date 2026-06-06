@@ -5,8 +5,8 @@ import Link from "next/link";
 import {
   TrendingUp, BookOpen, Save, Award, Brain, Activity,
   Bookmark, Sparkles, LogOut, Settings, Star, Clock, ChevronRight, ChevronLeft,
-  Flame, Trophy, Grid3X3, User, Calendar, Bell, Shield, Download, Share2,
-  CheckCircle, Bot, Target, Zap, LayoutDashboard, FileText, Map, Layers,
+  Flame, Trophy, Grid3X3, User, Bell, Shield, Download, Share2,
+  CheckCircle, Bot, Zap, LayoutDashboard, Map, Layers,
 } from "lucide-react";
 import { portals } from "@/config/portals";
 import { curatedWorkflows } from "@/data/automation/workflowLibrary";
@@ -470,7 +470,7 @@ export default function StudentDashboardClient({ locale }: Props) {
   const [quizResults, setQuizResults]       = useState<QuizResult[]>([]);
   const [savedPromptsDb, setSavedPromptsDb] = useState<SavedPromptRow[]>([]);
   const [streak, setStreak]                 = useState(0);
-  const [dataLoading, setDataLoading]       = useState(false);
+  const [_dataLoading, setDataLoading]       = useState(false);
   const [languageResult, setLanguageResult] = useState<LanguageResult | null>(null);
   const [languageHistory, setLanguageHistory] = useState<LanguageResult[]>([]);
   const [examResults, setExamResults]       = useState<ExamResult[]>([]);

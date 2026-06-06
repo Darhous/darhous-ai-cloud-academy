@@ -5,7 +5,6 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import CategoryFilter from "@/components/ui/CategoryFilter";
 import ProjectCard from "@/components/cards/ProjectCard";
 import { projects, projectCategories } from "@/data/projects";
-import { getLevelLabel } from "@/lib/i18n-utils";
 
 export default function ProjectsClient({ locale }: { locale: string }) {
   const isAr = locale === "ar";

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowLeft, BookOpen, Wrench, Sparkles, Trophy, Brain, Target } from "lucide-react";
+import { ArrowRight, ArrowLeft, BookOpen, Sparkles } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CourseCard from "@/components/cards/CourseCard";
 import ToolCard from "@/components/cards/ToolCard";

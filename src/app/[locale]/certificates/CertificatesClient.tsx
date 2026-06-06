@@ -22,7 +22,7 @@ interface CourseProgress {
 
 const BASE_URL = "https://darhous-ai-cloud-academy.vercel.app";
 
-function CertificateCard({ cert, isAr, locale }: { cert: Certificate; isAr: boolean; locale: string }) {
+function CertificateCard({ cert, isAr, locale: _locale }: { cert: Certificate; isAr: boolean; locale: string }) {
   const verifyUrl = `${BASE_URL}/certificates/verify/${cert.certificate_code}`;
 
   function handlePrint() {

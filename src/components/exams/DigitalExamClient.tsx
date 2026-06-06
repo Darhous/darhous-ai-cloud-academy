@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import Link from "next/link";
 import {
-  CheckCircle, XCircle, Timer, Flag, ChevronRight, ChevronLeft,
-  LogIn, Download, Share2, Copy, AlertTriangle, Shuffle,
+  CheckCircle, XCircle, Flag, ChevronRight, ChevronLeft,
+  LogIn, Download, Copy, AlertTriangle, Shuffle,
   MessageCircle, BarChart2,
 } from "lucide-react";
 import type { ExamQuestion, ExamSubject } from "@/data/digital-exam-subjects";
@@ -43,7 +43,7 @@ export default function DigitalExamClient({
   subject: ExamSubject;
   locale: string;
 }) {
-  const router = useRouter();
+  const _router = useRouter();
   const isAr = locale === "ar";
   const Arrow = isAr ? ChevronLeft : ChevronRight;
   const { user, isAuthenticated, loading, supabaseConfigured } = useAuth();

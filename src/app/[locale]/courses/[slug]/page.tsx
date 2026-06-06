@@ -40,8 +40,6 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
 
   const isAr = locale === "ar";
   const Arrow = isAr ? ArrowLeft : ArrowRight;
-  const BackChevron = isAr ? ChevronRight : ChevronLeft;
-
   const relatedProjectsList = course.relatedProjects
     ?.map((pid) => projects.find((p) => p.id === pid))
     .filter(Boolean) ?? [];

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, XCircle, ChevronRight, ChevronLeft, Trophy, RotateCcw, Loader2 } from "lucide-react";
+import { CheckCircle2, XCircle, ChevronRight, ChevronLeft, RotateCcw, Loader2 } from "lucide-react";
 import type { QuizQuestion } from "@/data/courses";
 
 interface Props {

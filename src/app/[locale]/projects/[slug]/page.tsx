@@ -41,12 +41,8 @@ export default async function ProjectDetailPage({ params }: { params: Params }) 
   if (!project) notFound();
 
   const isAr = locale === "ar";
-  const BackChevron = isAr ? ChevronRight : ChevronLeft;
-
   const relatedCoursesList = (project.relatedCourses ?? [])
     .map((cid) => courses.find((c) => c.id === cid)).filter(Boolean);
-  const relatedToolsList = (project.relatedTools ?? [])
-    .map((tid) => tools.find((t) => t.id === tid)).filter(Boolean);
 
   return (
     <div className="container-xl py-12 flex flex-col gap-10">

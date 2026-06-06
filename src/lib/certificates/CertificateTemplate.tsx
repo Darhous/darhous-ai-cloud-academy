@@ -429,6 +429,7 @@ export function CertificateTemplate(props: CertTemplateProps) {
         <View style={S.qrBlock}>
           <View style={S.qrWrap}>
             {qrDataUrl ? (
+              // eslint-disable-next-line jsx-a11y/alt-text
               <Image src={qrDataUrl} style={S.qrImg} />
             ) : (
               <View style={[S.qrImg, { backgroundColor: "#101848", alignItems: "center", justifyContent: "center" }]}>

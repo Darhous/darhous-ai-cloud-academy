@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock, BookOpen } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { pathsData } from "@/data/iot/paths";
 
 export async function generateMetadata({

@@ -7,7 +7,6 @@ import MentorSuggestionCards from "./MentorSuggestionCards";
 import ApiKeyMissingState from "./ApiKeyMissingState";
 import {
   type MentorMessage as MsgType,
-  type MentorApiResponse,
   createMessageId,
   formatForGemini,
 } from "@/lib/mentor-context";

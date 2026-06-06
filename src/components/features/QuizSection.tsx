@@ -88,7 +88,7 @@ export default function QuizSection({ quiz, locale, courseId }: QuizSectionProps
         {quiz.map((q, qi) => {
           const chosen = answers[q.id] ?? null;
           const isCorrect = submitted && chosen === q.correctIndex;
-          const isWrong = submitted && chosen !== null && chosen !== q.correctIndex;
+          const _isWrong = submitted && chosen !== null && chosen !== q.correctIndex;
 
           return (
             <div key={q.id} className="flex flex-col gap-3">

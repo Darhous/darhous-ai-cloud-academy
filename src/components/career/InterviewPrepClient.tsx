@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageSquare, ChevronDown, Sparkles, Loader2, CheckCircle2, TrendingUp, Star } from "lucide-react";
+import { ChevronDown, Sparkles, Loader2, CheckCircle2, TrendingUp, Star } from "lucide-react";
 import type { InterviewEvaluation } from "@/types/career";
 
 const QUESTIONS = [
