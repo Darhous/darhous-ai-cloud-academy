@@ -1,6 +1,8 @@
-# Redesign Checkpoint — Phase 7 Complete
+# Redesign Checkpoint — Phase 8 Complete ✅ FULL REDESIGN DONE
 
-> **Latest tag:** `checkpoint/redesign-p7-certificates` · commit `c585e8a`
+> **Release:** `v14.0-design-system` · [GitHub Release](https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/v14.0-design-system)
+> **Latest lint commit:** `7c21052` · lint 71→47 warnings
+> **Phase 7 tag:** `checkpoint/redesign-p7-certificates` · commit `c585e8a`
 > **Phase 6 tag:** `checkpoint/redesign-p6-auth-admin` · commit `88f4281`
 > **Phase 3 tag:** `checkpoint/redesign-p3-portal-identity` · commit TBD
 > **Phase 2 tag:** `checkpoint/redesign-p2-landing` · commit `8c042ed`
@@ -44,6 +46,7 @@
 | **Phase 5e — Nano Banana client** | ✅ **COMPLETE** — `f647b3a` |
 | **Phase 6 — Auth / Admin polish** | ✅ **COMPLETE** — `88f4281` |
 | **Phase 7 — Certificates polish + privacy** | ✅ **COMPLETE** — `c585e8a` |
+| **Phase 8 — QA + lint + GitHub release** | ✅ **COMPLETE** — `7c21052` · `v14.0-design-system` |
 
 ---
 
@@ -161,6 +164,24 @@ After full audit of all Phase 6 files (AdminDashboardClient, StudentDashboardCli
 - Gold (#fbbf24, #d4af37) and green (#4ade80) semantic colors kept as certificate brand colors
 - Download, Share, Issue Certificate button logic — untouched
 
-## NEXT STEP
+## WHAT WAS DONE IN PHASE 8
 
-➡️ **Phase 8** — QA, release readiness, GitHub release — per MASTER_REDESIGN_PLAN.md (await user GO/NO-GO)
+**TypeScript:** 0 errors (clean across all 8 phases)
+**Build:** exit 0 (verified before every commit, every phase)
+
+**Lint reduction (71 → 47 warnings, 24 fixed):**
+- Removed unused Lucide icon imports from 10 files: `ai-academy/page.tsx` (Wrench/Trophy/Brain/Target), `UnifiedVerifyClient.tsx` (BookOpen/Zap/Cpu), `iot-lab/exams/page.tsx` (FileCheck), `iot-lab/paths/page.tsx` (BookOpen), `WorkflowMapClient.tsx` (ChevronDown), `InterviewPrepClient.tsx` (MessageSquare), `QuizClient.tsx` (Trophy), `CommandPalette.tsx` (Zap/Map), `DigitalExamClient.tsx` (Timer/Share2), `StudentDashboardClient.tsx` (Calendar/Target/FileText), `AdminDashboardClient.tsx` (Settings)
+- Unused vars: `DigitalExamClient.tsx` router→_router, `StudentDashboardClient.tsx` dataLoading→_dataLoading, `QuizSection.tsx` isWrong→_isWrong, `SectionHeader.tsx` locale→_locale, `CVBuilderClient.tsx` removed const Icon, `courses/[slug]` removed BackChevron, `projects/[slug]` removed BackChevron+relatedToolsList, `ProjectsClient.tsx` removed getLevelLabel import, `MentorChat.tsx` removed type MentorApiResponse, `CertificatesClient.tsx` locale→_locale in CertificateCard
+- `CertificateTemplate.tsx`: eslint-disable for @react-pdf/renderer Image (not HTML img)
+- Removed stale `// eslint-disable-next-line` in AdminDashboardClient.tsx
+- Remaining 47 warnings: all untouchable per guardrails (react-hooks/set-state-in-effect = logic patterns; no-img-element = next/image migrations; API route vars; carousel unused-expressions)
+
+**GitHub Release:**
+- Tag: `v14.0-design-system`
+- URL: https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/v14.0-design-system
+- Full phase changelog included in release notes
+
+## REDESIGN COMPLETE
+
+All 8 phases of the "Digital Depth" redesign are done.
+**Live at:** https://darhous-ai-cloud-academy.vercel.app
