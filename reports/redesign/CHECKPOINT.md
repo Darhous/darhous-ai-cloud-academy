@@ -1,6 +1,6 @@
-# Redesign Checkpoint — Phase 5 Complete
+# Redesign Checkpoint — Phase 6 Complete
 
-> **Latest tag:** `checkpoint/redesign-p5e-nano-banana` · commit `f647b3a`
+> **Latest tag:** `checkpoint/redesign-p6-auth-admin` · commit `88f4281`
 > **Phase 3 tag:** `checkpoint/redesign-p3-portal-identity` · commit TBD
 > **Phase 2 tag:** `checkpoint/redesign-p2-landing` · commit `8c042ed`
 > **Phase 1 tag:** `checkpoint/redesign-p1-foundation` · commit `c88404e`
@@ -41,6 +41,7 @@
 | **Phase 5c — Digital Exams clients** | ✅ **COMPLETE** — `b408e5e` |
 | **Phase 5d — IoT Lab clients** | ✅ **COMPLETE** — `bb9789d` |
 | **Phase 5e — Nano Banana client** | ✅ **COMPLETE** — `f647b3a` |
+| **Phase 6 — Auth / Admin polish** | ✅ **COMPLETE** — `88f4281` |
 
 ---
 
@@ -111,6 +112,28 @@
 4. **IotExamsClient, IotLessonsClient** (`#f97316`) — exam card borders, icon boxes, question numbering, selected option, result card, category filter, lesson card borders, read link → portal tokens. Submit gradient + score thresholds kept. `DIFF_COLOR` map (IotProjectsClient) untouched.
 5. **NanaBananaClient** (`#f59e0b` + multi-color identity) — Enhancer section bg/border, Wand2 icon, badge, textarea border, result card, copy button, hero orb, hero badge, stats numbers, step badges, safety disclaimer, category filter active state → portal tokens. Hero multi-color gradient, "Gemini" branded text, Enhance/Admin CTA gradients, `item.accent` data-driven card colors all kept.
 
+## WHAT WAS DONE IN PHASE 6
+
+After full audit of all Phase 6 files (AdminDashboardClient, StudentDashboardClient, AICoachCard, all auth forms, all auth pages, ProfileSettingsClient, OnboardingClient, all mentor components, all AI Studio tool clients, PublicProfileClient):
+
+**Finding:** All Phase 6 components were already well-tokenized with global design system vars (`var(--color-primary/secondary/tertiary/on-surface/...)`). No wrong portal hex colors found — admin tab correctly uses `var(--color-tertiary)`, auth forms use global tokens, profile/onboarding have zero hex, mentor uses global accent colors consistently, AI Studio tools use global primary/secondary/tertiary.
+
+**What was changed (Phase 6a — auth atmospheric polish):**
+- `login/page.tsx` — added blue+violet ambient radial-gradient orbs, `boxShadow` on card
+- `register/page.tsx` — added violet+blue ambient orbs, `boxShadow` on card
+- `forgot-password/page.tsx` — added cyan+blue ambient orbs, `boxShadow` on card
+- `reset-password/page.tsx` — added blue+green ambient orbs, `boxShadow` on card
+- Each page now has `relative overflow-hidden` outer + `relative z-10` on inner content
+
+**What was changed (Phase 6b — admin mode indicator):**
+- `AdminDashboardClient.tsx` — added red `ADMIN` badge (Shield icon + pill) to the admin studio header alongside the version label
+
+**Kept unchanged (intentional):**
+- Dashboard per-portal hub sections (Automation green, Career amber, IoT orange, etc.) — intentional multi-portal color differentiation in a hub, correct
+- Semantic colors throughout (score thresholds: green/amber/red, Google OAuth blue, streak orange, certificate gold, completed green)
+- Mentor components `rgba(142,213,255,...)` / `rgba(208,188,255,...)` — global primary/secondary, correct
+- AI Studio tool active states — global primary/secondary/tertiary, correct
+
 ## NEXT STEP
 
-➡️ **Phase 6** — Dashboards / Admin / Auth / Profile / AI Studio — per MASTER_REDESIGN_PLAN.md (await user GO/NO-GO)
+➡️ **Phase 7** — Certificate / verify style-only polish + privacy fix — per MASTER_REDESIGN_PLAN.md (await user GO/NO-GO)
