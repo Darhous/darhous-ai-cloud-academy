@@ -527,8 +527,11 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
     }
   }
 
-  // Merge: custom first (so they appear at the top of the grid)
-  const allPrompts: NanaBananaPrompt[] = [...customPrompts, ...nanaBananaPrompts];
+  // After DB migration (v21): DB contains all prompts — use DB as primary source.
+  // Fall back to static file only if DB returns nothing (pre-migration or offline).
+  const allPrompts: NanaBananaPrompt[] = customPrompts.length > 0
+    ? customPrompts
+    : nanaBananaPrompts;
 
   const filtered = allPrompts.filter((p) => {
     const catMatch = activeCategory === "all" || p.category === activeCategory;
