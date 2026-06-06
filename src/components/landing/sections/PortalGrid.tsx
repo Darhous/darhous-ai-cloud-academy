@@ -14,6 +14,16 @@ export default function PortalGrid({ locale }: { locale: string }) {
     show:   { opacity: 1, y: 0, transition: { duration: shouldReduce ? 0.15 : 0.6, ease: [0.0, 0.0, 0.2, 1] as const } },
   };
 
+  const gridContainer = {
+    hidden: {},
+    show: { transition: { staggerChildren: shouldReduce ? 0 : 0.06 } },
+  };
+
+  const gridItem = {
+    hidden: { opacity: 0, y: shouldReduce ? 0 : 20 },
+    show:   { opacity: 1, y: 0, transition: { duration: shouldReduce ? 0.15 : 0.4, ease: [0.0, 0.0, 0.2, 1] as const } },
+  };
+
   return (
     <section id="portals" className="container-xl">
       <motion.div
@@ -36,11 +46,20 @@ export default function PortalGrid({ locale }: { locale: string }) {
             : "An integrated ecosystem designed to cover all your learning and career needs through specialized portals"}
         </p>
       </motion.div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      {/* Staggered portal card grid */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+        variants={gridContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-60px" }}
+      >
         {portals.map((portal) => (
-          <PortalCard key={portal.id} portal={portal} locale={locale} />
+          <motion.div key={portal.id} variants={gridItem}>
+            <PortalCard portal={portal} locale={locale} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

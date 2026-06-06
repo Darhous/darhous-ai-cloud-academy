@@ -32,14 +32,14 @@ export default function HeroSection({ locale, scrollToPath }: Props) {
 
   return (
     <section className="container-xl pt-12 md:pt-24 relative">
-      {/* Ambient orbs */}
+      {/* Ambient orbs — breathing animation */}
       <div
-        className="absolute top-0 end-0 pointer-events-none"
-        style={{ width: "55vw", height: "55vw", background: "radial-gradient(circle, rgba(142,213,255,0.08) 0%, transparent 65%)", filter: "blur(120px)" }}
+        className="absolute top-0 end-0 pointer-events-none orb-breathe"
+        style={{ width: "55vw", height: "55vw", background: "radial-gradient(circle, rgba(142,213,255,0.08) 0%, transparent 65%)", filter: "blur(120px)", animationDelay: "0s" }}
       />
       <div
-        className="absolute bottom-0 start-0 pointer-events-none"
-        style={{ width: "45vw", height: "45vw", background: "radial-gradient(circle, rgba(87,27,193,0.1) 0%, transparent 65%)", filter: "blur(100px)" }}
+        className="absolute bottom-0 start-0 pointer-events-none orb-breathe-slow"
+        style={{ width: "45vw", height: "45vw", background: "radial-gradient(circle, rgba(87,27,193,0.1) 0%, transparent 65%)", filter: "blur(100px)", animationDelay: "2.5s" }}
       />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-7">
@@ -131,6 +131,7 @@ export default function HeroSection({ locale, scrollToPath }: Props) {
         <motion.div
           variants={fadeUp} initial="hidden" animate="show"
           transition={{ duration: shouldReduce ? 0.15 : 0.8, delay: shouldReduce ? 0 : 0.4 }}
+          whileHover={shouldReduce ? undefined : { scale: 1.006, y: -3, transition: { duration: 0.25, ease: "easeOut" } }}
           className="glass-card rounded-2xl overflow-hidden w-full max-w-3xl"
           style={{ border: "1px solid rgba(142,213,255,0.12)", boxShadow: "0 24px 100px rgba(0,0,0,0.45)" }}
         >
@@ -148,7 +149,7 @@ export default function HeroSection({ locale, scrollToPath }: Props) {
           </div>
           {/* Portal progress grid */}
           <div className="p-5 grid grid-cols-3 gap-3">
-            {OS_ITEMS(isAr).map((item) => (
+            {OS_ITEMS(isAr).map((item, i) => (
               <div
                 key={item.label}
                 className="rounded-xl p-3"
@@ -163,10 +164,22 @@ export default function HeroSection({ locale, scrollToPath }: Props) {
                     </span>
                   )}
                 </div>
-                <div className="h-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
-                  <div
-                    className="h-full rounded-full"
-                    style={{ width: `${item.pct}%`, background: item.color, boxShadow: `0 0 8px ${item.color}60` }}
+                {/* Animated progress bar — scaleX from 0 to item.pct/100 */}
+                <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
+                  <motion.div
+                    className="h-full w-full rounded-full"
+                    style={{
+                      transformOrigin: isAr ? "100% 0" : "0 0",
+                      background: item.color,
+                      boxShadow: `0 0 8px ${item.color}60`,
+                    }}
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: item.pct / 100 }}
+                    transition={{
+                      duration: shouldReduce ? 0 : 0.85,
+                      delay: shouldReduce ? 0 : 0.55 + i * 0.1,
+                      ease: [0.0, 0.0, 0.2, 1],
+                    }}
                   />
                 </div>
                 <p className="text-[10px] mt-1 text-end font-mono opacity-50" style={{ color: "var(--color-on-surface-variant)" }}>

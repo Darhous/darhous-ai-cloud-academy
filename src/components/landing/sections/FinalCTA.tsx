@@ -24,8 +24,8 @@ export default function FinalCTA({ locale }: { locale: string }) {
           border: "1px solid rgba(142,213,255,0.15)",
         }}
       >
-        <div className="env-orb env-orb-blue absolute top-[-100px] start-[-100px] opacity-30" />
-        <div className="env-orb env-orb-violet absolute bottom-[-100px] end-[-100px] opacity-20" />
+        <div className="env-orb env-orb-blue absolute top-[-100px] start-[-100px] opacity-30 orb-breathe" style={{ animationDelay: "0s" }} />
+        <div className="env-orb env-orb-violet absolute bottom-[-100px] end-[-100px] opacity-20 orb-breathe-slow" style={{ animationDelay: "1.8s" }} />
         <div className="relative z-10">
           <p className="text-sm font-mono mb-5" style={{ color: "var(--color-primary)" }}>
             {isAr ? "✨ الآن أو لا تندم لاحقًا" : "✨ Now or Never"}
@@ -41,14 +41,18 @@ export default function FinalCTA({ locale }: { locale: string }) {
               : "The AI Mentor builds your path, step by step, from zero to mastery — you just need to start."}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              href={`/${locale}/register`}
-              className="glow-button-primary text-white font-mono px-10 py-4 rounded-xl inline-flex items-center gap-2 text-base font-semibold"
-            >
-              <Sparkles size={18} />
-              {isAr ? "ابدأ مجانًا الآن" : "Start Free Now"}
-              <Arrow size={16} />
-            </Link>
+            {/* Primary CTA with outward ripple ring */}
+            <div className="relative inline-flex rounded-xl">
+              <span className="absolute inset-0 rounded-xl cta-ripple-ring" aria-hidden="true" />
+              <Link
+                href={`/${locale}/register`}
+                className="glow-button-primary text-white font-mono px-10 py-4 rounded-xl inline-flex items-center gap-2 text-base font-semibold relative z-10"
+              >
+                <Sparkles size={18} />
+                {isAr ? "ابدأ مجانًا الآن" : "Start Free Now"}
+                <Arrow size={16} />
+              </Link>
+            </div>
             <Link
               href={`/${locale}/mentor`}
               className="glow-button-secondary font-mono px-8 py-4 rounded-xl inline-flex items-center gap-2 text-base font-semibold"
