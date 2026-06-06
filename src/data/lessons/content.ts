@@ -8729,4 +8729,868 @@ if __name__ == "__main__":
     },
   ],
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // C7d — ai-for-business (3 lessons)
+  // ─────────────────────────────────────────────────────────────────────────
+  "ai-for-business": [
+
+    // Lesson 1 — لماذا AI للأعمال؟
+    {
+      bodyAr: `## لماذا AI للأعمال؟
+
+AI لم يعد حكراً على شركات التكنولوجيا — أصبح أداةً ضرورية لكل نوع من الأعمال. في هذا الدرس ستفهم لماذا وكيف.
+
+### الواقع اليوم
+
+في 2026، الشركات التي لا تستخدم AI تتنافس بيد مربوطة خلف ظهرها.
+
+**بالأرقام:**
+- الشركات التي تستخدم AI تُنتج 40% أكثر من غيرها
+- أدوات AI توفّر 2-3 ساعات يومياً لكل موظف متوسط
+- ROI متوسط لمشاريع AI: 350% في السنة الأولى
+
+### ما يستطيع AI فعله لأعمالك الآن
+
+#### 1. خدمة العملاء
+- ردود فورية 24/7 بجودة موظف خبير
+- تصنيف الشكاوى وتوجيهها تلقائياً
+- تحليل مشاعر العملاء من تقييماتهم
+
+**مثال:** متجر إلكتروني — Chatbot يحلّ 70% من استفسارات العملاء بدون تدخل بشري.
+
+#### 2. التسويق والمحتوى
+- كتابة منشورات سوشيال ميديا بأسلوب علامتك التجارية
+- توليد صور ومقاطع فيديو إعلانية
+- تحليل أداء الحملات واقتراح التحسينات
+
+**مثال:** وكالة تسويق — تُنتج 10x محتوى أكثر بنفس الفريق.
+
+#### 3. العمليات الداخلية
+- تلخيص الاجتماعات الطويلة
+- صياغة العقود والمستندات القانونية
+- تحليل جداول البيانات والتقارير
+
+**مثال:** شركة محاسبة — مراجعة 1000 فاتورة في دقائق بدلاً من أيام.
+
+#### 4. التوظيف والموارد البشرية
+- فرز السير الذاتية بناءً على المعايير
+- صياغة وصف الوظائف المُحسّن
+- الإجابة على أسئلة الموظفين (سياسات، إجازات)
+
+### أين لا يُجيد AI؟
+
+| المهمة | AI | إنسان |
+|--------|----|----|
+| استراتيجية طويلة الأمد | ضعيف | ✅ |
+| العلاقات الإنسانية | ضعيف | ✅ |
+| مهام متكررة وموثّقة | ✅ | ضعيف |
+| تحليل بيانات ضخمة | ✅ | ضعيف |
+| إبداع يحتاج تجربة حياتية | ضعيف | ✅ |
+
+### إطار اتخاذ قرار تبني AI
+
+\`\`\`
+هل المهمة متكررة ومحددة جيداً؟
+├── نعم → هل تستغرق أكثر من ساعة/أسبوع؟
+│   ├── نعم → مرشح ممتاز لـ AI
+│   └── لا  → ضع في قائمة الانتظار
+└── لا  → هل تحتاج معلومات وتحليل؟
+    ├── نعم → AI مساعد ممتاز
+    └── لا  → احتفظ بها للإنسان
+\`\`\`
+
+### حالات استخدام واقعية في السوق العربي
+
+**التجارة الإلكترونية:**
+- وصف المنتجات بالعربية والإنجليزية تلقائياً
+- ردود على تعليقات العملاء على سوشيال ميديا
+- تحليل مراجعات العملاء لتحسين المنتجات
+
+**التعليم:**
+- توليد أسئلة اختبار من المنهج
+- تصحيح الإملاء والنحو العربي
+- تلخيص المحاضرات الطويلة
+
+**العقارات:**
+- كتابة إعلانات العقارات المميزة
+- الرد على استفسارات العملاء الأولية
+- تحليل أسعار السوق من البيانات
+
+**المحاسبة والمالية:**
+- تصنيف المصروفات تلقائياً
+- اكتشاف الأنماط الشاذة في المعاملات
+- توليد التقارير المالية الدورية
+`,
+      bodyEn: `## Why AI for Business?
+
+AI is no longer exclusive to tech companies — it's become a necessary tool for every type of business.
+
+### The Reality Today
+
+Companies using AI produce 40% more than competitors. AI tools save 2–3 hours daily per average employee. Average AI project ROI: 350% in year one.
+
+### What AI Can Do for Your Business Now
+
+- **Customer Service:** 24/7 instant responses, complaint routing, sentiment analysis
+- **Marketing & Content:** Brand-voice posts, ad images, campaign analysis
+- **Internal Operations:** Meeting summaries, contract drafting, spreadsheet analysis
+- **HR:** CV screening, job descriptions, employee policy Q&A
+
+### Where AI Falls Short
+
+| Task | AI | Human |
+|------|----|-------|
+| Long-term strategy | Weak | ✅ |
+| Human relationships | Weak | ✅ |
+| Repetitive documented tasks | ✅ | Weak |
+| Large-scale data analysis | ✅ | Weak |
+
+### Decision Framework for AI Adoption
+
+\`\`\`
+Is the task repetitive and well-defined?
+├── Yes → Does it take 1+ hour/week?
+│   ├── Yes → Prime AI candidate
+│   └── No  → Backlog
+└── No  → Does it require information & analysis?
+    ├── Yes → AI as assistant
+    └── No  → Keep it human
+\`\`\`
+`,
+      codeExample: `# حاسبة ROI لمشاريع AI في الأعمال
+# استخدامها: حدّد المهام والوقت والتكاليف، واحصل على تقييم ROI
+
+from dataclasses import dataclass, field
+from typing import Optional
+import json
+
+@dataclass
+class AITask:
+    """مهمة يمكن أتمتتها بـ AI"""
+    name: str
+    hours_per_week: float          # وقت الإنسان حالياً
+    hourly_cost_sar: float         # تكلفة ساعة العمل (ريال)
+    ai_time_reduction: float       # نسبة التوفير (0.0-1.0)
+    ai_tool_monthly_cost: float    # تكلفة الأداة شهرياً (ريال)
+    quality_improvement: float     # تحسين الجودة (0.0-1.0)
+    implementation_hours: float    # وقت التطبيق (ساعات)
+
+@dataclass
+class BusinessAIROI:
+    """حاسبة ROI شاملة لمشاريع AI"""
+    company_name: str
+    tasks: list[AITask] = field(default_factory=list)
+
+    def add_task(self, task: AITask) -> None:
+        self.tasks.append(task)
+
+    def calculate_roi(self, months: int = 12) -> dict:
+        """حساب ROI التفصيلي"""
+        results = {
+            "company": self.company_name,
+            "period_months": months,
+            "tasks": [],
+            "summary": {}
+        }
+
+        total_investment = 0
+        total_savings = 0
+        total_hours_saved_weekly = 0
+
+        for task in self.tasks:
+            # التوفير الشهري
+            weekly_savings_sar = (
+                task.hours_per_week
+                * task.ai_time_reduction
+                * task.hourly_cost_sar
+            )
+            monthly_savings_sar = weekly_savings_sar * 4.33
+
+            # التكلفة الإجمالية
+            implementation_cost = task.implementation_hours * task.hourly_cost_sar
+            tool_cost_total = task.ai_tool_monthly_cost * months
+            total_cost = implementation_cost + tool_cost_total
+
+            # الأرباح على فترة التحليل
+            total_benefit = monthly_savings_sar * months
+            net_roi = total_benefit - total_cost
+            roi_percent = ((total_benefit - total_cost) / total_cost * 100) if total_cost > 0 else float("inf")
+
+            # فترة الاسترداد
+            monthly_net = monthly_savings_sar - task.ai_tool_monthly_cost
+            payback_months = implementation_cost / monthly_net if monthly_net > 0 else float("inf")
+
+            hours_saved_weekly = task.hours_per_week * task.ai_time_reduction
+            total_hours_saved_weekly += hours_saved_weekly
+
+            task_result = {
+                "task": task.name,
+                "hours_saved_weekly": round(hours_saved_weekly, 1),
+                "monthly_savings_sar": round(monthly_savings_sar),
+                "total_investment_sar": round(total_cost),
+                "net_roi_sar": round(net_roi),
+                "roi_percent": round(roi_percent, 1),
+                "payback_months": round(payback_months, 1) if payback_months != float("inf") else "N/A",
+                "quality_boost": f"{task.quality_improvement*100:.0f}%",
+            }
+            results["tasks"].append(task_result)
+            total_investment += total_cost
+            total_savings += total_benefit
+
+        total_net = total_savings - total_investment
+        total_roi = ((total_savings - total_investment) / total_investment * 100) if total_investment > 0 else 0
+
+        results["summary"] = {
+            "total_investment_sar": round(total_investment),
+            "total_savings_sar": round(total_savings),
+            "net_gain_sar": round(total_net),
+            "overall_roi_percent": round(total_roi, 1),
+            "hours_saved_weekly": round(total_hours_saved_weekly, 1),
+            "hours_saved_yearly": round(total_hours_saved_weekly * 52, 1),
+            "verdict": (
+                "ممتاز - وفّر فوراً" if total_roi > 200
+                else "جيد - وفّر خلال السنة" if total_roi > 50
+                else "متوسط - يحتاج دراسة" if total_roi > 0
+                else "غير مجدٍ حالياً"
+            )
+        }
+        return results
+
+    def print_report(self, months: int = 12) -> None:
+        """طباعة تقرير ROI منسق"""
+        data = self.calculate_roi(months)
+
+        print("=" * 60)
+        print(f"تقرير ROI للذكاء الاصطناعي — {data['company']}")
+        print(f"فترة التحليل: {months} شهر")
+        print("=" * 60)
+
+        print("\\nتفاصيل المهام:")
+        print(f"{'المهمة':25s} | {'توفير/أسبوع':12s} | {'ROI%':8s} | {'استرداد':8s}")
+        print("-" * 65)
+
+        for t in data["tasks"]:
+            print(
+                f"{t['task'][:25]:25s} | "
+                f"{t['hours_saved_weekly']:4.1f} ساعة     | "
+                f"{t['roi_percent']:7.1f}% | "
+                f"{str(t['payback_months']):7s} شهر"
+            )
+
+        s = data["summary"]
+        print("\\n" + "=" * 60)
+        print("ملخص:")
+        print(f"  إجمالي الاستثمار : {s['total_investment_sar']:>10,} ريال")
+        print(f"  إجمالي التوفير   : {s['total_savings_sar']:>10,} ريال")
+        print(f"  صافي الربح       : {s['net_gain_sar']:>10,} ريال")
+        print(f"  ROI الكلي        : {s['overall_roi_percent']:>10.1f}%")
+        print(f"  ساعات موفّرة/أسبوع: {s['hours_saved_weekly']:>10.1f} ساعة")
+        print(f"  ساعات موفّرة/سنة : {s['hours_saved_yearly']:>10.1f} ساعة")
+        print(f"\\n  الحكم: {s['verdict']}")
+
+
+# ─────────────────────────────────────────
+# مثال عملي: شركة تجارة إلكترونية
+# ─────────────────────────────────────────
+calc = BusinessAIROI("متجر الرقمي للإلكترونيات")
+
+calc.add_task(AITask(
+    name="الرد على استفسارات العملاء",
+    hours_per_week=20,
+    hourly_cost_sar=75,
+    ai_time_reduction=0.7,
+    ai_tool_monthly_cost=150,
+    quality_improvement=0.3,
+    implementation_hours=10,
+))
+
+calc.add_task(AITask(
+    name="كتابة وصف المنتجات",
+    hours_per_week=8,
+    hourly_cost_sar=60,
+    ai_time_reduction=0.85,
+    ai_tool_monthly_cost=100,
+    quality_improvement=0.4,
+    implementation_hours=5,
+))
+
+calc.add_task(AITask(
+    name="منشورات سوشيال ميديا",
+    hours_per_week=6,
+    hourly_cost_sar=80,
+    ai_time_reduction=0.6,
+    ai_tool_monthly_cost=80,
+    quality_improvement=0.25,
+    implementation_hours=8,
+))
+
+calc.add_task(AITask(
+    name="تلخيص تقارير المبيعات",
+    hours_per_week=3,
+    hourly_cost_sar=100,
+    ai_time_reduction=0.9,
+    ai_tool_monthly_cost=50,
+    quality_improvement=0.5,
+    implementation_hours=4,
+))
+
+calc.print_report(months=12)`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 2 — أدوات AI لزيادة الإنتاجية
+    {
+      bodyAr: `## أدوات AI لزيادة الإنتاجية
+
+السوق مليء بمئات أدوات AI — لكن 80% من الفائدة تأتي من 20% من الأدوات. هذا الدرس يُركّز على الأدوات التي ستستخدمها يومياً.
+
+### الفئات الرئيسية
+
+#### 1. المساعدون العامون (General Assistants)
+
+**Claude (Anthropic) — الأفضل للمحتوى والتحليل:**
+- أطول Context Window (200K token)
+- الأدق في الكتابة العربية
+- الأفضل للمهام الطويلة والمعقدة
+- متاح على claude.ai وعبر API
+
+**ChatGPT (OpenAI):**
+- الأوسع انتشاراً
+- DALL·E مدمج لتوليد الصور
+- GPTs للتخصيص بدون كود
+
+**Gemini (Google):**
+- مدمج مع Google Workspace (Docs, Sheets, Gmail)
+- مثالي لمن يعمل في بيئة Google
+
+#### 2. أدوات الكتابة المتخصصة
+
+**Notion AI:**
+- مدمج مع Notion للمستندات والـ wikis
+- يلخّص، يُحسّن، ويُكمل النصوص
+- مثالي للفرق التي تستخدم Notion
+
+**Grammarly:**
+- تصحيح النحو والأسلوب (إنجليزي أساساً)
+- مدمج مع المتصفح وOffice
+
+**Copy.ai / Jasper:**
+- متخصصان في التسويق والإعلانات
+- قوالب جاهزة لكل نوع محتوى
+
+#### 3. أدوات الاجتماعات والمحاضرات
+
+**Otter.ai / Fireflies:**
+- تفريغ صوتي تلقائي للاجتماعات
+- تلخيص وعزل نقاط الإجراءات (Action Items)
+- يعمل مع Zoom وMeet وTeams
+
+**Krisp:**
+- إزالة الضوضاء من الميكروفون بـ AI
+- مثالي للعمل من المنزل أو الأماكن الصاخبة
+
+#### 4. أدوات الصور والتصميم
+
+**Midjourney / DALL·E / Ideogram:**
+- توليد صور من وصف نصي
+- Ideogram الأفضل للنصوص على الصور (بالعربية والإنجليزية)
+
+**Canva AI:**
+- تصميم الجرافيك بـ AI
+- مثالي للتسويق بدون مصمم متخصص
+
+**Remove.bg / Adobe Firefly:**
+- حذف الخلفية بنقرة واحدة
+- تعديل الصور بالذكاء الاصطناعي
+
+#### 5. أدوات الكود والتطوير
+
+**GitHub Copilot:**
+- يكمل الكود تلقائياً أثناء الكتابة
+- يشرح الكود ويكتب الـ tests
+- مدمج في VS Code وJetBrains
+
+**Claude Code:**
+- يعمل في الـ terminal مع مشروعك الكامل
+- يكتب ويُراجع ويُحسّن الكود
+
+**Cursor:**
+- محرر كود AI-first
+- يُعدّل الملفات مباشرةً بأوامر طبيعية
+
+#### 6. أدوات الأتمتة
+
+**Zapier / Make:**
+- ربط آلاف التطبيقات معاً
+- AI Actions لاتخاذ قرارات ذكية في الـ workflow
+
+**n8n:**
+- مفتوح المصدر، يُنشر على سيرفرك
+- الأفضل للأتمتة المتقدمة
+
+### مقارنة التكاليف
+
+| الأداة | الخطة المجانية | الخطة المدفوعة |
+|--------|--------------|--------------|
+| Claude Pro | محدود | ~$20/شهر |
+| ChatGPT Plus | محدود | ~$20/شهر |
+| Notion AI | محدود | ~$10/شهر |
+| GitHub Copilot | 30 يوم trial | ~$10/شهر |
+| Make.com | 1000 عملية | ~$9/شهر |
+
+**نصيحة:** ابدأ بـ Claude + Make + Notion AI — هذه الثلاثة تغطي 90% من احتياجات معظم الأعمال.
+
+### كيف تختار الأداة المناسبة؟
+
+\`\`\`
+1. حدّد المشكلة أولاً (لا تبحث عن أداة قبل تحديد المشكلة)
+2. جرّب النسخة المجانية لأسبوع
+3. قِس الوقت الموفَّر فعلياً
+4. ادفع فقط إذا ثبت الـ ROI
+\`\`\`
+`,
+      bodyEn: `## AI Tools for Productivity
+
+The market is full of hundreds of AI tools — but 80% of the benefit comes from 20% of the tools. This lesson focuses on the tools you'll use every day.
+
+### Key Categories
+
+**General Assistants:** Claude (best for Arabic content + analysis), ChatGPT (widest adoption + DALL·E), Gemini (Google Workspace integration)
+
+**Writing:** Notion AI (embedded in docs), Grammarly (grammar & style), Copy.ai (marketing copy)
+
+**Meetings:** Otter.ai / Fireflies (transcription + action items), Krisp (noise cancellation)
+
+**Images:** Midjourney / Ideogram (best for Arabic text on images), Canva AI (design without designers)
+
+**Coding:** GitHub Copilot (autocomplete in VS Code), Claude Code (terminal-based full-project editing), Cursor (AI-first editor)
+
+**Automation:** Zapier / Make (connect 1000s of apps), n8n (self-hosted open source)
+
+### Cost Comparison
+
+All major tools offer free tiers. A practical starting stack: Claude + Make + Notion AI covers ~90% of most business needs at ~$40/month.
+
+### Selection Framework
+
+\`\`\`
+1. Define the problem first
+2. Try free tier for one week
+3. Measure actual time saved
+4. Pay only when ROI is proven
+\`\`\`
+`,
+      codeExample: `# مقارنة أدوات AI وحاسبة اختيار الأداة المناسبة
+import anthropic
+
+client = anthropic.Anthropic()
+
+# ─────────────────────────────────────────
+# 1. مساعد AI لاختيار الأداة المناسبة
+# ─────────────────────────────────────────
+def recommend_ai_tool(business_need: str) -> str:
+    """يوصي بأفضل أداة AI بناءً على الاحتياج التجاري"""
+    prompt = f"""أنت مستشار تحول رقمي متخصص في أدوات AI للأعمال.
+
+المهمة: أوصِ بأفضل 2-3 أدوات AI لهذا الاحتياج التجاري.
+
+الاحتياج: {business_need}
+
+الأدوات المتاحة للمقارنة:
+- Claude/ChatGPT: كتابة، تحليل، محادثة، برمجة
+- Midjourney/Ideogram: توليد صور
+- Make/Zapier/n8n: أتمتة وربط تطبيقات
+- Notion AI: مستندات وإدارة معرفة
+- GitHub Copilot: كتابة كود
+- Otter.ai: تفريغ اجتماعات
+- Canva AI: تصميم جرافيك
+- Remove.bg: تعديل صور
+
+أجب بتنسيق:
+1. الأداة الأولى (الأنسب): [الاسم] — [سبب الاختيار] — [التكلفة التقريبية]
+2. الأداة الثانية: [الاسم] — [سبب الاختيار] — [التكلفة التقريبية]
+3. نصيحة تطبيق: كيف تبدأ خلال 24 ساعة؟
+
+أجب بالعربية في 5 أسطر أو أقل."""
+
+    message = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=300,
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return message.content[0].text
+
+# ─────────────────────────────────────────
+# 2. تجربة مع احتياجات مختلفة
+# ─────────────────────────────────────────
+business_needs = [
+    "أملك متجر ملابس وأحتاج إنشاء محتوى سوشيال ميديا يومياً",
+    "لدي شركة استشارات وأريد تلخيص اجتماعاتي وإرسال ملخص للعملاء",
+    "مطور برمجيات يعمل منفرداً ويريد تسريع البرمجة",
+    "مدير تسويق يريد توليد صور إعلانية لحملات Google Ads",
+]
+
+print("=" * 60)
+print("مساعد اختيار أدوات AI للأعمال")
+print("=" * 60)
+
+for need in business_needs:
+    print(f"\\n{'='*55}")
+    print(f"الاحتياج: {need}")
+    print(f"{'='*55}")
+    recommendation = recommend_ai_tool(need)
+    print(recommendation)
+
+# ─────────────────────────────────────────
+# 3. مولّد Prompt للأعمال
+# ─────────────────────────────────────────
+BUSINESS_PROMPTS = {
+    "رد_على_شكوى_عميل": """
+أنت مسؤول خدمة عملاء محترف في شركة {company_name}.
+اكتب رداً محترماً ومتعاطفاً على هذه الشكوى: {complaint}
+
+المتطلبات:
+- افتح بالاعتذار الصادق
+- اشرح ما ستفعله لحل المشكلة
+- أعطِ جدولاً زمنياً واضحاً
+- انهِ بعرض تعويض مناسب
+الطول: 3-4 أسطر
+""",
+    "وصف_منتج": """
+اكتب وصفاً تسويقياً جذاباً لهذا المنتج:
+المنتج: {product_name}
+المميزات: {features}
+الجمهور: {target_audience}
+
+الأسلوب: مباشر، مقنع، يُبرز الفائدة لا المواصفات
+الطول: فقرة + 3 نقاط مميزات
+""",
+    "تلخيص_اجتماع": """
+لخّص هذا الاجتماع في تنسيق احترافي:
+{meeting_transcript}
+
+التنسيق المطلوب:
+1. القرارات المتخذة (bullet points)
+2. المهام وأصحابها والمواعيد
+3. النقاط المؤجلة للاجتماع القادم
+""",
+}
+
+print("\\n" + "=" * 60)
+print("مثال: توليد رد على شكوى عميل")
+print("=" * 60)
+
+example_prompt = BUSINESS_PROMPTS["رد_على_شكوى_عميل"].format(
+    company_name="متجر التقنية العربي",
+    complaint="طلبت جهاز قبل أسبوعين ولم يصلني بعد رغم وعدكم بالتسليم خلال 3 أيام"
+)
+
+response = client.messages.create(
+    model="claude-haiku-4-5-20251001",
+    max_tokens=200,
+    messages=[{"role": "user", "content": example_prompt}]
+)
+print(response.content[0].text)`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 3 — أتمتة العمليات التجارية
+    {
+      bodyAr: `## أتمتة العمليات التجارية
+
+الأتمتة هي الفرق بين العمل في شركتك والعمل على شركتك. في هذا الدرس ستتعلم كيف تُحرّر وقتك من المهام المتكررة.
+
+### ما يمكن أتمتته اليوم بدون كود
+
+**قاعدة 80/20 للأتمتة:**
+- 80% من أتمتة الأعمال يمكن تنفيذها بـ Make/Zapier بدون كود
+- 20% الباقية تحتاج مطور — لكن غالباً لا تستحق التعقيد
+
+### أمثلة جاهزة للتطبيق
+
+#### سيناريو 1: رد فوري على استفسارات الواتساب
+\`\`\`
+العميل يرسل رسالة WhatsApp
+    ↓ (Make Webhook)
+Claude يحلّل الاستفسار
+    ↓
+هل هو سؤال عن السعر؟
+├── نعم → يُرسل قائمة الأسعار تلقائياً
+└── لا  → يُسجّل في Notion ويُنبّه الفريق
+    ↓
+تأكيد الاستلام يُرسل للعميل خلال 30 ثانية
+\`\`\`
+
+#### سيناريو 2: معالجة الطلبات الإلكترونية
+\`\`\`
+عميل يملأ Google Form
+    ↓
+بيانات تُحفظ في Google Sheets
+    ↓
+Claude يُولّد إيميل شكر مخصص
+    ↓
+إيميل يُرسل تلقائياً (Gmail)
+    ↓
+مهمة تُنشأ في Notion للمتابعة
+    ↓
+تنبيه Slack للفريق المسؤول
+\`\`\`
+
+#### سيناريو 3: مراقبة المنافسين
+\`\`\`
+كل يوم الساعة 9 صباحاً
+    ↓
+يجمع آخر المنشورات من مواقع المنافسين
+    ↓
+Claude يُلخّص التغييرات المهمة
+    ↓
+ملخص يومي يصل لبريدك الإلكتروني
+\`\`\`
+
+### خطوات بناء أول أتمتة
+
+**الخطوة 1: حدّد المهمة المناسبة**
+\`\`\`
+معايير المهمة الجيدة للأتمتة:
+✅ تتكرر أكثر من 3 مرات/أسبوع
+✅ تتبع نفس الخطوات دائماً
+✅ لا تحتاج حكماً شخصياً معقداً
+✅ تستغرق 10+ دقائق في كل مرة
+\`\`\`
+
+**الخطوة 2: ارسم الـ Flow**
+\`\`\`
+Trigger (ما يبدأ الأتمتة) →
+Actions (ما يحدث) →
+Conditions (إذا/ثم) →
+Output (النتيجة النهائية)
+\`\`\`
+
+**الخطوة 3: ابنِ في Make أو n8n**
+- ابدأ بالـ Trigger
+- أضف Actions واحدة واحدة
+- اختبر كل خطوة قبل التالية
+- نشّط وراقب
+
+### AI في الأتمتة — ليس مجرد ربط
+
+المستوى 1 (أتمتة بسيطة): نقل البيانات من أ إلى ب
+المستوى 2 (أتمتة ذكية + AI):
+\`\`\`
+استفسار عميل → Claude يُحلّل النية → يُصنّف الأولوية → يختار الرد المناسب → يُرسل
+\`\`\`
+
+**الفرق الجوهري:** بدون AI، الأتمتة تتبع قواعد صارمة. مع AI، تتخذ قرارات.
+
+### قياس نجاح الأتمتة
+
+بعد أسبوع من تشغيل أي أتمتة، قِس:
+
+| المقياس | السؤال |
+|---------|--------|
+| **الوقت** | كم ساعة وفّرتها؟ |
+| **الجودة** | هل تحسّنت الدقة؟ |
+| **السرعة** | كم انخفض وقت الاستجابة؟ |
+| **الرضا** | ما رأي العملاء/الفريق؟ |
+| **الأخطاء** | كم خطأ حدث؟ وكيف تُعالجه؟ |
+
+### الأخلاقيات والشفافية
+
+**القاعدة الذهبية:** أخبر عملاءك عندما يتحدثون مع AI.
+
+\`\`\`
+✅ "مساعدنا الذكي سيردّ عليك خلال ثوانٍ"
+✅ "هذا الرد مولَّد بالذكاء الاصطناعي"
+❌ التظاهر بأن كل رد من إنسان حقيقي
+\`\`\`
+
+الشفافية تبني ثقة أقوى على المدى البعيد.
+`,
+      bodyEn: `## Automating Business Processes
+
+Automation is the difference between working in your business and working on your business.
+
+### What You Can Automate Without Code
+
+80% of business automation can be done with Make/Zapier without code.
+
+### Ready-to-Use Scenarios
+
+**Scenario 1:** WhatsApp inquiry → Claude analyzes → auto-reply within 30 seconds + Notion notification
+
+**Scenario 2:** Google Form → Sheets → Claude generates personalized email → Gmail sends → Notion task → Slack alert
+
+**Scenario 3:** Daily competitor monitoring → Claude summarizes changes → morning briefing email
+
+### Building Your First Automation
+
+\`\`\`
+1. Identify the right task (repeats 3+/week, fixed steps, no complex judgment)
+2. Draw the flow: Trigger → Actions → Conditions → Output
+3. Build in Make/n8n step by step, test each action
+4. Activate and monitor
+\`\`\`
+
+### AI vs Rule-Based Automation
+
+- **Level 1 (simple):** Move data from A to B based on fixed rules
+- **Level 2 (AI-powered):** Analyze intent → classify priority → choose appropriate response → send
+
+The fundamental difference: without AI, automation follows rigid rules. With AI, it makes decisions.
+
+### Ethics and Transparency
+
+**Golden Rule:** Tell customers when they're talking to AI. Transparency builds stronger long-term trust.
+`,
+      codeExample: `# محاكاة نظام أتمتة ذكي للأعمال
+# يُبيّن كيف يعمل AI كـ Decision Engine داخل الأتمتة
+
+import anthropic
+import json
+from datetime import datetime
+from enum import Enum
+
+client = anthropic.Anthropic()
+
+class TicketPriority(Enum):
+    URGENT   = "عاجل"
+    HIGH     = "مرتفع"
+    MEDIUM   = "متوسط"
+    LOW      = "منخفض"
+
+class TicketCategory(Enum):
+    COMPLAINT    = "شكوى"
+    ORDER        = "طلب/شراء"
+    SUPPORT      = "دعم تقني"
+    INQUIRY      = "استفسار"
+    COMPLIMENT   = "إطراء"
+
+# ─────────────────────────────────────────
+# AI Decision Engine
+# ─────────────────────────────────────────
+def analyze_customer_message(message: str) -> dict:
+    """
+    يُحلّل رسالة العميل ويُقرر:
+    - الفئة والأولوية
+    - الرد المناسب
+    - الإجراء المطلوب
+    """
+    prompt = f"""حلّل رسالة العميل التالية وأجب بـ JSON فقط (بدون أي نص آخر).
+
+رسالة العميل: "{message}"
+
+أجب بهذا التنسيق الدقيق:
+{{
+  "category": "شكوى|طلب/شراء|دعم تقني|استفسار|إطراء",
+  "priority": "عاجل|مرتفع|متوسط|منخفض",
+  "sentiment": "إيجابي|محايد|سلبي",
+  "auto_reply": "رد قصير جاهز للإرسال للعميل (2-3 جمل)",
+  "action_needed": "الإجراء الداخلي المطلوب (إشعار فريق/فتح تذكرة/إلخ)",
+  "requires_human": true|false
+}}"""
+
+    message_obj = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=300,
+        messages=[{"role": "user", "content": prompt}]
+    )
+
+    raw = message_obj.content[0].text.strip()
+    # تنظيف الرد
+    if raw.startswith("\`\`\`"):
+        raw = raw.split("\`\`\`")[1].replace("json", "").strip()
+
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        return {
+            "category": "استفسار",
+            "priority": "متوسط",
+            "sentiment": "محايد",
+            "auto_reply": "شكراً لتواصلك. سيردّ عليك فريقنا قريباً.",
+            "action_needed": "مراجعة يدوية مطلوبة",
+            "requires_human": True
+        }
+
+def process_ticket(ticket_id: str, customer_name: str, message: str) -> dict:
+    """معالجة تذكرة العميل بالكامل"""
+    print(f"\\n{'='*55}")
+    print(f"تذكرة #{ticket_id} — {customer_name}")
+    print(f"الرسالة: {message[:80]}...")
+    print("-" * 55)
+
+    analysis = analyze_customer_message(message)
+
+    # محاكاة الإجراءات التلقائية
+    actions_taken = []
+
+    if analysis.get("priority") in ("عاجل", "مرتفع"):
+        actions_taken.append("🚨 تنبيه Slack للمدير")
+
+    if analysis.get("category") == "شكوى":
+        actions_taken.append("📋 فتح تذكرة في نظام CRM")
+
+    if analysis.get("category") == "طلب/شراء":
+        actions_taken.append("💰 إشعار فريق المبيعات")
+
+    if not analysis.get("requires_human"):
+        actions_taken.append(f"✉️  إرسال رد تلقائي للعميل")
+
+    actions_taken.append("📊 تحديث Analytics Dashboard")
+
+    # طباعة النتائج
+    print(f"الفئة    : {analysis.get('category')}")
+    print(f"الأولوية : {analysis.get('priority')}")
+    print(f"المشاعر  : {analysis.get('sentiment')}")
+    print(f"إنسان؟   : {'نعم' if analysis.get('requires_human') else 'لا — AI يكفي'}")
+    print(f"\\nالرد التلقائي:")
+    print(f"  {analysis.get('auto_reply')}")
+    print(f"\\nالإجراءات المُنفَّذة:")
+    for action in actions_taken:
+        print(f"  {action}")
+
+    return {
+        "ticket_id": ticket_id,
+        "customer": customer_name,
+        "analysis": analysis,
+        "actions": actions_taken,
+        "timestamp": datetime.now().isoformat()
+    }
+
+# ─────────────────────────────────────────
+# محاكاة: يوم عمل في خدمة العملاء
+# ─────────────────────────────────────────
+print("=" * 55)
+print("نظام أتمتة خدمة العملاء — محاكاة يوم عمل")
+print("=" * 55)
+
+tickets = [
+    ("T001", "أحمد محمد",
+     "طلبت المنتج قبل 10 أيام ولم يصلني! هذا غير مقبول وسأشكو للجهات المختصة"),
+    ("T002", "سارة علي",
+     "كيف يمكنني معرفة حجم المنتج قبل الشراء؟"),
+    ("T003", "خالد عبدالله",
+     "خدمتكم رائعة! المنتج وصل بسرعة وجودته ممتازة"),
+    ("T004", "فاطمة حسن",
+     "أريد شراء 50 وحدة بسعر الجملة، هل لديكم عروض؟"),
+]
+
+results = []
+for tid, name, msg in tickets:
+    result = process_ticket(tid, name, msg)
+    results.append(result)
+
+# ملخص اليوم
+print("\\n" + "=" * 55)
+print("ملخص اليوم:")
+urgent   = sum(1 for r in results if r["analysis"].get("priority") in ("عاجل","مرتفع"))
+auto_handled = sum(1 for r in results if not r["analysis"].get("requires_human"))
+print(f"  إجمالي التذاكر    : {len(results)}")
+print(f"  عاجل/مرتفع        : {urgent}")
+print(f"  معالجة تلقائياً   : {auto_handled}/{len(results)} ({auto_handled/len(results)*100:.0f}%)")
+print(f"  تحتاج تدخل بشري   : {len(results)-auto_handled}")`,
+      codeLanguage: "python",
+    },
+  ],
+
 };

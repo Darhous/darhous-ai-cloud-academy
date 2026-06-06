@@ -627,7 +627,7 @@ export const courses: Course[] = [
     descriptionEn: "Using AI tools to optimize business operations and boost productivity.",
     level: "beginner", lessons: 14, hours: 9, projects: 2,
     skills: ["AI Strategy", "Productivity Tools", "Automation", "ROI"],
-    category: "Business", icon: "💼", featured: false, color: "violet", comingSoon: true,
+    category: "Business", icon: "💼", featured: false, color: "violet",
     overviewAr: "AI ليس فقط للمبرمجين — هو للجميع. ستتعلم كيف تستخدم أدوات AI لتحسين عملياتك التجارية، زيادة إنتاجيتك، وبناء استراتيجية AI واضحة لمؤسستك.",
     overviewEn: "AI is not just for programmers — it's for everyone. You'll learn how to use AI tools to improve your business operations, boost productivity, and build a clear AI strategy for your organization.",
     forWhoAr: ["أصحاب الأعمال", "المديرون والمحترفون", "رواد الأعمال"],
