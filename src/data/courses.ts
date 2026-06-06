@@ -702,7 +702,7 @@ export const courses: Course[] = [
     descriptionEn: "Azure AI Foundry, Azure OpenAI, and Azure ML for enterprise AI solutions.",
     level: "advanced", lessons: 24, hours: 20, projects: 3,
     skills: ["Azure AI", "Azure OpenAI", "Azure ML", "Azure Functions"],
-    category: "Cloud", icon: "🔵", featured: false, color: "blue", comingSoon: true,
+    category: "Cloud", icon: "🔵", featured: false, color: "blue",
     overviewAr: "Microsoft Azure يُعدّ المنصة المفضلة للمؤسسات الكبيرة. ستتعلم Azure AI Foundry وAzure OpenAI وكيف تبني حلول AI مؤسسية آمنة.",
     overviewEn: "Microsoft Azure is the preferred platform for large enterprises. You'll learn Azure AI Foundry, Azure OpenAI, and how to build secure enterprise AI solutions.",
     forWhoAr: ["مطورو .NET والمؤسسات", "من يعمل في بيئة Microsoft"],

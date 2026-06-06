@@ -17405,4 +17405,487 @@ print(f"\\n✅ الإحصاء يُحوّل الأرقام إلى قرارات م
     },
   ],
 
+  "azure-for-ai": [
+    {
+      bodyAr: `## إعداد Azure
+
+**Microsoft Azure** هو المنصة السحابية المفضلة للمؤسسات الكبيرة وبيئات .NET والحكومات.
+
+### خطوات إعداد Azure:
+- أنشئ حساباً على **portal.azure.com** (200 دولار رصيد مجاني للمبتدئين)
+- أنشئ **Resource Group** لتجميع الموارد
+- ثبّت **Azure CLI** لإدارة الموارد من الطرفية
+- أنشئ **Service Principal** للبرمجة بدلاً من المستخدم الشخصي
+
+### لماذا Azure للمؤسسات؟
+- **تكامل مع Microsoft 365** — Teams وSharePoint وOutlook
+- **Active Directory** — إدارة هوية المؤسسة
+- **Compliance** — SOC 2، ISO 27001، HIPAA
+- **Hybrid Cloud** — ربط On-Premise مع السحاب
+
+### الخدمات AI الرئيسية:
+- **Azure OpenAI** — GPT-4 وClaude وغيرها
+- **Azure AI Foundry** — منصة شاملة للـ AI
+- **Azure ML** — تدريب ونشر النماذج
+- **Cognitive Services** — رؤية، كلام، ترجمة`,
+      bodyEn: `## Setting up Azure
+
+**Microsoft Azure** is the preferred cloud platform for large enterprises, .NET environments, and governments.
+
+### Azure Setup Steps:
+- Create account at **portal.azure.com** (200 USD free credit for beginners)
+- Create a **Resource Group** to group resources
+- Install **Azure CLI** to manage resources from the terminal
+- Create a **Service Principal** for programming instead of personal user
+
+### Why Azure for Enterprises?
+- **Microsoft 365 integration** — Teams, SharePoint, and Outlook
+- **Active Directory** — enterprise identity management
+- **Compliance** — SOC 2, ISO 27001, HIPAA
+- **Hybrid Cloud** — connecting On-Premise with cloud
+
+### Key AI Services:
+- **Azure OpenAI** — GPT-4, Claude, and others
+- **Azure AI Foundry** — comprehensive AI platform
+- **Azure ML** — training and deploying models
+- **Cognitive Services** — vision, speech, translation`,
+      codeExample: `from dataclasses import dataclass, field
+from typing import List, Dict
+
+# ─── محاكاة Azure SDK ──────────────────────────────────────
+@dataclass
+class ResourceGroup:
+    name:     str
+    location: str
+    tags:     Dict[str, str] = field(default_factory=dict)
+    resources: List[str]     = field(default_factory=list)
+
+    def add_resource(self, resource: str):
+        self.resources.append(resource)
+
+class AzureClient:
+    LOCATIONS = {
+        "eastus":        "East US (Virginia)",
+        "westeurope":    "West Europe (Netherlands)",
+        "uaenorth":      "UAE North (Dubai)",
+        "southeastasia": "Southeast Asia (Singapore)",
+    }
+    AI_SERVICES = {
+        "azure-openai":       {"models": ["gpt-4o", "gpt-4", "gpt-35-turbo"], "quota": "150K tokens/min"},
+        "azure-ai-foundry":   {"models": ["gpt-4o", "claude-3", "llama-3"],   "quota": "Flex"},
+        "azure-ml":           {"frameworks": ["PyTorch", "TF", "scikit-learn"],"compute": "GPU/CPU clusters"},
+        "cognitive-services": {"apis": ["Vision", "Speech", "Language", "Translator"], "tiers": ["F0 free", "S1"]},
+    }
+
+    def __init__(self, subscription_id: str = "sub-abc123"):
+        self.subscription_id = subscription_id
+        self.resource_groups: Dict[str, ResourceGroup] = {}
+
+    def create_rg(self, name: str, location: str, **tags) -> ResourceGroup:
+        rg = ResourceGroup(name, location, tags=dict(tags))
+        self.resource_groups[name] = rg
+        print(f"  ✅ Resource Group: {name} ({self.LOCATIONS.get(location, location)})")
+        return rg
+
+    def create_resource(self, rg: ResourceGroup, kind: str, name: str):
+        rg.add_resource(f"{kind}/{name}")
+        print(f"  📦 Resource: {kind} '{name}' → {rg.name}")
+
+    def list_ai_services(self):
+        print(f"\\n🤖 خدمات Azure AI:")
+        for svc, info in self.AI_SERVICES.items():
+            print(f"  • {svc}:")
+            for k, v in info.items():
+                vals = ", ".join(v) if isinstance(v, list) else v
+                print(f"      {k}: {vals}")
+
+    def subscription_summary(self):
+        total = sum(len(rg.resources) for rg in self.resource_groups.values())
+        print(f"\\n📊 ملخص الاشتراك:")
+        print(f"  Subscription: {self.subscription_id}")
+        print(f"  Resource Groups: {len(self.resource_groups)}")
+        print(f"  Total Resources: {total}")
+        for name, rg in self.resource_groups.items():
+            loc = self.LOCATIONS.get(rg.location, rg.location)
+            print(f"  [{name}] — {loc} ({len(rg.resources)} موارد)")
+
+# ─── إعداد Azure للـ AI ────────────────────────────────────
+print("☁️  إعداد Microsoft Azure للذكاء الاصطناعي:")
+print("=" * 52)
+
+az = AzureClient("sub-darhous-prod-001")
+
+# إنشاء Resource Groups
+print("\\n1️⃣  إنشاء Resource Groups:")
+rg_ai   = az.create_rg("rg-ai-prod",     "eastus",     env="production", team="ai")
+rg_dev  = az.create_rg("rg-ai-dev",      "westeurope", env="development", team="ai")
+rg_data = az.create_rg("rg-data-lake",   "eastus",     env="production", team="data")
+
+# إضافة الموارد
+print("\\n2️⃣  إنشاء الموارد:")
+az.create_resource(rg_ai,   "Microsoft.CognitiveServices/accounts", "openai-prod")
+az.create_resource(rg_ai,   "Microsoft.MachineLearning/workspaces",  "ml-workspace")
+az.create_resource(rg_ai,   "Microsoft.ContainerRegistry/registries","acr-ai-models")
+az.create_resource(rg_dev,  "Microsoft.CognitiveServices/accounts",  "openai-dev")
+az.create_resource(rg_data, "Microsoft.Storage/storageAccounts",     "datalake001")
+
+# عرض خدمات AI
+az.list_ai_services()
+
+# ملخص
+az.subscription_summary()
+
+# Azure CLI
+print(f"\\n💻 أوامر Azure CLI الأساسية:")
+cli = [
+    ("تسجيل الدخول",       "az login"),
+    ("قائمة الاشتراكات",   "az account list --output table"),
+    ("إنشاء Resource Group","az group create --name rg-ai --location eastus"),
+    ("إنشاء OpenAI",        "az cognitiveservices account create --kind OpenAI ..."),
+    ("عرض المفاتيح",        "az cognitiveservices account keys list --name openai-prod ..."),
+]
+for desc, cmd in cli:
+    print(f"  # {desc}")
+    print(f"  $ {cmd}")
+    print()
+print("✅ Azure جاهز للاستخدام!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## Azure OpenAI Service
+
+**Azure OpenAI Service** يتيح الوصول إلى نماذج OpenAI (GPT-4) ضمن بنية Azure الآمنة.
+
+### لماذا Azure OpenAI بدلاً من OpenAI مباشرة؟
+- **Data Privacy** — بياناتك لا تُستخدم لتدريب نماذج OpenAI
+- **Enterprise SLA** — ضمان 99.9% uptime
+- **VNET Integration** — عزل الشبكة الخاص
+- **Compliance** — HIPAA, SOC 2, ISO 27001
+- **Microsoft Entra ID** — الهوية والصلاحيات
+
+### النماذج المتاحة:
+- **GPT-4o** — أحدث وأقوى نموذج
+- **GPT-4 Turbo** — سياق 128K token
+- **GPT-3.5 Turbo** — الأرخص والأسرع
+- **text-embedding-3** — للتضمين والبحث
+
+### Deployment Modes:
+- **Standard** — مشترك، مدفوع بالاستخدام
+- **Provisioned** — سعة مخصصة، مناسب للطلب العالي`,
+      bodyEn: `## Azure OpenAI Service
+
+**Azure OpenAI Service** provides access to OpenAI models (GPT-4) within Azure's secure infrastructure.
+
+### Why Azure OpenAI Instead of OpenAI Directly?
+- **Data Privacy** — your data is not used to train OpenAI models
+- **Enterprise SLA** — 99.9% uptime guarantee
+- **VNET Integration** — private network isolation
+- **Compliance** — HIPAA, SOC 2, ISO 27001
+- **Microsoft Entra ID** — identity and permissions
+
+### Available Models:
+- **GPT-4o** — the latest and most powerful model
+- **GPT-4 Turbo** — 128K token context
+- **GPT-3.5 Turbo** — cheapest and fastest
+- **text-embedding-3** — for embedding and search
+
+### Deployment Modes:
+- **Standard** — shared, pay-per-use
+- **Provisioned** — dedicated capacity, suitable for high demand`,
+      codeExample: `import json
+from dataclasses import dataclass, field
+from typing import List, Dict, Optional
+
+# ─── محاكاة Azure OpenAI SDK ───────────────────────────────
+@dataclass
+class AzureOpenAIDeployment:
+    name:       str
+    model:      str
+    capacity:   int    # 1 capacity unit = 1000 TPM
+    mode:       str    = "Standard"  # Standard, Provisioned
+
+MODELS_PRICING = {
+    "gpt-4o":              {"in": 0.005,  "out": 0.015,  "ctx": "128K"},
+    "gpt-4-turbo":         {"in": 0.01,   "out": 0.03,   "ctx": "128K"},
+    "gpt-35-turbo":        {"in": 0.0005, "out": 0.0015, "ctx": "16K"},
+    "text-embedding-3-large": {"in": 0.00013, "out": 0, "ctx": "8K"},
+}
+
+class AzureOpenAIClient:
+    """محاكاة openai.AzureOpenAI SDK"""
+
+    def __init__(self, endpoint: str, api_version: str = "2024-02-01"):
+        self.endpoint    = endpoint
+        self.api_version = api_version
+        self.deployments: Dict[str, AzureOpenAIDeployment] = {}
+        self._total_cost = 0.0
+        self._calls      = 0
+
+    def create_deployment(self, name: str, model: str, capacity: int = 1):
+        d = AzureOpenAIDeployment(name, model, capacity)
+        self.deployments[name] = d
+        ctx = MODELS_PRICING.get(model, {}).get("ctx", "?")
+        print(f"  ✅ Deployment: {name} ({model}, ctx={ctx})")
+        return d
+
+    def chat(self, deployment: str, messages: List[Dict],
+             system: str = "", temperature: float = 0.7) -> Dict:
+        if deployment not in self.deployments:
+            raise ValueError(f"Deployment '{deployment}' غير موجود")
+        d   = self.deployments[deployment]
+        mdl = MODELS_PRICING.get(d.model, {"in": 0.01, "out": 0.03})
+
+        # محاكاة الرد
+        last_msg = messages[-1].get("content", "") if messages else ""
+        response = f"[{d.model}] ردّي على: {last_msg[:55]}..."
+
+        in_tok  = int(sum(len(m.get("content","").split()) * 1.3 for m in messages))
+        out_tok = 60
+        cost    = (in_tok / 1000) * mdl["in"] + (out_tok / 1000) * mdl["out"]
+        self._total_cost += cost
+        self._calls      += 1
+
+        return {
+            "content":     response,
+            "usage":       {"prompt_tokens": in_tok, "completion_tokens": out_tok},
+            "cost_usd":    round(cost, 7),
+            "model":       d.model,
+            "deployment":  deployment,
+        }
+
+    def embed(self, deployment: str, text: str) -> List[float]:
+        """توليد Embedding"""
+        import math
+        # محاكاة embedding 8-dimensional
+        embed = [math.sin(i * hash(text) % 100 * 0.1) for i in range(8)]
+        mag   = math.sqrt(sum(x**2 for x in embed))
+        return [x / mag for x in embed]
+
+    def cost_summary(self):
+        total_str = "$" + f"{self._total_cost:.6f}"
+        print(f"\\n📊 ملخص الاستخدام:")
+        print(f"   المكالمات  : {self._calls}")
+        print(f"   التكلفة    : {total_str}")
+
+# ─── إعداد Azure OpenAI ────────────────────────────────────
+print("🔵 Azure OpenAI Service:")
+print("=" * 52)
+
+client = AzureOpenAIClient(
+    endpoint="https://my-openai.openai.azure.com/",
+    api_version="2024-02-01",
+)
+
+print("\\n1️⃣  إنشاء Deployments:")
+client.create_deployment("gpt4o-prod",   "gpt-4o",       capacity=10)
+client.create_deployment("gpt35-fast",   "gpt-35-turbo", capacity=50)
+client.create_deployment("embed-large",  "text-embedding-3-large", capacity=5)
+
+# ─── استخدام Chat Completions ──────────────────────────────
+print(f"\\n2️⃣  اختبار Chat Completions:")
+convos = [
+    ("gpt4o-prod",  "ما هو Azure OpenAI؟ أجب في جملتين"),
+    ("gpt35-fast",  "اعطني مثالاً على use case لـ Azure OpenAI"),
+    ("gpt4o-prod",  "كيف أختار بين Standard و Provisioned deployments؟"),
+]
+for dep, msg in convos:
+    resp = client.chat(dep, [{"role": "user", "content": msg}],
+                       system="أجب بالعربية باختصار")
+    cost_s = "$" + f"{resp['cost_usd']:.7f}"
+    print(f"\\n  [{dep}] {msg[:50]}")
+    print(f"  💬 {resp['content']}")
+    print(f"  🔢 {resp['usage']['prompt_tokens']}in+{resp['usage']['completion_tokens']}out | {cost_s}")
+
+# ─── Embeddings ────────────────────────────────────────────
+print(f"\\n\\n3️⃣  Embeddings للبحث الدلالي:")
+texts = ["Azure OpenAI للمؤسسات", "AWS Bedrock لـ Amazon", "GCP Vertex AI لـ Google"]
+embeddings = {t: client.embed("embed-large", t) for t in texts}
+
+import math
+def cosine_sim(a, b):
+    dot  = sum(x*y for x,y in zip(a,b))
+    norm = math.sqrt(sum(x**2 for x in a)) * math.sqrt(sum(x**2 for x in b))
+    return dot / norm if norm > 0 else 0.0
+
+query = "خدمة AI سحابية"
+q_emb = client.embed("embed-large", query)
+print(f"  الاستعلام: '{query}'")
+for text, emb in embeddings.items():
+    sim = cosine_sim(q_emb, emb)
+    bar = "█" * int(sim * 10)
+    print(f"  {sim:.3f} {bar} {text}")
+
+client.cost_summary()
+print(f"\\n✅ Azure OpenAI Service جاهز!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## Azure AI Foundry
+
+**Azure AI Foundry** (سابقاً Azure AI Studio) هو المنصة الشاملة لبناء حلول AI مؤسسية.
+
+### ما يوفره Azure AI Foundry:
+- **Model Catalog** — مئات النماذج من OpenAI وMeta وMistral وغيرها
+- **Prompt Flow** — بناء سير عمل AI مرئياً بدون كود
+- **Evaluation** — تقييم النماذج على بياناتك
+- **Safety** — فلتر المحتوى والـ Responsible AI
+- **RAG Pipeline** — ربط النماذج بمصادر المعرفة
+
+### Azure AI Foundry vs Azure OpenAI:
+- **Azure OpenAI** — فقط نماذج OpenAI، API مباشر
+- **Azure AI Foundry** — نماذج متعددة + أدوات بناء كاملة
+
+### مكونات المشروع:
+- **Hub** — مساحة مشتركة للمؤسسة
+- **Project** — مشروع AI محدد
+- **Connections** — ربط بالموارد (OpenAI, Search, Storage)`,
+      bodyEn: `## Azure AI Foundry
+
+**Azure AI Foundry** (formerly Azure AI Studio) is the comprehensive platform for building enterprise AI solutions.
+
+### What Azure AI Foundry Provides:
+- **Model Catalog** — hundreds of models from OpenAI, Meta, Mistral, and others
+- **Prompt Flow** — building AI workflows visually without code
+- **Evaluation** — evaluating models on your data
+- **Safety** — content filtering and Responsible AI
+- **RAG Pipeline** — connecting models to knowledge sources
+
+### Azure AI Foundry vs Azure OpenAI:
+- **Azure OpenAI** — only OpenAI models, direct API
+- **Azure AI Foundry** — multiple models + complete building tools
+
+### Project Components:
+- **Hub** — shared space for the organization
+- **Project** — specific AI project
+- **Connections** — linking to resources (OpenAI, Search, Storage)`,
+      codeExample: `import json
+from dataclasses import dataclass, field
+from typing import List, Dict, Any
+
+# ─── Azure AI Foundry Simulation ───────────────────────────
+@dataclass
+class FoundryModel:
+    name:        str
+    provider:    str
+    family:      str
+    input_cost:  float  # per 1K tokens
+    output_cost: float
+
+CATALOG = [
+    FoundryModel("gpt-4o",           "OpenAI",    "GPT-4",  0.005,  0.015),
+    FoundryModel("gpt-35-turbo",     "OpenAI",    "GPT-3",  0.0005, 0.0015),
+    FoundryModel("llama-3-70b",      "Meta",      "Llama",  0.001,  0.003),
+    FoundryModel("mistral-large",    "Mistral",   "Mistral",0.004,  0.012),
+    FoundryModel("phi-3-mini",       "Microsoft", "Phi",    0.0001, 0.0002),
+    FoundryModel("claude-3-sonnet",  "Anthropic", "Claude", 0.003,  0.015),
+]
+
+@dataclass
+class PromptFlowStep:
+    name:   str
+    kind:   str    # "llm", "python", "prompt", "search"
+    config: Dict[str, Any] = field(default_factory=dict)
+
+@dataclass
+class PromptFlow:
+    name:  str
+    steps: List[PromptFlowStep] = field(default_factory=list)
+
+    def add_step(self, name: str, kind: str, **cfg) -> "PromptFlow":
+        self.steps.append(PromptFlowStep(name, kind, config=cfg))
+        return self
+
+    def run(self, inputs: Dict[str, Any]) -> Dict[str, Any]:
+        context = dict(inputs)
+        print(f"  🔄 تشغيل Prompt Flow: {self.name}")
+        for step in self.steps:
+            print(f"     [{step.kind.upper()}] {step.name}...", end=" ")
+            if step.kind == "search":
+                context["retrieved_docs"] = [
+                    f"وثيقة ذات صلة بـ '{context.get('query', '')}' #{i}" for i in range(3)
+                ]
+                context["num_docs"] = 3
+            elif step.kind == "llm":
+                q    = context.get("query", "")
+                docs = context.get("retrieved_docs", [])
+                context["answer"] = f"[{step.config.get('model','gpt-4o')}] إجابة على '{q[:40]}' بناءً على {len(docs)} وثيقة"
+            elif step.kind == "python":
+                fn = step.config.get("fn", lambda c: c)
+                context = fn(context)
+            elif step.kind == "prompt":
+                pass  # تنسيق الـ prompt
+            print("✅")
+        return context
+
+class AIFoundryProject:
+    def __init__(self, hub: str, name: str):
+        self.hub   = hub
+        self.name  = name
+        self.flows: List[PromptFlow] = []
+        self._eval_results: List[Dict] = []
+
+    def create_flow(self, flow_name: str) -> PromptFlow:
+        flow = PromptFlow(flow_name)
+        self.flows.append(flow)
+        print(f"  📊 Flow: {flow_name}")
+        return flow
+
+    def evaluate(self, flow: PromptFlow, test_cases: List[Dict]) -> Dict:
+        scores = []
+        for tc in test_cases:
+            result  = flow.run(tc)
+            quality = 0.85 + len(result.get("answer", "")) * 0.0001
+            scores.append(min(0.99, quality))
+        avg = sum(scores) / len(scores)
+        self._eval_results.append({"flow": flow.name, "avg_score": avg, "cases": len(test_cases)})
+        return {"flow": flow.name, "avg_score": round(avg, 4), "num_cases": len(test_cases)}
+
+# ─── بناء RAG Pipeline ─────────────────────────────────────
+print("🔵 Azure AI Foundry — بناء RAG Chatbot:")
+print("=" * 52)
+
+# عرض Model Catalog
+print("\\n📦 Model Catalog (مختارات):")
+for m in CATALOG:
+    in_s  = "$" + f"{m.input_cost:.4f}"
+    out_s = "$" + f"{m.output_cost:.4f}"
+    print(f"  [{m.provider:<12}] {m.name:<22} in:{in_s} out:{out_s}")
+
+# إنشاء المشروع
+print(f"\\n\\n🏗️  إنشاء AI Foundry Project:")
+project = AIFoundryProject("hub-enterprise-001", "customer-support-ai")
+
+# بناء RAG Flow
+print(f"\\n📊 بناء Prompt Flow (RAG):")
+rag_flow = (
+    project.create_flow("customer-support-rag")
+    .add_step("format-query",      "prompt",  template="Answer this: {query}")
+    .add_step("search-knowledge",  "search",  index="support-docs", top_k=3)
+    .add_step("generate-answer",   "llm",     model="gpt-4o", temp=0.3)
+    .add_step("post-process",      "python",
+              fn=lambda c: {**c, "formatted": c.get("answer","")[:100] + "..."})
+)
+print(f"  الخطوات: {len(rag_flow.steps)}")
+
+# تشغيل
+print(f"\\n▶️  تشغيل Pipeline:")
+result = rag_flow.run({"query": "كيف أعيد ضبط كلمة المرور؟", "lang": "ar"})
+print(f"  الإجابة: {result.get('answer','')[:80]}...")
+print(f"  الوثائق المسترجعة: {result.get('num_docs', 0)}")
+
+# التقييم
+print(f"\\n📊 تقييم الـ Flow:")
+test_cases = [
+    {"query": "كيف أعيد ضبط كلمة المرور؟"},
+    {"query": "ما أوقات الدعم الفني؟"},
+    {"query": "كيف أطلب استرداد المبلغ؟"},
+]
+eval_r = project.evaluate(rag_flow, test_cases)
+score_s = f"{eval_r['avg_score']:.4f}"
+print(f"  النتيجة: {score_s} ({eval_r['num_cases']} حالات اختبار)")
+print(f"\\n✅ Azure AI Foundry RAG Pipeline جاهز للإنتاج!")`,
+      codeLanguage: "python",
+    },
+  ],
+
 };
