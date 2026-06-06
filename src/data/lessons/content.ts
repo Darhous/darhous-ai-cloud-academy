@@ -7447,4 +7447,1286 @@ print("\\n🎉 مبروك! أكملت دورة تعلم الآلة بنجاح")`
     },
   ],
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // C7c — generative-ai (5 lessons)
+  // ─────────────────────────────────────────────────────────────────────────
+  "generative-ai": [
+
+    // Lesson 1 — كيف تعمل LLMs؟
+    {
+      bodyAr: `## كيف تعمل LLMs؟
+
+نماذج اللغة الكبيرة (Large Language Models) هي القلب النابض لثورة AI الحالية. ChatGPT وClaude وGemini — كلها LLMs. لكن كيف تعمل فعلاً؟
+
+### التعريف البسيط
+
+LLM هو نموذج احتمالي يتنبأ بالكلمة التالية في سلسلة نصية، بناءً على تدريب على كميات ضخمة من النصوص.
+
+لكن هذا التبسيط يُخفي عمقاً هائلاً. دعنا نفصّل.
+
+### بنية Transformer — الثورة التقنية
+
+في 2017، نشرت Google ورقة بحثية بعنوان "Attention is All You Need" — هذه الورقة غيّرت عالم AI إلى الأبد.
+
+**المكونات الأساسية لـ Transformer:**
+
+\`\`\`
+النص المدخل
+    ↓
+Tokenization (تقسيم النص لـ tokens)
+    ↓
+Embedding (تحويل كل token لمتجه رياضي)
+    ↓
+Positional Encoding (إضافة معلومات الترتيب)
+    ↓
+[Self-Attention → Feed Forward] × N layers
+    ↓
+Output Layer (احتمالات الكلمة التالية)
+\`\`\`
+
+### Tokens — وحدة بناء LLMs
+
+LLMs لا تقرأ الحروف أو الكلمات مباشرةً — تقرأ **tokens**.
+
+Token هو مقطع نصي (قد يكون كلمة كاملة أو جزءاً من كلمة أو علامة ترقيم):
+
+\`\`\`
+"artificial intelligence" → ["art", "ific", "ial", " intel", "lig", "ence"]
+\`\`\`
+
+**قاعدة التقدير:**
+- الإنجليزية: 1 كلمة ≈ 1.3 token
+- العربية: 1 كلمة ≈ 2-4 tokens (بسبب التشكيل والإعراب)
+- Claude 3.x: 200,000 token context ≈ 150,000 كلمة إنجليزية
+
+### Self-Attention — السر الحقيقي
+
+Self-Attention هي آلية تسمح لكل token بـ"الانتباه" لكل token آخر في النص وحساب أهميته.
+
+**مثال:**
+\`\`\`
+"البنك يقع على ضفة النهر"
+\`\`\`
+كلمة "البنك" هنا — هل تعني مؤسسة مالية أم ضفة نهر؟
+
+Self-Attention تحل هذا اللبس: "البنك" ينتبه لـ "نهر" فيعطيه وزناً عالياً، فيفهم أن المقصود "ضفة".
+
+**الصيغة الرياضية (مُبسّطة):**
+\`\`\`
+Attention(Q, K, V) = softmax(QK^T / √dk) × V
+\`\`\`
+
+- Q (Query): "ما الذي أبحث عنه؟"
+- K (Key): "ما الذي يمكنني تقديمه؟"
+- V (Value): "ما المعلومة الفعلية؟"
+
+### التدريب — Pre-training
+
+LLMs تتدرّب على مرحلتين:
+
+**1. Pre-training:**
+- بيانات: تريليونات الكلمات من الإنترنت والكتب والمقالات
+- المهمة: توقع الكلمة التالية (Next Token Prediction)
+- الناتج: نموذج يفهم اللغة لكن ليس مفيداً بعد
+
+**2. Fine-tuning (RLHF):**
+- Supervised Fine-tuning: أمثلة على حوارات صحيحة
+- RLHF (Reinforcement Learning from Human Feedback): بشر يُقيّمون الردود
+- الناتج: مساعد مفيد وآمن
+
+### حجم النموذج يهم — لكن ليس الكل
+
+\`\`\`
+GPT-2 (2019):   1.5B parameter
+GPT-3 (2020):   175B parameter
+GPT-4 (2023):   ~1.8T parameter (تقدير)
+Claude 3 Opus:  ~2T parameter (تقدير)
+\`\`\`
+
+لكن Scaling Laws تقول: بعد حجم معين، جودة البيانات والتدريب أهم من عدد الـ parameters.
+
+### Hallucination — مشكلة LLMs الأساسية
+
+LLMs تُولّد نصاً مقنعاً بناءً على الأنماط — لا تبحث في قاعدة بيانات حقيقية.
+
+**النتيجة:** قد تُنتج معلومات خاطئة بثقة عالية — هذا يُسمى "Hallucination".
+
+**الحل:** RAG (سنتعلمه في الدرس 4) — نُربط LLM بمصادر حقيقية.
+
+### Context Window — الذاكرة القصيرة
+
+Context Window هو أقصى عدد tokens يمكن للنموذج "رؤيته" في آنٍ واحد.
+
+| النموذج | Context Window |
+|---------|---------------|
+| GPT-3.5 | 16K token |
+| GPT-4o | 128K token |
+| Claude 3.5 Sonnet | 200K token |
+| Gemini 1.5 Pro | 1M token |
+
+خارج الـ Context Window = النموذج لا يتذكره.
+`,
+      bodyEn: `## How do LLMs Work?
+
+Large Language Models (LLMs) are the beating heart of the current AI revolution. ChatGPT, Claude, Gemini — they're all LLMs. But how do they actually work?
+
+### Simple Definition
+
+An LLM is a probabilistic model that predicts the next word in a text sequence, based on training on massive amounts of text.
+
+### The Transformer Architecture (2017)
+
+Google's "Attention is All You Need" paper transformed AI forever. The key innovation: **Self-Attention** — a mechanism allowing each token to "attend" to every other token and compute its relevance.
+
+\`\`\`
+Input Text → Tokenization → Embedding → [Self-Attention + Feed Forward] × N → Output
+\`\`\`
+
+### Tokens — The Building Blocks
+
+LLMs don't read characters or words directly — they read **tokens** (text chunks):
+- English: ~1.3 tokens per word
+- Arabic: ~2–4 tokens per word
+
+### Two-Stage Training
+
+1. **Pre-training:** Predict next token on trillions of web/book tokens → language understanding
+2. **Fine-tuning (RLHF):** Human feedback shapes helpful, safe behavior
+
+### Key Limitations
+
+- **Hallucination:** Generates plausible-sounding but false information → solution: RAG
+- **Context Window:** Fixed memory limit (how much text the model can "see" at once)
+- **Knowledge Cutoff:** Training data has a date; model doesn't know recent events
+`,
+      codeExample: `import anthropic
+import tiktoken  # pip install tiktoken
+
+client = anthropic.Anthropic()
+
+# ─────────────────────────────────────────
+# 1. فهم Tokenization
+# ─────────────────────────────────────────
+print("=" * 55)
+print("1. Tokenization — كيف تُقسَّم النصوص")
+print("=" * 55)
+
+# tiktoken مكتبة OpenAI لحساب الـ tokens
+# Claude يستخدم نظام مشابه
+enc = tiktoken.encoding_for_model("gpt-4")
+
+texts = [
+    "Artificial Intelligence",
+    "الذكاء الاصطناعي",
+    "Hello World",
+    "مرحبا بالعالم",
+    "Python is great for AI development",
+]
+
+for text in texts:
+    tokens = enc.encode(text)
+    print(f"\\n'{text}'")
+    print(f"  Tokens ({len(tokens)}): {tokens[:8]}{'...' if len(tokens) > 8 else ''}")
+    ratio = len(tokens) / len(text.split())
+    print(f"  نسبة tokens/كلمة: {ratio:.1f}")
+
+# ─────────────────────────────────────────
+# 2. استكشاف قدرات LLM
+# ─────────────────────────────────────────
+print("\\n" + "=" * 55)
+print("2. استكشاف قدرات Claude")
+print("=" * 55)
+
+# اختبار الفهم السياقي
+context_test = """
+في هذه الجملة، كلمة "عين" لها معانٍ مختلفة:
+1. ذهبت إلى عين الماء للشرب
+2. العين البشرية تستطيع رؤية ألوان كثيرة
+3. عيّنت المديرةَ الموظفَ الجديد
+
+ما معنى كلمة "عين" في كل جملة؟ اشرح في نقطتين فقط.
+"""
+
+message = client.messages.create(
+    model="claude-haiku-4-5-20251001",  # Haiku = سريع ورخيص للاستكشاف
+    max_tokens=300,
+    messages=[{"role": "user", "content": context_test}]
+)
+print("\\nفهم السياق (الغموض):")
+print(message.content[0].text[:400])
+
+# ─────────────────────────────────────────
+# 3. Temperature — التحكم في الإبداع
+# ─────────────────────────────────────────
+print("\\n" + "=" * 55)
+print("3. Temperature: التحكم في الإبداع vs الدقة")
+print("=" * 55)
+
+prompt = "أكمل الجملة: الذكاء الاصطناعي في المستقبل سيكون..."
+
+for temp_label, temp_val in [("دقيق (0.0)", 0.0), ("متوازن (0.7)", 0.7), ("إبداعي (1.0)", 1.0)]:
+    msg = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=80,
+        temperature=temp_val,
+        messages=[{"role": "user", "content": prompt}]
+    )
+    print(f"\\n  {temp_label}:")
+    print(f"  {msg.content[0].text[:150].strip()}")
+
+# ─────────────────────────────────────────
+# 4. حساب تكلفة الـ tokens
+# ─────────────────────────────────────────
+print("\\n" + "=" * 55)
+print("4. حساب تكلفة API")
+print("=" * 55)
+
+# أسعار Claude Haiku ($/M token)
+HAIKU_INPUT  = 0.80 / 1_000_000
+HAIKU_OUTPUT = 4.00 / 1_000_000
+
+test_message = client.messages.create(
+    model="claude-haiku-4-5-20251001",
+    max_tokens=200,
+    messages=[{"role": "user", "content": "اشرح ما هو التعلم العميق في 3 جمل"}]
+)
+
+in_tokens  = test_message.usage.input_tokens
+out_tokens = test_message.usage.output_tokens
+cost       = in_tokens * HAIKU_INPUT + out_tokens * HAIKU_OUTPUT
+
+print(f"  Input tokens:  {in_tokens}")
+print(f"  Output tokens: {out_tokens}")
+print(f"  تكلفة هذا الطلب: \${cost:.6f} (~{cost*3.75:.4f} ريال)")
+print(f"\\n  لو أرسلت 1000 رسالة مثلها:")
+print(f"  التكلفة الكلية: \${cost*1000:.4f} (~{cost*1000*3.75:.2f} ريال)")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 2 — Embeddings والتشابه الدلالي
+    {
+      bodyAr: `## Embeddings والتشابه الدلالي
+
+Embeddings هي طريقة تحويل النصوص إلى أرقام بطريقة تحتفظ بالمعنى الدلالي. إنها اللبنة الأساسية لبناء أنظمة RAG والبحث الذكي.
+
+### ما هو Embedding؟
+
+Embedding هو تمثيل رياضي (متجه/vector) لنص ما في فضاء متعدد الأبعاد.
+
+**المميزة الجوهرية:** النصوص المتشابهة في المعنى تكون **قريبة** في هذا الفضاء.
+
+\`\`\`
+"القطة تجلس على السجادة"  →  [0.23, -0.71, 0.45, ...]  (1536 بُعد)
+"الهرة فوق البساط"        →  [0.25, -0.69, 0.43, ...]  قريب جداً!
+"الطقس غداً ممطر"         →  [-0.82, 0.31, -0.55, ...] بعيد تماماً
+\`\`\`
+
+### Cosine Similarity — قياس التشابه
+
+أشهر طريقة لحساب قرب متجهين:
+
+\`\`\`
+similarity = cos(θ) = (A · B) / (|A| × |B|)
+\`\`\`
+
+- similarity = 1.0 → متطابقان تماماً
+- similarity = 0.0 → لا علاقة بينهما
+- similarity = -1.0 → متعاكسان تماماً
+
+### نماذج Embedding الشائعة
+
+| النموذج | الأبعاد | الاستخدام |
+|---------|---------|-----------|
+| text-embedding-3-small (OpenAI) | 1536 | سريع وفعّال |
+| text-embedding-3-large (OpenAI) | 3072 | أدق للبحث الدقيق |
+| voyage-3-large (Anthropic) | 1024 | الأفضل مع Claude |
+| all-MiniLM-L6-v2 (Hugging Face) | 384 | مجاني وسريع |
+
+### التطبيقات العملية
+
+**1. البحث الدلالي (Semantic Search):**
+بدلاً من البحث بالكلمات الحرفية، نبحث بالمعنى.
+\`\`\`
+الاستعلام: "كيف أحسّن أداء تطبيقي؟"
+يجد: "تحسين Performance في Next.js" (رغم أنها لا تحتوي "أداء")
+\`\`\`
+
+**2. التوصيات:**
+محتوى مشابه لما شاهده المستخدم.
+
+**3. كشف التكرار:**
+إيجاد المستندات المتكررة أو المتشابهة.
+
+**4. التصنيف Zero-Shot:**
+تصنيف نصوص بدون تدريب — نقيس المسافة من labels.
+
+### Chunking — تقسيم النص للـ Embedding
+
+المستندات الطويلة تُقسَّم إلى **chunks** قبل الـ Embedding:
+
+**استراتيجيات Chunking:**
+
+\`\`\`
+Fixed Size:     كل 512 حرف
+Sentence:       جملة واحدة لكل chunk
+Paragraph:      فقرة واحدة
+Semantic:       مقاطع ذات معنى متكامل (الأفضل)
+\`\`\`
+
+**نصيحة:** overlap بين الـ chunks يُحسّن استرجاع السياق:
+\`\`\`
+[chunk 1: أحرف 0-500]
+[chunk 2: أحرف 400-900]  ← 100 حرف overlap
+[chunk 3: أحرف 800-1300]
+\`\`\`
+
+### Batch Embeddings للكفاءة
+
+بدلاً من embedding كل نص على حدة، أرسلها دفعةً:
+
+\`\`\`python
+texts = ["نص 1", "نص 2", ..., "نص 1000"]
+embeddings = model.encode(texts, batch_size=64)  # أسرع بكثير
+\`\`\`
+`,
+      bodyEn: `## Embeddings and Semantic Similarity
+
+Embeddings convert text into numbers in a way that preserves semantic meaning — the foundational building block for RAG systems and smart search.
+
+### What is an Embedding?
+
+An embedding is a mathematical representation (vector) of text in a multi-dimensional space. **Key property:** semantically similar texts are **close** in this space.
+
+\`\`\`
+"The cat sits on the mat"  →  [0.23, -0.71, 0.45, ...]
+"A feline rests on the rug" →  [0.25, -0.69, 0.43, ...]  very close!
+"Tomorrow will be rainy"    →  [-0.82, 0.31, -0.55, ...] far away
+\`\`\`
+
+### Cosine Similarity
+
+\`\`\`
+similarity = (A · B) / (|A| × |B|)
+\`\`\`
+
+1.0 = identical meaning, 0.0 = unrelated, -1.0 = opposite.
+
+### Chunking Strategy
+
+Long documents are split into chunks before embedding. Use **overlap** between chunks to preserve context:
+
+\`\`\`
+chunk 1: chars 0–500
+chunk 2: chars 400–900  (100-char overlap)
+chunk 3: chars 800–1300
+\`\`\`
+
+### Practical Applications
+
+- **Semantic Search:** Find by meaning, not keywords
+- **Recommendations:** Surface similar content
+- **Duplicate Detection:** Find repeated documents
+- **Zero-Shot Classification:** Measure distance from label embeddings
+`,
+      codeExample: `import numpy as np
+from sentence_transformers import SentenceTransformer  # pip install sentence-transformers
+
+print("=" * 55)
+print("Embeddings: التشابه الدلالي")
+print("=" * 55)
+
+# نموذج مجاني يعمل محلياً
+model = SentenceTransformer("all-MiniLM-L6-v2")
+
+# ─────────────────────────────────────────
+# 1. توليد الـ Embeddings
+# ─────────────────────────────────────────
+sentences_ar = [
+    "القطة تجلس على السجادة",
+    "الهرة فوق البساط",
+    "كلب يركض في الحديقة",
+    "أحب تناول القهوة في الصباح",
+    "الشاي المسائي ممتع",
+    "الذكاء الاصطناعي يغير العالم",
+]
+
+print("\\n1. توليد Embeddings...")
+embeddings = model.encode(sentences_ar)
+print(f"شكل مصفوفة الـ embeddings: {embeddings.shape}")
+print(f"(عدد الجمل × أبعاد كل embedding)")
+
+# ─────────────────────────────────────────
+# 2. حساب Cosine Similarity
+# ─────────────────────────────────────────
+def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
+    return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b)))
+
+print("\\n2. مصفوفة التشابه:")
+print(f"{'':30s}", end="")
+for s in sentences_ar:
+    print(f"{s[:8]:10s}", end="")
+print()
+
+for i, (s1, e1) in enumerate(zip(sentences_ar, embeddings)):
+    print(f"{s1[:30]:30s}", end="")
+    for j, (s2, e2) in enumerate(zip(sentences_ar, embeddings)):
+        sim = cosine_similarity(e1, e2)
+        color = "🟢" if sim > 0.7 and i != j else ("🟡" if sim > 0.4 else "⚪")
+        print(f"{color}{sim:.2f}   ", end="")
+    print()
+
+# ─────────────────────────────────────────
+# 3. البحث الدلالي
+# ─────────────────────────────────────────
+print("\\n3. البحث الدلالي:")
+
+# قاعدة معرفة صغيرة
+knowledge_base = [
+    {"id": 1, "text": "Python هي لغة برمجة مفسّرة عالية المستوى"},
+    {"id": 2, "text": "تعلم الآلة يستخدم خوارزميات لاستخراج الأنماط من البيانات"},
+    {"id": 3, "text": "الشبكات العصبية مستوحاة من الدماغ البشري"},
+    {"id": 4, "text": "RAG يربط LLM بمصادر معرفة خارجية"},
+    {"id": 5, "text": "Vector Database تخزن وتبحث في الـ embeddings بكفاءة"},
+    {"id": 6, "text": "Transformer architecture غيّرت مجال NLP"},
+]
+
+kb_texts     = [doc["text"] for doc in knowledge_base]
+kb_embeddings = model.encode(kb_texts)
+
+def semantic_search(query: str, top_k: int = 3) -> list:
+    q_emb = model.encode([query])[0]
+    scores = [cosine_similarity(q_emb, kb_emb) for kb_emb in kb_embeddings]
+    ranked = sorted(zip(scores, knowledge_base), key=lambda x: -x[0])
+    return ranked[:top_k]
+
+queries = [
+    "كيف تعمل الشبكات العصبية؟",
+    "ما هي قاعدة البيانات المناسبة للـ AI؟",
+    "ما الفرق بين RAG وLLM العادي؟",
+]
+
+for query in queries:
+    print(f"\\n🔍 الاستعلام: '{query}'")
+    results = semantic_search(query)
+    for score, doc in results:
+        print(f"  ({score:.3f}) {doc['text']}")
+
+# ─────────────────────────────────────────
+# 4. Chunking مستند طويل
+# ─────────────────────────────────────────
+print("\\n4. Chunking استراتيجية:")
+
+def chunk_text(text: str, chunk_size: int = 200, overlap: int = 50) -> list[str]:
+    chunks = []
+    start = 0
+    while start < len(text):
+        end = start + chunk_size
+        chunk = text[start:end]
+        if len(chunk.strip()) > 20:
+            chunks.append(chunk)
+        start += chunk_size - overlap
+    return chunks
+
+long_doc = """الذكاء الاصطناعي هو مجال واسع يشمل تعلم الآلة والتعلم العميق.
+تعلم الآلة يستخدم الخوارزميات لتعلم الأنماط من البيانات بدون برمجة صريحة.
+التعلم العميق يعتمد على شبكات عصبية عميقة لحل مشاكل معقدة.
+نماذج اللغة الكبيرة مثل GPT وClaude هي تطبيقات متقدمة للتعلم العميق.
+هذه النماذج تدرّبت على تريليونات الكلمات من الإنترنت والكتب."""
+
+chunks = chunk_text(long_doc, chunk_size=100, overlap=20)
+print(f"طول المستند: {len(long_doc)} حرف → {len(chunks)} chunks")
+for i, chunk in enumerate(chunks, 1):
+    print(f"  Chunk {i}: '{chunk[:50].strip()}...'")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 3 — Vector Databases
+    {
+      bodyAr: `## Vector Databases
+
+Vector Database هي قاعدة بيانات مُصمَّمة خصيصاً لتخزين والبحث في الـ embeddings بكفاءة عالية. إنها قلب أي نظام RAG حقيقي.
+
+### لماذا لا تكفي قواعد البيانات التقليدية؟
+
+في قاعدة بيانات عادية (SQL):
+\`\`\`sql
+SELECT * FROM docs WHERE text LIKE '%ذكاء اصطناعي%'
+\`\`\`
+هذا يبحث بالكلمات الحرفية فقط — لا يجد "ML" أو "تعلم الآلة".
+
+في Vector Database:
+\`\`\`python
+results = db.similarity_search("كيف تعمل النماذج اللغوية؟", k=5)
+# يجد: "LLMs", "الشبكات العصبية", "GPT", "Claude", "Transformers"
+\`\`\`
+يبحث بالمعنى وليس بالكلمة.
+
+### خوارزميات البحث في Vector DBs
+
+**Exact Search (KNN):**
+- يحسب المسافة مع كل vector في القاعدة
+- دقيق 100% لكن بطيء مع البيانات الكبيرة
+
+**Approximate Nearest Neighbor (ANN):**
+- يُضحّي بقليل من الدقة مقابل سرعة هائلة
+- خوارزميات: HNSW، IVF، LSH
+
+**HNSW (Hierarchical Navigable Small World):**
+- الأشهر في الاستخدام الفعلي
+- O(log n) للبحث بدلاً من O(n)
+- تُستخدم في ChromaDB، Qdrant، Weaviate
+
+### أشهر Vector Databases
+
+| قاعدة البيانات | النوع | الاستخدام المثالي |
+|--------------|-------|----------------|
+| **ChromaDB** | Local/Cloud | مشاريع صغيرة، تطوير |
+| **Pinecone** | Cloud فقط | Production مُدار |
+| **Qdrant** | Local/Cloud | Performance عالي |
+| **Weaviate** | Local/Cloud | بحث متقدم + Filtering |
+| **Supabase pgvector** | PostgreSQL | إذا تستخدم Supabase بالفعل |
+| **FAISS** | Local (Meta) | بحث سريع في الذاكرة |
+
+### Metadata Filtering
+
+الميزة التي تجعل Vector DBs قوية فعلاً: الجمع بين البحث الدلالي وتصفية البيانات.
+
+\`\`\`python
+results = collection.query(
+    query_embeddings=[query_embedding],
+    n_results=5,
+    where={                           # Metadata filter
+        "$and": [
+            {"category": "python"},
+            {"level": {"$in": ["beginner", "intermediate"]}},
+            {"date": {"$gte": "2024-01-01"}}
+        ]
+    }
+)
+\`\`\`
+
+### Indexing Strategy — كيف تُنظَّم البيانات
+
+**Collections:** مجموعات مستقلة (مثل جداول SQL).
+
+**Namespaces:** فصل بيانات عدة عملاء في نفس الـ index.
+
+**Hierarchical indexing:**
+\`\`\`
+المستوى 1: القسم (مثل: Python, ML, Cloud)
+المستوى 2: الموضوع (مثل: Functions, Classes)
+المستوى 3: chunk نصي محدد
+\`\`\`
+
+### pgvector — Vector DB داخل PostgreSQL
+
+إذا كنت تستخدم PostgreSQL/Supabase، يمكنك إضافة قدرات Vector Search مباشرةً:
+
+\`\`\`sql
+-- تفعيل extension
+CREATE EXTENSION IF NOT EXISTS vector;
+
+-- إنشاء جدول مع عمود vector
+CREATE TABLE documents (
+  id SERIAL PRIMARY KEY,
+  content TEXT,
+  embedding vector(1536),
+  metadata JSONB
+);
+
+-- إنشاء HNSW index
+CREATE INDEX ON documents
+USING hnsw (embedding vector_cosine_ops);
+
+-- البحث
+SELECT content, (embedding <=> $1) AS distance
+FROM documents
+ORDER BY distance
+LIMIT 5;
+\`\`\`
+
+هذا يُعطيك قاعدة بيانات واحدة تدير البيانات التقليدية والـ vectors معاً.
+`,
+      bodyEn: `## Vector Databases
+
+A Vector Database is designed specifically for storing and searching embeddings efficiently. It's the heart of any real RAG system.
+
+### Why Not Traditional Databases?
+
+SQL LIKE search finds literal keywords. Vector DBs search by **meaning** — finding semantically similar documents even if they share no exact words.
+
+### Search Algorithms
+
+- **Exact KNN:** 100% accurate but O(n) — slow on large datasets
+- **HNSW (Approximate):** O(log n) search, slight accuracy trade-off — used by ChromaDB, Qdrant
+- **IVF:** Clusters vectors first for faster search
+
+### Popular Vector DBs
+
+| Database | Type | Best For |
+|----------|------|---------|
+| **ChromaDB** | Local/Cloud | Development & prototyping |
+| **Pinecone** | Cloud only | Managed production |
+| **Qdrant** | Local/Cloud | High performance |
+| **pgvector** | PostgreSQL | If already using Supabase/Postgres |
+
+### Metadata Filtering
+
+The killer feature: combine semantic search with structured filters:
+
+\`\`\`python
+results = collection.query(
+    query_embeddings=[q_emb],
+    where={"category": "python", "level": "beginner"}
+)
+\`\`\`
+`,
+      codeExample: `# pip install chromadb sentence-transformers
+import chromadb
+from sentence_transformers import SentenceTransformer
+import json
+
+print("=" * 55)
+print("ChromaDB: Vector Database عملي")
+print("=" * 55)
+
+# ─────────────────────────────────────────
+# 1. إعداد ChromaDB و Embedding Model
+# ─────────────────────────────────────────
+client = chromadb.Client()  # In-memory (لا يحتاج تثبيت سيرفر)
+model = SentenceTransformer("all-MiniLM-L6-v2")
+
+# إنشاء collection
+collection = client.create_collection(
+    name="course_content",
+    metadata={"description": "محتوى دورات أكاديمية Darhous"}
+)
+
+# ─────────────────────────────────────────
+# 2. إضافة وثائق (Indexing)
+# ─────────────────────────────────────────
+documents = [
+    {"id": "py_1", "text": "Python لغة برمجة متعددة الاستخدامات تتميز بسهولة القراءة", "category": "python", "level": "beginner"},
+    {"id": "py_2", "text": "الـ List Comprehension في Python طريقة أنيقة لإنشاء القوائم", "category": "python", "level": "intermediate"},
+    {"id": "ml_1", "text": "Linear Regression تتنبأ بقيم مستمرة من بيانات التدريب", "category": "ml", "level": "intermediate"},
+    {"id": "ml_2", "text": "Random Forest خوارزمية تجمع عدة Decision Trees للحصول على دقة أعلى", "category": "ml", "level": "intermediate"},
+    {"id": "ai_1", "text": "LLMs مثل Claude وGPT تتدرب على مليارات النصوص وتتنبأ بالكلمة التالية", "category": "ai", "level": "intermediate"},
+    {"id": "ai_2", "text": "RAG يحسن دقة LLMs بربطها بقواعد معرفة خارجية حديثة", "category": "ai", "level": "advanced"},
+    {"id": "ai_3", "text": "Embeddings تمثيل رياضي للنصوص يحافظ على التشابه الدلالي", "category": "ai", "level": "intermediate"},
+    {"id": "cloud_1", "text": "Supabase قاعدة بيانات PostgreSQL مدارة مع دعم vector search", "category": "cloud", "level": "beginner"},
+]
+
+# توليد الـ embeddings
+texts = [d["text"] for d in documents]
+embeddings = model.encode(texts).tolist()
+
+# إضافة للـ collection
+collection.add(
+    ids=[d["id"] for d in documents],
+    documents=texts,
+    embeddings=embeddings,
+    metadatas=[{"category": d["category"], "level": d["level"]} for d in documents]
+)
+
+print(f"\\n✅ تم إضافة {len(documents)} وثيقة للـ vector database")
+
+# ─────────────────────────────────────────
+# 3. البحث الدلالي البسيط
+# ─────────────────────────────────────────
+print("\\n3. البحث الدلالي:")
+
+queries = [
+    "كيف أبني نموذج تنبؤ؟",
+    "ما هو أفضل طريقة لتخزين البيانات في السحابة؟",
+    "كيف تتعلم النماذج من البيانات؟",
+]
+
+for query in queries:
+    q_emb = model.encode([query]).tolist()
+    results = collection.query(
+        query_embeddings=q_emb,
+        n_results=2
+    )
+    print(f"\\n🔍 '{query}'")
+    for doc, dist in zip(results["documents"][0], results["distances"][0]):
+        similarity = 1 - dist  # ChromaDB يُرجع المسافة، نحوّلها لتشابه
+        print(f"  ({similarity:.3f}) {doc[:60]}...")
+
+# ─────────────────────────────────────────
+# 4. البحث مع Metadata Filtering
+# ─────────────────────────────────────────
+print("\\n4. البحث مع فلترة البيانات:")
+
+query = "كيف تعمل الخوارزميات؟"
+q_emb = model.encode([query]).tolist()
+
+# البحث في فئة ml فقط
+results_ml = collection.query(
+    query_embeddings=q_emb,
+    n_results=3,
+    where={"category": "ml"}  # Metadata filter
+)
+
+print(f"\\n🔍 '{query}' (في فئة ML فقط):")
+for doc, meta in zip(results_ml["documents"][0], results_ml["metadatas"][0]):
+    print(f"  [{meta['category']}/{meta['level']}] {doc[:60]}...")
+
+# ─────────────────────────────────────────
+# 5. إحصائيات الـ Collection
+# ─────────────────────────────────────────
+print("\\n5. إحصائيات:")
+print(f"  عدد الوثائق: {collection.count()}")
+all_items = collection.get()
+categories = {}
+for meta in all_items["metadatas"]:
+    cat = meta["category"]
+    categories[cat] = categories.get(cat, 0) + 1
+print(f"  توزيع الفئات: {json.dumps(categories, ensure_ascii=False)}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 4 — بناء نظام RAG من الصفر
+    {
+      bodyAr: `## بناء نظام RAG من الصفر
+
+RAG (Retrieval-Augmented Generation) هي التقنية التي تحلّ مشكلة Hallucination في LLMs — تربط النموذج بمصادر معرفة حقيقية وحديثة.
+
+### لماذا RAG؟
+
+**مشكلة LLMs بدون RAG:**
+- معرفتها تنتهي بتاريخ التدريب
+- لا تعرف معلومات شركتك أو مستنداتك
+- تُنتج معلومات خاطئة بثقة
+
+**الحل: RAG**
+\`\`\`
+السؤال + [وثائق ذات صلة] → LLM → إجابة مستندة للحقائق
+\`\`\`
+
+### بنية RAG الأساسية
+
+\`\`\`
+المرحلة 1 — Indexing (مرة واحدة):
+مستنداتك → Chunking → Embedding → Vector DB
+
+المرحلة 2 — Retrieval + Generation (لكل سؤال):
+السؤال → Embedding → Vector Search → أفضل Chunks
+    ↓
+[السؤال + الـ Chunks] → LLM → الإجابة
+\`\`\`
+
+### أنماط RAG المتقدمة
+
+**Naive RAG (الأساسي):**
+\`\`\`
+سؤال → بحث مباشر → LLM
+\`\`\`
+
+**Advanced RAG:**
+- **Query Rewriting:** تُعيد صياغة السؤال لنتائج أفضل
+- **HyDE (Hypothetical Document Embedding):** تُولّد إجابة افتراضية ثم تبحث بها
+- **Re-ranking:** تُعيد ترتيب النتائج بمعايير إضافية
+
+**Modular RAG:**
+- Routing: يختار أي source يستعلم منها
+- Fusion: يجمع نتائج من مصادر متعددة
+
+### تقييم RAG — مقاييس مهمة
+
+| المقياس | المعنى |
+|---------|--------|
+| **Faithfulness** | هل الإجابة مبنية على السياق المُسترجَع؟ |
+| **Answer Relevance** | هل الإجابة تُجيب على السؤال؟ |
+| **Context Recall** | هل الـ retrieval جلب المعلومات الصحيحة؟ |
+| **Context Precision** | هل الـ chunks المُسترجَعة كلها مفيدة؟ |
+
+### Prompt Engineering للـ RAG
+
+\`\`\`
+أجب على السؤال بناءً على السياق المقدَّم فقط.
+إذا لم يكن السياق يحتوي المعلومات، قل "لا أعلم" بدلاً من التخمين.
+
+السياق:
+{context}
+
+السؤال: {question}
+\`\`\`
+
+هذا الـ prompt يُقلّل Hallucination ويجعل النموذج يستند للمصادر.
+
+### Chunking Strategy للـ RAG
+
+**القاعدة الذهبية:** Chunk واحد = فكرة واحدة متكاملة.
+
+\`\`\`
+جيد:   فقرة كاملة تشرح Linear Regression
+سيء:   نصف تعريف Linear Regression
+       + نصف مثال لـ Decision Tree
+\`\`\`
+
+**الحجم المثالي:** 200-500 token مع 10-20% overlap.
+`,
+      bodyEn: `## Building a RAG System from Scratch
+
+RAG (Retrieval-Augmented Generation) solves the hallucination problem in LLMs by connecting the model to real, up-to-date knowledge sources.
+
+### Why RAG?
+
+**Without RAG:** LLMs have a knowledge cutoff, don't know your documents, and can hallucinate confidently.
+
+**With RAG:**
+\`\`\`
+Question + [Retrieved relevant chunks] → LLM → Fact-grounded answer
+\`\`\`
+
+### Two-Stage Architecture
+
+**Indexing (once):** Documents → Chunking → Embedding → Vector DB
+
+**Retrieval + Generation (per query):**
+Question → Embedding → Vector Search → Top Chunks → LLM → Answer
+
+### RAG Evaluation Metrics
+
+| Metric | Meaning |
+|--------|---------|
+| **Faithfulness** | Is the answer grounded in the retrieved context? |
+| **Answer Relevance** | Does the answer address the question? |
+| **Context Recall** | Did retrieval fetch the right information? |
+
+### Golden Prompt Template
+
+\`\`\`
+Answer the question based ONLY on the provided context.
+If the context doesn't contain the answer, say "I don't know."
+
+Context: {context}
+Question: {question}
+\`\`\`
+`,
+      codeExample: `import anthropic
+import chromadb
+from sentence_transformers import SentenceTransformer
+from pathlib import Path
+
+print("=" * 60)
+print("RAG System: نظام Q&A على المستندات")
+print("=" * 60)
+
+# ─────────────────────────────────────────
+# الإعداد
+# ─────────────────────────────────────────
+claude_client = anthropic.Anthropic()
+embed_model   = SentenceTransformer("all-MiniLM-L6-v2")
+chroma_client = chromadb.Client()
+
+# ─────────────────────────────────────────
+# 1. Indexing — بناء قاعدة المعرفة
+# ─────────────────────────────────────────
+def chunk_text(text: str, chunk_size: int = 300, overlap: int = 50) -> list[str]:
+    """تقسيم النص إلى chunks متداخلة"""
+    chunks, start = [], 0
+    while start < len(text):
+        end = min(start + chunk_size, len(text))
+        chunk = text[start:end].strip()
+        if len(chunk) > 50:
+            chunks.append(chunk)
+        start += chunk_size - overlap
+    return chunks
+
+# مستندات تجريبية (في الواقع: PDF, Word, Web pages)
+documents = {
+    "ai_basics.txt": """
+الذكاء الاصطناعي هو مجال في علوم الحاسوب يهدف إلى محاكاة الذكاء البشري.
+يشمل تعلم الآلة والتعلم العميق ومعالجة اللغة الطبيعية.
+Claude هو نموذج لغوي من Anthropic يتميز بالأمان والدقة.
+GPT-4 من OpenAI هو أحد أقوى النماذج في السوق حالياً.
+يمكن للذكاء الاصطناعي الحديث كتابة الكود وتحليل البيانات وترجمة النصوص.
+    """,
+    "programming.txt": """
+Python هي لغة برمجة عالية المستوى تتميز بسهولة القراءة.
+تُستخدم Python على نطاق واسع في تعلم الآلة والذكاء الاصطناعي.
+مكتبة NumPy تتيح العمليات الرياضية على المصفوفات بكفاءة عالية.
+Pandas توفر أدوات قوية لتحليل البيانات الجدولية.
+Scikit-learn هي المكتبة الأكثر استخداماً لتعلم الآلة الكلاسيكي.
+    """,
+    "rag_info.txt": """
+RAG اختصار Retrieval-Augmented Generation أي التوليد المُعزَّز بالاسترداد.
+تقنية RAG تحلّ مشكلة Hallucination في نماذج اللغة الكبيرة.
+تعمل RAG بمرحلتين: الأولى Indexing والثانية Retrieval مع Generation.
+في مرحلة Indexing يتم تحويل المستندات إلى embeddings وتخزينها في vector database.
+في مرحلة الاستخدام يتم تحويل السؤال لـ embedding والبحث عن أقرب المستندات.
+    """
+}
+
+# بناء الـ collection
+collection = chroma_client.create_collection("knowledge_base")
+all_chunks, all_ids, all_metas = [], [], []
+
+for doc_name, doc_text in documents.items():
+    chunks = chunk_text(doc_text)
+    for i, chunk in enumerate(chunks):
+        all_chunks.append(chunk)
+        all_ids.append(f"{doc_name}_{i}")
+        all_metas.append({"source": doc_name, "chunk_idx": i})
+
+# توليد embeddings وإضافة للـ collection
+embeddings = embed_model.encode(all_chunks).tolist()
+collection.add(
+    ids=all_ids,
+    documents=all_chunks,
+    embeddings=embeddings,
+    metadatas=all_metas
+)
+
+print(f"✅ تم إنشاء قاعدة المعرفة: {len(all_chunks)} chunk من {len(documents)} مستند")
+
+# ─────────────────────────────────────────
+# 2. RAG Pipeline — الاستعلام والإجابة
+# ─────────────────────────────────────────
+def rag_query(question: str, top_k: int = 3, verbose: bool = True) -> str:
+    """نظام RAG كامل: بحث + توليد"""
+
+    # البحث عن أقرب chunks
+    q_emb = embed_model.encode([question]).tolist()
+    results = collection.query(
+        query_embeddings=q_emb,
+        n_results=top_k
+    )
+
+    # تجميع السياق
+    chunks = results["documents"][0]
+    sources = [m["source"] for m in results["metadatas"][0]]
+    context = "\\n\\n---\\n\\n".join(chunks)
+
+    if verbose:
+        print(f"\\n{'='*50}")
+        print(f"السؤال: {question}")
+        print(f"\\nالـ Chunks المُسترجَعة ({top_k}):")
+        for chunk, src in zip(chunks, sources):
+            print(f"  [{src}] {chunk[:80].strip()}...")
+
+    # بناء الـ Prompt
+    prompt = f"""أجب على السؤال التالي بناءً على السياق المقدَّم فقط.
+إذا لم يكن السياق يحتوي على المعلومات الكافية، قل ذلك بوضوح.
+
+السياق:
+{context}
+
+السؤال: {question}
+
+أجب بإيجاز ودقة باللغة العربية."""
+
+    # استدعاء Claude
+    message = claude_client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=400,
+        messages=[{"role": "user", "content": prompt}]
+    )
+
+    answer = message.content[0].text
+
+    if verbose:
+        print(f"\\nالإجابة:")
+        print(answer)
+
+    return answer
+
+# ─────────────────────────────────────────
+# 3. تجربة الـ RAG
+# ─────────────────────────────────────────
+questions = [
+    "ما هو Claude وما مميزاته؟",
+    "ما الفرق بين NumPy وPandas؟",
+    "كيف تعمل تقنية RAG؟",
+    "ما هي عاصمة فرنسا؟",  # سؤال خارج نطاق المعرفة
+]
+
+for q in questions:
+    rag_query(q, top_k=3, verbose=True)`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 5 — مشروع: PDF Chatbot
+    {
+      bodyAr: `## مشروع: PDF Chatbot
+
+هذا المشروع يجمع كل مهارات دورة Generative AI في تطبيق واقعي: Chatbot يتحدث مع PDF بأي لغة.
+
+### ما ستبنيه
+
+\`\`\`
+PDF Chatbot
+├── 📄 رفع PDF وتحليله تلقائياً
+├── ✂️  Chunking ذكي بالفقرات
+├── 🧠  Embeddings + ChromaDB
+├── 💬  محادثة طبيعية مع RAG
+└── 🔄  ذاكرة المحادثة (Multi-turn)
+\`\`\`
+
+### التثبيت
+
+\`\`\`bash
+pip install anthropic chromadb sentence-transformers pypdf2 rich
+\`\`\`
+
+### ما تعلمته في هذه الدورة
+
+| الدرس | ما تعلمته |
+|-------|---------|
+| 1. كيف تعمل LLMs | Transformer، Tokenization، Hallucination |
+| 2. Embeddings | Cosine Similarity، Chunking، Semantic Search |
+| 3. Vector Databases | ChromaDB، HNSW، Metadata Filtering |
+| 4. RAG من الصفر | Indexing Pipeline، Retrieval، RAG Prompt |
+| 5. **المشروع** | PDF Chatbot كامل مع Multi-turn |
+
+### أفكار للتطوير
+
+بعد إنهاء المشروع، يمكنك:
+
+1. **واجهة ويب:** Next.js + Vercel AI SDK لبناء Chatbot بواجهة جميلة
+2. **دعم أنواع أخرى:** Word، CSV، Web scraping
+3. **Multi-PDF:** رفع عدة PDFs في نفس الـ session
+4. **Citations:** إظهار الصفحة المصدر مع كل إجابة
+5. **Streaming:** عرض الإجابة حرفاً بحرف أثناء التوليد
+
+### تحدّيك
+
+ابنِ الـ Chatbot كاملاً ثم جرّبه على:
+- كتاب تقني أو أكاديمي (English)
+- تقرير شركة أو مقال بحثي
+- وثيقة قانونية أو عقد
+
+لاحظ كيف تتغير جودة الإجابات مع تغيير حجم الـ chunk وعدد الـ results.
+`,
+      bodyEn: `## Project: PDF Chatbot
+
+This project combines all Generative AI course skills into a real application: a chatbot that converses with any PDF in any language.
+
+### What You'll Build
+
+\`\`\`
+PDF Chatbot
+├── Upload & parse any PDF automatically
+├── Smart paragraph-based chunking
+├── Embeddings + ChromaDB vector storage
+├── Natural conversation with RAG
+└── Conversation memory (Multi-turn)
+\`\`\`
+
+### What You Learned in This Course
+
+Every lesson combined in this final project — from understanding how LLMs work to building a complete RAG-powered chatbot.
+
+### Extension Ideas
+
+1. **Web UI:** Next.js + Vercel AI SDK for a beautiful interface
+2. **Multi-format:** Word, CSV, web scraping
+3. **Citations:** Show source page number with each answer
+4. **Streaming:** Display response token by token
+`,
+      codeExample: `# PDF Chatbot — نظام RAG كامل مع ذاكرة محادثة
+# pip install anthropic chromadb sentence-transformers pypdf2 rich
+
+import sys
+import anthropic
+import chromadb
+from sentence_transformers import SentenceTransformer
+from pathlib import Path
+
+try:
+    import PyPDF2
+    HAS_PDF = True
+except ImportError:
+    HAS_PDF = False
+    print("⚠️ pip install pypdf2  لدعم PDF")
+
+try:
+    from rich.console import Console
+    from rich.panel import Panel
+    from rich.markdown import Markdown
+    console = Console()
+    USE_RICH = True
+except ImportError:
+    USE_RICH = False
+
+# ─────────────────────────────────────────
+# أدوات
+# ─────────────────────────────────────────
+def extract_pdf_text(pdf_path: str) -> str:
+    """استخراج النص من PDF"""
+    if not HAS_PDF:
+        return "خطأ: مكتبة PyPDF2 غير مثبتة"
+    text_parts = []
+    with open(pdf_path, "rb") as f:
+        reader = PyPDF2.PdfReader(f)
+        for page_num, page in enumerate(reader.pages, 1):
+            text = page.extract_text()
+            if text:
+                text_parts.append(f"[صفحة {page_num}]\\n{text}")
+    return "\\n\\n".join(text_parts)
+
+def smart_chunk(text: str, min_size: int = 100, max_size: int = 500) -> list[str]:
+    """تقسيم ذكي بالفقرات مع حد أدنى وأقصى"""
+    # تقسيم بالفقرات أولاً
+    paragraphs = [p.strip() for p in text.split("\\n\\n") if p.strip()]
+    chunks, current_chunk = [], ""
+
+    for para in paragraphs:
+        if len(current_chunk) + len(para) <= max_size:
+            current_chunk += (("\\n\\n" + para) if current_chunk else para)
+        else:
+            if len(current_chunk) >= min_size:
+                chunks.append(current_chunk)
+            current_chunk = para
+
+    if current_chunk and len(current_chunk) >= min_size:
+        chunks.append(current_chunk)
+
+    return chunks
+
+# ─────────────────────────────────────────
+# PDF Chatbot Class
+# ─────────────────────────────────────────
+class PDFChatbot:
+    def __init__(self):
+        self.claude       = anthropic.Anthropic()
+        self.embed_model  = SentenceTransformer("all-MiniLM-L6-v2")
+        self.chroma       = chromadb.Client()
+        self.collection   = None
+        self.pdf_name     = ""
+        self.chat_history: list[dict] = []
+        self.chunk_count  = 0
+
+    def load_pdf(self, pdf_path: str) -> bool:
+        """تحميل PDF وبناء قاعدة المعرفة"""
+        path = Path(pdf_path)
+        if not path.exists():
+            print(f"❌ الملف غير موجود: {pdf_path}")
+            return False
+
+        print(f"\\n📄 جاري قراءة: {path.name}")
+        text = extract_pdf_text(pdf_path)
+        if not text or len(text) < 100:
+            print("❌ تعذّر استخراج النص من PDF")
+            return False
+
+        print(f"✅ استُخرج {len(text)} حرف")
+
+        # Chunking
+        chunks = smart_chunk(text)
+        print(f"✂️  تقسيم إلى {len(chunks)} chunk")
+
+        # إنشاء collection جديدة
+        try:
+            self.chroma.delete_collection("pdf_chat")
+        except Exception:
+            pass
+        self.collection = self.chroma.create_collection("pdf_chat")
+
+        # Embedding وإضافة
+        print("🧠 توليد Embeddings...")
+        embeddings = self.embed_model.encode(chunks).tolist()
+        self.collection.add(
+            ids=[f"c{i}" for i in range(len(chunks))],
+            documents=chunks,
+            embeddings=embeddings
+        )
+
+        self.pdf_name    = path.name
+        self.chunk_count = len(chunks)
+        self.chat_history = []
+        print(f"✅ جاهز للمحادثة! ({len(chunks)} chunk مفهرس)")
+        return True
+
+    def ask(self, question: str, top_k: int = 4) -> str:
+        """اطرح سؤالاً على الـ PDF"""
+        if not self.collection:
+            return "❌ لم يتم تحميل أي PDF بعد"
+
+        # استرجاع الـ chunks ذات الصلة
+        q_emb   = self.embed_model.encode([question]).tolist()
+        results = self.collection.query(query_embeddings=q_emb, n_results=top_k)
+        context = "\\n\\n---\\n\\n".join(results["documents"][0])
+
+        # بناء سياق المحادثة (Multi-turn)
+        history_text = ""
+        if self.chat_history:
+            last_3 = self.chat_history[-3:]  # آخر 3 أزواج
+            for turn in last_3:
+                history_text += f"المستخدم: {turn['q']}\\nالمساعد: {turn['a'][:200]}...\\n\\n"
+
+        # الـ Prompt
+        prompt = f"""أنت مساعد ذكي متخصص في تحليل المستندات.
+تحدث مع المستخدم باللغة التي يستخدمها (عربي/إنجليزي).
+أجب بناءً على السياق المقدم فقط. إذا كانت المعلومات غير موجودة في السياق، قل ذلك.
+
+{f"سياق المحادثة السابقة:\\n{history_text}" if history_text else ""}
+محتوى ذو صلة من المستند ({self.pdf_name}):
+{context}
+
+سؤال المستخدم: {question}"""
+
+        msg = self.claude.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=600,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        answer = msg.content[0].text
+
+        # حفظ في السجل
+        self.chat_history.append({"q": question, "a": answer})
+        return answer
+
+# ─────────────────────────────────────────
+# واجهة المستخدم
+# ─────────────────────────────────────────
+def main():
+    bot = PDFChatbot()
+
+    print("=" * 60)
+    print("📚 PDF Chatbot — تحدّث مع أي PDF")
+    print("=" * 60)
+    print("الأوامر: /load <مسار_PDF> | /clear | /exit")
+
+    # تحميل PDF تجريبي إذا لم يُحدَّد
+    sample_path = sys.argv[1] if len(sys.argv) > 1 else None
+    if sample_path:
+        bot.load_pdf(sample_path)
+
+    while True:
+        try:
+            user_input = input("\\nأنت: ").strip()
+        except (KeyboardInterrupt, EOFError):
+            print("\\n👋 إلى اللقاء!")
+            break
+
+        if not user_input:
+            continue
+
+        if user_input.startswith("/load "):
+            pdf_path = user_input[6:].strip()
+            bot.load_pdf(pdf_path)
+
+        elif user_input == "/clear":
+            bot.chat_history = []
+            print("✅ تم مسح سجل المحادثة")
+
+        elif user_input in ["/exit", "/خروج"]:
+            print("👋 إلى اللقاء!")
+            break
+
+        elif not bot.collection:
+            print("⚠️ استخدم: /load <مسار_PDF>  لتحميل مستند أولاً")
+
+        else:
+            answer = bot.ask(user_input)
+            print(f"\\nالمساعد: {answer}")
+
+if __name__ == "__main__":
+    main()`,
+      codeLanguage: "python",
+    },
+  ],
+
 };

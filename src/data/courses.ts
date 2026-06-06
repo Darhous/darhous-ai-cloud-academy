@@ -292,7 +292,7 @@ export const courses: Course[] = [
     descriptionEn: "LLMs, Diffusion Models, RAG, and building generative applications.",
     level: "intermediate", lessons: 26, hours: 20, projects: 5,
     skills: ["LLMs", "RAG", "Embeddings", "Vector DBs", "APIs"],
-    category: "AI", icon: "✨", featured: true, color: "violet", comingSoon: true,
+    category: "AI", icon: "✨", featured: true, color: "violet",
     overviewAr: "الذكاء الاصطناعي التوليدي يغير كل شيء. ستتعلم كيف تعمل نماذج اللغة الكبيرة، وكيف تبني تطبيقات RAG للبحث الذكي، وكيف تستخدم Embeddings وVector Databases.",
     overviewEn: "Generative AI is changing everything. You'll learn how large language models work, how to build RAG applications for smart search, and how to use Embeddings and Vector Databases.",
     forWhoAr: ["المطورون الذين يريدون بناء تطبيقات AI", "المهتمون بـ ChatGPT وClaude من الناحية التقنية"],
