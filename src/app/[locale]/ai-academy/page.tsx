@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft, BookOpen, Sparkles } from "lucide-react";
+import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CourseCard from "@/components/cards/CourseCard";
 import ToolCard from "@/components/cards/ToolCard";
@@ -81,6 +82,7 @@ export default async function AIAcademyPage({
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 
   return (
+    <PortalPageWrapper>
     <div className="flex flex-col gap-24 pb-24">
 
       {/* Hero */}
@@ -261,5 +263,6 @@ export default async function AIAcademyPage({
       </div>
 
     </div>
+    </PortalPageWrapper>
   );
 }

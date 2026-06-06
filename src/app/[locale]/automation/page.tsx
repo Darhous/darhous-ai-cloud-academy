@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Sparkles, Layers, Wrench, BookOpen, Briefcase, FlaskConical, Bot, TrendingUp, CheckCircle2 } from "lucide-react";
 import { automationCaseStudies } from "@/data/automation/automationCaseStudies";
 import { automationUseCases } from "@/data/automation/automationUseCases";
+import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
 
 export async function generateMetadata({
   params,
@@ -88,6 +89,7 @@ export default async function AutomationPage({
   const { locale } = await params;
 
   return (
+    <PortalPageWrapper>
     <div className="min-h-screen relative" dir="rtl">
       {/* Ambient orbs */}
       <div
@@ -241,5 +243,6 @@ export default async function AutomationPage({
         </div>
       </div>
     </div>
+    </PortalPageWrapper>
   );
 }

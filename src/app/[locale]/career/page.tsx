@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FileText, Briefcase, MessageSquare, LayoutTemplate, TrendingUp, ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
+import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
 
 export async function generateMetadata({
   params,
@@ -90,6 +91,7 @@ export default async function CareerHubPage({
   const Arrow = isAr ? ArrowLeft : ArrowRight;
 
   return (
+    <PortalPageWrapper>
     <div className="min-h-screen relative" dir="rtl">
       {/* Ambient orbs */}
       <div
@@ -247,5 +249,6 @@ export default async function CareerHubPage({
         </div>
       </div>
     </div>
+    </PortalPageWrapper>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import NanaBananaClient from "@/components/nano-banana/NanaBananaClient";
 import NanoBananaVisualPreview from "@/components/nano-banana/NanoBananaVisualPreview";
+import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
 
 export async function generateMetadata({
   params,
@@ -35,9 +36,11 @@ export default async function NanaBananaPromptsPage({
 }) {
   const { locale } = await params;
   return (
-    <div className="flex flex-col gap-16 pb-16">
-      <NanoBananaVisualPreview locale={locale} />
-      <NanaBananaClient locale={locale} />
-    </div>
+    <PortalPageWrapper>
+      <div className="flex flex-col gap-16 pb-16">
+        <NanoBananaVisualPreview locale={locale} />
+        <NanaBananaClient locale={locale} />
+      </div>
+    </PortalPageWrapper>
   );
 }

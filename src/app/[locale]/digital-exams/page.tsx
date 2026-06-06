@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowLeft, CheckCircle, Monitor } from "lucide-react";
 import CommunitySignup from "@/components/community/CommunitySignup";
 import { examSubjects } from "@/data/digital-exam-subjects";
+import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
 
 export async function generateMetadata({
   params,
@@ -40,6 +41,7 @@ export default async function DigitalExamsPage({
   const Arrow = isAr ? ArrowLeft : ArrowRight;
 
   return (
+    <PortalPageWrapper>
     <div className="flex flex-col gap-20 pb-20 relative">
       {/* Ambient */}
       <div className="fixed top-0 start-0 pointer-events-none z-0" style={{ width: "50vw", height: "50vw", background: "radial-gradient(circle, var(--portal-color-faint) 0%, transparent 65%)", filter: "blur(120px)" }} />
@@ -160,5 +162,6 @@ export default async function DigitalExamsPage({
         </div>
       </div>
     </div>
+    </PortalPageWrapper>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Cpu, Trophy, Package, Monitor, FileCheck, Sparkles } from "lucide-react";
+import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
 import { lessonsData } from "@/data/iot/lessons";
 import { projectsData } from "@/data/iot/projects";
 import { challengesData } from "@/data/iot/challenges";
@@ -106,6 +107,7 @@ export default async function IotLabPage({
   const { locale } = await params;
 
   return (
+    <PortalPageWrapper>
     <div className="min-h-screen relative" dir="rtl">
       {/* Ambient orbs */}
       <div className="fixed pointer-events-none z-0" style={{ top: 0, right: 0, width: "55vw", height: "55vw", background: "radial-gradient(circle, var(--portal-color-subtle) 0%, transparent 70%)", filter: "blur(100px)" }} />
@@ -190,5 +192,6 @@ export default async function IotLabPage({
         </div>
       </div>
     </div>
+    </PortalPageWrapper>
   );
 }

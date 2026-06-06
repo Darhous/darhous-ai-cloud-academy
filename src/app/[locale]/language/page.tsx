@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft, CheckCircle, Sparkles } from "lucide-react";
 import CommunitySignup from "@/components/community/CommunitySignup";
+import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
 
 export async function generateMetadata({
   params,
@@ -59,6 +60,7 @@ export default async function LanguagePortalPage({
   const features = isAr ? assessmentFeatures.ar : assessmentFeatures.en;
 
   return (
+    <PortalPageWrapper>
     <div className="flex flex-col gap-20 pb-20 relative">
       {/* Ambient */}
       <div className="fixed top-0 end-0 pointer-events-none z-0" style={{ width: "55vw", height: "55vw", background: "radial-gradient(circle, var(--portal-color-subtle) 0%, transparent 65%)", filter: "blur(120px)" }} />
@@ -172,5 +174,6 @@ export default async function LanguagePortalPage({
         </div>
       </div>
     </div>
+    </PortalPageWrapper>
   );
 }
