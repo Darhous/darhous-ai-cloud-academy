@@ -334,7 +334,7 @@ export const courses: Course[] = [
     descriptionEn: "Master Claude from professional prompting to building full apps with Claude API.",
     level: "intermediate", lessons: 22, hours: 16, projects: 5,
     skills: ["Claude API", "Prompting", "Claude Code", "MCP", "Automation"],
-    category: "Claude", icon: "🤖", featured: true, color: "blue", comingSoon: true,
+    category: "Claude", icon: "🤖", featured: true, color: "blue",
     overviewAr: "Claude هو أقوى نموذج AI في العالم لمهام التفكير والبرمجة والبحث. هذه الدورة تأخذك من مستخدم عادي إلى محترف يبني تطبيقات كاملة بـ Claude API وClaude Code.",
     overviewEn: "Claude is the most powerful AI model for reasoning, coding, and research tasks. This course takes you from a regular user to a professional who builds complete applications with Claude API and Claude Code.",
     forWhoAr: ["مستخدمو Claude الذين يريدون الاحتراف", "المطورون الذين يريدون Claude API", "من يريد استخدام Claude Code"],

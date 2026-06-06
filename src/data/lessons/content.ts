@@ -3654,4 +3654,2102 @@ print("✅ تم حفظ التحليل في: ai_jobs_analysis.png")`,
       codeLanguage: "python",
     },
   ],
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // C7 — claude-mastery (7 lessons)
+  // ─────────────────────────────────────────────────────────────────────────
+  "claude-mastery": [
+
+    // Lesson 1 — جولة شاملة على Claude.ai
+    {
+      bodyAr: `## جولة شاملة على Claude.ai
+
+Claude.ai هو واجهة الويب الرسمية للتفاعل مع نماذج Claude من Anthropic. في هذا الدرس ستتعرف على كل ركن في الواجهة وتفهم الفرق بين الخطط المختلفة.
+
+### الواجهة الرئيسية
+
+عند فتح Claude.ai ستجد:
+
+| العنصر | الوظيفة |
+|--------|---------|
+| **صندوق المحادثة** | اكتب مطالباتك هنا — يدعم نصاً طويلاً جداً |
+| **Projects** | مجلدات تنظّم المحادثات ذات الموضوع الواحد |
+| **Artifacts** | يفتح نافذة جانبية لعرض الكود/HTML/SVG |
+| **رفع الملفات** | PDF وصور ومستندات Word حتى 30 MB |
+| **Voice mode** | محادثة صوتية في تطبيق الجوال |
+
+### النماذج المتاحة
+
+**Claude Haiku** — الأسرع والأرخص. مثالي لمهام بسيطة وسريعة.
+
+**Claude Sonnet** — التوازن المثالي بين السرعة والجودة. هو النموذج الافتراضي في claude.ai للمشتركين.
+
+**Claude Opus** — الأقوى للمهام المعقدة: التحليل العميق، الكود المتقدم، التفكير متعدد الخطوات.
+
+### ميزات Claude.ai الأساسية
+
+#### 1. رفع الملفات والصور
+يمكنك رفع:
+- صور (PNG/JPG/GIF/WebP) → Claude يحلّلها ويصفها
+- PDF ومستندات → Claude يقرأ محتواها كاملاً
+- كود (أي لغة) → Claude يراجعه ويحسّنه
+- جداول Excel/CSV → Claude يحللها ويستخرج insights
+
+#### 2. Artifacts
+عندما تطلب من Claude كتابة كود أو HTML أو Markdown منسق، يعرضه في نافذة Artifacts المنفصلة التي تتيح:
+- عرض HTML مباشرةً في المتصفح
+- نسخ الكود بنقرة واحدة
+- تعديل النتيجة والطلب من Claude تحديثها
+
+#### 3. Projects — نقطة تحول حقيقية
+Projects هي المميزة التي تغير طريقة العمل اليومية:
+- ذاكرة دائمة للسياق (أي context يضاف للـ project يُحفظ لكل المحادثات)
+- تعليمات مخصصة للمشروع (System Prompt دائم)
+- تنظيم ملفات المرجعية داخل المشروع
+- تعاون الفريق (في الخطط المدفوعة)
+
+### الفرق بين الخطط
+
+| الخطة | النماذج | Context Window | Projects |
+|-------|---------|----------------|---------|
+| **Free** | Haiku فقط | 100K token | ❌ |
+| **Pro** | Haiku/Sonnet/Opus | 200K token | ✅ |
+| **Team** | كل النماذج | 200K token | ✅ مشترك |
+| **Enterprise** | كل النماذج + Fine-tuning | 200K+ | ✅ |
+
+### Context Window — ما يعنيه عملياً
+
+الـ 200K token تعني تقريباً:
+- 150,000 كلمة إنجليزية
+- كتاب كامل بـ 500 صفحة
+- أكثر من 10,000 سطر كود Python
+
+هذا يجعل Claude قادراً على تحليل مشاريع كاملة دفعة واحدة.
+
+### نصائح عملية للاستخدام اليومي
+
+1. **ابدأ بـ Projects** لأي عمل متكرر (عملك، مشاريعك، دراستك)
+2. **استخدم Artifacts** عند طلب كود — ستتمكن من تعديله مباشرةً
+3. **أرفق الملفات** بدلاً من لصق النص — أكثر دقة
+4. **اكتب تعليمات Project** مرة واحدة وسيتذكرها Claude دائماً
+`,
+      bodyEn: `## Complete Tour of Claude.ai
+
+Claude.ai is the official web interface for interacting with Anthropic's Claude models. In this lesson you'll explore every corner of the interface and understand the differences between plans.
+
+### The Main Interface
+
+When you open Claude.ai you'll find:
+
+| Element | Function |
+|---------|---------|
+| **Chat box** | Type your prompts here — supports very long text |
+| **Projects** | Folders organizing conversations by topic |
+| **Artifacts** | Side panel for code/HTML/SVG output |
+| **File upload** | PDF, images, Word docs up to 30 MB |
+| **Voice mode** | Voice conversation in the mobile app |
+
+### Available Models
+
+**Claude Haiku** — Fastest and cheapest. Ideal for simple, quick tasks.
+
+**Claude Sonnet** — The perfect balance of speed and quality. The default model for subscribers.
+
+**Claude Opus** — Most powerful for complex tasks: deep analysis, advanced code, multi-step reasoning.
+
+### Core Claude.ai Features
+
+#### 1. File and Image Uploads
+You can upload:
+- Images (PNG/JPG/GIF/WebP) → Claude analyzes and describes them
+- PDFs and documents → Claude reads the full content
+- Code (any language) → Claude reviews and improves it
+- Excel/CSV tables → Claude analyzes them and extracts insights
+
+#### 2. Artifacts
+When you ask Claude to write code, HTML, or formatted Markdown, it displays it in a separate Artifacts panel that allows:
+- Direct HTML preview in the browser
+- One-click code copying
+- Editing and asking Claude to update the result
+
+#### 3. Projects — A Real Game Changer
+Projects transform your daily workflow:
+- Persistent context memory (any context added to a project is saved for all conversations)
+- Custom project instructions (permanent System Prompt)
+- Reference files organized within the project
+- Team collaboration (on paid plans)
+
+### Plan Differences
+
+| Plan | Models | Context Window | Projects |
+|------|--------|----------------|---------|
+| **Free** | Haiku only | 100K tokens | ❌ |
+| **Pro** | Haiku/Sonnet/Opus | 200K tokens | ✅ |
+| **Team** | All models | 200K tokens | ✅ Shared |
+| **Enterprise** | All + Fine-tuning | 200K+ | ✅ |
+
+### Context Window — What It Means in Practice
+
+The 200K tokens means approximately:
+- 150,000 English words
+- A complete 500-page book
+- More than 10,000 lines of Python code
+
+This makes Claude capable of analyzing entire projects at once.
+
+### Practical Daily Tips
+
+1. **Start with Projects** for any recurring work (job, projects, studies)
+2. **Use Artifacts** when requesting code — you can edit it directly
+3. **Attach files** instead of pasting text — more accurate
+4. **Write Project instructions** once and Claude remembers them forever
+`,
+    },
+
+    // Lesson 2 — إطار المطالبة الاحترافية
+    {
+      bodyAr: `## إطار المطالبة الاحترافية
+
+المطالبة الاحترافية ليست سراً — هي مهارة قابلة للتعلم. في هذا الدرس ستتعلم الإطار الذي يستخدمه أفضل المستخدمين للحصول على نتائج استثنائية.
+
+### لماذا معظم المطالبات تفشل؟
+
+المشكلة الأكثر شيوعاً:
+
+> ❌ "اكتب لي إيميل"
+
+هذا يعطي Claude معلومات غير كافية. النتيجة ستكون عامة وغير مفيدة.
+
+> ✅ "اكتب إيميل احترافي إلى عميل يسأل عن تأخير التسليم. أسلوب: مهني ومحترم. الطول: فقرتان. اشرح أن التأخير 3 أيام بسبب الشحن وأكد الاعتذار."
+
+هذه المطالبة تعطي Claude كل ما يحتاجه.
+
+### إطار CRAFT
+
+| الحرف | المعنى | مثال |
+|-------|--------|------|
+| **C** — Context | السياق الكامل | "أنا مطور أعمل على تطبيق React..." |
+| **R** — Role | الدور المطلوب | "تصرف كـ Senior Code Reviewer" |
+| **A** — Action | الفعل المطلوب | "راجع هذا الكود وأخبرني بالمشاكل" |
+| **F** — Format | شكل الإجابة | "قائمة نقاط، الأهم أولاً" |
+| **T** — Tone | النبرة | "مباشر وعملي، بلا مجاملات" |
+
+### تقنيات متقدمة
+
+#### 1. Chain-of-Thought Prompting
+اطلب من Claude أن يفكر بصوت عالٍ:
+
+\`\`\`
+فكّر خطوة بخطوة:
+1. اشرح المشكلة
+2. اذكر الحلول الممكنة
+3. قارن بين الحلول
+4. أعطني توصيتك النهائية
+\`\`\`
+
+هذا يزيد دقة الإجابات للمسائل المعقدة بشكل ملحوظ.
+
+#### 2. Few-Shot Examples
+أعطِ أمثلة على المطلوب:
+
+\`\`\`
+حوّل العناوين الإخبارية إلى نبرة محايدة.
+
+مثال 1:
+الأصل: "الحكومة تفشل في إدارة الأزمة"
+المحايد: "مسؤولون يواجهون انتقادات حول إدارة الأزمة"
+
+مثال 2:
+الأصل: "رئيس الوزراء يتجنب الإجابة"
+المحايد: "رئيس الوزراء يؤجل الرد على التساؤلات"
+
+الآن حوّل: "الشركة تستغل العمال بلا رحمة"
+\`\`\`
+
+#### 3. XML Tags للهيكلة
+Claude يستجيب بشكل ممتاز للـ XML tags:
+
+\`\`\`xml
+<task>مراجعة كود Python</task>
+<code>
+def calculate(x, y):
+    return x/y
+</code>
+<requirements>
+- ابحث عن أخطاء منطقية
+- اقترح تحسينات للأداء
+- أضف error handling
+</requirements>
+<format>قائمة مرقمة حسب الأولوية</format>
+\`\`\`
+
+#### 4. Iterative Refinement
+لا تتوقف عند أول إجابة:
+
+\`\`\`
+الإجابة جيدة. الآن:
+- اجعلها أقصر بـ 30%
+- أضف مثالاً عملياً في الفقرة الثانية
+- غيّر النبرة لتكون أكثر تحفيزاً
+\`\`\`
+
+### أخطاء شائعة يجب تجنبها
+
+| الخطأ | المشكلة | الحل |
+|-------|---------|------|
+| المطالبة الغامضة | Claude يخمّن نيتك | كن محدداً |
+| عدة مهام في مرة | تضييع التركيز | مهمة واحدة في كل مطالبة |
+| تجاهل السياق | إجابات عامة | أعطِ context وافياً |
+| قبول أول إجابة | تفويت إمكانية التحسين | كرّر وحسّن |
+
+### قوالب جاهزة للاستخدام
+
+**للكود:**
+\`\`\`
+أنت senior developer خبير في [اللغة].
+راجع الكود التالي، ابحث عن: أخطاء، أداء، أمان.
+أجب في قائمة مرقمة حسب الخطورة.
+الكود: [الكود هنا]
+\`\`\`
+
+**للكتابة:**
+\`\`\`
+اكتب [النوع] عن [الموضوع].
+الجمهور: [من سيقرأ].
+النبرة: [رسمي/غير رسمي/تقني].
+الطول: [X كلمة].
+يجب أن تتضمن: [نقاط مهمة].
+\`\`\`
+
+**للتحليل:**
+\`\`\`
+حلّل [الموضوع] من زاويتين: الإيجابيات والسلبيات.
+ثم أعطني توصيتك النهائية مع التبرير.
+\`\`\`
+`,
+      bodyEn: `## Professional Prompting Framework
+
+Professional prompting is not a secret — it's a learnable skill. In this lesson you'll learn the framework that top users employ to get exceptional results.
+
+### Why Most Prompts Fail?
+
+The most common problem:
+
+> ❌ "Write me an email"
+
+This gives Claude insufficient information. The result will be generic and unhelpful.
+
+> ✅ "Write a professional email to a client asking about a delivery delay. Style: professional and respectful. Length: two paragraphs. Explain the 3-day delay due to shipping and confirm the apology."
+
+This prompt gives Claude everything it needs.
+
+### The CRAFT Framework
+
+| Letter | Meaning | Example |
+|--------|---------|---------|
+| **C** — Context | Full background | "I'm a developer working on a React app..." |
+| **R** — Role | Required role | "Act as a Senior Code Reviewer" |
+| **A** — Action | Required action | "Review this code and tell me the issues" |
+| **F** — Format | Answer format | "Bullet list, most important first" |
+| **T** — Tone | Tone | "Direct and practical, no flattery" |
+
+### Advanced Techniques
+
+#### 1. Chain-of-Thought Prompting
+Ask Claude to think out loud:
+
+\`\`\`
+Think step by step:
+1. Explain the problem
+2. List possible solutions
+3. Compare the solutions
+4. Give your final recommendation
+\`\`\`
+
+This notably increases accuracy for complex problems.
+
+#### 2. Few-Shot Examples
+Give examples of what you want:
+
+\`\`\`
+Convert news headlines to a neutral tone.
+
+Example 1:
+Original: "Government fails to manage crisis"
+Neutral: "Officials face criticism over crisis management"
+
+Example 2:
+Original: "Prime Minister avoids answering"
+Neutral: "Prime Minister delays response to questions"
+
+Now convert: "Company ruthlessly exploits workers"
+\`\`\`
+
+#### 3. XML Tags for Structure
+Claude responds excellently to XML tags:
+
+\`\`\`xml
+<task>Python code review</task>
+<code>
+def calculate(x, y):
+    return x/y
+</code>
+<requirements>
+- Find logical errors
+- Suggest performance improvements
+- Add error handling
+</requirements>
+<format>Numbered list by priority</format>
+\`\`\`
+
+#### 4. Iterative Refinement
+Don't stop at the first answer:
+
+\`\`\`
+Good answer. Now:
+- Make it 30% shorter
+- Add a practical example in the second paragraph
+- Change the tone to be more motivating
+\`\`\`
+
+### Common Mistakes to Avoid
+
+| Mistake | Problem | Solution |
+|---------|---------|---------|
+| Vague prompt | Claude guesses your intent | Be specific |
+| Multiple tasks at once | Scattered focus | One task per prompt |
+| Ignoring context | Generic answers | Provide ample context |
+| Accepting first answer | Missing improvement potential | Iterate and refine |
+
+### Ready-to-Use Templates
+
+**For code:**
+\`\`\`
+You are a senior developer expert in [language].
+Review the following code, look for: bugs, performance, security.
+Answer in a numbered list by severity.
+Code: [code here]
+\`\`\`
+
+**For writing:**
+\`\`\`
+Write a [type] about [topic].
+Audience: [who will read it].
+Tone: [formal/informal/technical].
+Length: [X words].
+Must include: [key points].
+\`\`\`
+
+**For analysis:**
+\`\`\`
+Analyze [topic] from two angles: pros and cons.
+Then give your final recommendation with justification.
+\`\`\`
+`,
+      codeExample: `# مثال عملي: مقارنة بين مطالبة ضعيفة ومطالبة قوية
+# هذا كود Python يوضح كيف يمكن هيكلة المطالبات برمجياً
+
+import anthropic
+
+client = anthropic.Anthropic()
+
+# ❌ مطالبة ضعيفة
+weak_prompt = "اكتب كوداً"
+
+# ✅ مطالبة قوية باستخدام إطار CRAFT
+def build_craft_prompt(
+    context: str,
+    role: str,
+    action: str,
+    output_format: str,
+    tone: str,
+    additional: str = ""
+) -> str:
+    return f"""<context>{context}</context>
+<role>{role}</role>
+<action>{action}</action>
+<format>{output_format}</format>
+<tone>{tone}</tone>
+{f"<additional>{additional}</additional>" if additional else ""}"""
+
+# بناء مطالبة احترافية
+professional_prompt = build_craft_prompt(
+    context="أنا مطور Python أعمل على API لتطبيق ويب يستخدم FastAPI",
+    role="Senior Python Developer متخصص في APIs وأمان التطبيقات",
+    action="اكتب دالة للتحقق من صحة الـ JWT token مع error handling كامل",
+    output_format="كود Python مع تعليقات واضحة، ثم شرح مختصر للاختيارات التقنية",
+    tone="تقني ودقيق، افترض خبرة متوسطة في Python",
+    additional="استخدم مكتبة PyJWT، تعامل مع حالات expired/invalid/missing token"
+)
+
+print("=== المطالبة المهيكلة ===")
+print(professional_prompt)
+
+# إرسال المطالبة لـ Claude
+message = client.messages.create(
+    model="claude-opus-4-8",
+    max_tokens=1024,
+    messages=[
+        {"role": "user", "content": professional_prompt}
+    ]
+)
+
+print("\n=== رد Claude ===")
+print(message.content[0].text)
+
+# ─────────────────────────────────────────
+# نموذج: Chain-of-Thought template
+cot_template = """
+حلّل المشكلة التالية خطوة بخطوة:
+
+المشكلة: {problem}
+
+الخطوات المطلوبة:
+1. افهم المشكلة وأعد صياغتها بكلماتك
+2. حدد المعطيات والمجاهيل
+3. اقترح 3 حلول ممكنة
+4. قيّم كل حل (إيجابيات/سلبيات/تكلفة)
+5. اختر الأفضل وبرر اختيارك
+
+أجب بتنسيق markdown منظم.
+"""
+
+problem = "خادمنا يستهلك 90% من الذاكرة تحت الحمل العالي ونريد تحسين الأداء"
+final_prompt = cot_template.format(problem=problem)
+print("\n=== مطالبة Chain-of-Thought ===")
+print(final_prompt[:300] + "...")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 3 — Claude Projects بعمق
+    {
+      bodyAr: `## Claude Projects بعمق
+
+Claude Projects هي التحول من "محادثات عشوائية" إلى "مساعد ذكي مخصص لعملك". في هذا الدرس ستتعلم كيف تبني Projects قوية تحوّل طريقة عملك اليومية.
+
+### ما هو Project؟
+
+Project هو مساحة عمل مستقلة تحتوي على:
+
+\`\`\`
+Project
+├── Project Instructions (System Prompt دائم)
+├── Knowledge Files (ملفات مرجعية)
+└── Conversations (محادثات مرتبطة)
+    ├── محادثة 1
+    ├── محادثة 2
+    └── محادثة 3 ...
+\`\`\`
+
+كل محادثة داخل الـ Project ترى الـ Instructions والملفات — بدون أي تكرار من جهتك.
+
+### إنشاء Project احترافي
+
+#### الخطوة 1: تعريف الهدف
+قبل البدء، اسأل نفسك:
+- ما الذي سيساعدني فيه هذا الـ Project؟
+- من هو "Claude" المثالي لهذا العمل؟
+- ما الملفات التي يحتاجها للعمل بشكل جيد؟
+
+#### الخطوة 2: كتابة Project Instructions قوية
+
+الـ Instructions هي "DNA" المساعد. مثال لـ Project تطوير برمجي:
+
+\`\`\`
+أنت مساعد تطوير برمجي متخصص في مشروع [اسم المشروع].
+
+## السياق التقني
+- Stack: Next.js 14 + TypeScript + Supabase + TailwindCSS
+- المشروع: منصة تعليمية للذكاء الاصطناعي
+- الجمهور: مستخدمون عرب مبتدئون ومتوسطون
+
+## قواعد الكود
+- استخدم TypeScript strict دائماً
+- اتبع React Server Components حيثما أمكن
+- الكود يجب أن يكون مباشراً وموثّقاً بالعربية
+- لا تكتب أي شيء خارج النطاق المطلوب
+
+## أسلوب التواصل
+- احتفظ بردود قصيرة وعملية
+- إذا كان الكود طويلاً، استخدم Artifacts
+- عند الشك، اسأل قبل الافتراض
+
+## ما يجب تجنبه
+- لا تقترح تغييرات غير مطلوبة
+- لا تعيد كتابة كود يعمل
+\`\`\`
+
+#### الخطوة 3: رفع Knowledge Files
+
+الملفات المثالية للـ Project:
+- **المواصفات التقنية** (README، API docs)
+- **قواعد الأسلوب** (style guide، لغة الكتابة)
+- **الهيكل الحالي** (ERD، Component tree)
+- **أمثلة على المطلوب** (samples)
+
+### حالات استخدام Project
+
+#### Project 1: المطور
+\`\`\`
+Instructions: "أنت code reviewer خبير..."
+Files: package.json + tsconfig + هيكل المجلدات
+الاستخدام: مراجعة كود، كتابة tests، debug
+\`\`\`
+
+#### Project 2: كاتب المحتوى
+\`\`\`
+Instructions: "أنت مدير محتوى لعلامة تجارية..."
+Files: دليل الأسلوب + ملف الشخصيات المستهدفة
+الاستخدام: كتابة مقالات، منشورات، إيميلات
+\`\`\`
+
+#### Project 3: الباحث
+\`\`\`
+Instructions: "أنت مساعد بحثي أكاديمي..."
+Files: الأبحاث المرجعية الرئيسية
+الاستخدام: تلخيص، تحليل، مقارنة أبحاث
+\`\`\`
+
+### إدارة الملفات في Project
+
+**أفضل الممارسات:**
+- ارفع الملفات الجوهرية فقط (لا تملأ الـ context بملفات غير مهمة)
+- حدّث الملفات عند تغيّر المشروع
+- استخدم أسماء ملفات واضحة تصف محتواها
+
+**حد الملفات:** 20 ملف × 30MB لكل ملف في الخطة Pro.
+
+### مشاركة الـ Projects (Team Plan)
+
+في الخطط المدفوعة يمكن مشاركة Project مع الفريق:
+- كل الأعضاء يرون نفس الـ Instructions والملفات
+- كل شخص له محادثاته الخاصة
+- مثالي للفرق التقنية وفرق المحتوى
+
+### نصيحة متقدمة: استخدام Project كـ "Brain" للفريق
+
+أنشئ Project واحداً يحتوي على:
+- وثيقة "هوية الشركة" (Mission, Values, Tone of Voice)
+- قاموس المصطلحات الخاصة بالمنتج
+- FAQ الشائعة
+
+الآن كل فرد في الفريق لديه مساعد يعرف الشركة تماماً.
+`,
+      bodyEn: `## Claude Projects in Depth
+
+Claude Projects are the shift from "random conversations" to "a smart assistant customized for your work." In this lesson you'll learn how to build powerful Projects that transform your daily workflow.
+
+### What is a Project?
+
+A Project is an independent workspace containing:
+
+\`\`\`
+Project
+├── Project Instructions (permanent System Prompt)
+├── Knowledge Files (reference files)
+└── Conversations (linked chats)
+    ├── Conversation 1
+    ├── Conversation 2
+    └── Conversation 3 ...
+\`\`\`
+
+Every conversation inside the Project sees the Instructions and files — without any repetition on your part.
+
+### Creating a Professional Project
+
+#### Step 1: Define the Goal
+Before starting, ask yourself:
+- What will this Project help me with?
+- Who is the "ideal Claude" for this work?
+- What files does it need to work well?
+
+#### Step 2: Write Strong Project Instructions
+
+Instructions are the "DNA" of the assistant. Example for a software development Project:
+
+\`\`\`
+You are a software development assistant specialized in [Project Name].
+
+## Technical Context
+- Stack: Next.js 14 + TypeScript + Supabase + TailwindCSS
+- Project: AI educational platform
+- Audience: Arabic-speaking beginner to intermediate users
+
+## Code Rules
+- Always use TypeScript strict
+- Follow React Server Components where possible
+- Code must be straightforward and commented in Arabic
+- Don't write anything outside the requested scope
+
+## Communication Style
+- Keep responses short and practical
+- If code is long, use Artifacts
+- When in doubt, ask before assuming
+
+## What to Avoid
+- Don't suggest unrequested changes
+- Don't rewrite working code
+\`\`\`
+
+#### Step 3: Upload Knowledge Files
+
+Ideal files for a Project:
+- **Technical specs** (README, API docs)
+- **Style guidelines** (style guide, writing language)
+- **Current structure** (ERD, Component tree)
+- **Examples of the desired output** (samples)
+
+### Project Use Cases
+
+#### Project 1: The Developer
+\`\`\`
+Instructions: "You are an expert code reviewer..."
+Files: package.json + tsconfig + folder structure
+Usage: Code review, writing tests, debugging
+\`\`\`
+
+#### Project 2: The Content Writer
+\`\`\`
+Instructions: "You are a content manager for a brand..."
+Files: Style guide + target persona file
+Usage: Writing articles, posts, emails
+\`\`\`
+
+#### Project 3: The Researcher
+\`\`\`
+Instructions: "You are an academic research assistant..."
+Files: Key reference papers
+Usage: Summarizing, analyzing, comparing research
+\`\`\`
+
+### Managing Files in a Project
+
+**Best practices:**
+- Upload only essential files (don't fill the context with unimportant files)
+- Update files when the project changes
+- Use clear file names that describe their content
+
+**File limit:** 20 files × 30 MB per file on the Pro plan.
+
+### Sharing Projects (Team Plan)
+
+On paid plans you can share a Project with your team:
+- All members see the same Instructions and files
+- Each person has their own conversations
+- Ideal for technical and content teams
+
+### Advanced Tip: Using Project as Team "Brain"
+
+Create one Project containing:
+- A "company identity" document (Mission, Values, Tone of Voice)
+- A glossary of product-specific terms
+- Common FAQ
+
+Now every team member has an assistant that knows the company perfectly.
+`,
+    },
+
+    // Lesson 4 — Claude Code: التثبيت والإعداد
+    {
+      bodyAr: `## Claude Code: التثبيت والإعداد
+
+Claude Code هو CLI احترافي يحوّل Claude إلى مساعد برمجي حقيقي يعمل مباشرةً في terminal ويتفاعل مع ملفات مشروعك الفعلية.
+
+### لماذا Claude Code؟
+
+الفرق بين Claude.ai وClaude Code:
+
+| | Claude.ai | Claude Code |
+|--|-----------|------------|
+| **الوصول للملفات** | ترفع يدوياً | يقرأ/يكتب مباشرةً |
+| **تشغيل الأوامر** | لا | يشغّل terminal commands |
+| **السياق** | محادثة فقط | المشروع كله |
+| **الاستخدام** | Browser | Terminal |
+| **المناسب لـ** | أسئلة عامة | تطوير فعلي |
+
+### متطلبات التثبيت
+
+- **Node.js 18+** (للتحقق: \`node --version\`)
+- **npm 8+** أو **Bun**
+- حساب Claude مع API key (من console.anthropic.com)
+- **OS:** macOS / Linux / Windows (WSL2 موصى به)
+
+### التثبيت
+
+\`\`\`bash
+# التثبيت العالمي
+npm install -g @anthropic-ai/claude-code
+
+# التحقق من التثبيت
+claude --version
+
+# أو باستخدام Bun (أسرع)
+bun install -g @anthropic-ai/claude-code
+\`\`\`
+
+### الإعداد الأول
+
+\`\`\`bash
+# إعداد الـ API key
+claude
+
+# في أول تشغيل ستُسأل عن:
+# 1. API key (من console.anthropic.com)
+# 2. Default model (Sonnet موصى به)
+# 3. Theme preference
+\`\`\`
+
+### الأوامر الأساسية
+
+#### التفاعل اليومي
+\`\`\`bash
+# بدء جلسة تفاعلية في المشروع الحالي
+claude
+
+# سؤال مباشر (بدون جلسة تفاعلية)
+claude "ما هو الغرض من هذه الدالة؟"
+
+# تشغيل مهمة محددة
+claude "أضف error handling لجميع async functions في src/"
+
+# مراجعة ملف معين
+claude "راجع هذا الملف وأخبرني بالمشاكل" < src/api/route.ts
+\`\`\`
+
+#### إدارة السياق
+\`\`\`bash
+# عرض السياق الحالي
+claude /context
+
+# إضافة ملف للسياق
+claude /add src/types/index.ts
+
+# مسح السياق والبدء من جديد
+claude /clear
+\`\`\`
+
+### ملف CLAUDE.md — قلب الإعداد
+
+CLAUDE.md هو ملف تضعه في جذر مشروعك، يقرأه Claude Code تلقائياً في كل جلسة:
+
+\`\`\`markdown
+# اسم المشروع
+
+## التقنيات
+- Next.js 15 + TypeScript
+- Supabase (auth + database)
+- TailwindCSS
+
+## قواعد الكود
+- استخدم async/await لا .then()
+- كل الـ API routes يجب أن تتحقق من المصادقة
+- اتبع naming convention: camelCase للـ variables، PascalCase للـ components
+
+## ما لا تفعله أبداً
+- لا تحذف ملفات بدون تأكيد
+- لا تعدّل ملفات الـ .env
+- لا تغيّر schema قاعدة البيانات بدون مراجعة
+
+## هيكل المجلدات
+src/
+├── app/          # Next.js routes
+├── components/   # React components
+├── lib/          # Utilities
+└── data/         # Static data
+\`\`\`
+
+### اختصارات مفيدة في الجلسة التفاعلية
+
+| الاختصار | الوظيفة |
+|---------|---------|
+| \`Ctrl+C\` | إيقاف الرد الحالي |
+| \`Ctrl+L\` | مسح الشاشة |
+| \`↑↓\` | التنقل بين الأوامر السابقة |
+| \`/help\` | عرض كل الأوامر |
+| \`/exit\` | الخروج |
+
+### أوضاع العمل
+
+**الوضع الحذر (افتراضي):**
+يطلب التأكيد قبل تعديل الملفات — مناسب للمشاريع الحساسة.
+
+**الوضع التلقائي:**
+يطبّق التغييرات مباشرةً — مناسب للمهام الواضحة:
+\`\`\`bash
+claude --dangerously-skip-permissions "أضف JSDoc لكل الدوال في utils/"
+\`\`\`
+
+### تكامل مع VS Code
+
+\`\`\`bash
+# تثبيت امتداد VS Code
+code --install-extension anthropics.claude-code
+
+# الآن يمكنك استخدام Claude Code من VS Code مباشرةً
+\`\`\`
+`,
+      bodyEn: `## Claude Code: Installation and Setup
+
+Claude Code is a professional CLI that turns Claude into a real coding assistant that works directly in your terminal and interacts with your actual project files.
+
+### Why Claude Code?
+
+The difference between Claude.ai and Claude Code:
+
+| | Claude.ai | Claude Code |
+|--|-----------|------------|
+| **File access** | Manual upload | Read/write directly |
+| **Run commands** | No | Runs terminal commands |
+| **Context** | Conversation only | Entire project |
+| **Usage** | Browser | Terminal |
+| **Best for** | General questions | Actual development |
+
+### Installation Requirements
+
+- **Node.js 18+** (check: \`node --version\`)
+- **npm 8+** or **Bun**
+- Claude account with API key (from console.anthropic.com)
+- **OS:** macOS / Linux / Windows (WSL2 recommended)
+
+### Installation
+
+\`\`\`bash
+# Global installation
+npm install -g @anthropic-ai/claude-code
+
+# Verify installation
+claude --version
+
+# Or using Bun (faster)
+bun install -g @anthropic-ai/claude-code
+\`\`\`
+
+### First-Time Setup
+
+\`\`\`bash
+# Configure API key
+claude
+
+# On first run you'll be asked for:
+# 1. API key (from console.anthropic.com)
+# 2. Default model (Sonnet recommended)
+# 3. Theme preference
+\`\`\`
+
+### Basic Commands
+
+#### Daily Interaction
+\`\`\`bash
+# Start an interactive session in the current project
+claude
+
+# Direct question (without interactive session)
+claude "What is the purpose of this function?"
+
+# Run a specific task
+claude "Add error handling to all async functions in src/"
+
+# Review a specific file
+claude "Review this file and tell me the issues" < src/api/route.ts
+\`\`\`
+
+### CLAUDE.md — The Core of Configuration
+
+CLAUDE.md is a file you place in your project root. Claude Code reads it automatically every session:
+
+\`\`\`markdown
+# Project Name
+
+## Technologies
+- Next.js 15 + TypeScript
+- Supabase (auth + database)
+- TailwindCSS
+
+## Code Rules
+- Use async/await not .then()
+- All API routes must verify authentication
+- Follow naming: camelCase for variables, PascalCase for components
+
+## Never Do
+- Don't delete files without confirmation
+- Don't modify .env files
+- Don't change database schema without review
+\`\`\`
+
+### Useful Shortcuts in Interactive Session
+
+| Shortcut | Function |
+|---------|---------|
+| \`Ctrl+C\` | Stop current response |
+| \`Ctrl+L\` | Clear screen |
+| \`↑↓\` | Navigate previous commands |
+| \`/help\` | Show all commands |
+| \`/exit\` | Exit |
+`,
+      codeExample: `#!/bin/bash
+# سكريبت إعداد Claude Code لمشروع جديد
+# احفظه كـ setup-claude.sh وشغّله مرة واحدة
+
+set -e
+
+echo "🤖 إعداد Claude Code للمشروع..."
+
+# 1. التحقق من التثبيت
+if ! command -v claude &> /dev/null; then
+    echo "📦 تثبيت Claude Code..."
+    npm install -g @anthropic-ai/claude-code
+fi
+
+echo "✅ Claude Code v$(claude --version) مثبّت"
+
+# 2. إنشاء CLAUDE.md
+cat > CLAUDE.md << 'EOF'
+# مشروع Darhous AI Academy
+
+## Stack التقني
+- Next.js 15 (App Router) + TypeScript strict
+- Supabase (auth + PostgreSQL + Storage)
+- TailwindCSS + shadcn/ui
+- @react-pdf/renderer للشهادات
+
+## قواعد لا تكسرها
+- كل الـ API routes تتحقق من authentication
+- استخدم Server Components بالـ default
+- error handling في كل fetch/await
+- لا تعدّل ملفات .env أبداً
+
+## هيكل المجلدات
+src/
+├── app/[locale]/     # Pages (bilingual AR/EN)
+├── app/api/          # API Routes
+├── components/       # Reusable components
+├── data/             # Static data files
+├── lib/              # Utilities & helpers
+└── types/            # TypeScript types
+
+## Style Guide
+- PascalCase: Components, Types, Interfaces
+- camelCase: variables, functions, hooks
+- kebab-case: files, folders, IDs
+- SCREAMING_SNAKE: constants
+
+## لغة الكود
+- Comments: بالعربية للسياق العام
+- Code: بالإنجليزية (variable names, etc.)
+- Error messages: بالعربية للمستخدم
+EOF
+
+echo "✅ تم إنشاء CLAUDE.md"
+
+# 3. إنشاء .claudeignore (ملفات Claude لا يحتاجها)
+cat > .claudeignore << 'EOF'
+node_modules/
+.next/
+.git/
+*.log
+*.lock
+dist/
+build/
+coverage/
+public/automation/workflows-json/
+EOF
+
+echo "✅ تم إنشاء .claudeignore"
+
+# 4. إنشاء سكريبت مساعد للمهام الشائعة
+cat > scripts/claude-tasks.sh << 'EOF'
+#!/bin/bash
+# مهام Claude Code المشتركة
+
+case "\$1" in
+  review)
+    claude "راجع الكود في \${2:-src/} وأخبرني بأي مشاكل أمان أو أداء"
+    ;;
+  types)
+    claude "تحقق من TypeScript types وأخبرني بأي أخطاء محتملة في src/"
+    ;;
+  tests)
+    claude "اكتب unit tests لـ \${2:-src/lib/} باستخدام Jest"
+    ;;
+  docs)
+    claude "أضف JSDoc documentation لجميع functions المُصدَّرة في \${2:-src/lib/}"
+    ;;
+  *)
+    echo "الاستخدام: ./claude-tasks.sh [review|types|tests|docs] [مسار اختياري]"
+    ;;
+esac
+EOF
+
+chmod +x scripts/claude-tasks.sh
+echo "✅ تم إنشاء scripts/claude-tasks.sh"
+
+echo ""
+echo "🎉 Claude Code جاهز! الأوامر المتاحة:"
+echo "  claude                    # جلسة تفاعلية"
+echo "  ./scripts/claude-tasks.sh review   # مراجعة الكود"
+echo "  ./scripts/claude-tasks.sh types    # فحص TypeScript"`,
+      codeLanguage: "bash",
+    },
+
+    // Lesson 5 — MCP Servers
+    {
+      bodyAr: `## MCP Servers
+
+MCP (Model Context Protocol) هو بروتوكول مفتوح طوّرته Anthropic يسمح لـ Claude بالتفاعل مع أدوات وأنظمة خارجية بطريقة آمنة وموحدة.
+
+### الفكرة الأساسية
+
+قبل MCP، كان كل تكامل يتطلب كوداً مخصصاً. مع MCP:
+
+\`\`\`
+Claude ←→ MCP Protocol ←→ أي أداة/نظام
+\`\`\`
+
+Claude يتحدث بـ MCP، والأداة تتحدث بـ MCP، والتكامل يحدث تلقائياً.
+
+### مكونات MCP
+
+**1. MCP Server**
+تطبيق صغير يكشف وظائف الأداة عبر بروتوكول MCP.
+
+**2. MCP Client**
+هو Claude Code أو Claude.ai — يتصل بالـ server ويستخدم وظائفه.
+
+**3. Tools**
+الإجراءات التي يمكن لـ Claude استدعاؤها (read_file, run_query, create_issue...).
+
+**4. Resources**
+بيانات يمكن لـ Claude قراءتها (قواعد بيانات، ملفات، APIs).
+
+### MCP Servers الجاهزة
+
+#### Filesystem
+\`\`\`json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/allowed"]
+    }
+  }
+}
+\`\`\`
+يتيح لـ Claude قراءة/كتابة الملفات في المسار المحدد فقط.
+
+#### GitHub
+\`\`\`json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxx" }
+    }
+  }
+}
+\`\`\`
+يتيح لـ Claude إنشاء Issues، مراجعة PRs، البحث في الكود.
+
+#### Supabase
+\`\`\`json
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "npx",
+      "args": ["-y", "@supabase/mcp-server-supabase"],
+      "env": {
+        "SUPABASE_URL": "https://xxx.supabase.co",
+        "SUPABASE_SERVICE_ROLE_KEY": "eyJxxx"
+      }
+    }
+  }
+}
+\`\`\`
+يتيح لـ Claude الاستعلام عن قاعدة البيانات وتنفيذ SQL.
+
+#### Brave Search
+\`\`\`json
+{
+  "mcpServers": {
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": { "BRAVE_API_KEY": "BSAxxxx" }
+    }
+  }
+}
+\`\`\`
+يتيح لـ Claude البحث على الإنترنت في الوقت الفعلي.
+
+### إعداد MCP في Claude Code
+
+\`\`\`bash
+# مشاهدة الـ servers المتصلة
+claude mcp list
+
+# إضافة server
+claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem ~/projects
+
+# إزالة server
+claude mcp remove filesystem
+\`\`\`
+
+أو يدوياً في \`~/.config/claude/mcp.json\`:
+
+\`\`\`json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/ahmed/projects"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_your_token"
+      }
+    }
+  }
+}
+\`\`\`
+
+### بناء MCP Server مخصص
+
+إذا أردت ربط Claude بنظامك الداخلي، يمكنك بناء Server خاص بك في Python أو TypeScript.
+
+مثال بسيط بـ Python:
+
+\`\`\`python
+from mcp.server import Server
+from mcp.types import Tool, TextContent
+import mcp.server.stdio
+
+server = Server("my-company-tools")
+
+@server.list_tools()
+async def list_tools():
+    return [
+        Tool(
+            name="get_employee_info",
+            description="احصل على معلومات موظف بالـ ID",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "employee_id": {"type": "string"}
+                },
+                "required": ["employee_id"]
+            }
+        )
+    ]
+
+@server.call_tool()
+async def call_tool(name: str, arguments: dict):
+    if name == "get_employee_info":
+        # هنا تقرأ من قاعدة بياناتك الداخلية
+        emp_id = arguments["employee_id"]
+        info = get_from_db(emp_id)
+        return [TextContent(type="text", text=str(info))]
+
+if __name__ == "__main__":
+    mcp.server.stdio.run(server)
+\`\`\`
+
+### أمان MCP
+
+**قاعدة ذهبية:** امنح Claude الأذونات الأدنى الكافية.
+
+- لا تعطِ كل الملفات — حدد المجلدات المسموح بها
+- لا تستخدم service_role key للـ Supabase — استخدم restricted key
+- راجع كل tool قبل إضافتها للإعداد
+`,
+      bodyEn: `## MCP Servers
+
+MCP (Model Context Protocol) is an open protocol developed by Anthropic that allows Claude to interact with external tools and systems in a safe, standardized way.
+
+### The Core Idea
+
+Before MCP, every integration required custom code. With MCP:
+
+\`\`\`
+Claude ←→ MCP Protocol ←→ Any tool/system
+\`\`\`
+
+Claude speaks MCP, the tool speaks MCP, and integration happens automatically.
+
+### MCP Components
+
+**1. MCP Server**
+A small application that exposes a tool's functionality via the MCP protocol.
+
+**2. MCP Client**
+Claude Code or Claude.ai — connects to the server and uses its functions.
+
+**3. Tools**
+Actions Claude can call (read_file, run_query, create_issue...).
+
+**4. Resources**
+Data Claude can read (databases, files, APIs).
+
+### Ready-to-Use MCP Servers
+
+#### Filesystem
+\`\`\`json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/allowed"]
+    }
+  }
+}
+\`\`\`
+Lets Claude read/write files in the specified path only.
+
+#### GitHub
+\`\`\`json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxx" }
+    }
+  }
+}
+\`\`\`
+Lets Claude create Issues, review PRs, and search code.
+
+### Security
+
+**Golden Rule:** Grant Claude the minimum necessary permissions.
+
+- Don't give all files — specify allowed folders
+- Don't use Supabase service_role key — use a restricted key
+- Review every tool before adding it to the config
+`,
+      codeExample: `# بناء MCP Server بسيط بـ Python
+# يربط Claude بقاعدة بيانات SQLite محلية
+
+# التثبيت: pip install mcp
+
+import sqlite3
+import asyncio
+from mcp.server import Server
+from mcp.types import Tool, TextContent, Resource, ReadResourceResult
+import mcp.server.stdio
+
+# إنشاء قاعدة بيانات تجريبية
+def init_db():
+    conn = sqlite3.connect("academy.db")
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS students (
+            id TEXT PRIMARY KEY,
+            name TEXT,
+            email TEXT,
+            courses_enrolled INTEGER DEFAULT 0,
+            last_login TEXT
+        )
+    """)
+    conn.execute("""
+        INSERT OR IGNORE INTO students VALUES
+        ('s001', 'أحمد محمد', 'ahmed@example.com', 3, '2026-06-01'),
+        ('s002', 'سارة علي', 'sara@example.com', 5, '2026-06-05'),
+        ('s003', 'محمد خالد', 'm.khalid@example.com', 1, '2026-05-28')
+    """)
+    conn.commit()
+    conn.close()
+
+init_db()
+
+# إنشاء الـ MCP Server
+server = Server("academy-db-server")
+
+@server.list_tools()
+async def list_tools() -> list[Tool]:
+    """قائمة الأدوات التي يمكن لـ Claude استخدامها"""
+    return [
+        Tool(
+            name="get_student",
+            description="احصل على معلومات طالب بالـ ID",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "student_id": {
+                        "type": "string",
+                        "description": "معرّف الطالب (مثل: s001)"
+                    }
+                },
+                "required": ["student_id"]
+            }
+        ),
+        Tool(
+            name="list_students",
+            description="احصل على قائمة كل الطلاب",
+            inputSchema={"type": "object", "properties": {}}
+        ),
+        Tool(
+            name="run_query",
+            description="تشغيل استعلام SQL للقراءة فقط",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "sql": {
+                        "type": "string",
+                        "description": "استعلام SELECT فقط"
+                    }
+                },
+                "required": ["sql"]
+            }
+        )
+    ]
+
+@server.call_tool()
+async def call_tool(name: str, arguments: dict) -> list[TextContent]:
+    """تنفيذ الأداة المطلوبة"""
+    conn = sqlite3.connect("academy.db")
+    conn.row_factory = sqlite3.Row
+
+    try:
+        if name == "get_student":
+            row = conn.execute(
+                "SELECT * FROM students WHERE id = ?",
+                (arguments["student_id"],)
+            ).fetchone()
+
+            if not row:
+                return [TextContent(type="text", text="الطالب غير موجود")]
+
+            result = dict(row)
+            return [TextContent(type="text", text=str(result))]
+
+        elif name == "list_students":
+            rows = conn.execute("SELECT * FROM students").fetchall()
+            result = [dict(r) for r in rows]
+            return [TextContent(type="text", text=str(result))]
+
+        elif name == "run_query":
+            sql = arguments["sql"].strip().upper()
+            # أمان: SELECT فقط
+            if not sql.startswith("SELECT"):
+                return [TextContent(type="text", text="❌ مسموح فقط بـ SELECT")]
+
+            rows = conn.execute(arguments["sql"]).fetchall()
+            result = [dict(r) for r in rows]
+            return [TextContent(type="text", text=str(result))]
+
+    finally:
+        conn.close()
+
+    return [TextContent(type="text", text="أداة غير معروفة")]
+
+async def main():
+    print("🚀 MCP Academy Server يعمل...")
+    async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
+        await server.run(read_stream, write_stream, server.create_initialization_options())
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+# ──────────────────────────────────────
+# إضافة الـ Server لـ Claude Code:
+# claude mcp add academy-db -- python path/to/this/server.py`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 6 — Claude API من الصفر
+    {
+      bodyAr: `## Claude API من الصفر
+
+Claude API يفتح لك الاحتمالات الكاملة لبناء تطبيقات AI حقيقية. في هذا الدرس ستتعلم من الـ authentication وحتى الـ streaming.
+
+### الخطوة الأولى: الحصول على API Key
+
+1. اذهب إلى [console.anthropic.com](https://console.anthropic.com)
+2. سجّل حساباً أو ادخل
+3. API Keys → Create Key
+4. احفظ الـ key في مكان آمن — لن تراه مرة أخرى
+
+### تثبيت الـ SDK
+
+\`\`\`bash
+# Python
+pip install anthropic
+
+# Node.js / TypeScript
+npm install @anthropic-ai/sdk
+
+# أو Bun
+bun add @anthropic-ai/sdk
+\`\`\`
+
+### أول طلب
+
+**Python:**
+\`\`\`python
+import anthropic
+
+client = anthropic.Anthropic(api_key="sk-ant-xxx")
+
+message = client.messages.create(
+    model="claude-opus-4-8",
+    max_tokens=1024,
+    messages=[
+        {"role": "user", "content": "اشرح لي ما هو الذكاء الاصطناعي في 3 جمل"}
+    ]
+)
+
+print(message.content[0].text)
+\`\`\`
+
+**TypeScript:**
+\`\`\`typescript
+import Anthropic from "@anthropic-ai/sdk";
+
+const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+const message = await client.messages.create({
+  model: "claude-opus-4-8",
+  max_tokens: 1024,
+  messages: [
+    { role: "user", content: "اشرح لي ما هو الذكاء الاصطناعي في 3 جمل" }
+  ],
+});
+
+console.log(message.content[0].text);
+\`\`\`
+
+### بنية الرسائل
+
+\`\`\`python
+messages = [
+    {"role": "user", "content": "ما هو Python؟"},
+    {"role": "assistant", "content": "Python لغة برمجة..."},  # رد سابق
+    {"role": "user", "content": "ما هي أفضل مكتباتها؟"},      # سؤال جديد
+]
+\`\`\`
+
+هكذا تبني محادثة متعددة الأدوار.
+
+### System Prompts
+
+\`\`\`python
+message = client.messages.create(
+    model="claude-opus-4-8",
+    max_tokens=1024,
+    system="أنت مساعد تقني متخصص في Python. أجب دائماً بأمثلة كود.",
+    messages=[
+        {"role": "user", "content": "كيف أعكس قائمة؟"}
+    ]
+)
+\`\`\`
+
+### Streaming (البث المباشر)
+
+\`\`\`python
+with client.messages.stream(
+    model="claude-opus-4-8",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "اكتب قصيدة عن البرمجة"}]
+) as stream:
+    for text in stream.text_stream:
+        print(text, end="", flush=True)
+\`\`\`
+
+Streaming ضروري لتطبيقات الـ chat — يُظهر الرد فور توليده بدلاً من الانتظار.
+
+### Vision API (تحليل الصور)
+
+\`\`\`python
+import base64
+
+with open("screenshot.png", "rb") as f:
+    image_data = base64.standard_b64encode(f.read()).decode("utf-8")
+
+message = client.messages.create(
+    model="claude-opus-4-8",
+    max_tokens=1024,
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "image",
+                    "source": {
+                        "type": "base64",
+                        "media_type": "image/png",
+                        "data": image_data,
+                    },
+                },
+                {"type": "text", "text": "ما المشكلة في هذا الكود؟"}
+            ],
+        }
+    ],
+)
+\`\`\`
+
+### Tool Use (أدوات خارجية)
+
+Tool Use يسمح لـ Claude باستدعاء دوال في كودك:
+
+\`\`\`python
+tools = [
+    {
+        "name": "get_weather",
+        "description": "احصل على الطقس في مدينة معينة",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "city": {"type": "string", "description": "اسم المدينة"}
+            },
+            "required": ["city"]
+        }
+    }
+]
+
+message = client.messages.create(
+    model="claude-opus-4-8",
+    max_tokens=1024,
+    tools=tools,
+    messages=[{"role": "user", "content": "ما طقس الرياض اليوم؟"}]
+)
+
+# إذا أراد Claude استخدام الأداة:
+if message.stop_reason == "tool_use":
+    tool_call = next(b for b in message.content if b.type == "tool_use")
+    city = tool_call.input["city"]
+    weather_result = fetch_weather_api(city)  # دالتك الحقيقية
+    # ثم أرسل النتيجة لـ Claude ليكمل إجابته
+\`\`\`
+
+### معالجة الأخطاء
+
+\`\`\`python
+from anthropic import APIStatusError, APIConnectionError, RateLimitError
+
+try:
+    message = client.messages.create(...)
+except RateLimitError:
+    # انتظر وأعد المحاولة
+    time.sleep(60)
+except APIStatusError as e:
+    if e.status_code == 529:  # Overloaded
+        print("API مزدحم — حاول لاحقاً")
+except APIConnectionError:
+    print("تعذّر الاتصال — فحص الشبكة")
+\`\`\`
+
+### الأسعار (2026)
+
+| النموذج | Input ($/1M token) | Output ($/1M token) |
+|---------|-------------------|-------------------|
+| Haiku 4.5 | $0.80 | $4 |
+| Sonnet 4.6 | $3 | $15 |
+| Opus 4.8 | $15 | $75 |
+
+نصيحة: استخدم Haiku للمهام البسيطة المتكررة وOpus للتحليل المعقد.
+`,
+      bodyEn: `## Claude API from Scratch
+
+The Claude API opens the full possibilities for building real AI applications. In this lesson you'll learn from authentication all the way to streaming.
+
+### Step 1: Get an API Key
+
+1. Go to [console.anthropic.com](https://console.anthropic.com)
+2. Register or sign in
+3. API Keys → Create Key
+4. Save the key somewhere safe — you won't see it again
+
+### Install the SDK
+
+\`\`\`bash
+# Python
+pip install anthropic
+
+# Node.js / TypeScript
+npm install @anthropic-ai/sdk
+\`\`\`
+
+### First Request
+
+**Python:**
+\`\`\`python
+import anthropic
+
+client = anthropic.Anthropic(api_key="sk-ant-xxx")
+
+message = client.messages.create(
+    model="claude-opus-4-8",
+    max_tokens=1024,
+    messages=[
+        {"role": "user", "content": "Explain what AI is in 3 sentences"}
+    ]
+)
+
+print(message.content[0].text)
+\`\`\`
+
+### Streaming
+
+\`\`\`python
+with client.messages.stream(
+    model="claude-opus-4-8",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Write a poem about programming"}]
+) as stream:
+    for text in stream.text_stream:
+        print(text, end="", flush=True)
+\`\`\`
+
+Streaming is essential for chat applications — it shows the response as it's generated rather than waiting.
+`,
+      codeExample: `# تطبيق Chat كامل مع Claude API
+# يدعم: محادثة متعددة الأدوار + Streaming + حفظ السجل
+
+import anthropic
+import json
+from pathlib import Path
+from datetime import datetime
+
+client = anthropic.Anthropic()  # يقرأ ANTHROPIC_API_KEY من env تلقائياً
+
+HISTORY_FILE = Path("chat_history.json")
+
+def load_history() -> list[dict]:
+    """تحميل سجل المحادثة"""
+    if HISTORY_FILE.exists():
+        return json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
+    return []
+
+def save_history(messages: list[dict]) -> None:
+    """حفظ سجل المحادثة"""
+    HISTORY_FILE.write_text(
+        json.dumps(messages, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+
+def chat(
+    user_input: str,
+    history: list[dict],
+    system_prompt: str = "أنت مساعد ذكي تتحدث العربية. أجب بإيجاز ووضوح.",
+    model: str = "claude-opus-4-8",
+    stream: bool = True
+) -> tuple[str, list[dict]]:
+    """
+    إرسال رسالة والحصول على رد مع streaming اختياري.
+    يُرجع (الرد, السجل المحدَّث).
+    """
+    # إضافة رسالة المستخدم
+    history.append({"role": "user", "content": user_input})
+
+    full_response = ""
+
+    if stream:
+        print("Claude: ", end="", flush=True)
+        with client.messages.stream(
+            model=model,
+            max_tokens=2048,
+            system=system_prompt,
+            messages=history
+        ) as stream_ctx:
+            for text in stream_ctx.text_stream:
+                print(text, end="", flush=True)
+                full_response += text
+        print()  # سطر جديد بعد الرد
+    else:
+        message = client.messages.create(
+            model=model,
+            max_tokens=2048,
+            system=system_prompt,
+            messages=history
+        )
+        full_response = message.content[0].text
+        print(f"Claude: {full_response}")
+
+    # إضافة رد Claude للسجل
+    history.append({"role": "assistant", "content": full_response})
+
+    return full_response, history
+
+
+def main():
+    print("=" * 50)
+    print("🤖 Claude Chat — اكتب 'خروج' للإنهاء")
+    print("=" * 50)
+
+    # تحميل السجل السابق أو البدء من جديد
+    choice = input("\nهل تريد استئناف المحادثة السابقة؟ (y/n): ").strip().lower()
+    history = load_history() if choice == "y" else []
+
+    if history:
+        print(f"✅ تم تحميل {len(history)} رسالة سابقة")
+
+    system_prompt = """أنت مساعد AI متخصص للطلاب في أكاديمية Darhous.
+مهامك:
+- شرح مفاهيم AI وBrainomvation بطريقة مبسطة
+- مساعدة في الكود والأخطاء التقنية
+- تقديم أمثلة عملية وواقعية
+أسلوبك: ودود، واضح، موجز — بالعربية."""
+
+    session_messages: list[dict] = []  # رسائل الجلسة الحالية فقط
+
+    while True:
+        user_input = input("\nأنت: ").strip()
+
+        if not user_input:
+            continue
+
+        if user_input in ["خروج", "exit", "quit"]:
+            # دمج رسائل الجلسة مع السجل وحفظه
+            full_history = history + session_messages
+            save_history(full_history)
+            print(f"\n✅ تم حفظ {len(full_history)} رسالة في {HISTORY_FILE}")
+            break
+
+        _, session_messages = chat(
+            user_input=user_input,
+            history=history + session_messages,  # السياق الكامل
+            system_prompt=system_prompt
+        )
+
+        # نبقي فقط رسائل الجلسة الحالية في session_messages
+        # لتجنب التكرار مع history
+        if len(session_messages) > 2:
+            session_messages = session_messages[-20:]  # آخر 10 أزواج
+
+if __name__ == "__main__":
+    main()`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 7 — مشروع: بناء مساعد ذكي كامل
+    {
+      bodyAr: `## مشروع: بناء مساعد ذكي كامل
+
+في هذا المشروع ستطبّق كل ما تعلمته في الدورة لبناء مساعد AI كامل يعمل من terminal. المساعد يدعم: محادثة طويلة، تحليل الملفات، البحث في الويب (عبر MCP)، وذاكرة بين الجلسات.
+
+### ما ستبنيه
+
+\`\`\`
+Smart Assistant
+├── 💬 محادثة متعددة الأدوار مع Streaming
+├── 📁 تحليل الملفات (PDF, Code, Text)
+├── 🔍 بحث في الويب (عبر Brave MCP)
+├── 🧠 ذاكرة بين الجلسات
+└── 🎨 واجهة terminal جميلة
+\`\`\`
+
+### هيكل المشروع
+
+\`\`\`
+smart-assistant/
+├── main.py           # نقطة الدخول
+├── assistant.py      # منطق المساعد
+├── memory.py         # نظام الذاكرة
+├── tools.py          # أدوات المساعد
+├── ui.py             # واجهة المستخدم
+├── .env              # متغيرات البيئة
+└── requirements.txt  # المتطلبات
+\`\`\`
+
+### ما تحتاجه
+
+\`\`\`bash
+pip install anthropic rich python-dotenv pypdf2
+\`\`\`
+
+متغيرات البيئة (.env):
+\`\`\`
+ANTHROPIC_API_KEY=sk-ant-xxx
+ASSISTANT_NAME=دارهوس
+MEMORY_MAX_MESSAGES=50
+\`\`\`
+
+### ما تعلمته في هذه الدورة
+
+في هذه الدورة، مررت بكل ما يحتاجه المحترف لاستخدام Claude بفعالية:
+
+| الدرس | ما تعلمته |
+|-------|---------|
+| 1. Claude.ai | Projects, Artifacts, خطط الاشتراك |
+| 2. الإطار الاحترافي | CRAFT, Chain-of-Thought, XML Tags |
+| 3. Projects | System Prompts دائمة، ملفات المعرفة |
+| 4. Claude Code | CLI، CLAUDE.md، اختصارات |
+| 5. MCP | بروتوكول التكامل، Servers جاهزة |
+| 6. Claude API | SDK، Streaming، Vision، Tool Use |
+| 7. **المشروع** | تطبيق حقيقي يجمع كل المهارات |
+
+### الخطوات التالية
+
+بعد إتمام هذا المشروع، يمكنك:
+
+1. **إضافة واجهة ويب** — استخدم Next.js + Vercel AI SDK
+2. **ربط Supabase** — حفظ المحادثات في قاعدة بيانات
+3. **إضافة Voice** — استخدم Whisper للتفريغ الصوتي
+4. **نشر على Vercel** — اجعل المساعد متاحاً للعموم
+
+### تحدّيك
+
+ابنِ المشروع كاملاً، ثم أضف ميزة واحدة من اختيارك:
+- دعم الصور (Vision API)
+- تلخيص تلقائي للمحادثة الطويلة
+- تعدد الشخصيات (اختر بين عدة system prompts)
+- تصدير المحادثة إلى PDF
+
+شارك نتيجتك في مجتمع Darhous!
+`,
+      bodyEn: `## Project: Build a Complete Smart Assistant
+
+In this project you'll apply everything you've learned in the course to build a complete AI assistant that runs in the terminal. The assistant supports: long conversations, file analysis, web search (via MCP), and memory between sessions.
+
+### What You'll Build
+
+\`\`\`
+Smart Assistant
+├── 💬 Multi-turn conversation with Streaming
+├── 📁 File analysis (PDF, Code, Text)
+├── 🔍 Web search (via Brave MCP)
+├── 🧠 Memory between sessions
+└── 🎨 Beautiful terminal UI
+\`\`\`
+
+### Project Structure
+
+\`\`\`
+smart-assistant/
+├── main.py           # Entry point
+├── assistant.py      # Assistant logic
+├── memory.py         # Memory system
+├── tools.py          # Assistant tools
+├── ui.py             # User interface
+├── .env              # Environment variables
+└── requirements.txt  # Requirements
+\`\`\`
+
+### What You Need
+
+\`\`\`bash
+pip install anthropic rich python-dotenv pypdf2
+\`\`\`
+
+### What You Learned in This Course
+
+In this course, you went through everything a professional needs to use Claude effectively:
+
+| Lesson | What You Learned |
+|--------|---------|
+| 1. Claude.ai | Projects, Artifacts, subscription plans |
+| 2. Professional Framework | CRAFT, Chain-of-Thought, XML Tags |
+| 3. Projects | Permanent System Prompts, knowledge files |
+| 4. Claude Code | CLI, CLAUDE.md, shortcuts |
+| 5. MCP | Integration protocol, ready-to-use servers |
+| 6. Claude API | SDK, Streaming, Vision, Tool Use |
+| 7. **Project** | A real app combining all skills |
+`,
+      codeExample: `# smart-assistant/assistant.py
+# المساعد الذكي الكامل — يجمع كل مهارات الدورة
+
+import os
+import json
+import anthropic
+from pathlib import Path
+from datetime import datetime
+from typing import Optional
+import base64
+
+# ──────────────────────────────────────
+# نظام الذاكرة
+# ──────────────────────────────────────
+MEMORY_FILE = Path("memory.json")
+
+def load_memory() -> dict:
+    if MEMORY_FILE.exists():
+        return json.loads(MEMORY_FILE.read_text(encoding="utf-8"))
+    return {"messages": [], "facts": [], "created_at": datetime.now().isoformat()}
+
+def save_memory(memory: dict) -> None:
+    max_msgs = int(os.getenv("MEMORY_MAX_MESSAGES", "50"))
+    if len(memory["messages"]) > max_msgs:
+        # احتفظ بأهم الرسائل (الأولى 5 + آخر max-5)
+        memory["messages"] = memory["messages"][:5] + memory["messages"][-(max_msgs-5):]
+    MEMORY_FILE.write_text(
+        json.dumps(memory, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+
+# ──────────────────────────────────────
+# تحليل الملفات
+# ──────────────────────────────────────
+def read_file_content(file_path: str) -> tuple[str, str]:
+    """
+    يقرأ الملف ويُرجع (المحتوى, نوع الملف).
+    يدعم: .txt .py .ts .js .md .pdf
+    """
+    path = Path(file_path)
+    suffix = path.suffix.lower()
+
+    if suffix == ".pdf":
+        try:
+            import PyPDF2
+            with open(path, "rb") as f:
+                reader = PyPDF2.PdfReader(f)
+                text = "\n".join(
+                    page.extract_text() or "" for page in reader.pages
+                )
+            return text[:20000], "pdf"  # حد 20K حرف
+        except ImportError:
+            return "خطأ: مكتبة PyPDF2 غير مثبتة (pip install pypdf2)", "error"
+
+    elif suffix in (".png", ".jpg", ".jpeg", ".webp", ".gif"):
+        # صور — ترجع base64 للـ Vision API
+        with open(path, "rb") as f:
+            data = base64.standard_b64encode(f.read()).decode()
+        media_type = f"image/{suffix[1:].replace('jpg', 'jpeg')}"
+        return data, f"image:{media_type}"
+
+    else:
+        # ملفات نصية
+        try:
+            return path.read_text(encoding="utf-8")[:20000], "text"
+        except UnicodeDecodeError:
+            return path.read_text(encoding="latin-1")[:20000], "text"
+
+
+# ──────────────────────────────────────
+# المساعد الرئيسي
+# ──────────────────────────────────────
+class SmartAssistant:
+    def __init__(self):
+        self.client = anthropic.Anthropic()
+        self.name = os.getenv("ASSISTANT_NAME", "المساعد الذكي")
+        self.memory = load_memory()
+        self.model = "claude-opus-4-8"
+
+        self.system_prompt = f"""أنت {self.name} — مساعد AI ذكي ومخصص.
+
+قدراتك:
+- محادثة طبيعية وذكية بالعربية والإنجليزية
+- تحليل الملفات (كود، PDF، نصوص)
+- تحليل الصور وشرح محتواها
+- تذكّر المحادثات السابقة
+
+أسلوبك:
+- ودود، واضح، موجز
+- استخدم أمثلة عملية
+- اعترف بعدم المعرفة بدلاً من التخمين
+- عند الكود، استخدم code blocks دائماً
+
+التاريخ الحالي: {datetime.now().strftime('%Y-%m-%d')}"""
+
+    def build_messages(self, new_message: dict) -> list[dict]:
+        """بناء قائمة الرسائل مع السياق التاريخي"""
+        return self.memory["messages"] + [new_message]
+
+    def chat(self, user_input: str, file_path: Optional[str] = None) -> str:
+        """إرسال رسالة والحصول على رد مع streaming"""
+
+        # بناء محتوى الرسالة
+        if file_path:
+            content, file_type = read_file_content(file_path)
+
+            if file_type.startswith("image:"):
+                media_type = file_type.split(":")[1]
+                message_content = [
+                    {
+                        "type": "image",
+                        "source": {"type": "base64", "media_type": media_type, "data": content}
+                    },
+                    {"type": "text", "text": user_input}
+                ]
+            else:
+                message_content = f"{user_input}\n\n<file name='{Path(file_path).name}'>\n{content}\n</file>"
+        else:
+            message_content = user_input
+
+        new_message = {"role": "user", "content": message_content}
+        messages = self.build_messages(new_message)
+
+        # Streaming response
+        full_response = ""
+        print(f"\n{self.name}: ", end="", flush=True)
+
+        with self.client.messages.stream(
+            model=self.model,
+            max_tokens=2048,
+            system=self.system_prompt,
+            messages=messages
+        ) as stream:
+            for text in stream.text_stream:
+                print(text, end="", flush=True)
+                full_response += text
+
+        print()  # سطر جديد
+
+        # حفظ في الذاكرة (نص فقط للـ user إذا كان content قائمة)
+        user_text = user_input if file_path else str(message_content)
+        self.memory["messages"].append({"role": "user", "content": user_text})
+        self.memory["messages"].append({"role": "assistant", "content": full_response})
+        save_memory(self.memory)
+
+        return full_response
+
+    def clear_memory(self):
+        """مسح ذاكرة المحادثة"""
+        self.memory["messages"] = []
+        save_memory(self.memory)
+        print("✅ تم مسح الذاكرة")
+
+
+# ──────────────────────────────────────
+# تشغيل المساعد
+# ──────────────────────────────────────
+def main():
+    from dotenv import load_dotenv
+    load_dotenv()
+
+    assistant = SmartAssistant()
+
+    print("=" * 55)
+    print(f"🤖 {assistant.name} — مساعد AI الكامل")
+    print("=" * 55)
+    print("الأوامر:")
+    print("  /ملف <مسار>  — تحليل ملف")
+    print("  /مسح         — مسح الذاكرة")
+    print("  /خروج        — الخروج")
+    print("-" * 55)
+
+    if assistant.memory["messages"]:
+        print(f"💾 تم تحميل {len(assistant.memory['messages'])} رسالة من الذاكرة")
+
+    while True:
+        user_input = input("\nأنت: ").strip()
+
+        if not user_input:
+            continue
+
+        if user_input in ["/خروج", "/exit"]:
+            print("\n👋 إلى اللقاء!")
+            break
+
+        if user_input == "/مسح":
+            assistant.clear_memory()
+            continue
+
+        if user_input.startswith("/ملف "):
+            file_path = user_input[5:].strip()
+            if not Path(file_path).exists():
+                print(f"❌ الملف غير موجود: {file_path}")
+                continue
+            question = input("سؤالك عن الملف: ").strip() or "حلّل هذا الملف"
+            assistant.chat(question, file_path=file_path)
+            continue
+
+        assistant.chat(user_input)
+
+if __name__ == "__main__":
+    main()`,
+      codeLanguage: "python",
+    },
+  ],
+
 };
