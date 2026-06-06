@@ -9,19 +9,44 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | Phase 3 — Launch-Critical Correctness Guards COMPLETE ✅ |
-| **Next Phase** | Phase 4 — Content Completion (C7: claude-mastery → machine-learning → ...) — **تنتظر تأكيد المستخدم** |
+| **Version** | Phase 4 — Content Completion IN PROGRESS (C7: claude-mastery ✅) |
+| **Next Phase** | Phase 4 C7 cont.: machine-learning → generative-ai → ai-for-business → باقي الدورات |
 | **خطة التنفيذ** | `reports/خطة-التنفيذ.md` (v2 — معتمدة — على main) |
-| **Status** | ✅ comingSoon guard (15 courses) + Arabic/RTL cert fix (Amiri + bidi) |
+| **Status** | ✅ claude-mastery: 7 دروس كاملة + comingSoon removed |
 | **Build** | ✅ Clean — 0 TypeScript errors — exit 0 |
-| **Last Tag** | `checkpoint/cert-arabic-rtl-fix` |
-| **Commit** | `bf3bdcd` |
+| **Last Tag** | `checkpoint/phase-C7-claude-mastery` |
+| **Commit** | `ae75123` |
 | **GitHub** | https://github.com/Darhous/darhous-ai-cloud-academy (Public) |
 | **Vercel** | https://darhous-ai-cloud-academy.vercel.app |
 | **Vercel Team** | `darhous-projects` (NOT `darhous` — causes 404) |
 | **Supabase** | https://supabase.com/dashboard/project/kzbdmyovspkbakbtvgig |
 | **Branch** | `main` (العمل على main فقط) |
-| **Last Updated** | 2026-06-06 (Phase 3 — Correctness Guards) |
+| **Last Updated** | 2026-06-06 (Phase 4 — C7 claude-mastery) |
+
+---
+
+## 🔄 Phase 4 — Content Completion IN PROGRESS (2026-06-06)
+
+**C7 — الدورات بالترتيب:** `claude-mastery` ✅ → `machine-learning` → `generative-ai` → `ai-for-business` → باقي الدورات
+
+### C7a — claude-mastery ✅ COMPLETE
+**Tag:** `checkpoint/phase-C7-claude-mastery` · **Commit:** `ae75123`
+
+| # | الدرس | المحتوى |
+|---|-------|---------|
+| 1 | جولة شاملة على Claude.ai | Claude.ai UI, models, خطط, Projects, Artifacts |
+| 2 | إطار المطالبة الاحترافية | CRAFT, Chain-of-Thought, XML Tags, قوالب جاهزة + كود Python |
+| 3 | Claude Projects بعمق | هيكل Project, Instructions, Knowledge Files, حالات استخدام |
+| 4 | Claude Code: التثبيت والإعداد | تثبيت CLI, CLAUDE.md, .claudeignore, اختصارات + bash script |
+| 5 | MCP Servers | بروتوكول MCP, Filesystem/GitHub/Supabase servers, بناء custom server + Python |
+| 6 | Claude API من الصفر | SDK, Streaming, Vision, Tool Use, معالجة أخطاء + Python chat app |
+| 7 | مشروع: مساعد ذكي كامل | SmartAssistant class: ذاكرة + streaming + تحليل ملفات + base64 images |
+
+**التغييرات:**
+- `src/data/lessons/content.ts`: +2099 سطر (7 دروس claude-mastery)
+- `src/data/courses.ts`: إزالة `comingSoon: true` من claude-mastery
+
+**التالي:** `machine-learning` (8 دروس) — تنتظر تأكيد "كمل"
 
 ---
 
