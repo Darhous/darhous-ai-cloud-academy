@@ -85,7 +85,7 @@ export default function InterviewPrepClient() {
             onClick={() => setTab(t)}
             className="px-5 py-2 rounded-xl text-sm font-medium transition-all"
             style={tab === t
-              ? { background: "rgba(245,158,11,0.2)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.3)" }
+              ? { background: "var(--portal-color-subtle)", color: "var(--portal-color)", border: "1px solid var(--portal-color-glow)" }
               : { color: "var(--color-on-surface-variant)", border: "1px solid transparent" }}
           >
             {t === "questions" ? "بنك الأسئلة" : "مقيّم STAR الذكي"}
@@ -140,7 +140,7 @@ export default function InterviewPrepClient() {
 
         {tab === "star" && (
           <motion.div key="star" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-6">
-            <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(245,158,11,0.15)" }}>
+            <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid var(--portal-color-border)" }}>
               <h3 className="font-semibold mb-2" style={{ color: "var(--color-on-surface)" }}>أسلوب STAR للإجابات السلوكية</h3>
               <p className="text-sm mb-6" style={{ color: "var(--color-on-surface-variant)" }}>
                 اكتب إجابتك على إحدى الأسئلة السلوكية باستخدام هيكل STAR، وسيقيّم الذكاء الاصطناعي جودتها ويقترح نسخة محسّنة.
@@ -170,7 +170,7 @@ export default function InterviewPrepClient() {
                 onClick={handleEvaluate}
                 disabled={isEval}
                 className="flex items-center gap-3 px-8 py-3 rounded-xl text-sm font-bold transition-all disabled:opacity-40"
-                style={{ background: "rgba(245,158,11,0.2)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.35)" }}
+                style={{ background: "var(--portal-color-subtle)", color: "var(--portal-color)", border: "1px solid var(--portal-color-glow)" }}
               >
                 {isEval ? <Loader2 size={16} className="animate-spin" /> : <Sparkles size={16} />}
                 {isEval ? "جاري التقييم..." : "قيّم إجابتي بالذكاء الاصطناعي"}
@@ -181,7 +181,7 @@ export default function InterviewPrepClient() {
               {evalResult && (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
                   {/* Score */}
-                  <div className="glass-card rounded-2xl p-6 text-center" style={{ border: "1px solid rgba(245,158,11,0.2)" }}>
+                  <div className="glass-card rounded-2xl p-6 text-center" style={{ border: "1px solid var(--portal-color-border)" }}>
                     <div className="text-4xl font-bold font-mono mb-2" style={{ color: evalResult.score >= 80 ? "#4ade80" : evalResult.score >= 60 ? "#f59e0b" : "#f87171" }}>
                       {evalResult.score}/100
                     </div>

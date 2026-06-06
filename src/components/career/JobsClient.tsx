@@ -113,7 +113,7 @@ export default function JobsClient() {
                 layout
                 onClick={() => setSelected(selected?.id === job.id ? null : job)}
                 className="glass-card rounded-2xl p-5 cursor-pointer transition-all"
-                style={{ border: selected?.id === job.id ? `1px solid rgba(245,158,11,0.4)` : "1px solid rgba(255,255,255,0.06)" }}
+                style={{ border: selected?.id === job.id ? `1px solid var(--portal-color-glow)` : "1px solid rgba(255,255,255,0.06)" }}
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
@@ -167,12 +167,12 @@ export default function JobsClient() {
 
                         {job.cvSuggestions && job.cvSuggestions.length > 0 && (
                           <div>
-                            <p className="text-xs font-semibold mb-2 flex items-center gap-1" style={{ color: "#f59e0b" }}>
+                            <p className="text-xs font-semibold mb-2 flex items-center gap-1" style={{ color: "var(--portal-color)" }}>
                               <Briefcase size={11} /> اقتراحات لتحسين سيرتك
                             </p>
                             {job.cvSuggestions.map((s, i) => (
                               <p key={i} className="text-xs mb-1 flex gap-1.5" style={{ color: "var(--color-on-surface-variant)" }}>
-                                <span style={{ color: "#f59e0b" }}>•</span>{s}
+                                <span style={{ color: "var(--portal-color)" }}>•</span>{s}
                               </p>
                             ))}
                           </div>
@@ -194,7 +194,7 @@ export default function JobsClient() {
 
         {/* Summary panel */}
         <div className="hidden lg:block">
-          <div className="glass-card rounded-2xl p-6 sticky top-24" style={{ border: "1px solid rgba(245,158,11,0.1)" }}>
+          <div className="glass-card rounded-2xl p-6 sticky top-24" style={{ border: "1px solid var(--portal-color-border)" }}>
             <h3 className="font-semibold text-sm mb-4" style={{ color: "var(--color-on-surface)" }}>
               {selected ? selected.title : "اختر وظيفة لعرض التفاصيل"}
             </h3>
@@ -209,12 +209,12 @@ export default function JobsClient() {
                 </div>
                 {selected.salary && (
                   <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                    <span className="font-mono font-semibold" style={{ color: "#f59e0b" }}>الراتب: </span>{selected.salary}
+                    <span className="font-mono font-semibold" style={{ color: "var(--portal-color)" }}>الراتب: </span>{selected.salary}
                   </p>
                 )}
                 <button
                   className="w-full py-3 rounded-xl text-sm font-semibold transition-all"
-                  style={{ background: "rgba(245,158,11,0.15)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.3)" }}
+                  style={{ background: "var(--portal-color-subtle)", color: "var(--portal-color)", border: "1px solid var(--portal-color-glow)" }}
                 >
                   التقديم على الوظيفة (قريباً)
                 </button>

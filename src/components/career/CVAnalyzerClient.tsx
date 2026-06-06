@@ -83,7 +83,7 @@ export default function CVAnalyzerClient() {
         <div className="glass-card rounded-3xl p-6 flex flex-col" style={{ minHeight: 380 }}>
           <div className="flex items-center justify-between mb-4">
             <label className="text-sm font-semibold flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
-              <FileText size={16} style={{ color: "#f59e0b" }} />
+              <FileText size={16} style={{ color: "var(--portal-color)" }} />
               محتوى السيرة الذاتية <span style={{ color: "#f87171" }}>*</span>
             </label>
             <input type="file" ref={fileInputRef} onChange={handleFileUpload} accept=".pdf,.txt" className="hidden" />
@@ -91,7 +91,7 @@ export default function CVAnalyzerClient() {
               onClick={() => fileInputRef.current?.click()}
               disabled={isUploading}
               className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg transition-all disabled:opacity-50"
-              style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.3)", color: "#f59e0b" }}
+              style={{ background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-glow)", color: "var(--portal-color)" }}
             >
               {isUploading ? <Loader2 size={12} className="animate-spin" /> : <FileUp size={12} />}
               رفع PDF/TXT
@@ -146,17 +146,17 @@ export default function CVAnalyzerClient() {
             className="space-y-6"
           >
             {/* Overall Score */}
-            <div className="glass-card rounded-3xl p-8 relative overflow-hidden" style={{ border: "1px solid rgba(245,158,11,0.2)" }}>
+            <div className="glass-card rounded-3xl p-8 relative overflow-hidden" style={{ border: "1px solid var(--portal-color-border)" }}>
               <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-l from-amber-500 via-yellow-400 to-orange-400" />
 
               <div className="flex flex-col md:flex-row items-center gap-8 mb-8 pb-8 border-b" style={{ borderColor: "var(--color-outline-variant)" }}>
                 {/* Circular score */}
                 <div className="relative shrink-0 flex items-center justify-center">
                   <svg className="w-32 h-32 -rotate-90">
-                    <circle cx="64" cy="64" r="56" stroke="currentColor" strokeWidth="8" fill="transparent" className="opacity-20" style={{ color: "#f59e0b" }} />
+                    <circle cx="64" cy="64" r="56" stroke="currentColor" strokeWidth="8" fill="transparent" className="opacity-20" style={{ color: "var(--portal-color)" }} />
                     <motion.circle
                       cx="64" cy="64" r="56"
-                      stroke="#f59e0b" strokeWidth="8" fill="transparent"
+                      stroke="#fbbf24" strokeWidth="8" fill="transparent"
                       strokeDasharray="351.858"
                       initial={{ strokeDashoffset: 351.858 }}
                       animate={{ strokeDashoffset: 351.858 - (351.858 * result.overall_score) / 100 }}
@@ -165,14 +165,14 @@ export default function CVAnalyzerClient() {
                     />
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-3xl font-bold font-mono" style={{ color: "#f59e0b" }}>{result.overall_score}%</span>
+                    <span className="text-3xl font-bold font-mono" style={{ color: "var(--portal-color)" }}>{result.overall_score}%</span>
                     <span className="text-[10px] font-mono" style={{ color: "var(--color-on-surface-variant)" }}>ATS Score</span>
                   </div>
                 </div>
 
                 <div className="flex-1 w-full">
                   <h3 className="text-xl font-bold mb-2 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
-                    <BarChart2 size={20} style={{ color: "#f59e0b" }} />
+                    <BarChart2 size={20} style={{ color: "var(--portal-color)" }} />
                     التقييم العام
                   </h3>
                   <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--color-on-surface-variant)" }}>{result.summary}</p>
@@ -188,8 +188,8 @@ export default function CVAnalyzerClient() {
 
               {/* Job match details */}
               {result.job_description_match_details && (
-                <div className="mb-8 rounded-2xl p-5" style={{ background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.15)" }}>
-                  <h4 className="font-bold flex items-center gap-2 mb-3 text-sm" style={{ color: "#f59e0b" }}>
+                <div className="mb-8 rounded-2xl p-5" style={{ background: "var(--portal-color-faint)", border: "1px solid var(--portal-color-border)" }}>
+                  <h4 className="font-bold flex items-center gap-2 mb-3 text-sm" style={{ color: "var(--portal-color)" }}>
                     <Target size={16} /> تحليل مطابقة الوظيفة
                   </h4>
                   <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{result.job_description_match_details}</p>
@@ -282,13 +282,13 @@ export default function CVAnalyzerClient() {
               {result.role_optimization_suggestions?.length > 0 && (
                 <div className="rounded-2xl p-5" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--color-outline-variant)" }}>
                   <h4 className="font-bold mb-4 flex items-center gap-2 text-sm" style={{ color: "var(--color-on-surface)" }}>
-                    <TrendingUp size={16} style={{ color: "#f59e0b" }} />
+                    <TrendingUp size={16} style={{ color: "var(--portal-color)" }} />
                     تخصيص السيرة الذاتية للدور المستهدف
                   </h4>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {result.role_optimization_suggestions.map((s, i) => (
                       <li key={i} className="text-sm flex gap-2" style={{ color: "var(--color-on-surface-variant)" }}>
-                        <Target size={14} className="flex-shrink-0 mt-0.5" style={{ color: "#f59e0b" }} />
+                        <Target size={14} className="flex-shrink-0 mt-0.5" style={{ color: "var(--portal-color)" }} />
                         {s}
                       </li>
                     ))}

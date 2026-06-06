@@ -33,7 +33,7 @@ const inputStyle = {
   border: "1px solid var(--color-outline-variant)",
   color: "var(--color-on-surface)",
 };
-const focusRingStyle = { "--tw-ring-color": "#f59e0b" } as React.CSSProperties;
+const focusRingStyle = { "--tw-ring-color": "var(--portal-color)" } as React.CSSProperties;
 
 export default function CVBuilderClient() {
   const [step, setStep] = useState(0);
@@ -76,7 +76,7 @@ export default function CVBuilderClient() {
   return (
     <div className="flex flex-col lg:flex-row gap-6 min-h-[600px]">
       {/* Form Panel */}
-      <div className="flex-1 flex flex-col glass-card rounded-3xl overflow-hidden" style={{ border: "1px solid rgba(245,158,11,0.15)" }}>
+      <div className="flex-1 flex flex-col glass-card rounded-3xl overflow-hidden" style={{ border: "1px solid var(--portal-color-border)" }}>
         {/* Step tabs */}
         <div className="flex overflow-x-auto gap-1 p-3" style={{ background: "rgba(255,255,255,0.02)", borderBottom: "1px solid var(--color-outline-variant)" }}>
           {STEPS.map((s, idx) => {
@@ -89,10 +89,10 @@ export default function CVBuilderClient() {
                 onClick={() => setStep(idx)}
                 className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium shrink-0 transition-all"
                 style={isActive
-                  ? { background: "rgba(245,158,11,0.15)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.3)" }
+                  ? { background: "var(--portal-color-subtle)", color: "var(--portal-color)", border: "1px solid var(--portal-color-glow)" }
                   : { color: "var(--color-on-surface-variant)", border: "1px solid transparent" }}
               >
-                <div className="w-5 h-5 rounded-full flex items-center justify-center text-[10px]" style={{ background: isActive ? "#f59e0b" : isPast ? "rgba(74,222,128,0.2)" : "rgba(255,255,255,0.05)", color: isActive ? "#0c0e12" : isPast ? "#4ade80" : "inherit" }}>
+                <div className="w-5 h-5 rounded-full flex items-center justify-center text-[10px]" style={{ background: isActive ? "var(--portal-color)" : isPast ? "rgba(74,222,128,0.2)" : "rgba(255,255,255,0.05)", color: isActive ? "#0c0e12" : isPast ? "#4ade80" : "inherit" }}>
                   {isPast ? <Check size={10} /> : idx + 1}
                 </div>
                 <span className="hidden sm:inline">{s.labelAr}</span>
@@ -216,11 +216,11 @@ export default function CVBuilderClient() {
                       onChange={(e) => setSkillInput(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && addSkill()}
                     />
-                    <button onClick={addSkill} className="px-4 py-2.5 rounded-xl text-sm font-medium" style={{ background: "rgba(245,158,11,0.15)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.3)" }}>إضافة</button>
+                    <button onClick={addSkill} className="px-4 py-2.5 rounded-xl text-sm font-medium" style={{ background: "var(--portal-color-subtle)", color: "var(--portal-color)", border: "1px solid var(--portal-color-glow)" }}>إضافة</button>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {data.skills.map((sk, i) => (
-                      <span key={i} className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full" style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.25)", color: "#f59e0b" }}>
+                      <span key={i} className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full" style={{ background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-glow)", color: "var(--portal-color)" }}>
                         {sk}
                         <button onClick={() => removeSkill(i)} className="hover:opacity-70">✕</button>
                       </span>
@@ -257,16 +257,16 @@ export default function CVBuilderClient() {
           <button onClick={prev} className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm ${step === 0 ? "invisible" : ""}`} style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)" }}>
             <ChevronRight size={16} /> السابق
           </button>
-          <button onClick={next} className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium ${step === STEPS.length - 1 ? "invisible" : ""}`} style={{ background: "rgba(245,158,11,0.15)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.3)" }}>
+          <button onClick={next} className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium ${step === STEPS.length - 1 ? "invisible" : ""}`} style={{ background: "var(--portal-color-subtle)", color: "var(--portal-color)", border: "1px solid var(--portal-color-glow)" }}>
             التالي <ChevronLeft size={16} />
           </button>
         </div>
       </div>
 
       {/* Live Preview (desktop) */}
-      <div className="hidden lg:flex flex-col w-96 glass-card rounded-3xl overflow-hidden" style={{ border: "1px solid rgba(245,158,11,0.1)" }}>
-        <div className="p-3 flex items-center justify-between" style={{ borderBottom: "1px solid var(--color-outline-variant)", background: "rgba(245,158,11,0.05)" }}>
-          <span className="text-xs font-mono" style={{ color: "#f59e0b" }}>معاينة حية</span>
+      <div className="hidden lg:flex flex-col w-96 glass-card rounded-3xl overflow-hidden" style={{ border: "1px solid var(--portal-color-border)" }}>
+        <div className="p-3 flex items-center justify-between" style={{ borderBottom: "1px solid var(--color-outline-variant)", background: "var(--portal-color-faint)" }}>
+          <span className="text-xs font-mono" style={{ color: "var(--portal-color)" }}>معاينة حية</span>
           <div className="flex items-center gap-1.5">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             <span className="text-[10px]" style={{ color: "var(--color-on-surface-variant)" }}>Live</span>
