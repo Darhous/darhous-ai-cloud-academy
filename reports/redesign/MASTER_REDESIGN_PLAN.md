@@ -1,12 +1,14 @@
 # Darhous AI Cloud Academy — Master Redesign Execution Plan
-### "Digital Depth" Direction · Planning Artifact (NOT yet executed)
+### "Digital Depth" Direction · Active Execution
 
 > **Created:** 2026-06-06
 > **Author:** Senior Creative Director + Design System Architect (UI/UX Pro Max)
-> **Status:** 🟡 PLAN COMPLETE — AWAITING GO/NO-GO FOR EXECUTION
-> **Branch at plan time:** `main` · clean tree
-> **Checkpoint tag:** `checkpoint/pre-redesign-plan`
+> **Status:** 🟢 PHASE 1 COMPLETE — Phase 2 next
+> **Branch:** `main` · commit `c88404e`
+> **Checkpoint tags:** `checkpoint/pre-redesign-plan` (baseline) · `checkpoint/redesign-p1-foundation` (Phase 1)
 > **Companion file:** [`CHECKPOINT.md`](./CHECKPOINT.md)
+>
+> **Phase 1 completed:** 2026-06-06 — tsc ✓ · lint 0 errors ✓ · build exit 0 ✓ · pushed to Vercel
 
 ---
 
@@ -122,17 +124,19 @@ These are hard constraints for **every** phase. Any change that risks these is o
 - Approve §3 direction, §4.2 portal colors (esp. Language #c084fc, Career #fbbf24), §4.4 display fonts, icon strategy (Lucide vs custom 7), landing section reorder.
 - **Risk:** zero.
 
-### Phase 1 — Global foundation + accessibility baseline
-**Goal:** tokens + a11y, near-zero visual regression.
-- `globals.css`: add token system, spacing/radius/shadow scales, `@media (prefers-reduced-motion: reduce)` block, `body[dir=rtl]{line-height:1.7}` + heading override, restrained-glass rules.
-- `tailwind.config.ts`: expose tokens.
-- `layout.tsx` (`[locale]`): add skip-to-content link; reduce 3 fixed orbs → 1 at 4% opacity.
-- `Navbar.tsx`: `aria-label` on icon-only buttons (Search, Theme, Lang, hamburger); `role="navigation"`; `aria-expanded/haspopup` on dropdown triggers.
-- `config/portals.ts`: color/gradient **values** only (with approval).
-- **Touch:** globals.css, tailwind.config.ts, [locale]/layout.tsx, Navbar.tsx, portals.ts(values).
-- **Never:** any api/data/auth/cert.
-- **Risk:** Low. **Rollback:** revert globals.css (single file).
-- **Tag:** `checkpoint/redesign-p1-foundation`.
+### Phase 1 — Global foundation + accessibility baseline ✅ COMPLETE (2026-06-06)
+**commit:** `c88404e` · **tag:** `checkpoint/redesign-p1-foundation` · build ✓ · pushed to Vercel
+
+**Done:**
+- `globals.css`: Cairo display font added to Google Fonts import; `--font-display-ar/en` vars; `h1,h2` display typography rules; spacing scale `--space-1…--space-24`; motion tokens `--motion-fast/base/slow`; 7 portal identity token blocks (`[data-portal="x"]` attr selectors, Career `#fbbf24`, Language `#c084fc`); `body[dir=rtl]{line-height:1.7}`; `@media(prefers-reduced-motion:reduce)` block (WCAG 2.3.3 fix).
+- `[locale]/layout.tsx`: skip-to-main-content link (`#main-content`, bilingual, SR-only until focused); orbs **3 → 1**; `id="main-content"` on `<main>`.
+- `Navbar.tsx`: `aria-label` on `<nav>`; `aria-expanded` + `aria-haspopup` on Portals + AI Studio desktop dropdowns; `aria-expanded` on both mobile accordions.
+- **6 new portal layout.tsx wrappers** (pulled forward from Phase 3 per user approval): `ai-academy`, `language`, `digital-exams`, `career`, `automation`, `nano-banana-prompts` — each is 7 lines, `data-portal` attr only, zero logic.
+
+**Not done / deferred:**
+- `tailwind.config.ts` token exposure → deferred; CSS custom properties cover all needs.
+- `portals.ts` color value edits → not needed; new colors live in `[data-portal]` CSS tokens.
+- IoT Lab layout `data-portal` attr → deferred to Phase 3 (it has logic, needs care).
 
 ### Phase 2 — Landing page redesign
 **Goal:** new section order, hero "Ecosystem Entry", portal showcase, 2 CTAs, SVG OS-mockup, dissolve "Why Darhous" grid, dramatic final CTA.
@@ -146,11 +150,12 @@ These are hard constraints for **every** phase. Any change that risks these is o
 
 ### Phase 3 — Portal identity system (the highest-impact change)
 **Goal:** each portal gets its surface/atmosphere via `[data-portal]`.
-- Add 7 portal token blocks to `globals.css`.
-- **NEW additive layouts** for the 6 portals lacking one: create `layout.tsx` under `ai-academy`, `language`, `digital-exams`, `career`, `automation`, `nano-banana-prompts` — each only wraps children with `data-portal` + portal background; **no logic**.
-- IoT Lab: edit existing `iot-lab/layout.tsx` to add `data-portal="iot-lab"`.
+- ✅ 7 portal token blocks in `globals.css` — done in Phase 1.
+- ✅ 6 new additive `layout.tsx` wrappers — done in Phase 1.
+- **Remaining:** IoT Lab: edit existing `iot-lab/layout.tsx` to add `data-portal="iot-lab"` wrapper.
+- Apply `var(--portal-color)` to portal-specific components (cards, headers, CTAs, hero accents) — this is the main Phase 3 task.
 - Verify global Navbar/Footer still use global tokens (no bleed) — test one portal in isolation first.
-- **Touch:** globals.css, 6 new `layout.tsx`, 1 existing iot-lab layout.
+- **Touch:** iot-lab/layout.tsx (minor edit); portal page/section components (visual props only).
 - **Never:** page logic, data.
 - **Risk:** Low (additive). **Rollback:** delete new layouts + revert css block.
 - **Tag:** `checkpoint/redesign-p3-portal-identity`.

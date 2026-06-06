@@ -1,9 +1,9 @@
-# Redesign Checkpoint — Pre-Execution Baseline
+# Redesign Checkpoint — Phase 1 Complete
 
+> **Latest tag:** `checkpoint/redesign-p1-foundation` · commit `c88404e`
+> **Baseline tag:** `checkpoint/pre-redesign-plan` · commit `ad6bf0e`
+> **Branch:** `main` · pushed to Vercel
 > **Date:** 2026-06-06
-> **Tag:** `checkpoint/pre-redesign-plan`
-> **Branch:** `main`
-> **Purpose:** Frozen baseline + resume point for the "Digital Depth" redesign.
 
 ---
 
@@ -14,11 +14,15 @@
 | Master plan | ✅ Written → [`MASTER_REDESIGN_PLAN.md`](./MASTER_REDESIGN_PLAN.md) |
 | Repo fully enumerated | ✅ 88 pages, ~100 components, 33 dirs |
 | Design direction | ✅ Locked: "Digital Depth" |
-| Design tokens | ✅ Specified (global + 7 portal layers) |
-| 8 phases defined | ✅ With file lists, risk, rollback per phase |
-| Application code changed | ❌ **NONE** (plan + docs only) |
+| **Phase 1 — Foundation + a11y** | ✅ **COMPLETE** — `c88404e` |
+| `globals.css` tokens | ✅ Cairo, display fonts, spacing, motion, portal tokens, Arabic line-height |
+| `prefers-reduced-motion` | ✅ WCAG 2.3.3 fixed |
+| Skip link | ✅ Added (`#main-content`, bilingual) |
+| Orbs 3 → 1 | ✅ Done |
+| Navbar a11y | ✅ `aria-label`, `aria-expanded`, `aria-haspopup` |
+| 6 portal layout wrappers | ✅ Additive, zero logic, `data-portal` only |
 | Content / architecture / APIs | ❌ **UNTOUCHED** |
-| Execution started | ⏸️ **NOT STARTED — awaiting GO/NO-GO** |
+| Phase 2 (landing) | ⏸️ Not started |
 
 ---
 
@@ -53,6 +57,13 @@
 
 ---
 
-## PENDING USER DECISION
+## NEXT STEP
 
-➡️ **Start executing the plan (begin Phase 1)? — YES / NO**
+➡️ **Phase 2 — Landing page redesign** (await user GO/NO-GO)
+- Split `HomepageClient.tsx` (940 lines) → 8 focused sections
+- Reorder landing sections, replace OS-mockup emoji icons with Lucide SVG
+- Apply `useReducedMotion` to all Framer Motion variants
+- **Risk:** Medium. Use feature branch. Rollback: restore old HomepageClient.
+
+**Rollback to Phase 1 state:** `git reset --hard checkpoint/redesign-p1-foundation`
+**Rollback to baseline:** `git reset --hard checkpoint/pre-redesign-plan`
