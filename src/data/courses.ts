@@ -587,7 +587,7 @@ export const courses: Course[] = [
     descriptionEn: "Deploying, managing, and monitoring ML models in production environments.",
     level: "advanced", lessons: 28, hours: 24, projects: 4,
     skills: ["MLflow", "DVC", "CI/CD", "Docker", "Kubernetes", "Monitoring"],
-    category: "MLOps", icon: "🔄", featured: true, color: "green", comingSoon: true,
+    category: "MLOps", icon: "🔄", featured: true, color: "green",
     overviewAr: "MLOps هو الجسر بين تطوير نماذج ML وتشغيلها في الإنتاج. ستتعلم كيف تبني خطوط CI/CD لنماذج ML، تتبع التجارب، ونشر النماذج بشكل آمن.",
     overviewEn: "MLOps is the bridge between developing ML models and running them in production. You'll learn how to build CI/CD pipelines for ML models, track experiments, and deploy models safely.",
     forWhoAr: ["مطورو ML الذين يريدون الإنتاج", "مهندسو السحاب المهتمون بـ ML"],

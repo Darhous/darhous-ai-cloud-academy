@@ -15994,4 +15994,836 @@ print("\\n✅ المشروع جاهز للنشر على AWS Lambda!")`,
     },
   ],
 
+  "mlops": [
+    {
+      bodyAr: `## ما هو MLOps؟
+
+**MLOps** (Machine Learning Operations) هو مجموعة الممارسات التي تجسر الفجوة بين تطوير نماذج ML وتشغيلها في الإنتاج.
+
+### المشكلة التي يحلها MLOps:
+بدون MLOps، يحدث هذا كثيراً:
+- يبني Data Scientist نموذجاً بدقة 94% على جهازه
+- يحاول نقله للإنتاج → يستغرق أسابيع أو يفشل
+- بعد النشر لا أحد يراقبه → يتدهور الأداء دون علم
+
+### المكونات الأساسية:
+- **Data Management** — إدارة وإصدار البيانات (DVC)
+- **Experiment Tracking** — تتبع التجارب والمعاملات (MLflow)
+- **Model Registry** — تخزين وإصدار النماذج
+- **CI/CD for ML** — أتمتة الاختبار والنشر
+- **Monitoring** — مراقبة الأداء والانجراف في الإنتاج
+
+### مستويات النضج (Maturity Levels):
+- **Level 0** — كل شيء يدوي، لا أتمتة
+- **Level 1** — تتبع التجارب والنماذج
+- **Level 2** — CI/CD مؤتمت
+- **Level 3** — مراقبة كاملة وإعادة تدريب تلقائية`,
+      bodyEn: `## What is MLOps?
+
+**MLOps** (Machine Learning Operations) is the set of practices that bridges the gap between developing ML models and running them in production.
+
+### The Problem MLOps Solves:
+Without MLOps, this happens frequently:
+- Data Scientist builds a model with 94% accuracy on their machine
+- Tries to move it to production → takes weeks or fails
+- After deployment nobody monitors it → performance degrades without anyone knowing
+
+### Core Components:
+- **Data Management** — data versioning and management (DVC)
+- **Experiment Tracking** — tracking experiments and parameters (MLflow)
+- **Model Registry** — storing and versioning models
+- **CI/CD for ML** — automating testing and deployment
+- **Monitoring** — monitoring performance and drift in production
+
+### Maturity Levels:
+- **Level 0** — everything manual, no automation
+- **Level 1** — experiment and model tracking
+- **Level 2** — automated CI/CD
+- **Level 3** — full monitoring and automatic retraining`,
+      codeExample: `from dataclasses import dataclass, field
+from typing import List, Tuple
+
+# ─── MLOps Maturity Model ──────────────────────────────────
+@dataclass
+class MLProject:
+    name:               str
+    model_type:         str
+    version:            str   = "1.0.0"
+    accuracy:           float = 0.0
+    is_deployed:        bool  = False
+    tracking_enabled:   bool  = False
+    ci_cd_enabled:      bool  = False
+    monitoring_enabled: bool  = False
+
+    def mlops_score(self) -> int:
+        return sum([
+            25 if self.tracking_enabled   else 0,
+            25 if self.is_deployed        else 0,
+            25 if self.ci_cd_enabled      else 0,
+            25 if self.monitoring_enabled else 0,
+        ])
+
+    def maturity_level(self) -> str:
+        s = self.mlops_score()
+        if s == 0:  return "Level 0 — Manual (لا أتمتة)"
+        if s <= 25: return "Level 1 — Tracking"
+        if s <= 50: return "Level 2 — Deployed"
+        if s <= 75: return "Level 3 — CI/CD"
+        return       "Level 4 — Full MLOps ✨"
+
+    def report(self):
+        score = self.mlops_score()
+        level = self.maturity_level()
+        print(f"\\n📊 {self.name} (v{self.version})")
+        print(f"   النوع    : {self.model_type}")
+        print(f"   Accuracy : {self.accuracy:.1%}")
+        print(f"   Score    : {score}/100 — {level}")
+        checks: List[Tuple[str, bool]] = [
+            ("Experiment Tracking", self.tracking_enabled),
+            ("Deployed to Prod",    self.is_deployed),
+            ("CI/CD Automated",     self.ci_cd_enabled),
+            ("Monitoring Active",   self.monitoring_enabled),
+        ]
+        for label, ok in checks:
+            icon = "✅" if ok else "❌"
+            print(f"   {icon} {label}")
+
+# ─── قبل MLOps ─────────────────────────────────────────────
+print("🔬 الوضع بدون MLOps:")
+print("-" * 50)
+proto = MLProject(
+    name="sentiment-model", model_type="Text Classifier",
+    version="1.0.0", accuracy=0.89,
+)
+proto.report()
+
+# ─── بعد MLOps ─────────────────────────────────────────────
+print(f"\\n🚀 الوضع بعد تطبيق MLOps:")
+print("-" * 50)
+prod = MLProject(
+    name="sentiment-model", model_type="Text Classifier",
+    version="2.3.1", accuracy=0.94,
+    is_deployed=True, tracking_enabled=True,
+    ci_cd_enabled=True, monitoring_enabled=True,
+)
+prod.report()
+
+# ─── مكونات MLOps ──────────────────────────────────────────
+print(f"\\n\\n🧱 مكونات MLOps الرئيسية:")
+components = [
+    ("Data Management",  "DVC, Delta Lake",        "إدارة وإصدار البيانات"),
+    ("Experiment Track", "MLflow, W&B",             "تتبع التجارب والمعاملات"),
+    ("Model Registry",   "MLflow, HuggingFace Hub", "تخزين وإصدار النماذج"),
+    ("CI/CD",            "GitHub Actions, Jenkins", "أتمتة الاختبار والنشر"),
+    ("Serving",          "FastAPI, TorchServe",     "خدمة النموذج للإنتاج"),
+    ("Monitoring",       "Evidently, Grafana",      "مراقبة الجودة والانجراف"),
+]
+for comp, tools, desc in components:
+    print(f"  📦 {comp:<20} — {desc}")
+    print(f"     أدوات: {tools}")
+    print()`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## MLflow — تتبع تجارب ML
+
+**MLflow** منصة مفتوحة المصدر لإدارة دورة حياة نماذج ML من التجربة حتى الإنتاج.
+
+### المكونات الأربعة:
+- **MLflow Tracking** — تسجيل المعاملات والمقاييس في كل تجربة
+- **MLflow Projects** — تغليف كود التدريب لإعادة التشغيل
+- **MLflow Models** — صيغة موحدة لحفظ النماذج
+- **MLflow Registry** — مستودع مركزي لإدارة إصدارات النماذج
+
+### لماذا نحتاج MLflow؟
+بدونه تصبح التجارب فوضوية — لا تعرف أي المعاملات استُخدمت، أي نسخة حققت أفضل نتيجة، وكيف تعيد التجربة.
+
+### Experiment vs Run:
+- **Experiment** — مشروع أو مهمة محددة (مثل "sentiment-classifier")
+- **Run** — تجربة واحدة بمعاملات محددة (مثل lr=0.001, epochs=10)
+
+### Model Stages:
+**None** → **Staging** → **Production** → **Archived**`,
+      bodyEn: `## MLflow — ML Experiment Tracking
+
+**MLflow** is an open-source platform for managing the ML model lifecycle from experiment to production.
+
+### The Four Components:
+- **MLflow Tracking** — recording parameters and metrics for each experiment
+- **MLflow Projects** — packaging training code for reproducibility
+- **MLflow Models** — unified format for saving models
+- **MLflow Registry** — central repository for managing model versions
+
+### Why Do We Need MLflow?
+Without it, experiments become chaotic — you don't know which parameters were used, which version achieved the best result, or how to reproduce the experiment.
+
+### Experiment vs Run:
+- **Experiment** — a project or specific task (e.g., "sentiment-classifier")
+- **Run** — a single experiment with specific parameters (e.g., lr=0.001, epochs=10)
+
+### Model Stages:
+**None** → **Staging** → **Production** → **Archived**`,
+      codeExample: `import random
+from dataclasses import dataclass, field
+from typing import Dict, List, Any
+
+# ─── MLflow Simulation ─────────────────────────────────────
+@dataclass
+class MLRun:
+    run_id:     str
+    experiment: str
+    params:     Dict[str, Any]   = field(default_factory=dict)
+    metrics:    Dict[str, float] = field(default_factory=dict)
+    tags:       Dict[str, str]   = field(default_factory=dict)
+    status:     str = "FINISHED"
+
+@dataclass
+class RegisteredModel:
+    name:    str
+    version: str
+    run_id:  str
+    stage:   str = "None"  # None, Staging, Production, Archived
+
+class MLflowClient:
+    """محاكاة MLflow Tracking + Registry"""
+
+    def __init__(self):
+        self._experiments: Dict[str, List[MLRun]] = {}
+        self._registry:    Dict[str, List[RegisteredModel]] = {}
+        self._counter      = 0
+
+    def set_experiment(self, name: str):
+        if name not in self._experiments:
+            self._experiments[name] = []
+        print(f"  🧪 Experiment: {name}")
+
+    def start_run(self, experiment: str, **params) -> MLRun:
+        self._counter += 1
+        run = MLRun(
+            run_id=f"run_{self._counter:04d}",
+            experiment=experiment,
+            params=params,
+        )
+        self._experiments[experiment].append(run)
+        return run
+
+    def log_metric(self, run: MLRun, key: str, value: float):
+        run.metrics[key] = value
+
+    def log_tag(self, run: MLRun, **tags):
+        run.tags.update(tags)
+
+    def register_model(self, run: MLRun, name: str, version: str) -> RegisteredModel:
+        if name not in self._registry:
+            self._registry[name] = []
+        rm = RegisteredModel(name=name, version=version, run_id=run.run_id)
+        self._registry[name].append(rm)
+        print(f"  📦 Registered: {name} v{version} (run={run.run_id})")
+        return rm
+
+    def transition_stage(self, name: str, version: str, stage: str):
+        for rm in self._registry.get(name, []):
+            if rm.version == version:
+                rm.stage = stage
+                print(f"  🔄 {name} v{version}: None → {stage}")
+
+    def compare_runs(self, experiment: str):
+        runs = self._experiments.get(experiment, [])
+        print(f"\\n{'─'*60}")
+        print(f"📊 مقارنة تجارب: {experiment}")
+        print(f"{'─'*60}")
+        header = f"  {'Run ID':<12} {'LR':>8} {'Epochs':>7} {'Accuracy':>10} {'F1':>8}"
+        print(header)
+        print("  " + "-"*50)
+        for r in sorted(runs, key=lambda x: x.metrics.get("accuracy", 0), reverse=True):
+            lr_s  = str(r.params.get("learning_rate", "-"))
+            ep_s  = str(r.params.get("epochs", "-"))
+            acc   = r.metrics.get("accuracy", 0)
+            f1    = r.metrics.get("f1_score",  0)
+            print(f"  {r.run_id:<12} {lr_s:>8} {ep_s:>7} {acc:>10.4f} {f1:>8.4f}")
+
+    def best_run(self, experiment: str, metric: str = "accuracy") -> MLRun:
+        runs = self._experiments.get(experiment, [])
+        return max(runs, key=lambda r: r.metrics.get(metric, 0))
+
+# ─── Hyperparameter Tuning ─────────────────────────────────
+mlflow = MLflowClient()
+exp    = "sentiment-classifier-v2"
+
+print("🔬 MLflow — Hyperparameter Tuning:")
+print("=" * 55)
+mlflow.set_experiment(exp)
+
+configs = [
+    {"learning_rate": 0.001,  "epochs": 10, "model": "DistilBERT"},
+    {"learning_rate": 0.0005, "epochs": 20, "model": "BERT-base"},
+    {"learning_rate": 0.0001, "epochs": 30, "model": "RoBERTa"},
+]
+
+random.seed(42)
+for cfg in configs:
+    run = mlflow.start_run(exp, **cfg)
+    acc = round(0.82 + random.uniform(0, 0.13), 4)
+    f1  = round(acc - random.uniform(0.01, 0.05), 4)
+    mlflow.log_metric(run, "accuracy",  acc)
+    mlflow.log_metric(run, "f1_score",  f1)
+    mlflow.log_metric(run, "val_loss",  round(random.uniform(0.05, 0.3), 4))
+    mlflow.log_tag(run, framework="PyTorch", dataset="reviews-v3")
+    print(f"  ✅ {run.run_id} — acc={acc:.4f}, f1={f1:.4f} ({cfg['model']})")
+
+# مقارنة النتائج
+mlflow.compare_runs(exp)
+
+# أفضل نموذج → Registry
+best = mlflow.best_run(exp)
+print(f"\\n🏆 أفضل نموذج: {best.run_id}")
+best_acc_str = f"{best.metrics['accuracy']:.4f}"
+best_lr_str  = str(best.params.get('learning_rate'))
+print(f"   Accuracy: {best_acc_str}  LR: {best_lr_str}")
+
+rm = mlflow.register_model(best, "SentimentClassifier", "1.0.0")
+
+# Staging → Production
+print(f"\\n🔄 ترقية النموذج:")
+mlflow.transition_stage("SentimentClassifier", "1.0.0", "Staging")
+mlflow.transition_stage("SentimentClassifier", "1.0.0", "Production")
+print(f"\\n✅ MLflow Tracking & Registry مكتمل!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## CI/CD لنماذج ML
+
+**CI/CD لـ ML** يمتد خط الأنابيب التقليدي ليشمل التدريب والتقييم والنشر الآمن للنماذج.
+
+### الفرق عن CI/CD التقليدي:
+- في CI/CD التقليدي: الاختبار يكفي للنشر
+- في ML CI/CD: يجب أيضاً تقييم الدقة وجودة البيانات قبل كل نشر
+
+### مراحل Pipeline ML:
+1. **Data Validation** — التحقق من جودة البيانات وتوزيعها
+2. **Model Training** — تدريب النموذج الجديد
+3. **Model Evaluation** — تقييم ومقارنة بالنموذج الحالي
+4. **Quality Gate** — بوابة تمنع النشر إن لم تُستوفَ المعايير
+5. **Deploy to Staging** — نشر للاختبار
+6. **Smoke Tests** — اختبارات سريعة للتحقق
+7. **Deploy to Production** — النشر النهائي
+
+### DVC — إصدار البيانات:
+مثل Git لكن للبيانات والنماذج الكبيرة. يحفظ تعريف البيانات في Git ويخزن الملفات الكبيرة في S3 أو GCS.`,
+      bodyEn: `## CI/CD for ML Models
+
+**CI/CD for ML** extends the traditional pipeline to include training, evaluation, and safe deployment of models.
+
+### Difference from Traditional CI/CD:
+- In traditional CI/CD: testing is enough for deployment
+- In ML CI/CD: must also evaluate accuracy and data quality before each deployment
+
+### ML Pipeline Stages:
+1. **Data Validation** — verify data quality and distribution
+2. **Model Training** — train the new model
+3. **Model Evaluation** — evaluate and compare to current model
+4. **Quality Gate** — gate that prevents deployment if criteria aren't met
+5. **Deploy to Staging** — deploy for testing
+6. **Smoke Tests** — quick verification tests
+7. **Deploy to Production** — final deployment
+
+### DVC — Data Versioning:
+Like Git but for large data and models. Stores data definitions in Git and stores large files in S3 or GCS.`,
+      codeExample: `import time
+from dataclasses import dataclass, field
+from typing import List
+from enum import Enum
+
+class Status(Enum):
+    PENDING = "⏳"
+    RUNNING = "🔄"
+    PASSED  = "✅"
+    FAILED  = "❌"
+    SKIPPED = "⏭️ "
+
+@dataclass
+class Step:
+    name:     str
+    command:  str
+    status:   Status = Status.PENDING
+    duration: float  = 0.0
+    output:   str    = ""
+
+class MLPipeline:
+    """CI/CD Pipeline لنماذج ML"""
+
+    def __init__(self, name: str):
+        self.name  = name
+        self.steps: List[Step] = []
+
+    def add(self, name: str, command: str) -> "MLPipeline":
+        self.steps.append(Step(name, command))
+        return self
+
+    def run(self, fail_at: str = "") -> bool:
+        print(f"\\n🚀 Pipeline: {self.name}")
+        print("=" * 58)
+        ok = True
+        for step in self.steps:
+            if not ok:
+                step.status = Status.SKIPPED
+                print(f"  {step.status.value} SKIP    {step.name}")
+                continue
+
+            print(f"  🔄 Running  {step.name}...", end="", flush=True)
+            time.sleep(0.01)
+
+            if step.name == fail_at:
+                step.status = Status.FAILED
+                step.output = f"بوابة الجودة: دقة النموذج أقل من 90%"
+                ok = False
+                print(f"\\r  {step.status.value} FAILED  {step.name}")
+                print(f"     └─ {step.output}")
+            else:
+                step.status   = Status.PASSED
+                step.duration = round(0.5 + len(step.command) * 0.003, 1)
+                dur_str = f"{step.duration}s"
+                print(f"\\r  {step.status.value} PASSED  {step.name} ({dur_str})")
+
+        return ok
+
+    def summary(self):
+        passed   = sum(1 for s in self.steps if s.status == Status.PASSED)
+        failed   = sum(1 for s in self.steps if s.status == Status.FAILED)
+        skipped  = sum(1 for s in self.steps if s.status == Status.SKIPPED)
+        total_t  = sum(s.duration for s in self.steps)
+        dur_str  = f"{total_t:.1f}s"
+        print(f"\\n  {'─'*40}")
+        print(f"  ✅ {passed} passed  ❌ {failed} failed  ⏭️  {skipped} skipped  ⏱️  {dur_str}")
+
+# ─── إنشاء Pipeline ML ─────────────────────────────────────
+def build_ml_pipeline(name: str) -> MLPipeline:
+    return (
+        MLPipeline(name)
+        .add("تثبيت المتطلبات",     "pip install -r requirements.txt")
+        .add("فحص جودة الكود",      "flake8 src/ && black --check src/")
+        .add("اختبارات الوحدة",     "pytest tests/unit/ -v --cov=src")
+        .add("التحقق من البيانات",  "python validate_data.py --schema schema.yaml")
+        .add("تدريب النموذج",       "python train.py --config config.yaml --mlflow")
+        .add("بوابة جودة النموذج",  "python gate.py --min-accuracy 0.90 --max-latency 100")
+        .add("اختبارات التكامل",    "pytest tests/integration/ -v")
+        .add("نشر على Staging",     "python deploy.py --env staging --blue-green")
+        .add("اختبارات Smoke",      "python smoke_tests.py --env staging --timeout 30")
+        .add("نشر على Production",  "python deploy.py --env production --canary 10%")
+    )
+
+# ─── سيناريو 1: نجاح كامل ─────────────────────────────────
+print("🟢 سيناريو 1: Push على main — كل شيء يمر")
+p1 = build_ml_pipeline("ML CI/CD — Success")
+success = p1.run()
+p1.summary()
+result = "🎉 تم النشر على Production!" if success else "🛑 النشر موقوف"
+print(f"\\n  النتيجة: {result}")
+
+# ─── سيناريو 2: فشل بوابة الجودة ─────────────────────────
+print(f"\\n\\n🔴 سيناريو 2: دقة النموذج أقل من 90%")
+p2 = build_ml_pipeline("ML CI/CD — Gate Failure")
+fail = p2.run(fail_at="بوابة جودة النموذج")
+p2.summary()
+print(f"\\n  النتيجة: 🛑 النشر موقوف — يجب تحسين الدقة")
+
+# ─── DVC Commands ──────────────────────────────────────────
+print(f"\\n\\n📦 DVC — إصدار البيانات والنماذج:")
+dvc_cmds = [
+    ("تهيئة DVC",        "dvc init"),
+    ("تتبع البيانات",    "dvc add data/train.csv"),
+    ("تتبع النموذج",     "dvc add models/classifier.pkl"),
+    ("حفظ في S3",        "dvc push"),
+    ("استرجاع من S3",    "dvc pull"),
+    ("تشغيل Pipeline",   "dvc repro"),
+    ("مقارنة تجربتين",   "dvc metrics diff main feature/new-model"),
+]
+for desc, cmd in dvc_cmds:
+    print(f"  # {desc}")
+    print(f"  $ {cmd}")
+    print()`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## مراقبة النماذج في الإنتاج
+
+بعد النشر تبدأ المرحلة الأصعب — **مراقبة النموذج** للتأكد من بقائه يعمل بجودة عالية.
+
+### أنواع الانجراف (Drift):
+- **Data Drift** — توزيع البيانات الجديدة يختلف عن بيانات التدريب
+- **Concept Drift** — العلاقة بين المدخلات والمخرجات تغيّرت
+- **Performance Drift** — الدقة تنخفض تدريجياً
+
+### مقاييس المراقبة الرئيسية:
+- **Accuracy / F1** — جودة التنبؤات الفعلية
+- **Confidence Distribution** — هل النموذج واثق من إجاباته؟
+- **Latency** — زمن الاستجابة (P50, P95, P99)
+- **Error Rate** — نسبة الطلبات الفاشلة
+- **Feature Drift** — تغيّر توزيع المدخلات
+
+### أدوات المراقبة الشائعة:
+- **Evidently AI** — تحليل الانجراف وإعداد التقارير
+- **Grafana + Prometheus** — لوحات تحكم في الوقت الفعلي
+- **WhyLabs** — مراقبة خاصة بـ ML
+
+### متى تُعيد التدريب؟
+عند انخفاض الدقة بأكثر من 3-5% عن الـ baseline، أو كل N يوم بشكل دوري.`,
+      bodyEn: `## Monitoring Models in Production
+
+After deployment begins the hardest phase — **monitoring the model** to ensure it continues working at high quality.
+
+### Types of Drift:
+- **Data Drift** — distribution of new data differs from training data
+- **Concept Drift** — the relationship between inputs and outputs has changed
+- **Performance Drift** — accuracy gradually declines
+
+### Key Monitoring Metrics:
+- **Accuracy / F1** — actual prediction quality
+- **Confidence Distribution** — is the model confident in its answers?
+- **Latency** — response time (P50, P95, P99)
+- **Error Rate** — percentage of failed requests
+- **Feature Drift** — change in input distribution
+
+### Popular Monitoring Tools:
+- **Evidently AI** — drift analysis and report generation
+- **Grafana + Prometheus** — real-time dashboards
+- **WhyLabs** — ML-specific monitoring
+
+### When to Retrain?
+When accuracy drops more than 3-5% from baseline, or periodically every N days.`,
+      codeExample: `import random
+from dataclasses import dataclass, field
+from typing import List, Dict
+
+@dataclass
+class Prediction:
+    text:       str
+    predicted:  str
+    confidence: float
+    actual:     str = ""
+    day:        int = 1
+
+    @property
+    def correct(self) -> bool:
+        return self.predicted == self.actual if self.actual else True
+
+class ModelMonitor:
+    """مراقبة أداء النموذج في الإنتاج"""
+
+    def __init__(self, model_name: str, baseline_acc: float = 0.94):
+        self.model_name  = model_name
+        self.baseline    = baseline_acc
+        self.preds: List[Prediction] = []
+        self._window     = 50
+
+    def log(self, p: Prediction):
+        self.preds.append(p)
+
+    def _recent(self) -> List[Prediction]:
+        return self.preds[-self._window:]
+
+    def current_accuracy(self) -> float:
+        with_labels = [p for p in self._recent() if p.actual]
+        if not with_labels:
+            return self.baseline
+        return sum(1 for p in with_labels if p.correct) / len(with_labels)
+
+    def avg_confidence(self) -> float:
+        r = self._recent()
+        return sum(p.confidence for p in r) / len(r) if r else 1.0
+
+    def low_confidence_rate(self, threshold: float = 0.60) -> float:
+        r = self._recent()
+        if not r:
+            return 0.0
+        return sum(1 for p in r if p.confidence < threshold) / len(r)
+
+    def detect_drift(self) -> Dict:
+        curr_acc  = self.current_accuracy()
+        curr_conf = self.avg_confidence()
+        low_conf  = self.low_confidence_rate()
+        acc_drop  = self.baseline - curr_acc
+
+        alerts = []
+        if acc_drop > 0.05:
+            drop_str = f"{acc_drop:.1%}"
+            alerts.append(f"Performance Drift: دقة انخفضت {drop_str}")
+        if curr_conf < 0.75:
+            conf_str = f"{curr_conf:.1%}"
+            alerts.append(f"Low Confidence: متوسط الثقة {conf_str}")
+        if low_conf > 0.20:
+            rate_str = f"{low_conf:.1%}"
+            alerts.append(f"High Uncertainty Rate: {rate_str} من التنبؤات منخفضة الثقة")
+
+        return {
+            "total":    len(self.preds),
+            "accuracy": curr_acc,
+            "baseline": self.baseline,
+            "confidence": curr_conf,
+            "alerts":   alerts,
+            "status":   "ALERT" if alerts else "HEALTHY",
+        }
+
+    def report(self, title: str = ""):
+        d    = self.detect_drift()
+        icon = "🔴" if d["status"] == "ALERT" else "✅"
+        label = title or self.model_name
+        print(f"\\n{icon} مراقبة: {label}")
+        print("=" * 50)
+        print(f"  Status         : {d['status']}")
+        print(f"  التنبؤات       : {d['total']}")
+        acc_str  = f"{d['accuracy']:.1%}"
+        base_str = f"{d['baseline']:.1%}"
+        conf_str = f"{d['confidence']:.1%}"
+        print(f"  الدقة الحالية  : {acc_str}  (baseline: {base_str})")
+        print(f"  متوسط الثقة    : {conf_str}")
+        if d["alerts"]:
+            print(f"\\n  🚨 التنبيهات:")
+            for a in d["alerts"]:
+                print(f"     ⚠️  {a}")
+        else:
+            print(f"\\n  ✅ لا انحرافات — النموذج صحيح")
+
+# ─── محاكاة بيانات إنتاج ───────────────────────────────────
+random.seed(99)
+classes = ["positive", "negative", "neutral"]
+monitor = ModelMonitor("SentimentClassifier-v2.3", baseline_acc=0.94)
+
+print("📊 مراقبة النموذج في بيئة الإنتاج:")
+
+# الأسبوع 1-2: أداء طبيعي
+print("\\n  الأسبوع 1-2: أداء طبيعي...")
+for day in range(1, 15):
+    for _ in range(5):
+        actual = random.choice(classes)
+        pred   = actual if random.random() < 0.94 else random.choice(classes)
+        monitor.log(Prediction(
+            text=f"review_{day}", predicted=pred,
+            confidence=random.uniform(0.72, 0.99),
+            actual=actual, day=day,
+        ))
+
+monitor.report("بعد أسبوعين")
+
+# الأسبوع 3-4: بداية انجراف
+print("\\n\\n  الأسبوع 3-4: بيانات جديدة مختلفة...")
+for day in range(15, 29):
+    for _ in range(5):
+        actual = random.choice(classes)
+        pred   = actual if random.random() < 0.82 else random.choice(classes)
+        monitor.log(Prediction(
+            text=f"new_review_{day}", predicted=pred,
+            confidence=random.uniform(0.40, 0.72),  # ثقة منخفضة
+            actual=actual, day=day,
+        ))
+
+monitor.report("بعد شهر")
+
+# إجراءات التصحيح
+print(f"\\n\\n💡 خطوات التصحيح عند الانجراف:")
+steps = [
+    "تحليل البيانات الجديدة — أين الاختلاف؟",
+    "جمع بيانات تدريب جديدة تمثّل التوزيع الحالي",
+    "إعادة التدريب مع MLflow لتتبع التغييرات",
+    "A/B Testing بين النموذج القديم والجديد",
+    "نشر تدريجي (Canary) بنسبة 10% ثم 100%",
+]
+for i, s in enumerate(steps, 1):
+    print(f"  {i}. {s}")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## مشروع: خط MLOps كامل
+
+في هذا المشروع ستبني خط **MLOps متكاملاً** يغطي جميع المراحل من البيانات حتى الإنتاج.
+
+### معمارية المشروع الكاملة:
+**البيانات** (DVC) → **التدريب** (MLflow) → **بوابة الجودة** → **Staging** → **Production** → **المراقبة** (Evidently)
+
+### ما ستبنيه:
+- **DataPipeline** — استيعاب وتحقق من البيانات
+- **TrainingPipeline** — تدريب ومقارنة النماذج
+- **QualityGate** — بوابة تلقائية للجودة
+- **DeploymentManager** — نشر آمن مع Blue-Green
+- **ProductionMonitor** — مراقبة الأداء في الإنتاج
+
+### الفائدة العملية:
+بعد إتمام هذا الخط، يمكنك نشر نموذج جديد بأمان كل يوم بدلاً من مرة كل شهر.`,
+      bodyEn: `## Project: Complete MLOps Pipeline
+
+In this project you'll build a complete **integrated MLOps pipeline** covering all stages from data to production.
+
+### Complete Project Architecture:
+**Data** (DVC) → **Training** (MLflow) → **Quality Gate** → **Staging** → **Production** → **Monitoring** (Evidently)
+
+### What You'll Build:
+- **DataPipeline** — data ingestion and validation
+- **TrainingPipeline** — model training and comparison
+- **QualityGate** — automatic quality gate
+- **DeploymentManager** — safe deployment with Blue-Green
+- **ProductionMonitor** — performance monitoring in production
+
+### Practical Benefit:
+After completing this pipeline, you can safely deploy a new model every day instead of once a month.`,
+      codeExample: `import random
+import json
+from dataclasses import dataclass, field
+from typing import List, Dict, Optional
+from datetime import datetime
+
+# ─── Data ──────────────────────────────────────────────────
+@dataclass
+class Dataset:
+    name:     str
+    version:  str
+    rows:     int
+    features: int
+
+    def validate(self) -> Dict:
+        issues = []
+        if self.rows < 5000:
+            issues.append(f"عدد الصفوف قليل جداً ({self.rows})")
+        null_rate = random.uniform(0, 0.05)
+        if null_rate > 0.02:
+            rate_str = f"{null_rate:.1%}"
+            issues.append(f"نسبة القيم الفارغة عالية ({rate_str})")
+        return {"valid": len(issues) == 0, "issues": issues,
+                "null_rate": null_rate, "rows": self.rows}
+
+# ─── Model ─────────────────────────────────────────────────
+@dataclass
+class ModelVersion:
+    name:       str
+    version:    str
+    accuracy:   float
+    f1:         float
+    latency_ms: float
+    stage:      str = "Staging"
+
+    def meets_gate(self, min_acc=0.90, max_lat=100.0) -> bool:
+        return self.accuracy >= min_acc and self.latency_ms <= max_lat
+
+# ─── Pipeline Components ───────────────────────────────────
+class DataPipeline:
+    def ingest(self, name: str, rows: int, features: int) -> Optional[Dataset]:
+        ds = Dataset(name, f"v{datetime.now().strftime('%Y%m%d')}", rows, features)
+        result = ds.validate()
+        status = "✅" if result["valid"] else "❌"
+        print(f"  {status} Data: {name} ({rows:,} rows)")
+        for issue in result["issues"]:
+            print(f"     ⚠️  {issue}")
+        return ds if result["valid"] else None
+
+class TrainingPipeline:
+    def __init__(self):
+        self.runs: List[Dict] = []
+        self._counter = 0
+
+    def train(self, dataset: Dataset, cfg: Dict) -> ModelVersion:
+        random.seed(self._counter * 7 + 42)
+        self._counter += 1
+        acc  = min(0.98, 0.83 + cfg.get("epochs", 10) * 0.006 + random.uniform(-0.03, 0.03))
+        f1   = acc - random.uniform(0.01, 0.04)
+        lat  = max(15, 130 - cfg.get("epochs", 10) * 3 + random.uniform(-5, 5))
+        ver  = f"1.{self._counter}.0"
+        run  = {"run_id": f"run_{self._counter:03d}", "params": cfg,
+                "metrics": {"accuracy": round(acc, 4), "f1": round(f1, 4)}}
+        self.runs.append(run)
+        acc_str = f"{acc:.1%}"
+        lat_str = f"{lat:.0f}ms"
+        model_name = cfg.get('model', 'model')
+        print(f"  ✅ {run['run_id']} ({model_name}): acc={acc_str}, lat={lat_str}")
+        return ModelVersion(dataset.name, ver, round(acc, 4), round(f1, 4), round(lat, 1))
+
+class QualityGate:
+    def evaluate(self, mv: ModelVersion, current: Optional[ModelVersion] = None) -> bool:
+        passed = mv.meets_gate()
+        icon   = "✅" if passed else "❌"
+        acc_s  = f"{mv.accuracy:.1%}"
+        lat_s  = f"{mv.latency_ms:.0f}ms"
+        print(f"  {icon} Gate v{mv.version}: acc={acc_s}, lat={lat_s}")
+        if current:
+            improved = mv.accuracy > current.accuracy
+            diff_s   = f"{(mv.accuracy - current.accuracy):+.2%}"
+            comp_icon = "📈" if improved else "📉"
+            print(f"     {comp_icon} مقارنة بالحالي: {diff_s}")
+        return passed
+
+class DeploymentManager:
+    def __init__(self):
+        self.envs: Dict[str, ModelVersion] = {}
+
+    def deploy(self, mv: ModelVersion, env: str):
+        mv.stage = "Production" if env == "production" else "Staging"
+        self.envs[env] = mv
+        acc_s = f"{mv.accuracy:.1%}"
+        print(f"  ✅ Deployed v{mv.version} → {env} (acc={acc_s})")
+
+    def status(self):
+        print(f"\\n  🚀 النماذج المنشورة:")
+        for env, mv in self.envs.items():
+            acc_s = f"{mv.accuracy:.1%}"
+            lat_s = f"{mv.latency_ms:.0f}ms"
+            print(f"     [{env:<12}] v{mv.version} — acc={acc_s}, lat={lat_s}")
+
+# ─── تشغيل خط MLOps الكامل ─────────────────────────────────
+print("🚀 خط MLOps الكامل")
+print("=" * 58)
+
+data_pipe   = DataPipeline()
+train_pipe  = TrainingPipeline()
+gate        = QualityGate()
+deployer    = DeploymentManager()
+current_mv: Optional[ModelVersion] = None
+
+# 1. البيانات
+print(f"\\n{'─'*58}")
+print("1️⃣  DataPipeline — استيعاب وتحقق:")
+ds = data_pipe.ingest("customer-reviews-v4", rows=80000, features=15)
+if not ds:
+    print("  🛑 خط الأنابيب متوقف — بيانات غير صالحة")
+    exit()
+
+# 2. التدريب
+print(f"\\n{'─'*58}")
+print("2️⃣  TrainingPipeline — 3 تجارب:")
+configs = [
+    {"learning_rate": 0.001,  "epochs": 10, "model": "DistilBERT"},
+    {"learning_rate": 0.0005, "epochs": 20, "model": "BERT-base"},
+    {"learning_rate": 0.0001, "epochs": 25, "model": "RoBERTa"},
+]
+versions = [train_pipe.train(ds, cfg) for cfg in configs]
+best_mv   = max(versions, key=lambda mv: mv.accuracy)
+
+# 3. بوابة الجودة
+print(f"\\n{'─'*58}")
+print("3️⃣  QualityGate (min_acc=90%, max_lat=100ms):")
+if not gate.evaluate(best_mv, current_mv):
+    print("  🛑 النشر موقوف — النموذج لا يستوفي المعايير")
+else:
+    # 4. النشر
+    print(f"\\n{'─'*58}")
+    print("4️⃣  Deployment — Blue-Green:")
+    deployer.deploy(best_mv, "staging")
+    print("  ⏳ Smoke tests على Staging...")
+    deployer.deploy(best_mv, "production")
+    current_mv = best_mv
+
+    # 5. التقرير النهائي
+    print(f"\\n{'─'*58}")
+    print("5️⃣  تقرير الحالة النهائية:")
+    deployer.status()
+    print(f"\\n  📊 تجارب التدريب: {len(train_pipe.runs)}")
+    all_acc  = [r['metrics']['accuracy'] for r in train_pipe.runs]
+    best_acc_str = f"{max(all_acc):.4f}"
+    avg_acc_str  = f"{sum(all_acc)/len(all_acc):.4f}"
+    print(f"  🏆 أفضل دقة  : {best_acc_str}")
+    print(f"  📈 متوسط دقة : {avg_acc_str}")
+
+print(f"\\n✅ خط MLOps الكامل اكتمل!")
+print(f"🎉 مبروك! أتممت دورة MLOps")`,
+      codeLanguage: "python",
+    },
+  ],
+
 };
