@@ -438,6 +438,8 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
   });
   const [editSaving, setEditSaving] = useState(false);
   const [editMsg, setEditMsg] = useState<string | null>(null);
+  const [editImageFile, setEditImageFile] = useState<File | null>(null);
+  const [editImagePreview, setEditImagePreview] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/nano-banana/prompts")
@@ -486,6 +488,8 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
       featured: item.featured ?? false,
     });
     setEditMsg(null);
+    setEditImageFile(null);
+    setEditImagePreview(null);
   }
 
   async function handleEditSave(e: React.FormEvent) {
@@ -494,10 +498,18 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
     setEditSaving(true);
     setEditMsg(null);
     try {
+      const fd = new FormData();
+      fd.append("title_ar", editForm.title_ar);
+      fd.append("title_en", editForm.title_en);
+      fd.append("description_ar", editForm.description_ar);
+      fd.append("description_en", editForm.description_en);
+      fd.append("prompt_ar", editForm.prompt_ar);
+      fd.append("prompt_en", editForm.prompt_en);
+      fd.append("featured", String(editForm.featured));
+      if (editImageFile) fd.append("image", editImageFile);
       const res = await fetch(`/api/admin/nano-banana/${editTarget.rawId}`, {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(editForm),
+        body: fd,
       });
       if (res.ok) {
         setEditMsg(isAr ? "✅ تم الحفظ" : "✅ Saved");
@@ -763,7 +775,7 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
         <div
           className="fixed inset-0 z-[60] flex items-center justify-center p-4"
           style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(6px)" }}
-          onClick={(e) => { if (e.target === e.currentTarget) setEditTarget(null); }}
+          onClick={(e) => { if (e.target === e.currentTarget) { setEditTarget(null); setEditImageFile(null); setEditImagePreview(null); } }}
         >
           <div
             className="w-full max-w-lg rounded-3xl p-6 overflow-y-auto max-h-[90vh]"
@@ -774,7 +786,7 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
                 <Pencil size={15} />{isAr ? "تعديل البرومبت" : "Edit Prompt"}
               </h2>
               <button
-                onClick={() => setEditTarget(null)}
+                onClick={() => { setEditTarget(null); setEditImageFile(null); setEditImagePreview(null); }}
                 className="w-8 h-8 rounded-full flex items-center justify-center hover:opacity-80"
                 style={{ background: "rgba(255,255,255,0.08)", color: "var(--color-on-surface-variant)" }}
               >✕</button>
@@ -790,6 +802,47 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
             )}
 
             <form onSubmit={handleEditSave} className="flex flex-col gap-4">
+              {/* Image upload */}
+              <div>
+                <label className="block text-xs font-mono mb-2" style={{ color: "var(--color-on-surface-variant)" }}>
+                  {isAr ? "📷 الصورة — اتركه فارغاً للإبقاء على الحالية" : "📷 Image — leave empty to keep current"}
+                </label>
+                <div className="flex items-start gap-3">
+                  {/* Current image preview */}
+                  {!editImagePreview && editTarget.item.image && (
+                    <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0" style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={editTarget.item.image} alt="" className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                  {/* New image preview */}
+                  {editImagePreview && (
+                    <div className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0" style={{ border: "1px solid rgba(142,213,255,0.3)" }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={editImagePreview} alt="new" className="w-full h-full object-cover" />
+                      <button type="button" onClick={() => { setEditImageFile(null); setEditImagePreview(null); }}
+                        className="absolute top-1 end-1 w-5 h-5 rounded-full flex items-center justify-center text-[10px]"
+                        style={{ background: "rgba(0,0,0,0.7)", color: "#f87171" }}>✕</button>
+                    </div>
+                  )}
+                  <label className="flex flex-col items-center justify-center gap-1.5 cursor-pointer rounded-xl px-4 py-3 text-xs font-mono hover:opacity-80 transition-opacity"
+                    style={{ background: "rgba(142,213,255,0.06)", border: "1px dashed rgba(142,213,255,0.3)", color: "#8ed5ff" }}>
+                    <Plus size={14} />
+                    {editImageFile ? editImageFile.name.slice(0, 18) + "…" : (isAr ? "اختر صورة" : "Choose image")}
+                    <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" className="hidden"
+                      onChange={(e) => {
+                        const f = e.target.files?.[0] ?? null;
+                        setEditImageFile(f);
+                        if (f) { const r = new FileReader(); r.onload = (ev) => setEditImagePreview(ev.target?.result as string); r.readAsDataURL(f); }
+                        else setEditImagePreview(null);
+                      }} />
+                  </label>
+                </div>
+                <p className="text-[10px] mt-1 opacity-50" style={{ color: "var(--color-on-surface-variant)" }}>
+                  JPG / PNG / WebP / GIF — {isAr ? "حد 5 ميجا" : "max 5 MB"}
+                </p>
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-mono mb-1" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "الاسم (عربي) *" : "Name (Arabic) *"}</label>
@@ -835,7 +888,7 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
                 <span className="text-sm" style={{ color: "var(--color-on-surface)" }}>{isAr ? "★ مميز (Featured)" : "★ Mark as Featured"}</span>
               </label>
               <div className="flex gap-3">
-                <button type="button" onClick={() => setEditTarget(null)}
+                <button type="button" onClick={() => { setEditTarget(null); setEditImageFile(null); setEditImagePreview(null); }}
                   className="flex-1 py-2.5 rounded-xl text-sm font-semibold"
                   style={{ background: "rgba(255,255,255,0.06)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
                   {isAr ? "إلغاء" : "Cancel"}

@@ -2119,30 +2119,22 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
           setNbSaving(true);
           setNbMsg(null);
           try {
-            const tagsArr = nbForm.tags
-              ? nbForm.tags.split(",").map((t: string) => t.trim()).filter(Boolean)
-              : [];
+            const fd = new FormData();
+            const fields: Record<string, string> = {
+              title_ar: nbForm.title_ar, title_en: nbForm.title_en,
+              description_ar: nbForm.description_ar, description_en: nbForm.description_en,
+              category: nbForm.category, category_label_ar: nbForm.category_label_ar,
+              category_label_en: nbForm.category_label_en, difficulty: nbForm.difficulty,
+              best_input_ar: nbForm.best_input_ar, best_input_en: nbForm.best_input_en,
+              prompt_ar: nbForm.prompt_ar, prompt_en: nbForm.prompt_en,
+              accent: nbForm.accent, emoji: nbForm.emoji,
+              tags: nbForm.tags, featured: String(nbForm.featured),
+            };
+            Object.entries(fields).forEach(([k, v]) => fd.append(k, v));
+            if (nbImageFile) fd.append("image", nbImageFile);
             const res = await fetch(`/api/admin/nano-banana/${nbEditId}`, {
               method: "PATCH",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                title_ar: nbForm.title_ar,
-                title_en: nbForm.title_en,
-                description_ar: nbForm.description_ar,
-                description_en: nbForm.description_en,
-                category: nbForm.category,
-                category_label_ar: nbForm.category_label_ar,
-                category_label_en: nbForm.category_label_en,
-                difficulty: nbForm.difficulty,
-                best_input_ar: nbForm.best_input_ar,
-                best_input_en: nbForm.best_input_en,
-                prompt_ar: nbForm.prompt_ar,
-                prompt_en: nbForm.prompt_en,
-                accent: nbForm.accent,
-                emoji: nbForm.emoji,
-                tags: tagsArr,
-                featured: nbForm.featured,
-              }),
+              body: fd,
             });
             const json = await res.json() as { success?: boolean; error?: string };
             if (!res.ok) {
@@ -2158,7 +2150,9 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                       category_label_en: nbForm.category_label_en, difficulty: nbForm.difficulty,
                       best_input_ar: nbForm.best_input_ar, best_input_en: nbForm.best_input_en,
                       prompt_ar: nbForm.prompt_ar, prompt_en: nbForm.prompt_en,
-                      accent: nbForm.accent, emoji: nbForm.emoji, tags: tagsArr, featured: nbForm.featured }
+                      accent: nbForm.accent, emoji: nbForm.emoji,
+                      tags: nbForm.tags ? nbForm.tags.split(",").map((t: string) => t.trim()).filter(Boolean) : [],
+                      featured: nbForm.featured }
                   : x;
               }));
               setTimeout(() => { setNbSubTab("list"); setNbEditId(null); }, 1500);
@@ -2345,6 +2339,8 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                                       });
                                       setNbSubTab("edit");
                                       setNbMsg(null);
+                                      setNbImageFile(null);
+                                      setNbImagePreview(null);
                                     }}
                                     className="text-[10px] px-2 py-0.5 rounded hover:opacity-80 transition-opacity"
                                     style={{ background: "rgba(142,213,255,0.1)", color: "#8ed5ff", border: "1px solid rgba(142,213,255,0.2)" }}
@@ -2424,6 +2420,39 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                 )}
 
                 <form onSubmit={handleNbUpdate} className="flex flex-col gap-5">
+                  {/* ── Image upload (edit) ── */}
+                  <div>
+                    <label className="block text-xs font-mono mb-2" style={{ color: "var(--color-on-surface-variant)" }}>
+                      {isAr ? "📷 الصورة (اختياري — اتركه فارغاً للإبقاء على الصورة الحالية)" : "📷 Image (optional — leave empty to keep current image)"}
+                    </label>
+                    <div className="flex items-start gap-4">
+                      {nbImagePreview ? (
+                        <div className="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0" style={{ border: "1px solid rgba(142,213,255,0.3)" }}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={nbImagePreview} alt="preview" className="w-full h-full object-cover" />
+                          <button type="button" onClick={() => { setNbImageFile(null); setNbImagePreview(null); }}
+                            className="absolute top-1 end-1 w-5 h-5 rounded-full flex items-center justify-center text-[10px]"
+                            style={{ background: "rgba(0,0,0,0.7)", color: "#f87171" }}>✕</button>
+                        </div>
+                      ) : null}
+                      <label className="flex flex-col items-center justify-center gap-2 cursor-pointer rounded-xl px-4 py-3 text-xs font-mono transition-all hover:opacity-80"
+                        style={{ background: "rgba(142,213,255,0.06)", border: "1px dashed rgba(142,213,255,0.3)", color: "#8ed5ff" }}>
+                        <ImageIcon size={16} />
+                        {nbImageFile ? nbImageFile.name : (isAr ? "اختر صورة جديدة" : "Choose new image")}
+                        <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" className="hidden"
+                          onChange={(e) => {
+                            const f = e.target.files?.[0] ?? null;
+                            setNbImageFile(f);
+                            if (f) { const r = new FileReader(); r.onload = (ev) => setNbImagePreview(ev.target?.result as string); r.readAsDataURL(f); }
+                            else setNbImagePreview(null);
+                          }} />
+                      </label>
+                    </div>
+                    <p className="text-[10px] mt-1" style={{ color: "var(--color-on-surface-variant)", opacity: 0.6 }}>
+                      {isAr ? "حد الحجم: 5 ميجابايت — JPG / PNG / WebP / GIF" : "Max 5 MB — JPG / PNG / WebP / GIF"}
+                    </p>
+                  </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-mono mb-1.5" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "اسم البرومبت (عربي) *" : "Prompt Name (Arabic) *"}</label>
