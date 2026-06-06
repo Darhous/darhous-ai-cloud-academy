@@ -161,7 +161,7 @@ export default function LanguageResultsClient({ locale }: { locale: string }) {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <div className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin" style={{ borderColor: "#d0bcff", borderTopColor: "transparent" }} />
+        <div className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin" style={{ borderColor: "var(--portal-color)", borderTopColor: "transparent" }} />
       </div>
     );
   }
@@ -311,13 +311,13 @@ export default function LanguageResultsClient({ locale }: { locale: string }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           {/* Skill bars + analysis */}
-          <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(208,188,255,0.1)" }}>
+          <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid var(--portal-color-border)" }}>
             <h2 className="font-display font-bold text-lg mb-5 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
-              <Award size={18} style={{ color: "#d0bcff" }} />
+              <Award size={18} style={{ color: "var(--portal-color)" }} />
               {isAr ? "تفصيل المهارات" : "Skills Breakdown"}
             </h2>
             <div className="flex flex-col gap-4">
-              <SkillBar label={isAr ? "القواعد" : "Grammar"} pct={grammar} color="#d0bcff" />
+              <SkillBar label={isAr ? "القواعد" : "Grammar"} pct={grammar} color="var(--portal-color)" />
               <SkillBar label={isAr ? "المفردات" : "Vocabulary"} pct={vocab} color="#4ade80" />
               <SkillBar label={isAr ? "القراءة" : "Reading"} pct={reading} color="#3ce0fb" />
             </div>
@@ -355,9 +355,9 @@ export default function LanguageResultsClient({ locale }: { locale: string }) {
       )}
 
       {/* ── Strengths & Weaknesses ───────────────────────────────── */}
-      <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(208,188,255,0.08)" }}>
+      <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid var(--portal-color-border)" }}>
         <h2 className="font-display font-bold text-lg mb-5 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
-          <BookOpen size={18} style={{ color: "#d0bcff" }} />
+          <BookOpen size={18} style={{ color: "var(--portal-color)" }} />
           {isAr ? "تقييم شامل" : "Detailed Analysis"}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -402,13 +402,13 @@ export default function LanguageResultsClient({ locale }: { locale: string }) {
       </div>
 
       {/* ── Weekly Study Plan (collapsible) ──────────────────────── */}
-      <div className="glass-card rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(208,188,255,0.08)" }}>
+      <div className="glass-card rounded-2xl overflow-hidden" style={{ border: "1px solid var(--portal-color-border)" }}>
         <button
           onClick={() => setShowWeekly((v) => !v)}
           className="w-full flex items-center justify-between px-6 py-4 text-start"
-          style={{ background: "rgba(208,188,255,0.04)" }}>
+          style={{ background: "var(--portal-color-faint)" }}>
           <span className="font-display font-bold flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
-            <Calendar size={18} style={{ color: "#d0bcff" }} />
+            <Calendar size={18} style={{ color: "var(--portal-color)" }} />
             {isAr ? "خطة الدراسة الأسبوعية" : "Weekly Study Plan"}
           </span>
           {showWeekly ? <ChevronUp size={18} style={{ color: "var(--color-on-surface-variant)" }} /> : <ChevronDown size={18} style={{ color: "var(--color-on-surface-variant)" }} />}
@@ -418,8 +418,8 @@ export default function LanguageResultsClient({ locale }: { locale: string }) {
             {feedback.weekly_plan.map((day, i) => (
               <div key={i} className="flex gap-3 p-3.5 rounded-xl text-sm leading-relaxed"
                 style={{
-                  background: i % 2 === 0 ? `${cefrColor}08` : "rgba(208,188,255,0.04)",
-                  border: `1px solid ${i % 2 === 0 ? cefrColor + "20" : "rgba(208,188,255,0.1)"}`,
+                  background: i % 2 === 0 ? `${cefrColor}08` : "var(--portal-color-faint)",
+                  border: `1px solid ${i % 2 === 0 ? cefrColor + "20" : "var(--portal-color-border)"}`,
                   color: "var(--color-on-surface-variant)",
                 }}>
                 <span style={{ flexShrink: 0 }}>{i === 0 ? "📅" : i === 1 ? "📖" : "✍️"}</span>

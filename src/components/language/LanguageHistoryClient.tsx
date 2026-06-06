@@ -57,7 +57,7 @@ export default function LanguageHistoryClient({ locale }: { locale: string }) {
     return (
       <div className="flex items-center justify-center py-32">
         <div className="w-10 h-10 rounded-full border-2 animate-spin"
-          style={{ borderColor: "#d0bcff", borderTopColor: "transparent" }} />
+          style={{ borderColor: "var(--portal-color)", borderTopColor: "transparent" }} />
       </div>
     );
   }
@@ -121,7 +121,7 @@ export default function LanguageHistoryClient({ locale }: { locale: string }) {
       {results.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
-            { label: isAr ? "عدد الاختبارات" : "Total Attempts",   value: results.length,               color: "#d0bcff" },
+            { label: isAr ? "عدد الاختبارات" : "Total Attempts",   value: results.length,               color: "#c084fc" },
             { label: isAr ? "أفضل نتيجة"    : "Best Score",        value: `${bestScore.toFixed(1)}%`,   color: "#4ade80" },
             { label: isAr ? "أعلى مستوى"    : "Best Level",        value: bestLevel ?? "—",             color: "#fbbf24" },
             { label: isAr ? "الشهادات"       : "Certificates",      value: certCount,                    color: "#3ce0fb" },
@@ -138,9 +138,9 @@ export default function LanguageHistoryClient({ locale }: { locale: string }) {
       {/* ── Latest level banner ─────────────────────────────────── */}
       {latest && (
         <div className="rounded-2xl px-5 py-4 flex items-center gap-4"
-          style={{ background: "rgba(208,188,255,0.05)", border: "1px solid rgba(208,188,255,0.15)" }}>
+          style={{ background: "var(--portal-color-faint)", border: "1px solid var(--portal-color-border)" }}>
           <div className="w-12 h-12 rounded-xl flex items-center justify-center font-display font-black text-lg flex-shrink-0"
-            style={{ background: "rgba(208,188,255,0.12)", border: "1px solid rgba(208,188,255,0.25)", color: "#d0bcff" }}>
+            style={{ background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-glow)", color: "var(--portal-color)" }}>
             {latest.level}
           </div>
           <div>
@@ -155,7 +155,7 @@ export default function LanguageHistoryClient({ locale }: { locale: string }) {
           </div>
           <Link href={`/${locale}/language/results?id=${latest.id}`}
             className="ml-auto flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80 flex-shrink-0"
-            style={{ background: "rgba(208,188,255,0.08)", color: "#d0bcff", textDecoration: "none" }}>
+            style={{ background: "var(--portal-color-subtle)", color: "var(--portal-color)", textDecoration: "none" }}>
             {isAr ? "عرض" : "View"} <Arrow size={12} />
           </Link>
         </div>
@@ -163,10 +163,10 @@ export default function LanguageHistoryClient({ locale }: { locale: string }) {
 
       {/* ── Progress chart ──────────────────────────────────────── */}
       {chartData.length >= 2 && (
-        <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(208,188,255,0.1)" }}>
+        <div className="glass-card rounded-2xl p-6" style={{ border: "1px solid var(--portal-color-border)" }}>
           <h2 className="font-display font-bold text-lg mb-5 flex items-center gap-2"
             style={{ color: "var(--color-on-surface)" }}>
-            <TrendingUp size={18} style={{ color: "#d0bcff" }} />
+            <TrendingUp size={18} style={{ color: "var(--portal-color)" }} />
             {isAr ? "تطور النتيجة عبر الاختبارات" : "Score Progression"}
           </h2>
           <ResponsiveContainer width="100%" height={210}>
@@ -203,10 +203,10 @@ export default function LanguageHistoryClient({ locale }: { locale: string }) {
               <Line
                 type="monotone"
                 dataKey="score"
-                stroke="#d0bcff"
+                stroke="#c084fc"
                 strokeWidth={2}
-                dot={{ fill: "#d0bcff", r: 4, strokeWidth: 0 }}
-                activeDot={{ r: 6, fill: "#d0bcff" }}
+                dot={{ fill: "#c084fc", r: 4, strokeWidth: 0 }}
+                activeDot={{ r: 6, fill: "#c084fc" }}
               />
             </LineChart>
           </ResponsiveContainer>
@@ -232,8 +232,8 @@ export default function LanguageHistoryClient({ locale }: { locale: string }) {
                 href={`/${locale}/language/results?id=${r.id}`}
                 className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all hover:scale-[1.01]"
                 style={{
-                  background: "rgba(208,188,255,0.04)",
-                  border: "1px solid rgba(208,188,255,0.08)",
+                  background: "var(--portal-color-faint)",
+                  border: "1px solid var(--portal-color-border)",
                   textDecoration: "none",
                 }}>
                 {/* Attempt # */}
@@ -243,7 +243,7 @@ export default function LanguageHistoryClient({ locale }: { locale: string }) {
                 </span>
                 {/* Level */}
                 <span className="font-mono font-bold text-sm w-10 flex-shrink-0"
-                  style={{ color: "#d0bcff" }}>
+                  style={{ color: "var(--portal-color)" }}>
                   {r.level}
                 </span>
                 {/* Score */}
@@ -281,7 +281,7 @@ export default function LanguageHistoryClient({ locale }: { locale: string }) {
       ) : (
         /* ── Empty state ──────────────────────────────────────── */
         <div className="glass-card rounded-2xl p-14 text-center"
-          style={{ border: "1px solid rgba(208,188,255,0.08)" }}>
+          style={{ border: "1px solid var(--portal-color-border)" }}>
           <p className="text-4xl mb-4">🌐</p>
           <p className="text-lg font-bold mb-2" style={{ color: "var(--color-on-surface)" }}>
             {isAr ? "لم تجرِ أي اختبار بعد" : "No assessments yet"}

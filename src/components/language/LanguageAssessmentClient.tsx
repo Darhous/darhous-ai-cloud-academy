@@ -6,7 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 import Link from "next/link";
 import {
   CheckCircle, XCircle, ChevronRight, ChevronLeft, Flag,
-  AlertTriangle, BookOpen, Sparkles, LogIn,
+  AlertTriangle, BookOpen, Sparkles, LogIn, Globe,
 } from "lucide-react";
 import allQuestionsRaw from "@/data/language-questions.json";
 
@@ -373,7 +373,7 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
   if (!loading && supabaseConfigured && !isAuthenticated) {
     return (
       <div className="container-xl py-16 flex flex-col items-center gap-8 text-center">
-        <LogIn size={40} style={{ color: "#d0bcff" }} />
+        <LogIn size={40} style={{ color: "var(--portal-color)" }} />
         <h2 className="font-display font-bold text-3xl" style={{ color: "var(--color-on-surface)" }}>
           {isAr ? "تسجيل الدخول مطلوب" : "Sign In Required"}
         </h2>
@@ -398,7 +398,7 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
   if (phase === "intro") {
     return (
       <div className="container-xl py-16 flex flex-col items-center gap-10 max-w-2xl mx-auto text-center">
-        <div style={{ fontSize: "64px" }}>🌐</div>
+        <Globe size={64} style={{ color: "var(--portal-color)" }} />
         <h1 className="font-display font-bold text-4xl" style={{ color: "var(--color-on-surface)" }}>
           {isAr ? "اختبار تحديد المستوى الإنجليزي" : "English Level Assessment"}
         </h1>
@@ -414,7 +414,7 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
             { icon: "🎯", en: "CEFR level (A1A → C2)", ar: "مستوى CEFR (A1A → C2)" },
             { icon: "🛡️", en: "Anti-cheat tab monitoring", ar: "مراقبة تبديل التبويب" },
           ].map((item, i) => (
-            <div key={i} className="glass-card rounded-xl p-4 flex items-center gap-3" style={{ border: "1px solid rgba(208,188,255,0.1)" }}>
+            <div key={i} className="glass-card rounded-xl p-4 flex items-center gap-3" style={{ border: "1px solid var(--portal-color-border)" }}>
               <span className="text-2xl">{item.icon}</span>
               <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? item.ar : item.en}</p>
             </div>
@@ -485,7 +485,7 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
               Stage {currentStageIdx + 1}/10 · Q{qIndex + 1}/{stageQuestions.length} · {currentDifficulty}
             </span>
             <div className="w-44 h-1.5 rounded-full" style={{ background: "var(--color-outline-variant)" }}>
-              <div className="h-full rounded-full transition-all" style={{ width: `${progress}%`, background: "#d0bcff" }} />
+              <div className="h-full rounded-full transition-all" style={{ width: `${progress}%`, background: "var(--portal-color)" }} />
             </div>
           </div>
           {tabSwitches > 0 && (
@@ -525,9 +525,9 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
         )}
 
         {/* Question card */}
-        <div className="glass-card rounded-2xl p-8" style={{ border: "1px solid rgba(208,188,255,0.12)" }}>
+        <div className="glass-card rounded-2xl p-8" style={{ border: "1px solid var(--portal-color-border)" }}>
           <div className="flex items-center gap-2 mb-5">
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full" style={{ background: "rgba(208,188,255,0.08)", color: "#d0bcff" }}>{q.category}</span>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full" style={{ background: "var(--portal-color-subtle)", color: "var(--portal-color)" }}>{q.category}</span>
             <span className="text-[10px] font-mono px-2 py-0.5 rounded-full" style={{
               background: q.difficulty === "easy" ? "rgba(74,222,128,0.08)" : q.difficulty === "medium" ? "rgba(251,191,36,0.08)" : "rgba(239,68,68,0.08)",
               color: q.difficulty === "easy" ? "#4ade80" : q.difficulty === "medium" ? "#fbbf24" : "#ef4444",
@@ -544,7 +544,7 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
               if (showFeedback) {
                 if (opt === q.correct_answer) { borderColor = "#4ade80"; bg = "rgba(74,222,128,0.08)"; textColor = "#4ade80"; }
                 else if (opt === selected) { borderColor = "#ef4444"; bg = "rgba(239,68,68,0.08)"; textColor = "#ef4444"; }
-              } else if (selected === opt) { borderColor = "#d0bcff"; bg = "rgba(208,188,255,0.08)"; }
+              } else if (selected === opt) { borderColor = "var(--portal-color)"; bg = "var(--portal-color-subtle)"; }
               return (
                 <button key={opt} onClick={() => handleSelectOption(opt)} disabled={!!selected}
                   className="flex items-center gap-4 rounded-xl px-5 py-4 text-start transition-all hover:opacity-80"
@@ -566,7 +566,7 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
         <div className="flex justify-center gap-1.5">
           {Array.from({ length: 10 }).map((_, i) => (
             <span key={i} className="w-1.5 h-1.5 rounded-full" style={{
-              background: i < currentStageIdx ? "#4ade80" : i === currentStageIdx ? "#d0bcff" : "rgba(255,255,255,0.1)",
+              background: i < currentStageIdx ? "#4ade80" : i === currentStageIdx ? "var(--portal-color)" : "rgba(255,255,255,0.1)",
             }} />
           ))}
         </div>
@@ -626,7 +626,7 @@ export default function LanguageAssessmentClient({ locale }: { locale: string })
   // ── Finalizing / Done ────────────────────────────────────────────────────────
   return (
     <div className="container-xl py-24 flex flex-col items-center gap-8 text-center">
-      <div className="w-16 h-16 rounded-full border-4 border-t-transparent animate-spin" style={{ borderColor: "#d0bcff", borderTopColor: "transparent" }} />
+      <div className="w-16 h-16 rounded-full border-4 border-t-transparent animate-spin" style={{ borderColor: "var(--portal-color)", borderTopColor: "transparent" }} />
       <h2 className="font-display font-bold text-2xl" style={{ color: "var(--color-on-surface)" }}>
         {isAr ? "جاري حساب مستواك..." : "Calculating your level..."}
       </h2>

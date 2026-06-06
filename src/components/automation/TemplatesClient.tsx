@@ -91,9 +91,9 @@ export default function TemplatesClient({ templates, locale = "ar" }: Props) {
           onClick={() => setShowFilters(!showFilters)}
           className="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm transition-all"
           style={{
-            background: showFilters ? "rgba(74,222,128,0.1)" : "rgba(255,255,255,0.04)",
-            border: `1px solid ${showFilters ? "rgba(74,222,128,0.3)" : "var(--color-outline-variant)"}`,
-            color: showFilters ? "#4ade80" : "var(--color-on-surface-variant)",
+            background: showFilters ? "var(--portal-color-subtle)" : "rgba(255,255,255,0.04)",
+            border: `1px solid ${showFilters ? "var(--portal-color-glow)" : "var(--color-outline-variant)"}`,
+            color: showFilters ? "var(--portal-color)" : "var(--color-on-surface-variant)",
           }}
         >
           <Filter size={14} />
@@ -178,7 +178,7 @@ export default function TemplatesClient({ templates, locale = "ar" }: Props) {
               key={tmpl.id}
               layout
               className="glass-card rounded-2xl overflow-hidden flex flex-col"
-              style={{ border: "1px solid rgba(74,222,128,0.1)" }}
+              style={{ border: "1px solid var(--portal-color-border)" }}
             >
               {/* Card header — always visible */}
               <button
@@ -265,7 +265,7 @@ export default function TemplatesClient({ templates, locale = "ar" }: Props) {
                       <div className="pt-4">
                         <p
                           className="text-xs font-semibold mb-2 flex items-center gap-1"
-                          style={{ color: "#4ade80" }}
+                          style={{ color: "var(--portal-color)" }}
                         >
                           <Zap size={11} /> ملخص الـ Workflow
                         </p>
@@ -356,9 +356,9 @@ export default function TemplatesClient({ templates, locale = "ar" }: Props) {
                   href={`/${locale}/automation/templates/${tmpl.id}`}
                   className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold transition-all hover:opacity-90"
                   style={{
-                    background: "rgba(74,222,128,0.1)",
-                    color: "#4ade80",
-                    border: "1px solid rgba(74,222,128,0.2)",
+                    background: "var(--portal-color-subtle)",
+                    color: "var(--portal-color)",
+                    border: "1px solid var(--portal-color-border)",
                   }}
                 >
                   <ArrowLeft size={12} />
