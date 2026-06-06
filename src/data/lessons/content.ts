@@ -13540,4 +13540,1655 @@ print('    -d {"message": "مرحباً! كيف يمكنك مساعدتي؟"}')`
     },
   ],
 
+  "docker-linux": [
+    // Lesson 1: مدخل إلى Linux
+    {
+      bodyAr: `
+## لماذا Linux لـ AI/ML؟
+
+**Linux** هو نظام التشغيل المسيطر في عالم الخوادم وAI. أكثر من 96% من أقوى 500 خادم في العالم يعمل على Linux.
+
+### مزايا Linux للـ AI
+
+- 🔧 **مجاني ومفتوح المصدر:** لا تراخيص ولا قيود
+- ⚡ **خفيف وسريع:** يعمل على موارد أقل بكفاءة أعلى
+- 🐳 **Docker والحاويات:** مبنيان أصلاً على Linux
+- 🤖 **بيئات AI:** PyTorch وTensorFlow يعملان أفضل على Linux
+- ☁️ **الخوادم السحابية:** AWS وGCP وAzure كلها Linux
+
+### توزيعات Linux الشائعة
+
+| التوزيعة | الاستخدام الشائع |
+|----------|----------------|
+| **Ubuntu** | AI/ML وتطوير عام — الأشهر للمبتدئين |
+| **Debian** | خوادم الإنتاج — استقرار مطلق |
+| **Alpine** | Docker images — أصغر حجم ممكن |
+| **CentOS/RHEL** | بيئات المؤسسات الكبيرة |
+
+### هيكل نظام الملفات
+
+\`\`\`
+/                   ← الجذر (root)
+├── home/           ← ملفات المستخدمين
+│   └── ahmed/      ← مجلدك الشخصي (~)
+├── etc/            ← ملفات الإعداد
+├── var/            ← البيانات المتغيرة (logs)
+├── usr/            ← برامج المستخدمين
+├── bin/            ← الأوامر الأساسية
+├── tmp/            ← ملفات مؤقتة
+└── opt/            ← تطبيقات اختيارية
+\`\`\`
+
+### الصلاحيات في Linux
+
+كل ملف له صلاحيات لثلاثة أطراف: المالك | المجموعة | الآخرون
+
+\`\`\`
+-rw-r--r-- ahmed users  main.py
+ ↑↑↑ ↑↑↑ ↑↑↑
+ │││  │││  └── آخرون: قراءة فقط (r--)
+ │││  └──────── المجموعة: قراءة فقط (r--)
+ └──────────── المالك: قراءة وكتابة (rw-)
+\`\`\`
+
+\`\`\`bash
+# تغيير الصلاحيات
+chmod 755 script.sh      # rwxr-xr-x
+chmod +x script.sh       # إضافة إذن التنفيذ
+chmod 600 .env           # ملف سري — خاص جداً
+
+# تغيير المالك
+chown ahmed:users file.txt
+\`\`\`
+
+### متغيرات البيئة
+
+\`\`\`bash
+# عرض متغير
+echo $HOME
+echo $PATH
+
+# تعيين متغير مؤقت
+export API_KEY="sk-ant-..."
+
+# تعيين دائم (في ~/.bashrc)
+echo 'export ANTHROPIC_API_KEY="sk-ant-..."' >> ~/.bashrc
+source ~/.bashrc
+\`\`\`
+`,
+      bodyEn: `
+## Why Linux for AI/ML?
+
+**Linux** is the dominant operating system in the server and AI world. More than 96% of the world's top 500 supercomputers run Linux.
+
+### Linux Advantages for AI
+
+- 🔧 **Free and open source:** no licenses, no restrictions
+- ⚡ **Lightweight and fast:** runs efficiently on fewer resources
+- 🐳 **Docker and containers:** built natively on Linux
+- 🤖 **AI environments:** PyTorch and TensorFlow run better on Linux
+- ☁️ **Cloud servers:** AWS, GCP, and Azure all run Linux
+
+### Common Linux Distributions
+
+| Distribution | Common Use |
+|-------------|------------|
+| **Ubuntu** | AI/ML and general development — most popular for beginners |
+| **Debian** | Production servers — absolute stability |
+| **Alpine** | Docker images — smallest possible size |
+| **CentOS/RHEL** | Large enterprise environments |
+
+### File System Structure
+
+\`\`\`
+/                   ← Root
+├── home/           ← User files
+│   └── ahmed/      ← Your personal folder (~)
+├── etc/            ← Configuration files
+├── var/            ← Variable data (logs)
+├── usr/            ← User programs
+├── bin/            ← Core commands
+├── tmp/            ← Temporary files
+└── opt/            ← Optional applications
+\`\`\`
+
+### Linux Permissions
+
+Each file has permissions for three parties: Owner | Group | Others
+
+\`\`\`
+-rw-r--r-- ahmed users  main.py
+ ↑↑↑ ↑↑↑ ↑↑↑
+ │││  │││  └── Others: read only (r--)
+ │││  └──────── Group: read only (r--)
+ └──────────── Owner: read and write (rw-)
+\`\`\`
+
+\`\`\`bash
+# Change permissions
+chmod 755 script.sh      # rwxr-xr-x
+chmod +x script.sh       # add execute permission
+chmod 600 .env           # secret file — very private
+
+# Change owner
+chown ahmed:users file.txt
+\`\`\`
+
+### Environment Variables
+
+\`\`\`bash
+# Show variable
+echo $HOME
+echo $PATH
+
+# Set temporary variable
+export API_KEY="sk-ant-..."
+
+# Set permanently (in ~/.bashrc)
+echo 'export ANTHROPIC_API_KEY="sk-ant-..."' >> ~/.bashrc
+source ~/.bashrc
+\`\`\`
+`,
+      codeExample: `# مدخل إلى Linux — Python Simulation
+# Linux Concepts Demonstrated with Python
+
+import os
+import platform
+from pathlib import Path
+from dataclasses import dataclass
+
+print("🐧 Linux Concepts — Python Demo")
+print("="*55)
+
+# ─── معلومات النظام ────────────────────────────────────────
+print(f"\\n📊 معلومات النظام:")
+print(f"   النظام:     {platform.system()} {platform.release()}")
+print(f"   المعمارية:  {platform.machine()}")
+print(f"   Python:     {platform.python_version()}")
+
+# ─── هيكل نظام الملفات ────────────────────────────────────
+home = Path.home()
+print(f"\\n📁 مجلد المستخدم (~): {home}")
+
+# محاكاة هيكل مجلدات مشروع AI
+project_root = Path("/tmp/my-ai-project")
+structure = {
+    "src":       "كود التطبيق",
+    "data":      "مجموعات البيانات",
+    "models":    "النماذج المدربة",
+    "logs":      "سجلات التشغيل",
+    "tests":     "ملفات الاختبار",
+    "docker":    "ملفات Docker",
+}
+
+print(f"\\n📂 إنشاء هيكل مشروع AI:")
+print(f"  {project_root}/")
+for folder, desc in structure.items():
+    path = project_root / folder
+    path.mkdir(parents=True, exist_ok=True)
+    print(f"  ├── {folder}/ ← {desc}")
+print(f"  ✅ تم إنشاء {len(structure)} مجلدات")
+
+# ─── الصلاحيات ─────────────────────────────────────────────
+print(f"\\n🔐 نظام الصلاحيات:")
+print(f"{'الرقم':<8} {'الرمز':<12} {'الاستخدام'}")
+print("─"*55)
+
+permissions = [
+    ("644", "rw-r--r--", "ملفات Python (.py) — آمن"),
+    ("755", "rwxr-xr-x", "سكريبتات قابلة للتنفيذ"),
+    ("600", "rw-------", "API Keys — سري للغاية"),
+    ("700", "rwx------", "مجلدات سرية"),
+]
+for num, sym, desc in permissions:
+    print(f"  {num:<8} {sym:<12} {desc}")
+
+# ─── متغيرات البيئة ────────────────────────────────────────
+print(f"\\n🌍 متغيرات البيئة:")
+env_vars = {
+    "HOME":          os.environ.get("HOME", os.environ.get("USERPROFILE", "/")),
+    "SHELL":         os.environ.get("SHELL", "bash"),
+    "ANTHROPIC_API_KEY": os.environ.get("ANTHROPIC_API_KEY", "(غير مضبوط — أضفه في .env)"),
+}
+for var, value in env_vars.items():
+    display = value[:55] + "..." if len(value) > 55 else value
+    print(f"   " + "$" + f"{var}: {display}")
+
+# ─── مقارنة Linux vs Windows ──────────────────────────────
+print(f"\\n{'='*55}")
+print("🤖 Linux vs Windows للـ AI Development:")
+print(f"{'الميزة':<24} {'Linux':^14} {'Windows':^14}")
+print("─"*55)
+
+comparison = [
+    ("Docker Native",     "✅ مدمج",         "⚠️  WSL2 مطلوب"),
+    ("GPU (CUDA)",        "✅ ممتاز",         "✅ جيد"),
+    ("Package Manager",   "✅ apt/pip",       "⚠️  choco/pip"),
+    ("Bash Scripts",      "✅ نيتيف",         "❌ محدود"),
+    ("تكلفة الخادم",     "✅ مجاني",         "💰 تراخيص"),
+    ("استهلاك RAM",       "✅ منخفض",        "⚠️  أعلى"),
+]
+for feature, linux, windows in comparison:
+    print(f"  {feature:<24} {linux:^14} {windows:^14}")
+
+print(f"\\n💡 للـ AI Production: Ubuntu 22.04 LTS هو الاختيار الأمثل")
+
+# ─── مسح وتنظيف ───────────────────────────────────────────
+import shutil
+shutil.rmtree(project_root, ignore_errors=True)
+print(f"🗑️  تنظيف: rm -rf {project_root}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 2: أوامر الطرفية الأساسية
+    {
+      bodyAr: `
+## أوامر الطرفية الأساسية
+
+إتقان هذه الأوامر يجعلك مرتاحاً في أي خادم Linux أو Docker container.
+
+### التنقل في نظام الملفات
+
+\`\`\`bash
+pwd                    # أين أنا الآن؟
+ls                     # محتويات المجلد الحالي
+ls -la                 # كل الملفات مع التفاصيل والخفية
+ls -lh                 # مع أحجام قابلة للقراءة (KB, MB)
+
+cd ~                   # الذهاب للمجلد الشخصي
+cd /etc                # مسار مطلق
+cd ..                  # مجلد أعلى
+cd -                   # العودة للمجلد السابق
+
+mkdir my-project       # إنشاء مجلد
+mkdir -p a/b/c         # إنشاء مجلدات متداخلة
+\`\`\`
+
+### العمليات على الملفات
+
+\`\`\`bash
+touch main.py          # إنشاء ملف فارغ
+cp file.py backup.py   # نسخ
+mv old.py new.py       # نقل أو إعادة تسمية
+rm file.py             # حذف ملف
+rm -rf folder/         # حذف مجلد كامل (تنبه!)
+
+cat requirements.txt   # عرض محتوى ملف
+head -20 log.txt       # أول 20 سطر
+tail -50 log.txt       # آخر 50 سطر
+tail -f app.log        # متابعة الـ log مباشرة
+\`\`\`
+
+### البحث والتصفية
+
+\`\`\`bash
+# grep — البحث في الملفات
+grep "error" app.log              # ابحث عن "error"
+grep -r "import" src/             # ابحث في كل الملفات
+grep -n "def train" model.py      # مع أرقام الأسطر
+grep -i "cuda" requirements.txt   # بدون حساسية للحالة
+
+# find — البحث عن الملفات
+find . -name "*.py"               # كل ملفات Python
+find . -name "*.log" -mtime -1    # ملفات log من آخر يوم
+find /tmp -size +100M             # ملفات أكبر من 100MB
+\`\`\`
+
+### إدارة العمليات
+
+\`\`\`bash
+ps aux                 # عرض كل العمليات
+ps aux | grep python   # عمليات Python فقط
+top                    # مراقبة الموارد (مباشر)
+htop                   # أفضل من top (يحتاج تثبيت)
+
+kill 1234              # إيقاف عملية برقمها
+kill -9 1234           # إيقاف قسري
+pkill python           # إيقاف كل عمليات Python
+\`\`\`
+
+### أوامر مفيدة للـ AI
+
+\`\`\`bash
+# مراقبة الـ GPU
+nvidia-smi             # حالة GPU
+watch -n 1 nvidia-smi  # تحديث كل ثانية
+
+# إدارة الحزم
+sudo apt update && sudo apt upgrade
+sudo apt install python3-pip
+pip install anthropic fastapi
+
+# متغيرات البيئة
+export ANTHROPIC_API_KEY="sk-ant-..."
+printenv               # عرض كل المتغيرات
+\`\`\`
+
+### Pipes والتحويل
+
+\`\`\`bash
+# توصيل أوامر ببعضها
+ps aux | grep python | wc -l          # عدد عمليات Python
+cat app.log | grep "error" | tail -10 # آخر 10 أخطاء
+ls -la | sort -k5 -rn                 # ترتيب حسب الحجم
+\`\`\`
+`,
+      bodyEn: `
+## Essential Terminal Commands
+
+Mastering these commands makes you comfortable on any Linux server or Docker container.
+
+### Navigating the File System
+
+\`\`\`bash
+pwd                    # Where am I now?
+ls                     # Current directory contents
+ls -la                 # All files with details including hidden
+ls -lh                 # With human-readable sizes (KB, MB)
+
+cd ~                   # Go to home directory
+cd /etc                # Absolute path
+cd ..                  # One level up
+cd -                   # Return to previous directory
+
+mkdir my-project       # Create a directory
+mkdir -p a/b/c         # Create nested directories
+\`\`\`
+
+### File Operations
+
+\`\`\`bash
+touch main.py          # Create empty file
+cp file.py backup.py   # Copy
+mv old.py new.py       # Move or rename
+rm file.py             # Delete file
+rm -rf folder/         # Delete entire folder (be careful!)
+
+cat requirements.txt   # Show file contents
+head -20 log.txt       # First 20 lines
+tail -50 log.txt       # Last 50 lines
+tail -f app.log        # Follow log in real time
+\`\`\`
+
+### Searching and Filtering
+
+\`\`\`bash
+# grep — search in files
+grep "error" app.log              # search for "error"
+grep -r "import" src/             # search all files
+grep -n "def train" model.py      # with line numbers
+grep -i "cuda" requirements.txt   # case-insensitive
+
+# find — find files
+find . -name "*.py"               # all Python files
+find . -name "*.log" -mtime -1    # log files from last day
+find /tmp -size +100M             # files larger than 100MB
+\`\`\`
+
+### Process Management
+
+\`\`\`bash
+ps aux                 # show all processes
+ps aux | grep python   # Python processes only
+top                    # live resource monitor
+htop                   # better than top (needs install)
+
+kill 1234              # stop process by ID
+kill -9 1234           # force stop
+pkill python           # stop all Python processes
+\`\`\`
+
+### Useful AI Commands
+
+\`\`\`bash
+# GPU monitoring
+nvidia-smi             # GPU status
+watch -n 1 nvidia-smi  # update every second
+
+# Package management
+sudo apt update && sudo apt upgrade
+sudo apt install python3-pip
+pip install anthropic fastapi
+
+# Environment variables
+export ANTHROPIC_API_KEY="sk-ant-..."
+printenv               # show all variables
+\`\`\`
+
+### Pipes and Redirection
+
+\`\`\`bash
+# Chain commands together
+ps aux | grep python | wc -l          # count Python processes
+cat app.log | grep "error" | tail -10 # last 10 errors
+ls -la | sort -k5 -rn                 # sort by size
+\`\`\`
+`,
+      codeExample: `# أوامر الطرفية الأساسية — Terminal Commands Demo
+# محاكاة أوامر Linux باستخدام Python
+
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+from dataclasses import dataclass
+
+@dataclass
+class Command:
+    cmd: str
+    description: str
+
+def simulate_cmd(cmd: str, desc: str, output: str = ""):
+    """محاكاة تنفيذ أمر terminal"""
+    print(f"\\n$ {cmd}")
+    if desc:
+        print(f"  # {desc}")
+    if output:
+        for line in output.strip().split("\\n")[:5]:
+            print(f"  {line}")
+
+# ─── 1. التنقل في نظام الملفات ───────────────────────────
+print("🐧 أوامر الطرفية الأساسية")
+print("="*55)
+print("\\n📂 1. التنقل في نظام الملفات")
+print("─"*55)
+
+home = Path.home()
+simulate_cmd("pwd", "المجلد الحالي", str(home))
+simulate_cmd("ls -la ~", "عرض الملفات مع التفاصيل",
+             "drwxr-xr-x  ahmed users  .\\n-rw-r--r--  ahmed users  .bashrc\\n-rw-------  ahmed users  .env")
+simulate_cmd("mkdir -p ai-project/src ai-project/data",
+             "إنشاء هيكل مشروع")
+
+# تنفيذ فعلي
+tmp_dir = Path("/tmp/linux-demo")
+for d in ["src", "data", "models", "logs"]:
+    (tmp_dir / d).mkdir(parents=True, exist_ok=True)
+print(f"  ✅ تم إنشاء هيكل في {tmp_dir}")
+
+# ─── 2. العمليات على الملفات ─────────────────────────────
+print("\\n📄 2. العمليات على الملفات")
+print("─"*55)
+
+# إنشاء ملفات تجريبية
+(tmp_dir / "requirements.txt").write_text(
+    "anthropic==0.34.0\\nfastapi==0.112.0\\nuvicorn\\npydantic\\n"
+)
+(tmp_dir / "app.log").write_text(
+    "INFO: Server started\\nERROR: Connection failed\\nINFO: Retry...\\nERROR: Timeout\\nINFO: Connected\\n"
+)
+
+simulate_cmd("cat requirements.txt", "عرض محتوى الملف")
+print("  anthropic==0.34.0")
+print("  fastapi==0.112.0")
+print("  uvicorn")
+
+simulate_cmd("tail -3 app.log", "آخر 3 أسطر من الـ log")
+lines = (tmp_dir / "app.log").read_text().strip().split("\\n")
+for line in lines[-3:]:
+    print(f"  {line}")
+
+# ─── 3. البحث والتصفية ────────────────────────────────────
+print("\\n🔍 3. البحث والتصفية (grep/find)")
+print("─"*55)
+
+log_content = (tmp_dir / "app.log").read_text()
+error_lines = [l for l in log_content.split("\\n") if "ERROR" in l]
+simulate_cmd("grep 'ERROR' app.log", "البحث عن الأخطاء")
+for line in error_lines:
+    print(f"  {line}")
+
+# find محاكاة
+py_files = list(tmp_dir.rglob("*.txt"))
+simulate_cmd("find . -name '*.txt'", f"البحث عن ملفات txt ({len(py_files)} ملف)")
+for f in py_files:
+    print(f"  ./{f.name}")
+
+# ─── 4. إدارة العمليات ────────────────────────────────────
+print("\\n⚙️  4. إدارة العمليات")
+print("─"*55)
+
+simulate_cmd("ps aux | grep python", "عمليات Python الحالية",
+             f"ahmed  {os.getpid()}  0.5  python3 current_script.py")
+
+simulate_cmd("top -bn1 | head -5", "مراقبة الموارد",
+             "CPU: 15.2% | MEM: 8.1GB/16GB | Load: 0.45")
+
+# ─── 5. Pipes والتحويل ────────────────────────────────────
+print("\\n🔗 5. Pipes — توصيل الأوامر ببعضها")
+print("─"*55)
+
+# محاكاة: cat app.log | grep ERROR | wc -l
+error_count = len(error_lines)
+simulate_cmd(
+    "cat app.log | grep 'ERROR' | wc -l",
+    f"عدد الأخطاء في الـ log: {error_count}",
+)
+print(f"  {error_count}")
+
+simulate_cmd(
+    "cat requirements.txt | sort | head -3",
+    "فرز المتطلبات وعرض أول 3",
+)
+for pkg in sorted(["anthropic", "fastapi", "uvicorn", "pydantic"])[:3]:
+    print(f"  {pkg}")
+
+# ─── تنظيف ────────────────────────────────────────────────
+import shutil
+shutil.rmtree(tmp_dir, ignore_errors=True)
+print(f"\\n✅ تم تنظيف الملفات المؤقتة")
+print("\\n💡 نصيحة: احفظ هذه الأوامر في ملف cheatsheet.txt!")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 3: ما هو Docker؟
+    {
+      bodyAr: `
+## ما هو Docker؟
+
+**Docker** هو أداة تسمح لك بتعبئة تطبيقك مع كل ما يحتاجه (Python، المكتبات، الإعدادات) في حاوية (Container) تعمل بنفس الطريقة على أي جهاز.
+
+### Container vs Virtual Machine
+
+| الخاصية | Container (Docker) | Virtual Machine |
+|---------|-------------------|-----------------|
+| **الحجم** | ميغابايت (MB) | غيغابايت (GB) |
+| **وقت التشغيل** | ثوانٍ | دقائق |
+| **عزل الموارد** | على مستوى العملية | على مستوى الأجهزة |
+| **نظام التشغيل** | يشارك kernel Linux | نظام تشغيل كامل |
+| **الأداء** | شبه نيتيف | أبطأ |
+
+### مكونات Docker
+
+\`\`\`
+Docker Architecture:
+┌─────────────────────────────────────────────┐
+│  Docker Client (docker CLI)                 │
+│  docker build / docker run / docker push    │
+└───────────────────┬─────────────────────────┘
+                    │
+┌───────────────────▼─────────────────────────┐
+│  Docker Engine (Docker Daemon)              │
+│                                             │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+│  │Container1│  │Container2│  │Container3│  │
+│  │ FastAPI  │  │ Redis    │  │ Nginx    │  │
+│  └──────────┘  └──────────┘  └──────────┘  │
+└─────────────────────────────────────────────┘
+                    │
+┌───────────────────▼─────────────────────────┐
+│  Docker Hub / Registry (مستودع Images)      │
+│  hub.docker.com — python, redis, postgres..  │
+└─────────────────────────────────────────────┘
+\`\`\`
+
+### المفاهيم الأساسية
+
+**Image:** قالب للقراءة فقط يحتوي على كل ما يحتاجه التطبيق.
+\`\`\`bash
+docker pull python:3.11-slim   # تحميل Image
+docker images                  # عرض الـ Images المحلية
+\`\`\`
+
+**Container:** نسخة تعمل من الـ Image.
+\`\`\`bash
+docker run python:3.11-slim python --version  # تشغيل Container
+docker ps                                      # الـ Containers الشغّالة
+docker ps -a                                   # كل الـ Containers
+\`\`\`
+
+**Volume:** تخزين دائم خارج الـ Container.
+\`\`\`bash
+docker run -v /host/data:/app/data myimage    # ربط مجلد
+\`\`\`
+
+**Network:** شبكة تربط الـ Containers ببعض.
+\`\`\`bash
+docker network create my-network
+\`\`\`
+
+### أوامر Docker الأساسية
+
+\`\`\`bash
+# إدارة Images
+docker pull nginx              # تحميل Image
+docker build -t myapp:v1 .    # بناء Image من Dockerfile
+docker push myapp:v1           # رفع Image للـ Registry
+docker rmi myapp:v1            # حذف Image
+
+# إدارة Containers
+docker run -d -p 8080:8000 myapp   # تشغيل في الخلفية مع port mapping
+docker stop container_id            # إيقاف Container
+docker rm container_id              # حذف Container
+docker logs container_id            # عرض السجلات
+docker exec -it container_id bash  # الدخول للـ Container
+\`\`\`
+`,
+      bodyEn: `
+## What is Docker?
+
+**Docker** is a tool that lets you package your application with everything it needs (Python, libraries, configuration) into a Container that runs the same way on any machine.
+
+### Container vs Virtual Machine
+
+| Property | Container (Docker) | Virtual Machine |
+|----------|-------------------|-----------------|
+| **Size** | Megabytes (MB) | Gigabytes (GB) |
+| **Start time** | Seconds | Minutes |
+| **Resource isolation** | Process level | Hardware level |
+| **Operating system** | Shares Linux kernel | Full OS |
+| **Performance** | Near native | Slower |
+
+### Docker Components
+
+\`\`\`
+Docker Architecture:
+┌─────────────────────────────────────────────┐
+│  Docker Client (docker CLI)                 │
+│  docker build / docker run / docker push    │
+└───────────────────┬─────────────────────────┘
+                    │
+┌───────────────────▼─────────────────────────┐
+│  Docker Engine (Docker Daemon)              │
+│                                             │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+│  │Container1│  │Container2│  │Container3│  │
+│  │ FastAPI  │  │ Redis    │  │ Nginx    │  │
+│  └──────────┘  └──────────┘  └──────────┘  │
+└─────────────────────────────────────────────┘
+                    │
+┌───────────────────▼─────────────────────────┐
+│  Docker Hub / Registry (Image repository)   │
+│  hub.docker.com — python, redis, postgres.. │
+└─────────────────────────────────────────────┘
+\`\`\`
+
+### Core Concepts
+
+**Image:** A read-only template containing everything the app needs.
+\`\`\`bash
+docker pull python:3.11-slim   # download image
+docker images                  # show local images
+\`\`\`
+
+**Container:** A running instance of an Image.
+\`\`\`bash
+docker run python:3.11-slim python --version  # run container
+docker ps                                      # running containers
+docker ps -a                                   # all containers
+\`\`\`
+
+**Volume:** Persistent storage outside the Container.
+\`\`\`bash
+docker run -v /host/data:/app/data myimage    # mount directory
+\`\`\`
+
+### Core Docker Commands
+
+\`\`\`bash
+# Image management
+docker pull nginx              # download image
+docker build -t myapp:v1 .    # build image from Dockerfile
+docker push myapp:v1           # push image to registry
+docker rmi myapp:v1            # delete image
+
+# Container management
+docker run -d -p 8080:8000 myapp   # run in background with port mapping
+docker stop container_id            # stop container
+docker rm container_id              # delete container
+docker logs container_id            # view logs
+docker exec -it container_id bash  # enter container shell
+\`\`\`
+`,
+      codeExample: `# محاكاة Docker Concepts بـ Python
+# Docker Architecture Simulation
+
+from dataclasses import dataclass, field
+from typing import Optional
+import time
+import json
+
+# ─── Docker Data Models ────────────────────────────────────
+@dataclass
+class DockerImage:
+    name: str
+    tag: str
+    size_mb: int
+    base: str
+    layers: list[str]
+
+    def full_name(self) -> str:
+        return f"{self.name}:{self.tag}"
+
+@dataclass
+class DockerContainer:
+    id: str
+    image: DockerImage
+    name: str
+    status: str = "stopped"
+    port_mapping: dict[int, int] = field(default_factory=dict)
+    env_vars: dict[str, str] = field(default_factory=dict)
+    volumes: list[str] = field(default_factory=list)
+    started_at: Optional[float] = None
+
+    def uptime(self) -> str:
+        if not self.started_at or self.status != "running":
+            return "N/A"
+        elapsed = round(time.time() - self.started_at)
+        return f"{elapsed}s"
+
+class DockerEngine:
+    """محاكاة Docker Engine المحلي"""
+
+    def __init__(self):
+        self.images: dict[str, DockerImage] = {}
+        self.containers: dict[str, DockerContainer] = {}
+        self._counter = 0
+
+    def _new_id(self) -> str:
+        self._counter += 1
+        return f"c{self._counter:06x}"
+
+    def pull(self, name: str, tag: str = "latest") -> DockerImage:
+        """docker pull"""
+        key = f"{name}:{tag}"
+        if key not in self.images:
+            # محاكاة images معروفة
+            known = {
+                "python:3.11-slim":   DockerImage("python", "3.11-slim",  130, "debian:slim", ["base", "python", "pip"]),
+                "python:3.11":        DockerImage("python", "3.11",       910, "debian",      ["base", "python", "dev"]),
+                "alpine:3.19":        DockerImage("alpine", "3.19",         7, "scratch",     ["musl", "busybox"]),
+                "nginx:alpine":       DockerImage("nginx",  "alpine",      43, "alpine",      ["nginx", "config"]),
+                "redis:7-alpine":     DockerImage("redis",  "7-alpine",    28, "alpine",      ["redis"]),
+            }
+            img = known.get(key) or DockerImage(name, tag, 200, "debian", ["base", "app"])
+            self.images[key] = img
+            print(f"  📥 Pulling {key}... ({img.size_mb}MB)")
+        else:
+            print(f"  ✅ {key} موجود محلياً")
+        return self.images[key]
+
+    def build(self, tag: str, size_mb: int = 180) -> DockerImage:
+        """docker build"""
+        name, t = tag.split(":") if ":" in tag else (tag, "latest")
+        img = DockerImage(name, t, size_mb, "python:3.11-slim", ["python", "deps", "app"])
+        self.images[tag] = img
+        print(f"  🔨 Building {tag}...")
+        for layer in ["Copying files", "Installing deps", "Running RUN commands", "Setting CMD"]:
+            print(f"     Step: {layer}... ✅")
+        print(f"  ✅ Successfully built {tag} ({size_mb}MB)")
+        return img
+
+    def run(self, image_name: str, name: str = "", ports: dict = None,
+            env: dict = None, detach: bool = True) -> DockerContainer:
+        """docker run"""
+        img = self.images.get(image_name)
+        if not img:
+            img = self.pull(*image_name.split(":"))
+        cid = self._new_id()
+        cname = name or f"container_{cid}"
+        container = DockerContainer(
+            id=cid, image=img, name=cname, status="running",
+            port_mapping=ports or {}, env_vars=env or {},
+            started_at=time.time(),
+        )
+        self.containers[cid] = container
+        mode = "d" if detach else ""
+        port_str = " ".join(f"-p {h}:{c}" for h, c in (ports or {}).items())
+        print(f"  🚀 docker run -{mode} {port_str} {image_name}")
+        print(f"     Container ID: {cid}")
+        print(f"     Status: running ✅")
+        return container
+
+    def ps(self, all: bool = False):
+        """docker ps"""
+        filtered = self.containers.values() if all else [
+            c for c in self.containers.values() if c.status == "running"
+        ]
+        filtered = list(filtered)
+        print(f"\\n  {'CONTAINER ID':<14} {'IMAGE':<25} {'STATUS':<10} {'PORTS':<20} {'NAME'}")
+        print(f"  {'─'*80}")
+        for c in filtered:
+            ports = ", ".join(f"{h}->{p}" for h, p in c.port_mapping.items())
+            print(f"  {c.id:<14} {c.image.full_name():<25} {c.status:<10} {ports:<20} {c.name}")
+
+    def stop(self, container_id: str):
+        """docker stop"""
+        if container_id in self.containers:
+            self.containers[container_id].status = "stopped"
+            print(f"  ⏹️  Stopped: {container_id}")
+
+# ─── تشغيل المحاكاة ─────────────────────────────────────
+docker = DockerEngine()
+
+print("🐳 Docker Concepts Simulation")
+print("="*55)
+
+# 1. docker pull
+print("\\n📥 1. تحميل Images:")
+docker.pull("python", "3.11-slim")
+docker.pull("redis",  "7-alpine")
+
+# 2. docker build
+print("\\n🔨 2. بناء Image التطبيق:")
+docker.build("my-ai-api:v1", size_mb=185)
+
+# 3. docker run
+print("\\n🚀 3. تشغيل Containers:")
+api = docker.run("my-ai-api:v1", "ai-api",
+    ports={8080: 8000}, env={"PORT": "8000"})
+redis = docker.run("redis:7-alpine", "cache",
+    ports={6379: 6379})
+
+# 4. docker ps
+print("\\n📋 4. Containers الشغّالة:")
+docker.ps()
+
+# 5. مقارنة Container vs VM
+print(f"\\n{'='*55}")
+print("📊 Container vs Virtual Machine:")
+print(f"{'الخاصية':<22} {'Container':^14} {'VM':^14}")
+print("─"*55)
+
+comparison = [
+    ("الحجم",      "~200 MB",       "~20 GB"),
+    ("وقت التشغيل","ثوانٍ",         "دقائق"),
+    ("عزل الموارد","عملية",         "أجهزة"),
+    ("الأداء",     "نيتيف تقريباً","أبطأ 10-20%"),
+    ("الاستخدام",  "تطبيقات",      "بيئات كاملة"),
+]
+for row in comparison:
+    print(f"  {row[0]:<22} {row[1]:^14} {row[2]:^14}")
+
+# 6. docker stop
+print("\\n⏹️  5. إيقاف الـ Containers:")
+docker.stop(api.id)
+docker.stop(redis.id)
+docker.ps(all=True)
+
+print("\\n🎉 Docker: تطبيقاتك تعمل في كل مكان بنفس الطريقة!")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 4: بناء أول Dockerfile
+    {
+      bodyAr: `
+## بناء أول Dockerfile
+
+**Dockerfile** هو ملف نصي يحتوي على تعليمات لبناء Docker Image خطوة بخطوة.
+
+### تعليمات Dockerfile الأساسية
+
+\`\`\`dockerfile
+# الصورة الأساسية
+FROM python:3.11-slim
+
+# مجلد العمل داخل الـ Container
+WORKDIR /app
+
+# نسخ ملفات المتطلبات أولاً (caching)
+COPY requirements.txt .
+
+# تثبيت المتطلبات
+RUN pip install --no-cache-dir -r requirements.txt
+
+# نسخ باقي الكود
+COPY . .
+
+# تعريف متغير بيئة
+ENV PORT=8000
+ENV PYTHONUNBUFFERED=1
+
+# Port الذي يستمع عليه التطبيق
+EXPOSE 8000
+
+# الأمر الافتراضي لتشغيل التطبيق
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+\`\`\`
+
+### ملف .dockerignore
+
+مثل .gitignore لكن لـ Docker — يمنع نسخ ملفات غير ضرورية:
+
+\`\`\`
+__pycache__/
+*.pyc
+*.pyo
+.env
+.git/
+.github/
+tests/
+*.log
+node_modules/
+venv/
+.venv/
+\`\`\`
+
+### بناء وتشغيل الـ Image
+
+\`\`\`bash
+# بناء الـ Image
+docker build -t my-ai-app:v1 .
+docker build -t my-ai-app:v1 -f Dockerfile.prod .  # ملف Dockerfile آخر
+
+# تشغيل الـ Container
+docker run -p 8080:8000 my-ai-app:v1
+docker run -d -p 8080:8000 --name ai-api my-ai-app:v1  # في الخلفية
+
+# تمرير متغيرات البيئة
+docker run -d -p 8080:8000 \\
+  -e ANTHROPIC_API_KEY=sk-ant-... \\
+  --name ai-api my-ai-app:v1
+
+# أو استخدام ملف .env
+docker run -d -p 8080:8000 \\
+  --env-file .env \\
+  --name ai-api my-ai-app:v1
+\`\`\`
+
+### Multi-Stage Build (للإنتاج)
+
+يقلل حجم الـ Image النهائي بشكل كبير:
+
+\`\`\`dockerfile
+# مرحلة البناء
+FROM python:3.11 AS builder
+WORKDIR /build
+COPY requirements.txt .
+RUN pip install --user -r requirements.txt
+
+# مرحلة الإنتاج (أصغر حجماً)
+FROM python:3.11-slim AS production
+WORKDIR /app
+COPY --from=builder /root/.local /root/.local
+COPY . .
+ENV PATH=/root/.local/bin:$PATH
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+\`\`\`
+
+### أفضل الممارسات
+
+1. **ابدأ بـ slim أو alpine** لتقليل الحجم
+2. **COPY requirements.txt أولاً** قبل الكود (cache optimization)
+3. **دمج RUN commands** بـ \`&&\` لتقليل عدد الطبقات
+4. **لا تضع secrets في الـ Image** — استخدم env vars وقت التشغيل
+5. **استخدم .dockerignore** لاستبعاد الملفات غير الضرورية
+`,
+      bodyEn: `
+## Building Your First Dockerfile
+
+A **Dockerfile** is a text file containing step-by-step instructions for building a Docker Image.
+
+### Basic Dockerfile Instructions
+
+\`\`\`dockerfile
+# Base image
+FROM python:3.11-slim
+
+# Working directory inside the container
+WORKDIR /app
+
+# Copy requirements first (for caching)
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the code
+COPY . .
+
+# Define environment variable
+ENV PORT=8000
+ENV PYTHONUNBUFFERED=1
+
+# Port the app listens on
+EXPOSE 8000
+
+# Default command to run the application
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+\`\`\`
+
+### .dockerignore File
+
+Like .gitignore but for Docker — prevents copying unnecessary files:
+
+\`\`\`
+__pycache__/
+*.pyc
+.env
+.git/
+tests/
+*.log
+venv/
+.venv/
+\`\`\`
+
+### Build and Run the Image
+
+\`\`\`bash
+# Build the image
+docker build -t my-ai-app:v1 .
+
+# Run the container
+docker run -p 8080:8000 my-ai-app:v1
+docker run -d -p 8080:8000 --name ai-api my-ai-app:v1  # in background
+
+# Pass environment variables
+docker run -d -p 8080:8000 \\
+  -e ANTHROPIC_API_KEY=sk-ant-... \\
+  --name ai-api my-ai-app:v1
+\`\`\`
+
+### Multi-Stage Build (For Production)
+
+Significantly reduces the final image size:
+
+\`\`\`dockerfile
+# Build stage
+FROM python:3.11 AS builder
+WORKDIR /build
+COPY requirements.txt .
+RUN pip install --user -r requirements.txt
+
+# Production stage (smaller)
+FROM python:3.11-slim AS production
+WORKDIR /app
+COPY --from=builder /root/.local /root/.local
+COPY . .
+ENV PATH=/root/.local/bin:$PATH
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+\`\`\`
+
+### Best Practices
+
+1. **Start with slim or alpine** to reduce size
+2. **COPY requirements.txt first** before code (cache optimization)
+3. **Combine RUN commands** with \`&&\` to reduce layers
+4. **Never put secrets in the image** — use env vars at runtime
+5. **Use .dockerignore** to exclude unnecessary files
+`,
+      codeExample: `# بناء Dockerfile — Python Generator + Simulator
+# Dockerfile Builder and Build Simulator
+
+from dataclasses import dataclass, field
+from typing import Optional
+import time
+
+@dataclass
+class DockerfileInstruction:
+    instruction: str
+    args: str
+    comment: str = ""
+
+class DockerfileBuilder:
+    """بناء Dockerfile برمجياً"""
+
+    def __init__(self):
+        self.instructions: list[DockerfileInstruction] = []
+
+    def FROM(self, image: str, alias: str = "") -> "DockerfileBuilder":
+        args = f"{image} AS {alias}" if alias else image
+        return self._add("FROM", args, "الصورة الأساسية")
+
+    def WORKDIR(self, path: str) -> "DockerfileBuilder":
+        return self._add("WORKDIR", path, "مجلد العمل")
+
+    def COPY(self, src: str, dst: str) -> "DockerfileBuilder":
+        return self._add("COPY", f"{src} {dst}")
+
+    def RUN(self, cmd: str, comment: str = "") -> "DockerfileBuilder":
+        return self._add("RUN", cmd, comment)
+
+    def ENV(self, key: str, value: str) -> "DockerfileBuilder":
+        return self._add("ENV", f"{key}={value}")
+
+    def EXPOSE(self, port: int) -> "DockerfileBuilder":
+        return self._add("EXPOSE", str(port), "المنفذ المكشوف")
+
+    def CMD(self, *args: str) -> "DockerfileBuilder":
+        cmd_json = '["' + '", "'.join(args) + '"]'
+        return self._add("CMD", cmd_json)
+
+    def _add(self, instruction: str, args: str, comment: str = "") -> "DockerfileBuilder":
+        self.instructions.append(DockerfileInstruction(instruction, args, comment))
+        return self
+
+    def build(self) -> str:
+        lines = []
+        for instr in self.instructions:
+            if instr.comment:
+                lines.append(f"# {instr.comment}")
+            lines.append(f"{instr.instruction} {instr.args}")
+            lines.append("")
+        return "\\n".join(lines).strip()
+
+class BuildSimulator:
+    """محاكاة docker build"""
+
+    def __init__(self, tag: str):
+        self.tag = tag
+        self.layer_sizes: list[int] = []
+
+    def execute(self, dockerfile_content: str) -> dict:
+        print(f"\\n🔨 Building {self.tag}...")
+        print("─"*55)
+        total_size = 0
+        steps = []
+
+        for i, line in enumerate(dockerfile_content.split("\\n")):
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+
+            parts = line.split(None, 1)
+            instruction = parts[0]
+            args = parts[1] if len(parts) > 1 else ""
+
+            size_mb = {"FROM": 130, "RUN": 25, "COPY": 5, "ENV": 0, "EXPOSE": 0, "CMD": 0}.get(instruction, 2)
+            total_size += size_mb
+            steps.append({"step": i+1, "instruction": instruction, "size": size_mb})
+
+            time.sleep(0.1)
+            size_str = f"+{size_mb}MB" if size_mb > 0 else "cached"
+            print(f"  Step {len(steps)}/{6}: {instruction:<10} [{size_str}]  ✅")
+
+        print(f"\\n  ✅ Successfully built {self.tag}")
+        print(f"  📦 Image size: ~{total_size}MB")
+        return {"tag": self.tag, "size_mb": total_size, "layers": len(steps)}
+
+# ─── بناء Dockerfile لتطبيق AI ────────────────────────────
+print("🐳 Dockerfile Builder — AI App")
+print("="*55)
+
+# بناء Dockerfile برمجياً
+df = (
+    DockerfileBuilder()
+    .FROM("python:3.11-slim")
+    .WORKDIR("/app")
+    .COPY("requirements.txt", ".")
+    .RUN("pip install --no-cache-dir -r requirements.txt", "تثبيت المتطلبات")
+    .COPY(".", ".")
+    .ENV("PYTHONUNBUFFERED", "1")
+    .ENV("PORT", "8000")
+    .EXPOSE(8000)
+    .CMD("uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000")
+)
+
+dockerfile_content = df.build()
+print("\\n📄 Dockerfile المُولَّد:")
+print("─"*55)
+for line in dockerfile_content.split("\\n"):
+    prefix = "  "
+    if line.startswith("#"):
+        print(f"{prefix}\\033[90m{line}\\033[0m")
+    else:
+        print(f"{prefix}{line}")
+
+# ─── محاكاة البناء ────────────────────────────────────────
+simulator = BuildSimulator("my-ai-app:v1")
+result = simulator.execute(dockerfile_content)
+
+# ─── مقارنة Base Images ───────────────────────────────────
+print(f"\\n{'='*55}")
+print("📊 مقارنة Base Images:")
+print(f"{'Image':<25} {'الحجم':>8} {'الاستخدام'}")
+print("─"*55)
+
+images = [
+    ("ubuntu:22.04",      "77MB",  "تطوير عام"),
+    ("debian:bookworm",   "117MB", "استقرار عالٍ"),
+    ("python:3.11",       "1.0GB", "كامل + dev tools"),
+    ("python:3.11-slim",  "130MB", "✅ مناسب للإنتاج"),
+    ("python:3.11-alpine", "55MB", "أصغر — بعض القيود"),
+]
+for name, size, use in images:
+    print(f"  {name:<25} {size:>8}  {use}")
+
+print(f"\\n💡 للـ AI APIs: python:3.11-slim هو الاختيار المثالي")
+print(f"   الحجم: ~130MB + مكتباتك (~50MB) = ~180MB فقط")
+
+# ─── .dockerignore ────────────────────────────────────────
+print(f"\\n📋 .dockerignore الموصى به لمشاريع AI:")
+dockerignore = """__pycache__/
+*.pyc  *.pyo  *.pyd
+.env   .env.*
+.git/  .github/
+tests/ docs/
+*.log  *.md
+venv/  .venv/
+.pytest_cache/
+*.ipynb"""
+for line in dockerignore.strip().split("\\n"):
+    print(f"  {line}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 5: مشروع نشر FastAPI في Docker
+    {
+      bodyAr: `
+## مشروع: نشر FastAPI في Docker
+
+سنبني تطبيق FastAPI مع Claude API وننشره بـ Docker Compose.
+
+### هيكل المشروع
+
+\`\`\`
+ai-docker-project/
+├── app/
+│   ├── main.py         ← FastAPI Application
+│   └── __init__.py
+├── requirements.txt
+├── Dockerfile
+├── docker-compose.yml
+├── .env                ← API Keys (لا تُرفع لـ Git)
+└── .dockerignore
+\`\`\`
+
+### ملف main.py
+
+\`\`\`python
+from fastapi import FastAPI
+from pydantic import BaseModel
+import anthropic, os
+
+app = FastAPI(title="AI Assistant API")
+client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+class ChatRequest(BaseModel):
+    message: str
+    max_tokens: int = 500
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+@app.post("/chat")
+def chat(req: ChatRequest):
+    msg = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=req.max_tokens,
+        messages=[{"role": "user", "content": req.message}],
+    )
+    return {"reply": msg.content[0].text}
+\`\`\`
+
+### ملف Dockerfile
+
+\`\`\`dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+EXPOSE 8000
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+\`\`\`
+
+### ملف docker-compose.yml
+
+\`\`\`yaml
+version: "3.9"
+
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+\`\`\`
+
+### ملف .env
+
+\`\`\`
+ANTHROPIC_API_KEY=sk-ant-...
+PORT=8000
+LOG_LEVEL=info
+\`\`\`
+
+### أوامر التشغيل
+
+\`\`\`bash
+# تشغيل كامل المشروع
+docker compose up -d
+
+# عرض السجلات
+docker compose logs -f api
+
+# إعادة البناء بعد تعديل الكود
+docker compose up -d --build
+
+# إيقاف كل شيء
+docker compose down
+
+# اختبار الـ API
+curl http://localhost:8080/health
+curl -X POST http://localhost:8080/chat \\
+  -H "Content-Type: application/json" \\
+  -d '{"message": "مرحباً!"}'
+\`\`\`
+
+### نصائح للإنتاج
+
+- 🔐 **لا ترفع .env لـ Git** — أضفه في .gitignore
+- 📊 **أضف Nginx** كـ reverse proxy أمام FastAPI
+- 🔄 **استخدم health checks** لضمان صحة التطبيق
+- 📝 **structured logging** مع JSON لسهولة التتبع
+- 🚀 **GitHub Actions** للنشر التلقائي عند كل push
+`,
+      bodyEn: `
+## Project: Deploy FastAPI in Docker
+
+We'll build a FastAPI app with Claude API and deploy it with Docker Compose.
+
+### Project Structure
+
+\`\`\`
+ai-docker-project/
+├── app/
+│   ├── main.py         ← FastAPI Application
+│   └── __init__.py
+├── requirements.txt
+├── Dockerfile
+├── docker-compose.yml
+├── .env                ← API Keys (never commit to Git)
+└── .dockerignore
+\`\`\`
+
+### main.py
+
+\`\`\`python
+from fastapi import FastAPI
+from pydantic import BaseModel
+import anthropic, os
+
+app = FastAPI(title="AI Assistant API")
+client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+class ChatRequest(BaseModel):
+    message: str
+    max_tokens: int = 500
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+@app.post("/chat")
+def chat(req: ChatRequest):
+    msg = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=req.max_tokens,
+        messages=[{"role": "user", "content": req.message}],
+    )
+    return {"reply": msg.content[0].text}
+\`\`\`
+
+### Dockerfile
+
+\`\`\`dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+EXPOSE 8000
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+\`\`\`
+
+### docker-compose.yml
+
+\`\`\`yaml
+version: "3.9"
+
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+\`\`\`
+
+### Run Commands
+
+\`\`\`bash
+# Start the entire project
+docker compose up -d
+
+# View logs
+docker compose logs -f api
+
+# Rebuild after code changes
+docker compose up -d --build
+
+# Stop everything
+docker compose down
+
+# Test the API
+curl http://localhost:8080/health
+curl -X POST http://localhost:8080/chat \\
+  -H "Content-Type: application/json" \\
+  -d '{"message": "Hello!"}'
+\`\`\`
+
+### Production Tips
+
+- 🔐 **Never commit .env to Git** — add it to .gitignore
+- 📊 **Add Nginx** as a reverse proxy in front of FastAPI
+- 🔄 **Use health checks** to ensure app health
+- 📝 **Structured JSON logging** for easy tracing
+- 🚀 **GitHub Actions** for auto-deployment on every push
+`,
+      codeExample: `#!/usr/bin/env python3
+"""
+مشروع: نشر FastAPI في Docker
+Project: FastAPI + Claude + Docker Complete Project Generator
+"""
+
+from pathlib import Path
+import os
+
+PROJECT_NAME = "ai-docker-project"
+
+# ─── محتوى الملفات ─────────────────────────────────────────
+FILES = {
+    "app/__init__.py": "",
+
+    "app/main.py": '''from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+import anthropic
+import os
+import logging
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+logger = logging.getLogger(__name__)
+
+app = FastAPI(title="AI Assistant API", version="1.0.0")
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
+client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
+
+class ChatRequest(BaseModel):
+    message: str
+    max_tokens: int = 500
+
+class ChatResponse(BaseModel):
+    reply: str
+    tokens_used: int
+
+@app.get("/")
+def root():
+    return {"service": "AI Assistant API", "status": "ok"}
+
+@app.get("/health")
+def health():
+    return {"healthy": True}
+
+@app.post("/chat", response_model=ChatResponse)
+def chat(req: ChatRequest):
+    try:
+        msg = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=req.max_tokens,
+            messages=[{"role": "user", "content": req.message}],
+        )
+        tokens = msg.usage.input_tokens + msg.usage.output_tokens
+        logger.info(f"Chat request processed: {tokens} tokens")
+        return ChatResponse(reply=msg.content[0].text, tokens_used=tokens)
+    except Exception as e:
+        logger.error(f"Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+''',
+
+    "requirements.txt": """fastapi==0.115.0
+uvicorn[standard]==0.31.0
+anthropic==0.34.0
+pydantic==2.9.0
+python-dotenv==1.0.1""",
+
+    "Dockerfile": """FROM python:3.11-slim
+
+# تثبيت curl للـ health check
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# نسخ المتطلبات أولاً (cache optimization)
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# نسخ الكود
+COPY . .
+
+ENV PYTHONUNBUFFERED=1
+EXPOSE 8000
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]""",
+
+    "docker-compose.yml": """version: "3.9"
+
+services:
+  api:
+    build: .
+    container_name: ai-assistant-api
+    ports:
+      - "8080:8000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s""",
+
+    ".env.example": """# انسخ هذا الملف إلى .env وأضف مفتاحك
+ANTHROPIC_API_KEY=sk-ant-your-key-here
+LOG_LEVEL=info""",
+
+    ".dockerignore": """__pycache__/
+*.pyc
+*.pyo
+.env
+.env.*
+.git/
+.github/
+tests/
+*.log
+*.md
+venv/
+.venv/
+.pytest_cache/""",
+
+    ".gitignore": """.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.log
+.pytest_cache/""",
+}
+
+# ─── توليد المشروع ─────────────────────────────────────────
+def generate_project(base_dir: str = "/tmp"):
+    project = Path(base_dir) / PROJECT_NAME
+    created = []
+
+    print(f"\\n🐳 توليد مشروع: {PROJECT_NAME}")
+    print("="*55)
+
+    for rel_path, content in FILES.items():
+        file_path = project / rel_path
+        file_path.parent.mkdir(parents=True, exist_ok=True)
+        file_path.write_text(content)
+        size = len(content.encode())
+        print(f"  ✅ {rel_path:<35} ({size:>5} bytes)")
+        created.append(file_path)
+
+    return project, created
+
+project_path, files = generate_project()
+
+# ─── عرض هيكل المشروع ─────────────────────────────────────
+print(f"\\n📁 هيكل المشروع:")
+print(f"  {PROJECT_NAME}/")
+structure_display = [
+    ("app/",             "حزمة التطبيق"),
+    ("  __init__.py",    ""),
+    ("  main.py",        "← FastAPI + Claude API"),
+    ("requirements.txt", "← Python dependencies"),
+    ("Dockerfile",       "← Docker build instructions"),
+    ("docker-compose.yml","← Multi-service orchestration"),
+    (".env.example",     "← Template (انسخ إلى .env)"),
+    (".dockerignore",    "← Files to exclude"),
+    (".gitignore",       "← Files to exclude from Git"),
+]
+for name, desc in structure_display:
+    suffix = f"  {desc}" if desc else ""
+    print(f"  ├── {name}{suffix}")
+
+# ─── أوامر التشغيل ────────────────────────────────────────
+print(f"\\n🚀 خطوات تشغيل المشروع:")
+steps = [
+    ("انسخ مفتاح API",    "cp .env.example .env && nano .env"),
+    ("بناء وتشغيل",       "docker compose up -d --build"),
+    ("تحقق من السجلات",   "docker compose logs -f api"),
+    ("اختبر الـ API",     "curl http://localhost:8080/health"),
+    ("اختبر Claude",      'curl -X POST http://localhost:8080/chat -H "Content-Type: application/json" -d \\'{"message": "مرحبا"}\\''),
+    ("إيقاف التطبيق",    "docker compose down"),
+]
+for i, (desc, cmd) in enumerate(steps, 1):
+    print(f"\\n  {i}. {desc}:")
+    print(f"     $ {cmd[:70]}")
+
+# ─── تنظيف ────────────────────────────────────────────────
+import shutil
+shutil.rmtree(project_path, ignore_errors=True)
+print(f"\\n✅ تم توليد {len(FILES)} ملف بنجاح!")
+print(f"🎉 مبروك! أكملت دورة Docker & Linux")`,
+      codeLanguage: "python",
+    },
+  ],
+
 };

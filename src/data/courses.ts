@@ -503,7 +503,7 @@ export const courses: Course[] = [
     descriptionEn: "Master Linux and containers to run and deploy AI applications.",
     level: "intermediate", lessons: 22, hours: 18, projects: 3,
     skills: ["Linux", "Docker", "Docker Compose", "Containers", "CLI"],
-    category: "Cloud", icon: "🐳", featured: false, color: "cyan", comingSoon: true,
+    category: "Cloud", icon: "🐳", featured: false, color: "cyan",
     overviewAr: "Linux وDocker هما أساس كل بيئة AI حديثة. ستتعلم التعامل مع سطر الأوامر، بناء الحاويات، وإدارة التطبيقات بـ Docker Compose.",
     overviewEn: "Linux and Docker are the foundation of every modern AI environment. You'll learn command-line usage, building containers, and managing applications with Docker Compose.",
     forWhoAr: ["من يريد نشر تطبيقات AI", "المطورون الذين يعملون على Linux"],
