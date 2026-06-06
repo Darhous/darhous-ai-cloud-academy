@@ -3,9 +3,9 @@
 
 > **Created:** 2026-06-06
 > **Author:** Senior Creative Director + Design System Architect (UI/UX Pro Max)
-> **Status:** 🟢 PHASE 1 COMPLETE — Phase 2 next
-> **Branch:** `main` · commit `c88404e`
-> **Checkpoint tags:** `checkpoint/pre-redesign-plan` (baseline) · `checkpoint/redesign-p1-foundation` (Phase 1)
+> **Status:** 🟢 PHASE 2 COMPLETE — Phase 3 next
+> **Branch:** `main` · commit `8c042ed`
+> **Checkpoint tags:** `checkpoint/pre-redesign-plan` (baseline) · `checkpoint/redesign-p1-foundation` (Phase 1) · `checkpoint/redesign-p2-landing` (Phase 2)
 > **Companion file:** [`CHECKPOINT.md`](./CHECKPOINT.md)
 >
 > **Phase 1 completed:** 2026-06-06 — tsc ✓ · lint 0 errors ✓ · build exit 0 ✓ · pushed to Vercel
@@ -138,15 +138,21 @@ These are hard constraints for **every** phase. Any change that risks these is o
 - `portals.ts` color value edits → not needed; new colors live in `[data-portal]` CSS tokens.
 - IoT Lab layout `data-portal` attr → deferred to Phase 3 (it has logic, needs care).
 
-### Phase 2 — Landing page redesign
-**Goal:** new section order, hero "Ecosystem Entry", portal showcase, 2 CTAs, SVG OS-mockup, dissolve "Why Darhous" grid, dramatic final CTA.
-- Split `landing/HomepageClient.tsx` (940+ lines) → `HeroSection`, `SocialProofBar`, `PortalShowcase`, `PathSelector` (keep self-contained state), `MentorDemo`, `HowItWorks`, `CertificateGallery`, `FinalCTA`.
-- Reuse `sections/Stats.tsx`, `sections/CTASection.tsx`, `ecosystem/PortalCard.tsx`, `community/CommunitySignup.tsx`.
-- Respect reduced-motion in all Framer variants (`useReducedMotion`).
-- **Touch:** `components/landing/*`, new section files, `components/sections/*` (visual), `ecosystem/PortalCard.tsx` (visual).
-- **Never:** routes, registration logic, path-selector recommendation data.
-- **Risk:** Medium. **Rollback:** feature branch; keep old HomepageClient until QA pass.
-- **Tag:** `checkpoint/redesign-p2-landing`.
+### Phase 2 — Landing page redesign ✅ COMPLETE (2026-06-06)
+**commit:** `8c042ed` · **tag:** `checkpoint/redesign-p2-landing` · build ✓ · pushed to Vercel
+
+**Done:**
+- Split `HomepageClient.tsx` (940 lines) into 8 section files in `components/landing/sections/`: `HeroSection`, `PathSelector` (self-contained state), `EcosystemMap`, `PortalGrid`, `HowItWorks`, `MentorShowcase`, `WhyDarhous`, `FinalCTA`. `HomepageClient` is now a 35-line thin orchestrator.
+- `useReducedMotion` applied in all 8 sections — disables y-axis motion + stagger, shortens durations to 150ms when `prefers-reduced-motion` is active. Framer Motion variants now defined inside each component (hook-safe pattern).
+- OS mockup: 6 emoji icons → Lucide (Bot/Globe/Monitor/Briefcase/Settings2/Cpu); portal colors updated to Phase 1 token values (#c084fc Language, #fbbf24 Career).
+- HowItWorks: 4 step emoji icons → Lucide (Target/Bot/BookOpen/Trophy).
+- WhyDarhous: dissolved 8-card 4-col dense grid → 2-col editorial list with Lucide icons; all text/content preserved.
+- Badge labels: emoji → Lucide (Compass/Globe/Bot/Sparkles).
+- Section gap: `gap-28` (112px) → `gap-16 md:gap-20` (64–80px per design-token plan).
+
+**Not done / deferred:**
+- `SocialProofBar` label (Stats component is already separate) → no change needed.
+- `CertificateGallery` section does not exist in current homepage → deferred to Phase 7.
 
 ### Phase 3 — Portal identity system (the highest-impact change)
 **Goal:** each portal gets its surface/atmosphere via `[data-portal]`.

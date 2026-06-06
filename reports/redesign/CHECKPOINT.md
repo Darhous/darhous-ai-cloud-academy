@@ -1,6 +1,7 @@
-# Redesign Checkpoint — Phase 1 Complete
+# Redesign Checkpoint — Phase 2 Complete
 
-> **Latest tag:** `checkpoint/redesign-p1-foundation` · commit `c88404e`
+> **Latest tag:** `checkpoint/redesign-p2-landing` · commit `8c042ed`
+> **Phase 1 tag:** `checkpoint/redesign-p1-foundation` · commit `c88404e`
 > **Baseline tag:** `checkpoint/pre-redesign-plan` · commit `ad6bf0e`
 > **Branch:** `main` · pushed to Vercel
 > **Date:** 2026-06-06
@@ -12,58 +13,53 @@
 | Item | Status |
 |------|--------|
 | Master plan | ✅ Written → [`MASTER_REDESIGN_PLAN.md`](./MASTER_REDESIGN_PLAN.md) |
-| Repo fully enumerated | ✅ 88 pages, ~100 components, 33 dirs |
-| Design direction | ✅ Locked: "Digital Depth" |
-| **Phase 1 — Foundation + a11y** | ✅ **COMPLETE** — `c88404e` |
-| `globals.css` tokens | ✅ Cairo, display fonts, spacing, motion, portal tokens, Arabic line-height |
-| `prefers-reduced-motion` | ✅ WCAG 2.3.3 fixed |
-| Skip link | ✅ Added (`#main-content`, bilingual) |
-| Orbs 3 → 1 | ✅ Done |
-| Navbar a11y | ✅ `aria-label`, `aria-expanded`, `aria-haspopup` |
-| 6 portal layout wrappers | ✅ Additive, zero logic, `data-portal` only |
+| **Phase 1 — Foundation + a11y** | ✅ COMPLETE — `c88404e` |
+| **Phase 2 — Landing redesign** | ✅ **COMPLETE** — `8c042ed` |
+| HomepageClient split → 8 sections | ✅ `landing/sections/` directory with 8 files |
+| `useReducedMotion` in all sections | ✅ All 8 Framer Motion components covered |
+| OS mockup emoji → Lucide icons | ✅ 6 portal icons replaced |
+| HowItWorks emoji → Lucide icons | ✅ 4 step icons replaced |
+| WhyDarhous visual dissolution | ✅ 4-col dense grid → 2-col editorial list |
+| Badge emoji → Lucide icons | ✅ Compass/Globe/Bot/Sparkles |
+| Section gap reduced | ✅ 112px → 64–80px responsive |
 | Content / architecture / APIs | ❌ **UNTOUCHED** |
-| Phase 2 (landing) | ⏸️ Not started |
+| Phase 3 (portal identity) | ⏸️ Not started |
 
 ---
 
-## WHAT WAS DONE THIS SESSION
+## WHAT WAS DONE IN PHASE 2
 
-1. Read all 13 audit reports (Ultimate Audit + certificate report).
-2. Read real source: `globals.css`, `portals.ts`, `[locale]/layout.tsx`, `Navbar.tsx`, `Footer.tsx`, `HomepageClient.tsx`, `tailwind.config.ts`.
-3. Ran UI/UX Pro Max design-system analysis (Liquid Glass / Enterprise Gateway / Noto Arabic).
-4. Delivered full creative proposal (chat).
-5. **Enumerated the entire repository** → discovered under-scoping in original proposal.
-6. Wrote exhaustive master plan + this checkpoint.
-7. Created git tag `checkpoint/pre-redesign-plan`.
+1. Split `HomepageClient.tsx` (940 lines) into 8 focused sections:
+   - `sections/HeroSection.tsx` — hero + OS mockup (Lucide icons)
+   - `sections/PathSelector.tsx` — self-contained path-selector state
+   - `sections/EcosystemMap.tsx` — 3×3 ecosystem grid
+   - `sections/PortalGrid.tsx` — all portals grid
+   - `sections/HowItWorks.tsx` — 4 steps (Lucide icons)
+   - `sections/MentorShowcase.tsx` — AI mentor chat preview
+   - `sections/WhyDarhous.tsx` — dissolved feature list (Lucide icons)
+   - `sections/FinalCTA.tsx` — final CTA section
+2. `HomepageClient.tsx` is now 35 lines (thin orchestrator).
+3. `useReducedMotion` from Framer Motion applied in every section:
+   - y-axis motion removed when `prefers-reduced-motion` is active
+   - stagger disabled, durations shortened to 150ms
+   - typewriter speed set to 0 (instant reveal) for reduced-motion users
+4. OS mockup colors updated to Phase 1 tokens: Language `#c084fc`, Career `#fbbf24`.
+5. Typecheck ✓ · lint 0 errors ✓ · build exit 0 ✓.
 
 ---
 
-## NEWLY DISCOVERED (added to plan, were missing from proposal)
+## HOW TO ROLL BACK
 
-- Pages: `/cloud`, `/claude`, `/u/[username]`, `/onboarding`, `/learning-plans`, `/search`, `/glossary`, `/prompts`, all 9 AI Studio tools, all deep portal subpages.
-- Architecture: only IoT Lab has `layout.tsx` → 6 new portal layout wrappers needed for `data-portal` tokens.
-- Components: full mentor system (8), carousels, UI primitives, 6 card types.
-
----
-
-## HOW TO RESUME
-
-1. Read [`MASTER_REDESIGN_PLAN.md`](./MASTER_REDESIGN_PLAN.md).
-2. Confirm §10 open decisions are approved.
-3. Start at **Phase 1** (foundation + a11y). Validate `typecheck && lint && build`. Commit + tag `checkpoint/redesign-p1-foundation`. Deploy increment.
-4. Proceed phase by phase; one commit + `checkpoint/*` tag each; never touch §2 guardrails.
-
-**Rollback to baseline:** `git reset --hard checkpoint/pre-redesign-plan`
+**To Phase 1 state:** `git reset --hard checkpoint/redesign-p1-foundation`
+**To baseline:** `git reset --hard checkpoint/pre-redesign-plan`
 
 ---
 
 ## NEXT STEP
 
-➡️ **Phase 2 — Landing page redesign** (await user GO/NO-GO)
-- Split `HomepageClient.tsx` (940 lines) → 8 focused sections
-- Reorder landing sections, replace OS-mockup emoji icons with Lucide SVG
-- Apply `useReducedMotion` to all Framer Motion variants
-- **Risk:** Medium. Use feature branch. Rollback: restore old HomepageClient.
-
-**Rollback to Phase 1 state:** `git reset --hard checkpoint/redesign-p1-foundation`
-**Rollback to baseline:** `git reset --hard checkpoint/pre-redesign-plan`
+➡️ **Phase 3 — Portal identity system** (await user GO/NO-GO)
+- Add `data-portal="iot-lab"` to existing `iot-lab/layout.tsx` (minor edit with existing logic)
+- Wire `var(--portal-color)` into portal-specific components (cards, headers, hero accents)
+- Test Navbar/Footer global token isolation (no color bleed)
+- **Risk:** Low (additive CSS tokens already in place from Phase 1).
+- **Tag:** `checkpoint/redesign-p3-portal-identity`.
