@@ -205,7 +205,7 @@ export const courses: Course[] = [
     descriptionEn: "Classic ML algorithms, Scikit-Learn, and building real predictive models.",
     level: "intermediate", lessons: 28, hours: 22, projects: 4,
     skills: ["Scikit-Learn", "Regression", "Classification", "Clustering"],
-    category: "AI", icon: "⚙️", featured: true, color: "cyan", comingSoon: true,
+    category: "AI", icon: "⚙️", featured: true, color: "cyan",
     overviewAr: "تعلم الآلة هو القلب النابض للذكاء الاصطناعي الحديث. ستتعلم الخوارزميات الكلاسيكية من Regression وClassification وClustering، وكيف تبني نماذج تنبؤية حقيقية باستخدام Scikit-Learn.",
     overviewEn: "Machine learning is the beating heart of modern AI. You'll learn classic algorithms from Regression to Classification to Clustering, and how to build real predictive models using Scikit-Learn.",
     forWhoAr: ["من أتم دورة Python للذكاء الاصطناعي", "المطورون الذين يريدون دخول عالم ML", "طلاب علوم البيانات"],

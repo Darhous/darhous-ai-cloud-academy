@@ -5752,4 +5752,1699 @@ if __name__ == "__main__":
     },
   ],
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // C7b — machine-learning (8 lessons)
+  // ─────────────────────────────────────────────────────────────────────────
+  "machine-learning": [
+
+    // Lesson 1 — ما هو تعلم الآلة؟
+    {
+      bodyAr: `## ما هو تعلم الآلة؟
+
+تعلم الآلة (Machine Learning) هو الفرع من الذكاء الاصطناعي الذي يُمكّن الأنظمة من التعلم من البيانات وتحسين أدائها بمرور الوقت — بدون برمجة صريحة لكل قاعدة.
+
+### التعريف الأوضح
+
+في البرمجة التقليدية:
+\`\`\`
+البيانات + القواعد → النتائج
+\`\`\`
+
+في تعلم الآلة:
+\`\`\`
+البيانات + النتائج → القواعد (النموذج)
+\`\`\`
+
+أنت تُطعم النموذج أمثلة، وهو يستنتج القواعد تلقائياً.
+
+### مثال حقيقي: تصفية البريد المزعج
+
+**الطريقة التقليدية:**
+\`\`\`python
+def is_spam(email):
+    if "مجاني" in email and "اضغط هنا" in email:
+        return True
+    if "ربح فوري" in email:
+        return True
+    return False
+\`\`\`
+المشكلة: لا تغطي كل الحالات وتحتاج تحديثاً يدوياً مستمراً.
+
+**طريقة ML:**
+نعطي النموذج 10,000 إيميل (5000 مزعج + 5000 حقيقي) فيتعلم الأنماط بنفسه ويكتشف سمات Spam لم تخطر لنا.
+
+### لماذا ML الآن؟
+
+ثلاثة عوامل اجتمعت:
+
+| العامل | التفصيل |
+|--------|---------|
+| **البيانات الضخمة** | مليارات الأمثلة متاحة (صور، نصوص، معاملات) |
+| **القوة الحسابية** | GPU يسرّع الحسابات بـ 100x على CPU |
+| **الخوارزميات** | Gradient Descent، Backprop، Transformers |
+
+### أين يُستخدم ML اليوم؟
+
+- **التوصيات:** Netflix، YouTube، Amazon
+- **الطب:** تشخيص السرطان من صور الأشعة
+- **المالية:** كشف الاحتيال في البطاقات البنكية
+- **اللغة:** ترجمة Google، ChatGPT، Claude
+- **القيادة الذاتية:** Tesla، Waymo
+- **التصنيع:** صيانة تنبؤية للآلات
+
+### المكونات الأساسية لأي نظام ML
+
+\`\`\`
+البيانات → المعالجة → النموذج → التدريب → التقييم → النشر
+\`\`\`
+
+**البيانات (Data):** المواد الخام — بدونها لا يوجد ML.
+
+**الميزات (Features):** الخصائص التي نُطعمها للنموذج.
+- مثال لبيت: المساحة، الغرف، الحي، العمر، الطابق
+
+**التسمية (Labels):** الإجابة الصحيحة التي نريد تعلمها.
+- مثال: سعر البيت
+
+**النموذج (Model):** الخوارزمية التي تتعلم من البيانات.
+
+**التدريب (Training):** عملية تحسين النموذج على بيانات التدريب.
+
+**التقييم (Evaluation):** قياس أداء النموذج على بيانات لم يرَها من قبل.
+
+### مصطلحات يجب حفظها
+
+| المصطلح | التعريف |
+|---------|---------|
+| **Feature** | متغير مدخل (مساحة البيت) |
+| **Label / Target** | ما نتنبأ به (السعر) |
+| **Training set** | بيانات التدريب (80%) |
+| **Test set** | بيانات الاختبار (20%) |
+| **Overfitting** | النموذج يحفظ التدريب لكن يفشل على بيانات جديدة |
+| **Underfitting** | النموذج بسيط جداً ولا يتعلم الأنماط |
+| **Hyperparameter** | إعدادات النموذج التي تضبطها أنت |
+`,
+      bodyEn: `## What is Machine Learning?
+
+Machine Learning (ML) is the branch of AI that enables systems to learn from data and improve over time — without explicitly programming every rule.
+
+### The Clearest Definition
+
+In traditional programming:
+\`\`\`
+Data + Rules → Results
+\`\`\`
+
+In machine learning:
+\`\`\`
+Data + Results → Rules (the model)
+\`\`\`
+
+You feed the model examples, and it derives the rules automatically.
+
+### Real Example: Spam Filtering
+
+**Traditional approach:** Write explicit rules (contains "free" + "click here" → spam). Problem: doesn't cover all cases, needs constant manual updates.
+
+**ML approach:** Give the model 10,000 emails (5,000 spam + 5,000 real). It learns patterns on its own and discovers spam signals you'd never think of.
+
+### Why ML Now?
+
+Three factors aligned: massive data availability, GPU compute power (100x faster than CPU), and breakthrough algorithms (Gradient Descent, Backpropagation, Transformers).
+
+### Core Components of Any ML System
+
+\`\`\`
+Data → Preprocessing → Model → Training → Evaluation → Deployment
+\`\`\`
+
+**Features:** Input characteristics fed to the model (house area, rooms, location).
+
+**Labels:** The correct answer to learn (house price).
+
+**Training set:** ~80% of data used for learning.
+
+**Test set:** ~20% of data used to evaluate generalization.
+
+### Key Terms
+
+| Term | Definition |
+|------|----------|
+| **Overfitting** | Model memorizes training data but fails on new data |
+| **Underfitting** | Model too simple, misses patterns |
+| **Hyperparameter** | Settings you tune (learning rate, depth) |
+`,
+      codeExample: `import numpy as np
+import pandas as pd
+from sklearn.datasets import load_iris, load_boston
+import matplotlib
+matplotlib.use("Agg")  # للتشغيل بدون شاشة
+import matplotlib.pyplot as plt
+
+# ─────────────────────────────
+# مثال 1: استكشاف بيانات Iris
+# ─────────────────────────────
+print("=" * 50)
+print("مثال 1: بيانات Iris الكلاسيكية")
+print("=" * 50)
+
+iris = load_iris()
+df = pd.DataFrame(iris.data, columns=iris.feature_names)
+df["species"] = [iris.target_names[t] for t in iris.target]
+
+print(f"\\nشكل البيانات: {df.shape}")
+print(f"الأنواع: {df['species'].unique()}")
+print(f"\\nأول 5 صفوف:")
+print(df.head())
+
+print(f"\\nإحصائيات:")
+print(df.describe().round(2))
+
+# ─────────────────────────────
+# مثال 2: تمييز Features وLabels
+# ─────────────────────────────
+print("\\n" + "=" * 50)
+print("مثال 2: فصل Features عن Labels")
+print("=" * 50)
+
+X = df[iris.feature_names]   # Features (المدخلات)
+y = df["species"]            # Labels (المخرجات)
+
+print(f"Features shape: {X.shape}  ← (عدد الأمثلة, عدد الميزات)")
+print(f"Labels shape:   {y.shape}  ← (عدد الأمثلة,)")
+
+# ─────────────────────────────
+# مثال 3: Train/Test Split
+# ─────────────────────────────
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+print(f"\\nحجم بيانات التدريب : {X_train.shape[0]} مثال ({X_train.shape[0]/len(X)*100:.0f}%)")
+print(f"حجم بيانات الاختبار: {X_test.shape[0]} مثال ({X_test.shape[0]/len(X)*100:.0f}%)")
+
+# ─────────────────────────────
+# مثال 4: أول نموذج بسيط
+# ─────────────────────────────
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+
+print("\\n" + "=" * 50)
+print("مثال 4: أبسط نموذج — KNeighbors")
+print("=" * 50)
+
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print(f"\\nدقة النموذج على بيانات الاختبار: {accuracy:.1%}")
+
+# تنبؤ بمثال جديد
+new_flower = [[5.1, 3.5, 1.4, 0.2]]  # قياسات زهرة جديدة
+prediction = model.predict(new_flower)
+print(f"\\nتنبؤ لزهرة جديدة {new_flower[0]}: {prediction[0]}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 2 — أنواع التعلم: Supervised وUnsupervised
+    {
+      bodyAr: `## أنواع التعلم: Supervised وUnsupervised
+
+تعلم الآلة له ثلاثة أنواع رئيسية، كل منها يناسب نوعاً مختلفاً من المشاكل. فهم الفرق بينها هو أول خطوة نحو اختيار الخوارزمية الصحيحة.
+
+### 1. Supervised Learning (التعلم الخاضع للإشراف)
+
+**التعريف:** النموذج يتعلم من بيانات **موسومة** (كل مثال له إجابة صحيحة معروفة).
+
+**مثال:** تدريب نموذج للتنبؤ بسعر بيت:
+- المدخل: مساحة، غرف، حي
+- المخرج المعروف مسبقاً: السعر الفعلي
+
+**متى تستخدمه؟** عندما يكون لديك بيانات مع إجابات صحيحة معروفة.
+
+#### أنواع Supervised Learning:
+
+**Regression (الانحدار)** — المخرج رقم مستمر:
+- التنبؤ بسعر البيت
+- التنبؤ بدرجة الحرارة
+- التنبؤ بمبيعات الشهر القادم
+
+**Classification (التصنيف)** — المخرج فئة:
+- البريد: مزعج أم حقيقي؟
+- صورة: قطة أم كلب؟
+- مريض: مصاب أم سليم؟
+
+### 2. Unsupervised Learning (التعلم غير الخاضع للإشراف)
+
+**التعريف:** النموذج يجد أنماطاً في بيانات **غير موسومة** (بدون إجابات صحيحة مسبقة).
+
+**مثال:** تجميع عملاء متجر إلكتروني:
+- المدخل: سلوك الشراء، التصفح، المنتجات
+- المخرج: مجموعات (segments) يكتشفها النموذج بنفسه
+
+**متى تستخدمه؟** عندما تريد اكتشاف الأنماط المخفية في البيانات.
+
+#### أنواع Unsupervised Learning:
+
+**Clustering (التجميع)** — تجميع العناصر المتشابهة:
+- K-Means Clustering
+- DBSCAN
+- Hierarchical Clustering
+
+**Dimensionality Reduction** — تقليل عدد الميزات:
+- PCA (Principal Component Analysis)
+- t-SNE (للتصور)
+
+**Anomaly Detection** — كشف الشذوذ:
+- كشف احتيال بطاقات البنك
+- كشف أعطال الأجهزة
+
+### 3. Reinforcement Learning (التعلم التعزيزي)
+
+**التعريف:** وكيل (Agent) يتعلم بالتجربة والخطأ للحصول على أقصى مكافأة.
+
+**مثال:** تعليم روبوت المشي:
+- يحاول خطوة → يسقط = مكافأة سلبية
+- يحاول خطوة مختلفة → يتقدم = مكافأة إيجابية
+- يتعلم تدريجياً ما يُكسبه أكبر مكافأة
+
+**أشهر التطبيقات:**
+- AlphaGo (لعبة الغو)
+- OpenAI Five (Dota 2)
+- روبوتات المصانع
+- ضبط إعدادات Data Centers (Google)
+
+### مقارنة شاملة
+
+| الجانب | Supervised | Unsupervised | Reinforcement |
+|--------|-----------|--------------|---------------|
+| **البيانات** | موسومة | غير موسومة | تفاعل مع بيئة |
+| **الهدف** | التنبؤ | اكتشاف أنماط | تعظيم المكافأة |
+| **المثال** | تصنيف بريد | تجميع عملاء | ألعاب، روبوتات |
+| **الصعوبة** | متوسط | أصعب (لا معيار واضح) | الأصعب |
+| **الأكثر شيوعاً** | ✅ 70% من تطبيقات ML | 20% | 10% |
+
+### كيف تختار النوع المناسب؟
+
+\`\`\`
+هل لديك بيانات موسومة؟
+├── نعم → Supervised Learning
+│   └── المخرج رقم أم فئة؟
+│       ├── رقم → Regression
+│       └── فئة → Classification
+└── لا → Unsupervised Learning
+    └── ماذا تريد؟
+        ├── تجميع → Clustering
+        └── تقليل أبعاد → Dimensionality Reduction
+\`\`\`
+`,
+      bodyEn: `## Learning Types: Supervised and Unsupervised
+
+Machine learning has three main types, each suited to a different kind of problem. Understanding the difference is the first step toward choosing the right algorithm.
+
+### 1. Supervised Learning
+
+**Definition:** The model learns from **labeled** data — every example has a known correct answer.
+
+**When to use:** When you have data with known correct answers.
+
+**Two subtypes:**
+- **Regression:** Output is a continuous number (house price, temperature)
+- **Classification:** Output is a category (spam/not spam, cat/dog)
+
+### 2. Unsupervised Learning
+
+**Definition:** The model finds patterns in **unlabeled** data — no correct answers provided upfront.
+
+**When to use:** When you want to discover hidden patterns in data.
+
+**Subtypes:**
+- **Clustering:** Group similar items (customer segments)
+- **Dimensionality Reduction:** Compress features (PCA, t-SNE)
+- **Anomaly Detection:** Find outliers (fraud detection)
+
+### 3. Reinforcement Learning
+
+**Definition:** An agent learns by trial and error to maximize a reward signal.
+
+**Applications:** AlphaGo, robotics, game AI, data center optimization.
+
+### How to Choose
+
+\`\`\`
+Do you have labeled data?
+├── Yes → Supervised
+│   └── Numeric or category output?
+│       ├── Numeric → Regression
+│       └── Category → Classification
+└── No → Unsupervised
+    └── Group or compress?
+        ├── Group → Clustering
+        └── Compress → Dimensionality Reduction
+\`\`\`
+`,
+      codeExample: `import numpy as np
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_classification, make_blobs, make_regression
+from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.cluster import KMeans
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, mean_squared_error
+
+print("=" * 55)
+print("مقارنة: Supervised vs Unsupervised Learning")
+print("=" * 55)
+
+# ─────────────────────────────────────────
+# 1. Supervised — Regression
+# ─────────────────────────────────────────
+print("\\n1. SUPERVISED — Regression (التنبؤ بالأسعار)")
+X_reg, y_reg = make_regression(n_samples=200, n_features=1,
+                                noise=30, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X_reg, y_reg, test_size=0.2, random_state=42
+)
+reg_model = LinearRegression()
+reg_model.fit(X_train, y_train)
+y_pred = reg_model.predict(X_test)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+print(f"   RMSE = {rmse:.2f}  (كلما أصغر، أفضل)")
+
+# ─────────────────────────────────────────
+# 2. Supervised — Classification
+# ─────────────────────────────────────────
+print("\\n2. SUPERVISED — Classification (تصنيف)")
+X_clf, y_clf = make_classification(n_samples=300, n_features=2,
+                                   n_redundant=0, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X_clf, y_clf, test_size=0.2, random_state=42
+)
+clf_model = LogisticRegression()
+clf_model.fit(X_train, y_train)
+accuracy = accuracy_score(y_test, clf_model.predict(X_test))
+print(f"   Accuracy = {accuracy:.1%}")
+
+# ─────────────────────────────────────────
+# 3. Unsupervised — Clustering
+# ─────────────────────────────────────────
+print("\\n3. UNSUPERVISED — Clustering (تجميع بدون تسميات)")
+# بيانات بدون labels — النموذج يكتشف المجموعات بنفسه
+X_cluster, _ = make_blobs(n_samples=300, centers=4,
+                           cluster_std=0.8, random_state=42)
+kmeans = KMeans(n_clusters=4, random_state=42, n_init="auto")
+kmeans.fit(X_cluster)
+labels = kmeans.labels_
+
+# عدد العناصر في كل مجموعة
+unique, counts = np.unique(labels, return_counts=True)
+print("   المجموعات المكتشفة:")
+for g, c in zip(unique, counts):
+    print(f"     مجموعة {g}: {c} عنصر")
+
+print("\\n" + "=" * 55)
+print("ملخص:")
+print("  Regression  → يتنبأ بأرقام مستمرة (مع labels)")
+print("  Classification → يصنّف لفئات (مع labels)")
+print("  Clustering  → يجمّع بدون labels")
+print("=" * 55)`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 3 — Linear Regression من الصفر
+    {
+      bodyAr: `## Linear Regression من الصفر
+
+Linear Regression هي أبسط وأهم خوارزمية في تعلم الآلة. فهمها بعمق يفتح لك الباب لفهم كل خوارزميات ML الأخرى.
+
+### الفكرة الأساسية
+
+Linear Regression تجد أفضل خط مستقيم يصف العلاقة بين المتغيرات.
+
+**المعادلة الأساسية:**
+\`\`\`
+y = mx + b
+\`\`\`
+
+أو بلغة ML:
+\`\`\`
+y_hat = w₁x₁ + w₂x₂ + ... + wₙxₙ + b
+\`\`\`
+
+- **y_hat**: القيمة المتنبأ بها
+- **w** (weights): الأوزان (ما يتعلمه النموذج)
+- **x**: الميزات (المدخلات)
+- **b** (bias): ثابت الانحياز
+
+### كيف يتعلم النموذج؟
+
+الهدف: إيجاد قيم w و b التي **تُقلل الخطأ** بين التنبؤات والقيم الحقيقية.
+
+**دالة الخطأ (Loss Function) — MSE:**
+
+\`\`\`
+MSE = (1/n) × Σ(y_actual - y_predicted)²
+\`\`\`
+
+**Gradient Descent — خوارزمية التعلم:**
+
+الفكرة: تخيّل أنك تقف على تل وتريد النزول للقاع بأسرع وقت. Gradient Descent تخبرك في أي اتجاه تخطو.
+
+\`\`\`
+w = w - α × (∂MSE/∂w)
+\`\`\`
+
+- **α (learning rate)**: حجم الخطوة (صغير جداً = بطيء، كبير جداً = يقفز فوق القاع)
+
+### Linear Regression مع Scikit-Learn
+
+\`\`\`python
+from sklearn.linear_model import LinearRegression
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
+print(model.coef_)      # الأوزان w
+print(model.intercept_) # الثابت b
+\`\`\`
+
+### مقاييس التقييم
+
+**MAE (Mean Absolute Error):** متوسط الخطأ المطلق
+\`\`\`
+MAE = (1/n) × Σ|y_actual - y_predicted|
+\`\`\`
+
+**MSE (Mean Squared Error):** متوسط مربع الخطأ — يُعاقب الأخطاء الكبيرة أشد.
+
+**RMSE:** الجذر التربيعي لـ MSE — بنفس وحدة المتغير الأصلي.
+
+**R² Score (معامل التحديد):** نسبة التباين التي يفسرها النموذج.
+- R² = 1.0 → النموذج مثالي
+- R² = 0.0 → لا يفسر شيئاً
+- R² &lt; 0 → أسوأ من تخمين المتوسط
+
+### متى لا تعمل Linear Regression؟
+
+| المشكلة | الحل |
+|---------|------|
+| العلاقة غير خطية | Polynomial Regression أو Decision Trees |
+| Outliers شديدة | تنظيف البيانات أو Ridge/Lasso |
+| ميزات مترابطة | PCA أو Ridge Regression |
+
+### أنواع Linear Regression
+
+**Simple Linear Regression:** ميزة واحدة (x واحد)
+
+**Multiple Linear Regression:** ميزات متعددة (x₁, x₂, ..., xₙ) — الأكثر استخداماً في الواقع
+
+**Polynomial Regression:** يُضاف x², x³ للتعامل مع العلاقات المنحنية
+`,
+      bodyEn: `## Linear Regression from Scratch
+
+Linear Regression is the simplest and most important algorithm in ML. Understanding it deeply opens the door to understanding all other ML algorithms.
+
+### Core Idea
+
+Linear Regression finds the best straight line describing the relationship between variables:
+
+\`\`\`
+y_hat = w₁x₁ + w₂x₂ + ... + wₙxₙ + b
+\`\`\`
+
+**How it learns:** Gradient Descent minimizes the Mean Squared Error (MSE) by iteratively adjusting weights w and bias b.
+
+### Evaluation Metrics
+
+- **MAE:** Mean Absolute Error — average prediction error
+- **RMSE:** Root Mean Squared Error — same units as target variable
+- **R² Score:** 1.0 = perfect, 0.0 = no better than mean prediction
+
+### When Linear Regression Fails
+
+| Problem | Solution |
+|---------|---------|
+| Non-linear relationship | Polynomial Regression or Decision Trees |
+| Severe outliers | Data cleaning or Ridge/Lasso |
+| Correlated features | PCA or Ridge Regression |
+`,
+      codeExample: `import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.preprocessing import StandardScaler
+
+print("=" * 55)
+print("Linear Regression: التنبؤ بأسعار المنازل")
+print("=" * 55)
+
+# ─────────────────────────────────────────
+# بيانات مصطنعة تحاكي سوق العقارات
+# ─────────────────────────────────────────
+np.random.seed(42)
+n = 500
+
+# ميزات
+area      = np.random.normal(150, 50, n)   # المساحة (م²)
+rooms     = np.random.randint(2, 7, n)     # عدد الغرف
+age       = np.random.randint(1, 40, n)    # عمر البيت
+proximity = np.random.uniform(0, 20, n)   # المسافة عن المركز (كم)
+
+# السعر = دالة خطية + ضجيج
+price = (area * 2000 + rooms * 15000 - age * 500
+         - proximity * 3000 + np.random.normal(0, 20000, n))
+
+df = pd.DataFrame({
+    "area": area, "rooms": rooms,
+    "age": age, "proximity_km": proximity,
+    "price": price
+})
+
+print(f"\\nعدد المنازل في البيانات: {len(df)}")
+print(f"متوسط السعر: {df['price'].mean():,.0f} ريال")
+print(df.head())
+
+# ─────────────────────────────────────────
+# تحضير البيانات
+# ─────────────────────────────────────────
+features = ["area", "rooms", "age", "proximity_km"]
+X = df[features]
+y = df["price"]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Scaling — مهم لـ Gradient Descent
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled  = scaler.transform(X_test)
+
+# ─────────────────────────────────────────
+# بناء وتدريب النموذج
+# ─────────────────────────────────────────
+model = LinearRegression()
+model.fit(X_train_scaled, y_train)
+
+print("\\n" + "=" * 55)
+print("معاملات النموذج:")
+for feat, coef in zip(features, model.coef_):
+    print(f"  {feat:15s}: {coef:+10,.0f} ريال لكل وحدة (بعد scaling)")
+print(f"  {'bias':15s}: {model.intercept_:+10,.0f}")
+
+# ─────────────────────────────────────────
+# تقييم النموذج
+# ─────────────────────────────────────────
+y_pred = model.predict(X_test_scaled)
+
+mae  = mean_absolute_error(y_test, y_pred)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+r2   = r2_score(y_test, y_pred)
+
+print("\\n" + "=" * 55)
+print("نتائج التقييم على بيانات الاختبار:")
+print(f"  MAE  = {mae:>12,.0f} ريال (متوسط خطأ مطلق)")
+print(f"  RMSE = {rmse:>12,.0f} ريال")
+print(f"  R²   = {r2:>12.3f}   (1.0 = مثالي)")
+
+# ─────────────────────────────────────────
+# تنبؤ ببيت جديد
+# ─────────────────────────────────────────
+new_house = pd.DataFrame([{
+    "area": 180, "rooms": 4, "age": 10, "proximity_km": 5
+}])
+new_house_scaled = scaler.transform(new_house)
+predicted = model.predict(new_house_scaled)[0]
+
+print("\\n" + "=" * 55)
+print("تنبؤ لبيت جديد:")
+print(f"  المساحة: 180م², الغرف: 4, العمر: 10 سنوات, المسافة: 5كم")
+print(f"  السعر المتوقع: {predicted:,.0f} ريال")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 4 — Logistic Regression والتصنيف
+    {
+      bodyAr: `## Logistic Regression والتصنيف
+
+على الرغم من اسمها، Logistic Regression هي خوارزمية **تصنيف** لا انحدار. إنها أساس كل نماذج الـ Classification الحديثة.
+
+### لماذا لا تكفي Linear Regression للتصنيف؟
+
+تخيّل أنك تحاول التنبؤ بما إذا كان بريد إلكتروني مزعجاً:
+- Linear Regression قد تُعطيك 2.5 أو -0.3 — لا معنى لها كتصنيف
+- نحتاج قيمة **بين 0 و 1** تُفسَّر كاحتمال
+
+### دالة Sigmoid — قلب Logistic Regression
+
+\`\`\`
+σ(z) = 1 / (1 + e^(-z))
+\`\`\`
+
+هذه الدالة تحوّل أي رقم إلى قيمة بين 0 و 1:
+- z = 0 → σ = 0.5
+- z >> 0 → σ → 1
+- z &lt;&lt; 0 → σ → 0
+
+**القرار:**
+\`\`\`
+إذا σ(z) ≥ 0.5 → الفئة 1 (مزعج)
+إذا σ(z) < 0.5 → الفئة 0 (حقيقي)
+\`\`\`
+
+### Multi-Class Classification
+
+عندما يكون لديك أكثر من فئتين، هناك طريقتان:
+
+**One-vs-Rest (OvR):**
+- تبني نموذجاً لكل فئة ضد الباقي
+- سهل التطبيق
+
+**Softmax (Multi-class):**
+- يُعطي احتمالاً لكل فئة
+- المجموع يساوي 1
+- يُستخدم في الشبكات العصبية
+
+### مقاييس تقييم التصنيف
+
+**Confusion Matrix:**
+\`\`\`
+               التنبؤ
+               0       1
+الفعلي  0   TN(✓)   FP(✗)
+        1   FN(✗)   TP(✓)
+\`\`\`
+
+**Accuracy:** (TP + TN) / الكل — لا تعمل مع البيانات غير المتوازنة
+
+**Precision:** TP / (TP + FP) — من التنبؤات بـ 1، كم كانت صحيحة؟
+
+**Recall:** TP / (TP + FN) — من الفعليين 1، كم اكتشفنا؟
+
+**F1 Score:** 2 × (Precision × Recall) / (Precision + Recall) — التوازن بينهما
+
+### متى تستخدم Precision ومتى Recall؟
+
+| التطبيق | الأهم | السبب |
+|---------|-------|-------|
+| كشف السرطان | Recall عالي | لا نريد تفويت حالة مريضة |
+| فلترة Spam | Precision عالي | لا نريد حذف بريد مهم |
+| كشف الاحتيال | كلاهما | الخسارتان مكلفتان |
+`,
+      bodyEn: `## Logistic Regression and Classification
+
+Despite its name, Logistic Regression is a **classification** algorithm. It's the foundation of all modern classification models.
+
+### The Sigmoid Function
+
+Logistic Regression applies the sigmoid function to convert any number into a probability between 0 and 1:
+
+\`\`\`
+σ(z) = 1 / (1 + e^(-z))
+\`\`\`
+
+If σ(z) ≥ 0.5 → Class 1; otherwise → Class 0.
+
+### Evaluation Metrics
+
+- **Accuracy:** Overall correctness — misleading with imbalanced data
+- **Precision:** Of predicted positives, how many were correct?
+- **Recall:** Of actual positives, how many did we catch?
+- **F1 Score:** Harmonic mean of Precision and Recall
+
+### When to Prioritize
+
+| Application | Priority | Reason |
+|-------------|---------|--------|
+| Cancer detection | High Recall | Don't miss sick patients |
+| Spam filtering | High Precision | Don't delete important emails |
+| Fraud detection | Both | Both errors are costly |
+`,
+      codeExample: `import numpy as np
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import (accuracy_score, precision_score,
+                              recall_score, f1_score,
+                              confusion_matrix, classification_report)
+
+print("=" * 55)
+print("Logistic Regression: كشف البريد المزعج")
+print("=" * 55)
+
+# ─────────────────────────────────────────
+# بيانات مصطنعة للبريد الإلكتروني
+# ─────────────────────────────────────────
+np.random.seed(42)
+n = 1000
+
+# ميزات تميّز البريد المزعج
+has_free_word  = np.random.binomial(1, 0.6, n)   # كلمة "مجاني"
+num_links      = np.random.poisson(3, n)          # عدد الروابط
+caps_ratio     = np.random.beta(2, 5, n)          # نسبة الأحرف الكبيرة
+sender_known   = np.random.binomial(1, 0.7, n)   # المرسل معروف؟
+email_length   = np.random.normal(300, 150, n)   # طول الرسالة
+
+# spam = دالة للميزات
+spam_score = (1.5 * has_free_word + 0.3 * num_links
+              + 2.0 * caps_ratio - 2.5 * sender_known
+              + np.random.normal(0, 0.5, n))
+is_spam = (spam_score > 0.2).astype(int)
+
+print(f"نسبة البريد المزعج: {is_spam.mean():.1%}")
+
+df = pd.DataFrame({
+    "has_free_word": has_free_word,
+    "num_links": num_links,
+    "caps_ratio": caps_ratio,
+    "sender_known": sender_known,
+    "email_length": email_length,
+    "is_spam": is_spam
+})
+
+# ─────────────────────────────────────────
+# تحضير وتدريب
+# ─────────────────────────────────────────
+features = ["has_free_word", "num_links", "caps_ratio",
+            "sender_known", "email_length"]
+X = df[features]
+y = df["is_spam"]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, stratify=y, random_state=42
+)
+
+scaler = StandardScaler()
+X_train_s = scaler.fit_transform(X_train)
+X_test_s  = scaler.transform(X_test)
+
+model = LogisticRegression(random_state=42)
+model.fit(X_train_s, y_train)
+
+# ─────────────────────────────────────────
+# التقييم الكامل
+# ─────────────────────────────────────────
+y_pred = model.predict(X_test_s)
+y_prob = model.predict_proba(X_test_s)[:, 1]  # احتمال كونه spam
+
+print("\\n" + "=" * 55)
+print("نتائج التقييم:")
+print(f"  Accuracy  = {accuracy_score(y_test, y_pred):.3f}")
+print(f"  Precision = {precision_score(y_test, y_pred):.3f}")
+print(f"  Recall    = {recall_score(y_test, y_pred):.3f}")
+print(f"  F1 Score  = {f1_score(y_test, y_pred):.3f}")
+
+print("\\nConfusion Matrix:")
+cm = confusion_matrix(y_test, y_pred)
+print(f"  TN={cm[0,0]}  FP={cm[0,1]}")
+print(f"  FN={cm[1,0]}  TP={cm[1,1]}")
+
+print("\\nتقرير مفصل:")
+print(classification_report(y_test, y_pred,
+      target_names=["حقيقي", "مزعج"]))
+
+# ─────────────────────────────────────────
+# أهمية الميزات
+# ─────────────────────────────────────────
+coef_df = pd.DataFrame({
+    "feature": features,
+    "coefficient": model.coef_[0]
+}).sort_values("coefficient", ascending=False)
+
+print("أهمية الميزات:")
+for _, row in coef_df.iterrows():
+    bar = "█" * int(abs(row["coefficient"]) * 5)
+    sign = "+" if row["coefficient"] > 0 else "-"
+    print(f"  {row['feature']:15s}: {sign}{abs(row['coefficient']):.2f} {bar}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 5 — Decision Trees
+    {
+      bodyAr: `## Decision Trees
+
+Decision Trees هي خوارزمية تعلم آلة تقلّد طريقة التفكير البشري — تطرح سلسلة من الأسئلة الثنائية للوصول إلى قرار نهائي.
+
+### الفكرة البصرية
+
+\`\`\`
+هل المساحة > 150م²؟
+├── نعم → هل الغرف > 3؟
+│   ├── نعم → سعر عالٍ ✅
+│   └── لا  → سعر متوسط
+└── لا  → هل قرب المركز؟
+    ├── نعم → سعر متوسط
+    └── لا  → سعر منخفض ✅
+\`\`\`
+
+### مكونات الشجرة
+
+| المصطلح | المعنى |
+|---------|--------|
+| **Root Node** | السؤال الأول (الأهم) |
+| **Internal Node** | أسئلة وسطى |
+| **Branch** | النتيجة (نعم/لا) |
+| **Leaf Node** | القرار النهائي |
+| **Depth** | عمق الشجرة (عدد الأسئلة) |
+
+### كيف يختار النموذج أفضل سؤال؟
+
+الهدف: كل سؤال يجب أن يُقلل **الاضطراب (Impurity)** بأكبر قدر ممكن.
+
+**Gini Impurity:**
+\`\`\`
+Gini = 1 - Σ(pᵢ²)
+\`\`\`
+- Gini = 0 → عقدة نقية (كل العناصر من فئة واحدة) ✅
+- Gini = 0.5 → أقصى اضطراب (50/50)
+
+**Information Gain (Entropy):**
+\`\`\`
+Entropy = -Σ(pᵢ × log₂(pᵢ))
+IG = Entropy(parent) - Σ(weighted Entropy(children))
+\`\`\`
+
+النموذج يختار السؤال الذي يُعطي أعلى Information Gain.
+
+### Overfitting في Decision Trees
+
+المشكلة: إذا تركنا الشجرة تنمو بحرية، ستحفظ كل مثال في بيانات التدريب.
+
+\`\`\`
+بيانات التدريب: Accuracy = 100% 🎉
+بيانات الاختبار: Accuracy = 65%  😱
+\`\`\`
+
+**الحل — Pruning (التقليم):**
+
+\`\`\`python
+model = DecisionTreeClassifier(
+    max_depth=5,           # أقصى عمق
+    min_samples_leaf=10,   # أقل عدد عناصر في الورقة
+    min_samples_split=20,  # أقل عدد للتقسيم
+)
+\`\`\`
+
+### مزايا وعيوب Decision Trees
+
+**المزايا:**
+- سهلة التفسير والفهم البشري
+- لا تحتاج Scaling للبيانات
+- تتعامل مع Categorical وNumerical معاً
+- سريعة التدريب والتنبؤ
+
+**العيوب:**
+- تميل للـ Overfitting (تُعالج بـ Random Forest)
+- حساسة للتغيرات الصغيرة في البيانات
+- لا تُجيد Extrapolation
+
+### متى تستخدم Decision Trees؟
+
+- عندما تحتاج نموذجاً **قابلاً للتفسير** (قرارات قانونية، طبية)
+- عندما لديك بيانات متنوعة (أرقام + فئات)
+- كأساس لـ Random Forest وGradient Boosting
+`,
+      bodyEn: `## Decision Trees
+
+Decision Trees mimic human thinking — they ask a series of binary questions to reach a final decision.
+
+### How the Model Chooses the Best Question
+
+The goal: each question should maximize **Information Gain** — reduce impurity as much as possible.
+
+- **Gini = 0** → pure node (all same class) ✅
+- **Gini = 0.5** → maximum disorder (50/50)
+
+### Overfitting
+
+An unconstrained tree memorizes training data (100% training accuracy, 65% test accuracy). **Solution:** Pruning via \`max_depth\`, \`min_samples_leaf\`, \`min_samples_split\`.
+
+### Pros and Cons
+
+**Pros:** Interpretable, no scaling needed, handles mixed data types.
+
+**Cons:** Prone to overfitting, sensitive to small data changes. Solution: Random Forest.
+`,
+      codeExample: `import numpy as np
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier, export_text
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.datasets import load_breast_cancer
+
+print("=" * 55)
+print("Decision Trees: كشف سرطان الثدي")
+print("=" * 55)
+
+# بيانات طبية حقيقية (مدمجة في sklearn)
+data = load_breast_cancer()
+X = pd.DataFrame(data.data, columns=data.feature_names)
+y = data.target
+
+print(f"عدد العينات: {len(y)}")
+print(f"الفئات: {dict(zip(data.target_names, np.bincount(y)))}")
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, stratify=y, random_state=42
+)
+
+# ─────────────────────────────────────────
+# 1. شجرة بدون قيود — Overfitting
+# ─────────────────────────────────────────
+tree_full = DecisionTreeClassifier(random_state=42)
+tree_full.fit(X_train, y_train)
+
+train_acc = accuracy_score(y_train, tree_full.predict(X_train))
+test_acc  = accuracy_score(y_test,  tree_full.predict(X_test))
+
+print("\\n1. شجرة كاملة (بدون قيود):")
+print(f"   Training Accuracy = {train_acc:.3f}")
+print(f"   Test Accuracy     = {test_acc:.3f}")
+print(f"   عمق الشجرة        = {tree_full.get_depth()}")
+print(f"   Overfitting gap   = {train_acc - test_acc:.3f}")
+
+# ─────────────────────────────────────────
+# 2. شجرة مقلّمة — Pruning
+# ─────────────────────────────────────────
+tree_pruned = DecisionTreeClassifier(
+    max_depth=5,
+    min_samples_leaf=10,
+    min_samples_split=20,
+    random_state=42
+)
+tree_pruned.fit(X_train, y_train)
+
+train_acc_p = accuracy_score(y_train, tree_pruned.predict(X_train))
+test_acc_p  = accuracy_score(y_test,  tree_pruned.predict(X_test))
+
+print("\\n2. شجرة مقلّمة (max_depth=5):")
+print(f"   Training Accuracy = {train_acc_p:.3f}")
+print(f"   Test Accuracy     = {test_acc_p:.3f}")
+print(f"   عمق الشجرة        = {tree_pruned.get_depth()}")
+print(f"   Overfitting gap   = {train_acc_p - test_acc_p:.3f}  ✅ أفضل!")
+
+# ─────────────────────────────────────────
+# 3. Cross-Validation
+# ─────────────────────────────────────────
+cv_scores = cross_val_score(tree_pruned, X, y, cv=5, scoring="accuracy")
+print(f"\\n3. Cross-Validation (5 folds):")
+print(f"   Scores: {cv_scores.round(3)}")
+print(f"   Mean:   {cv_scores.mean():.3f} ± {cv_scores.std():.3f}")
+
+# ─────────────────────────────────────────
+# 4. أهمية الميزات
+# ─────────────────────────────────────────
+importances = pd.Series(
+    tree_pruned.feature_importances_,
+    index=data.feature_names
+).sort_values(ascending=False)
+
+print("\\n4. أهم الميزات الطبية:")
+for feat, imp in importances.head(5).items():
+    bar = "█" * int(imp * 50)
+    print(f"   {feat[:30]:30s}: {imp:.3f} {bar}")
+
+# ─────────────────────────────────────────
+# 5. قراءة الشجرة
+# ─────────────────────────────────────────
+print("\\n5. هيكل الشجرة (أول 3 مستويات):")
+tree_text = export_text(tree_pruned,
+                        feature_names=list(data.feature_names),
+                        max_depth=3)
+print(tree_text[:800])`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 6 — Random Forest
+    {
+      bodyAr: `## Random Forest
+
+Random Forest هي واحدة من أقوى وأكثر خوارزميات ML موثوقيةً في الواقع العملي. الفكرة بسيطة وعبقرية: بدلاً من شجرة واحدة قد تُخطئ، نبني مئات الأشجار ونأخذ التصويت الأغلبي.
+
+### حكمة الجموع (Wisdom of Crowds)
+
+التجربة الكلاسيكية: اطلب من 1000 شخص تخمين وزن ثور — متوسط إجاباتهم أدق من أي خبير منفرد.
+
+Random Forest يطبّق نفس المبدأ:
+\`\`\`
+شجرة 1: تنبؤ = A
+شجرة 2: تنبؤ = B
+شجرة 3: تنبؤ = A
+...
+شجرة 100: تنبؤ = A
+───────────────────
+النتيجة النهائية = A (الأغلبية)
+\`\`\`
+
+### كيف يعمل Random Forest؟
+
+**الخطوة 1 — Bootstrapping:**
+لكل شجرة، نأخذ عيّنة عشوائية **بإعادة الوضع** من بيانات التدريب (~63% من البيانات الأصلية، مع تكرار بعض العناصر).
+
+**الخطوة 2 — عشوائية الميزات:**
+في كل تقسيم، لا نجرّب كل الميزات — بل نختار عشوائياً **m = √p ميزة** (حيث p = عدد الميزات الكلي).
+
+**الخطوة 3 — بناء الأشجار بالتوازي:**
+كل شجرة تتدرب بشكل مستقل على بياناتها وميزاتها الخاصة.
+
+**الخطوة 4 — التجميع:**
+- Classification: التصويت الأغلبي
+- Regression: متوسط التنبؤات
+
+### Random Forest vs Decision Tree
+
+| الجانب | Decision Tree | Random Forest |
+|--------|--------------|---------------|
+| **Overfitting** | مرتفع | منخفض |
+| **الدقة** | متوسطة | عالية |
+| **التفسير** | سهل | أصعب |
+| **السرعة** | سريع | أبطأ (لكن موازٍ) |
+| **الاستخدام الفعلي** | للتفسير | للدقة |
+
+### Hyperparameters المهمة
+
+\`\`\`python
+RandomForestClassifier(
+    n_estimators=100,       # عدد الأشجار (أكثر = أفضل، لكن أبطأ)
+    max_depth=None,         # لا حد بالافتراضي (مع RF هذا مقبول)
+    max_features="sqrt",    # √p ميزة في كل تقسيم
+    min_samples_leaf=1,     # أقل عدد في الورقة
+    bootstrap=True,         # استخدام Bootstrapping
+    n_jobs=-1,              # استخدام كل الـ CPU cores
+    random_state=42
+)
+\`\`\`
+
+### Out-of-Bag (OOB) Score
+
+ميزة رائعة في Random Forest: كل شجرة تُدرَّب على ~63% من البيانات. الـ 37% المتبقية (OOB samples) تُستخدم كـ validation set تلقائي:
+
+\`\`\`python
+model = RandomForestClassifier(oob_score=True, ...)
+print(model.oob_score_)  # تقدير الدقة بدون test set منفصل
+\`\`\`
+
+### متى تختار Random Forest؟
+
+✅ بيانات جدولية (tabular) — يتفوق على معظم الخوارزميات
+✅ لا تريد الكثير من preprocessing
+✅ تريد أهمية الميزات (feature importance)
+✅ لديك وقت تدريب كافٍ
+✅ البيانات تحتوي قيماً مفقودة كثيرة
+
+❌ صور أو نصوص (Deep Learning أفضل)
+❌ تحتاج نموذجاً قابلاً للتفسير الكامل
+`,
+      bodyEn: `## Random Forest
+
+Random Forest is one of the most powerful and reliable ML algorithms in practice. Instead of one tree that might be wrong, we build hundreds of trees and take the majority vote.
+
+### How It Works
+
+1. **Bootstrapping:** Each tree trains on a random sample (with replacement) ~63% of training data
+2. **Random features:** At each split, test only √p random features (not all)
+3. **Parallel training:** Trees train independently
+4. **Aggregation:** Classification = majority vote; Regression = average
+
+### Key Advantage: OOB Score
+
+The ~37% of data not used by each tree acts as a free validation set — no need for a separate validation split.
+
+### When to Use
+
+✅ Tabular data — outperforms most algorithms
+✅ Minimal preprocessing needed
+✅ Built-in feature importance
+✅ Missing values tolerance
+
+❌ Images/text (use Deep Learning)
+❌ Need full interpretability
+`,
+      codeExample: `import numpy as np
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.datasets import make_classification
+
+print("=" * 55)
+print("Random Forest: المقارنة مع Decision Tree")
+print("=" * 55)
+
+# بيانات معقدة
+X, y = make_classification(
+    n_samples=2000, n_features=20, n_informative=10,
+    n_redundant=5, random_state=42
+)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, stratify=y, random_state=42
+)
+
+# ─────────────────────────────────────────
+# 1. Decision Tree للمقارنة
+# ─────────────────────────────────────────
+dt = DecisionTreeClassifier(random_state=42)
+dt.fit(X_train, y_train)
+
+dt_train = accuracy_score(y_train, dt.predict(X_train))
+dt_test  = accuracy_score(y_test,  dt.predict(X_test))
+
+print(f"\\nDecision Tree:")
+print(f"  Train Accuracy: {dt_train:.3f}")
+print(f"  Test  Accuracy: {dt_test:.3f}")
+print(f"  Overfit gap:    {dt_train - dt_test:.3f}")
+
+# ─────────────────────────────────────────
+# 2. Random Forest
+# ─────────────────────────────────────────
+rf = RandomForestClassifier(
+    n_estimators=200,
+    max_features="sqrt",
+    oob_score=True,
+    n_jobs=-1,
+    random_state=42
+)
+rf.fit(X_train, y_train)
+
+rf_train = accuracy_score(y_train, rf.predict(X_train))
+rf_test  = accuracy_score(y_test,  rf.predict(X_test))
+
+print(f"\\nRandom Forest (200 trees):")
+print(f"  Train Accuracy: {rf_train:.3f}")
+print(f"  Test  Accuracy: {rf_test:.3f}")
+print(f"  OOB Score:      {rf.oob_score_:.3f}  ← مجاني!")
+print(f"  Overfit gap:    {rf_train - rf_test:.3f}")
+
+# ─────────────────────────────────────────
+# 3. تأثير عدد الأشجار
+# ─────────────────────────────────────────
+print("\\n3. تأثير عدد الأشجار على الدقة:")
+for n in [1, 5, 10, 50, 100, 200, 500]:
+    rf_n = RandomForestClassifier(n_estimators=n, n_jobs=-1, random_state=42)
+    rf_n.fit(X_train, y_train)
+    acc = accuracy_score(y_test, rf_n.predict(X_test))
+    bar = "█" * int(acc * 30)
+    print(f"  n={n:4d}: {acc:.3f} {bar}")
+
+# ─────────────────────────────────────────
+# 4. أهمية الميزات
+# ─────────────────────────────────────────
+importance_df = pd.DataFrame({
+    "feature": [f"feature_{i}" for i in range(20)],
+    "importance": rf.feature_importances_
+}).sort_values("importance", ascending=False)
+
+print("\\n4. أهم 10 ميزات:")
+for _, row in importance_df.head(10).iterrows():
+    bar = "█" * int(row["importance"] * 200)
+    print(f"  {row['feature']:12s}: {row['importance']:.4f} {bar}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 7 — تقييم النماذج
+    {
+      bodyAr: `## تقييم النماذج
+
+بناء النموذج هو نصف العمل — النصف الآخر هو معرفة **هل هو جيد حقاً**؟ في هذا الدرس ستتعلم كيف تقيّم نماذجك بطريقة علمية وصحيحة.
+
+### المشكلة: لماذا لا يكفي الاختبار على بيانات التدريب؟
+
+تخيّل طالباً يحفظ أسئلة الامتحان السابقة — سيحصل على 100% في نفس الأسئلة، لكنه سيفشل في أسئلة جديدة.
+
+**Overfitting vs Underfitting:**
+
+\`\`\`
+Underfitting  ←─────────────────→  Overfitting
+النموذج بسيط جداً         النموذج معقد جداً
+يفشل في كل شيء           يحفظ بيانات التدريب
+Bias عالٍ                 Variance عالٍ
+\`\`\`
+
+**الهدف:** إيجاد النموذج في المنتصف (Bias-Variance Tradeoff).
+
+### Cross-Validation — التقييم الصحيح
+
+بدلاً من تقسيم واحد (train/test)، نُقسّم البيانات k مرة:
+
+**K-Fold Cross-Validation (k=5):**
+\`\`\`
+Fold 1: [Test] [Train] [Train] [Train] [Train]
+Fold 2: [Train] [Test] [Train] [Train] [Train]
+Fold 3: [Train] [Train] [Test] [Train] [Train]
+Fold 4: [Train] [Train] [Train] [Test] [Train]
+Fold 5: [Train] [Train] [Train] [Train] [Test]
+───────────────────────────────────────────
+النتيجة: متوسط الـ 5 scores + الانحراف المعياري
+\`\`\`
+
+**لماذا k=5 أو k=10؟**
+- k صغير (2-3) → تقدير غير دقيق
+- k كبير (LOOCV) → بطيء جداً
+- k=5 أو k=10 → التوازن المثالي
+
+### Hyperparameter Tuning
+
+**Grid Search:** جرّب كل مجموعة ممكنة من المعاملات.
+
+\`\`\`python
+from sklearn.model_selection import GridSearchCV
+
+param_grid = {
+    "n_estimators": [50, 100, 200],
+    "max_depth": [None, 5, 10],
+    "min_samples_leaf": [1, 5, 10],
+}
+grid_search = GridSearchCV(RandomForestClassifier(), param_grid, cv=5)
+grid_search.fit(X_train, y_train)
+print(grid_search.best_params_)
+\`\`\`
+
+**Random Search:** أسرع من Grid Search للمساحات الكبيرة.
+
+### Learning Curves — تشخيص المشكلة
+
+Learning Curves تريك ما إذا كان النموذج يعاني من Overfitting أو Underfitting:
+
+\`\`\`
+Underfitting (High Bias):
+- كلا الـ curves منخفضان ومتقاربان
+
+Overfitting (High Variance):
+- Training curve مرتفع
+- Validation curve منخفض والفجوة كبيرة
+
+نموذج مثالي:
+- كلا الـ curves مرتفعان ومتقاربان
+\`\`\`
+
+### مقاييس الـ Regression
+
+| المقياس | الصيغة | التفسير |
+|---------|--------|---------|
+| **MAE** | mean(|y - ŷ|) | متوسط الخطأ المطلق (بنفس الوحدة) |
+| **RMSE** | √mean((y-ŷ)²) | حساس للأخطاء الكبيرة |
+| **R²** | 1 - SS_res/SS_tot | نسبة التباين المُفسَّر |
+| **MAPE** | mean(|(y-ŷ)/y|) × 100% | النسبة المئوية للخطأ |
+
+### مقاييس الـ Classification (مراجعة)
+
+**AUC-ROC:**
+- ROC Curve: TPR مقابل FPR عند عتبات مختلفة
+- AUC: مساحة تحت المنحنى (1.0 = مثالي، 0.5 = عشوائي)
+- مفيد خاصةً مع البيانات غير المتوازنة
+
+### Practical Guidelines
+
+1. **ابدأ بـ Cross-Validation** — لا تثق بـ single train/test split
+2. **اختر المقياس المناسب** — ليس Accuracy دائماً
+3. **راقب Learning Curves** — تشخيص Overfitting مبكراً
+4. **آخر خطوة: Test Set** — الـ Test Set للقياس النهائي فقط، لا للضبط
+`,
+      bodyEn: `## Model Evaluation
+
+Building the model is half the work — the other half is knowing **whether it's actually good**. Here you'll learn how to evaluate models scientifically.
+
+### Cross-Validation
+
+Instead of a single train/test split, K-Fold divides data k times and averages results — providing a more reliable performance estimate with confidence intervals.
+
+### Bias-Variance Tradeoff
+
+\`\`\`
+Underfitting (High Bias)  ←────→  Overfitting (High Variance)
+Both curves low & close         Train high, Val low — large gap
+\`\`\`
+
+### Key Metrics
+
+**Regression:** MAE (same units), RMSE (penalizes large errors), R² (variance explained), MAPE (% error).
+
+**Classification:** Accuracy (misleading when imbalanced), Precision/Recall/F1, AUC-ROC (works well with imbalanced classes).
+
+### Practical Guidelines
+
+1. Always use Cross-Validation, not single split
+2. Choose the right metric for your problem
+3. Use Learning Curves to diagnose issues early
+4. Test set is for final measurement only — never for tuning
+`,
+      codeExample: `import numpy as np
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import (
+    cross_val_score, StratifiedKFold, learning_curve, GridSearchCV
+)
+from sklearn.metrics import roc_auc_score, roc_curve
+from sklearn.datasets import make_classification
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
+print("=" * 55)
+print("تقييم النماذج: الدليل الكامل")
+print("=" * 55)
+
+X, y = make_classification(
+    n_samples=1500, n_features=15, n_informative=8,
+    n_classes=2, random_state=42
+)
+
+# ─────────────────────────────────────────
+# 1. K-Fold Cross-Validation
+# ─────────────────────────────────────────
+print("\\n1. Stratified K-Fold Cross-Validation (k=10):")
+model = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)
+cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
+
+for metric in ["accuracy", "precision", "recall", "f1", "roc_auc"]:
+    scores = cross_val_score(model, X, y, cv=cv, scoring=metric, n_jobs=-1)
+    print(f"  {metric:12s}: {scores.mean():.3f} ± {scores.std():.3f}  "
+          f"[{scores.min():.3f} - {scores.max():.3f}]")
+
+# ─────────────────────────────────────────
+# 2. Learning Curves
+# ─────────────────────────────────────────
+print("\\n2. Learning Curves:")
+train_sizes, train_scores, val_scores = learning_curve(
+    model, X, y,
+    train_sizes=np.linspace(0.1, 1.0, 10),
+    cv=5, scoring="accuracy", n_jobs=-1
+)
+
+print("  حجم التدريب | Train Acc | Val Acc | فجوة Overfit")
+print("  " + "-" * 52)
+for i, size in enumerate(train_sizes):
+    t_mean = train_scores[i].mean()
+    v_mean = val_scores[i].mean()
+    gap    = t_mean - v_mean
+    print(f"  {int(size):11d} | {t_mean:.3f}     | {v_mean:.3f}   | {gap:.3f}")
+
+# ─────────────────────────────────────────
+# 3. Hyperparameter Tuning (Grid Search)
+# ─────────────────────────────────────────
+print("\\n3. Grid Search لإيجاد أفضل المعاملات:")
+param_grid = {
+    "n_estimators": [50, 100],
+    "max_depth": [None, 5, 10],
+    "min_samples_leaf": [1, 5],
+}
+gs = GridSearchCV(
+    RandomForestClassifier(random_state=42, n_jobs=-1),
+    param_grid, cv=5, scoring="roc_auc", n_jobs=-1, verbose=0
+)
+gs.fit(X, y)
+
+print(f"  أفضل معاملات: {gs.best_params_}")
+print(f"  أفضل AUC-ROC: {gs.best_score_:.4f}")
+
+# ─────────────────────────────────────────
+# 4. AUC-ROC Analysis
+# ─────────────────────────────────────────
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, stratify=y, random_state=42
+)
+
+best_model = gs.best_estimator_
+best_model.fit(X_train, y_train)
+y_proba = best_model.predict_proba(X_test)[:, 1]
+
+auc = roc_auc_score(y_test, y_proba)
+print(f"\\n4. AUC-ROC على Test Set: {auc:.4f}")
+print("  (1.0 = مثالي | 0.5 = عشوائي | > 0.9 = ممتاز)")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 8 — مشروع: التنبؤ بأسعار المنازل
+    {
+      bodyAr: `## مشروع: التنبؤ بأسعار المنازل
+
+هذا المشروع يجمع كل ما تعلمته في دورة تعلم الآلة في مشروع واحد متكامل: من استكشاف البيانات وحتى نشر النموذج.
+
+### الهدف
+
+بناء نموذج يتنبأ بأسعار المنازل بناءً على خصائصها، مع تطبيق منهجية Data Science الكاملة.
+
+### منهجية المشروع
+
+\`\`\`
+1. استكشاف البيانات (EDA)
+   ↓
+2. تنظيف البيانات وتحضيرها
+   ↓
+3. Feature Engineering
+   ↓
+4. تدريب وتقييم عدة نماذج
+   ↓
+5. Hyperparameter Tuning
+   ↓
+6. تحليل الأخطاء
+   ↓
+7. حفظ النموذج النهائي
+\`\`\`
+
+### ما تعلمته في دورة تعلم الآلة
+
+| الدرس | ما تعلمته |
+|-------|---------|
+| 1. ما هو ML | البيانات → النموذج، Supervised/Unsupervised |
+| 2. أنواع التعلم | Regression، Classification، Clustering |
+| 3. Linear Regression | MSE، Gradient Descent، R² |
+| 4. Logistic Regression | Sigmoid، Precision/Recall، F1 |
+| 5. Decision Trees | Gini، Pruning، Overfitting |
+| 6. Random Forest | Bagging، OOB Score، Feature Importance |
+| 7. تقييم النماذج | Cross-Validation، Learning Curves، Grid Search |
+| 8. **المشروع** | Pipeline كامل من EDA لحفظ النموذج |
+
+### الخطوات التالية في رحلتك
+
+بعد هذه الدورة، أنت جاهز لـ:
+
+**المستوى التالي:**
+- Deep Learning (الشبكات العصبية) → يعالج الصور والنصوص
+- Natural Language Processing (NLP) → تحليل النصوص
+- Computer Vision → تحليل الصور
+
+**تطبيق عملي:**
+- نشر نموذجك كـ API (FastAPI + Uvicorn)
+- إنشاء لوحة بيانات تفاعلية (Streamlit)
+- ربطه بـ Claude API لشرح التنبؤات
+
+**مسارات التخصص:**
+- ML Engineer: بناء ونشر النماذج في Prod
+- Data Scientist: تحليل البيانات واستخراج Insights
+- MLOps Engineer: أتمتة دورة حياة النماذج
+`,
+      bodyEn: `## Project: House Price Prediction
+
+This project combines everything you've learned in the ML course into one end-to-end project: from exploratory data analysis to saving a production-ready model.
+
+### Project Methodology
+
+\`\`\`
+1. Exploratory Data Analysis (EDA)
+   ↓
+2. Data Cleaning & Preparation
+   ↓
+3. Feature Engineering
+   ↓
+4. Train & Evaluate Multiple Models
+   ↓
+5. Hyperparameter Tuning
+   ↓
+6. Error Analysis
+   ↓
+7. Save Final Model
+\`\`\`
+
+### What You Learned in This ML Course
+
+All 8 lessons combined in one final project — from understanding what ML is to building a complete prediction pipeline.
+
+### Next Steps
+
+After this course you're ready for:
+- **Deep Learning** — images and text
+- **NLP** — text analysis
+- **MLOps** — automating the model lifecycle
+- **Deploy your model** as an API with FastAPI or as a dashboard with Streamlit
+`,
+      codeExample: `import numpy as np
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.linear_model import Ridge
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+import joblib
+import warnings
+warnings.filterwarnings("ignore")
+
+print("=" * 60)
+print("🏠 مشروع: التنبؤ بأسعار المنازل — Pipeline كامل")
+print("=" * 60)
+
+# ─────────────────────────────────────────
+# 1. توليد بيانات واقعية
+# ─────────────────────────────────────────
+np.random.seed(42)
+n = 2000
+
+districts = ["الرياض - العليا", "الرياض - النرجس", "الرياض - حطين",
+             "الرياض - الملقا", "الرياض - الروضة"]
+
+data = pd.DataFrame({
+    "area_sqm":     np.random.normal(200, 80, n).clip(60, 600),
+    "rooms":        np.random.randint(2, 8, n),
+    "bathrooms":    np.random.randint(1, 5, n),
+    "floors":       np.random.randint(1, 4, n),
+    "age_years":    np.random.randint(0, 30, n),
+    "has_pool":     np.random.binomial(1, 0.2, n),
+    "has_garden":   np.random.binomial(1, 0.4, n),
+    "parking":      np.random.randint(0, 4, n),
+    "district":     np.random.choice(districts, n),
+    "dist_center_km": np.random.exponential(8, n).clip(1, 30),
+})
+
+# قيم مفقودة (واقعية)
+data.loc[np.random.choice(n, 50, replace=False), "bathrooms"] = np.nan
+data.loc[np.random.choice(n, 30, replace=False), "age_years"]  = np.nan
+
+# السعر الحقيقي
+district_premium = {d: p for d, p in zip(districts, [1.3, 1.1, 1.2, 0.9, 1.0])}
+data["price"] = (
+    data["area_sqm"] * 3500
+    + data["rooms"] * 25000
+    + data["bathrooms"].fillna(2) * 15000
+    - data["age_years"].fillna(10) * 2000
+    + data["has_pool"] * 80000
+    + data["has_garden"] * 40000
+    + data["parking"] * 20000
+    - data["dist_center_km"] * 5000
+    + data["district"].map(district_premium) * 50000
+    + np.random.normal(0, 50000, n)
+).clip(200000, 5000000)
+
+print(f"\\n1. البيانات:")
+print(f"   عدد المنازل     : {len(data)}")
+print(f"   الميزات          : {data.shape[1] - 1}")
+print(f"   قيم مفقودة      : {data.isnull().sum().sum()}")
+print(f"   نطاق الأسعار    : {data['price'].min():,.0f} - {data['price'].max():,.0f} ريال")
+print(f"   متوسط السعر     : {data['price'].mean():,.0f} ريال")
+
+# ─────────────────────────────────────────
+# 2. Feature Engineering
+# ─────────────────────────────────────────
+print("\\n2. Feature Engineering:")
+data["price_per_sqm"] = data["price"] / data["area_sqm"]  # للتحليل فقط
+data["total_amenities"] = data["has_pool"] + data["has_garden"] + (data["parking"] > 0)
+data["rooms_per_floor"] = data["rooms"] / data["floors"]
+
+le = LabelEncoder()
+data["district_encoded"] = le.fit_transform(data["district"])
+
+features = ["area_sqm", "rooms", "bathrooms", "floors", "age_years",
+            "has_pool", "has_garden", "parking", "dist_center_km",
+            "district_encoded", "total_amenities", "rooms_per_floor"]
+
+X = data[features]
+y = data["price"]
+
+print(f"   ميزات بعد الهندسة: {len(features)}")
+
+# ─────────────────────────────────────────
+# 3. مقارنة النماذج
+# ─────────────────────────────────────────
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+models = {
+    "Ridge Regression": Pipeline([
+        ("imputer", SimpleImputer(strategy="median")),
+        ("scaler", StandardScaler()),
+        ("model", Ridge(alpha=100))
+    ]),
+    "Random Forest": Pipeline([
+        ("imputer", SimpleImputer(strategy="median")),
+        ("model", RandomForestRegressor(n_estimators=200, n_jobs=-1, random_state=42))
+    ]),
+    "Gradient Boosting": Pipeline([
+        ("imputer", SimpleImputer(strategy="median")),
+        ("model", GradientBoostingRegressor(n_estimators=200, random_state=42))
+    ]),
+}
+
+print("\\n3. مقارنة النماذج (CV=5):")
+print(f"  {'النموذج':25s} | {'MAE':>12s} | {'R²':>8s}")
+print("  " + "-" * 55)
+
+best_model_name, best_r2 = None, -999
+for name, pipe in models.items():
+    r2_scores  = cross_val_score(pipe, X_train, y_train, cv=5, scoring="r2", n_jobs=-1)
+    mae_scores = cross_val_score(pipe, X_train, y_train, cv=5,
+                                 scoring="neg_mean_absolute_error", n_jobs=-1)
+    r2  = r2_scores.mean()
+    mae = -mae_scores.mean()
+    print(f"  {name:25s} | {mae:>12,.0f} | {r2:>8.4f}")
+    if r2 > best_r2:
+        best_r2, best_model_name = r2, name
+
+print(f"\\n  ✅ أفضل نموذج: {best_model_name}")
+
+# ─────────────────────────────────────────
+# 4. التدريب النهائي والتقييم
+# ─────────────────────────────────────────
+final_model = models[best_model_name]
+final_model.fit(X_train, y_train)
+y_pred = final_model.predict(X_test)
+
+mae  = mean_absolute_error(y_test, y_pred)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+r2   = r2_score(y_test, y_pred)
+
+print("\\n4. نتائج Test Set النهائية:")
+print(f"   MAE  = {mae:>10,.0f} ريال")
+print(f"   RMSE = {rmse:>10,.0f} ريال")
+print(f"   R²   = {r2:>10.4f}")
+print(f"   الخطأ النسبي = {mae/y_test.mean()*100:.1f}%")
+
+# ─────────────────────────────────────────
+# 5. حفظ النموذج
+# ─────────────────────────────────────────
+joblib.dump(final_model, "house_price_model.pkl")
+print("\\n5. ✅ تم حفظ النموذج في: house_price_model.pkl")
+
+# ─────────────────────────────────────────
+# 6. تنبؤ ببيت جديد
+# ─────────────────────────────────────────
+loaded_model = joblib.load("house_price_model.pkl")
+
+new_house = pd.DataFrame([{
+    "area_sqm": 280, "rooms": 5, "bathrooms": 3, "floors": 2,
+    "age_years": 5, "has_pool": 1, "has_garden": 1, "parking": 2,
+    "dist_center_km": 8, "district_encoded": 2,
+    "total_amenities": 2, "rooms_per_floor": 2.5
+}])
+
+predicted_price = loaded_model.predict(new_house)[0]
+print(f"\\n6. تنبؤ لبيت جديد:")
+print(f"   الخصائص: 280م², 5 غرف, مسبح, حديقة, 8كم من المركز")
+print(f"   السعر المتوقع: {predicted_price:,.0f} ريال")
+print("\\n🎉 مبروك! أكملت دورة تعلم الآلة بنجاح")`,
+      codeLanguage: "python",
+    },
+  ],
+
 };
