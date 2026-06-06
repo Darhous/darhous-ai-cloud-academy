@@ -325,18 +325,18 @@ function PromptEnhancer({ isAr }: { isAr: boolean }) {
       <div
         className="rounded-3xl p-6 md:p-8"
         style={{
-          background: "linear-gradient(135deg, rgba(245,158,11,0.06) 0%, rgba(139,92,246,0.08) 100%)",
-          border: "1px solid rgba(245,158,11,0.2)",
+          background: "linear-gradient(135deg, var(--portal-color-faint) 0%, rgba(139,92,246,0.08) 100%)",
+          border: "1px solid var(--portal-color-border)",
         }}
       >
         <div className="flex items-center gap-2 mb-2">
-          <Wand2 size={16} style={{ color: "#f59e0b" }} />
-          <span className="font-bold text-sm" style={{ color: "#f59e0b" }}>
+          <Wand2 size={16} style={{ color: "var(--portal-color)" }} />
+          <span className="font-bold text-sm" style={{ color: "var(--portal-color)" }}>
             {isAr ? "✨ محسّن البرومبت بالذكاء الاصطناعي" : "✨ AI Prompt Enhancer"}
           </span>
           <span
             className="text-[10px] font-mono px-2 py-0.5 rounded-full"
-            style={{ background: "rgba(245,158,11,0.12)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.25)" }}
+            style={{ background: "var(--portal-color-subtle)", color: "var(--portal-color)", border: "1px solid var(--portal-color-border)" }}
           >
             Nano Banana Pro
           </span>
@@ -358,7 +358,7 @@ function PromptEnhancer({ isAr }: { isAr: boolean }) {
             className="flex-1 rounded-2xl px-4 py-3 text-sm focus:outline-none"
             style={{
               background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(245,158,11,0.25)",
+              border: "1px solid var(--portal-color-border)",
               color: "var(--color-on-surface)",
             }}
           />
@@ -396,7 +396,7 @@ function PromptEnhancer({ isAr }: { isAr: boolean }) {
               className="rounded-2xl p-4 text-xs font-mono leading-relaxed whitespace-pre-wrap"
               style={{
                 background: "rgba(0,0,0,0.3)",
-                border: "1px solid rgba(245,158,11,0.2)",
+                border: "1px solid var(--portal-color-border)",
                 color: "var(--color-on-surface-variant)",
                 direction: "rtl",
               }}
@@ -406,7 +406,7 @@ function PromptEnhancer({ isAr }: { isAr: boolean }) {
             <button
               onClick={copyResult}
               className="mt-3 flex items-center gap-2 text-xs px-4 py-2 rounded-xl font-semibold transition-all"
-              style={{ background: "rgba(245,158,11,0.15)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.3)" }}
+              style={{ background: "var(--portal-color-subtle)", color: "var(--portal-color)", border: "1px solid var(--portal-color-glow)" }}
             >
               {copied ? <Check size={13} /> : <Copy size={13} />}
               {copied
@@ -561,7 +561,7 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
         }}
       >
         {/* Ambient orbs */}
-        <div className="absolute top-0 end-0 w-80 h-80 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%)", filter: "blur(60px)" }} />
+        <div className="absolute top-0 end-0 w-80 h-80 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, var(--portal-color-glow) 0%, transparent 70%)", filter: "blur(60px)" }} />
         <div className="absolute bottom-0 start-0 w-64 h-64 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)", filter: "blur(60px)" }} />
 
         <div className="container-xl relative z-10">
@@ -569,7 +569,7 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
             {/* Badge */}
             <div
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-mono mb-6"
-              style={{ background: "rgba(245,158,11,0.1)", borderColor: "rgba(245,158,11,0.3)", color: "#f59e0b" }}
+              style={{ background: "var(--portal-color-subtle)", borderColor: "var(--portal-color-glow)", color: "var(--portal-color)" }}
             >
               <Sparkles size={12} />
               Gemini Nano Banana Prompt Lab
@@ -597,7 +597,7 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
                 { n: "3", labelAr: "مستويات", labelEn: "Difficulty Levels" },
               ].map((s) => (
                 <div key={s.n} className="text-center">
-                  <div className="font-bold text-2xl" style={{ color: "#f59e0b" }}>{s.n}</div>
+                  <div className="font-bold text-2xl" style={{ color: "var(--portal-color)" }}>{s.n}</div>
                   <div style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? s.labelAr : s.labelEn}</div>
                 </div>
               ))}
@@ -629,7 +629,7 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
                 "Hit send and enjoy the result",
               ]).map((step, i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <span className="font-mono font-bold text-xs px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5" style={{ background: "rgba(245,158,11,0.15)", color: "#f59e0b" }}>
+                  <span className="font-mono font-bold text-xs px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5" style={{ background: "var(--portal-color-subtle)", color: "var(--portal-color)" }}>
                     {i + 1}
                   </span>
                   {step}
@@ -639,10 +639,10 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
           </div>
           <div
             className="flex-shrink-0 flex items-start gap-3 px-4 py-4 rounded-xl md:max-w-xs"
-            style={{ background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.2)" }}
+            style={{ background: "var(--portal-color-faint)", border: "1px solid var(--portal-color-border)" }}
           >
-            <Shield size={18} style={{ color: "#f59e0b", flexShrink: 0, marginTop: "2px" }} />
-            <p className="text-xs leading-relaxed" style={{ color: "rgba(245,158,11,0.85)" }}>
+            <Shield size={18} style={{ color: "var(--portal-color)", flexShrink: 0, marginTop: "2px" }} />
+            <p className="text-xs leading-relaxed" style={{ color: "var(--portal-color)" }}>
               {isAr
                 ? "استخدم صورك الشخصية أو صورًا تملك حق استخدامها فقط. لا تستخدم صور أشخاص آخرين بدون إذن."
                 : "Use your own photos or images you have permission to use. Do not use other people's photos without consent."}
@@ -662,9 +662,9 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
             onClick={() => setActiveCategory("all")}
             className="text-sm px-4 py-1.5 rounded-full font-mono transition-all"
             style={{
-              background: activeCategory === "all" ? "rgba(245,158,11,0.2)" : "var(--color-surface-container)",
-              border: `1px solid ${activeCategory === "all" ? "rgba(245,158,11,0.5)" : "var(--color-outline-variant)"}`,
-              color: activeCategory === "all" ? "#f59e0b" : "var(--color-on-surface-variant)",
+              background: activeCategory === "all" ? "var(--portal-color-subtle)" : "var(--color-surface-container)",
+              border: `1px solid ${activeCategory === "all" ? "var(--portal-color-glow)" : "var(--color-outline-variant)"}`,
+              color: activeCategory === "all" ? "var(--portal-color)" : "var(--color-on-surface-variant)",
             }}
           >
             {isAr ? "الكل" : "All"}
@@ -675,9 +675,9 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
               onClick={() => setActiveCategory(cat.id)}
               className="text-sm px-4 py-1.5 rounded-full font-mono transition-all"
               style={{
-                background: activeCategory === cat.id ? "rgba(245,158,11,0.2)" : "var(--color-surface-container)",
-                border: `1px solid ${activeCategory === cat.id ? "rgba(245,158,11,0.5)" : "var(--color-outline-variant)"}`,
-                color: activeCategory === cat.id ? "#f59e0b" : "var(--color-on-surface-variant)",
+                background: activeCategory === cat.id ? "var(--portal-color-subtle)" : "var(--color-surface-container)",
+                border: `1px solid ${activeCategory === cat.id ? "var(--portal-color-glow)" : "var(--color-outline-variant)"}`,
+                color: activeCategory === cat.id ? "var(--portal-color)" : "var(--color-on-surface-variant)",
               }}
             >
               {isAr ? cat.labelAr : cat.labelEn}
