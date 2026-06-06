@@ -250,7 +250,7 @@ export const courses: Course[] = [
     descriptionEn: "Neural networks, TensorFlow, PyTorch, and building vision and language models.",
     level: "intermediate", lessons: 32, hours: 28, projects: 4,
     skills: ["PyTorch", "TensorFlow", "CNN", "RNN", "Transformers"],
-    category: "AI", icon: "🔬", featured: true, color: "blue", comingSoon: true,
+    category: "AI", icon: "🔬", featured: true, color: "blue",
     overviewAr: "التعلم العميق هو الثورة الحقيقية في AI. ستتعلم كيف تعمل الشبكات العصبية الاصطناعية، وكيف تبني نماذج للرؤية الحاسوبية ومعالجة اللغة الطبيعية باستخدام PyTorch وTensorFlow.",
     overviewEn: "Deep learning is the real revolution in AI. You'll learn how artificial neural networks work and how to build models for computer vision and natural language processing using PyTorch and TensorFlow.",
     forWhoAr: ["من أتم دورة تعلم الآلة", "المطورون الطموحون في AI", "الباحثون في مجال AI"],

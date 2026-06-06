@@ -9593,4 +9593,1320 @@ print(f"  تحتاج تدخل بشري   : {len(results)-auto_handled}")`,
     },
   ],
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // C7e — deep-learning (5 lessons)
+  // ─────────────────────────────────────────────────────────────────────────
+  "deep-learning": [
+
+    // Lesson 1 — الشبكات العصبية: المفاهيم الأساسية
+    {
+      bodyAr: `## الشبكات العصبية: المفاهيم الأساسية
+
+الشبكة العصبية الاصطناعية (Artificial Neural Network) مستوحاة من الدماغ البشري — لكنها تعمل بطريقة مختلفة تماماً. إنها الأساس الذي بُنيت عليه كل ثورة AI الحديثة.
+
+### بنية الشبكة العصبية
+
+\`\`\`
+Input Layer → Hidden Layers → Output Layer
+   [x₁]         [h₁ h₂]          [y]
+   [x₂]    →   [h₃ h₄]   →      [ŷ]
+   [x₃]         [h₅ h₆]
+\`\`\`
+
+**Input Layer:** يستقبل البيانات الخام (pixels، أرقام، نصوص مُحوَّلة).
+
+**Hidden Layers:** يُعالج المعلومات ويستخرج الأنماط — يمكن أن تكون من طبقة واحدة لمئات.
+
+**Output Layer:** يُخرج النتيجة (احتمالات للتصنيف أو رقم للانحدار).
+
+### العصبون (Neuron) — الوحدة الأساسية
+
+كل عصبون يُنفّذ هذه المعادلة:
+
+\`\`\`
+output = activation(w₁x₁ + w₂x₂ + ... + wₙxₙ + b)
+\`\`\`
+
+- **w**: الأوزان (ما يتعلمه النموذج)
+- **x**: المدخلات
+- **b**: الـ bias
+- **activation**: دالة التنشيط
+
+### دوال التنشيط — لماذا هي ضرورية؟
+
+بدون دوال التنشيط، الشبكة العميقة تُعادل طبقة واحدة فقط (خطية).
+
+**ReLU — الأكثر استخداماً:**
+\`\`\`
+ReLU(x) = max(0, x)
+\`\`\`
+سريعة، بسيطة، تحلّ مشكلة Vanishing Gradient في معظم الحالات.
+
+**Sigmoid:**
+\`\`\`
+σ(x) = 1 / (1 + e^(-x))   →  [0, 1]
+\`\`\`
+تُستخدم في طبقة الـ Output للتصنيف الثنائي.
+
+**Softmax:**
+\`\`\`
+softmax(xᵢ) = e^xᵢ / Σ(e^xⱼ)
+\`\`\`
+تُحوّل الـ output إلى احتمالات تجمعها 1. تُستخدم في التصنيف متعدد الفئات.
+
+**Tanh:**
+\`\`\`
+tanh(x) = (e^x - e^(-x)) / (e^x + e^(-x))  →  [-1, 1]
+\`\`\`
+
+### أنواع الشبكات العصبية
+
+| النوع | الاستخدام | المثال |
+|-------|-----------|--------|
+| **MLP** (Fully Connected) | بيانات جدولية | تصنيف، انحدار |
+| **CNN** | صور، فيديو | تصنيف صور، كشف الوجوه |
+| **RNN / LSTM** | تسلسلات (نص، صوت) | الترجمة، التعرف على الصوت |
+| **Transformer** | NLP، رؤية | GPT، BERT، ViT |
+| **GAN** | توليد البيانات | توليد الصور |
+| **Autoencoder** | ضغط، إزالة الضوضاء | توليد، anomaly detection |
+
+### Deep vs Shallow Networks
+
+**Shallow (1-2 طبقات):**
+- يمكنها تقريب أي دالة (نظرياً)
+- تحتاج عدداً هائلاً من العصبونات
+- صعبة التدريب
+
+**Deep (3+ طبقات):**
+- تتعلم تمثيلات هرمية
+- طبقات أولى: حواف وألوان
+- طبقات وسطى: أشكال وأنماط
+- طبقات عميقة: مفاهيم عالية المستوى (وجه، سيارة)
+- أكثر كفاءة مع بيانات أقل
+
+### Hyperparameters الرئيسية
+
+| المعامل | الوصف | القيمة المعتادة |
+|---------|-------|---------------|
+| **Learning Rate** | سرعة التعلم | 0.001 |
+| **Batch Size** | عدد العينات لكل خطوة | 32 أو 64 |
+| **Epochs** | عدد مرور كامل على البيانات | 10–100 |
+| **Hidden Units** | عدد العصبونات في الطبقة | 64–2048 |
+| **Dropout** | نسبة التعطيل العشوائي | 0.1–0.5 |
+`,
+      bodyEn: `## Neural Networks: Core Concepts
+
+An Artificial Neural Network (ANN) is inspired by the human brain — but works completely differently. It's the foundation on which all modern AI is built.
+
+### Network Structure
+
+\`\`\`
+Input Layer → Hidden Layers → Output Layer
+\`\`\`
+
+Each **neuron** computes: \`output = activation(Σ wᵢxᵢ + b)\`
+
+### Activation Functions
+
+- **ReLU:** \`max(0, x)\` — most common, fast, solves vanishing gradient
+- **Sigmoid:** outputs [0,1] — binary classification output
+- **Softmax:** converts logits to probabilities summing to 1 — multi-class output
+- **Tanh:** outputs [-1,1] — used in RNNs
+
+### Why "Deep"?
+
+Deep networks learn **hierarchical representations**: early layers detect edges and colors, middle layers detect shapes, deep layers recognize high-level concepts. Much more efficient than shallow networks with many neurons.
+
+### Key Hyperparameters
+
+| Parameter | Description | Typical Value |
+|-----------|-------------|--------------|
+| Learning Rate | How fast to learn | 0.001 |
+| Batch Size | Samples per step | 32 or 64 |
+| Epochs | Full data passes | 10–100 |
+| Dropout | Random deactivation | 0.1–0.5 |
+`,
+      codeExample: `import numpy as np
+
+print("=" * 55)
+print("شبكة عصبية من الصفر — NumPy فقط")
+print("=" * 55)
+
+# ─────────────────────────────────────────
+# دوال التنشيط
+# ─────────────────────────────────────────
+def relu(x):       return np.maximum(0, x)
+def relu_grad(x):  return (x > 0).astype(float)
+
+def sigmoid(x):    return 1 / (1 + np.exp(-np.clip(x, -500, 500)))
+def sigmoid_grad(x):
+    s = sigmoid(x)
+    return s * (1 - s)
+
+def softmax(x):
+    e = np.exp(x - x.max(axis=1, keepdims=True))
+    return e / e.sum(axis=1, keepdims=True)
+
+print("\\n1. دوال التنشيط:")
+x_test = np.array([-2.0, -1.0, 0.0, 1.0, 2.0])
+print(f"  x       : {x_test}")
+print(f"  ReLU(x) : {relu(x_test)}")
+print(f"  σ(x)    : {sigmoid(x_test).round(3)}")
+
+# ─────────────────────────────────────────
+# شبكة MLP بسيطة — طبقتان مخفيتان
+# ─────────────────────────────────────────
+class SimpleNN:
+    """شبكة عصبية بسيطة: Input → Hidden → Output"""
+
+    def __init__(self, input_size: int, hidden_size: int, output_size: int, lr: float = 0.01):
+        # تهيئة الأوزان (Xavier Initialization)
+        scale1 = np.sqrt(2.0 / input_size)
+        scale2 = np.sqrt(2.0 / hidden_size)
+
+        self.W1 = np.random.randn(input_size,  hidden_size) * scale1
+        self.b1 = np.zeros((1, hidden_size))
+        self.W2 = np.random.randn(hidden_size, output_size) * scale2
+        self.b2 = np.zeros((1, output_size))
+        self.lr = lr
+
+    def forward(self, X: np.ndarray) -> np.ndarray:
+        """التمرير الأمامي"""
+        self.X  = X
+        self.z1 = X @ self.W1 + self.b1
+        self.a1 = relu(self.z1)          # Hidden layer: ReLU
+        self.z2 = self.a1 @ self.W2 + self.b2
+        self.a2 = sigmoid(self.z2)       # Output: Sigmoid
+        return self.a2
+
+    def backward(self, y: np.ndarray) -> float:
+        """Backpropagation"""
+        n = len(y)
+        loss = -np.mean(y * np.log(self.a2 + 1e-8) + (1 - y) * np.log(1 - self.a2 + 1e-8))
+
+        # تدرجات طبقة Output
+        dz2 = (self.a2 - y) / n
+        dW2 = self.a1.T @ dz2
+        db2 = dz2.sum(axis=0, keepdims=True)
+
+        # تدرجات طبقة Hidden
+        da1 = dz2 @ self.W2.T
+        dz1 = da1 * relu_grad(self.z1)
+        dW1 = self.X.T @ dz1
+        db1 = dz1.sum(axis=0, keepdims=True)
+
+        # تحديث الأوزان (Gradient Descent)
+        self.W2 -= self.lr * dW2
+        self.b2 -= self.lr * db2
+        self.W1 -= self.lr * dW1
+        self.b1 -= self.lr * db1
+
+        return float(loss)
+
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        return (self.forward(X) >= 0.5).astype(int)
+
+
+# ─────────────────────────────────────────
+# مثال: XOR Problem
+# (Linear models can't solve it, NNs can!)
+# ─────────────────────────────────────────
+print("\\n2. XOR Problem — لماذا نحتاج Depth؟")
+X_xor = np.array([[0, 0], [0, 1], [1, 0], [1, 1]], dtype=float)
+y_xor = np.array([[0], [1], [1], [0]], dtype=float)
+
+nn = SimpleNN(input_size=2, hidden_size=8, output_size=1, lr=0.1)
+
+# تدريب
+print("  التدريب...")
+for epoch in range(5000):
+    nn.forward(X_xor)
+    loss = nn.backward(y_xor)
+    if epoch % 1000 == 0:
+        preds = nn.predict(X_xor)
+        acc   = (preds == y_xor).mean()
+        print(f"  Epoch {epoch:4d}: Loss={loss:.4f}, Accuracy={acc:.0%}")
+
+print("\\n  النتائج النهائية:")
+print("  Input  | التنبؤ | الصحيح")
+for i, (x, y) in enumerate(zip(X_xor, y_xor)):
+    pred = nn.predict(x.reshape(1, -1))[0][0]
+    status = "✅" if pred == int(y[0]) else "❌"
+    print(f"  {x} |   {pred}    |   {int(y[0])}   {status}")
+
+# ─────────────────────────────────────────
+# حجم النموذج وعدد المعاملات
+# ─────────────────────────────────────────
+print("\\n3. حساب عدد المعاملات:")
+configs = [
+    ("صغير",   2,   8, 1),
+    ("متوسط", 784, 128, 10),
+    ("كبير",  784, 512, 10),
+]
+for name, inp, hid, out in configs:
+    params = (inp * hid + hid) + (hid * out + out)
+    print(f"  {name:7s}: {params:>8,} معامل")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 2 — Backpropagation وكيف تتعلم الشبكات
+    {
+      bodyAr: `## Backpropagation وكيف تتعلم الشبكات
+
+Backpropagation هي الخوارزمية التي تجعل الشبكات العصبية تتعلم. إنها التطبيق الذكي لـ Chain Rule في حساب التفاضل والتكامل.
+
+### المشكلة: كيف نعدّل ملايين الأوزان؟
+
+شبكة عصبية قد تحتوي مليارات المعاملات. بعد كل تنبؤ خاطئ، نحتاج لمعرفة: **كيف يؤثر كل وزن على الخطأ؟**
+
+الإجابة: **Gradient Descent + Backpropagation**.
+
+### Gradient Descent — خوارزمية التعلم
+
+الفكرة: انزل منحدر دالة الخطأ خطوة بخطوة.
+
+\`\`\`
+W_new = W_old - α × (∂Loss/∂W)
+\`\`\`
+
+- **α (Learning Rate)**: حجم الخطوة
+- **∂Loss/∂W**: اتجاه الانحدار (Gradient)
+
+**أنواع Gradient Descent:**
+
+| النوع | الحجم | السرعة | الاستقرار |
+|-------|-------|--------|----------|
+| **Batch GD** | كل البيانات | بطيء | مستقر |
+| **SGD** | عينة واحدة | سريع | متذبذب |
+| **Mini-Batch GD** | 32-256 عينة | متوازن | متوازن |
+
+### Backpropagation — الحساب العكسي
+
+**الفكرة:** نحسب التدرجات من الـ Output للـ Input باستخدام Chain Rule.
+
+\`\`\`
+Forward Pass:  x → z1 → a1 → z2 → a2 → Loss
+Backward Pass: Loss → ∂a2 → ∂z2 → ∂a1 → ∂z1 → ∂W
+\`\`\`
+
+**Chain Rule:**
+\`\`\`
+∂Loss/∂W1 = ∂Loss/∂a2 × ∂a2/∂z2 × ∂z2/∂a1 × ∂a1/∂z1 × ∂z1/∂W1
+\`\`\`
+
+### مشاكل التدريب الشائعة
+
+**1. Vanishing Gradient:**
+التدرج يتلاشى في الطبقات العميقة مع دوال مثل Sigmoid.
+الحل: ReLU، BatchNorm، Residual Connections.
+
+**2. Exploding Gradient:**
+التدرج ينفجر ويصبح NaN.
+الحل: Gradient Clipping، Learning Rate صغير.
+
+**3. Overfitting:**
+النموذج يحفظ بيانات التدريب.
+الحل: Dropout، L2 Regularization، Data Augmentation، Early Stopping.
+
+### Optimizers — ما هو أبعد من SGD
+
+**Adam (الأكثر استخداماً):**
+\`\`\`
+يجمع بين: Momentum (يتذكر الاتجاه السابق)
+         + RMSProp (يُكيّف Learning Rate لكل وزن)
+\`\`\`
+
+**AdamW:** Adam مع Weight Decay صحيح — الأفضل في 2024.
+
+### Learning Rate Schedule
+
+\`\`\`
+المرحلة الأولى:  LR مرتفع  → استكشاف سريع
+المرحلة الوسطى: LR يتناقص → تحسين دقيق
+المرحلة الأخيرة: LR منخفض جداً → تثبيت
+\`\`\`
+
+**Warmup + Cosine Decay:** النمط المُفضَّل في نماذج Transformer الكبيرة.
+`,
+      bodyEn: `## Backpropagation and How Networks Learn
+
+Backpropagation is the algorithm that makes neural networks learn — a clever application of the Chain Rule from calculus.
+
+### The Problem
+
+A neural network may have billions of parameters. After each wrong prediction, we need to know: how does each weight affect the error?
+
+**Answer:** Gradient Descent + Backpropagation.
+
+### Gradient Descent
+
+\`\`\`
+W_new = W_old - α × (∂Loss/∂W)
+\`\`\`
+
+Mini-batch GD (32–256 samples) balances speed and stability.
+
+### Backpropagation
+
+Computes gradients from Output back to Input using Chain Rule:
+\`\`\`
+Forward:  x → layers → Loss
+Backward: Loss → gradients → ∂W (update each weight)
+\`\`\`
+
+### Common Training Problems
+
+- **Vanishing Gradient:** Gradients disappear in deep layers → fix: ReLU, BatchNorm
+- **Exploding Gradient:** Gradients become NaN → fix: Gradient Clipping
+- **Overfitting:** Memorizes training data → fix: Dropout, Early Stopping, Data Augmentation
+
+### Modern Optimizers
+
+**Adam** (most common): combines Momentum + adaptive learning rates per parameter.
+
+**AdamW**: Adam with correct weight decay — best choice in 2024.
+`,
+      codeExample: `import numpy as np
+import matplotlib
+matplotlib.use("Agg")
+
+print("=" * 55)
+print("Backpropagation: مقارنة Optimizers")
+print("=" * 55)
+
+# ─────────────────────────────────────────
+# مشكلة بسيطة: تصنيف ثنائي
+# ─────────────────────────────────────────
+np.random.seed(42)
+n = 300
+
+# بيانات: دائرتان
+r1 = np.random.normal(0, 0.5, (n//2, 2))
+r2 = np.random.normal(2, 0.5, (n//2, 2))
+X  = np.vstack([r1, r2])
+y  = np.hstack([np.zeros(n//2), np.ones(n//2)]).reshape(-1, 1)
+
+# ─────────────────────────────────────────
+# Optimizers
+# ─────────────────────────────────────────
+class SGDOptimizer:
+    def __init__(self, lr=0.01):
+        self.lr = lr
+    def update(self, params, grads):
+        for p, g in zip(params, grads):
+            p -= self.lr * g
+
+class MomentumOptimizer:
+    def __init__(self, lr=0.01, beta=0.9):
+        self.lr, self.beta = lr, beta
+        self.v = None
+    def update(self, params, grads):
+        if self.v is None:
+            self.v = [np.zeros_like(p) for p in params]
+        for i, (p, g) in enumerate(zip(params, grads)):
+            self.v[i] = self.beta * self.v[i] + (1 - self.beta) * g
+            p -= self.lr * self.v[i]
+
+class AdamOptimizer:
+    def __init__(self, lr=0.01, b1=0.9, b2=0.999, eps=1e-8):
+        self.lr, self.b1, self.b2, self.eps = lr, b1, b2, eps
+        self.m = self.v = None
+        self.t = 0
+    def update(self, params, grads):
+        if self.m is None:
+            self.m = [np.zeros_like(p) for p in params]
+            self.v = [np.zeros_like(p) for p in params]
+        self.t += 1
+        for i, (p, g) in enumerate(zip(params, grads)):
+            self.m[i] = self.b1 * self.m[i] + (1 - self.b1) * g
+            self.v[i] = self.b2 * self.v[i] + (1 - self.b2) * g**2
+            m_hat = self.m[i] / (1 - self.b1**self.t)
+            v_hat = self.v[i] / (1 - self.b2**self.t)
+            p -= self.lr * m_hat / (np.sqrt(v_hat) + self.eps)
+
+# ─────────────────────────────────────────
+# شبكة بسيطة
+# ─────────────────────────────────────────
+def train(optimizer_name: str, optimizer, epochs: int = 200) -> list[float]:
+    np.random.seed(42)
+    W1 = np.random.randn(2, 8) * 0.1
+    b1 = np.zeros((1, 8))
+    W2 = np.random.randn(8, 1) * 0.1
+    b2 = np.zeros((1, 1))
+    losses = []
+
+    for _ in range(epochs):
+        # Forward
+        z1 = X @ W1 + b1
+        a1 = np.maximum(0, z1)
+        z2 = a1 @ W2 + b2
+        a2 = 1 / (1 + np.exp(-z2))
+
+        loss = -np.mean(y * np.log(a2 + 1e-8) + (1 - y) * np.log(1 - a2 + 1e-8))
+        losses.append(loss)
+
+        # Backward
+        n_s = len(y)
+        dz2 = (a2 - y) / n_s
+        dW2 = a1.T @ dz2
+        db2 = dz2.sum(0, keepdims=True)
+        da1 = dz2 @ W2.T
+        dz1 = da1 * (z1 > 0)
+        dW1 = X.T @ dz1
+        db1 = dz1.sum(0, keepdims=True)
+
+        optimizer.update([W1, b1, W2, b2], [dW1, db1, dW2, db2])
+
+    # Accuracy
+    z1 = X @ W1 + b1
+    a1 = np.maximum(0, z1)
+    z2 = a1 @ W2 + b2
+    a2 = 1 / (1 + np.exp(-z2))
+    acc = ((a2 >= 0.5) == y).mean()
+    print(f"  {optimizer_name:12s}: Final Loss={losses[-1]:.4f}, Accuracy={acc:.1%}")
+    return losses
+
+print("\\nمقارنة Optimizers (200 epochs, lr=0.01):")
+results = {}
+results["SGD"]      = train("SGD",      SGDOptimizer(lr=0.01))
+results["Momentum"] = train("Momentum", MomentumOptimizer(lr=0.01))
+results["Adam"]     = train("Adam",     AdamOptimizer(lr=0.01))
+
+# تحليل السرعة
+print("\\nمقارنة: epochs للوصول لـ Loss < 0.3")
+for name, losses in results.items():
+    epochs_needed = next((i for i, l in enumerate(losses) if l < 0.3), len(losses))
+    print(f"  {name:12s}: {epochs_needed} epoch")
+
+# ─────────────────────────────────────────
+# Early Stopping
+# ─────────────────────────────────────────
+print("\\nEarly Stopping — مثال:")
+best_loss, patience, counter = float("inf"), 10, 0
+fake_val_losses = [0.8, 0.7, 0.6, 0.5, 0.52, 0.51, 0.53, 0.54, 0.55, 0.56, 0.57]
+for epoch, val_loss in enumerate(fake_val_losses, 1):
+    if val_loss < best_loss:
+        best_loss = val_loss
+        counter   = 0
+        print(f"  Epoch {epoch}: Loss={val_loss} ✅ best")
+    else:
+        counter += 1
+        print(f"  Epoch {epoch}: Loss={val_loss} ({counter}/{patience})")
+    if counter >= patience:
+        print(f"  ⏹️  Early Stop at Epoch {epoch}")
+        break`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 3 — PyTorch: البداية
+    {
+      bodyAr: `## PyTorch: البداية
+
+PyTorch هي المكتبة الأكثر استخداماً في أبحاث Deep Learning. إنها مرنة، بديهية، وتدعم GPU. معظم نماذج AI الحديثة تُبنى بها.
+
+### لماذا PyTorch؟
+
+| | PyTorch | TensorFlow |
+|-|---------|-----------|
+| **الاستخدام** | أبحاث + تطوير | إنتاج + تطوير |
+| **API** | Pythonic وبسيط | أكثر تعقيداً |
+| **Debugging** | سهل (standard Python) | أصعب |
+| **المجتمع** | أكبر في الأبحاث | أكبر في الإنتاج |
+| **النماذج الجاهزة** | Hugging Face 🏆 | TF Hub |
+
+### Tensor — الوحدة الأساسية
+
+Tensor هو مصفوفة متعددة الأبعاد — مثل NumPy لكن مع دعم GPU والـ Autograd.
+
+\`\`\`python
+import torch
+
+x = torch.tensor([1.0, 2.0, 3.0])  # 1D tensor
+M = torch.randn(3, 4)              # 2D tensor (matrix)
+C = torch.zeros(2, 3, 4)           # 3D tensor
+\`\`\`
+
+### Autograd — السحر الحقيقي
+
+PyTorch يتتبع كل العمليات تلقائياً ويحسب التدرجات:
+
+\`\`\`python
+x = torch.tensor(3.0, requires_grad=True)
+y = x ** 2 + 2 * x + 1  # y = 10
+
+y.backward()             # يحسب dy/dx
+print(x.grad)           # 2x + 2 = 8
+\`\`\`
+
+هذا هو Backpropagation — تلقائياً!
+
+### بناء شبكة عصبية مع nn.Module
+
+\`\`\`python
+import torch.nn as nn
+
+class MyNet(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.layers = nn.Sequential(
+            nn.Linear(784, 256),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+            nn.Linear(256, 10),
+        )
+
+    def forward(self, x):
+        return self.layers(x)
+
+model = MyNet()
+print(sum(p.numel() for p in model.parameters()), "معامل")
+\`\`\`
+
+### حلقة التدريب القياسية
+
+\`\`\`python
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+criterion = nn.CrossEntropyLoss()
+
+for epoch in range(10):
+    for X_batch, y_batch in dataloader:
+        optimizer.zero_grad()        # 1. صفّر التدرجات
+        output = model(X_batch)      # 2. Forward Pass
+        loss   = criterion(output, y_batch)  # 3. الخطأ
+        loss.backward()              # 4. Backward Pass
+        optimizer.step()             # 5. تحديث الأوزان
+\`\`\`
+
+### GPU — تسريع التدريب
+
+\`\`\`python
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model  = model.to(device)
+
+# كل البيانات على نفس الـ device
+X_batch = X_batch.to(device)
+y_batch = y_batch.to(device)
+\`\`\`
+
+### Dataset وDataLoader
+
+\`\`\`python
+from torch.utils.data import Dataset, DataLoader
+
+class MyDataset(Dataset):
+    def __init__(self, X, y):
+        self.X = torch.FloatTensor(X)
+        self.y = torch.LongTensor(y)
+
+    def __len__(self):
+        return len(self.y)
+
+    def __getitem__(self, idx):
+        return self.X[idx], self.y[idx]
+
+loader = DataLoader(MyDataset(X, y), batch_size=32, shuffle=True)
+\`\`\`
+`,
+      bodyEn: `## PyTorch: Getting Started
+
+PyTorch is the most widely used library in deep learning research. It's flexible, intuitive, and GPU-ready. Most modern AI models are built with it.
+
+### Why PyTorch?
+
+Pythonic, easy to debug (standard Python execution), largest research community, and the backbone of Hugging Face (the go-to model hub).
+
+### Core Concepts
+
+**Tensor:** Multi-dimensional array with GPU support and automatic differentiation.
+
+**Autograd:** PyTorch automatically tracks all operations and computes gradients:
+\`\`\`python
+x = torch.tensor(3.0, requires_grad=True)
+y = x ** 2       # y = 9
+y.backward()     # computes dy/dx
+x.grad           # = 2x = 6
+\`\`\`
+
+### Standard Training Loop
+
+\`\`\`python
+optimizer.zero_grad()   # 1. clear gradients
+output = model(X)       # 2. forward pass
+loss = criterion(output, y)  # 3. compute loss
+loss.backward()         # 4. backpropagation
+optimizer.step()        # 5. update weights
+\`\`\`
+`,
+      codeExample: `import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import Dataset, DataLoader, random_split
+import numpy as np
+
+print("=" * 55)
+print("PyTorch: بناء شبكة عصبية كاملة")
+print("=" * 55)
+print(f"\\nPyTorch version: {torch.__version__}")
+print(f"GPU متاح: {torch.cuda.is_available()}")
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print(f"Device: {device}")
+
+# ─────────────────────────────────────────
+# 1. Dataset مخصص
+# ─────────────────────────────────────────
+class CirclesDataset(Dataset):
+    """بيانات دوائر — تصنيف غير خطي"""
+    def __init__(self, n_samples: int = 1000, noise: float = 0.1):
+        torch.manual_seed(42)
+        # دائرة داخلية
+        r1 = torch.randn(n_samples // 2, 2) * 0.5
+        # دائرة خارجية
+        angles = torch.rand(n_samples // 2) * 2 * 3.14159
+        r2     = torch.stack([torch.cos(angles) * 2, torch.sin(angles) * 2], dim=1)
+        r2    += torch.randn_like(r2) * noise
+
+        self.X = torch.vstack([r1, r2]).float()
+        self.y = torch.cat([torch.zeros(n_samples // 2),
+                            torch.ones(n_samples // 2)]).long()
+
+    def __len__(self):     return len(self.y)
+    def __getitem__(self, i): return self.X[i], self.y[i]
+
+dataset = CirclesDataset(n_samples=1000)
+train_set, val_set = random_split(dataset, [800, 200])
+
+train_loader = DataLoader(train_set, batch_size=32, shuffle=True)
+val_loader   = DataLoader(val_set,   batch_size=64)
+
+print(f"\\n1. Dataset جاهز: {len(train_set)} train / {len(val_set)} val")
+
+# ─────────────────────────────────────────
+# 2. بناء الشبكة
+# ─────────────────────────────────────────
+class DeepClassifier(nn.Module):
+    def __init__(self, input_dim: int = 2, hidden_dim: int = 64, num_classes: int = 2):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.BatchNorm1d(hidden_dim),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.BatchNorm1d(hidden_dim),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+
+            nn.Linear(hidden_dim, hidden_dim // 2),
+            nn.ReLU(),
+            nn.Linear(hidden_dim // 2, num_classes),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.net(x)
+
+model     = DeepClassifier().to(device)
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.AdamW(model.parameters(), lr=0.01, weight_decay=1e-4)
+scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=20)
+
+total_params = sum(p.numel() for p in model.parameters())
+print(f"2. النموذج: {total_params:,} معامل")
+
+# ─────────────────────────────────────────
+# 3. حلقة التدريب
+# ─────────────────────────────────────────
+def train_epoch(model, loader, optimizer, criterion):
+    model.train()
+    total_loss, correct, total = 0, 0, 0
+    for X, y in loader:
+        X, y = X.to(device), y.to(device)
+        optimizer.zero_grad()
+        out  = model(X)
+        loss = criterion(out, y)
+        loss.backward()
+        optimizer.step()
+        total_loss += loss.item() * len(y)
+        correct    += (out.argmax(1) == y).sum().item()
+        total      += len(y)
+    return total_loss / total, correct / total
+
+def eval_epoch(model, loader, criterion):
+    model.eval()
+    total_loss, correct, total = 0, 0, 0
+    with torch.no_grad():
+        for X, y in loader:
+            X, y = X.to(device), y.to(device)
+            out  = model(X)
+            total_loss += criterion(out, y).item() * len(y)
+            correct    += (out.argmax(1) == y).sum().item()
+            total      += len(y)
+    return total_loss / total, correct / total
+
+print("\\n3. التدريب:")
+print(f"  {'Epoch':6s} | {'Train Loss':10s} | {'Train Acc':9s} | {'Val Acc':8s} | LR")
+print("  " + "-" * 55)
+
+best_val_acc = 0
+for epoch in range(1, 21):
+    tr_loss, tr_acc = train_epoch(model, train_loader, optimizer, criterion)
+    vl_loss, vl_acc = eval_epoch(model, val_loader, criterion)
+    scheduler.step()
+    lr = optimizer.param_groups[0]["lr"]
+
+    if vl_acc > best_val_acc:
+        best_val_acc = vl_acc
+        torch.save(model.state_dict(), "best_model.pt")
+
+    if epoch % 5 == 0 or epoch == 1:
+        print(f"  {epoch:6d} | {tr_loss:10.4f} | {tr_acc:9.1%} | {vl_acc:8.1%} | {lr:.5f}")
+
+print(f"\\n  أفضل Val Accuracy: {best_val_acc:.1%}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 4 — CNN للرؤية الحاسوبية
+    {
+      bodyAr: `## CNN للرؤية الحاسوبية
+
+Convolutional Neural Networks (CNN) ثورت مجال رؤية الحاسوب. من تصنيف الصور إلى السيارات ذاتية القيادة — كلها تعتمد على CNN.
+
+### لماذا CNN وليس MLP للصور؟
+
+صورة 224×224 RGB = 150,528 pixel. إذا استخدمنا MLP:
+\`\`\`
+طبقة واحدة: 150,528 × 512 = 77 مليون وزن!
+\`\`\`
+
+المشاكل:
+- عدد هائل من المعاملات
+- لا يستفيد من التركيب المكاني للصورة
+- حساس لموضع الشيء في الصورة
+
+### Convolution — القلب النابض
+
+بدلاً من ربط كل pixel بكل عصبون، نستخدم **Filter صغير** يتحرك على الصورة:
+
+\`\`\`
+صورة 6×6  × Filter 3×3  =  Feature Map 4×4
+\`\`\`
+
+**الـ Filter يتعلم:**
+- حواف أفقية وعمودية
+- زوايا وأنماط مُحددة
+- ألوان وتدرجات
+
+### مكونات طبقة CNN
+
+**Conv Layer:**
+\`\`\`python
+nn.Conv2d(in_channels=3, out_channels=64, kernel_size=3, padding=1)
+# 3 قنوات (RGB) → 64 Feature Map
+\`\`\`
+
+**Pooling Layer (MaxPool):**
+\`\`\`
+يُقلّص حجم Feature Map بنصف
+يحتفظ بالمعلومات الأهم
+يُضفي ثباتاً (الشيء يُعرَّف بغض النظر عن موضعه)
+\`\`\`
+
+**Batch Normalization:**
+\`\`\`
+تُسرّع التدريب + تُقلّل Overfitting + تُحسّن الاستقرار
+\`\`\`
+
+### المعمارية الكلاسيكية
+
+\`\`\`
+Input (224×224×3)
+    ↓
+Conv → BN → ReLU → MaxPool
+    ↓
+Conv → BN → ReLU → MaxPool
+    ↓
+Conv → BN → ReLU
+    ↓
+Global Average Pooling
+    ↓
+FC → Softmax (Output)
+\`\`\`
+
+### أشهر معماريات CNN
+
+| المعمارية | السنة | المميزة |
+|----------|-------|---------|
+| **AlexNet** | 2012 | أول انتصار كبير على ImageNet |
+| **VGG16** | 2014 | بسيطة وعميقة (16 طبقة) |
+| **ResNet** | 2015 | Residual Connections — حلّت Vanishing Gradient |
+| **EfficientNet** | 2019 | دقة عالية بمعاملات أقل |
+| **ViT** | 2020 | Transformer للصور (يُزاحم CNN) |
+
+### Transfer Learning — الأذكى في CNN
+
+بدلاً من التدريب من الصفر، نبدأ من نموذج مُدرَّب مسبقاً:
+
+\`\`\`python
+from torchvision.models import resnet50, ResNet50_Weights
+
+model = resnet50(weights=ResNet50_Weights.IMAGENET1K_V1)
+
+# تجميد الطبقات المُدرَّبة
+for param in model.parameters():
+    param.requires_grad = False
+
+# استبدال الطبقة الأخيرة فقط
+model.fc = nn.Linear(2048, num_classes)
+# الآن ندرّب fc فقط على بياناتنا
+\`\`\`
+
+**لماذا يعمل؟** الطبقات الأولى تعلّمت حوافاً وألواناً — هذه مفيدة لأي صورة.
+
+### Data Augmentation
+
+\`\`\`python
+transforms.Compose([
+    transforms.RandomHorizontalFlip(p=0.5),
+    transforms.RandomRotation(15),
+    transforms.ColorJitter(brightness=0.2, contrast=0.2),
+    transforms.RandomCrop(224, padding=4),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                         std=[0.229, 0.224, 0.225]),
+])
+\`\`\`
+
+يُضاعف بيانات التدريب افتراضياً ويُقلّل Overfitting.
+`,
+      bodyEn: `## CNN for Computer Vision
+
+Convolutional Neural Networks (CNNs) revolutionized computer vision. From image classification to self-driving cars — all rely on CNNs.
+
+### Why CNN, Not MLP for Images?
+
+A 224×224 RGB image has 150,528 pixels. One MLP layer would need 77M weights just to connect. CNNs solve this with small **filters** that slide across the image — learning local patterns (edges, textures, shapes).
+
+### Key Components
+
+- **Conv Layer:** Applies learned filters, producing feature maps
+- **MaxPooling:** Halves spatial size, retains dominant features, adds position invariance
+- **BatchNorm:** Faster training, less overfitting, better stability
+
+### Transfer Learning — The Smart Way
+
+Start from ImageNet-pretrained weights, freeze early layers, replace only the final classification head:
+
+\`\`\`python
+model = resnet50(weights=ResNet50_Weights.IMAGENET1K_V1)
+for param in model.parameters():
+    param.requires_grad = False
+model.fc = nn.Linear(2048, num_classes)  # only this trains
+\`\`\`
+
+Early layers already know edges and colors — useful for any image task.
+`,
+      codeExample: `import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
+import numpy as np
+
+print("=" * 55)
+print("CNN: تصنيف الصور — PyTorch")
+print("=" * 55)
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+# ─────────────────────────────────────────
+# 1. بيانات مصطنعة (تحاكي CIFAR-10)
+# ─────────────────────────────────────────
+torch.manual_seed(42)
+np.random.seed(42)
+
+n_train, n_val = 500, 100
+num_classes   = 5   # 5 فئات مبسطة
+
+# صور 3×32×32
+X_train = torch.randn(n_train, 3, 32, 32)
+y_train = torch.randint(0, num_classes, (n_train,))
+X_val   = torch.randn(n_val,   3, 32, 32)
+y_val   = torch.randint(0, num_classes, (n_val,))
+
+# محاكاة أنماط (فئة 0 تميل للأحمر، إلخ)
+for cls in range(num_classes):
+    mask_tr = (y_train == cls)
+    mask_vl = (y_val   == cls)
+    X_train[mask_tr, cls % 3] += 0.5
+    X_val[mask_vl,   cls % 3] += 0.5
+
+train_loader = DataLoader(TensorDataset(X_train, y_train), batch_size=32, shuffle=True)
+val_loader   = DataLoader(TensorDataset(X_val,   y_val),   batch_size=32)
+
+print(f"\\n1. بيانات: {n_train} train / {n_val} val")
+print(f"   شكل الصور: {X_train.shape[1:]} (channels × height × width)")
+
+# ─────────────────────────────────────────
+# 2. معمارية CNN
+# ─────────────────────────────────────────
+class SmallCNN(nn.Module):
+    def __init__(self, num_classes: int = 5):
+        super().__init__()
+
+        # Block 1: 3 → 32 channels, 32×32 → 16×16
+        self.block1 = nn.Sequential(
+            nn.Conv2d(3, 32, kernel_size=3, padding=1),
+            nn.BatchNorm2d(32),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2),  # 32×32 → 16×16
+        )
+
+        # Block 2: 32 → 64 channels, 16×16 → 8×8
+        self.block2 = nn.Sequential(
+            nn.Conv2d(32, 64, kernel_size=3, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2),  # 16×16 → 8×8
+        )
+
+        # Block 3: 64 → 128 channels, 8×8 → 4×4
+        self.block3 = nn.Sequential(
+            nn.Conv2d(64, 128, kernel_size=3, padding=1),
+            nn.BatchNorm2d(128),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2),  # 8×8 → 4×4
+        )
+
+        # Classifier
+        self.classifier = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1),   # 128×4×4 → 128×1×1
+            nn.Flatten(),              # → 128
+            nn.Dropout(0.4),
+            nn.Linear(128, 64),
+            nn.ReLU(),
+            nn.Linear(64, num_classes),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = self.block1(x)
+        x = self.block2(x)
+        x = self.block3(x)
+        return self.classifier(x)
+
+model     = SmallCNN(num_classes=num_classes).to(device)
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=1e-4)
+
+params = sum(p.numel() for p in model.parameters())
+print(f"\\n2. CNN Architecture: {params:,} معامل")
+
+# ─────────────────────────────────────────
+# 3. التدريب
+# ─────────────────────────────────────────
+def train(model, loader, opt, crit):
+    model.train()
+    total_loss = correct = total = 0
+    for X, y in loader:
+        X, y = X.to(device), y.to(device)
+        opt.zero_grad()
+        out  = model(X)
+        loss = crit(out, y)
+        loss.backward()
+        opt.step()
+        total_loss += loss.item() * len(y)
+        correct    += (out.argmax(1) == y).sum().item()
+        total      += len(y)
+    return total_loss / total, correct / total
+
+def evaluate(model, loader, crit):
+    model.eval()
+    total_loss = correct = total = 0
+    with torch.no_grad():
+        for X, y in loader:
+            X, y = X.to(device), y.to(device)
+            out  = model(X)
+            total_loss += crit(out, y).item() * len(y)
+            correct    += (out.argmax(1) == y).sum().item()
+            total      += len(y)
+    return total_loss / total, correct / total
+
+print("\\n3. التدريب (15 epoch):")
+print(f"  {'Epoch':6s} | {'Train Loss':10s} | {'Train Acc':9s} | {'Val Acc':8s}")
+print("  " + "-" * 45)
+
+for epoch in range(1, 16):
+    tr_loss, tr_acc = train(model, train_loader, optimizer, criterion)
+    vl_loss, vl_acc = evaluate(model, val_loader, criterion)
+    if epoch % 5 == 0 or epoch == 1:
+        print(f"  {epoch:6d} | {tr_loss:10.4f} | {tr_acc:9.1%} | {vl_acc:8.1%}")
+
+# ─────────────────────────────────────────
+# 4. مقارنة: CNN vs MLP على نفس البيانات
+# ─────────────────────────────────────────
+print("\\n4. مقارنة: CNN vs MLP")
+
+mlp = nn.Sequential(
+    nn.Flatten(),
+    nn.Linear(3*32*32, 256), nn.ReLU(), nn.Dropout(0.3),
+    nn.Linear(256, 128),     nn.ReLU(),
+    nn.Linear(128, num_classes)
+).to(device)
+
+opt_mlp = optim.Adam(mlp.parameters(), lr=0.001)
+for _ in range(15):
+    train(mlp, train_loader, opt_mlp, criterion)
+_, mlp_acc = evaluate(mlp, val_loader, criterion)
+_, cnn_acc = evaluate(model, val_loader, criterion)
+
+mlp_params = sum(p.numel() for p in mlp.parameters())
+cnn_params = sum(p.numel() for p in model.parameters())
+
+print(f"  {'النموذج':8s} | {'Params':>10s} | {'Val Acc':8s}")
+print(f"  {'MLP':8s} | {mlp_params:>10,} | {mlp_acc:.1%}")
+print(f"  {'CNN':8s} | {cnn_params:>10,} | {cnn_acc:.1%}  ← أقل معاملات، دقة أعلى")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 5 — مشروع: تصنيف الصور
+    {
+      bodyAr: `## مشروع: تصنيف الصور
+
+هذا المشروع يجمع كل ما تعلمته في دورة التعلم العميق: بناء CNN متكاملة مع Transfer Learning، تدريبها على بيانات حقيقية، وتقييم أدائها.
+
+### ما ستبنيه
+
+\`\`\`
+Image Classifier
+├── 📦 تحميل بيانات CIFAR-10 (60,000 صورة، 10 فئات)
+├── 🔧 Data Augmentation
+├── 🏗️  CNN Architecture (ResNet-inspired)
+├── 🚀 Transfer Learning option
+├── 📊 تقييم شامل (Accuracy, Confusion Matrix)
+└── 🔍 تنبؤ على صور جديدة
+\`\`\`
+
+### ما تعلمته في دورة التعلم العميق
+
+| الدرس | ما تعلمته |
+|-------|---------|
+| 1. الشبكات العصبية | MLP، Activation Functions، Hyperparameters |
+| 2. Backpropagation | Gradient Descent، Adam، Early Stopping |
+| 3. PyTorch | Tensors، Autograd، Training Loop، Dataset/DataLoader |
+| 4. CNN | Convolution، Pooling، BatchNorm، Transfer Learning |
+| 5. **المشروع** | Pipeline كامل لتصنيف الصور |
+
+### خطوات المشروع
+
+\`\`\`
+1. تحميل CIFAR-10 وعرض عينات
+2. تعريف transforms: Augmentation للتدريب، Normalize للكل
+3. بناء CNN مع Residual Connections
+4. تدريب 20 epoch مع LR Scheduler
+5. رسم Learning Curves وConfusion Matrix
+6. اختبار على صور خارجية
+\`\`\`
+
+### الخطوات التالية
+
+بعد هذا المشروع، أنت جاهز لـ:
+- **Object Detection:** YOLO, Faster R-CNN
+- **Image Segmentation:** U-Net, DeepLab
+- **Vision Transformers:** ViT, CLIP
+- **Generative Models:** GAN, Diffusion Models
+- **Fine-tuning نماذج Hugging Face** على مجال محدد
+`,
+      bodyEn: `## Project: Image Classification
+
+This project combines everything from the Deep Learning course: building a complete CNN with Transfer Learning, training on real data, and thorough evaluation.
+
+### What You'll Build
+
+A complete CIFAR-10 image classifier with:
+- Data Augmentation pipeline
+- Custom ResNet-inspired CNN
+- Full training loop with scheduler
+- Accuracy + Confusion Matrix evaluation
+- Inference on new images
+
+### What You Learned in This Course
+
+All 5 lessons combined into one final project — from understanding neurons to building a production-ready image classifier.
+
+### Next Steps
+
+You're ready for:
+- Object Detection (YOLO, Faster R-CNN)
+- Image Segmentation (U-Net)
+- Vision Transformers (ViT, CLIP)
+- Fine-tuning Hugging Face models
+`,
+      codeExample: `import torch
+import torch.nn as nn
+import torch.optim as optim
+import torchvision
+import torchvision.transforms as T
+from torch.utils.data import DataLoader
+import numpy as np
+
+print("=" * 60)
+print("🖼️  مشروع: تصنيف صور CIFAR-10")
+print("=" * 60)
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print(f"Device: {device}")
+
+CLASSES = ["airplane","automobile","bird","cat","deer",
+           "dog","frog","horse","ship","truck"]
+
+# ─────────────────────────────────────────
+# 1. Transforms مع Data Augmentation
+# ─────────────────────────────────────────
+MEAN = [0.4914, 0.4822, 0.4465]
+STD  = [0.2023, 0.1994, 0.2010]
+
+train_transform = T.Compose([
+    T.RandomHorizontalFlip(p=0.5),
+    T.RandomCrop(32, padding=4),
+    T.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),
+    T.ToTensor(),
+    T.Normalize(MEAN, STD),
+])
+val_transform = T.Compose([
+    T.ToTensor(),
+    T.Normalize(MEAN, STD),
+])
+
+print("\\n1. تحميل CIFAR-10...")
+train_set = torchvision.datasets.CIFAR10("./data", train=True,  transform=train_transform, download=True)
+val_set   = torchvision.datasets.CIFAR10("./data", train=False, transform=val_transform,   download=True)
+
+train_loader = DataLoader(train_set, batch_size=128, shuffle=True,  num_workers=0, pin_memory=True)
+val_loader   = DataLoader(val_set,   batch_size=256, shuffle=False, num_workers=0, pin_memory=True)
+print(f"   Train: {len(train_set):,} | Val: {len(val_set):,}")
+
+# ─────────────────────────────────────────
+# 2. ResNet-Inspired Architecture
+# ─────────────────────────────────────────
+class ResBlock(nn.Module):
+    """Residual Block: التمرير المباشر يحلّ Vanishing Gradient"""
+    def __init__(self, ch: int):
+        super().__init__()
+        self.conv = nn.Sequential(
+            nn.Conv2d(ch, ch, 3, padding=1, bias=False),
+            nn.BatchNorm2d(ch), nn.ReLU(inplace=True),
+            nn.Conv2d(ch, ch, 3, padding=1, bias=False),
+            nn.BatchNorm2d(ch),
+        )
+        self.relu = nn.ReLU(inplace=True)
+
+    def forward(self, x):
+        return self.relu(x + self.conv(x))  # ← Residual connection
+
+class ResNetSmall(nn.Module):
+    def __init__(self, num_classes: int = 10):
+        super().__init__()
+        self.stem = nn.Sequential(
+            nn.Conv2d(3, 64, 3, padding=1, bias=False),
+            nn.BatchNorm2d(64), nn.ReLU(inplace=True),
+        )
+        self.layer1 = nn.Sequential(ResBlock(64), ResBlock(64))
+        self.down1  = nn.Sequential(
+            nn.Conv2d(64, 128, 3, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(128), nn.ReLU(inplace=True),
+        )
+        self.layer2 = nn.Sequential(ResBlock(128), ResBlock(128))
+        self.pool   = nn.AdaptiveAvgPool2d(1)
+        self.fc     = nn.Linear(128, num_classes)
+
+    def forward(self, x):
+        x = self.stem(x)
+        x = self.layer1(x)
+        x = self.down1(x)
+        x = self.layer2(x)
+        x = self.pool(x).flatten(1)
+        return self.fc(x)
+
+model  = ResNetSmall().to(device)
+params = sum(p.numel() for p in model.parameters())
+print(f"\\n2. النموذج: {params:,} معامل")
+
+# ─────────────────────────────────────────
+# 3. Training Setup
+# ─────────────────────────────────────────
+criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
+optimizer = optim.SGD(model.parameters(), lr=0.1,
+                       momentum=0.9, weight_decay=5e-4, nesterov=True)
+scheduler = optim.lr_scheduler.OneCycleLR(
+    optimizer, max_lr=0.1,
+    epochs=20, steps_per_epoch=len(train_loader)
+)
+
+# ─────────────────────────────────────────
+# 4. Training Loop
+# ─────────────────────────────────────────
+def run_epoch(model, loader, opt=None, crit=None):
+    training = opt is not None
+    model.train() if training else model.eval()
+    loss_sum = correct = total = 0
+    ctx = torch.enable_grad() if training else torch.no_grad()
+    with ctx:
+        for X, y in loader:
+            X, y = X.to(device), y.to(device)
+            out  = model(X)
+            loss = crit(out, y)
+            if training:
+                opt.zero_grad()
+                loss.backward()
+                opt.step()
+                scheduler.step()
+            loss_sum += loss.item() * len(y)
+            correct  += (out.argmax(1) == y).sum().item()
+            total    += len(y)
+    return loss_sum / total, correct / total
+
+print("\\n3. التدريب (20 epoch):")
+print(f"  {'EP':4s} | {'TrLoss':8s} | {'TrAcc':7s} | {'VlAcc':7s} | LR")
+print("  " + "-" * 50)
+
+best_acc = 0
+for ep in range(1, 21):
+    tr_loss, tr_acc = run_epoch(model, train_loader, optimizer, criterion)
+    _,       vl_acc = run_epoch(model, val_loader)
+    lr = optimizer.param_groups[0]["lr"]
+
+    if vl_acc > best_acc:
+        best_acc = vl_acc
+        torch.save(model.state_dict(), "best_cifar.pt")
+
+    if ep % 5 == 0 or ep == 1:
+        print(f"  {ep:4d} | {tr_loss:8.4f} | {tr_acc:7.1%} | {vl_acc:7.1%} | {lr:.5f}")
+
+print(f"\\n  أفضل Val Accuracy: {best_acc:.1%}")
+
+# ─────────────────────────────────────────
+# 5. Per-Class Accuracy
+# ─────────────────────────────────────────
+model.load_state_dict(torch.load("best_cifar.pt", map_location=device))
+model.eval()
+class_correct = [0] * 10
+class_total   = [0] * 10
+with torch.no_grad():
+    for X, y in val_loader:
+        X, y = X.to(device), y.to(device)
+        preds = model(X).argmax(1)
+        for c in range(10):
+            mask = (y == c)
+            class_correct[c] += (preds[mask] == c).sum().item()
+            class_total[c]   += mask.sum().item()
+
+print("\\n4. دقة كل فئة:")
+for i, cls in enumerate(CLASSES):
+    acc = class_correct[i] / class_total[i] if class_total[i] > 0 else 0
+    bar = "█" * int(acc * 25)
+    print(f"  {cls:12s}: {acc:.1%} {bar}")
+
+print("\\n🎉 مبروك! أكملت دورة التعلم العميق")`,
+      codeLanguage: "python",
+    },
+  ],
+
 };
