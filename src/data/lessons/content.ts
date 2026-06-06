@@ -18403,4 +18403,618 @@ print(f"\\n✅ Gemini API جاهز للاستخدام!")`,
     },
   ],
 
+  "oracle-cloud-labs": [
+    {
+      bodyAr: `## Oracle Cloud Always Free
+
+**Oracle Cloud** يوفر **Always Free Tier** الأسخى في عالم الكلاود — بدون انتهاء صلاحية ولا بطاقة ائتمانية مطلوبة بعد التحقق.
+
+### ما تحصل عليه مجاناً للأبد:
+- **2 VM ARM (Ampere A1)** — 4 OCPUs + 24 GB RAM إجمالاً
+- **200 GB Object Storage** — تخزين البيانات
+- **10 GB Block Storage** — للقرص الرئيسي
+- **Load Balancer** — 10 Mbps مجاناً
+- **Autonomous Database** — قاعدة بيانات مُدارة
+
+### لماذا Oracle Cloud للـ AI؟
+- **أقوى Free Tier** في السوق
+- ARM Ampere A1 يعمل بكفاءة ممتازة مع Python
+- يكفي لاستضافة FastAPI + نموذج صغير مجاناً
+
+### خطوات الإعداد:
+1. سجّل على **cloud.oracle.com**
+2. اختر **Always Free** عند التسجيل
+3. تحقق برقم الهاتف
+4. ابدأ إنشاء VM ARM`,
+      bodyEn: `## Oracle Cloud Always Free
+
+**Oracle Cloud** provides the most generous **Always Free Tier** in the cloud world — no expiration and no credit card needed after verification.
+
+### What You Get Free Forever:
+- **2 ARM VMs (Ampere A1)** — 4 OCPUs + 24 GB RAM total
+- **200 GB Object Storage** — data storage
+- **10 GB Block Storage** — for main disk
+- **Load Balancer** — 10 Mbps free
+- **Autonomous Database** — managed database
+
+### Why Oracle Cloud for AI?
+- **Strongest Free Tier** in the market
+- ARM Ampere A1 runs Python very efficiently
+- Enough to host FastAPI + small model for free
+
+### Setup Steps:
+1. Register at **cloud.oracle.com**
+2. Choose **Always Free** during registration
+3. Verify with phone number
+4. Start creating ARM VMs`,
+      codeExample: `from dataclasses import dataclass, field
+from typing import List, Dict
+
+# ─── محاكاة OCI SDK ────────────────────────────────────────
+@dataclass
+class OCIShape:
+    name:    str
+    ocpus:   float
+    memory:  float   # GB
+    arch:    str     # ARM, x86
+    free:    bool    = False
+
+OCI_SHAPES = [
+    OCIShape("VM.Standard.A1.Flex",    4.0,  24.0, "ARM",  True),   # Always Free
+    OCIShape("VM.Standard.E2.1.Micro", 1.0,   1.0, "x86",  True),   # Always Free (x86)
+    OCIShape("VM.Standard3.Flex",     32.0, 512.0, "x86",  False),
+    OCIShape("BM.GPU.A10.4",          64.0, 960.0, "x86",  False),
+]
+
+@dataclass
+class OCIInstance:
+    name:    str
+    shape:   OCIShape
+    region:  str
+    os:      str
+    state:   str = "RUNNING"
+    ip:      str = "0.0.0.0"
+
+    def __post_init__(self):
+        # محاكاة IP
+        import random
+        random.seed(hash(self.name) % 1000)
+        self.ip = f"{random.randint(140,170)}.{random.randint(1,254)}.{random.randint(1,254)}.{random.randint(1,254)}"
+
+@dataclass
+class OCIObjectStorage:
+    namespace: str
+    bucket:    str
+    region:    str
+    objects:   List[str] = field(default_factory=list)
+
+    def put_object(self, name: str, size_mb: float):
+        self.objects.append(name)
+        print(f"  ✅ Uploaded: {name} ({size_mb:.1f} MB)")
+
+    def list_objects(self):
+        print(f"  📦 {self.bucket}: {len(self.objects)} objects")
+        for obj in self.objects:
+            print(f"     • {obj}")
+
+class OCIClient:
+    REGIONS = {
+        "us-ashburn-1":    "Ashburn, Virginia (US East)",
+        "eu-frankfurt-1":  "Frankfurt, Germany",
+        "ap-singapore-1":  "Singapore",
+        "me-jeddah-1":     "Jeddah, Saudi Arabia",
+        "me-dubai-1":      "Dubai, UAE",
+    }
+
+    def __init__(self, tenancy: str, region: str = "us-ashburn-1"):
+        self.tenancy   = tenancy
+        self.region    = region
+        self.instances: Dict[str, OCIInstance] = {}
+
+    def show_free_shapes(self):
+        print(f"\\n🎁 Oracle Cloud Always Free Shapes:")
+        print(f"  {'Shape':<28} {'OCPUs':>6} {'Memory':>8} {'Arch':>5}")
+        print("  " + "-"*52)
+        for s in OCI_SHAPES:
+            tag = "✅ FREE" if s.free else "💰 Paid"
+            mem_s = f"{s.memory:.0f} GB"
+            print(f"  {s.name:<28} {s.ocpus:>6.1f} {mem_s:>8} {s.arch:>5}  {tag}")
+
+    def create_instance(self, name: str, shape_name: str, os: str = "Ubuntu 22.04") -> OCIInstance:
+        shape = next((s for s in OCI_SHAPES if s.name == shape_name), OCI_SHAPES[0])
+        inst  = OCIInstance(name, shape, self.region, os)
+        self.instances[name] = inst
+        free_s = "مجاني ♾️" if shape.free else "مدفوع"
+        print(f"  ✅ Instance: {name}")
+        print(f"     Shape : {shape.name} ({shape.arch})")
+        print(f"     OCPUs : {shape.ocpus} | RAM: {shape.memory} GB")
+        print(f"     OS    : {os}")
+        print(f"     التكلفة: {free_s}")
+        print(f"     IP    : {inst.ip}")
+        return inst
+
+    def instance_summary(self):
+        print(f"\\n📊 ملخص الـ Instances:")
+        free  = sum(1 for i in self.instances.values() if i.shape.free)
+        total_ocpu = sum(i.shape.ocpus for i in self.instances.values())
+        total_ram  = sum(i.shape.memory for i in self.instances.values())
+        print(f"  Instances     : {len(self.instances)} ({free} مجانية)")
+        print(f"  إجمالي OCPUs  : {total_ocpu}")
+        total_ram_s = f"{total_ram:.0f} GB"
+        print(f"  إجمالي RAM    : {total_ram_s}")
+
+# ─── إعداد Oracle Cloud ────────────────────────────────────
+print("🔴 Oracle Cloud — Always Free Tier:")
+print("=" * 52)
+
+oci = OCIClient("ocid1.tenancy.oc1..aaa", "us-ashburn-1")
+
+# عرض الـ Free Shapes
+oci.show_free_shapes()
+
+# إنشاء VMs المجانية
+print(f"\\n\\n🖥️  إنشاء VMs المجانية (ARM Ampere A1):")
+vm1 = oci.create_instance("ai-api-server",    "VM.Standard.A1.Flex", "Ubuntu 22.04")
+print()
+vm2 = oci.create_instance("ai-worker",        "VM.Standard.A1.Flex", "Ubuntu 22.04")
+print()
+vm3 = oci.create_instance("admin-micro",      "VM.Standard.E2.1.Micro", "Ubuntu 22.04")
+
+# Object Storage
+print(f"\\n\\n💾 Object Storage (200 GB مجاناً):")
+storage = OCIObjectStorage("my-namespace", "ai-models-bucket", oci.region)
+storage.put_object("models/sentiment-v2.pkl",   45.3)
+storage.put_object("data/training-set.csv",     120.8)
+storage.put_object("logs/inference-2024.log",    2.1)
+storage.list_objects()
+
+# ملخص
+oci.instance_summary()
+
+# CLI Commands
+print(f"\\n💻 أوامر OCI CLI:")
+cmds = [
+    ("تثبيت OCI CLI",    "pip install oci-cli"),
+    ("إعداد المفاتيح",   "oci setup config"),
+    ("قائمة الـ VMs",    "oci compute instance list --compartment-id <id>"),
+    ("رفع ملف لـ Storage","oci os object put --bucket-name ai-models --file model.pkl"),
+]
+for desc, cmd in cmds:
+    print(f"  # {desc}")
+    print(f"  $ {cmd}")
+    print()
+print("✅ Oracle Cloud جاهز!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## VM مجانية بـ ARM على Oracle Cloud
+
+**Ampere A1** هو معالج ARM عالي الأداء تقدمه Oracle مجاناً بـ 4 OCPUs و24 GB RAM.
+
+### مميزات ARM Ampere A1:
+- **4 OCPUs** (أو حتى الحد المجاني بـ OCPU واحد مع 6 GB) مجاناً
+- **24 GB RAM إجمالاً** للـ ARM Instances
+- مناسب جداً لتشغيل Python وFastAPI والنماذج الصغيرة
+- أكثر كفاءة في استهلاك الطاقة من x86
+
+### خطوات إنشاء VM ARM:
+1. Compute → Instances → Create Instance
+2. اختر **VM.Standard.A1.Flex**
+3. ضع OCPU الرغبة (مثل 2 OCPU + 12 GB RAM)
+4. أنشئ SSH Key وحمّل الـ Public Key
+5. تحقق من أن Network + Subnet صحيح
+
+### المشكلة الشائعة:
+ARM VMs تكون **Out of Capacity** أحياناً. الحل: جرّب مناطق مختلفة أو أوقات مختلفة.
+
+### الاتصال بالـ VM:
+**ssh -i private_key ubuntu@IP_ADDRESS**`,
+      bodyEn: `## Free ARM VM on Oracle Cloud
+
+**Ampere A1** is a high-performance ARM processor offered free by Oracle with 4 OCPUs and 24 GB RAM.
+
+### ARM Ampere A1 Advantages:
+- **4 OCPUs** (or even free tier with 1 OCPU and 6 GB) for free
+- **24 GB RAM total** for ARM Instances
+- Very suitable for running Python, FastAPI, and small models
+- More power-efficient than x86
+
+### Steps to Create ARM VM:
+1. Compute → Instances → Create Instance
+2. Choose **VM.Standard.A1.Flex**
+3. Set desired OCPUs (e.g. 2 OCPU + 12 GB RAM)
+4. Create SSH Key and upload Public Key
+5. Verify Network + Subnet is correct
+
+### Common Issue:
+ARM VMs are sometimes **Out of Capacity**. Solution: try different regions or different times.
+
+### Connecting to VM:
+**ssh -i private_key ubuntu@IP_ADDRESS**`,
+      codeExample: `import subprocess
+import os
+from dataclasses import dataclass, field
+from typing import List, Dict, Optional
+
+# ─── VM Configuration ──────────────────────────────────────
+@dataclass
+class ARMVMConfig:
+    name:       str
+    ocpus:      float
+    memory_gb:  float
+    os_image:   str     = "Canonical-Ubuntu-22.04-aarch64"
+    boot_gb:    int     = 50
+    region:     str     = "us-ashburn-1"
+    shape:      str     = "VM.Standard.A1.Flex"
+
+    def validate(self) -> Dict:
+        """تحقق من حدود Always Free"""
+        errors = []
+        if self.ocpus > 4:
+            errors.append(f"OCPUs {self.ocpus} > 4 (حد Always Free)")
+        if self.memory_gb > 24:
+            errors.append(f"RAM {self.memory_gb}GB > 24GB (حد Always Free)")
+        if self.boot_gb > 200:
+            errors.append(f"Boot {self.boot_gb}GB > 200GB")
+        return {"valid": len(errors) == 0, "errors": errors}
+
+# ─── محاكاة OCI Compute ────────────────────────────────────
+class OCICompute:
+    def __init__(self):
+        self._instances: Dict[str, Dict] = {}
+        self._capacity_regions = ["us-ashburn-1", "eu-frankfurt-1"]
+
+    def launch(self, cfg: ARMVMConfig, ssh_pub_key: str) -> Dict:
+        result = cfg.validate()
+        if not result["valid"]:
+            return {"success": False, "error": result["errors"]}
+
+        if cfg.region not in self._capacity_regions:
+            return {"success": False, "error": f"Out of Capacity في {cfg.region} — جرّب منطقة أخرى"}
+
+        inst = {
+            "name":       cfg.name,
+            "shape":      cfg.shape,
+            "ocpus":      cfg.ocpus,
+            "memory_gb":  cfg.memory_gb,
+            "region":     cfg.region,
+            "state":      "PROVISIONING",
+            "public_ip":  f"152.67.{hash(cfg.name)%200+1}.{hash(cfg.name)%254+1}",
+            "os":         cfg.os_image,
+        }
+        self._instances[cfg.name] = inst
+        return {"success": True, "instance": inst}
+
+    def wait_running(self, name: str) -> str:
+        if name in self._instances:
+            self._instances[name]["state"] = "RUNNING"
+        return "RUNNING"
+
+class FirewallManager:
+    """إدارة Security List / NSG"""
+    def __init__(self):
+        self.rules: List[Dict] = []
+
+    def open_port(self, port: int, protocol: str = "TCP", source: str = "0.0.0.0/0"):
+        self.rules.append({"port": port, "proto": protocol, "source": source})
+        print(f"  🔓 Port {port}/{protocol} ← {source}")
+
+    def open_ssh(self):
+        self.open_port(22,   "TCP", "YOUR_IP/32")  # SSH من IP محدد فقط
+
+    def show(self):
+        print(f"\\n  قواعد Firewall ({len(self.rules)}):")
+        for r in self.rules:
+            print(f"    • Port {r['port']}/{r['proto']} ← {r['source']}")
+
+# ─── إعداد Setup Script ────────────────────────────────────
+SETUP_SCRIPT = """#!/bin/bash
+# إعداد VM ARM لتشغيل AI API
+
+# تحديث النظام
+sudo apt update && sudo apt upgrade -y
+
+# Python 3.11 + pip
+sudo apt install -y python3.11 python3-pip python3.11-venv
+
+# إنشاء بيئة افتراضية
+python3.11 -m venv /opt/ai-env
+source /opt/ai-env/bin/activate
+
+# تثبيت المكتبات
+pip install fastapi uvicorn anthropic python-dotenv
+
+# Nginx كـ Reverse Proxy
+sudo apt install -y nginx certbot python3-certbot-nginx
+
+echo "✅ الإعداد مكتمل!"
+"""
+
+# ─── تشغيل المحاكاة ────────────────────────────────────────
+print("🔴 إنشاء VM ARM مجانية على Oracle Cloud:")
+print("=" * 55)
+
+compute  = OCICompute()
+firewall = FirewallManager()
+
+# إنشاء VM
+print("\\n1️⃣  إنشاء VM ARM (2 OCPU + 12 GB RAM):")
+cfg    = ARMVMConfig(name="ai-server-01", ocpus=2, memory_gb=12)
+result = compute.launch(cfg, "ssh-rsa AAAAB3NzaC1yc2E...")
+
+if result["success"]:
+    inst = result["instance"]
+    print(f"  ✅ VM بدأ الإنشاء: {inst['name']}")
+    print(f"  Region : {inst['region']}")
+    cpu_s = f"{inst['ocpus']} OCPUs"
+    ram_s = f"{inst['memory_gb']} GB"
+    print(f"  Compute: {cpu_s} / {ram_s}")
+    state = compute.wait_running(inst["name"])
+    print(f"  State  : {state}")
+    print(f"  IP     : {inst['public_ip']}")
+else:
+    print(f"  ❌ {result['error']}")
+
+# Firewall
+print(f"\\n2️⃣  إعداد Security Rules:")
+firewall.open_ssh()
+firewall.open_port(80,   "TCP", "0.0.0.0/0")   # HTTP
+firewall.open_port(443,  "TCP", "0.0.0.0/0")   # HTTPS
+firewall.open_port(8080, "TCP", "0.0.0.0/0")   # FastAPI
+firewall.show()
+
+# Setup Script
+print(f"\\n3️⃣  Setup Script:")
+print(f"  # انسخ الـ Script إلى الـ VM:")
+if result["success"]:
+    ip = result["instance"]["public_ip"]
+    print(f"  $ scp setup.sh ubuntu@{ip}:~/")
+    print(f"  $ ssh ubuntu@{ip} 'bash setup.sh'")
+print()
+for line in SETUP_SCRIPT.strip().split("\\n")[:8]:
+    print(f"  {line}")
+print(f"  ...")
+
+# Validate Free Tier Limits
+print(f"\\n4️⃣  التحقق من حدود Always Free:")
+test_cases = [
+    ARMVMConfig("vm1", ocpus=2,  memory_gb=12),
+    ARMVMConfig("vm2", ocpus=3,  memory_gb=18),
+    ARMVMConfig("vm3", ocpus=5,  memory_gb=30),  # تجاوز الحد
+]
+for tc in test_cases:
+    v = tc.validate()
+    icon = "✅" if v["valid"] else "❌"
+    cpu_s = f"{tc.ocpus} OCPUs"
+    ram_s = f"{tc.memory_gb} GB"
+    print(f"  {icon} {tc.name}: {cpu_s} + {ram_s}")
+    if not v["valid"]:
+        for e in v["errors"]:
+            print(f"     ⚠️  {e}")
+print(f"\\n✅ VM ARM جاهزة للاستخدام!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## نشر تطبيق AI على Oracle Cloud
+
+في هذا الدرس ستنشر **AI API** حقيقي على الـ VM ARM المجانية.
+
+### معمارية النشر:
+**المستخدم** → **Nginx** (HTTPS) → **FastAPI** (8080) → **Claude API**
+
+### ملفات المشروع:
+- **app/main.py** — FastAPI server
+- **requirements.txt** — المكتبات
+- **.env** — مفاتيح API (لا تضعها في Git!)
+- **nginx.conf** — إعداد Nginx
+- **ai-api.service** — Systemd service للتشغيل التلقائي
+
+### الإنتاج على Oracle Cloud:
+- تكلفة الخادم: **صفر** (Always Free)
+- تكلفة Claude API: **حسب الاستخدام**
+- تكلفة الدومين: اختياري (يمكن استخدام IP مباشرة)
+
+### مقارنة مع الكلاود الآخر:
+- **AWS Lambda** — مجاني حتى مليون طلب ثم مدفوع
+- **GCP Cloud Run** — مجاني حتى 2M طلب ثم مدفوع
+- **Oracle VM** — مجاني للأبد بدون حدود للطلبات ♾️`,
+      bodyEn: `## Deploying an AI App on Oracle Cloud
+
+In this lesson you'll deploy a real **AI API** on the free ARM VM.
+
+### Deployment Architecture:
+**User** → **Nginx** (HTTPS) → **FastAPI** (8080) → **Claude API**
+
+### Project Files:
+- **app/main.py** — FastAPI server
+- **requirements.txt** — libraries
+- **.env** — API keys (don't put in Git!)
+- **nginx.conf** — Nginx configuration
+- **ai-api.service** — Systemd service for auto-start
+
+### Production on Oracle Cloud:
+- Server cost: **Zero** (Always Free)
+- Claude API cost: **pay per use**
+- Domain cost: optional (can use IP directly)
+
+### Comparison with Other Cloud:
+- **AWS Lambda** — free up to 1 million requests then paid
+- **GCP Cloud Run** — free up to 2M requests then paid
+- **Oracle VM** — free forever with no request limits ♾️`,
+      codeExample: `import json
+import os
+from datetime import datetime
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional
+
+# ─── محاكاة FastAPI AI Server ──────────────────────────────
+@dataclass
+class ServerConfig:
+    host:         str   = "0.0.0.0"
+    port:         int   = 8080
+    workers:      int   = 4
+    claude_model: str   = "claude-3-haiku-20240307"
+    max_tokens:   int   = 1024
+    rate_limit:   int   = 100  # طلبات/دقيقة
+
+PROJECT_FILES = {
+    "requirements.txt": """fastapi==0.111.0
+uvicorn[standard]==0.29.0
+anthropic==0.28.0
+python-dotenv==1.0.1
+pydantic==2.7.0
+slowapi==0.1.9
+""",
+
+    "app/main.py": """import os
+from fastapi import FastAPI, HTTPException, Request
+from pydantic import BaseModel
+from anthropic import Anthropic
+from dotenv import load_dotenv
+
+load_dotenv()
+app    = FastAPI(title="AI API on Oracle Cloud ARM")
+client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+
+class ChatRequest(BaseModel):
+    message: str
+    max_tokens: int = 1024
+
+@app.get("/health")
+def health(): return {"status": "ok", "model": "claude-3-haiku"}
+
+@app.post("/chat")
+def chat(req: ChatRequest):
+    resp = client.messages.create(
+        model="claude-3-haiku-20240307",
+        max_tokens=req.max_tokens,
+        messages=[{"role": "user", "content": req.message}],
+    )
+    return {"reply": resp.content[0].text, "tokens": resp.usage.input_tokens}
+""",
+
+    "nginx.conf": """server {
+    listen 80;
+    server_name _;
+
+    location / {
+        proxy_pass         http://127.0.0.1:8080;
+        proxy_set_header   Host $host;
+        proxy_set_header   X-Real-IP $remote_addr;
+        proxy_read_timeout 30s;
+    }
+}
+""",
+
+    "ai-api.service": """[Unit]
+Description=AI FastAPI Service
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/opt/ai-api
+ExecStart=/opt/ai-env/bin/uvicorn app.main:app --host 0.0.0.0 --port 8080 --workers 4
+Restart=always
+RestartSec=3
+EnvironmentFile=/opt/ai-api/.env
+
+[Install]
+WantedBy=multi-user.target
+""",
+}
+
+# ─── محاكاة FastAPI Server ─────────────────────────────────
+class ClaudeClient:
+    def ask(self, message: str) -> str:
+        return f"[Claude Haiku على Oracle ARM] إجابتي: {message[:50]}..."
+
+class AIServer:
+    def __init__(self, cfg: ServerConfig):
+        self.cfg     = cfg
+        self.claude  = ClaudeClient()
+        self._reqs   = 0
+        self._errors = 0
+        self._start  = datetime.now()
+
+    def handle_request(self, path: str, body: dict = None) -> Dict:
+        self._reqs += 1
+        body = body or {}
+
+        if path == "/health":
+            uptime = (datetime.now() - self._start).seconds
+            return {"status": "ok", "uptime_s": uptime,
+                    "model": self.cfg.claude_model,
+                    "requests": self._reqs}
+
+        elif path == "/chat":
+            msg = body.get("message", "").strip()
+            if not msg:
+                self._errors += 1
+                return {"error": "message مطلوب", "code": 400}
+            reply = self.claude.ask(msg)
+            return {"reply": reply, "model": self.cfg.claude_model}
+
+        elif path == "/stats":
+            err_rate = self._errors / max(self._reqs, 1)
+            err_str  = f"{err_rate:.1%}"
+            return {"total_requests": self._reqs, "errors": self._errors,
+                    "error_rate": err_str, "workers": self.cfg.workers}
+
+        self._errors += 1
+        return {"error": "Not Found", "code": 404}
+
+# ─── عرض المشروع ───────────────────────────────────────────
+print("🔴 مشروع: AI API على Oracle Cloud ARM")
+print("=" * 55)
+
+# عرض ملفات المشروع
+print("\\n📁 ملفات المشروع:")
+for fname, content in PROJECT_FILES.items():
+    lines = content.strip().split("\\n")
+    print(f"  📄 {fname} ({len(lines)} سطر)")
+
+# تشغيل المحاكاة
+print(f"\\n\\n🚀 تشغيل FastAPI Server:")
+cfg    = ServerConfig(workers=4)
+server = AIServer(cfg)
+print(f"  Host    : {cfg.host}:{cfg.port}")
+print(f"  Workers : {cfg.workers}")
+print(f"  Model   : {cfg.claude_model}")
+
+# اختبار Endpoints
+print(f"\\n\\n🧪 اختبار Endpoints:")
+tests = [
+    ("/health", {}),
+    ("/chat",   {"message": "ما هو Oracle Cloud Always Free؟"}),
+    ("/chat",   {"message": ""}),  # خطأ
+    ("/chat",   {"message": "كيف أنشر FastAPI على Oracle VM؟"}),
+    ("/stats",  {}),
+]
+for path, body in tests:
+    resp = server.handle_request(path, body)
+    code = resp.get("code", 200)
+    icon = "✅" if code == 200 else "❌"
+    key  = "reply" if "reply" in resp else ("status" if "status" in resp else list(resp.keys())[0])
+    val  = str(resp.get(key, ""))[:60]
+    print(f"  {icon} {path:<10} → {key}: {val}")
+
+# خطوات النشر
+print(f"\\n\\n📋 خطوات النشر على Oracle ARM:")
+steps = [
+    ("نسخ الملفات",    "scp -r app/ ubuntu@IP:/opt/ai-api/"),
+    ("تثبيت مكتبات",   "pip install -r requirements.txt"),
+    ("إعداد .env",     "echo 'ANTHROPIC_API_KEY=sk-...' > .env"),
+    ("تفعيل Service",  "sudo systemctl enable ai-api && sudo systemctl start ai-api"),
+    ("إعداد Nginx",    "sudo cp nginx.conf /etc/nginx/sites-enabled/ && sudo nginx -t -s reload"),
+    ("اختبار",         "curl http://YOUR_IP/health"),
+]
+for i, (desc, cmd) in enumerate(steps, 1):
+    print(f"  {i}. {desc}")
+    print(f"     $ {cmd}")
+    print()
+print("✅ AI API يعمل على Oracle Cloud مجاناً للأبد!")`,
+      codeLanguage: "python",
+    },
+  ],
+
 };

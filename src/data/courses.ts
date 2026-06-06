@@ -762,7 +762,7 @@ export const courses: Course[] = [
     descriptionEn: "Using Oracle Cloud Free Tier to deploy AI models and cloud apps for free.",
     level: "intermediate", lessons: 14, hours: 10, projects: 3,
     skills: ["Oracle Cloud", "OCI", "Compute", "Free Tier"],
-    category: "Cloud", icon: "🔴", featured: false, color: "cyan", comingSoon: true,
+    category: "Cloud", icon: "🔴", featured: false, color: "cyan",
     overviewAr: "Oracle Cloud يوفر Always Free tier سخياً جداً مع خوادم ARM قوية وتخزين مجاني. ستتعلم كيف توظّفه لنشر مشاريع AI بتكلفة صفر.",
     overviewEn: "Oracle Cloud offers a very generous Always Free tier with powerful ARM servers and free storage. You'll learn how to leverage it to deploy AI projects at zero cost.",
     forWhoAr: ["من يريد cloud مجاني حقيقي", "طلاب AI الذين يريدون بيئة إنتاج"],
