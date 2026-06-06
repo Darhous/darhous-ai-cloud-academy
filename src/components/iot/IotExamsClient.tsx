@@ -27,16 +27,16 @@ export default function IotExamsClient({ exams }: Props) {
             key={exam.id}
             onClick={() => startExam(exam)}
             className="glass-card rounded-2xl p-6 text-right flex flex-col gap-3 transition-all hover:-translate-y-0.5 hover:scale-[1.01]"
-            style={{ border: "1px solid rgba(249,115,22,0.15)" }}
+            style={{ border: "1px solid var(--portal-color-border)" }}
           >
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.2)" }}>
-              <Trophy size={18} style={{ color: "#f97316" }} />
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-glow)" }}>
+              <Trophy size={18} style={{ color: "var(--portal-color)" }} />
             </div>
             <h3 className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{exam.title}</h3>
             <p className="text-xs leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{exam.description}</p>
             <div className="flex items-center justify-between mt-auto">
               <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{exam.questions.length} سؤال</span>
-              <span className="text-xs font-mono" style={{ color: "#f97316" }}>ابدأ ←</span>
+              <span className="text-xs font-mono" style={{ color: "var(--portal-color)" }}>ابدأ ←</span>
             </div>
           </button>
         ))}
@@ -60,9 +60,9 @@ export default function IotExamsClient({ exams }: Props) {
         <>
           <div className="space-y-6 mb-8">
             {selectedExam.questions.map((q, qIdx) => (
-              <div key={qIdx} className="glass-card rounded-2xl p-6" style={{ border: "1px solid rgba(249,115,22,0.1)" }}>
+              <div key={qIdx} className="glass-card rounded-2xl p-6" style={{ border: "1px solid var(--portal-color-border)" }}>
                 <p className="font-medium text-sm mb-4" style={{ color: "var(--color-on-surface)" }}>
-                  <span className="font-mono" style={{ color: "#f97316" }}>{qIdx + 1}. </span>{q.question}
+                  <span className="font-mono" style={{ color: "var(--portal-color)" }}>{qIdx + 1}. </span>{q.question}
                 </p>
                 <div className="space-y-2">
                   {q.options.map((opt, oIdx) => (
@@ -71,7 +71,7 @@ export default function IotExamsClient({ exams }: Props) {
                       onClick={() => setAnswers((a) => ({ ...a, [qIdx]: oIdx }))}
                       className="w-full text-right px-4 py-3 rounded-xl text-sm transition-all"
                       style={answers[qIdx] === oIdx
-                        ? { background: "rgba(249,115,22,0.15)", border: "1px solid rgba(249,115,22,0.4)", color: "#f97316" }
+                        ? { background: "var(--portal-color-subtle)", border: "1px solid var(--portal-color-glow)", color: "var(--portal-color)" }
                         : { background: "rgba(255,255,255,0.03)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface-variant)" }}
                     >
                       {opt}
@@ -95,14 +95,14 @@ export default function IotExamsClient({ exams }: Props) {
         <AnimatePresence>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
             {/* Score */}
-            <div className="glass-card rounded-3xl p-8 text-center" style={{ border: "1px solid rgba(249,115,22,0.2)" }}>
+            <div className="glass-card rounded-3xl p-8 text-center" style={{ border: "1px solid var(--portal-color-border)" }}>
               <div className="text-5xl font-bold font-mono mb-2" style={{ color: score >= selectedExam.questions.length * 0.8 ? "#4ade80" : score >= selectedExam.questions.length * 0.6 ? "#f59e0b" : "#f87171" }}>
                 {score}/{selectedExam.questions.length}
               </div>
               <p className="text-sm mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
                 {score >= selectedExam.questions.length * 0.8 ? "ممتاز! أداء رائع 🎉" : score >= selectedExam.questions.length * 0.6 ? "جيد! راجع الأسئلة الخاطئة." : "راجع الدروس وأعد المحاولة."}
               </p>
-              <button onClick={reset} className="px-6 py-2.5 rounded-xl text-sm font-medium" style={{ background: "rgba(249,115,22,0.15)", color: "#f97316", border: "1px solid rgba(249,115,22,0.3)" }}>
+              <button onClick={reset} className="px-6 py-2.5 rounded-xl text-sm font-medium" style={{ background: "var(--portal-color-subtle)", color: "var(--portal-color)", border: "1px solid var(--portal-color-glow)" }}>
                 العودة لقائمة الاختبارات
               </button>
             </div>

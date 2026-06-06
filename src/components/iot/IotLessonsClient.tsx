@@ -65,9 +65,9 @@ export default function IotLessonsClient({ lessons, locale }: Props) {
               onClick={() => setActiveCategory(cat)}
               className="px-3 py-1.5 rounded-xl text-xs font-mono transition-all"
               style={{
-                background: activeCategory === cat ? "rgba(249,115,22,0.15)" : "var(--color-surface-container)",
-                color: activeCategory === cat ? "#f97316" : "var(--color-on-surface-variant)",
-                border: activeCategory === cat ? "1px solid rgba(249,115,22,0.3)" : "1px solid var(--color-outline-variant)",
+                background: activeCategory === cat ? "var(--portal-color-subtle)" : "var(--color-surface-container)",
+                color: activeCategory === cat ? "var(--portal-color)" : "var(--color-on-surface-variant)",
+                border: activeCategory === cat ? "1px solid var(--portal-color-glow)" : "1px solid var(--color-outline-variant)",
               }}
             >
               {cat === "all" ? `الكل (${lessons.length})` : cat}
@@ -85,7 +85,7 @@ export default function IotLessonsClient({ lessons, locale }: Props) {
           {Object.entries(grouped).map(([category, items]) => (
             <div key={category}>
               <h2 className="font-bold text-lg mb-4 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
-                <span className="w-2 h-6 rounded-full" style={{ background: "#f97316" }} />
+                <span className="w-2 h-6 rounded-full" style={{ background: "var(--portal-color)" }} />
                 {category}
                 <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>({items.length} درس)</span>
               </h2>
@@ -95,7 +95,7 @@ export default function IotLessonsClient({ lessons, locale }: Props) {
                     key={lesson.id}
                     href={`/${locale}/iot-lab/lessons/${lesson.id}`}
                     className="glass-card rounded-2xl p-5 flex flex-col gap-3 transition-all hover:-translate-y-0.5"
-                    style={{ border: "1px solid rgba(249,115,22,0.12)", textDecoration: "none" }}
+                    style={{ border: "1px solid var(--portal-color-border)", textDecoration: "none" }}
                   >
                     <h3 className="font-semibold text-sm leading-snug" style={{ color: "var(--color-on-surface)" }}>{lesson.title}</h3>
                     <p className="text-xs leading-relaxed flex-1" style={{ color: "var(--color-on-surface-variant)" }}>{lesson.description}</p>
@@ -103,7 +103,7 @@ export default function IotLessonsClient({ lessons, locale }: Props) {
                       <span className="flex items-center gap-1 text-[10px] font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
                         <Clock size={10} />{lesson.duration}
                       </span>
-                      <span className="text-[10px] font-mono" style={{ color: "#f97316" }}>→ قراءة الدرس</span>
+                      <span className="text-[10px] font-mono" style={{ color: "var(--portal-color)" }}>→ قراءة الدرس</span>
                     </div>
                   </Link>
                 ))}
