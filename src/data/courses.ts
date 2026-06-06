@@ -785,7 +785,7 @@ export const courses: Course[] = [
     descriptionEn: "Protecting AI systems, data, and cloud infrastructure from threats.",
     level: "advanced", lessons: 18, hours: 14, projects: 2,
     skills: ["IAM", "Secrets Management", "Zero Trust", "Compliance", "Audit"],
-    category: "Security", icon: "🛡️", featured: false, color: "violet", comingSoon: true,
+    category: "Security", icon: "🛡️", featured: false, color: "violet",
     overviewAr: "الأمن السيبراني في عالم AI أهم من أي وقت مضى. ستتعلم كيف تحمي بنيتك التحتية السحابية وبياناتك ونماذجك من التهديدات الأمنية.",
     overviewEn: "Cybersecurity in the AI world is more important than ever. You'll learn how to protect your cloud infrastructure, data, and models from security threats.",
     forWhoAr: ["المطورون الذين يبنون تطبيقات AI", "مهندسو السحاب"],
