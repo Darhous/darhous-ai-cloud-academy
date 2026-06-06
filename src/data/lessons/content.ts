@@ -12451,4 +12451,1093 @@ bot.run(sample_emails)`,
     },
   ],
 
+  "cloud-foundations": [
+    // Lesson 1: ما هو الكلاود؟
+    {
+      bodyAr: `
+## ما هي الحوسبة السحابية؟
+
+**الكلاود (Cloud Computing)** هو تقديم خدمات الحوسبة — من خوادم وتخزين وقواعد بيانات وشبكات وبرامج — عبر الإنترنت بمبدأ الدفع حسب الاستخدام.
+
+### قبل الكلاود vs بعده
+
+| قبل الكلاود | بعد الكلاود |
+|------------|-------------|
+| شراء خوادم مادية بآلاف الدولارات | دفع ثمن دقائق فقط من الحوسبة |
+| انتظار أسابيع لتجهيز الخوادم | خادم جديد يعمل في أقل من 60 ثانية |
+| طاقة زائدة لا تُستخدم 90% من الوقت | طاقة بحسب الطلب الفعلي |
+| فريق كامل للصيانة والتشغيل | المزود يتولى كل الصيانة |
+
+### المميزات الخمسة للكلاود (NIST)
+
+1. **On-Demand Self-Service:** تحصل على موارد فوراً بدون تواصل مع أحد
+2. **Broad Network Access:** قابل للوصول من أي مكان عبر الإنترنت
+3. **Resource Pooling:** موارد مشتركة بين آلاف العملاء بذكاء
+4. **Rapid Elasticity:** توسع وتقليص الموارد فورياً حسب الحاجة
+5. **Measured Service:** تدفع فقط ما تستخدم فعلاً
+
+### لماذا الكلاود ضروري لـ AI؟
+
+- 🔢 **GPU الثمينة:** تدفع مقابل ساعة GPU بدلاً من شراء بطاقة بعشرة آلاف دولار
+- 📊 **بيانات ضخمة:** تخزين Petabyte بتكلفة منخفضة جداً
+- 🚀 **النشر السريع:** نموذج AI يعمل على الإنترنت في دقائق وليس أسابيع
+- 🌍 **الوصول العالمي:** خدمة مستخدمين في كل أنحاء العالم بزمن استجابة منخفض
+
+### نماذج النشر السحابي
+
+| النموذج | الوصف | مثال |
+|---------|-------|------|
+| **Public Cloud** | خوادم مشتركة تديرها الشركة الكبرى | AWS، Azure، GCP |
+| **Private Cloud** | سحابة خاصة داخل المؤسسة | VMware، OpenStack |
+| **Hybrid Cloud** | مزيج من العام والخاص | On-premise + AWS |
+| **Multi-Cloud** | استخدام أكثر من مزود | AWS + GCP معاً |
+
+### الكلاود للـ AI — السيناريو العملي
+
+\`\`\`
+بدون الكلاود:
+  GPU A100 للشراء ← 15,000 دولار + كهرباء + صيانة
+
+مع الكلاود (AWS):
+  GPU A100 للإيجار ← 3.20 دولار/ساعة
+  نموذج يحتاج 10 ساعات تدريب ← 32 دولار فقط
+  يمكنك تشغيل 10 تجارب بـ 320 دولار بدلاً من 150,000 دولار
+\`\`\`
+`,
+      bodyEn: `
+## What is Cloud Computing?
+
+**Cloud Computing** is the delivery of computing services — servers, storage, databases, networking, and software — over the Internet on a pay-as-you-go basis.
+
+### Before Cloud vs After
+
+| Before Cloud | After Cloud |
+|-------------|-------------|
+| Buy physical servers for thousands | Pay for only minutes of compute |
+| Wait weeks for server setup | New server running in under 60 seconds |
+| Unused capacity 90% of the time | Capacity on actual demand |
+| Full team for maintenance and ops | Provider handles all maintenance |
+
+### Five Cloud Characteristics (NIST)
+
+1. **On-Demand Self-Service:** Get resources instantly without contacting anyone
+2. **Broad Network Access:** Accessible from anywhere via the Internet
+3. **Resource Pooling:** Resources intelligently shared across thousands of clients
+4. **Rapid Elasticity:** Scale resources up or down instantly as needed
+5. **Measured Service:** Pay only for what you actually use
+
+### Why Cloud is Essential for AI
+
+- 🔢 **Precious GPUs:** Pay for one hour of GPU instead of buying a $10,000 card
+- 📊 **Big Data:** Store Petabytes at very low cost
+- 🚀 **Fast Deployment:** AI model on the internet in minutes, not weeks
+- 🌍 **Global Access:** Serve users worldwide with low latency
+
+### Cloud Deployment Models
+
+| Model | Description | Example |
+|-------|-------------|---------|
+| **Public Cloud** | Shared servers managed by big provider | AWS, Azure, GCP |
+| **Private Cloud** | Dedicated cloud within the organization | VMware, OpenStack |
+| **Hybrid Cloud** | Mix of public and private | On-premise + AWS |
+| **Multi-Cloud** | Using multiple providers | AWS + GCP together |
+
+### Cloud for AI — Practical Scenario
+
+\`\`\`
+Without Cloud:
+  GPU A100 to buy ← $15,000 + electricity + maintenance
+
+With Cloud (AWS):
+  GPU A100 to rent ← $3.20/hour
+  Model needs 10 hours training ← only $32
+  Run 10 experiments for $320 instead of $150,000
+\`\`\`
+`,
+      codeExample: `# محاكاة حاسبة تكاليف الكلاود — Cloud Cost Calculator
+from dataclasses import dataclass, field
+
+@dataclass
+class CloudResource:
+    name: str
+    category: str
+    unit: str
+    price_per_unit: float
+    monthly_usage: float
+
+    @property
+    def monthly_cost(self) -> float:
+        return round(self.price_per_unit * self.monthly_usage, 2)
+
+# ─── AWS أسعار تقريبية ────────────────────────────────────
+aws_resources = [
+    CloudResource("EC2 t3.small",     "compute", "hour",  0.0208, 720),
+    CloudResource("S3 Storage",       "storage", "GB",    0.023,  100),
+    CloudResource("Data Transfer",    "network", "GB",    0.09,   50),
+    CloudResource("SageMaker Studio", "ai",      "hour",  0.057,  40),
+    CloudResource("RDS db.t3.micro",  "database","hour",  0.017,  720),
+]
+
+@dataclass
+class CostCalculator:
+    provider: str
+    resources: list[CloudResource] = field(default_factory=list)
+
+    def total(self) -> float:
+        return round(sum(r.monthly_cost for r in self.resources), 2)
+
+    def report(self):
+        print(f"\\n{'='*58}")
+        print(f"☁️  {self.provider} — تقرير التكاليف الشهري")
+        print(f"{'='*58}")
+        print(f"{'الخدمة':<25} {'الوحدة':<8} {'السعر':>9}  {'الشهري':>9}")
+        print(f"{'─'*58}")
+        for r in self.resources:
+            price = "$" + f"{r.price_per_unit:.4f}"
+            cost  = "$" + f"{r.monthly_cost:.2f}"
+            print(f"{r.name:<25} {r.unit:<8} {price:>9}  {cost:>9}")
+        print(f"{'─'*58}")
+        total = self.total()
+        total_str  = "$" + f"{total:.2f}"
+        annual_str = "$" + f"{round(total * 12, 2):.2f}"
+        print(f"{'المجموع الشهري':<45} {total_str:>9}")
+        print(f"{'المجموع السنوي':<45} {annual_str:>9}")
+
+# ─── مشروع AI صغير على AWS ────────────────────────────────
+calc = CostCalculator("AWS — مشروع AI صغير")
+for r in aws_resources:
+    calc.resources.append(r)
+calc.report()
+
+# ─── مقارنة: خادم مادي vs الكلاود ────────────────────────
+print(f"\\n{'='*58}")
+print(f"📊 مقارنة: خادم مادي vs الكلاود")
+print(f"{'='*58}")
+print(f"{'المعيار':<25} {'خادم مادي':<18} {'الكلاود':<15}")
+print(f"{'─'*58}")
+
+comparison = [
+    ("التكلفة المبدئية",   "$3,000 — $10,000", "$0"),
+    ("وقت الإعداد",        "2—4 أسابيع",       "دقائق"),
+    ("المرونة",            "❌ ثابتة",          "✅ كاملة"),
+    ("الصيانة",            "❌ على عاتقك",      "✅ المزود"),
+    ("التوسع",             "❌ شراء جديد",      "✅ في ثوانٍ"),
+    ("الاسترداد (DR)",     "❌ معقد",           "✅ مدمج"),
+]
+for row in comparison:
+    print(f"{row[0]:<25} {row[1]:<18} {row[2]:<15}")
+
+# ─── AWS Free Tier ────────────────────────────────────────
+print(f"\\n{'='*58}")
+print(f"🆓 AWS Free Tier — ما تحصل عليه مجاناً (12 شهر)")
+print(f"{'='*58}")
+
+free_tier = [
+    ("EC2 t2.micro",      "750 ساعة/شهر",   "كافٍ لتطبيق صغير"),
+    ("S3 Storage",        "5 GB",            "لتخزين الملفات"),
+    ("Lambda Functions",  "1M استدعاء/شهر", "للـ Serverless"),
+    ("RDS",               "750 ساعة/شهر",   "قاعدة بيانات مُدارة"),
+    ("SageMaker",         "250 ساعة Studio", "للتعلم الآلي"),
+    ("CloudFront CDN",    "50 GB",           "لتوصيل المحتوى"),
+]
+for service, limit, desc in free_tier:
+    print(f"  ✅ {service:<22} {limit:<20} {desc}")
+
+print("\\n💡 سجّل الآن على aws.amazon.com/free وابدأ مجاناً!")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 2: مزودو السحاب الكبار
+    {
+      bodyAr: `
+## مزودو السحاب الكبار
+
+ثلاثة مزودين يسيطرون على سوق الكلاود العالمي. فهم الفروق بينهم يوفر عليك مال ووقت كثير.
+
+### AWS — Amazon Web Services 🟠
+
+**أكبر مزود سحابي في العالم** بحصة سوقية تتجاوز 32%.
+
+**نقاط القوة:**
+- أضخم شبكة خدمات (200+ خدمة)
+- أكبر مجتمع ودعم ووثائق
+- أوسع توزيع جغرافي (33+ منطقة)
+- Free Tier سخي جداً
+
+**خدمات AI الرئيسية:**
+- **SageMaker:** منصة ML متكاملة
+- **Bedrock:** وصول لـ Claude وGPT وغيرها
+- **Rekognition:** رؤية حاسوبية
+- **Comprehend:** تحليل النصوص
+
+### Azure — Microsoft 🔵
+
+**المفضل للمؤسسات** بحصة سوقية 23%.
+
+**نقاط القوة:**
+- تكامل مثالي مع Microsoft 365 وActive Directory
+- Azure OpenAI Service (Claude وGPT)
+- قوي جداً للمؤسسات والامتثال
+- Hybrid Cloud الأفضل
+
+**خدمات AI الرئيسية:**
+- **Azure OpenAI:** نماذج GPT وClaude مستضافة على Azure
+- **Cognitive Services:** رؤية، كلام، لغة
+- **Azure ML:** منصة ML متكاملة
+- **AI Foundry:** بناء حلول AI مؤسسية
+
+### GCP — Google Cloud Platform 🔴
+
+**الأقوى في AI وتحليل البيانات** بحصة سوقية 12%.
+
+**نقاط القوة:**
+- Google Research يُعدّ الأعمق في AI
+- BigQuery للبيانات الضخمة (بدون تكلفة للاستعلام الأول)
+- Kubernetes والمنشئ الأصلي له
+- TPUs لتدريب النماذج الضخمة
+
+**خدمات AI الرئيسية:**
+- **Vertex AI:** منصة ML شاملة
+- **Gemini API:** نموذج Google المتعدد الوسائط
+- **Cloud Vision/Speech/Translation**
+- **AutoML:** بدون كود
+
+### جدول المقارنة
+
+| المعيار | AWS | Azure | GCP |
+|--------|-----|-------|-----|
+| حصة السوق | 32% | 23% | 12% |
+| الأفضل لـ AI | ممتاز | ممتاز | الأقوى |
+| للمؤسسات | ✅ | ✅✅ | ✅ |
+| Free Tier | سخي جداً | جيد | جيد |
+| Kubernetes | EKS | AKS | GKE (الأصل) |
+
+### ماذا تختار؟
+
+\`\`\`
+للتعلم والبدء:   AWS (أوفر محتوى تعليمي)
+لـ AI Research:  GCP (Vertex AI + TPUs)
+للمؤسسات:        Azure (Microsoft ecosystem)
+للمشاريع الصغيرة: أي منهم — ابدأ بالـ Free Tier
+\`\`\`
+`,
+      bodyEn: `
+## Major Cloud Providers
+
+Three providers dominate the global cloud market. Understanding the differences saves you money and time.
+
+### AWS — Amazon Web Services 🟠
+
+**The largest cloud provider** with over 32% market share.
+
+**Strengths:**
+- Largest service network (200+ services)
+- Biggest community, support, and documentation
+- Widest geographic distribution (33+ regions)
+- Very generous Free Tier
+
+**Key AI Services:**
+- **SageMaker:** Integrated ML platform
+- **Bedrock:** Access Claude, GPT, and others
+- **Rekognition:** Computer vision
+- **Comprehend:** Text analysis
+
+### Azure — Microsoft 🔵
+
+**Enterprise favorite** with 23% market share.
+
+**Strengths:**
+- Perfect integration with Microsoft 365 and Active Directory
+- Azure OpenAI Service (Claude and GPT models)
+- Very strong for enterprises and compliance
+- Best-in-class Hybrid Cloud
+
+**Key AI Services:**
+- **Azure OpenAI:** GPT and Claude hosted on Azure
+- **Cognitive Services:** Vision, speech, language
+- **Azure ML:** Integrated ML platform
+- **AI Foundry:** Building enterprise AI solutions
+
+### GCP — Google Cloud Platform 🔴
+
+**Strongest in AI and data analytics** with 12% market share.
+
+**Strengths:**
+- Google Research is the deepest in AI
+- BigQuery for big data
+- Kubernetes — the original creator
+- TPUs for training large models
+
+**Key AI Services:**
+- **Vertex AI:** Comprehensive ML platform
+- **Gemini API:** Google's multimodal model
+- **Cloud Vision/Speech/Translation**
+- **AutoML:** No-code ML
+
+### Comparison Table
+
+| Criterion | AWS | Azure | GCP |
+|-----------|-----|-------|-----|
+| Market Share | 32% | 23% | 12% |
+| Best for AI | Excellent | Excellent | Strongest |
+| Enterprise | ✅ | ✅✅ | ✅ |
+| Free Tier | Very generous | Good | Good |
+| Kubernetes | EKS | AKS | GKE (original) |
+
+### What to Choose?
+
+\`\`\`
+For learning:      AWS (most educational content)
+For AI Research:   GCP (Vertex AI + TPUs)
+For Enterprise:    Azure (Microsoft ecosystem)
+For small projects: Any — start with Free Tier
+\`\`\`
+`,
+      codeExample: `# مقارنة مزودي السحاب وأداة التوصية — Cloud Provider Recommender
+from dataclasses import dataclass, field
+
+@dataclass
+class CloudProvider:
+    name: str
+    short: str
+    icon: str
+    market_share: float
+    strengths: list[str]
+    ai_services: list[str]
+    free_tier_highlights: list[str]
+    keywords: list[str]
+    monthly_estimate_usd: float
+
+PROVIDERS = [
+    CloudProvider(
+        name="Amazon Web Services", short="AWS", icon="🟠",
+        market_share=32.0,
+        strengths=["200+ خدمة", "أكبر مجتمع", "33+ منطقة", "Free Tier سخي"],
+        ai_services=["SageMaker", "Bedrock (Claude/GPT)", "Rekognition", "Comprehend"],
+        free_tier_highlights=["EC2 750h", "S3 5GB", "Lambda 1M calls", "SageMaker 250h"],
+        keywords=["startup", "عام", "general", "serverless", "e-commerce"],
+        monthly_estimate_usd=50.0,
+    ),
+    CloudProvider(
+        name="Microsoft Azure", short="Azure", icon="🔵",
+        market_share=23.0,
+        strengths=["تكامل Microsoft 365", "Compliance مؤسسي", "Azure OpenAI", "Hybrid Cloud"],
+        ai_services=["Azure OpenAI", "Cognitive Services", "Azure ML", "AI Foundry"],
+        free_tier_highlights=["VMs 750h", "Storage 5GB", "Azure Functions 1M"],
+        keywords=["enterprise", "مؤسسة", "microsoft", ".net", "hybrid"],
+        monthly_estimate_usd=65.0,
+    ),
+    CloudProvider(
+        name="Google Cloud Platform", short="GCP", icon="🔴",
+        market_share=12.0,
+        strengths=["الأقوى في AI Research", "BigQuery رائد", "TPUs", "Kubernetes الأصل"],
+        ai_services=["Vertex AI", "Gemini API", "AutoML", "Cloud Vision", "BigQuery ML"],
+        free_tier_highlights=["Compute 1 e2-micro", "GCS 5GB", "BigQuery 1TB/mo"],
+        keywords=["ai", "ml", "data", "bigquery", "analytics", "gemini", "vertex", "kubernetes"],
+        monthly_estimate_usd=55.0,
+    ),
+]
+
+def print_provider(p: CloudProvider):
+    print(f"\\n{p.icon} {p.name} ({p.short})")
+    print(f"   حصة السوق: {p.market_share}%")
+    print(f"   نقاط القوة: {' | '.join(p.strengths[:2])}")
+    print(f"   خدمات AI: {', '.join(p.ai_services[:3])}")
+    print(f"   Free Tier: {' | '.join(p.free_tier_highlights[:2])}")
+    bar = "█" * int(p.market_share / 2)
+    print(f"   الحصة:     [{bar:<16}] {p.market_share}%")
+
+def recommend(use_case: str) -> CloudProvider:
+    """توصية بأفضل مزود حسب حالة الاستخدام"""
+    scores = {p.short: 0.0 for p in PROVIDERS}
+    uc = use_case.lower()
+    for p in PROVIDERS:
+        for kw in p.keywords:
+            if kw in uc:
+                scores[p.short] += 3
+    # AWS افتراضي للحالات العامة
+    if max(scores.values()) == 0:
+        scores["AWS"] = 1
+    best = max(scores, key=lambda k: scores[k])
+    return next(p for p in PROVIDERS if p.short == best)
+
+# ─── عرض كل المزودين ─────────────────────────────────────
+print("☁️  مزودو السحاب الكبار")
+print("="*55)
+for p in PROVIDERS:
+    print_provider(p)
+
+# ─── مقارنة مباشرة ───────────────────────────────────────
+print(f"\\n{'='*55}")
+print(f"{'المعيار':<22} {'AWS':^10} {'Azure':^10} {'GCP':^10}")
+print(f"{'─'*55}")
+
+criteria = [
+    ("حصة السوق",    "32%",    "23%",    "12%"),
+    ("للـ AI/ML",    "ممتاز", "ممتاز",  "الأقوى"),
+    ("للمؤسسات",    "✅",      "✅✅",    "✅"),
+    ("Free Tier",    "⭐⭐⭐",   "⭐⭐",    "⭐⭐"),
+    ("Kubernetes",   "EKS",    "AKS",    "GKE ✅"),
+    ("تكلفة/شهر",   "$50",    "$65",    "$55"),
+]
+for row in criteria:
+    print(f"{row[0]:<22} {row[1]:^10} {row[2]:^10} {row[3]:^10}")
+
+# ─── أداة التوصية ────────────────────────────────────────
+print(f"\\n{'='*55}")
+print("🎯 توصيات حسب حالة الاستخدام:")
+print("="*55)
+
+use_cases = [
+    "بناء نموذج AI وتحليل بيانات ضخمة مع BigQuery",
+    "تطبيق مؤسسي يعتمد على Microsoft 365 والـ Azure",
+    "متجر إلكتروني startup مع serverless functions",
+]
+
+for uc in use_cases:
+    rec = recommend(uc)
+    print(f"\\n📌 {uc[:50]}")
+    print(f"   التوصية: {rec.icon} {rec.name}")
+    print(f"   السبب: {rec.strengths[0]}")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 3: IaaS وPaaS وSaaS
+    {
+      bodyAr: `
+## نماذج الخدمة السحابية
+
+الفرق بين IaaS وPaaS وSaaS هو **مقدار ما تديره أنت مقابل ما يديره المزود**.
+
+### IaaS — Infrastructure as a Service
+
+**أنت تأخذ: الخوادم والشبكة والتخزين الخام**
+
+أنت تدير: التطبيق + البيانات + نظام التشغيل + Middleware
+
+\`\`\`
+مثال: AWS EC2
+  • تأخذ خادم Ubuntu فارغ
+  • تثبّت Python، pip، مكتباتك
+  • تشغّل تطبيقك يدوياً
+  • كل شيء تحت تحكمك الكامل
+\`\`\`
+
+**متى تختاره:** تحتاج تحكماً كاملاً في البيئة — مثل تدريب نموذج على GPU معين أو تشغيل Docker.
+
+### PaaS — Platform as a Service
+
+**أنت تأخذ: منصة جاهزة لنشر كودك مباشرة**
+
+أنت تدير: التطبيق + البيانات فقط
+
+\`\`\`
+مثال: Vercel / Google Cloud Run
+  • تدفع كودك وينشر تلقائياً
+  • لا تفكر في Nginx أو SSL أو Scaling
+  • المنصة تتولى كل البنية التحتية
+\`\`\`
+
+**متى تختاره:** تريد نشر تطبيق بسرعة بدون إدارة خوادم — مثل FastAPI أو Next.js.
+
+### SaaS — Software as a Service
+
+**أنت تأخذ: تطبيق كامل جاهز للاستخدام**
+
+أنت تدير: بياناتك فقط
+
+\`\`\`
+أمثلة: Claude.ai، ChatGPT، Notion، GitHub Copilot
+  • تسجّل الدخول وتبدأ
+  • لا تثبيت، لا تكوين، لا صيانة
+  • ادفع اشتراكاً شهرياً وانتهى
+\`\`\`
+
+**متى تختاره:** تريد استخدام الخدمة مباشرة بدون أي إعداد تقني.
+
+### مقارنة ما تديره أنت
+
+\`\`\`
+                    IaaS    PaaS    SaaS
+التطبيق          ← أنت     أنت     المزود
+البيانات         ← أنت     أنت     أنت
+Runtime          ← أنت    المزود   المزود
+نظام التشغيل    ← أنت    المزود   المزود
+الخوادم          ← المزود  المزود   المزود
+الشبكة           ← المزود  المزود   المزود
+\`\`\`
+
+### للـ AI: أي نموذج تختار؟
+
+| حالة الاستخدام | النموذج | مثال |
+|----------------|---------|------|
+| تدريب نموذج على GPU | IaaS | AWS EC2 P3 |
+| نشر API للتنبؤ | PaaS | Google Cloud Run |
+| استخدام نموذج جاهز | SaaS | Claude.ai / Bedrock |
+| ML Pipeline كامل | PaaS | SageMaker |
+
+**القاعدة الذهبية:** ابدأ بأعلى طبقة ممكنة (SaaS ثم PaaS) وانزل لـ IaaS فقط عند الضرورة.
+`,
+      bodyEn: `
+## Cloud Service Models
+
+The difference between IaaS, PaaS, and SaaS is **how much you manage versus how much the provider manages**.
+
+### IaaS — Infrastructure as a Service
+
+**You get: raw servers, network, and storage**
+
+You manage: App + Data + OS + Middleware
+
+\`\`\`
+Example: AWS EC2
+  • You get a blank Ubuntu server
+  • You install Python, pip, your libraries
+  • You run your app manually
+  • Full control over everything
+\`\`\`
+
+**When to use:** You need full control over the environment — like training a model on a specific GPU or running Docker.
+
+### PaaS — Platform as a Service
+
+**You get: a ready platform to deploy your code directly**
+
+You manage: App + Data only
+
+\`\`\`
+Example: Vercel / Google Cloud Run
+  • Push your code and it deploys automatically
+  • No thinking about Nginx, SSL, or Scaling
+  • The platform handles all infrastructure
+\`\`\`
+
+**When to use:** You want to deploy an app quickly without managing servers — like FastAPI or Next.js.
+
+### SaaS — Software as a Service
+
+**You get: a complete application ready to use**
+
+You manage: Your data only
+
+\`\`\`
+Examples: Claude.ai, ChatGPT, Notion, GitHub Copilot
+  • Sign in and start immediately
+  • No installation, no configuration, no maintenance
+  • Pay a monthly subscription and you're done
+\`\`\`
+
+**When to use:** You want to use the service directly without any technical setup.
+
+### What You Manage Comparison
+
+\`\`\`
+                    IaaS    PaaS    SaaS
+Application      ← You     You     Provider
+Data             ← You     You     You
+Runtime          ← You    Provider Provider
+Operating System ← You    Provider Provider
+Servers          ← Provider Provider Provider
+Network          ← Provider Provider Provider
+\`\`\`
+
+### For AI: Which Model to Choose?
+
+| Use Case | Model | Example |
+|----------|-------|---------|
+| Train model on GPU | IaaS | AWS EC2 P3 |
+| Deploy prediction API | PaaS | Google Cloud Run |
+| Use ready-made model | SaaS | Claude.ai / Bedrock |
+| Full ML Pipeline | PaaS | SageMaker |
+
+**Golden rule:** Start at the highest layer possible (SaaS then PaaS) and drop to IaaS only when necessary.
+`,
+      codeExample: `# فهم IaaS وPaaS وSaaS — Service Model Simulation
+from dataclasses import dataclass
+from abc import ABC, abstractmethod
+import time
+
+@dataclass
+class DeploymentResult:
+    platform: str
+    model: str
+    setup_time_min: int
+    control_level: str
+    cost_model: str
+    you_manage: list[str]
+    provider_manages: list[str]
+
+class DeploymentPlatform(ABC):
+    """فئة أساسية لمحاكاة منصات النشر"""
+
+    @abstractmethod
+    def deploy(self, app_code: str) -> DeploymentResult:
+        pass
+
+    def _simulate_deploy(self, steps: list[str], delay: float = 0.2):
+        for step in steps:
+            print(f"   ▶ {step}...")
+            time.sleep(delay)
+            print(f"     ✅")
+
+# ─── IaaS: EC2 ────────────────────────────────────────────
+class EC2Platform(DeploymentPlatform):
+    """AWS EC2 — IaaS: تتحكم في كل شيء"""
+
+    def deploy(self, app_code: str) -> DeploymentResult:
+        print("\\n🟠 IaaS — AWS EC2")
+        print("─"*45)
+        self._simulate_deploy([
+            "إنشاء EC2 Instance (Ubuntu 22.04)",
+            "إعداد Security Groups و SSH Keys",
+            "تثبيت Python 3.11 و pip",
+            "تثبيت uvicorn و fastapi و anthropic",
+            "نقل ملفات التطبيق عبر SCP",
+            "إعداد systemd service للتشغيل التلقائي",
+            "تكوين Nginx كـ reverse proxy",
+            "تثبيت SSL Certificate",
+            "فتح منافذ 80 و 443",
+        ])
+        return DeploymentResult(
+            platform="AWS EC2",
+            model="IaaS",
+            setup_time_min=120,
+            control_level="عالي جداً — تتحكم في كل شيء",
+            cost_model="بالساعة حتى لو التطبيق لا يعمل",
+            you_manage=["التطبيق", "نظام التشغيل", "Python", "Nginx", "SSL", "Security"],
+            provider_manages=["الخادم الفيزيائي", "الشبكة"],
+        )
+
+# ─── PaaS: Cloud Run ──────────────────────────────────────
+class CloudRunPlatform(DeploymentPlatform):
+    """Google Cloud Run — PaaS: ادفع كودك وانتهى"""
+
+    def deploy(self, app_code: str) -> DeploymentResult:
+        print("\\n🔴 PaaS — Google Cloud Run")
+        print("─"*45)
+        self._simulate_deploy([
+            "بناء Docker Image تلقائياً",
+            "رفع الـ Image على Google Container Registry",
+            "نشر على Cloud Run (Managed)",
+            "SSL تلقائي + Custom Domain",
+            "Auto-scaling من 0 إلى لانهاية",
+        ])
+        return DeploymentResult(
+            platform="Google Cloud Run",
+            model="PaaS",
+            setup_time_min=10,
+            control_level="متوسط — تتحكم في التطبيق فقط",
+            cost_model="تدفع فقط عند الاستخدام الفعلي (Serverless)",
+            you_manage=["التطبيق", "الـ Dockerfile"],
+            provider_manages=["نظام التشغيل", "Scaling", "SSL", "Nginx", "Security patches"],
+        )
+
+# ─── SaaS: Claude.ai ──────────────────────────────────────
+class ClaudeAiPlatform(DeploymentPlatform):
+    """Claude.ai — SaaS: استخدم مباشرة"""
+
+    def deploy(self, app_code: str) -> DeploymentResult:
+        print("\\n🤖 SaaS — Claude.ai")
+        print("─"*45)
+        self._simulate_deploy([
+            "فتح claude.ai في المتصفح",
+            "إنشاء حساب أو تسجيل دخول",
+            "البدء في الاستخدام فوراً",
+        ], delay=0.1)
+        return DeploymentResult(
+            platform="Claude.ai",
+            model="SaaS",
+            setup_time_min=2,
+            control_level="منخفض — تستخدم فقط",
+            cost_model="اشتراك شهري ثابت",
+            you_manage=["محادثاتك وبياناتك فقط"],
+            provider_manages=["النموذج", "الخوادم", "الأمان", "التحديثات", "كل شيء"],
+        )
+
+# ─── مقارنة النماذج الثلاثة ─────────────────────────────
+app = "FastAPI + Claude AI"
+platforms = [EC2Platform(), CloudRunPlatform(), ClaudeAiPlatform()]
+results: list[DeploymentResult] = []
+
+for platform in platforms:
+    result = platform.deploy(app)
+    results.append(result)
+
+# ─── تقرير المقارنة ───────────────────────────────────────
+print(f"\\n{'='*58}")
+print("📊 مقارنة نماذج الخدمة السحابية")
+print("="*58)
+print(f"{'المعيار':<22} {'IaaS/EC2':^14} {'PaaS/CloudRun':^14} {'SaaS/Claude':^10}")
+print("─"*58)
+
+rows = [
+    ("وقت الإعداد",    "120 دقيقة", "10 دقائق", "2 دقائق"),
+    ("التحكم",         "عالي جداً", "متوسط",    "منخفض"),
+    ("نموذج الدفع",    "بالساعة",   "بالاستخدام", "شهري"),
+    ("الصيانة",        "أنت",       "المزود",   "المزود"),
+    ("للمبتدئين",      "صعب",       "متوسط",    "سهل جداً"),
+]
+for row in rows:
+    print(f"{row[0]:<22} {row[1]:^14} {row[2]:^14} {row[3]:^10}")
+
+print("\\n💡 القاعدة الذهبية:")
+print("   ابدأ من الأعلى: SaaS → PaaS → IaaS")
+print("   انزل للأسفل فقط عند الضرورة")`,
+      codeLanguage: "python",
+    },
+
+    // Lesson 4: نشر أول موقع
+    {
+      bodyAr: `
+## نشر أول تطبيق على الكلاود
+
+سنبني تطبيق FastAPI بسيط مع Claude API وننشره على الإنترنت.
+
+### الخيارات المتاحة للنشر
+
+| المنصة | الصعوبة | التكلفة | الأفضل لـ |
+|--------|---------|---------|----------|
+| **Vercel** | سهل جداً | مجاني | Next.js، Frontend |
+| **Railway** | سهل | مجاني محدود | Backend، APIs |
+| **Render** | سهل | مجاني محدود | Full-stack |
+| **Cloud Run** | متوسط | ادفع حسب الاستخدام | Containers |
+| **EC2** | صعب | ادفع للخادم | تحكم كامل |
+
+### الخطوة 1: بناء التطبيق
+
+\`\`\`bash
+# هيكل المشروع
+my-ai-api/
+├── main.py
+├── requirements.txt
+└── Dockerfile
+\`\`\`
+
+**requirements.txt:**
+
+\`\`\`
+fastapi
+uvicorn
+anthropic
+python-dotenv
+\`\`\`
+
+### الخطوة 2: النشر على Railway (الأسهل للمبتدئين)
+
+\`\`\`bash
+# تثبيت Railway CLI
+npm install -g @railway/cli
+
+# تسجيل الدخول
+railway login
+
+# ربط المشروع
+railway init
+
+# إضافة متغير البيئة
+railway variables set ANTHROPIC_API_KEY=sk-ant-...
+
+# النشر
+railway up
+\`\`\`
+
+### الخطوة 3: النشر على Google Cloud Run
+
+\`\`\`bash
+# تثبيت gcloud CLI أولاً
+# بناء ورفع الـ Image
+gcloud builds submit --tag gcr.io/my-project/ai-api
+
+# نشر على Cloud Run
+gcloud run deploy ai-api \\
+  --image gcr.io/my-project/ai-api \\
+  --platform managed \\
+  --region us-central1 \\
+  --allow-unauthenticated
+
+# إضافة متغير البيئة
+gcloud run services update ai-api \\
+  --set-env-vars ANTHROPIC_API_KEY=sk-ant-...
+\`\`\`
+
+### الخطوة 4: اختبار التطبيق
+
+\`\`\`bash
+# اختبار الـ API
+curl https://ai-api-xxxx.run.app/
+
+# اختبار Claude
+curl -X POST https://ai-api-xxxx.run.app/chat \\
+  -H "Content-Type: application/json" \\
+  -d '{"message": "مرحباً!"}'
+\`\`\`
+
+### نصائح الإنتاج
+
+- 🔐 **لا تضع API keys في الكود** — استخدم Environment Variables
+- 📊 **أضف logging** لمراقبة التطبيق
+- 🔄 **CI/CD:** اربط GitHub بـ Railway للنشر التلقائي عند كل Push
+- 💰 **راقب التكاليف** — اضبط Budget Alerts
+`,
+      bodyEn: `
+## Deploying Your First App to the Cloud
+
+We'll build a simple FastAPI app with Claude API and deploy it to the Internet.
+
+### Available Deployment Options
+
+| Platform | Difficulty | Cost | Best For |
+|----------|------------|------|----------|
+| **Vercel** | Very easy | Free | Next.js, Frontend |
+| **Railway** | Easy | Free (limited) | Backend, APIs |
+| **Render** | Easy | Free (limited) | Full-stack |
+| **Cloud Run** | Medium | Pay per use | Containers |
+| **EC2** | Hard | Pay for server | Full control |
+
+### Step 1: Build the Application
+
+\`\`\`bash
+# Project structure
+my-ai-api/
+├── main.py
+├── requirements.txt
+└── Dockerfile
+\`\`\`
+
+**requirements.txt:**
+
+\`\`\`
+fastapi
+uvicorn
+anthropic
+python-dotenv
+\`\`\`
+
+### Step 2: Deploy on Railway (Easiest for Beginners)
+
+\`\`\`bash
+# Install Railway CLI
+npm install -g @railway/cli
+
+# Login
+railway login
+
+# Link project
+railway init
+
+# Add environment variable
+railway variables set ANTHROPIC_API_KEY=sk-ant-...
+
+# Deploy
+railway up
+\`\`\`
+
+### Step 3: Deploy on Google Cloud Run
+
+\`\`\`bash
+# Build and push the image
+gcloud builds submit --tag gcr.io/my-project/ai-api
+
+# Deploy to Cloud Run
+gcloud run deploy ai-api \\
+  --image gcr.io/my-project/ai-api \\
+  --platform managed \\
+  --region us-central1 \\
+  --allow-unauthenticated
+
+# Add environment variable
+gcloud run services update ai-api \\
+  --set-env-vars ANTHROPIC_API_KEY=sk-ant-...
+\`\`\`
+
+### Step 4: Test the Application
+
+\`\`\`bash
+# Test the API
+curl https://ai-api-xxxx.run.app/
+
+# Test Claude
+curl -X POST https://ai-api-xxxx.run.app/chat \\
+  -H "Content-Type: application/json" \\
+  -d '{"message": "Hello!"}'
+\`\`\`
+
+### Production Tips
+
+- 🔐 **Never put API keys in code** — use Environment Variables
+- 📊 **Add logging** to monitor your app
+- 🔄 **CI/CD:** Connect GitHub to Railway for auto-deploy on every push
+- 💰 **Monitor costs** — set up Budget Alerts
+`,
+      codeExample: `#!/usr/bin/env python3
+"""
+نشر أول تطبيق AI على الكلاود
+First AI App Deployment Simulation
+
+ملف: main.py — FastAPI App جاهز للنشر
+"""
+
+# ─── التطبيق الكامل الجاهز للنشر ─────────────────────────
+MAIN_PY = '''
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+import anthropic
+import os
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+app = FastAPI(title="AI Chat API", version="1.0.0")
+client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+class ChatRequest(BaseModel):
+    message: str
+    max_tokens: int = 500
+
+class ChatResponse(BaseModel):
+    reply: str
+    model: str
+    tokens_used: int
+
+@app.get("/")
+def health_check():
+    return {"status": "ok", "service": "AI Chat API"}
+
+@app.get("/health")
+def health():
+    return {"healthy": True}
+
+@app.post("/chat", response_model=ChatResponse)
+def chat(req: ChatRequest):
+    try:
+        msg = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=req.max_tokens,
+            messages=[{"role": "user", "content": req.message}],
+        )
+        tokens = msg.usage.input_tokens + msg.usage.output_tokens
+        logger.info(f"Chat request: {tokens} tokens used")
+        return ChatResponse(
+            reply=msg.content[0].text,
+            model=msg.model,
+            tokens_used=tokens,
+        )
+    except Exception as e:
+        logger.error(f"Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+'''
+
+DOCKERFILE = '''
+FROM python:3.11-slim
+WORKDIR /app
+
+# تثبيت المتطلبات أولاً (caching)
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# نسخ الكود
+COPY . .
+
+# تشغيل التطبيق
+EXPOSE 8080
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+'''
+
+REQUIREMENTS = """fastapi
+uvicorn[standard]
+anthropic
+python-dotenv"""
+
+# ─── محاكاة عملية النشر ───────────────────────────────────
+import time
+
+def step(num: int, title: str, cmds: list[str], wait: float = 0.25):
+    print(f"\\n[{num}] {title}")
+    for cmd in cmds:
+        print(f"  $ {cmd}")
+        time.sleep(wait)
+    print(f"  ✅ مكتمل")
+
+def deploy_railway():
+    """النشر على Railway — الأسهل للمبتدئين"""
+    print("\\n" + "="*55)
+    print("🚂 النشر على Railway")
+    print("="*55)
+
+    step(1, "تثبيت CLI",
+         ["npm install -g @railway/cli", "railway --version"])
+    step(2, "تسجيل الدخول وربط المشروع",
+         ["railway login", "railway init my-ai-api"])
+    step(3, "إضافة متغيرات البيئة",
+         ["railway variables set ANTHROPIC_API_KEY=sk-ant-***"])
+    step(4, "النشر",
+         ["railway up"])
+
+    print("\\n🌐 التطبيق يعمل على:")
+    print("   https://my-ai-api.up.railway.app")
+    print("   https://my-ai-api.up.railway.app/docs  ← Swagger UI")
+
+def deploy_cloud_run():
+    """النشر على Google Cloud Run"""
+    print("\\n" + "="*55)
+    print("🔴 النشر على Google Cloud Run")
+    print("="*55)
+
+    step(1, "بناء Docker Image",
+         ["docker build -t gcr.io/my-proj/ai-api ."])
+    step(2, "رفع الـ Image",
+         ["docker push gcr.io/my-proj/ai-api"])
+    step(3, "النشر على Cloud Run",
+         ["gcloud run deploy ai-api",
+          "  --image gcr.io/my-proj/ai-api",
+          "  --platform managed --region us-central1"])
+    step(4, "إضافة متغيرات البيئة",
+         ["gcloud run services update ai-api",
+          "  --set-env-vars ANTHROPIC_API_KEY=sk-ant-***"])
+
+    print("\\n🌐 التطبيق يعمل على:")
+    print("   https://ai-api-xxxx-uc.a.run.app")
+
+# ─── عرض ملفات المشروع ────────────────────────────────────
+print("☁️  نشر أول تطبيق AI على الكلاود")
+print("="*55)
+print("\\n📁 ملفات المشروع:")
+print("  my-ai-api/")
+print("  ├── main.py          ← FastAPI Application")
+print("  ├── requirements.txt ← Python Dependencies")
+print("  └── Dockerfile       ← Container Definition")
+
+print("\\n📝 requirements.txt:")
+for line in REQUIREMENTS.strip().split("\\n"):
+    print(f"  {line}")
+
+# ─── اختيار منصة النشر ────────────────────────────────────
+print("\\n\\n📊 خيارات النشر:")
+options = [
+    ("Railway",    "سهل جداً", "مجاني (500MB RAM)",    "للمبتدئين"),
+    ("Render",     "سهل",      "مجاني (sleep بعد 15d)", "Full-stack"),
+    ("Cloud Run",  "متوسط",    "ادفع حسب الاستخدام",   "Containers"),
+    ("Fly.io",     "متوسط",    "مجاني (256MB RAM)",     "Global edge"),
+]
+print(f"{'المنصة':<14} {'الصعوبة':<10} {'التكلفة':<22} {'مناسب لـ'}")
+print("─"*60)
+for o in options:
+    print(f"{o[0]:<14} {o[1]:<10} {o[2]:<22} {o[3]}")
+
+# ─── محاكاة النشر ─────────────────────────────────────────
+deploy_railway()
+
+print("\\n\\n🎉 تطبيق AI يعمل على الإنترنت الآن!")
+print("\\n📮 اختبر التطبيق:")
+print('  curl https://my-ai-api.up.railway.app/')
+print('  # {"status": "ok", "service": "AI Chat API"}')
+print()
+print('  curl -X POST https://my-ai-api.up.railway.app/chat')
+print('    -H "Content-Type: application/json"')
+print('    -d {"message": "مرحباً! كيف يمكنك مساعدتي؟"}')`,
+      codeLanguage: "python",
+    },
+  ],
+
 };

@@ -462,7 +462,7 @@ export const courses: Course[] = [
     descriptionEn: "Core cloud concepts, services, and terminology across AWS, Azure, and GCP.",
     level: "beginner", lessons: 18, hours: 12, projects: 2,
     skills: ["Cloud Concepts", "IaaS", "PaaS", "SaaS", "Security"],
-    category: "Cloud", icon: "☁️", featured: false, color: "blue", comingSoon: true,
+    category: "Cloud", icon: "☁️", featured: false, color: "blue",
     overviewAr: "الكلاود أصبح العمود الفقري لكل مشاريع AI الحديثة. ستتعلم المفاهيم الأساسية للحوسبة السحابية عبر مزودي السحاب الكبار.",
     overviewEn: "Cloud is the backbone of every modern AI project. You'll learn the core concepts of cloud computing across the major cloud providers.",
     forWhoAr: ["المبتدئون في الكلاود", "المطورون الذين يريدون نشر تطبيقاتهم"],
