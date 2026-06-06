@@ -739,7 +739,7 @@ export const courses: Course[] = [
     descriptionEn: "Vertex AI, Gemini API, and Cloud Run for building and deploying AI on GCP.",
     level: "advanced", lessons: 22, hours: 18, projects: 3,
     skills: ["Vertex AI", "Gemini API", "Cloud Run", "BigQuery"],
-    category: "Cloud", icon: "🌐", featured: false, color: "violet", comingSoon: true,
+    category: "Cloud", icon: "🌐", featured: false, color: "violet",
     overviewAr: "Google Cloud هو المنصة الأقوى في AI Research وتوفر Vertex AI كمنصة شاملة لتطوير ونشر النماذج.",
     overviewEn: "Google Cloud is the strongest platform in AI Research and provides Vertex AI as a comprehensive platform for developing and deploying models.",
     forWhoAr: ["المطورون المهتمون بـ Google AI", "من يريد استخدام Gemini API"],

@@ -17888,4 +17888,519 @@ print(f"\\n✅ Azure AI Foundry RAG Pipeline جاهز للإنتاج!")`,
     },
   ],
 
+  "gcp-for-ai": [
+    {
+      bodyAr: `## إعداد Google Cloud Platform
+
+**GCP** (Google Cloud Platform) يتميز بقوته في AI Research ونماذج Google من Gemini وPaLM.
+
+### خطوات إعداد GCP:
+- أنشئ حساباً على **console.cloud.google.com** (300 دولار رصيد مجاني 90 يوماً)
+- أنشئ **Project** لتنظيم الموارد
+- ثبّت **gcloud CLI** لإدارة الموارد
+- أنشئ **Service Account** مع المفاتيح للبرمجة
+- فعّل **APIs** التي تحتاجها
+
+### مزايا GCP للـ AI:
+- **TPUs** — معالجات خاصة بـ Google لتدريب النماذج الكبيرة
+- **BigQuery ML** — تدريب نماذج مباشرة على البيانات
+- **Vertex AI** — منصة شاملة لـ ML
+- **Gemini API** — أقوى نماذج Google
+
+### الخدمات الرئيسية:
+- **Vertex AI** — التدريب والنشر والـ MLOps
+- **Gemini API** — نماذج الـ LLM
+- **Cloud Run** — تشغيل الحاويات Serverless
+- **BigQuery** — تحليل البيانات الضخمة`,
+      bodyEn: `## Setting up Google Cloud Platform
+
+**GCP** (Google Cloud Platform) stands out for its strength in AI Research and Google's Gemini and PaLM models.
+
+### GCP Setup Steps:
+- Create account at **console.cloud.google.com** (300 USD free credit for 90 days)
+- Create a **Project** to organize resources
+- Install **gcloud CLI** to manage resources
+- Create a **Service Account** with keys for programming
+- Enable the **APIs** you need
+
+### GCP Advantages for AI:
+- **TPUs** — Google's special processors for training large models
+- **BigQuery ML** — train models directly on data
+- **Vertex AI** — comprehensive ML platform
+- **Gemini API** — Google's most powerful models
+
+### Key Services:
+- **Vertex AI** — training, deployment, and MLOps
+- **Gemini API** — LLM models
+- **Cloud Run** — Serverless container running
+- **BigQuery** — big data analytics`,
+      codeExample: `from dataclasses import dataclass, field
+from typing import List, Dict
+
+# ─── محاكاة Google Cloud SDK ───────────────────────────────
+@dataclass
+class GCPProject:
+    project_id:   str
+    display_name: str
+    region:       str = "us-central1"
+    enabled_apis: List[str] = field(default_factory=list)
+    resources:    List[str] = field(default_factory=list)
+
+    def enable_api(self, api: str):
+        self.enabled_apis.append(api)
+        print(f"  ✅ API enabled: {api}")
+
+    def add_resource(self, kind: str, name: str):
+        self.resources.append(f"{kind}/{name}")
+
+class GCPClient:
+    REGIONS = {
+        "us-central1":     "Iowa, USA",
+        "europe-west4":    "Netherlands",
+        "asia-southeast1": "Singapore",
+        "me-west1":        "Tel Aviv (Middle East)",
+    }
+    REQUIRED_APIS = {
+        "vertex-ai":    "aiplatform.googleapis.com",
+        "gemini":       "generativelanguage.googleapis.com",
+        "cloud-run":    "run.googleapis.com",
+        "bigquery":     "bigquery.googleapis.com",
+        "storage":      "storage.googleapis.com",
+    }
+    COMPUTE_TIERS = {
+        "n1-standard-4": {"vCPUs": 4,  "RAM": "15 GB", "GPU": "None",   "price_hr": 0.19},
+        "n1-highmem-8":  {"vCPUs": 8,  "RAM": "52 GB", "GPU": "None",   "price_hr": 0.473},
+        "a2-highgpu-1g": {"vCPUs": 12, "RAM": "85 GB", "GPU": "A100",   "price_hr": 3.67},
+        "tpu-v4-8":      {"vCPUs": 0,  "RAM": "240 GB","GPU": "TPU v4", "price_hr": 5.60},
+    }
+
+    def __init__(self):
+        self.projects: Dict[str, GCPProject] = {}
+
+    def create_project(self, project_id: str, name: str, region: str = "us-central1") -> GCPProject:
+        p = GCPProject(project_id, name, region)
+        self.projects[project_id] = p
+        loc = self.REGIONS.get(region, region)
+        print(f"  ✅ Project: {project_id} ({loc})")
+        return p
+
+    def list_compute(self):
+        print(f"\\n💻 خيارات Compute على GCP:")
+        print(f"  {'Machine Type':<18} {'vCPUs':>6} {'RAM':>8} {'GPU':>10} {'Price/hr':>10}")
+        print("  " + "-"*56)
+        for mtype, spec in self.COMPUTE_TIERS.items():
+            price_s = "$" + f"{spec['price_hr']:.2f}"
+            print(f"  {mtype:<18} {spec['vCPUs']:>6} {spec['RAM']:>8} {spec['GPU']:>10} {price_s:>10}")
+
+# ─── إعداد GCP للـ AI ──────────────────────────────────────
+print("🌐 إعداد Google Cloud Platform للذكاء الاصطناعي:")
+print("=" * 55)
+
+gcp = GCPClient()
+
+# إنشاء المشاريع
+print("\\n1️⃣  إنشاء المشاريع:")
+prod = gcp.create_project("my-ai-prod",   "AI Production",  "us-central1")
+dev  = gcp.create_project("my-ai-dev",    "AI Development", "europe-west4")
+
+# تفعيل APIs
+print("\\n2️⃣  تفعيل APIs الضرورية:")
+for api_name, api_id in gcp.REQUIRED_APIS.items():
+    prod.enable_api(api_id)
+
+# إضافة موارد
+print("\\n3️⃣  إنشاء الموارد:")
+for name, kind in [
+    ("vertex-endpoint",   "aiplatform.googleapis.com/Endpoint"),
+    ("gemini-deployment",  "aiplatform.googleapis.com/Model"),
+    ("data-lake",          "storage.googleapis.com/Bucket"),
+    ("ml-pipeline",        "aiplatform.googleapis.com/Pipeline"),
+]:
+    prod.add_resource(kind, name)
+    print(f"  📦 {kind.split('/')[1]}: {name}")
+
+# خيارات Compute
+gcp.list_compute()
+
+# ملخص المشاريع
+print(f"\\n\\n📊 ملخص المشاريع:")
+for pid, p in gcp.projects.items():
+    loc = gcp.REGIONS.get(p.region, p.region)
+    print(f"  [{pid}] — {loc}")
+    print(f"   APIs: {len(p.enabled_apis)} | Resources: {len(p.resources)}")
+
+# gcloud CLI
+print(f"\\n💻 أوامر gcloud الأساسية:")
+cmds = [
+    ("تسجيل الدخول",     "gcloud auth login"),
+    ("تعيين المشروع",    "gcloud config set project my-ai-prod"),
+    ("تفعيل API",        "gcloud services enable aiplatform.googleapis.com"),
+    ("Service Account",  "gcloud iam service-accounts create ai-sa --display-name 'AI SA'"),
+    ("تحميل المفتاح",    "gcloud iam service-accounts keys create key.json --iam-account ai-sa@..."),
+]
+for desc, cmd in cmds:
+    print(f"  # {desc}")
+    print(f"  $ {cmd}")
+    print()
+print("✅ GCP جاهز للاستخدام!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## Vertex AI
+
+**Vertex AI** هو منصة Google الشاملة لتطوير ونشر ومراقبة نماذج ML والـ LLMs.
+
+### ما يوفره Vertex AI:
+- **Model Garden** — مئات النماذج الجاهزة (Gemini, Llama, Mistral)
+- **AutoML** — تدريب نماذج بدون كود
+- **Custom Training** — تدريب مخصص بـ PyTorch/TF على TPUs
+- **Pipelines** — سير عمل MLOps مرئية
+- **Prediction** — نشر النماذج بنقرة
+
+### Vertex AI vs SageMaker vs Azure ML:
+- **Vertex AI** — الأفضل لـ TPUs ونماذج Google
+- **SageMaker** — الأكثر نضجاً للمؤسسات
+- **Azure ML** — الأفضل لبيئات Microsoft
+
+### Vertex AI Endpoints:
+- **Dedicated** — موارد مخصصة، أسرع
+- **Shared** — مشترك، أرخص
+- **Online Prediction** — استجابة فورية
+- **Batch Prediction** — معالجة دفعات كبيرة`,
+      bodyEn: `## Vertex AI
+
+**Vertex AI** is Google's comprehensive platform for developing, deploying, and monitoring ML models and LLMs.
+
+### What Vertex AI Provides:
+- **Model Garden** — hundreds of ready models (Gemini, Llama, Mistral)
+- **AutoML** — train models without code
+- **Custom Training** — custom training with PyTorch/TF on TPUs
+- **Pipelines** — visual MLOps workflows
+- **Prediction** — deploy models with one click
+
+### Vertex AI vs SageMaker vs Azure ML:
+- **Vertex AI** — best for TPUs and Google models
+- **SageMaker** — most mature for enterprises
+- **Azure ML** — best for Microsoft environments
+
+### Vertex AI Endpoints:
+- **Dedicated** — dedicated resources, faster
+- **Shared** — shared, cheaper
+- **Online Prediction** — real-time response
+- **Batch Prediction** — large batch processing`,
+      codeExample: `from dataclasses import dataclass, field
+from typing import List, Dict, Any
+import random
+
+# ─── محاكاة Vertex AI SDK ──────────────────────────────────
+@dataclass
+class VertexModel:
+    display_name:  str
+    framework:     str
+    artifact_uri:  str
+    serving_image: str
+    labels:        Dict[str, str] = field(default_factory=dict)
+
+@dataclass
+class VertexEndpoint:
+    display_name: str
+    model_name:   str
+    machine_type: str
+    min_replicas: int = 1
+    max_replicas: int = 5
+    traffic:      int = 100  # %
+    latency_ms:   float = 0.0
+
+    def predict(self, instances: List[Dict]) -> List[Dict]:
+        results = []
+        for inst in instances:
+            text   = inst.get("text", "")
+            score  = round(random.uniform(0.6, 0.99), 4)
+            label  = "positive" if score > 0.5 else "negative"
+            lat    = round(random.uniform(15, self.latency_ms + 30), 1)
+            results.append({"label": label, "score": score, "latency_ms": lat})
+        return results
+
+class VertexAI:
+    MODEL_GARDEN = {
+        "gemini-1.5-pro":  {"type": "LLM",  "ctx": "1M",  "provider": "Google"},
+        "gemini-1.5-flash":{"type": "LLM",  "ctx": "1M",  "provider": "Google"},
+        "llama-3-70b":     {"type": "LLM",  "ctx": "8K",  "provider": "Meta"},
+        "mistral-7b":      {"type": "LLM",  "ctx": "32K", "provider": "Mistral"},
+        "text-bison":      {"type": "LLM",  "ctx": "8K",  "provider": "Google"},
+        "imagetext":       {"type": "VLM",  "ctx": "-",   "provider": "Google"},
+    }
+    MACHINE_TYPES = {
+        "n1-standard-4":   {"vCPUs": 4,  "RAM": "15GB"},
+        "n1-highmem-8":    {"vCPUs": 8,  "RAM": "52GB"},
+        "g2-standard-4":   {"vCPUs": 4,  "RAM": "16GB", "GPU": "L4"},
+        "a2-highgpu-1g":   {"vCPUs": 12, "RAM": "85GB", "GPU": "A100"},
+    }
+
+    def __init__(self, project: str, region: str = "us-central1"):
+        self.project  = project
+        self.region   = region
+        self.models:   Dict[str, VertexModel]    = {}
+        self.endpoints:Dict[str, VertexEndpoint] = {}
+
+    def upload_model(self, name: str, framework: str, uri: str) -> VertexModel:
+        m = VertexModel(name, framework, uri, f"gcr.io/vertex-ai/{framework}")
+        self.models[name] = m
+        print(f"  ✅ Model uploaded: {name} ({framework})")
+        return m
+
+    def create_endpoint(self, name: str, model: str, machine: str,
+                        min_r: int = 1, max_r: int = 3) -> VertexEndpoint:
+        ep = VertexEndpoint(name, model, machine, min_r, max_r,
+                            latency_ms=random.uniform(20, 60))
+        self.endpoints[name] = ep
+        mt = self.MACHINE_TYPES.get(machine, {})
+        gpu_s = mt.get("GPU", "None")
+        print(f"  ✅ Endpoint: {name} ({machine}, GPU={gpu_s})")
+        return ep
+
+    def show_model_garden(self):
+        print(f"\\n🌿 Model Garden (مختارات):")
+        print(f"  {'Model':<22} {'Type':>5} {'Context':>8} {'Provider':>10}")
+        print("  " + "-"*50)
+        for m, info in self.MODEL_GARDEN.items():
+            print(f"  {m:<22} {info['type']:>5} {info['ctx']:>8} {info['provider']:>10}")
+
+    def batch_predict(self, endpoint: VertexEndpoint, texts: List[str]) -> List[Dict]:
+        predictions = endpoint.predict([{"text": t} for t in texts])
+        return predictions
+
+# ─── استخدام Vertex AI ─────────────────────────────────────
+random.seed(77)
+print("🌐 Vertex AI — نشر نموذج تصنيف النصوص:")
+print("=" * 55)
+
+vertex = VertexAI("my-ai-prod", "us-central1")
+
+# Model Garden
+vertex.show_model_garden()
+
+# رفع نموذج مخصص
+print(f"\\n\\n📦 رفع نموذج مخصص:")
+model = vertex.upload_model(
+    "sentiment-v2-roberta",
+    "pytorch",
+    "gs://my-ai-prod/models/sentiment-v2/",
+)
+
+# إنشاء Endpoints
+print(f"\\n🚀 إنشاء Endpoints:")
+ep_prod = vertex.create_endpoint("sentiment-prod", model.display_name, "g2-standard-4", 2, 10)
+ep_test = vertex.create_endpoint("sentiment-test", model.display_name, "n1-standard-4", 1, 2)
+
+# Online Prediction
+print(f"\\n⚡ Online Prediction:")
+test_texts = [
+    "المنتج رائع وجودة ممتازة!",
+    "خدمة العملاء سيئة جداً",
+    "تجربة لا بأس بها، مقبولة",
+]
+preds = vertex.batch_predict(ep_prod, test_texts)
+for text, pred in zip(test_texts, preds):
+    icon  = "🟢" if pred["label"] == "positive" else "🔴"
+    lat_s = f"{pred['latency_ms']:.1f}ms"
+    print(f"  {icon} [{pred['label']:<10}] {pred['score']:.3f} | {lat_s} | {text[:35]}")
+
+# Autoscaling
+print(f"\\n\\n📈 Autoscaling Configuration:")
+for name, ep in vertex.endpoints.items():
+    print(f"  [{name}]")
+    print(f"   Machine : {ep.machine_type}")
+    print(f"   Replicas: {ep.min_replicas} → {ep.max_replicas}")
+    lat_s = f"{ep.latency_ms:.1f}ms"
+    print(f"   Latency : {lat_s}")
+print(f"\\n✅ Vertex AI Endpoint جاهز للإنتاج!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## Gemini API
+
+**Gemini** هو أقوى نماذج Google المتعددة الوسائط (Multimodal) — يفهم النص والصور والفيديو والصوت.
+
+### عائلة نماذج Gemini:
+- **Gemini 1.5 Pro** — سياق 1 مليون token، الأقوى
+- **Gemini 1.5 Flash** — أسرع وأرخص، مناسب للإنتاج
+- **Gemini 2.0 Flash** — أحدث إصدار، متعدد الوسائط
+
+### Gemini vs Claude vs GPT-4:
+- **Gemini** — الأفضل في multimodal والسياق الطويل
+- **Claude** — الأفضل في التحليل والتعليمات الطويلة
+- **GPT-4** — الأشهر والأكثر دعماً بالأدوات
+
+### Function Calling:
+يمكن لـ Gemini استدعاء دوال خارجية تلقائياً — مثل البحث في الويب أو قراءة قاعدة البيانات — مثله مثل Claude وGPT.
+
+### Free Tier:
+- **Gemini 1.5 Flash** — 15 طلب/دقيقة مجاناً
+- **Gemini 1.5 Pro** — 2 طلب/دقيقة مجاناً`,
+      bodyEn: `## Gemini API
+
+**Gemini** is Google's most powerful multimodal models — understanding text, images, video, and audio.
+
+### Gemini Model Family:
+- **Gemini 1.5 Pro** — 1 million token context, most powerful
+- **Gemini 1.5 Flash** — faster and cheaper, suitable for production
+- **Gemini 2.0 Flash** — latest version, multimodal
+
+### Gemini vs Claude vs GPT-4:
+- **Gemini** — best at multimodal and long context
+- **Claude** — best at analysis and long instructions
+- **GPT-4** — most popular with most tool support
+
+### Function Calling:
+Gemini can automatically call external functions — like web search or database reading — just like Claude and GPT.
+
+### Free Tier:
+- **Gemini 1.5 Flash** — 15 requests/minute free
+- **Gemini 1.5 Pro** — 2 requests/minute free`,
+      codeExample: `import json
+import random
+from dataclasses import dataclass, field
+from typing import List, Dict, Any, Optional
+
+# ─── محاكاة Gemini SDK (google.generativeai) ───────────────
+GEMINI_MODELS = {
+    "gemini-1.5-pro": {
+        "ctx": 1_000_000, "in_price": 0.00350, "out_price": 0.01050,
+        "capabilities": ["text", "image", "video", "audio", "pdf"],
+    },
+    "gemini-1.5-flash": {
+        "ctx": 1_000_000, "in_price": 0.000075, "out_price": 0.000300,
+        "capabilities": ["text", "image", "video"],
+    },
+    "gemini-2.0-flash": {
+        "ctx": 1_000_000, "in_price": 0.0001, "out_price": 0.0004,
+        "capabilities": ["text", "image", "video", "audio", "realtime"],
+    },
+}
+
+@dataclass
+class FunctionDeclaration:
+    name:        str
+    description: str
+    parameters:  Dict[str, Any]
+
+@dataclass
+class GeminiResponse:
+    text:           str
+    input_tokens:   int
+    output_tokens:  int
+    finish_reason:  str = "STOP"
+    function_call:  Optional[Dict] = None
+
+class GeminiModel:
+    def __init__(self, model_name: str = "gemini-1.5-flash"):
+        if model_name not in GEMINI_MODELS:
+            raise ValueError(f"النموذج '{model_name}' غير متاح")
+        self.model_name  = model_name
+        self._info       = GEMINI_MODELS[model_name]
+        self._functions: List[FunctionDeclaration] = []
+        self._total_cost = 0.0
+        self._calls      = 0
+
+    def add_function(self, fn: FunctionDeclaration):
+        self._functions.append(fn)
+
+    def generate_content(self, prompt: str, history: List[Dict] = None) -> GeminiResponse:
+        self._calls += 1
+        in_tok  = int(len(prompt.split()) * 1.3)
+        out_tok = 70
+
+        # محاكاة Function Calling
+        fn_call = None
+        if self._functions and any(kw in prompt.lower() for kw in ["ابحث", "search", "جو", "weather"]):
+            fn = random.choice(self._functions)
+            fn_call = {"name": fn.name, "args": {"query": prompt[:50]}}
+            response_text = f"[Function Call → {fn.name}]"
+        else:
+            response_text = f"[Gemini/{self.model_name}] ردّي على: {prompt[:55]}..."
+
+        cost = (in_tok/1000)*self._info["in_price"] + (out_tok/1000)*self._info["out_price"]
+        self._total_cost += cost
+
+        return GeminiResponse(response_text, in_tok, out_tok, function_call=fn_call)
+
+    def count_tokens(self, text: str) -> int:
+        return int(len(text.split()) * 1.3)
+
+    def cost_summary(self):
+        cost_s = "$" + f"{self._total_cost:.7f}"
+        print(f"\\n📊 ملخص Gemini:")
+        print(f"   النموذج   : {self.model_name}")
+        print(f"   المكالمات : {self._calls}")
+        print(f"   التكلفة   : {cost_s}")
+
+# ─── عرض النماذج ───────────────────────────────────────────
+print("🌐 Gemini API — نماذج Google AI:")
+print("=" * 55)
+
+print("\\n📦 النماذج المتاحة:")
+print(f"  {'Model':<22} {'Context':>10} {'In/1K':>10} {'Out/1K':>10}")
+print("  " + "-"*55)
+for name, info in GEMINI_MODELS.items():
+    ctx_s = f"{info['ctx']:,}"
+    in_s  = "$" + f"{info['in_price']:.5f}"
+    out_s = "$" + f"{info['out_price']:.5f}"
+    caps  = ", ".join(info["capabilities"][:3])
+    print(f"  {name:<22} {ctx_s:>10} {in_s:>10} {out_s:>10}")
+    print(f"  {'':22} {caps}")
+    print()
+
+# ─── اختبار Gemini 1.5 Flash ──────────────────────────────
+print("\\n💬 اختبار Gemini 1.5 Flash:")
+print("-" * 45)
+
+model = GeminiModel("gemini-1.5-flash")
+
+questions = [
+    "ما هو الفرق بين Gemini وClaude؟",
+    "اشرح Vertex AI في جملة واحدة",
+    "كيف أختار بين Flash وPro؟",
+]
+
+for q in questions:
+    resp = model.generate_content(q)
+    tok_s = f"{resp.input_tokens}in+{resp.output_tokens}out"
+    print(f"\\n❓ {q}")
+    print(f"💡 {resp.text}")
+    print(f"   tokens: {tok_s}")
+
+# ─── Function Calling ──────────────────────────────────────
+print(f"\\n\\n⚡ Function Calling (استدعاء دوال خارجية):")
+model_pro = GeminiModel("gemini-1.5-pro")
+
+search_fn = FunctionDeclaration(
+    name="web_search",
+    description="ابحث في الويب عن معلومات محددة",
+    parameters={"query": {"type": "string", "description": "نص البحث"}},
+)
+model_pro.add_function(search_fn)
+
+fn_prompts = [
+    "ابحث عن أحدث إصدارات Gemini",
+    "ما هو الطقس في دبي اليوم؟",
+    "اشرح لي Vertex AI Pipelines",
+]
+
+for prompt in fn_prompts:
+    resp = model_pro.generate_content(prompt)
+    if resp.function_call:
+        fn_name = resp.function_call["name"]
+        fn_args = json.dumps(resp.function_call["args"], ensure_ascii=False)
+        print(f"  🔧 '{prompt[:40]}' → {fn_name}({fn_args})")
+    else:
+        print(f"  💬 '{prompt[:40]}' → {resp.text[:50]}")
+
+model.cost_summary()
+model_pro.cost_summary()
+print(f"\\n✅ Gemini API جاهز للاستخدام!")`,
+      codeLanguage: "python",
+    },
+  ],
+
 };
