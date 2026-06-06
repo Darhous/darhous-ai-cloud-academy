@@ -15191,4 +15191,807 @@ print(f"🎉 مبروك! أكملت دورة Docker & Linux")`,
     },
   ],
 
+  "aws-for-ai": [
+    {
+      bodyAr: `## إعداد حساب AWS
+
+**AWS** (Amazon Web Services) أكبر مزودي الكلاود في العالم، يوفر أكثر من 200 خدمة سحابية.
+
+### خطوات البدء:
+- أنشئ حساباً على **aws.amazon.com** (يحتاج بطاقة ائتمانية للتحقق)
+- فعّل **AWS Free Tier** — 12 شهراً مجاناً للمبتدئين
+- ثبّت **AWS CLI** لإدارة الخدمات من الطرفية
+- أنشئ **IAM User** بدلاً من استخدام Root Account
+- ثبّت **boto3** — مكتبة Python الرسمية لـ AWS
+
+### خدمات Free Tier الرئيسية:
+- **EC2** — 750 ساعة/شهر (t2.micro)
+- **S3** — 5 GB تخزين مجاناً
+- **Lambda** — مليون استدعاء/شهر مجاناً
+- **DynamoDB** — 25 GB تخزين مجاناً
+
+### نصيحة أمان:
+لا تستخدم Root Account في الأكواد أبداً — أنشئ IAM User بأقل الصلاحيات اللازمة.`,
+      bodyEn: `## Setting up AWS Account
+
+**AWS** (Amazon Web Services) is the world's largest cloud provider, offering over 200 cloud services.
+
+### Getting Started:
+- Create account at **aws.amazon.com** (requires credit card for verification)
+- Activate **AWS Free Tier** — 12 months free for beginners
+- Install **AWS CLI** to manage services from the terminal
+- Create an **IAM User** instead of using Root Account
+- Install **boto3** — official Python library for AWS
+
+### Key Free Tier Services:
+- **EC2** — 750 hours/month (t2.micro)
+- **S3** — 5 GB free storage
+- **Lambda** — 1 million invocations/month free
+- **DynamoDB** — 25 GB free storage
+
+### Security Tip:
+Never use Root Account in code — create an IAM User with minimum required permissions.`,
+      codeExample: `import json
+from typing import List, Dict
+
+# ─── محاكاة AWS SDK (boto3) ────────────────────────────────
+class AWSSession:
+    """يمثّل boto3.Session"""
+    def __init__(self, region: str = "us-east-1"):
+        self.region      = region
+        self._account_id = "123456789012"
+
+    def get_client(self, service: str):
+        return AWSClient(service, self.region)
+
+    def get_identity(self) -> dict:
+        return {
+            "Account": self._account_id,
+            "Arn":     "arn:aws:iam::" + self._account_id + ":root",
+            "UserId":  self._account_id,
+        }
+
+class AWSClient:
+    _RESOURCES: Dict[str, List[str]] = {
+        "s3":      ["ai-dataset-bucket", "ml-models-prod",  "logs-archive"],
+        "bedrock": ["claude-3-haiku",    "claude-3-sonnet", "amazon-titan"],
+        "lambda":  ["chat-handler",      "embed-function",  "process-doc"],
+    }
+    _FREE_TIER = {
+        "ec2":      "750 ساعة/شهر  (t2.micro)",
+        "s3":       "5 GB + 20,000 GET + 2,000 PUT",
+        "lambda":   "1,000,000 استدعاء/شهر",
+        "dynamodb": "25 GB تخزين",
+        "bedrock":  "مدفوع بالاستخدام (pay-per-token)",
+    }
+
+    def __init__(self, service: str, region: str):
+        self.service = service
+        self.region  = region
+
+    def list_resources(self) -> List[str]:
+        return self._RESOURCES.get(self.service, [])
+
+    def get_free_tier(self) -> dict:
+        return self._FREE_TIER
+
+# ─── الاتصال بـ AWS ────────────────────────────────────────
+print("🔐 إنشاء جلسة AWS (boto3)...")
+session  = AWSSession(region="us-east-1")
+identity = session.get_identity()
+
+print(f"✅ متصل بـ AWS!")
+print(f"   Account : {identity['Account']}")
+print(f"   ARN     : {identity['Arn']}")
+print(f"   Region  : {session.region}")
+
+# ─── استعراض الخدمات ───────────────────────────────────────
+print(f"\\n📦 الخدمات المتاحة:")
+for svc in ["s3", "bedrock", "lambda"]:
+    client    = session.get_client(svc)
+    resources = client.list_resources()
+    print(f"  {svc.upper():<10} ({len(resources)} موارد)")
+    for r in resources:
+        print(f"    • {r}")
+
+# ─── Free Tier ─────────────────────────────────────────────
+print(f"\\n🎁 حدود AWS Free Tier:")
+any_client = session.get_client("s3")
+for svc, limit in any_client.get_free_tier().items():
+    print(f"  {svc:<12} → {limit}")
+
+# ─── أوامر CLI الأساسية ─────────────────────────────────────
+print(f"\\n💻 أوامر AWS CLI للبدء:")
+commands = [
+    ("تثبيت المكتبات", "pip install boto3 awscli"),
+    ("إعداد المفاتيح",  "aws configure"),
+    ("اختبار الاتصال",  "aws sts get-caller-identity"),
+    ("قائمة S3",        "aws s3 ls"),
+    ("قائمة Lambda",    "aws lambda list-functions --region us-east-1"),
+]
+for desc, cmd in commands:
+    print(f"  # {desc}")
+    print(f"  $ {cmd}")
+    print()
+
+print("✅ AWS جاهز للاستخدام!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## IAM — إدارة الهوية والصلاحيات
+
+**IAM** (Identity and Access Management) هو نظام AWS للتحكم الكامل في الصلاحيات.
+
+### المكونات الأساسية:
+- **Users** — حسابات الأشخاص (مفاتيح دائمة)
+- **Groups** — مجموعات المستخدمين لإدارة أسهل
+- **Roles** — أدوار مؤقتة للـ Services (أكثر أماناً)
+- **Policies** — قواعد الصلاحيات بصيغة JSON
+
+### مبدأ Least Privilege:
+امنح أقل الصلاحيات الضرورية فقط. لا تستخدم AdministratorAccess إلا عند الضرورة القصوى.
+
+### User مقابل Role:
+- **User** → للأشخاص الذين يعملون يدوياً، له مفاتيح دائمة
+- **Role** → للـ Services مثل Lambda وEC2، مفاتيح مؤقتة تجدد تلقائياً (أكثر أماناً)
+
+### مكونات Policy:
+كل Policy تحتوي على Effect (Allow أو Deny)، قائمة Actions، وقائمة Resources.`,
+      bodyEn: `## IAM — Identity and Access Management
+
+**IAM** (Identity and Access Management) is AWS's system for full permission control.
+
+### Core Components:
+- **Users** — personal accounts (permanent keys)
+- **Groups** — user groups for easier management
+- **Roles** — temporary roles for Services (more secure)
+- **Policies** — permission rules in JSON format
+
+### Least Privilege Principle:
+Grant only the minimum necessary permissions. Avoid AdministratorAccess except when absolutely necessary.
+
+### User vs Role:
+- **User** → for people working manually, has permanent keys
+- **Role** → for Services like Lambda and EC2, temporary keys that auto-renew (more secure)
+
+### Policy Components:
+Each Policy contains Effect (Allow or Deny), a list of Actions, and a list of Resources.`,
+      codeExample: `import json
+from dataclasses import dataclass, field
+from typing import List, Dict
+
+# ─── Data Classes ──────────────────────────────────────────
+@dataclass
+class IAMPolicy:
+    name:      str
+    effect:    str          # "Allow" أو "Deny"
+    actions:   List[str]
+    resources: List[str]
+
+    def to_document(self) -> dict:
+        return {
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Effect":   self.effect,
+                "Action":   self.actions,
+                "Resource": self.resources,
+            }]
+        }
+
+@dataclass
+class IAMUser:
+    username: str
+    groups:   List[str] = field(default_factory=list)
+    policies: List[str] = field(default_factory=list)
+
+    def attach_policy(self, name: str):
+        self.policies.append(name)
+
+@dataclass
+class IAMRole:
+    name:            str
+    trusted_service: str
+    policies:        List[str] = field(default_factory=list)
+
+    def get_trust_policy(self) -> dict:
+        return {
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Effect":    "Allow",
+                "Principal": {"Service": self.trusted_service},
+                "Action":    "sts:AssumeRole",
+            }]
+        }
+
+# ─── IAM Manager ───────────────────────────────────────────
+class IAMManager:
+    def __init__(self):
+        self.policies: Dict[str, IAMPolicy] = {}
+        self.users:    Dict[str, IAMUser]   = {}
+        self.roles:    Dict[str, IAMRole]   = {}
+
+    def create_policy(self, name, effect, actions, resources) -> IAMPolicy:
+        p = IAMPolicy(name, effect, actions, resources)
+        self.policies[name] = p
+        print(f"  📋 Policy: {name}")
+        return p
+
+    def create_user(self, username) -> IAMUser:
+        u = IAMUser(username)
+        self.users[username] = u
+        print(f"  👤 User  : {username}")
+        return u
+
+    def create_role(self, name, trusted_service) -> IAMRole:
+        r = IAMRole(name, trusted_service)
+        self.roles[name] = r
+        print(f"  🎭 Role  : {name} ← {trusted_service}")
+        return r
+
+    def audit_report(self):
+        print(f"\\n📊 تقرير IAM:")
+        print(f"   Policies : {len(self.policies)}")
+        print(f"   Users    : {len(self.users)}")
+        print(f"   Roles    : {len(self.roles)}")
+        print(f"\\n👥 المستخدمون:")
+        for name, u in self.users.items():
+            print(f"   • {name}: {len(u.policies)} policies")
+        print(f"\\n🎭 الأدوار:")
+        for name, r in self.roles.items():
+            print(f"   • {name} ← {r.trusted_service}")
+
+# ─── تهيئة IAM ─────────────────────────────────────────────
+iam = IAMManager()
+print("🔐 إنشاء موارد IAM:")
+
+# Policies
+iam.create_policy(
+    "BedrockInvoke", "Allow",
+    ["bedrock:InvokeModel", "bedrock:ListFoundationModels"],
+    ["arn:aws:bedrock:*::foundation-model/*"],
+)
+iam.create_policy(
+    "S3MLData", "Allow",
+    ["s3:GetObject", "s3:PutObject", "s3:ListBucket"],
+    ["arn:aws:s3:::ml-data-*", "arn:aws:s3:::ml-data-*/*"],
+)
+iam.create_policy(
+    "CloudWatchLogs", "Allow",
+    ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"],
+    ["arn:aws:logs:*:*:*"],
+)
+
+# User للمطوّر
+dev = iam.create_user("ai-developer")
+dev.attach_policy("BedrockInvoke")
+dev.attach_policy("S3MLData")
+
+# Role للـ Lambda
+lambda_role = iam.create_role("LambdaAIRole", "lambda.amazonaws.com")
+lambda_role.policies = ["BedrockInvoke", "S3MLData", "CloudWatchLogs"]
+
+# Trust Policy
+print(f"\\n🔐 Trust Policy لـ Lambda Role:")
+print(json.dumps(lambda_role.get_trust_policy(), indent=2, ensure_ascii=False))
+
+# تقرير
+iam.audit_report()
+
+# نصائح الأمان
+print(f"\\n📌 مبادئ IAM الأساسية:")
+tips = [
+    "استخدم Roles للـ Services — مفاتيح مؤقتة أكثر أماناً",
+    "لا تستخدم Root Account للبرمجة أبداً",
+    "فعّل MFA لجميع المستخدمين",
+    "راجع الصلاحيات كل 90 يوماً",
+    "استخدم IAM Access Analyzer للكشف عن الثغرات",
+]
+for t in tips:
+    print(f"  ✅ {t}")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## AWS Bedrock
+
+**AWS Bedrock** خدمة مُدارة تتيح الوصول إلى نماذج AI كبيرة من شركات متعددة عبر API موحّد.
+
+### النماذج المتاحة:
+- **Anthropic Claude 3** — الأفضل للنصوص والتحليل (يدعم العربية)
+- **Amazon Titan** — نماذج Amazon الخاصة للنصوص والتضمين
+- **Meta Llama 3** — مفتوح المصدر، مناسب للتخصيص
+- **Stability AI** — توليد الصور
+
+### لماذا Bedrock بدلاً من Claude API مباشرة؟
+- **أمان أفضل** — IAM Roles بدون مفاتيح خارجية
+- **تكامل AWS** — S3 وDynamoDB وCloudWatch مباشرة
+- **Compliance مؤسسي** — HIPAA وSOC وISO
+
+### نموذج التسعير:
+مدفوع بالاستخدام (pay-per-token):
+- **Claude 3 Haiku** — الأرخص والأسرع (للإنتاج)
+- **Claude 3 Sonnet** — توازن بين السرعة والجودة
+- **Claude 3 Opus** — الأقوى للمهام المعقدة`,
+      bodyEn: `## AWS Bedrock
+
+**AWS Bedrock** is a managed service providing access to large AI models from multiple companies via a unified API.
+
+### Available Models:
+- **Anthropic Claude 3** — best for text and analysis (supports Arabic)
+- **Amazon Titan** — Amazon's own models for text and embedding
+- **Meta Llama 3** — open source, suitable for customization
+- **Stability AI** — image generation
+
+### Why Bedrock Instead of Claude API Directly?
+- **Better security** — IAM Roles without external keys
+- **AWS integration** — S3, DynamoDB, and CloudWatch directly
+- **Enterprise compliance** — HIPAA, SOC, and ISO
+
+### Pricing Model:
+Pay-per-token usage:
+- **Claude 3 Haiku** — cheapest and fastest (for production)
+- **Claude 3 Sonnet** — balance between speed and quality
+- **Claude 3 Opus** — most powerful for complex tasks`,
+      codeExample: `import json
+
+# ─── محاكاة Bedrock Runtime ────────────────────────────────
+class BedrockRuntime:
+    """محاكاة boto3 bedrock-runtime client"""
+
+    MODELS = {
+        "anthropic.claude-3-haiku-20240307-v1:0": {
+            "name": "Claude 3 Haiku",   "provider": "Anthropic",
+            "in_price":  0.00025, "out_price": 0.00125,
+        },
+        "anthropic.claude-3-sonnet-20240229-v1:0": {
+            "name": "Claude 3 Sonnet",  "provider": "Anthropic",
+            "in_price":  0.003,   "out_price": 0.015,
+        },
+        "amazon.titan-text-express-v1": {
+            "name": "Titan Text Express", "provider": "Amazon",
+            "in_price":  0.0002,  "out_price": 0.0006,
+        },
+    }
+
+    def list_foundation_models(self) -> list:
+        return [
+            {"modelId": mid, "modelName": m["name"], "providerName": m["provider"]}
+            for mid, m in self.MODELS.items()
+        ]
+
+    def invoke_model(self, modelId: str, body: dict) -> dict:
+        if modelId not in self.MODELS:
+            raise ValueError(f"النموذج {modelId} غير متاح")
+        m         = self.MODELS[modelId]
+        prompt    = (body.get("messages") or [{"content": ""}])[-1].get("content", "")
+        in_tok    = max(10, int(len(prompt.split()) * 1.3))
+        out_tok   = 80
+        cost      = (in_tok / 1000) * m["in_price"] + (out_tok / 1000) * m["out_price"]
+        return {
+            "content": [{"text": f"[{m['name']}] ردّي على: {prompt[:50]}..."}],
+            "usage":   {"input_tokens": in_tok, "output_tokens": out_tok},
+            "cost_usd": round(cost, 7),
+        }
+
+# ─── Claude Wrapper ────────────────────────────────────────
+class ClaudeOnBedrock:
+    def __init__(self, model: str = "anthropic.claude-3-haiku-20240307-v1:0"):
+        self._rt         = BedrockRuntime()
+        self.model       = model
+        self.total_cost  = 0.0
+        self.total_calls = 0
+
+    def chat(self, message: str, system: str = "") -> str:
+        body = {
+            "anthropic_version": "bedrock-2023-05-31",
+            "max_tokens": 1024,
+            "system":     system,
+            "messages":   [{"role": "user", "content": message}],
+        }
+        resp             = self._rt.invoke_model(self.model, body)
+        self.total_cost  += resp["cost_usd"]
+        self.total_calls += 1
+        cost_str = "$" + f"{resp['cost_usd']:.7f}"
+        print(f"  tokens: {resp['usage']['input_tokens']}in + {resp['usage']['output_tokens']}out | cost: {cost_str}")
+        return resp["content"][0]["text"]
+
+    def summary(self):
+        total_str = "$" + f"{self.total_cost:.6f}"
+        print(f"\\n📊 ملخص الاستخدام:")
+        print(f"   المكالمات       : {self.total_calls}")
+        print(f"   إجمالي التكلفة : {total_str}")
+
+# ─── عرض النماذج ───────────────────────────────────────────
+runtime = BedrockRuntime()
+print("🤖 النماذج المتاحة على AWS Bedrock:")
+for m in runtime.list_foundation_models():
+    print(f"  [{m['providerName']:<12}] {m['modelName']}")
+    print(f"   ID: {m['modelId']}")
+    print()
+
+# ─── اختبار Claude 3 Haiku ─────────────────────────────────
+print("=" * 55)
+print("💬 اختبار Claude 3 Haiku عبر Bedrock:")
+print("=" * 55)
+
+claude = ClaudeOnBedrock()
+
+questions = [
+    ("ما هو AWS Bedrock؟",                   "أجب بجملتين فقط بالعربية"),
+    ("متى أستخدم Haiku بدلاً من Sonnet؟",   "جملة واحدة فقط"),
+    ("ما هي مزايا Bedrock على Claude API؟",  ""),
+]
+
+for q, sys_prompt in questions:
+    print(f"\\n❓ {q}")
+    answer = claude.chat(q, system=sys_prompt)
+    print(f"💡 {answer}")
+
+claude.summary()
+print("\\n✅ تم اختبار AWS Bedrock بنجاح!")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## AWS Lambda Functions
+
+**Lambda** خدمة Serverless تُشغّل الكود بدون إدارة خوادم — تدفع فقط عند التنفيذ.
+
+### كيف يعمل Lambda؟
+1. يصل حدث (Event) من API Gateway أو S3 أو غيره
+2. AWS يُهيّئ Container ويشغّل الـ handler
+3. الدالة تعالج الطلب وتُعيد النتيجة
+4. عند انتهاء الطلبات يُغلق Container تلقائياً
+
+### Cold Start:
+أول استدعاء يستغرق وقتاً أطول لتهيئة الـ Container. الحل: **Provisioned Concurrency** للتطبيقات الحساسة للزمن.
+
+### حدود Lambda المهمة:
+- **Timeout**: 15 دقيقة كحد أقصى
+- **Memory**: 128 MB — 10 GB
+- **Package**: 250 MB (مع Layers)
+- **Concurrency**: 1000 متوازٍ افتراضياً
+
+### Free Tier:
+مليون استدعاء/شهر مجاناً — كافٍ لجميع مشاريع التعلم.`,
+      bodyEn: `## AWS Lambda Functions
+
+**Lambda** is a Serverless service that runs code without managing servers — you pay only on execution.
+
+### How Lambda Works:
+1. An Event arrives from API Gateway, S3, or elsewhere
+2. AWS initializes a Container and runs the handler
+3. The function processes the request and returns the result
+4. When requests end, the Container closes automatically
+
+### Cold Start:
+The first invocation takes longer to initialize the Container. Solution: **Provisioned Concurrency** for latency-sensitive apps.
+
+### Important Lambda Limits:
+- **Timeout**: 15 minutes maximum
+- **Memory**: 128 MB — 10 GB
+- **Package**: 250 MB (with Layers)
+- **Concurrency**: 1000 parallel by default
+
+### Free Tier:
+1 million invocations/month free — enough for all learning projects.`,
+      codeExample: `import json
+import time
+
+# ─── محاكاة Lambda Context ─────────────────────────────────
+class LambdaContext:
+    function_name   = "ai-chat-lambda"
+    memory_limit_mb = 512
+    timeout_ms      = 30_000
+    aws_request_id  = "req-abc123-def456"
+    log_group       = "/aws/lambda/ai-chat-lambda"
+
+# ─── Bedrock Client (محاكاة) ──────────────────────────────
+class BedrockClient:
+    def invoke(self, message: str) -> str:
+        return f"[Claude على Bedrock] رد على: {message[:55]}..."
+
+# ─── Lambda Handler ────────────────────────────────────────
+def lambda_handler(event: dict, context: LambdaContext) -> dict:
+    """
+    Lambda Function للـ AI Chatbot
+    يُستدعى من API Gateway (HTTP POST /chat)
+    """
+    print(f"📥 RequestId: {context.aws_request_id}")
+    start = time.time()
+
+    # ── تحليل الطلب ──
+    try:
+        raw_body = event.get("body", "{}")
+        body     = json.loads(raw_body) if isinstance(raw_body, str) else raw_body
+        message  = body.get("message", "").strip()
+        lang     = body.get("lang", "ar")
+
+        if not message:
+            return _resp(400, {"error": "حقل 'message' مطلوب"})
+        if len(message) > 2000:
+            return _resp(400, {"error": "الرسالة طويلة جداً (الحد 2000 حرف)"})
+
+    except (json.JSONDecodeError, AttributeError) as e:
+        return _resp(400, {"error": f"JSON غير صالح: {e}"})
+
+    # ── استدعاء Bedrock ──
+    bedrock  = BedrockClient()
+    answer   = bedrock.invoke(message)
+
+    duration = round((time.time() - start) * 1000, 1)
+    remaining = context.timeout_ms - duration
+    print(f"⚡ وقت المعالجة: {duration}ms | المتبقي: {remaining}ms")
+
+    return _resp(200, {
+        "answer":      answer,
+        "lang":        lang,
+        "duration_ms": duration,
+        "model":       "claude-3-haiku",
+        "request_id":  context.aws_request_id,
+    })
+
+def _resp(status: int, data: dict) -> dict:
+    return {
+        "statusCode": status,
+        "headers": {
+            "Content-Type":                "application/json",
+            "Access-Control-Allow-Origin": "*",
+        },
+        "body": json.dumps(data, ensure_ascii=False),
+    }
+
+# ─── اختبار محلي ───────────────────────────────────────────
+ctx = LambdaContext()
+print("🧪 اختبار Lambda Function محلياً:")
+print("=" * 55)
+
+tests = [
+    {"message": "اشرح AWS Lambda باختصار",   "lang": "ar"},
+    {"message": "What is serverless computing?", "lang": "en"},
+]
+for body in tests:
+    event = {"body": json.dumps(body, ensure_ascii=False)}
+    res   = lambda_handler(event, ctx)
+    data  = json.loads(res["body"])
+    print(f"\\n📨 {body['message']}")
+    print(f"🔢 Status : {res['statusCode']}")
+    print(f"💬 Answer : {data['answer']}")
+    print(f"⏱️  Time   : {data['duration_ms']}ms")
+
+# طلب خاطئ
+print(f"\\n\\n🔴 اختبار حالة خطأ (رسالة فارغة):")
+err_ev  = {"body": json.dumps({"message": ""})}
+err_res = lambda_handler(err_ev, ctx)
+err_data = json.loads(err_res["body"])
+print(f"Status: {err_res['statusCode']} — {err_data['error']}")
+
+# معلومات الدالة
+print(f"\\n\\n📊 معلومات Lambda Function:")
+mem_str = str(ctx.memory_limit_mb) + " MB"
+print(f"  الاسم     : {ctx.function_name}")
+print(f"  الذاكرة   : {mem_str}")
+print(f"  Timeout   : {ctx.timeout_ms} ms")
+print(f"  Log Group : {ctx.log_group}")`,
+      codeLanguage: "python",
+    },
+    {
+      bodyAr: `## مشروع: AI Chatbot على AWS
+
+في هذا المشروع ستبني **AI Chatbot** متكامل مستضاف بالكامل على AWS بمعمارية Serverless.
+
+### معمارية المشروع:
+**المستخدم** يرسل طلباً إلى **API Gateway** الذي يُوجّهه إلى **Lambda**. تستدعي Lambda نموذج **Claude عبر Bedrock** وتحفظ المحادثة في **S3**.
+
+### المكونات:
+- **API Gateway** — نقطة الدخول (HTTP endpoints)
+- **Lambda** — منطق المعالجة (Serverless)
+- **Bedrock** — نموذج Claude للذكاء الاصطناعي
+- **S3** — تخزين تاريخ المحادثات
+- **IAM Role** — صلاحيات Lambda بدون مفاتيح مكشوفة
+
+### نقاط النهاية:
+- **POST /chat** — إرسال رسالة والحصول على رد
+- **GET /history** — استرجاع تاريخ المحادثة
+- **GET /stats** — إحصائيات الاستخدام والتكلفة
+
+### لماذا هذه المعمارية رائعة؟
+- لا تكلفة عند عدم الاستخدام (Serverless بالكامل)
+- تتوسع تلقائياً حسب الطلب
+- آمنة بـ IAM بدون مفاتيح مكشوفة في الكود`,
+      bodyEn: `## Project: AI Chatbot on AWS
+
+In this project you'll build a complete **AI Chatbot** fully hosted on AWS with Serverless architecture.
+
+### Project Architecture:
+**User** sends a request to **API Gateway** which routes it to **Lambda**. Lambda calls **Claude via Bedrock** and saves the conversation to **S3**.
+
+### Components:
+- **API Gateway** — entry point (HTTP endpoints)
+- **Lambda** — processing logic (Serverless)
+- **Bedrock** — Claude AI model
+- **S3** — conversation history storage
+- **IAM Role** — Lambda permissions without exposed keys
+
+### Endpoints:
+- **POST /chat** — send a message and get a reply
+- **GET /history** — retrieve conversation history
+- **GET /stats** — usage and cost statistics
+
+### Why This Architecture is Great:
+- Zero cost when idle (fully Serverless)
+- Auto-scales with demand
+- Secure with IAM — no exposed keys in code`,
+      codeExample: `import json
+import time
+from datetime import datetime
+from dataclasses import dataclass, field
+from typing import List, Dict, Any
+
+# ─── Models ────────────────────────────────────────────────
+@dataclass
+class ChatMessage:
+    role:    str
+    content: str
+    ts:      str = field(default_factory=lambda: datetime.now().strftime("%H:%M:%S"))
+
+@dataclass
+class ChatSession:
+    session_id: str
+    messages:   List[ChatMessage] = field(default_factory=list)
+    created_at: str = field(default_factory=lambda: datetime.now().isoformat())
+
+    def add(self, role: str, content: str):
+        self.messages.append(ChatMessage(role, content))
+
+    def to_history(self) -> List[dict]:
+        return [{"role": m.role, "content": m.content, "ts": m.ts}
+                for m in self.messages]
+
+# ─── Services (محاكاة) ─────────────────────────────────────
+class S3SessionStore:
+    """تخزين الجلسات في S3"""
+    def __init__(self):
+        self._store: Dict[str, ChatSession] = {}
+
+    def save(self, s: ChatSession):
+        self._store[s.session_id] = s
+        print(f"  💾 S3: saved '{s.session_id}'")
+
+    def load(self, sid: str):
+        return self._store.get(sid)
+
+    def list_sessions(self) -> List[str]:
+        return list(self._store.keys())
+
+    def total_messages(self) -> int:
+        return sum(len(s.messages) for s in self._store.values())
+
+class BedrockClaude:
+    """Claude 3 Haiku عبر AWS Bedrock"""
+    def __init__(self):
+        self._calls   = 0
+        self._in_tok  = 0
+        self._out_tok = 0
+
+    def invoke(self, messages: List[dict], system: str = "") -> str:
+        last = messages[-1]["content"] if messages else ""
+        self._calls   += 1
+        self._in_tok  += int(len(last.split()) * 1.3) + len(messages) * 5
+        self._out_tok += 60
+        return f"[Claude/Bedrock] ردّ على: {last[:55]}..."
+
+    def cost(self) -> float:
+        return round(
+            (self._in_tok  / 1000) * 0.00025 +
+            (self._out_tok / 1000) * 0.00125, 6
+        )
+
+# ─── Shared State (يتشارك فيها عبر Warm Containers)
+_s3     = S3SessionStore()
+_claude = BedrockClaude()
+
+# ─── Helpers ───────────────────────────────────────────────
+def _ok(data: dict)        -> dict: return _wrap(200, data)
+def _err(code: int, msg)   -> dict: return _wrap(code, {"error": msg})
+def _wrap(code: int, data) -> dict:
+    return {
+        "statusCode": code,
+        "headers": {
+            "Content-Type":                "application/json",
+            "Access-Control-Allow-Origin": "*",
+        },
+        "body": json.dumps(data, ensure_ascii=False),
+    }
+
+# ─── Lambda Handler ────────────────────────────────────────
+def lambda_handler(event: dict, context: Any) -> dict:
+    try:
+        raw  = event.get("body", "{}")
+        body = json.loads(raw) if isinstance(raw, str) else raw
+    except json.JSONDecodeError:
+        return _err(400, "JSON غير صالح")
+
+    action     = body.get("action", "chat")
+    session_id = body.get("session_id", "default")
+
+    if action == "chat":
+        msg = body.get("message", "").strip()
+        if not msg:
+            return _err(400, "حقل 'message' مطلوب")
+
+        session = _s3.load(session_id) or ChatSession(session_id)
+        session.add("user", msg)
+
+        ai_reply = _claude.invoke(
+            session.to_history(),
+            system="أنت مساعد AWS خبير. أجب بالعربية بإيجاز.",
+        )
+        session.add("assistant", ai_reply)
+        _s3.save(session)
+
+        return _ok({
+            "reply":      ai_reply,
+            "session_id": session_id,
+            "turn":       len(session.messages) // 2,
+        })
+
+    elif action == "history":
+        s = _s3.load(session_id)
+        if not s:
+            return _err(404, f"الجلسة '{session_id}' غير موجودة")
+        return _ok({"session_id": session_id, "messages": s.to_history()})
+
+    elif action == "stats":
+        cost_str = "$" + f"{_claude.cost():.6f}"
+        return _ok({
+            "sessions":         len(_s3.list_sessions()),
+            "total_messages":   _s3.total_messages(),
+            "bedrock_calls":    _claude._calls,
+            "estimated_cost":   cost_str,
+        })
+
+    return _err(400, f"action '{action}' غير معروف")
+
+# ─── اختبار المشروع ────────────────────────────────────────
+class Ctx:
+    aws_request_id = "proj-test-001"
+
+ctx = Ctx()
+print("🚀 اختبار AI Chatbot — Lambda + Bedrock + S3")
+print("=" * 58)
+
+turns = [
+    ("alice", "ما هو الفرق بين Lambda وEC2؟"),
+    ("alice", "متى أستخدم Lambda؟"),
+    ("bob",   "كيف أتصل بـ Bedrock من Lambda؟"),
+    ("alice", "شكراً على التوضيح!"),
+]
+
+for sid, msg in turns:
+    ev  = {"body": json.dumps({"action": "chat", "session_id": sid, "message": msg})}
+    res = json.loads(lambda_handler(ev, ctx)["body"])
+    print(f"\\n[{sid}] 💬 {msg}")
+    print(f"[{sid}] 🤖 {res['reply'][:70]}...")
+    print(f"[{sid}] 🔄 Turn #{res['turn']}")
+
+# تاريخ جلسة alice
+print("\\n\\n📜 تاريخ محادثة alice:")
+hist_ev = {"body": json.dumps({"action": "history", "session_id": "alice"})}
+hist    = json.loads(lambda_handler(hist_ev, ctx)["body"])
+for m in hist["messages"]:
+    icon = "👤" if m["role"] == "user" else "🤖"
+    print(f"  {icon} [{m['ts']}] {m['content'][:60]}...")
+
+# إحصائيات
+print("\\n\\n📊 إحصائيات المشروع:")
+stats_ev = {"body": json.dumps({"action": "stats"})}
+stats    = json.loads(lambda_handler(stats_ev, ctx)["body"])
+print(f"  الجلسات          : {stats['sessions']}")
+print(f"  إجمالي الرسائل   : {stats['total_messages']}")
+print(f"  مكالمات Bedrock  : {stats['bedrock_calls']}")
+print(f"  التكلفة التقديرية: {stats['estimated_cost']}")
+print("\\n✅ المشروع جاهز للنشر على AWS Lambda!")`,
+      codeLanguage: "python",
+    },
+  ],
+
 };

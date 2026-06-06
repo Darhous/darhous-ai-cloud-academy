@@ -545,7 +545,7 @@ export const courses: Course[] = [
     descriptionEn: "Bedrock, SageMaker, Lambda, and S3 for building and deploying AI on AWS.",
     level: "advanced", lessons: 26, hours: 22, projects: 4,
     skills: ["AWS Bedrock", "SageMaker", "Lambda", "S3", "IAM"],
-    category: "Cloud", icon: "🟠", featured: true, color: "green", comingSoon: true,
+    category: "Cloud", icon: "🟠", featured: true, color: "green",
     overviewAr: "AWS هو أكبر مزود سحابي في العالم ويوفر منظومة متكاملة لبناء ونشر حلول AI. ستتعلم AWS Bedrock للوصول إلى النماذج الكبيرة، وSageMaker لتدريب النماذج، وLambda للـ serverless AI.",
     overviewEn: "AWS is the world's largest cloud provider and offers a complete ecosystem for building and deploying AI solutions. You'll learn AWS Bedrock for model access, SageMaker for training, and Lambda for serverless AI.",
     forWhoAr: ["المطورون الذين يريدون AWS", "مهندسو السحاب المهتمون بـ AI"],
