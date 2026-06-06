@@ -1,6 +1,7 @@
 # Redesign Checkpoint — Phase 3 Complete
 
-> **Latest tag:** `checkpoint/redesign-p3-portal-identity` · commit TBD
+> **Latest tag:** `checkpoint/redesign-p4b-automation` · commit `1ea3f73`
+> **Phase 3 tag:** `checkpoint/redesign-p3-portal-identity` · commit TBD
 > **Phase 2 tag:** `checkpoint/redesign-p2-landing` · commit `8c042ed`
 > **Phase 1 tag:** `checkpoint/redesign-p1-foundation` · commit `c88404e`
 > **Baseline tag:** `checkpoint/pre-redesign-plan` · commit `ad6bf0e`
@@ -33,7 +34,8 @@
 | iot-lab/page.tsx — tokens wired | ✅ Orbs, hero, stats, CTA |
 | career/page.tsx — old #f59e0b → token | ✅ All hero/stats/CTA updated |
 | digital-exams/page.tsx — tokens wired | ✅ Ambient, badge, CTA card |
-| Phase 4 (pilot portals) | ⏸️ Not started |
+| **Phase 4a — Language client components** | ✅ **COMPLETE** — `1ea3f73` |
+| **Phase 4b — Automation TemplatesClient** | ✅ **COMPLETE** — `1ea3f73` |
 
 ---
 
@@ -87,10 +89,13 @@
 
 ---
 
+## WHAT WAS DONE IN PHASE 4
+
+1. **LanguageAssessmentClient.tsx** — auth gate LogIn icon, intro card borders, progress bar fill, question card border, category badge bg/color, selected-option highlight, stage dots, finalizing spinner → `var(--portal-color)` family. Globe emoji in intro → `<Globe size={64}>` Lucide. CEFR scoring logic untouched.
+2. **LanguageResultsClient.tsx** — loading spinner, skill bars Award/BookOpen/Calendar icons, strengths/weaknesses card, weekly plan card/button/rows → portal tokens. CEFR_COLOR map kept as-is (semantic level colors). Radar chart `stroke={cefrColor}` kept dynamic.
+3. **LanguageHistoryClient.tsx** — spinner, latest-level banner, level badge, view link, TrendingUp icon, attempts list rows, level column, empty state → portal tokens. LineChart `stroke`/`dot fill` → `#c084fc` (actual hex; SVG presentation attrs don't resolve CSS vars). "Total Attempts" stat → `#c084fc` (template literal interpolation).
+4. **TemplatesClient.tsx** — template card borders, filter button active state, workflow summary label, CTA link → portal tokens. ACCESS_COLORS, DIFF_COLORS, tool chips (AI Academy blue `#8ed5ff`) kept as semantic values.
+
 ## NEXT STEP
 
-➡️ **Phase 4 — Pilot portals (Language + Automation)** (await user GO/NO-GO)
-- Language: editorial hero, history strips, warm violet atmosphere, consistent card system
-- Automation: two-panel layout, monospace accents, workflow hero, recipe cards
-- **Risk:** Medium (deeper visual changes to page components)
-- **Tags:** `checkpoint/redesign-p4a-language` · `checkpoint/redesign-p4b-automation`
+➡️ **Phase 5+** — per MASTER_REDESIGN_PLAN.md (await user GO/NO-GO)
