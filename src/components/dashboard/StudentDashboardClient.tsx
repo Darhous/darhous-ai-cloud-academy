@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, type ChangeEvent } from "react";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   TrendingUp, BookOpen, Save, Award, Brain, Activity,
   Bookmark, Sparkles, LogOut, Settings, Star, Clock, ChevronRight, ChevronLeft,
@@ -81,7 +82,17 @@ function StatCard({ icon, value, labelAr, labelEn, color, isAr, pulse }: {
 }) {
   return (
     <div className="glass-card rounded-2xl p-5 flex items-center gap-4" style={{ border: `1px solid ${color}20`, position: "relative", overflow: "hidden" }}>
-      {pulse && <span className="absolute top-2 end-2 w-2 h-2 rounded-full animate-pulse" style={{ background: color }} />}
+      {pulse && (
+        <>
+          <span className="absolute top-2 end-2 w-2 h-2 rounded-full animate-pulse" style={{ background: color }} />
+          {/* Phase 12: warm ambient glow signals an "active streak" — purely decorative */}
+          <span
+            className="absolute -top-7 -end-7 w-24 h-24 rounded-full pointer-events-none"
+            style={{ background: `radial-gradient(circle, ${color}26 0%, transparent 70%)`, filter: "blur(10px)" }}
+            aria-hidden="true"
+          />
+        </>
+      )}
       <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${color}15`, color }}>
         {icon}
       </div>
@@ -463,7 +474,23 @@ function NanoBananaHubSection({ locale, isAr }: { locale: string; isAr: boolean 
 export default function StudentDashboardClient({ locale }: Props) {
   const isAr = locale === "ar";
   const Arrow = isAr ? ChevronLeft : ChevronRight;
+  const shouldReduce = useReducedMotion();
   const { user, profile, loading, isAuthenticated, supabaseConfigured } = useAuth();
+
+  // Phase 12: Achievement & Progress polish — same fadeUp/stagger convention
+  // already used across the app (PortalGrid, ToolsClient); reduced-motion safe.
+  const fadeUp = {
+    hidden: { opacity: 0, y: shouldReduce ? 0 : 22 },
+    show:   { opacity: 1, y: 0, transition: { duration: shouldReduce ? 0.15 : 0.5, ease: [0.0, 0.0, 0.2, 1] as const } },
+  };
+  const gridContainer = {
+    hidden: {},
+    show: { transition: { staggerChildren: shouldReduce ? 0 : 0.06 } },
+  };
+  const gridItem = {
+    hidden: { opacity: 0, y: shouldReduce ? 0 : 16 },
+    show:   { opacity: 1, y: 0, transition: { duration: shouldReduce ? 0.15 : 0.4, ease: [0.0, 0.0, 0.2, 1] as const } },
+  };
   const [activeTab, setActiveTab] = useState<HubTab>("overview");
 
   const [courseProgress, setCourseProgress] = useState<CourseProgressRow[]>([]);
@@ -557,9 +584,23 @@ export default function StudentDashboardClient({ locale }: Props) {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-32">
-        <div className="w-10 h-10 rounded-full border-2 animate-spin" style={{ borderColor: "var(--color-primary)", borderTopColor: "transparent" }} />
-      </div>
+      <motion.div
+        initial={shouldReduce ? { opacity: 1 } : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: shouldReduce ? 0 : 0.3 }}
+        className="flex items-center justify-center py-32"
+      >
+        <div className="relative w-14 h-14 flex items-center justify-center">
+          {!shouldReduce && (
+            <span
+              className="absolute inset-0 ecosystem-radar-ring"
+              style={{ background: "rgba(142,213,255,0.1)", borderRadius: "9999px" }}
+              aria-hidden="true"
+            />
+          )}
+          <div className="w-10 h-10 rounded-full border-2 animate-spin" style={{ borderColor: "var(--color-primary)", borderTopColor: "transparent" }} />
+        </div>
+      </motion.div>
     );
   }
 
@@ -734,12 +775,19 @@ export default function StudentDashboardClient({ locale }: Props) {
           {/* Continue where you left off */}
           {(courseProgress.length > 0 || languageResult || examResults.length > 0) && (
             <div>
-              <h2 className="font-display font-bold text-xl mb-5 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+              <motion.h2
+                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
+                className="font-display font-bold text-xl mb-5 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}
+              >
                 <Clock size={18} style={{ color: "var(--color-primary)" }} />
                 {isAr ? "تابع من حيث توقفت" : "Continue Where You Left Off"}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              </motion.h2>
+              <motion.div
+                className="grid grid-cols-1 md:grid-cols-3 gap-4"
+                variants={gridContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-40px" }}
+              >
                 {courseProgress[0] && (
+                  <motion.div variants={gridItem}>
                   <Link href={`/${locale}/courses/${courseProgress[0].course_slug}`}
                     className="glass-card rounded-2xl p-4 flex items-start gap-3 transition-all hover:scale-[1.01] hover:-translate-y-0.5"
                     style={{ border: "1px solid rgba(142,213,255,0.12)", textDecoration: "none" }}>
@@ -747,13 +795,22 @@ export default function StudentDashboardClient({ locale }: Props) {
                     <div className="flex-1 min-w-0">
                       <p className="text-xs font-mono mb-1" style={{ color: "var(--color-primary)" }}>{isAr ? "آخر دورة" : "Last course"}</p>
                       <p className="text-sm font-semibold truncate" style={{ color: "var(--color-on-surface)" }}>{courseProgress[0].course_slug}</p>
-                      <div className="h-1 rounded-full mt-2" style={{ background: "rgba(255,255,255,0.06)" }}>
-                        <div className="h-full rounded-full" style={{ width: `${courseProgress[0].progress_percent}%`, background: "var(--color-primary)" }} />
+                      <div className="h-1 rounded-full mt-2 overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
+                        <motion.div
+                          className="h-full rounded-full"
+                          style={{ background: "var(--color-primary)" }}
+                          initial={{ width: shouldReduce ? `${courseProgress[0].progress_percent}%` : 0 }}
+                          whileInView={{ width: `${courseProgress[0].progress_percent}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: shouldReduce ? 0 : 0.9, ease: [0.0, 0.0, 0.2, 1] }}
+                        />
                       </div>
                     </div>
                   </Link>
+                  </motion.div>
                 )}
                 {languageResult && (
+                  <motion.div variants={gridItem}>
                   <Link href={`/${locale}/language`}
                     className="glass-card rounded-2xl p-4 flex items-start gap-3 transition-all hover:scale-[1.01] hover:-translate-y-0.5"
                     style={{ border: "1px solid rgba(208,188,255,0.12)", textDecoration: "none" }}>
@@ -764,8 +821,10 @@ export default function StudentDashboardClient({ locale }: Props) {
                       <p className="text-xs mt-1" style={{ color: "var(--color-on-surface-variant)" }}>{languageResult.score}% · {languageResult.stages_completed} {isAr ? "مراحل" : "stages"}</p>
                     </div>
                   </Link>
+                  </motion.div>
                 )}
                 {examResults[0] && (
+                  <motion.div variants={gridItem}>
                   <Link href={`/${locale}/digital-exams`}
                     className="glass-card rounded-2xl p-4 flex items-start gap-3 transition-all hover:scale-[1.01] hover:-translate-y-0.5"
                     style={{ border: "1px solid rgba(60,224,251,0.12)", textDecoration: "none" }}>
@@ -778,19 +837,23 @@ export default function StudentDashboardClient({ locale }: Props) {
                       </p>
                     </div>
                   </Link>
+                  </motion.div>
                 )}
-              </div>
+              </motion.div>
             </div>
           )}
 
           {/* Stats cards */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            <StatCard icon={<Flame size={22} />} value={`${streak} ${streak === 1 ? (isAr ? "يوم" : "day") : (isAr ? "أيام" : "days")}`} labelAr="سلسلة التعلم 🔥" labelEn="Learning streak 🔥" color="#f97316" isAr={isAr} pulse={streak > 0} />
-            <StatCard icon={<BookOpen size={22} />} value={startedCount} labelAr="دورات جارية" labelEn="Courses started" color="var(--color-primary)" isAr={isAr} />
-            <StatCard icon={<Award size={22} />} value={completedCount} labelAr="دورات مكتملة" labelEn="Courses completed" color="#4ade80" isAr={isAr} />
-            <StatCard icon={<TrendingUp size={22} />} value={`${avgQuiz}%`} labelAr="متوسط الاختبارات" labelEn="Avg quiz score" color="var(--color-secondary)" isAr={isAr} />
-            <StatCard icon={<Save size={22} />} value={savedPromptsDb.length} labelAr="برومبت محفوظ" labelEn="Saved prompts" color="var(--color-tertiary)" isAr={isAr} />
-          </div>
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+            variants={gridContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-40px" }}
+          >
+            <motion.div variants={gridItem}><StatCard icon={<Flame size={22} />} value={`${streak} ${streak === 1 ? (isAr ? "يوم" : "day") : (isAr ? "أيام" : "days")}`} labelAr="سلسلة التعلم 🔥" labelEn="Learning streak 🔥" color="#f97316" isAr={isAr} pulse={streak > 0} /></motion.div>
+            <motion.div variants={gridItem}><StatCard icon={<BookOpen size={22} />} value={startedCount} labelAr="دورات جارية" labelEn="Courses started" color="var(--color-primary)" isAr={isAr} /></motion.div>
+            <motion.div variants={gridItem}><StatCard icon={<Award size={22} />} value={completedCount} labelAr="دورات مكتملة" labelEn="Courses completed" color="#4ade80" isAr={isAr} /></motion.div>
+            <motion.div variants={gridItem}><StatCard icon={<TrendingUp size={22} />} value={`${avgQuiz}%`} labelAr="متوسط الاختبارات" labelEn="Avg quiz score" color="var(--color-secondary)" isAr={isAr} /></motion.div>
+            <motion.div variants={gridItem}><StatCard icon={<Save size={22} />} value={savedPromptsDb.length} labelAr="برومبت محفوظ" labelEn="Saved prompts" color="var(--color-tertiary)" isAr={isAr} /></motion.div>
+          </motion.div>
 
           {/* AI Coach */}
           <AICoachCard locale={locale} streak={streak} />
@@ -1182,18 +1245,31 @@ export default function StudentDashboardClient({ locale }: Props) {
           {/* Course progress in plan */}
           {courseProgress.length > 0 && (
             <div>
-              <h3 className="font-bold text-base mb-4 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+              <motion.h3
+                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
+                className="font-bold text-base mb-4 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}
+              >
                 <BookOpen size={16} style={{ color: "var(--color-primary)" }} />
                 {isAr ? "تقدّمك في الدورات" : "Course Progress"}
-              </h3>
-              <div className="flex flex-col gap-3">
+              </motion.h3>
+              <motion.div
+                className="flex flex-col gap-3"
+                variants={gridContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-30px" }}
+              >
                 {courseProgress.map((cp) => (
-                  <div key={cp.course_slug} className="glass-card rounded-xl p-4 flex items-center gap-4">
+                  <motion.div key={cp.course_slug} variants={gridItem} className="glass-card rounded-xl p-4 flex items-center gap-4">
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold text-sm truncate" style={{ color: "var(--color-on-surface)" }}>{cp.course_slug}</p>
                       <div className="flex items-center gap-2 mt-1.5">
-                        <div className="flex-1 h-1.5 rounded-full" style={{ background: "var(--color-outline-variant)" }}>
-                          <div className="h-full rounded-full" style={{ width: `${cp.progress_percent}%`, background: "var(--color-primary)" }} />
+                        <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: "var(--color-outline-variant)" }}>
+                          <motion.div
+                            className="h-full rounded-full"
+                            style={{ background: "var(--color-primary)" }}
+                            initial={{ width: shouldReduce ? `${cp.progress_percent}%` : 0 }}
+                            whileInView={{ width: `${cp.progress_percent}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: shouldReduce ? 0 : 0.8, ease: [0.0, 0.0, 0.2, 1] }}
+                          />
                         </div>
                         <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{cp.progress_percent}%</span>
                       </div>
@@ -1202,9 +1278,9 @@ export default function StudentDashboardClient({ locale }: Props) {
                       style={{ background: cp.status === "completed" ? "rgba(74,222,128,0.12)" : "rgba(142,213,255,0.10)", color: cp.status === "completed" ? "#4ade80" : "var(--color-primary)" }}>
                       {cp.status === "completed" ? (isAr ? "مكتمل" : "Completed") : (isAr ? "جارٍ" : "In progress")}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           )}
         </div>
@@ -1355,14 +1431,35 @@ function EmptyState({ icon, titleAr, titleEn, descAr, descEn, linkHref, linkLabe
   icon: string; titleAr: string; titleEn: string; descAr: string; descEn: string;
   linkHref: string; linkLabelAr: string; linkLabelEn: string; isAr: boolean;
 }) {
+  const shouldReduce = useReducedMotion();
   return (
-    <div className="glass-card rounded-2xl p-8 text-center">
-      <div className="text-3xl mb-3">{icon}</div>
-      <p className="font-semibold mb-1" style={{ color: "var(--color-on-surface)" }}>{isAr ? titleAr : titleEn}</p>
-      <p className="text-sm mb-4" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? descAr : descEn}</p>
-      <Link href={linkHref} className="glow-button-secondary text-sm font-mono px-5 py-2 rounded-xl">
+    <motion.div
+      initial={shouldReduce ? { opacity: 0 } : { opacity: 0, y: 16, scale: 0.97 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: shouldReduce ? 0.15 : 0.5, ease: [0.0, 0.0, 0.2, 1] }}
+      className="glass-card rounded-2xl p-8 text-center relative overflow-hidden"
+    >
+      {/* Phase 12: ambient glow + gentle float — premium "nothing here yet" feel, purely decorative */}
+      {!shouldReduce && (
+        <span
+          className="absolute left-1/2 top-4 w-28 h-28 rounded-full pointer-events-none"
+          style={{ transform: "translateX(-50%)", background: "radial-gradient(circle, rgba(142,213,255,0.12) 0%, transparent 70%)", filter: "blur(14px)" }}
+          aria-hidden="true"
+        />
+      )}
+      <motion.div
+        className="text-3xl mb-3 relative z-10"
+        animate={shouldReduce ? undefined : { y: [0, -6, 0] }}
+        transition={shouldReduce ? undefined : { duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+      >
+        {icon}
+      </motion.div>
+      <p className="font-semibold mb-1 relative z-10" style={{ color: "var(--color-on-surface)" }}>{isAr ? titleAr : titleEn}</p>
+      <p className="text-sm mb-4 relative z-10" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? descAr : descEn}</p>
+      <Link href={linkHref} className="glow-button-secondary text-sm font-mono px-5 py-2 rounded-xl relative z-10">
         {isAr ? linkLabelAr : linkLabelEn}
       </Link>
-    </div>
+    </motion.div>
   );
 }
