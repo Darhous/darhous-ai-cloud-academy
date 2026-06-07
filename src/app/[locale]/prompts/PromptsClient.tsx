@@ -1,16 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CategoryFilter from "@/components/ui/CategoryFilter";
 import PromptCard from "@/components/cards/PromptCard";
-import { prompts, promptCategories } from "@/data/prompts";
+import { prompts, promptCategories, type Prompt } from "@/data/prompts";
 
-export default function PromptsClient({ locale }: { locale: string }) {
+interface Props {
+  locale: string;
+  dbPrompts: Prompt[];
+}
+
+export default function PromptsClient({ locale, dbPrompts }: Props) {
   const isAr = locale === "ar";
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const filtered = prompts.filter((p) =>
+  // Merge: DB prompts first, then static — deduplicate by id
+  const allPrompts = useMemo(() => {
+    const seen = new Set<string>();
+    const merged: Prompt[] = [];
+    for (const p of [...dbPrompts, ...prompts]) {
+      if (!seen.has(p.id)) {
+        seen.add(p.id);
+        merged.push(p);
+      }
+    }
+    return merged;
+  }, [dbPrompts]);
+
+  const categories = useMemo(
+    () => [...new Set([...promptCategories, ...dbPrompts.map((p) => p.category)])],
+    [dbPrompts],
+  );
+
+  const filtered = allPrompts.filter((p) =>
     activeCategory === "all" || p.category === activeCategory
   );
 
@@ -27,7 +50,7 @@ export default function PromptsClient({ locale }: { locale: string }) {
       </div>
 
       <CategoryFilter
-        categories={promptCategories}
+        categories={categories}
         active={activeCategory}
         onChange={setActiveCategory}
         allLabel={isAr ? "جميع الفئات" : "All Categories"}

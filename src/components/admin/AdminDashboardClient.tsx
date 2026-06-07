@@ -27,7 +27,7 @@ import {
   AdminStatusField, AdminToggleField, AdminSortOrderField,
   AdminTagsField, parseTags,
 } from "@/components/admin/content-form/fields";
-import { prompts } from "@/data/prompts";
+import { prompts, promptCategories } from "@/data/prompts";
 import { nanaBananaPrompts } from "@/data/nano-banana-prompts";
 import { defaultMentorSettings } from "@/types/ai_mentor_settings";
 import { defaultFeatureFlags } from "@/types/feature_flags";
@@ -39,7 +39,7 @@ type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
   | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
-  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms";
+  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -182,6 +182,23 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     pros: "", limitations: "", alternatives: "", related_courses: "", related_prompts: "",
   };
   const [toolsForm, setToolsForm] = useState(TOOLS_FORM_DEFAULT);
+
+  /* AI Prompts CMS state */
+  type DbPromptRow = { id: string; title_ar: string; category: string; difficulty: string; best_model: string; status: string; featured: boolean; sort_order: number; updated_at: string };
+  const [promptsDbRows, setPromptsDbRows] = useState<DbPromptRow[]>([]);
+  const [promptsLoading, setPromptsLoading] = useState(false);
+  const [promptsView, setPromptsView] = useState<"list" | "form">("list");
+  const [promptsEditId, setPromptsEditId] = useState<string | null>(null);
+  const [promptsSaving, setPromptsSaving] = useState(false);
+  const [promptsMsg, setPromptsMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
+  const PROMPTS_FORM_DEFAULT = {
+    id: "", title_ar: "", title_en: "", category: "Claude",
+    use_case_ar: "", use_case_en: "", prompt_text: "",
+    difficulty: "beginner" as "beginner" | "intermediate" | "advanced",
+    best_model: "", tags: "", featured: false,
+    status: "published" as "published" | "draft" | "archived", sort_order: "0",
+  };
+  const [promptsForm, setPromptsForm] = useState(PROMPTS_FORM_DEFAULT);
 
   const fetchData = useCallback(async () => {
     if (!user || !supabaseConfigured) return;
@@ -410,6 +427,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "blog",           labelAr: "📰 المدونة",            labelEn: "📰 Blog CMS",         icon: <FileText size={15} /> },
     { id: "ai-glossary",    labelAr: "📖 المسرد",             labelEn: "📖 Glossary CMS",     icon: <BookOpen size={15} /> },
     { id: "ai-tools-cms",   labelAr: "🛠️ أدوات AI",          labelEn: "🛠️ AI Tools CMS",    icon: <Wrench size={15} /> },
+    { id: "ai-prompts-cms", labelAr: "💬 المطالبات",          labelEn: "💬 Prompts CMS",      icon: <MessageSquare size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -3869,6 +3887,315 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                     {toolsSaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (toolsEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر الأداة" : "💾 Publish Tool"))}
                   </button>
                   <button type="button" onClick={() => setToolsView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    {isAr ? "إلغاء" : "Cancel"}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        );
+      })()}
+
+      {tab === "ai-prompts-cms" && (() => {
+        const PROMPT_CAT_OPTIONS = promptCategories.map((c) => ({ value: c, label: c }));
+        const DIFFICULTY_OPTIONS = [
+          { value: "beginner", label: isAr ? "مبتدئ" : "Beginner" },
+          { value: "intermediate", label: isAr ? "متوسط" : "Intermediate" },
+          { value: "advanced", label: isAr ? "متقدم" : "Advanced" },
+        ];
+
+        async function loadPrompts() {
+          setPromptsLoading(true);
+          setPromptsMsg(null);
+          try {
+            const res = await fetch("/api/admin/ai-prompts");
+            if (res.ok) setPromptsDbRows(await res.json());
+          } catch { /* silent */ } finally { setPromptsLoading(false); }
+        }
+
+        function openCreate() {
+          setPromptsEditId(null);
+          setPromptsForm(PROMPTS_FORM_DEFAULT);
+          setPromptsMsg(null);
+          setPromptsView("form");
+        }
+
+        async function openEdit(row: DbPromptRow) {
+          setPromptsMsg(null);
+          try {
+            const res = await fetch(`/api/admin/ai-prompts/${row.id}`);
+            if (!res.ok) { setPromptsMsg({ type: "err", text: isAr ? "فشل تحميل المطالبة" : "Failed to load prompt" }); return; }
+            const data = await res.json();
+            setPromptsForm({
+              id:          data.id ?? "",
+              title_ar:    data.title_ar ?? "",
+              title_en:    data.title_en ?? "",
+              category:    data.category ?? "Claude",
+              use_case_ar: data.use_case_ar ?? "",
+              use_case_en: data.use_case_en ?? "",
+              prompt_text: data.prompt_text ?? "",
+              difficulty:  data.difficulty ?? "beginner",
+              best_model:  data.best_model ?? "",
+              tags:        (data.tags ?? []).join(", "),
+              featured:    data.featured ?? false,
+              status:      data.status ?? "published",
+              sort_order:  String(data.sort_order ?? 0),
+            });
+            setPromptsEditId(row.id);
+            setPromptsView("form");
+          } catch { setPromptsMsg({ type: "err", text: "Error" }); }
+        }
+
+        async function handleArchive(row: DbPromptRow) {
+          if (!confirm(isAr ? `أرشفة "${row.title_ar}"؟` : `Archive "${row.title_ar}"?`)) return;
+          const res = await fetch(`/api/admin/ai-prompts/${row.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: "archived" }) });
+          if (res.ok) { setPromptsDbRows((p) => p.map((x) => x.id === row.id ? { ...x, status: "archived" } : x)); }
+        }
+
+        async function handleDelete(row: DbPromptRow) {
+          if (!confirm(isAr ? `حذف "${row.title_ar}" نهائياً؟` : `Delete "${row.title_ar}" permanently?`)) return;
+          const res = await fetch(`/api/admin/ai-prompts/${row.id}`, { method: "DELETE" });
+          if (res.ok) { setPromptsDbRows((p) => p.filter((x) => x.id !== row.id)); }
+        }
+
+        async function handleSavePrompt(e: React.FormEvent) {
+          e.preventDefault();
+          setPromptsSaving(true);
+          setPromptsMsg(null);
+          try {
+            const payload = {
+              id:          promptsForm.id,
+              title_ar:    promptsForm.title_ar,
+              title_en:    promptsForm.title_en,
+              category:    promptsForm.category,
+              use_case_ar: promptsForm.use_case_ar,
+              use_case_en: promptsForm.use_case_en,
+              prompt_text: promptsForm.prompt_text,
+              difficulty:  promptsForm.difficulty,
+              best_model:  promptsForm.best_model,
+              tags:        parseTags(promptsForm.tags),
+              featured:    promptsForm.featured,
+              status:      promptsForm.status,
+              sort_order:  Number(promptsForm.sort_order) || 0,
+            };
+            const url = promptsEditId ? `/api/admin/ai-prompts/${promptsEditId}` : "/api/admin/ai-prompts";
+            const method = promptsEditId ? "PATCH" : "POST";
+            const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+            if (!res.ok) {
+              const j = await res.json().catch(() => ({} as { error?: string }));
+              setPromptsMsg({ type: "err", text: j.error ?? `Error ${res.status}` });
+              return;
+            }
+            setPromptsMsg({ type: "ok", text: isAr ? "✅ تم الحفظ بنجاح" : "✅ Saved successfully" });
+            await loadPrompts();
+            setTimeout(() => setPromptsView("list"), 1200);
+          } catch (err) {
+            setPromptsMsg({ type: "err", text: err instanceof Error ? err.message : "Error" });
+          } finally {
+            setPromptsSaving(false);
+          }
+        }
+
+        const slugifyId = (text: string) => text.toLowerCase().trim().replace(/[\s_]+/g, "-").replace(/[^a-z0-9-]/g, "").slice(0, 60);
+
+        return (
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+                {promptsView === "list"
+                  ? (isAr ? "💬 إدارة المطالبات" : "💬 Prompts CMS")
+                  : (promptsEditId ? (isAr ? "✏️ تعديل مطالبة" : "✏️ Edit Prompt") : (isAr ? "✏️ مطالبة جديدة" : "✏️ New Prompt"))}
+              </h2>
+              <div className="flex gap-2 flex-wrap">
+                {promptsView === "list" ? (
+                  <>
+                    <button onClick={loadPrompts} disabled={promptsLoading} className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer disabled:opacity-50" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                      <RefreshCw size={12} className={promptsLoading ? "animate-spin" : ""} /> {isAr ? "تحديث" : "Refresh"}
+                    </button>
+                    <button onClick={openCreate} className="flex items-center gap-1 text-xs font-mono px-4 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(142,213,255,0.12)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.25)" }}>
+                      + {isAr ? "مطالبة جديدة" : "New Prompt"}
+                    </button>
+                  </>
+                ) : (
+                  <button onClick={() => setPromptsView("list")} className="text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    ← {isAr ? "قائمة المطالبات" : "Prompt List"}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {promptsMsg && (
+              <p className="text-xs font-mono px-3 py-2 rounded-lg" style={{ background: promptsMsg.type === "ok" ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)", color: promptsMsg.type === "ok" ? "#4ade80" : "#f87171" }}>
+                {promptsMsg.text}
+              </p>
+            )}
+
+            {/* ── LIST VIEW ── */}
+            {promptsView === "list" && (
+              <div className="flex flex-col gap-3">
+                {promptsLoading ? (
+                  <p className="text-xs font-mono text-center py-6" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "جارٍ التحميل…" : "Loading…"}</p>
+                ) : promptsDbRows.length === 0 ? (
+                  <div className="glass-card rounded-2xl p-8 text-center">
+                    <p className="text-3xl mb-3">💬</p>
+                    <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "لا توجد مطالبات في قاعدة البيانات بعد. اضغط «تحديث» أو «مطالبة جديدة»." : "No prompts in DB yet. Click «Refresh» or «New Prompt»."}</p>
+                    <p className="text-xs mt-2 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "تذكّر تطبيق migration v24 في Supabase أولاً." : "Remember to apply migration v24 in Supabase first."}</p>
+                  </div>
+                ) : (
+                  promptsDbRows.map((row) => (
+                    <div key={row.id} className="glass-card rounded-xl p-4 flex items-center gap-4 flex-wrap" style={{ border: `1px solid ${row.status === "published" ? "rgba(74,222,128,0.15)" : row.status === "draft" ? "rgba(250,204,21,0.15)" : "rgba(255,255,255,0.06)"}` }}>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-xs font-mono px-2 py-0.5 rounded-full" style={{ background: row.status === "published" ? "rgba(74,222,128,0.12)" : row.status === "draft" ? "rgba(250,204,21,0.12)" : "rgba(255,255,255,0.06)", color: row.status === "published" ? "#4ade80" : row.status === "draft" ? "#fbbf24" : "#888" }}>
+                            {row.status}
+                          </span>
+                          {row.featured && <span className="text-xs font-mono" style={{ color: "#f59e0b" }}>⭐ featured</span>}
+                          <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{row.category} · {row.difficulty} · {row.best_model}</span>
+                        </div>
+                        <p className="font-semibold text-sm mt-1 truncate" style={{ color: "var(--color-on-surface)" }}>{row.title_ar}</p>
+                        <p className="text-xs mt-1 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>#{row.id} · sort {row.sort_order} · {row.updated_at?.split("T")[0]}</p>
+                      </div>
+                      <div className="flex gap-2 flex-shrink-0">
+                        <a href={`/ar/prompts`} target="_blank" rel="noreferrer" className="text-xs font-mono px-2.5 py-1.5 rounded-lg" style={{ background: "rgba(142,213,255,0.08)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)", textDecoration: "none" }}>
+                          {isAr ? "عرض" : "View"}
+                        </a>
+                        <button onClick={() => openEdit(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                          {isAr ? "تعديل" : "Edit"}
+                        </button>
+                        {row.status !== "archived" && (
+                          <button onClick={() => handleArchive(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(250,204,21,0.08)", color: "#fbbf24", border: "1px solid rgba(250,204,21,0.2)" }}>
+                            {isAr ? "أرشفة" : "Archive"}
+                          </button>
+                        )}
+                        <button onClick={() => handleDelete(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(239,68,68,0.08)", color: "#f87171", border: "1px solid rgba(239,68,68,0.2)" }}>
+                          {isAr ? "حذف" : "Delete"}
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            )}
+
+            {/* ── FORM VIEW ── */}
+            {promptsView === "form" && (
+              <form onSubmit={handleSavePrompt} className="flex flex-col gap-5">
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "المعلومات الأساسية" : "Basic Info"}</h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextField
+                      label={isAr ? "العنوان (عربي) *" : "Title (Arabic) *"}
+                      value={promptsForm.title_ar}
+                      onChange={(v) => {
+                        setPromptsForm((f) => ({ ...f, title_ar: v }));
+                        if (!promptsEditId && !promptsForm.id) setPromptsForm((f) => ({ ...f, id: slugifyId(v || promptsForm.title_en) }));
+                      }}
+                      placeholder="بناء موقع ويب كامل"
+                      dir="rtl"
+                      required
+                    />
+                    <AdminTextField
+                      label={isAr ? "العنوان (إنجليزي)" : "Title (English)"}
+                      value={promptsForm.title_en}
+                      onChange={(v) => {
+                        setPromptsForm((f) => ({ ...f, title_en: v }));
+                        if (!promptsEditId && !promptsForm.id) setPromptsForm((f) => ({ ...f, id: slugifyId(v) }));
+                      }}
+                      placeholder="Build a Complete Website"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <AdminTextField
+                      label={isAr ? "المعرّف (id) *" : "ID (slug) *"}
+                      value={promptsForm.id}
+                      onChange={(v) => setPromptsForm((f) => ({ ...f, id: slugifyId(v) }))}
+                      placeholder="build-website"
+                      required
+                      mono
+                      dir="ltr"
+                    />
+                    <AdminSelectField
+                      label={isAr ? "الفئة" : "Category"}
+                      value={promptsForm.category}
+                      onChange={(v) => setPromptsForm((f) => ({ ...f, category: v }))}
+                      options={PROMPT_CAT_OPTIONS}
+                    />
+                    <AdminSelectField
+                      label={isAr ? "مستوى الصعوبة" : "Difficulty"}
+                      value={promptsForm.difficulty}
+                      onChange={(v) => setPromptsForm((f) => ({ ...f, difficulty: v as typeof promptsForm.difficulty }))}
+                      options={DIFFICULTY_OPTIONS}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextField
+                      label={isAr ? "حالة الاستخدام (عربي)" : "Use Case (Arabic)"}
+                      value={promptsForm.use_case_ar}
+                      onChange={(v) => setPromptsForm((f) => ({ ...f, use_case_ar: v }))}
+                      placeholder="بناء مواقع ويب من الصفر"
+                      dir="rtl"
+                    />
+                    <AdminTextField
+                      label={isAr ? "حالة الاستخدام (إنجليزي)" : "Use Case (English)"}
+                      value={promptsForm.use_case_en}
+                      onChange={(v) => setPromptsForm((f) => ({ ...f, use_case_en: v }))}
+                      placeholder="Building websites from scratch"
+                    />
+                  </div>
+
+                  <AdminTextAreaField
+                    label={isAr ? "نص المطالبة *" : "Prompt Text *"}
+                    value={promptsForm.prompt_text}
+                    onChange={(v) => setPromptsForm((f) => ({ ...f, prompt_text: v }))}
+                    placeholder="You are a senior full-stack developer..."
+                    required
+                    dir="ltr"
+                    rows={8}
+                  />
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextField
+                      label={isAr ? "أفضل نموذج" : "Best Model"}
+                      value={promptsForm.best_model}
+                      onChange={(v) => setPromptsForm((f) => ({ ...f, best_model: v }))}
+                      placeholder="Claude Sonnet"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "الوسوم" : "Tags"}
+                      value={promptsForm.tags}
+                      onChange={(v) => setPromptsForm((f) => ({ ...f, tags: v }))}
+                      placeholder="web, fullstack, coding"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+                    <AdminSortOrderField
+                      label={isAr ? "ترتيب العرض" : "Sort order"}
+                      value={Number(promptsForm.sort_order) || 0}
+                      onChange={(v) => setPromptsForm((f) => ({ ...f, sort_order: String(v) }))}
+                    />
+                    <AdminStatusField
+                      value={promptsForm.status}
+                      onChange={(v) => setPromptsForm((f) => ({ ...f, status: v }))}
+                      label={isAr ? "الحالة" : "Status"}
+                    />
+                  </div>
+                  <AdminToggleField
+                    label={isAr ? "مطالبة مميزة" : "Featured"}
+                    checked={promptsForm.featured}
+                    onChange={(v) => setPromptsForm((f) => ({ ...f, featured: v }))}
+                  />
+                </div>
+
+                {/* Save */}
+                <div className="flex gap-3">
+                  <button type="submit" disabled={promptsSaving} className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold cursor-pointer disabled:opacity-50" style={{ background: "rgba(142,213,255,0.15)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.3)" }}>
+                    {promptsSaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (promptsEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر المطالبة" : "💾 Publish Prompt"))}
+                  </button>
+                  <button type="button" onClick={() => setPromptsView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
                     {isAr ? "إلغاء" : "Cancel"}
                   </button>
                 </div>
