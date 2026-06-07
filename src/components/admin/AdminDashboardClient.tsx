@@ -8,13 +8,14 @@ import {
   TrendingUp, MessageSquare, Search, Download, Bot,
   Globe, Award, Zap, Palette, Bell, ToggleLeft, ToggleRight,
   Eye, EyeOff, Edit3, CheckCircle, BarChart2, ExternalLink, AlertTriangle, Sparkles, ImageIcon,
+  GraduationCap,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { portals as allPortals } from "@/config/portals";
 import { curatedWorkflows } from "@/data/automation/workflowLibrary";
 import { examSubjects } from "@/data/digital-exam-subjects";
-import { courses } from "@/data/courses";
+import { courses, courseCategories } from "@/data/courses";
 import { tools, toolCategories } from "@/data/tools";
 import { lessonsData } from "@/data/iot/lessons";
 import { projectsData } from "@/data/iot/projects";
@@ -39,7 +40,7 @@ type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
   | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
-  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms";
+  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -199,6 +200,32 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     status: "published" as "published" | "draft" | "archived", sort_order: "0",
   };
   const [promptsForm, setPromptsForm] = useState(PROMPTS_FORM_DEFAULT);
+
+  /* AI Courses CMS state */
+  type DbCourseRow = { id: string; title_ar: string; category: string; level: string; status: string; featured: boolean; sort_order: number; updated_at: string };
+  const [coursesDbRows, setCoursesDbRows] = useState<DbCourseRow[]>([]);
+  const [coursesLoading, setCoursesLoading] = useState(false);
+  const [coursesView, setCoursesView] = useState<"list" | "form">("list");
+  const [coursesEditId, setCoursesEditId] = useState<string | null>(null);
+  const [coursesSaving, setCoursesSaving] = useState(false);
+  const [coursesMsg, setCoursesMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
+  const COURSES_FORM_DEFAULT = {
+    id: "", title_ar: "", title_en: "",
+    description_ar: "", description_en: "",
+    category: "AI",
+    level: "beginner" as "beginner" | "intermediate" | "advanced",
+    lessons: "0", hours: "0", projects: "0",
+    skills: "", icon: "🧠", color: "blue",
+    coming_soon: false,
+    overview_ar: "", overview_en: "",
+    for_who_ar: "", for_who_en: "",
+    what_you_learn_ar: "", what_you_learn_en: "",
+    tools_required: "", related_projects: "", related_courses: "",
+    lesson_outline: "", quiz: "",
+    featured: false,
+    status: "published" as "published" | "draft" | "archived", sort_order: "0",
+  };
+  const [coursesForm, setCoursesForm] = useState(COURSES_FORM_DEFAULT);
 
   const fetchData = useCallback(async () => {
     if (!user || !supabaseConfigured) return;
@@ -428,6 +455,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "ai-glossary",    labelAr: "📖 المسرد",             labelEn: "📖 Glossary CMS",     icon: <BookOpen size={15} /> },
     { id: "ai-tools-cms",   labelAr: "🛠️ أدوات AI",          labelEn: "🛠️ AI Tools CMS",    icon: <Wrench size={15} /> },
     { id: "ai-prompts-cms", labelAr: "💬 المطالبات",          labelEn: "💬 Prompts CMS",      icon: <MessageSquare size={15} /> },
+    { id: "ai-courses-cms", labelAr: "🎓 الدورات",            labelEn: "🎓 Courses CMS",      icon: <GraduationCap size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -4196,6 +4224,491 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                     {promptsSaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (promptsEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر المطالبة" : "💾 Publish Prompt"))}
                   </button>
                   <button type="button" onClick={() => setPromptsView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    {isAr ? "إلغاء" : "Cancel"}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        );
+      })()}
+
+      {tab === "ai-courses-cms" && (() => {
+        const COURSE_CAT_OPTIONS = courseCategories.map((c) => ({ value: c, label: c }));
+        const LEVEL_OPTIONS = [
+          { value: "beginner", label: isAr ? "مبتدئ" : "Beginner" },
+          { value: "intermediate", label: isAr ? "متوسط" : "Intermediate" },
+          { value: "advanced", label: isAr ? "متقدم" : "Advanced" },
+        ];
+
+        async function loadCourses() {
+          setCoursesLoading(true);
+          setCoursesMsg(null);
+          try {
+            const res = await fetch("/api/admin/ai-courses");
+            if (res.ok) setCoursesDbRows(await res.json());
+          } catch { /* silent */ } finally { setCoursesLoading(false); }
+        }
+
+        function openCreate() {
+          setCoursesEditId(null);
+          setCoursesForm(COURSES_FORM_DEFAULT);
+          setCoursesMsg(null);
+          setCoursesView("form");
+        }
+
+        async function openEdit(row: DbCourseRow) {
+          setCoursesMsg(null);
+          try {
+            const res = await fetch(`/api/admin/ai-courses/${row.id}`);
+            if (!res.ok) { setCoursesMsg({ type: "err", text: isAr ? "فشل تحميل الدورة" : "Failed to load course" }); return; }
+            const data = await res.json();
+            setCoursesForm({
+              id:                data.id ?? "",
+              title_ar:          data.title_ar ?? "",
+              title_en:          data.title_en ?? "",
+              description_ar:    data.description_ar ?? "",
+              description_en:    data.description_en ?? "",
+              category:          data.category ?? "AI",
+              level:             data.level ?? "beginner",
+              lessons:           String(data.lessons ?? 0),
+              hours:             String(data.hours ?? 0),
+              projects:          String(data.projects ?? 0),
+              skills:            (data.skills ?? []).join(", "),
+              icon:              data.icon ?? "🧠",
+              color:             data.color ?? "blue",
+              coming_soon:       data.coming_soon ?? false,
+              overview_ar:       data.overview_ar ?? "",
+              overview_en:       data.overview_en ?? "",
+              for_who_ar:        (data.for_who_ar ?? []).join(", "),
+              for_who_en:        (data.for_who_en ?? []).join(", "),
+              what_you_learn_ar: (data.what_you_learn_ar ?? []).join(", "),
+              what_you_learn_en: (data.what_you_learn_en ?? []).join(", "),
+              tools_required:    (data.tools_required ?? []).join(", "),
+              related_projects:  (data.related_projects ?? []).join(", "),
+              related_courses:   (data.related_courses ?? []).join(", "),
+              lesson_outline:    data.lesson_outline ? JSON.stringify(data.lesson_outline, null, 2) : "",
+              quiz:              data.quiz ? JSON.stringify(data.quiz, null, 2) : "",
+              featured:          data.featured ?? false,
+              status:            data.status ?? "published",
+              sort_order:        String(data.sort_order ?? 0),
+            });
+            setCoursesEditId(row.id);
+            setCoursesView("form");
+          } catch { setCoursesMsg({ type: "err", text: "Error" }); }
+        }
+
+        async function handleArchive(row: DbCourseRow) {
+          if (!confirm(isAr ? `أرشفة "${row.title_ar}"؟` : `Archive "${row.title_ar}"?`)) return;
+          const res = await fetch(`/api/admin/ai-courses/${row.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: "archived" }) });
+          if (res.ok) { setCoursesDbRows((p) => p.map((x) => x.id === row.id ? { ...x, status: "archived" } : x)); }
+        }
+
+        async function handleDelete(row: DbCourseRow) {
+          if (!confirm(isAr ? `حذف "${row.title_ar}" نهائياً؟` : `Delete "${row.title_ar}" permanently?`)) return;
+          const res = await fetch(`/api/admin/ai-courses/${row.id}`, { method: "DELETE" });
+          if (res.ok) { setCoursesDbRows((p) => p.filter((x) => x.id !== row.id)); }
+        }
+
+        function parseJsonField(raw: string, label: string): { ok: true; value: unknown } | { ok: false; error: string } {
+          if (!raw.trim()) return { ok: true, value: null };
+          try { return { ok: true, value: JSON.parse(raw) }; }
+          catch { return { ok: false, error: isAr ? `صيغة JSON غير صحيحة في ${label}` : `Invalid JSON in ${label}` }; }
+        }
+
+        async function handleSaveCourse(e: React.FormEvent) {
+          e.preventDefault();
+          setCoursesSaving(true);
+          setCoursesMsg(null);
+          try {
+            const lessonOutline = parseJsonField(coursesForm.lesson_outline, "lesson_outline");
+            if (!lessonOutline.ok) { setCoursesMsg({ type: "err", text: lessonOutline.error }); return; }
+            const quiz = parseJsonField(coursesForm.quiz, "quiz");
+            if (!quiz.ok) { setCoursesMsg({ type: "err", text: quiz.error }); return; }
+
+            const payload = {
+              id:                coursesForm.id,
+              title_ar:          coursesForm.title_ar,
+              title_en:          coursesForm.title_en,
+              description_ar:    coursesForm.description_ar,
+              description_en:    coursesForm.description_en,
+              category:          coursesForm.category,
+              level:             coursesForm.level,
+              lessons:           Number(coursesForm.lessons) || 0,
+              hours:             Number(coursesForm.hours) || 0,
+              projects:          Number(coursesForm.projects) || 0,
+              skills:            parseTags(coursesForm.skills),
+              icon:              coursesForm.icon,
+              color:             coursesForm.color,
+              coming_soon:       coursesForm.coming_soon,
+              overview_ar:       coursesForm.overview_ar,
+              overview_en:       coursesForm.overview_en,
+              for_who_ar:        parseTags(coursesForm.for_who_ar),
+              for_who_en:        parseTags(coursesForm.for_who_en),
+              what_you_learn_ar: parseTags(coursesForm.what_you_learn_ar),
+              what_you_learn_en: parseTags(coursesForm.what_you_learn_en),
+              tools_required:    parseTags(coursesForm.tools_required),
+              related_projects:  parseTags(coursesForm.related_projects),
+              related_courses:   parseTags(coursesForm.related_courses),
+              lesson_outline:    lessonOutline.value,
+              quiz:              quiz.value,
+              featured:          coursesForm.featured,
+              status:            coursesForm.status,
+              sort_order:        Number(coursesForm.sort_order) || 0,
+            };
+            const url = coursesEditId ? `/api/admin/ai-courses/${coursesEditId}` : "/api/admin/ai-courses";
+            const method = coursesEditId ? "PATCH" : "POST";
+            const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+            if (!res.ok) {
+              const j = await res.json().catch(() => ({} as { error?: string }));
+              setCoursesMsg({ type: "err", text: j.error ?? `Error ${res.status}` });
+              return;
+            }
+            setCoursesMsg({ type: "ok", text: isAr ? "✅ تم الحفظ بنجاح" : "✅ Saved successfully" });
+            await loadCourses();
+            setTimeout(() => setCoursesView("list"), 1200);
+          } catch (err) {
+            setCoursesMsg({ type: "err", text: err instanceof Error ? err.message : "Error" });
+          } finally {
+            setCoursesSaving(false);
+          }
+        }
+
+        const slugifyId = (text: string) => text.toLowerCase().trim().replace(/[\s_]+/g, "-").replace(/[^a-z0-9-]/g, "").slice(0, 60);
+
+        return (
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+                {coursesView === "list"
+                  ? (isAr ? "🎓 إدارة الدورات" : "🎓 Courses CMS")
+                  : (coursesEditId ? (isAr ? "✏️ تعديل دورة" : "✏️ Edit Course") : (isAr ? "✏️ دورة جديدة" : "✏️ New Course"))}
+              </h2>
+              <div className="flex gap-2 flex-wrap">
+                {coursesView === "list" ? (
+                  <>
+                    <button onClick={loadCourses} disabled={coursesLoading} className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer disabled:opacity-50" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                      <RefreshCw size={12} className={coursesLoading ? "animate-spin" : ""} /> {isAr ? "تحديث" : "Refresh"}
+                    </button>
+                    <button onClick={openCreate} className="flex items-center gap-1 text-xs font-mono px-4 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(142,213,255,0.12)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.25)" }}>
+                      + {isAr ? "دورة جديدة" : "New Course"}
+                    </button>
+                  </>
+                ) : (
+                  <button onClick={() => setCoursesView("list")} className="text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    ← {isAr ? "قائمة الدورات" : "Course List"}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {coursesMsg && (
+              <p className="text-xs font-mono px-3 py-2 rounded-lg" style={{ background: coursesMsg.type === "ok" ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)", color: coursesMsg.type === "ok" ? "#4ade80" : "#f87171" }}>
+                {coursesMsg.text}
+              </p>
+            )}
+
+            {/* ── LIST VIEW ── */}
+            {coursesView === "list" && (
+              <div className="flex flex-col gap-3">
+                {coursesLoading ? (
+                  <p className="text-xs font-mono text-center py-6" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "جارٍ التحميل…" : "Loading…"}</p>
+                ) : coursesDbRows.length === 0 ? (
+                  <div className="glass-card rounded-2xl p-8 text-center">
+                    <p className="text-3xl mb-3">🎓</p>
+                    <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "لا توجد دورات في قاعدة البيانات بعد. اضغط «تحديث» أو «دورة جديدة»." : "No courses in DB yet. Click «Refresh» or «New Course»."}</p>
+                    <p className="text-xs mt-2 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "تذكّر تطبيق migration v25 في Supabase أولاً." : "Remember to apply migration v25 in Supabase first."}</p>
+                  </div>
+                ) : (
+                  coursesDbRows.map((row) => (
+                    <div key={row.id} className="glass-card rounded-xl p-4 flex items-center gap-4 flex-wrap" style={{ border: `1px solid ${row.status === "published" ? "rgba(74,222,128,0.15)" : row.status === "draft" ? "rgba(250,204,21,0.15)" : "rgba(255,255,255,0.06)"}` }}>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-xs font-mono px-2 py-0.5 rounded-full" style={{ background: row.status === "published" ? "rgba(74,222,128,0.12)" : row.status === "draft" ? "rgba(250,204,21,0.12)" : "rgba(255,255,255,0.06)", color: row.status === "published" ? "#4ade80" : row.status === "draft" ? "#fbbf24" : "#888" }}>
+                            {row.status}
+                          </span>
+                          {row.featured && <span className="text-xs font-mono" style={{ color: "#f59e0b" }}>⭐ featured</span>}
+                          <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{row.category} · {row.level}</span>
+                        </div>
+                        <p className="font-semibold text-sm mt-1 truncate" style={{ color: "var(--color-on-surface)" }}>{row.title_ar}</p>
+                        <p className="text-xs mt-1 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>#{row.id} · sort {row.sort_order} · {row.updated_at?.split("T")[0]}</p>
+                      </div>
+                      <div className="flex gap-2 flex-shrink-0">
+                        <a href={`/ar/courses`} target="_blank" rel="noreferrer" className="text-xs font-mono px-2.5 py-1.5 rounded-lg" style={{ background: "rgba(142,213,255,0.08)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)", textDecoration: "none" }}>
+                          {isAr ? "عرض" : "View"}
+                        </a>
+                        <button onClick={() => openEdit(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                          {isAr ? "تعديل" : "Edit"}
+                        </button>
+                        {row.status !== "archived" && (
+                          <button onClick={() => handleArchive(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(250,204,21,0.08)", color: "#fbbf24", border: "1px solid rgba(250,204,21,0.2)" }}>
+                            {isAr ? "أرشفة" : "Archive"}
+                          </button>
+                        )}
+                        <button onClick={() => handleDelete(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(239,68,68,0.08)", color: "#f87171", border: "1px solid rgba(239,68,68,0.2)" }}>
+                          {isAr ? "حذف" : "Delete"}
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            )}
+
+            {/* ── FORM VIEW ── */}
+            {coursesView === "form" && (
+              <form onSubmit={handleSaveCourse} className="flex flex-col gap-5">
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "المعلومات الأساسية" : "Basic Info"}</h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextField
+                      label={isAr ? "العنوان (عربي) *" : "Title (Arabic) *"}
+                      value={coursesForm.title_ar}
+                      onChange={(v) => {
+                        setCoursesForm((f) => ({ ...f, title_ar: v }));
+                        if (!coursesEditId && !coursesForm.id) setCoursesForm((f) => ({ ...f, id: slugifyId(v || coursesForm.title_en) }));
+                      }}
+                      placeholder="أساسيات الذكاء الاصطناعي"
+                      dir="rtl"
+                      required
+                    />
+                    <AdminTextField
+                      label={isAr ? "العنوان (إنجليزي)" : "Title (English)"}
+                      value={coursesForm.title_en}
+                      onChange={(v) => {
+                        setCoursesForm((f) => ({ ...f, title_en: v }));
+                        if (!coursesEditId && !coursesForm.id) setCoursesForm((f) => ({ ...f, id: slugifyId(v) }));
+                      }}
+                      placeholder="AI Fundamentals"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <AdminTextField
+                      label={isAr ? "المعرّف (id) *" : "ID (slug) *"}
+                      value={coursesForm.id}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, id: slugifyId(v) }))}
+                      placeholder="ai-fundamentals"
+                      required
+                      mono
+                      dir="ltr"
+                    />
+                    <AdminSelectField
+                      label={isAr ? "الفئة" : "Category"}
+                      value={coursesForm.category}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, category: v }))}
+                      options={COURSE_CAT_OPTIONS}
+                    />
+                    <AdminSelectField
+                      label={isAr ? "المستوى" : "Level"}
+                      value={coursesForm.level}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, level: v as typeof coursesForm.level }))}
+                      options={LEVEL_OPTIONS}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "الوصف (عربي) *" : "Description (Arabic) *"}
+                      value={coursesForm.description_ar}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, description_ar: v }))}
+                      placeholder="وصف مختصر للدورة"
+                      dir="rtl"
+                      required
+                      rows={3}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "الوصف (إنجليزي)" : "Description (English)"}
+                      value={coursesForm.description_en}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, description_en: v }))}
+                      placeholder="Short course description"
+                      rows={3}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "نظرة عامة (عربي)" : "Overview (Arabic)"}
+                      value={coursesForm.overview_ar}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, overview_ar: v }))}
+                      placeholder="نظرة عامة موسّعة عن الدورة"
+                      dir="rtl"
+                      rows={3}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "نظرة عامة (إنجليزي)" : "Overview (English)"}
+                      value={coursesForm.overview_en}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, overview_en: v }))}
+                      placeholder="Extended course overview"
+                      rows={3}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
+                    <AdminTextField
+                      label={isAr ? "عدد الدروس" : "Lessons"}
+                      value={coursesForm.lessons}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, lessons: v.replace(/[^0-9]/g, "") }))}
+                      placeholder="8"
+                      mono
+                      dir="ltr"
+                    />
+                    <AdminTextField
+                      label={isAr ? "عدد الساعات" : "Hours"}
+                      value={coursesForm.hours}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, hours: v.replace(/[^0-9]/g, "") }))}
+                      placeholder="12"
+                      mono
+                      dir="ltr"
+                    />
+                    <AdminTextField
+                      label={isAr ? "عدد المشاريع" : "Projects"}
+                      value={coursesForm.projects}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, projects: v.replace(/[^0-9]/g, "") }))}
+                      placeholder="2"
+                      mono
+                      dir="ltr"
+                    />
+                    <AdminTextField
+                      label={isAr ? "الأيقونة" : "Icon"}
+                      value={coursesForm.icon}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, icon: v }))}
+                      placeholder="🧠"
+                    />
+                    <AdminTextField
+                      label={isAr ? "اللون" : "Color"}
+                      value={coursesForm.color}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, color: v }))}
+                      placeholder="blue"
+                      mono
+                      dir="ltr"
+                    />
+                  </div>
+                </div>
+
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "تفاصيل إضافية (مفصولة بفواصل)" : "Extra Details (comma-separated)"}</h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTagsField
+                      label={isAr ? "المهارات" : "Skills"}
+                      value={coursesForm.skills}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, skills: v }))}
+                      placeholder="Prompting, RAG, Fine-tuning"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "الأدوات المطلوبة" : "Tools Required"}
+                      value={coursesForm.tools_required}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, tools_required: v }))}
+                      placeholder="ChatGPT, VS Code"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTagsField
+                      label={isAr ? "لمن هذه الدورة (عربي)" : "For Who (Arabic)"}
+                      value={coursesForm.for_who_ar}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, for_who_ar: v }))}
+                      placeholder="المبتدئين, المطورين"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "لمن هذه الدورة (إنجليزي)" : "For Who (English)"}
+                      value={coursesForm.for_who_en}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, for_who_en: v }))}
+                      placeholder="Beginners, Developers"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTagsField
+                      label={isAr ? "ماذا ستتعلم (عربي)" : "What You'll Learn (Arabic)"}
+                      value={coursesForm.what_you_learn_ar}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, what_you_learn_ar: v }))}
+                      placeholder="بناء المطالبات, التكامل مع APIs"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "ماذا ستتعلم (إنجليزي)" : "What You'll Learn (English)"}
+                      value={coursesForm.what_you_learn_en}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, what_you_learn_en: v }))}
+                      placeholder="Prompt engineering, API integration"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTagsField
+                      label={isAr ? "مشاريع مرتبطة (IDs)" : "Related Projects (IDs)"}
+                      value={coursesForm.related_projects}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, related_projects: v }))}
+                      placeholder="ai-chatbot, image-classifier"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "دورات مرتبطة (IDs)" : "Related Courses (IDs)"}
+                      value={coursesForm.related_courses}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, related_courses: v }))}
+                      placeholder="ai-fundamentals, prompt-engineering"
+                    />
+                  </div>
+                </div>
+
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "محتوى الدورة (JSON خام)" : "Course Content (raw JSON)"}</h3>
+                  <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {isAr
+                      ? "أدخل مصفوفة JSON صالحة (أو اتركها فارغة). مثال للدرس: { \"titleAr\": \"...\", \"titleEn\": \"...\", \"type\": \"video\", \"duration\": \"10 mins\" }"
+                      : "Enter a valid JSON array (or leave empty). Lesson shape: { \"titleAr\": \"...\", \"titleEn\": \"...\", \"type\": \"video\", \"duration\": \"10 mins\" }"}
+                  </p>
+                  <AdminTextAreaField
+                    label={isAr ? "مخطط الدروس (lessonOutline)" : "Lesson Outline (lessonOutline)"}
+                    value={coursesForm.lesson_outline}
+                    onChange={(v) => setCoursesForm((f) => ({ ...f, lesson_outline: v }))}
+                    placeholder='[{"titleAr":"مقدمة","titleEn":"Intro","type":"video","duration":"10 mins"}]'
+                    dir="ltr"
+                    rows={8}
+                  />
+                  <AdminTextAreaField
+                    label={isAr ? "الاختبار (quiz)" : "Quiz (quiz)"}
+                    value={coursesForm.quiz}
+                    onChange={(v) => setCoursesForm((f) => ({ ...f, quiz: v }))}
+                    placeholder='[{"questionAr":"...","questionEn":"...","options":["A","B"],"correctIndex":0}]'
+                    dir="ltr"
+                    rows={6}
+                  />
+                </div>
+
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+                    <AdminSortOrderField
+                      label={isAr ? "ترتيب العرض" : "Sort order"}
+                      value={Number(coursesForm.sort_order) || 0}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, sort_order: String(v) }))}
+                    />
+                    <AdminStatusField
+                      value={coursesForm.status}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, status: v }))}
+                      label={isAr ? "الحالة" : "Status"}
+                    />
+                  </div>
+                  <div className="flex flex-wrap gap-6">
+                    <AdminToggleField
+                      label={isAr ? "دورة مميزة" : "Featured"}
+                      checked={coursesForm.featured}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, featured: v }))}
+                    />
+                    <AdminToggleField
+                      label={isAr ? "قريباً (Coming Soon)" : "Coming Soon"}
+                      checked={coursesForm.coming_soon}
+                      onChange={(v) => setCoursesForm((f) => ({ ...f, coming_soon: v }))}
+                    />
+                  </div>
+                </div>
+
+                {/* Save */}
+                <div className="flex gap-3">
+                  <button type="submit" disabled={coursesSaving} className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold cursor-pointer disabled:opacity-50" style={{ background: "rgba(142,213,255,0.15)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.3)" }}>
+                    {coursesSaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (coursesEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر الدورة" : "💾 Publish Course"))}
+                  </button>
+                  <button type="button" onClick={() => setCoursesView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
                     {isAr ? "إلغاء" : "Cancel"}
                   </button>
                 </div>

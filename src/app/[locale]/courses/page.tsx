@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { fetchDbCourses } from "./dbCourses";
 import CoursesClient from "./CoursesClient";
 
 export async function generateMetadata({
@@ -25,5 +26,6 @@ export default async function CoursesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return <CoursesClient locale={locale} />;
+  const dbCourses = await fetchDbCourses();
+  return <CoursesClient locale={locale} dbCourses={dbCourses} />;
 }

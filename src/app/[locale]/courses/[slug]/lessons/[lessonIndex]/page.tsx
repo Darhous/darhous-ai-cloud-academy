@@ -3,10 +3,13 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { courses } from "@/data/courses";
 import { lessonContent } from "@/data/lessons/content";
+import { fetchDbCourse } from "../../../dbCourses";
 import MdxContent from "@/components/blog/MdxContent";
 import LessonProgressButton from "@/components/lesson/LessonProgressButton";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { Clock, ChevronLeft, ChevronRight } from "lucide-react";
+
+export const dynamicParams = true;
 
 type Params = Promise<{ locale: string; slug: string; lessonIndex: string }>;
 
@@ -25,7 +28,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { locale, slug, lessonIndex } = await params;
-  const course = courses.find((c) => c.id === slug);
+  const course = courses.find((c) => c.id === slug) ?? await fetchDbCourse(slug);
   const idx = parseInt(lessonIndex, 10) - 1;
   const lesson = course?.lessonOutline?.[idx];
   if (!course || !lesson) return { title: "Lesson Not Found" };
@@ -53,7 +56,7 @@ const typeLabel: Record<string, { ar: string; en: string }> = {
 
 export default async function LessonPage({ params }: { params: Params }) {
   const { locale, slug, lessonIndex } = await params;
-  const course = courses.find((c) => c.id === slug);
+  const course = courses.find((c) => c.id === slug) ?? await fetchDbCourse(slug);
   if (!course || !course.lessonOutline) notFound();
 
   const idx = parseInt(lessonIndex, 10) - 1;

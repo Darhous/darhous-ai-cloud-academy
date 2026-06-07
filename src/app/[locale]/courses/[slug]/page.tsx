@@ -3,11 +3,14 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { courses } from "@/data/courses";
 import { projects } from "@/data/projects";
+import { fetchDbCourse } from "../dbCourses";
 import Badge from "@/components/ui/Badge";
 import QuizSection from "@/components/features/QuizSection";
 import { ArrowLeft, ArrowRight, BookOpen, Clock, FolderOpen, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 import AskThisPageButton from "@/components/ui/AskThisPageButton";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+
+export const dynamicParams = true;
 
 type Params = Promise<{ locale: string; slug: string }>;
 
@@ -20,7 +23,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const course = courses.find((c) => c.id === slug);
+  const course = courses.find((c) => c.id === slug) ?? await fetchDbCourse(slug);
   if (!course) return { title: "Course Not Found" };
   const isAr = locale === "ar";
   return {
@@ -35,7 +38,7 @@ const typeIcon = { video: "🎥", reading: "📖", project: "🔨", quiz: "✅" 
 
 export default async function CourseDetailPage({ params }: { params: Params }) {
   const { locale, slug } = await params;
-  const course = courses.find((c) => c.id === slug);
+  const course = courses.find((c) => c.id === slug) ?? await fetchDbCourse(slug);
   if (!course) notFound();
 
   const isAr = locale === "ar";

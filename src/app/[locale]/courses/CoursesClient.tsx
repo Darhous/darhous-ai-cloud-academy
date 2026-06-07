@@ -1,17 +1,40 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import CourseCard from "@/components/cards/CourseCard";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CategoryFilter from "@/components/ui/CategoryFilter";
-import { courses, courseCategories } from "@/data/courses";
+import { courses, courseCategories, type Course } from "@/data/courses";
 
-export default function CoursesClient({ locale }: { locale: string }) {
+interface Props {
+  locale: string;
+  dbCourses: Course[];
+}
+
+export default function CoursesClient({ locale, dbCourses }: Props) {
   const isAr = locale === "ar";
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeLevel, setActiveLevel] = useState("all");
 
-  const filtered = courses.filter((c) => {
+  // Merge: DB courses first, then static — deduplicate by id
+  const allCourses = useMemo(() => {
+    const seen = new Set<string>();
+    const merged: Course[] = [];
+    for (const c of [...dbCourses, ...courses]) {
+      if (!seen.has(c.id)) {
+        seen.add(c.id);
+        merged.push(c);
+      }
+    }
+    return merged;
+  }, [dbCourses]);
+
+  const categories = useMemo(
+    () => [...new Set([...courseCategories, ...dbCourses.map((c) => c.category)])],
+    [dbCourses],
+  );
+
+  const filtered = allCourses.filter((c) => {
     if (c.comingSoon) return false;
     const catMatch = activeCategory === "all" || c.category === activeCategory;
     const levelMatch = activeLevel === "all" || c.level === activeLevel;
@@ -38,7 +61,7 @@ export default function CoursesClient({ locale }: { locale: string }) {
             {isAr ? "الفئة:" : "Category:"}
           </p>
           <CategoryFilter
-            categories={courseCategories}
+            categories={categories}
             active={activeCategory}
             onChange={setActiveCategory}
             allLabel={isAr ? "الكل" : "All"}
