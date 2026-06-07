@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { Bot, Globe } from "lucide-react";
@@ -13,6 +14,19 @@ interface Props {
 export default function EcosystemMap({ locale, portals }: Props) {
   const isAr = locale === "ar";
   const shouldReduce = useReducedMotion();
+  // Phase 10: Ecosystem Map 2.0 — hovering a portal "wakes up" the AI Mentor hub
+  // with a synchronized glow in that portal's color, visually expressing the
+  // hub-and-spoke connection. Purely decorative, no logic/route changes.
+  const [linkColor, setLinkColor] = useState<string | null>(null);
+  const hoverProps = (color: string) =>
+    shouldReduce
+      ? {}
+      : {
+          onMouseEnter: () => setLinkColor(color),
+          onMouseLeave: () => setLinkColor(null),
+          onFocus: () => setLinkColor(color),
+          onBlur: () => setLinkColor(null),
+        };
 
   const fadeUp = {
     hidden: { opacity: 0, y: shouldReduce ? 0 : 28 },
@@ -45,7 +59,7 @@ export default function EcosystemMap({ locale, portals }: Props) {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {/* Row 1: Portals 0–2 */}
         {portals.slice(0, 3).map((portal) => (
-          <motion.div key={portal.id} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+          <motion.div key={portal.id} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portal.color)}>
             <Link
               href={`/${locale}${portal.href}`}
               className="glass-card rounded-2xl p-5 flex flex-col gap-3 h-full transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1 block"
@@ -80,7 +94,7 @@ export default function EcosystemMap({ locale, portals }: Props) {
 
         {/* Row 2: Portal 3, AI Mentor center, Portal 4 */}
         {portals[3] && (
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portals[3].color)}>
             <Link
               href={`/${locale}${portals[3].href}`}
               className="glass-card rounded-2xl p-5 flex flex-col gap-3 h-full transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1 block"
@@ -111,26 +125,40 @@ export default function EcosystemMap({ locale, portals }: Props) {
           </motion.div>
         )}
 
-        {/* AI Mentor — center card */}
+        {/* AI Mentor — center card (Phase 10: glows in sync with hovered portal) */}
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
           <Link
             href={`/${locale}/mentor`}
-            className="rounded-3xl p-6 flex flex-col items-center justify-center gap-4 text-center h-full transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1 block"
+            className="relative overflow-hidden rounded-3xl p-6 flex flex-col items-center justify-center gap-4 text-center h-full transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 block"
             style={{
-              background: "linear-gradient(135deg, rgba(142,213,255,0.12) 0%, rgba(87,27,193,0.15) 50%, rgba(60,224,251,0.08) 100%)",
-              border: "1px solid rgba(142,213,255,0.25)",
-              boxShadow: "0 0 40px rgba(142,213,255,0.06), inset 0 0 20px rgba(142,213,255,0.03)",
+              background: linkColor
+                ? `linear-gradient(135deg, ${linkColor}1f 0%, rgba(87,27,193,0.15) 50%, ${linkColor}14 100%)`
+                : "linear-gradient(135deg, rgba(142,213,255,0.12) 0%, rgba(87,27,193,0.15) 50%, rgba(60,224,251,0.08) 100%)",
+              border: `1px solid ${linkColor ? `${linkColor}40` : "rgba(142,213,255,0.25)"}`,
+              boxShadow: linkColor
+                ? `0 0 56px ${linkColor}33, inset 0 0 24px ${linkColor}1a`
+                : "0 0 40px rgba(142,213,255,0.06), inset 0 0 20px rgba(142,213,255,0.03)",
               textDecoration: "none",
             }}
           >
+            {/* Ambient radar pulse rings — always-on "hub" energy signature */}
+            {!shouldReduce && (
+              <>
+                <span className="ecosystem-radar-ring" aria-hidden="true" />
+                <span className="ecosystem-radar-ring" style={{ animationDelay: "1.5s" }} aria-hidden="true" />
+              </>
+            )}
             <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center"
-              style={{ background: "rgba(142,213,255,0.12)", border: "1px solid rgba(142,213,255,0.2)" }}
+              className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center transition-colors duration-300"
+              style={{
+                background: linkColor ? `${linkColor}1f` : "rgba(142,213,255,0.12)",
+                border: `1px solid ${linkColor ? `${linkColor}33` : "rgba(142,213,255,0.2)"}`,
+              }}
             >
-              <Bot size={32} style={{ color: "var(--color-primary)" }} />
+              <Bot size={32} style={{ color: linkColor || "var(--color-primary)", transition: "color 300ms ease" }} />
             </div>
-            <div>
-              <p className="text-xs font-mono mb-1" style={{ color: "var(--color-primary)" }}>AI MENTOR</p>
+            <div className="relative z-10">
+              <p className="text-xs font-mono mb-1 transition-colors duration-300" style={{ color: linkColor || "var(--color-primary)" }}>AI MENTOR</p>
               <h3 className="font-bold text-base" style={{ color: "var(--color-on-surface)" }}>
                 {isAr ? "المرشد الذكي" : "Darhous AI Mentor"}
               </h3>
@@ -139,8 +167,12 @@ export default function EcosystemMap({ locale, portals }: Props) {
               </p>
             </div>
             <div
-              className="text-xs font-mono px-4 py-2 rounded-xl"
-              style={{ background: "rgba(142,213,255,0.1)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)" }}
+              className="relative z-10 text-xs font-mono px-4 py-2 rounded-xl transition-colors duration-300"
+              style={{
+                background: linkColor ? `${linkColor}1a` : "rgba(142,213,255,0.1)",
+                color: linkColor || "var(--color-primary)",
+                border: `1px solid ${linkColor ? `${linkColor}33` : "rgba(142,213,255,0.2)"}`,
+              }}
             >
               {isAr ? "← المركز → " : "Hub"}
             </div>
@@ -148,7 +180,7 @@ export default function EcosystemMap({ locale, portals }: Props) {
         </motion.div>
 
         {portals[4] && (
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portals[4].color)}>
             <Link
               href={`/${locale}${portals[4].href}`}
               className="glass-card rounded-2xl p-5 flex flex-col gap-3 h-full transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1 block"
@@ -182,7 +214,7 @@ export default function EcosystemMap({ locale, portals }: Props) {
         {/* Row 3: center-aligned last portal */}
         <div className="hidden sm:block" />
         {portals[5] && (
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portals[5].color)}>
             <Link
               href={`/${locale}${portals[5].href}`}
               className="glass-card rounded-2xl p-5 flex flex-col gap-3 h-full transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1 block"

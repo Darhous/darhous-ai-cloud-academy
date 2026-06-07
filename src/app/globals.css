@@ -267,6 +267,19 @@ html.light .gradient-text {
   animation: bar-shimmer 2.5s ease-in-out infinite;
 }
 
+/* ─── Phase 10: Ecosystem Map 2.0 — radar pulse for AI Mentor hub ─── */
+@keyframes radar-pulse {
+  0%   { box-shadow: 0 0 0 0px rgba(142,213,255,0.14); opacity: 1; }
+  100% { box-shadow: 0 0 0 28px rgba(142,213,255,0);   opacity: 0; }
+}
+.ecosystem-radar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  animation: radar-pulse 3s ease-out infinite;
+  pointer-events: none;
+}
+
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
