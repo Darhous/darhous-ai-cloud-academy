@@ -1,18 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CategoryFilter from "@/components/ui/CategoryFilter";
 import GlossaryCard from "@/components/cards/GlossaryCard";
-import { glossaryTerms, glossaryCategories } from "@/data/glossary";
+import { glossaryTerms, glossaryCategories, type GlossaryTerm } from "@/data/glossary";
 
-export default function GlossaryClient({ locale }: { locale: string }) {
+interface Props {
+  locale: string;
+  dbTerms: GlossaryTerm[];
+}
+
+export default function GlossaryClient({ locale, dbTerms }: Props) {
   const isAr = locale === "ar";
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const filtered = glossaryTerms.filter((t) => {
+  // Merge: DB terms first, then static — deduplicate by id
+  const allTerms = useMemo(() => {
+    const seen = new Set<string>();
+    const merged: GlossaryTerm[] = [];
+    for (const t of [...dbTerms, ...glossaryTerms]) {
+      if (!seen.has(t.id)) {
+        seen.add(t.id);
+        merged.push(t);
+      }
+    }
+    return merged;
+  }, [dbTerms]);
+
+  const categories = useMemo(
+    () => [...new Set([...glossaryCategories, ...dbTerms.map((t) => t.category)])],
+    [dbTerms],
+  );
+
+  const filtered = allTerms.filter((t) => {
     const q = search.toLowerCase();
     const textMatch =
       !search ||
@@ -56,7 +79,7 @@ export default function GlossaryClient({ locale }: { locale: string }) {
       </div>
 
       <CategoryFilter
-        categories={glossaryCategories}
+        categories={categories}
         active={activeCategory}
         onChange={setActiveCategory}
         allLabel={isAr ? "جميع الفئات" : "All Categories"}

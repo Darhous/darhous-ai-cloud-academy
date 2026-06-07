@@ -21,6 +21,11 @@ import { projectsData } from "@/data/iot/projects";
 import { challengesData } from "@/data/iot/challenges";
 import { projects } from "@/data/projects";
 import { blogPosts, blogCategories } from "@/data/blog";
+import { glossaryCategories } from "@/data/glossary";
+import {
+  AdminTextField, AdminTextAreaField, AdminSelectField,
+  AdminStatusField, AdminToggleField, AdminSortOrderField,
+} from "@/components/admin/content-form/fields";
 import { prompts } from "@/data/prompts";
 import { nanaBananaPrompts } from "@/data/nano-banana-prompts";
 import { defaultMentorSettings } from "@/types/ai_mentor_settings";
@@ -33,7 +38,7 @@ type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
   | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
-  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog";
+  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -141,6 +146,21 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
   const [blogPreviewLang, setBlogPreviewLang] = useState<"ar" | "en">("ar");
   const [blogCoverFile, setBlogCoverFile] = useState<File | null>(null);
   const [blogCoverPreview, setBlogCoverPreview] = useState<string | null>(null);
+
+  /* AI Glossary CMS state */
+  type DbGlossaryRow = { id: string; term: string; category: string; status: string; featured: boolean; sort_order: number; updated_at: string };
+  const [glossaryDbTerms, setGlossaryDbTerms] = useState<DbGlossaryRow[]>([]);
+  const [glossaryLoading, setGlossaryLoading] = useState(false);
+  const [glossaryView, setGlossaryView] = useState<"list" | "form">("list");
+  const [glossaryEditId, setGlossaryEditId] = useState<string | null>(null);
+  const [glossarySaving, setGlossarySaving] = useState(false);
+  const [glossaryMsg, setGlossaryMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
+  const GLOSSARY_FORM_DEFAULT = {
+    id: "", term: "", definition_ar: "", definition_en: "",
+    example_ar: "", example_en: "", category: "Core AI", sort_order: "0",
+    featured: false, status: "published" as "published" | "draft" | "archived",
+  };
+  const [glossaryForm, setGlossaryForm] = useState(GLOSSARY_FORM_DEFAULT);
 
   const fetchData = useCallback(async () => {
     if (!user || !supabaseConfigured) return;
@@ -367,6 +387,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "ai-academy",     labelAr: "أكاديمية AI",          labelEn: "AI Academy",         icon: <Bot size={15} /> },
     { id: "nano-banana",    labelAr: "🍌 Nano Banana",        labelEn: "🍌 Nano Banana",     icon: <Sparkles size={15} /> },
     { id: "blog",           labelAr: "📰 المدونة",            labelEn: "📰 Blog CMS",         icon: <FileText size={15} /> },
+    { id: "ai-glossary",    labelAr: "📖 المسرد",             labelEn: "📖 Glossary CMS",     icon: <BookOpen size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -3146,6 +3167,292 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                     {blogSaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (blogEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر المقال" : "💾 Publish Post"))}
                   </button>
                   <button type="button" onClick={() => setBlogView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    {isAr ? "إلغاء" : "Cancel"}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        );
+      })()}
+
+      {tab === "ai-glossary" && (() => {
+        const GLOSSARY_CATS = [...new Set([...glossaryCategories, "Core AI", "Prompting", "Development", "Cloud"])];
+        const GLOSSARY_CAT_OPTIONS = GLOSSARY_CATS.map((c) => ({ value: c, label: c }));
+
+        async function loadGlossaryTerms() {
+          setGlossaryLoading(true);
+          setGlossaryMsg(null);
+          try {
+            const res = await fetch("/api/admin/ai-glossary");
+            if (res.ok) setGlossaryDbTerms(await res.json());
+          } catch { /* silent */ } finally { setGlossaryLoading(false); }
+        }
+
+        function openCreate() {
+          setGlossaryEditId(null);
+          setGlossaryForm(GLOSSARY_FORM_DEFAULT);
+          setGlossaryMsg(null);
+          setGlossaryView("form");
+        }
+
+        async function openEdit(row: DbGlossaryRow) {
+          setGlossaryMsg(null);
+          try {
+            const res = await fetch(`/api/admin/ai-glossary/${row.id}`);
+            if (!res.ok) { setGlossaryMsg({ type: "err", text: isAr ? "فشل تحميل المصطلح" : "Failed to load term" }); return; }
+            const data = await res.json();
+            setGlossaryForm({
+              id:            data.id ?? "",
+              term:          data.term ?? "",
+              definition_ar: data.definition_ar ?? "",
+              definition_en: data.definition_en ?? "",
+              example_ar:    data.example_ar ?? "",
+              example_en:    data.example_en ?? "",
+              category:      data.category ?? "Core AI",
+              sort_order:    String(data.sort_order ?? 0),
+              featured:      data.featured ?? false,
+              status:        data.status ?? "published",
+            });
+            setGlossaryEditId(row.id);
+            setGlossaryView("form");
+          } catch { setGlossaryMsg({ type: "err", text: "Error" }); }
+        }
+
+        async function handleArchive(row: DbGlossaryRow) {
+          if (!confirm(isAr ? `أرشفة "${row.term}"؟` : `Archive "${row.term}"?`)) return;
+          const res = await fetch(`/api/admin/ai-glossary/${row.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: "archived" }) });
+          if (res.ok) { setGlossaryDbTerms((p) => p.map((x) => x.id === row.id ? { ...x, status: "archived" } : x)); }
+        }
+
+        async function handleDelete(row: DbGlossaryRow) {
+          if (!confirm(isAr ? `حذف "${row.term}" نهائياً؟` : `Delete "${row.term}" permanently?`)) return;
+          const res = await fetch(`/api/admin/ai-glossary/${row.id}`, { method: "DELETE" });
+          if (res.ok) { setGlossaryDbTerms((p) => p.filter((x) => x.id !== row.id)); }
+        }
+
+        async function handleSaveGlossary(e: React.FormEvent) {
+          e.preventDefault();
+          setGlossarySaving(true);
+          setGlossaryMsg(null);
+          try {
+            const payload = {
+              id:            glossaryForm.id,
+              term:          glossaryForm.term,
+              definition_ar: glossaryForm.definition_ar,
+              definition_en: glossaryForm.definition_en,
+              example_ar:    glossaryForm.example_ar,
+              example_en:    glossaryForm.example_en,
+              category:      glossaryForm.category,
+              sort_order:    Number(glossaryForm.sort_order) || 0,
+              featured:      glossaryForm.featured,
+              status:        glossaryForm.status,
+            };
+            const url = glossaryEditId ? `/api/admin/ai-glossary/${glossaryEditId}` : "/api/admin/ai-glossary";
+            const method = glossaryEditId ? "PATCH" : "POST";
+            const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+            if (!res.ok) {
+              const j = await res.json().catch(() => ({} as { error?: string }));
+              setGlossaryMsg({ type: "err", text: j.error ?? `Error ${res.status}` });
+              return;
+            }
+            setGlossaryMsg({ type: "ok", text: isAr ? "✅ تم الحفظ بنجاح" : "✅ Saved successfully" });
+            await loadGlossaryTerms();
+            setTimeout(() => setGlossaryView("list"), 1200);
+          } catch (err) {
+            setGlossaryMsg({ type: "err", text: err instanceof Error ? err.message : "Error" });
+          } finally {
+            setGlossarySaving(false);
+          }
+        }
+
+        const slugifyId = (text: string) => text.toLowerCase().trim().replace(/[\s_]+/g, "-").replace(/[^a-z0-9-]/g, "").slice(0, 60);
+
+        return (
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+                {glossaryView === "list"
+                  ? (isAr ? "📖 إدارة المسرد" : "📖 Glossary CMS")
+                  : (glossaryEditId ? (isAr ? "✏️ تعديل مصطلح" : "✏️ Edit Term") : (isAr ? "✏️ مصطلح جديد" : "✏️ New Term"))}
+              </h2>
+              <div className="flex gap-2 flex-wrap">
+                {glossaryView === "list" ? (
+                  <>
+                    <button onClick={loadGlossaryTerms} disabled={glossaryLoading} className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer disabled:opacity-50" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                      <RefreshCw size={12} className={glossaryLoading ? "animate-spin" : ""} /> {isAr ? "تحديث" : "Refresh"}
+                    </button>
+                    <button onClick={openCreate} className="flex items-center gap-1 text-xs font-mono px-4 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(142,213,255,0.12)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.25)" }}>
+                      + {isAr ? "مصطلح جديد" : "New Term"}
+                    </button>
+                  </>
+                ) : (
+                  <button onClick={() => setGlossaryView("list")} className="text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    ← {isAr ? "قائمة المصطلحات" : "Term List"}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {glossaryMsg && (
+              <p className="text-xs font-mono px-3 py-2 rounded-lg" style={{ background: glossaryMsg.type === "ok" ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)", color: glossaryMsg.type === "ok" ? "#4ade80" : "#f87171" }}>
+                {glossaryMsg.text}
+              </p>
+            )}
+
+            {/* ── LIST VIEW ── */}
+            {glossaryView === "list" && (
+              <div className="flex flex-col gap-3">
+                {glossaryLoading ? (
+                  <p className="text-xs font-mono text-center py-6" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "جارٍ التحميل…" : "Loading…"}</p>
+                ) : glossaryDbTerms.length === 0 ? (
+                  <div className="glass-card rounded-2xl p-8 text-center">
+                    <p className="text-3xl mb-3">📖</p>
+                    <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "لا توجد مصطلحات في قاعدة البيانات بعد. اضغط «تحديث» أو «مصطلح جديد»." : "No terms in DB yet. Click «Refresh» or «New Term»."}</p>
+                    <p className="text-xs mt-2 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "تذكّر تطبيق migration v22 في Supabase أولاً." : "Remember to apply migration v22 in Supabase first."}</p>
+                  </div>
+                ) : (
+                  glossaryDbTerms.map((row) => (
+                    <div key={row.id} className="glass-card rounded-xl p-4 flex items-center gap-4 flex-wrap" style={{ border: `1px solid ${row.status === "published" ? "rgba(74,222,128,0.15)" : row.status === "draft" ? "rgba(250,204,21,0.15)" : "rgba(255,255,255,0.06)"}` }}>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-xs font-mono px-2 py-0.5 rounded-full" style={{ background: row.status === "published" ? "rgba(74,222,128,0.12)" : row.status === "draft" ? "rgba(250,204,21,0.12)" : "rgba(255,255,255,0.06)", color: row.status === "published" ? "#4ade80" : row.status === "draft" ? "#fbbf24" : "#888" }}>
+                            {row.status}
+                          </span>
+                          {row.featured && <span className="text-xs font-mono" style={{ color: "#f59e0b" }}>⭐ featured</span>}
+                          <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{row.category}</span>
+                        </div>
+                        <p className="font-semibold text-sm mt-1 truncate" style={{ color: "var(--color-on-surface)" }}>{row.term}</p>
+                        <p className="text-xs mt-1 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>#{row.id} · sort {row.sort_order} · {row.updated_at?.split("T")[0]}</p>
+                      </div>
+                      <div className="flex gap-2 flex-shrink-0">
+                        <a href={`/ar/glossary`} target="_blank" rel="noreferrer" className="text-xs font-mono px-2.5 py-1.5 rounded-lg" style={{ background: "rgba(142,213,255,0.08)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)", textDecoration: "none" }}>
+                          {isAr ? "عرض" : "View"}
+                        </a>
+                        <button onClick={() => openEdit(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                          {isAr ? "تعديل" : "Edit"}
+                        </button>
+                        {row.status !== "archived" && (
+                          <button onClick={() => handleArchive(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(250,204,21,0.08)", color: "#fbbf24", border: "1px solid rgba(250,204,21,0.2)" }}>
+                            {isAr ? "أرشفة" : "Archive"}
+                          </button>
+                        )}
+                        <button onClick={() => handleDelete(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(239,68,68,0.08)", color: "#f87171", border: "1px solid rgba(239,68,68,0.2)" }}>
+                          {isAr ? "حذف" : "Delete"}
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            )}
+
+            {/* ── FORM VIEW ── */}
+            {glossaryView === "form" && (
+              <form onSubmit={handleSaveGlossary} className="flex flex-col gap-5">
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "المعلومات الأساسية" : "Basic Info"}</h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextField
+                      label={isAr ? "المصطلح *" : "Term *"}
+                      value={glossaryForm.term}
+                      onChange={(v) => {
+                        setGlossaryForm((f) => ({ ...f, term: v }));
+                        if (!glossaryEditId && !glossaryForm.id) setGlossaryForm((f) => ({ ...f, id: slugifyId(v) }));
+                      }}
+                      placeholder="LLM"
+                      required
+                      mono
+                    />
+                    <AdminTextField
+                      label={isAr ? "المعرّف (id) *" : "ID (slug) *"}
+                      value={glossaryForm.id}
+                      onChange={(v) => setGlossaryForm((f) => ({ ...f, id: slugifyId(v) }))}
+                      placeholder="llm"
+                      required
+                      mono
+                      dir="ltr"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminSelectField
+                      label={isAr ? "الفئة" : "Category"}
+                      value={glossaryForm.category}
+                      onChange={(v) => setGlossaryForm((f) => ({ ...f, category: v }))}
+                      options={GLOSSARY_CAT_OPTIONS}
+                    />
+                    <AdminSortOrderField
+                      label={isAr ? "ترتيب العرض" : "Sort order"}
+                      value={Number(glossaryForm.sort_order) || 0}
+                      onChange={(v) => setGlossaryForm((f) => ({ ...f, sort_order: String(v) }))}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+                    <AdminStatusField
+                      value={glossaryForm.status}
+                      onChange={(v) => setGlossaryForm((f) => ({ ...f, status: v }))}
+                      label={isAr ? "الحالة" : "Status"}
+                    />
+                    <AdminToggleField
+                      label={isAr ? "مصطلح مميز" : "Featured"}
+                      checked={glossaryForm.featured}
+                      onChange={(v) => setGlossaryForm((f) => ({ ...f, featured: v }))}
+                    />
+                  </div>
+                </div>
+
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "التعريف" : "Definition"}</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "التعريف (عربي) *" : "Definition (Arabic) *"}
+                      value={glossaryForm.definition_ar}
+                      onChange={(v) => setGlossaryForm((f) => ({ ...f, definition_ar: v }))}
+                      placeholder="تعريف المصطلح بالعربية"
+                      required
+                      dir="rtl"
+                      rows={4}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "التعريف (إنجليزي)" : "Definition (English)"}
+                      value={glossaryForm.definition_en}
+                      onChange={(v) => setGlossaryForm((f) => ({ ...f, definition_en: v }))}
+                      placeholder="Term definition in English"
+                      rows={4}
+                    />
+                  </div>
+                </div>
+
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "مثال (اختياري)" : "Example (optional)"}</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "مثال (عربي)" : "Example (Arabic)"}
+                      value={glossaryForm.example_ar}
+                      onChange={(v) => setGlossaryForm((f) => ({ ...f, example_ar: v }))}
+                      placeholder="مثال توضيحي بالعربية"
+                      dir="rtl"
+                      rows={2}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "مثال (إنجليزي)" : "Example (English)"}
+                      value={glossaryForm.example_en}
+                      onChange={(v) => setGlossaryForm((f) => ({ ...f, example_en: v }))}
+                      placeholder="Illustrative example in English"
+                      rows={2}
+                    />
+                  </div>
+                </div>
+
+                {/* Save */}
+                <div className="flex gap-3">
+                  <button type="submit" disabled={glossarySaving} className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold cursor-pointer disabled:opacity-50" style={{ background: "rgba(142,213,255,0.15)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.3)" }}>
+                    {glossarySaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (glossaryEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر المصطلح" : "💾 Publish Term"))}
+                  </button>
+                  <button type="button" onClick={() => setGlossaryView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
                     {isAr ? "إلغاء" : "Cancel"}
                   </button>
                 </div>
