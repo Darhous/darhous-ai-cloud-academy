@@ -8,7 +8,7 @@ import {
   TrendingUp, MessageSquare, Search, Download, Bot,
   Globe, Award, Zap, Palette, Bell, ToggleLeft, ToggleRight,
   Eye, EyeOff, Edit3, CheckCircle, BarChart2, ExternalLink, AlertTriangle, Sparkles, ImageIcon,
-  GraduationCap, Rocket,
+  GraduationCap, Rocket, Map,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -40,7 +40,7 @@ type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
   | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
-  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms" | "ai-projects-cms";
+  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms" | "ai-projects-cms" | "ai-paths-cms";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -250,6 +250,27 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     status: "published" as "published" | "draft" | "archived", sort_order: "0",
   };
   const [projectsForm, setProjectsForm] = useState(PROJECTS_FORM_DEFAULT);
+
+  /* AI Paths (Roadmaps) CMS state */
+  type DbPathRow = { id: string; title_ar: string; level: string; total_weeks: number; status: string; featured: boolean; sort_order: number; updated_at: string };
+  const [pathsDbRows, setPathsDbRows] = useState<DbPathRow[]>([]);
+  const [pathsLoading, setPathsLoading] = useState(false);
+  const [pathsView, setPathsView] = useState<"list" | "form">("list");
+  const [pathsEditId, setPathsEditId] = useState<string | null>(null);
+  const [pathsSaving, setPathsSaving] = useState(false);
+  const [pathsMsg, setPathsMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
+  const PATHS_FORM_DEFAULT = {
+    id: "", title_ar: "", title_en: "",
+    description_ar: "", description_en: "",
+    level: "beginner" as "beginner" | "intermediate" | "advanced",
+    total_weeks: "0",
+    outcome: "", outcome_ar: "",
+    icon: "🚀", color: "blue",
+    nodes: "",
+    featured: false,
+    status: "published" as "published" | "draft" | "archived", sort_order: "0",
+  };
+  const [pathsForm, setPathsForm] = useState(PATHS_FORM_DEFAULT);
 
   const fetchData = useCallback(async () => {
     if (!user || !supabaseConfigured) return;
@@ -481,6 +502,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "ai-prompts-cms", labelAr: "💬 المطالبات",          labelEn: "💬 Prompts CMS",      icon: <MessageSquare size={15} /> },
     { id: "ai-courses-cms", labelAr: "🎓 الدورات",            labelEn: "🎓 Courses CMS",      icon: <GraduationCap size={15} /> },
     { id: "ai-projects-cms", labelAr: "🚀 المشاريع",          labelEn: "🚀 Projects CMS",     icon: <Rocket size={15} /> },
+    { id: "ai-paths-cms",    labelAr: "🗺️ المسارات",          labelEn: "🗺️ Paths CMS",        icon: <Map size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -5174,6 +5196,363 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                     {projectsSaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (projectsEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر المشروع" : "💾 Publish Project"))}
                   </button>
                   <button type="button" onClick={() => setProjectsView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    {isAr ? "إلغاء" : "Cancel"}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        );
+      })()}
+
+      {tab === "ai-paths-cms" && (() => {
+        const LEVEL_OPTIONS = [
+          { value: "beginner", label: isAr ? "مبتدئ" : "Beginner" },
+          { value: "intermediate", label: isAr ? "متوسط" : "Intermediate" },
+          { value: "advanced", label: isAr ? "متقدم" : "Advanced" },
+        ];
+
+        async function loadPaths() {
+          setPathsLoading(true);
+          setPathsMsg(null);
+          try {
+            const res = await fetch("/api/admin/ai-paths");
+            if (res.ok) setPathsDbRows(await res.json());
+          } catch { /* silent */ } finally { setPathsLoading(false); }
+        }
+
+        function openCreate() {
+          setPathsEditId(null);
+          setPathsForm(PATHS_FORM_DEFAULT);
+          setPathsMsg(null);
+          setPathsView("form");
+        }
+
+        async function openEdit(row: DbPathRow) {
+          setPathsMsg(null);
+          try {
+            const res = await fetch(`/api/admin/ai-paths/${row.id}`);
+            if (!res.ok) { setPathsMsg({ type: "err", text: isAr ? "فشل تحميل المسار" : "Failed to load path" }); return; }
+            const data = await res.json();
+            setPathsForm({
+              id:             data.id ?? "",
+              title_ar:       data.title_ar ?? "",
+              title_en:       data.title_en ?? "",
+              description_ar: data.description_ar ?? "",
+              description_en: data.description_en ?? "",
+              level:          data.level ?? "beginner",
+              total_weeks:    String(data.total_weeks ?? 0),
+              outcome:        data.outcome ?? "",
+              outcome_ar:     data.outcome_ar ?? "",
+              icon:           data.icon ?? "🚀",
+              color:          data.color ?? "blue",
+              nodes:          data.nodes ? JSON.stringify(data.nodes, null, 2) : "",
+              featured:       data.featured ?? false,
+              status:         data.status ?? "published",
+              sort_order:     String(data.sort_order ?? 0),
+            });
+            setPathsEditId(row.id);
+            setPathsView("form");
+          } catch { setPathsMsg({ type: "err", text: "Error" }); }
+        }
+
+        async function handleArchive(row: DbPathRow) {
+          if (!confirm(isAr ? `أرشفة "${row.title_ar}"؟` : `Archive "${row.title_ar}"?`)) return;
+          const res = await fetch(`/api/admin/ai-paths/${row.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: "archived" }) });
+          if (res.ok) { setPathsDbRows((p) => p.map((x) => x.id === row.id ? { ...x, status: "archived" } : x)); }
+        }
+
+        async function handleDelete(row: DbPathRow) {
+          if (!confirm(isAr ? `حذف "${row.title_ar}" نهائياً؟` : `Delete "${row.title_ar}" permanently?`)) return;
+          const res = await fetch(`/api/admin/ai-paths/${row.id}`, { method: "DELETE" });
+          if (res.ok) { setPathsDbRows((p) => p.filter((x) => x.id !== row.id)); }
+        }
+
+        function parseJsonField(raw: string, label: string): { ok: true; value: unknown } | { ok: false; error: string } {
+          if (!raw.trim()) return { ok: true, value: [] };
+          try { return { ok: true, value: JSON.parse(raw) }; }
+          catch { return { ok: false, error: isAr ? `صيغة JSON غير صحيحة في ${label}` : `Invalid JSON in ${label}` }; }
+        }
+
+        async function handleSavePath(e: React.FormEvent) {
+          e.preventDefault();
+          setPathsSaving(true);
+          setPathsMsg(null);
+          try {
+            const nodes = parseJsonField(pathsForm.nodes, "nodes");
+            if (!nodes.ok) { setPathsMsg({ type: "err", text: nodes.error }); return; }
+
+            const payload = {
+              id:             pathsForm.id,
+              title_ar:       pathsForm.title_ar,
+              title_en:       pathsForm.title_en,
+              description_ar: pathsForm.description_ar,
+              description_en: pathsForm.description_en,
+              level:          pathsForm.level,
+              total_weeks:    Number(pathsForm.total_weeks) || 0,
+              outcome:        pathsForm.outcome,
+              outcome_ar:     pathsForm.outcome_ar,
+              icon:           pathsForm.icon,
+              color:          pathsForm.color,
+              nodes:          nodes.value,
+              featured:       pathsForm.featured,
+              status:         pathsForm.status,
+              sort_order:     Number(pathsForm.sort_order) || 0,
+            };
+            const url = pathsEditId ? `/api/admin/ai-paths/${pathsEditId}` : "/api/admin/ai-paths";
+            const method = pathsEditId ? "PATCH" : "POST";
+            const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+            if (!res.ok) {
+              const j = await res.json().catch(() => ({} as { error?: string }));
+              setPathsMsg({ type: "err", text: j.error ?? `Error ${res.status}` });
+              return;
+            }
+            setPathsMsg({ type: "ok", text: isAr ? "✅ تم الحفظ بنجاح" : "✅ Saved successfully" });
+            await loadPaths();
+            setTimeout(() => setPathsView("list"), 1200);
+          } catch (err) {
+            setPathsMsg({ type: "err", text: err instanceof Error ? err.message : "Error" });
+          } finally {
+            setPathsSaving(false);
+          }
+        }
+
+        const slugifyId = (text: string) => text.toLowerCase().trim().replace(/[\s_]+/g, "-").replace(/[^a-z0-9-]/g, "").slice(0, 60);
+
+        return (
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+                {pathsView === "list"
+                  ? (isAr ? "🗺️ إدارة المسارات" : "🗺️ Paths CMS")
+                  : (pathsEditId ? (isAr ? "✏️ تعديل مسار" : "✏️ Edit Path") : (isAr ? "✏️ مسار جديد" : "✏️ New Path"))}
+              </h2>
+              <div className="flex gap-2 flex-wrap">
+                {pathsView === "list" ? (
+                  <>
+                    <button onClick={loadPaths} disabled={pathsLoading} className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer disabled:opacity-50" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                      <RefreshCw size={12} className={pathsLoading ? "animate-spin" : ""} /> {isAr ? "تحديث" : "Refresh"}
+                    </button>
+                    <button onClick={openCreate} className="flex items-center gap-1 text-xs font-mono px-4 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(142,213,255,0.12)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.25)" }}>
+                      + {isAr ? "مسار جديد" : "New Path"}
+                    </button>
+                  </>
+                ) : (
+                  <button onClick={() => setPathsView("list")} className="text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    ← {isAr ? "قائمة المسارات" : "Path List"}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {pathsMsg && (
+              <p className="text-xs font-mono px-3 py-2 rounded-lg" style={{ background: pathsMsg.type === "ok" ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)", color: pathsMsg.type === "ok" ? "#4ade80" : "#f87171" }}>
+                {pathsMsg.text}
+              </p>
+            )}
+
+            {/* ── LIST VIEW ── */}
+            {pathsView === "list" && (
+              <div className="flex flex-col gap-3">
+                {pathsLoading ? (
+                  <p className="text-xs font-mono text-center py-6" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "جارٍ التحميل…" : "Loading…"}</p>
+                ) : pathsDbRows.length === 0 ? (
+                  <div className="glass-card rounded-2xl p-8 text-center">
+                    <p className="text-3xl mb-3">🗺️</p>
+                    <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "لا توجد مسارات في قاعدة البيانات بعد. اضغط «تحديث» أو «مسار جديد»." : "No paths in DB yet. Click «Refresh» or «New Path»."}</p>
+                    <p className="text-xs mt-2 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "تذكّر تطبيق migration v27 في Supabase أولاً." : "Remember to apply migration v27 in Supabase first."}</p>
+                  </div>
+                ) : (
+                  pathsDbRows.map((row) => (
+                    <div key={row.id} className="glass-card rounded-xl p-4 flex items-center gap-4 flex-wrap" style={{ border: `1px solid ${row.status === "published" ? "rgba(74,222,128,0.15)" : row.status === "draft" ? "rgba(250,204,21,0.15)" : "rgba(255,255,255,0.06)"}` }}>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-xs font-mono px-2 py-0.5 rounded-full" style={{ background: row.status === "published" ? "rgba(74,222,128,0.12)" : row.status === "draft" ? "rgba(250,204,21,0.12)" : "rgba(255,255,255,0.06)", color: row.status === "published" ? "#4ade80" : row.status === "draft" ? "#fbbf24" : "#888" }}>
+                            {row.status}
+                          </span>
+                          {row.featured && <span className="text-xs font-mono" style={{ color: "#f59e0b" }}>⭐ featured</span>}
+                          <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{row.level} · {row.total_weeks}w</span>
+                        </div>
+                        <p className="font-semibold text-sm mt-1 truncate" style={{ color: "var(--color-on-surface)" }}>{row.title_ar}</p>
+                        <p className="text-xs mt-1 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>#{row.id} · sort {row.sort_order} · {row.updated_at?.split("T")[0]}</p>
+                      </div>
+                      <div className="flex gap-2 flex-shrink-0">
+                        <a href={`/ar/paths`} target="_blank" rel="noreferrer" className="text-xs font-mono px-2.5 py-1.5 rounded-lg" style={{ background: "rgba(142,213,255,0.08)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)", textDecoration: "none" }}>
+                          {isAr ? "عرض" : "View"}
+                        </a>
+                        <button onClick={() => openEdit(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                          {isAr ? "تعديل" : "Edit"}
+                        </button>
+                        {row.status !== "archived" && (
+                          <button onClick={() => handleArchive(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(250,204,21,0.08)", color: "#fbbf24", border: "1px solid rgba(250,204,21,0.2)" }}>
+                            {isAr ? "أرشفة" : "Archive"}
+                          </button>
+                        )}
+                        <button onClick={() => handleDelete(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(239,68,68,0.08)", color: "#f87171", border: "1px solid rgba(239,68,68,0.2)" }}>
+                          {isAr ? "حذف" : "Delete"}
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            )}
+
+            {/* ── FORM VIEW ── */}
+            {pathsView === "form" && (
+              <form onSubmit={handleSavePath} className="flex flex-col gap-5">
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "المعلومات الأساسية" : "Basic Info"}</h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextField
+                      label={isAr ? "العنوان (عربي) *" : "Title (Arabic) *"}
+                      value={pathsForm.title_ar}
+                      onChange={(v) => {
+                        setPathsForm((f) => ({ ...f, title_ar: v }));
+                        if (!pathsEditId && !pathsForm.id) setPathsForm((f) => ({ ...f, id: slugifyId(v || pathsForm.title_en) }));
+                      }}
+                      placeholder="مسار المبتدئ في الذكاء الاصطناعي"
+                      dir="rtl"
+                      required
+                    />
+                    <AdminTextField
+                      label={isAr ? "العنوان (إنجليزي)" : "Title (English)"}
+                      value={pathsForm.title_en}
+                      onChange={(v) => {
+                        setPathsForm((f) => ({ ...f, title_en: v }));
+                        if (!pathsEditId && !pathsForm.id) setPathsForm((f) => ({ ...f, id: slugifyId(v) }));
+                      }}
+                      placeholder="Beginner AI Path"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <AdminTextField
+                      label={isAr ? "المعرّف (id) *" : "ID (slug) *"}
+                      value={pathsForm.id}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, id: slugifyId(v) }))}
+                      placeholder="beginner-ai"
+                      required
+                      mono
+                      dir="ltr"
+                    />
+                    <AdminSelectField
+                      label={isAr ? "المستوى" : "Level"}
+                      value={pathsForm.level}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, level: v as typeof pathsForm.level }))}
+                      options={LEVEL_OPTIONS}
+                    />
+                    <AdminTextField
+                      label={isAr ? "المدة (أسابيع)" : "Total Weeks"}
+                      value={pathsForm.total_weeks}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, total_weeks: v.replace(/[^0-9]/g, "") }))}
+                      placeholder="12"
+                      mono
+                      dir="ltr"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "الوصف (عربي) *" : "Description (Arabic) *"}
+                      value={pathsForm.description_ar}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, description_ar: v }))}
+                      placeholder="وصف مختصر للمسار"
+                      dir="rtl"
+                      required
+                      rows={3}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "الوصف (إنجليزي)" : "Description (English)"}
+                      value={pathsForm.description_en}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, description_en: v }))}
+                      placeholder="Short path description"
+                      rows={3}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "النتيجة النهائية (عربي)" : "Outcome (Arabic)"}
+                      value={pathsForm.outcome_ar}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, outcome_ar: v }))}
+                      placeholder="ما الذي ستحققه بنهاية المسار"
+                      dir="rtl"
+                      rows={2}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "النتيجة النهائية (إنجليزي)" : "Outcome (English)"}
+                      value={pathsForm.outcome}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, outcome: v }))}
+                      placeholder="What you'll achieve by the end"
+                      rows={2}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <AdminTextField
+                      label={isAr ? "الأيقونة" : "Icon"}
+                      value={pathsForm.icon}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, icon: v }))}
+                      placeholder="🚀"
+                    />
+                    <AdminTextField
+                      label={isAr ? "اللون" : "Color"}
+                      value={pathsForm.color}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, color: v }))}
+                      placeholder="blue"
+                      mono
+                      dir="ltr"
+                    />
+                  </div>
+                </div>
+
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "عقد المسار (JSON خام)" : "Roadmap Nodes (raw JSON)"}</h3>
+                  <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {isAr
+                      ? "أدخل مصفوفة JSON صالحة. شكل العقدة: { \"id\":\"...\", \"titleAr\":\"...\", \"titleEn\":\"...\", \"descriptionAr\":\"...\", \"descriptionEn\":\"...\", \"duration\":\"2 weeks\", \"skills\":[\"...\"], \"status\":\"completed|active|upcoming\", \"courseId\":\"...\" (اختياري) }"
+                      : "Enter a valid JSON array. Node shape: { \"id\":\"...\", \"titleAr\":\"...\", \"titleEn\":\"...\", \"descriptionAr\":\"...\", \"descriptionEn\":\"...\", \"duration\":\"2 weeks\", \"skills\":[\"...\"], \"status\":\"completed|active|upcoming\", \"courseId\":\"...\" (optional) }"}
+                  </p>
+                  <AdminTextAreaField
+                    label={isAr ? "العقد (nodes)" : "Nodes (nodes)"}
+                    value={pathsForm.nodes}
+                    onChange={(v) => setPathsForm((f) => ({ ...f, nodes: v }))}
+                    placeholder='[{"id":"b1","titleAr":"...","titleEn":"...","descriptionAr":"...","descriptionEn":"...","duration":"2 weeks","skills":["Python"],"status":"active","courseId":"python-for-ai"}]'
+                    dir="ltr"
+                    rows={10}
+                  />
+                </div>
+
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+                    <AdminSortOrderField
+                      label={isAr ? "ترتيب العرض" : "Sort order"}
+                      value={Number(pathsForm.sort_order) || 0}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, sort_order: String(v) }))}
+                    />
+                    <AdminStatusField
+                      value={pathsForm.status}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, status: v }))}
+                      label={isAr ? "الحالة" : "Status"}
+                    />
+                  </div>
+                  <div className="flex flex-wrap gap-6">
+                    <AdminToggleField
+                      label={isAr ? "مسار مميز" : "Featured"}
+                      checked={pathsForm.featured}
+                      onChange={(v) => setPathsForm((f) => ({ ...f, featured: v }))}
+                    />
+                  </div>
+                </div>
+
+                {/* Save */}
+                <div className="flex gap-3">
+                  <button type="submit" disabled={pathsSaving} className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold cursor-pointer disabled:opacity-50" style={{ background: "rgba(142,213,255,0.15)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.3)" }}>
+                    {pathsSaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (pathsEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر المسار" : "💾 Publish Path"))}
+                  </button>
+                  <button type="button" onClick={() => setPathsView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
                     {isAr ? "إلغاء" : "Cancel"}
                   </button>
                 </div>
