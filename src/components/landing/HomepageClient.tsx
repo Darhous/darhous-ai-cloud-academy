@@ -11,6 +11,7 @@ import HowItWorks from "./sections/HowItWorks";
 import MentorShowcase from "./sections/MentorShowcase";
 import WhyDarhous from "./sections/WhyDarhous";
 import FinalCTA from "./sections/FinalCTA";
+import SmartPlatformTour from "./SmartPlatformTour";
 
 export default function HomepageClient({ locale }: { locale: string }) {
   const realPortals = portals.filter((p) => p.id !== "coming-soon");
@@ -21,6 +22,7 @@ export default function HomepageClient({ locale }: { locale: string }) {
 
   return (
     <div className="flex flex-col gap-16 md:gap-20 pb-16 md:pb-20 overflow-x-hidden">
+      <SmartPlatformTour locale={locale} />
       <HeroSection locale={locale} scrollToPath={scrollToPath} />
       <PathSelector locale={locale} />
       <div className="container-xl">
