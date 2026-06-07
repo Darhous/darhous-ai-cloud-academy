@@ -248,7 +248,7 @@ export default function SmartPlatformTour({ locale }: Props) {
                       <Link
                         href={`/${locale}/register`}
                         onClick={close}
-                        className="glow-button-primary inline-flex items-center gap-2 text-white font-mono px-5 py-2.5 rounded-xl text-sm mt-5"
+                        className="glow-button-primary shimmer-sweep tap-press icon-nudge inline-flex items-center gap-2 text-white font-mono px-5 py-2.5 rounded-xl text-sm mt-5"
                       >
                         {isAr ? "ابدأ مجاناً" : "Start for free"}
                         <Arrow size={14} />
