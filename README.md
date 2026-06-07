@@ -6,7 +6,7 @@
 
 # Darhous AI Cloud Academy
 
-### أكاديمية درهوس للذكاء الاصطناعي 
+### أكاديمية درهوس للذكاء الاصطناعي والكلاود
 
 **A bilingual digital learning ecosystem for AI, cloud, automation, career development, language assessment, digital skills, and IoT.**
 
