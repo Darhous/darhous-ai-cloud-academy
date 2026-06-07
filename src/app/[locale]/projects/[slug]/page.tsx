@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import { fetchDbProject } from "../dbProjects";
 import { courses } from "@/data/courses";
 import { tools } from "@/data/tools";
 import Badge from "@/components/ui/Badge";
@@ -10,6 +11,8 @@ import AskThisPageButton from "@/components/ui/AskThisPageButton";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 type Params = Promise<{ locale: string; slug: string }>;
+
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const locales = ["ar", "en"];
@@ -20,7 +23,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const project = projects.find((p) => p.id === slug);
+  const project = projects.find((p) => p.id === slug) ?? (await fetchDbProject(slug));
   if (!project) return { title: "Project Not Found" };
   const isAr = locale === "ar";
   return {
@@ -37,7 +40,7 @@ const difficultyLabel = {
 
 export default async function ProjectDetailPage({ params }: { params: Params }) {
   const { locale, slug } = await params;
-  const project = projects.find((p) => p.id === slug);
+  const project = projects.find((p) => p.id === slug) ?? (await fetchDbProject(slug));
   if (!project) notFound();
 
   const isAr = locale === "ar";

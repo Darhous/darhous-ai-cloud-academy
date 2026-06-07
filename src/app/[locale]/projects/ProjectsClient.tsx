@@ -1,17 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CategoryFilter from "@/components/ui/CategoryFilter";
 import ProjectCard from "@/components/cards/ProjectCard";
-import { projects, projectCategories } from "@/data/projects";
+import { projects, type Project } from "@/data/projects";
 
-export default function ProjectsClient({ locale }: { locale: string }) {
+interface Props {
+  locale: string;
+  dbProjects: Project[];
+}
+
+export default function ProjectsClient({ locale, dbProjects }: Props) {
   const isAr = locale === "ar";
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeDifficulty, setActiveDifficulty] = useState("all");
 
-  const filtered = projects.filter((p) => {
+  const allProjects = useMemo(() => {
+    const seen = new Set(dbProjects.map((p) => p.id));
+    return [...dbProjects, ...projects.filter((p) => !seen.has(p.id))];
+  }, [dbProjects]);
+
+  const categories = useMemo(
+    () => [...new Set(allProjects.map((p) => p.category))],
+    [allProjects]
+  );
+
+  const filtered = allProjects.filter((p) => {
     const catMatch = activeCategory === "all" || p.category === activeCategory;
     const diffMatch = activeDifficulty === "all" || p.difficulty === activeDifficulty;
     return catMatch && diffMatch;
@@ -35,7 +50,7 @@ export default function ProjectsClient({ locale }: { locale: string }) {
             {isAr ? "الفئة:" : "Category:"}
           </p>
           <CategoryFilter
-            categories={projectCategories}
+            categories={categories}
             active={activeCategory}
             onChange={setActiveCategory}
             allLabel={isAr ? "الكل" : "All"}

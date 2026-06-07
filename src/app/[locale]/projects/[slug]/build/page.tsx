@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
+import { fetchDbProject } from "../../dbProjects";
 import BuildProjectClient from "./BuildProjectClient";
+
+export const dynamicParams = true;
 
 export async function generateMetadata({
   params,
 }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const project = projects.find((p) => p.id === slug);
+  const project = projects.find((p) => p.id === slug) ?? (await fetchDbProject(slug));
   const isAr = locale === "ar";
   if (!project) return { title: isAr ? "مشروع غير موجود" : "Project Not Found" };
   return {
@@ -27,7 +30,7 @@ export default async function BuildProjectPage({
   params,
 }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
-  const project = projects.find((p) => p.id === slug);
+  const project = projects.find((p) => p.id === slug) ?? (await fetchDbProject(slug));
   if (!project) notFound();
   return <BuildProjectClient locale={locale} project={project} />;
 }

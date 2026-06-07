@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProjectsClient from "./ProjectsClient";
+import { fetchDbProjects } from "./dbProjects";
 
 export async function generateMetadata({
   params,
@@ -25,5 +26,6 @@ export default async function ProjectsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return <ProjectsClient locale={locale} />;
+  const dbProjects = await fetchDbProjects();
+  return <ProjectsClient locale={locale} dbProjects={dbProjects} />;
 }

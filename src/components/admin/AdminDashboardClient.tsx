@@ -8,7 +8,7 @@ import {
   TrendingUp, MessageSquare, Search, Download, Bot,
   Globe, Award, Zap, Palette, Bell, ToggleLeft, ToggleRight,
   Eye, EyeOff, Edit3, CheckCircle, BarChart2, ExternalLink, AlertTriangle, Sparkles, ImageIcon,
-  GraduationCap,
+  GraduationCap, Rocket,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -20,7 +20,7 @@ import { tools, toolCategories } from "@/data/tools";
 import { lessonsData } from "@/data/iot/lessons";
 import { projectsData } from "@/data/iot/projects";
 import { challengesData } from "@/data/iot/challenges";
-import { projects } from "@/data/projects";
+import { projects, projectCategories } from "@/data/projects";
 import { blogPosts, blogCategories } from "@/data/blog";
 import { glossaryCategories } from "@/data/glossary";
 import {
@@ -40,7 +40,7 @@ type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
   | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
-  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms";
+  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms" | "ai-projects-cms";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -226,6 +226,30 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     status: "published" as "published" | "draft" | "archived", sort_order: "0",
   };
   const [coursesForm, setCoursesForm] = useState(COURSES_FORM_DEFAULT);
+
+  /* AI Projects CMS state */
+  type DbProjectRow = { id: string; title_ar: string; category: string; difficulty: string; status: string; featured: boolean; sort_order: number; updated_at: string };
+  const [projectsDbRows, setProjectsDbRows] = useState<DbProjectRow[]>([]);
+  const [projectsLoading, setProjectsLoading] = useState(false);
+  const [projectsView, setProjectsView] = useState<"list" | "form">("list");
+  const [projectsEditId, setProjectsEditId] = useState<string | null>(null);
+  const [projectsSaving, setProjectsSaving] = useState(false);
+  const [projectsMsg, setProjectsMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
+  const PROJECTS_FORM_DEFAULT = {
+    id: "", title_ar: "", title_en: "",
+    description_ar: "", description_en: "",
+    category: "AI",
+    difficulty: "beginner" as "beginner" | "intermediate" | "advanced",
+    stack: "", skills: "",
+    expected_output: "", expected_output_ar: "", future_idea: "", future_idea_ar: "",
+    icon: "🚀",
+    goal_ar: "", goal_en: "",
+    build_steps: "",
+    required_tools: "", related_courses: "", related_tools: "",
+    featured: false,
+    status: "published" as "published" | "draft" | "archived", sort_order: "0",
+  };
+  const [projectsForm, setProjectsForm] = useState(PROJECTS_FORM_DEFAULT);
 
   const fetchData = useCallback(async () => {
     if (!user || !supabaseConfigured) return;
@@ -456,6 +480,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "ai-tools-cms",   labelAr: "🛠️ أدوات AI",          labelEn: "🛠️ AI Tools CMS",    icon: <Wrench size={15} /> },
     { id: "ai-prompts-cms", labelAr: "💬 المطالبات",          labelEn: "💬 Prompts CMS",      icon: <MessageSquare size={15} /> },
     { id: "ai-courses-cms", labelAr: "🎓 الدورات",            labelEn: "🎓 Courses CMS",      icon: <GraduationCap size={15} /> },
+    { id: "ai-projects-cms", labelAr: "🚀 المشاريع",          labelEn: "🚀 Projects CMS",     icon: <Rocket size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -4709,6 +4734,446 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                     {coursesSaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (coursesEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر الدورة" : "💾 Publish Course"))}
                   </button>
                   <button type="button" onClick={() => setCoursesView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    {isAr ? "إلغاء" : "Cancel"}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        );
+      })()}
+
+      {tab === "ai-projects-cms" && (() => {
+        const PROJECT_CAT_OPTIONS = projectCategories.map((c) => ({ value: c, label: c }));
+        const DIFFICULTY_OPTIONS = [
+          { value: "beginner", label: isAr ? "مبتدئ" : "Beginner" },
+          { value: "intermediate", label: isAr ? "متوسط" : "Intermediate" },
+          { value: "advanced", label: isAr ? "متقدم" : "Advanced" },
+        ];
+
+        async function loadProjects() {
+          setProjectsLoading(true);
+          setProjectsMsg(null);
+          try {
+            const res = await fetch("/api/admin/ai-projects");
+            if (res.ok) setProjectsDbRows(await res.json());
+          } catch { /* silent */ } finally { setProjectsLoading(false); }
+        }
+
+        function openCreate() {
+          setProjectsEditId(null);
+          setProjectsForm(PROJECTS_FORM_DEFAULT);
+          setProjectsMsg(null);
+          setProjectsView("form");
+        }
+
+        async function openEdit(row: DbProjectRow) {
+          setProjectsMsg(null);
+          try {
+            const res = await fetch(`/api/admin/ai-projects/${row.id}`);
+            if (!res.ok) { setProjectsMsg({ type: "err", text: isAr ? "فشل تحميل المشروع" : "Failed to load project" }); return; }
+            const data = await res.json();
+            setProjectsForm({
+              id:                 data.id ?? "",
+              title_ar:           data.title_ar ?? "",
+              title_en:           data.title_en ?? "",
+              description_ar:     data.description_ar ?? "",
+              description_en:     data.description_en ?? "",
+              category:           data.category ?? "AI",
+              difficulty:         data.difficulty ?? "beginner",
+              stack:              (data.stack ?? []).join(", "),
+              skills:             (data.skills ?? []).join(", "),
+              expected_output:    data.expected_output ?? "",
+              expected_output_ar: data.expected_output_ar ?? "",
+              future_idea:        data.future_idea ?? "",
+              future_idea_ar:     data.future_idea_ar ?? "",
+              icon:               data.icon ?? "🚀",
+              goal_ar:            data.goal_ar ?? "",
+              goal_en:            data.goal_en ?? "",
+              build_steps:        data.build_steps ? JSON.stringify(data.build_steps, null, 2) : "",
+              required_tools:     (data.required_tools ?? []).join(", "),
+              related_courses:    (data.related_courses ?? []).join(", "),
+              related_tools:      (data.related_tools ?? []).join(", "),
+              featured:           data.featured ?? false,
+              status:             data.status ?? "published",
+              sort_order:         String(data.sort_order ?? 0),
+            });
+            setProjectsEditId(row.id);
+            setProjectsView("form");
+          } catch { setProjectsMsg({ type: "err", text: "Error" }); }
+        }
+
+        async function handleArchive(row: DbProjectRow) {
+          if (!confirm(isAr ? `أرشفة "${row.title_ar}"؟` : `Archive "${row.title_ar}"?`)) return;
+          const res = await fetch(`/api/admin/ai-projects/${row.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: "archived" }) });
+          if (res.ok) { setProjectsDbRows((p) => p.map((x) => x.id === row.id ? { ...x, status: "archived" } : x)); }
+        }
+
+        async function handleDelete(row: DbProjectRow) {
+          if (!confirm(isAr ? `حذف "${row.title_ar}" نهائياً؟` : `Delete "${row.title_ar}" permanently?`)) return;
+          const res = await fetch(`/api/admin/ai-projects/${row.id}`, { method: "DELETE" });
+          if (res.ok) { setProjectsDbRows((p) => p.filter((x) => x.id !== row.id)); }
+        }
+
+        function parseJsonField(raw: string, label: string): { ok: true; value: unknown } | { ok: false; error: string } {
+          if (!raw.trim()) return { ok: true, value: null };
+          try { return { ok: true, value: JSON.parse(raw) }; }
+          catch { return { ok: false, error: isAr ? `صيغة JSON غير صحيحة في ${label}` : `Invalid JSON in ${label}` }; }
+        }
+
+        async function handleSaveProject(e: React.FormEvent) {
+          e.preventDefault();
+          setProjectsSaving(true);
+          setProjectsMsg(null);
+          try {
+            const buildSteps = parseJsonField(projectsForm.build_steps, "build_steps");
+            if (!buildSteps.ok) { setProjectsMsg({ type: "err", text: buildSteps.error }); return; }
+
+            const payload = {
+              id:                 projectsForm.id,
+              title_ar:           projectsForm.title_ar,
+              title_en:           projectsForm.title_en,
+              description_ar:     projectsForm.description_ar,
+              description_en:     projectsForm.description_en,
+              category:           projectsForm.category,
+              difficulty:         projectsForm.difficulty,
+              stack:              parseTags(projectsForm.stack),
+              skills:             parseTags(projectsForm.skills),
+              expected_output:    projectsForm.expected_output,
+              expected_output_ar: projectsForm.expected_output_ar,
+              future_idea:        projectsForm.future_idea,
+              future_idea_ar:     projectsForm.future_idea_ar,
+              icon:               projectsForm.icon,
+              goal_ar:            projectsForm.goal_ar,
+              goal_en:            projectsForm.goal_en,
+              build_steps:        buildSteps.value,
+              required_tools:     parseTags(projectsForm.required_tools),
+              related_courses:    parseTags(projectsForm.related_courses),
+              related_tools:      parseTags(projectsForm.related_tools),
+              featured:           projectsForm.featured,
+              status:             projectsForm.status,
+              sort_order:         Number(projectsForm.sort_order) || 0,
+            };
+            const url = projectsEditId ? `/api/admin/ai-projects/${projectsEditId}` : "/api/admin/ai-projects";
+            const method = projectsEditId ? "PATCH" : "POST";
+            const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+            if (!res.ok) {
+              const j = await res.json().catch(() => ({} as { error?: string }));
+              setProjectsMsg({ type: "err", text: j.error ?? `Error ${res.status}` });
+              return;
+            }
+            setProjectsMsg({ type: "ok", text: isAr ? "✅ تم الحفظ بنجاح" : "✅ Saved successfully" });
+            await loadProjects();
+            setTimeout(() => setProjectsView("list"), 1200);
+          } catch (err) {
+            setProjectsMsg({ type: "err", text: err instanceof Error ? err.message : "Error" });
+          } finally {
+            setProjectsSaving(false);
+          }
+        }
+
+        const slugifyId = (text: string) => text.toLowerCase().trim().replace(/[\s_]+/g, "-").replace(/[^a-z0-9-]/g, "").slice(0, 60);
+
+        return (
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+                {projectsView === "list"
+                  ? (isAr ? "🚀 إدارة المشاريع" : "🚀 Projects CMS")
+                  : (projectsEditId ? (isAr ? "✏️ تعديل مشروع" : "✏️ Edit Project") : (isAr ? "✏️ مشروع جديد" : "✏️ New Project"))}
+              </h2>
+              <div className="flex gap-2 flex-wrap">
+                {projectsView === "list" ? (
+                  <>
+                    <button onClick={loadProjects} disabled={projectsLoading} className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer disabled:opacity-50" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                      <RefreshCw size={12} className={projectsLoading ? "animate-spin" : ""} /> {isAr ? "تحديث" : "Refresh"}
+                    </button>
+                    <button onClick={openCreate} className="flex items-center gap-1 text-xs font-mono px-4 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(142,213,255,0.12)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.25)" }}>
+                      + {isAr ? "مشروع جديد" : "New Project"}
+                    </button>
+                  </>
+                ) : (
+                  <button onClick={() => setProjectsView("list")} className="text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    ← {isAr ? "قائمة المشاريع" : "Project List"}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {projectsMsg && (
+              <p className="text-xs font-mono px-3 py-2 rounded-lg" style={{ background: projectsMsg.type === "ok" ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)", color: projectsMsg.type === "ok" ? "#4ade80" : "#f87171" }}>
+                {projectsMsg.text}
+              </p>
+            )}
+
+            {/* ── LIST VIEW ── */}
+            {projectsView === "list" && (
+              <div className="flex flex-col gap-3">
+                {projectsLoading ? (
+                  <p className="text-xs font-mono text-center py-6" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "جارٍ التحميل…" : "Loading…"}</p>
+                ) : projectsDbRows.length === 0 ? (
+                  <div className="glass-card rounded-2xl p-8 text-center">
+                    <p className="text-3xl mb-3">🚀</p>
+                    <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "لا توجد مشاريع في قاعدة البيانات بعد. اضغط «تحديث» أو «مشروع جديد»." : "No projects in DB yet. Click «Refresh» or «New Project»."}</p>
+                    <p className="text-xs mt-2 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "تذكّر تطبيق migration v26 في Supabase أولاً." : "Remember to apply migration v26 in Supabase first."}</p>
+                  </div>
+                ) : (
+                  projectsDbRows.map((row) => (
+                    <div key={row.id} className="glass-card rounded-xl p-4 flex items-center gap-4 flex-wrap" style={{ border: `1px solid ${row.status === "published" ? "rgba(74,222,128,0.15)" : row.status === "draft" ? "rgba(250,204,21,0.15)" : "rgba(255,255,255,0.06)"}` }}>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-xs font-mono px-2 py-0.5 rounded-full" style={{ background: row.status === "published" ? "rgba(74,222,128,0.12)" : row.status === "draft" ? "rgba(250,204,21,0.12)" : "rgba(255,255,255,0.06)", color: row.status === "published" ? "#4ade80" : row.status === "draft" ? "#fbbf24" : "#888" }}>
+                            {row.status}
+                          </span>
+                          {row.featured && <span className="text-xs font-mono" style={{ color: "#f59e0b" }}>⭐ featured</span>}
+                          <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{row.category} · {row.difficulty}</span>
+                        </div>
+                        <p className="font-semibold text-sm mt-1 truncate" style={{ color: "var(--color-on-surface)" }}>{row.title_ar}</p>
+                        <p className="text-xs mt-1 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>#{row.id} · sort {row.sort_order} · {row.updated_at?.split("T")[0]}</p>
+                      </div>
+                      <div className="flex gap-2 flex-shrink-0">
+                        <a href={`/ar/projects`} target="_blank" rel="noreferrer" className="text-xs font-mono px-2.5 py-1.5 rounded-lg" style={{ background: "rgba(142,213,255,0.08)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)", textDecoration: "none" }}>
+                          {isAr ? "عرض" : "View"}
+                        </a>
+                        <button onClick={() => openEdit(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                          {isAr ? "تعديل" : "Edit"}
+                        </button>
+                        {row.status !== "archived" && (
+                          <button onClick={() => handleArchive(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(250,204,21,0.08)", color: "#fbbf24", border: "1px solid rgba(250,204,21,0.2)" }}>
+                            {isAr ? "أرشفة" : "Archive"}
+                          </button>
+                        )}
+                        <button onClick={() => handleDelete(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(239,68,68,0.08)", color: "#f87171", border: "1px solid rgba(239,68,68,0.2)" }}>
+                          {isAr ? "حذف" : "Delete"}
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            )}
+
+            {/* ── FORM VIEW ── */}
+            {projectsView === "form" && (
+              <form onSubmit={handleSaveProject} className="flex flex-col gap-5">
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "المعلومات الأساسية" : "Basic Info"}</h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextField
+                      label={isAr ? "العنوان (عربي) *" : "Title (Arabic) *"}
+                      value={projectsForm.title_ar}
+                      onChange={(v) => {
+                        setProjectsForm((f) => ({ ...f, title_ar: v }));
+                        if (!projectsEditId && !projectsForm.id) setProjectsForm((f) => ({ ...f, id: slugifyId(v || projectsForm.title_en) }));
+                      }}
+                      placeholder="روبوت محادثة PDF"
+                      dir="rtl"
+                      required
+                    />
+                    <AdminTextField
+                      label={isAr ? "العنوان (إنجليزي)" : "Title (English)"}
+                      value={projectsForm.title_en}
+                      onChange={(v) => {
+                        setProjectsForm((f) => ({ ...f, title_en: v }));
+                        if (!projectsEditId && !projectsForm.id) setProjectsForm((f) => ({ ...f, id: slugifyId(v) }));
+                      }}
+                      placeholder="PDF Chatbot"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <AdminTextField
+                      label={isAr ? "المعرّف (id) *" : "ID (slug) *"}
+                      value={projectsForm.id}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, id: slugifyId(v) }))}
+                      placeholder="pdf-chatbot"
+                      required
+                      mono
+                      dir="ltr"
+                    />
+                    <AdminSelectField
+                      label={isAr ? "الفئة" : "Category"}
+                      value={projectsForm.category}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, category: v }))}
+                      options={PROJECT_CAT_OPTIONS}
+                    />
+                    <AdminSelectField
+                      label={isAr ? "الصعوبة" : "Difficulty"}
+                      value={projectsForm.difficulty}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, difficulty: v as typeof projectsForm.difficulty }))}
+                      options={DIFFICULTY_OPTIONS}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "الوصف (عربي) *" : "Description (Arabic) *"}
+                      value={projectsForm.description_ar}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, description_ar: v }))}
+                      placeholder="وصف مختصر للمشروع"
+                      dir="rtl"
+                      required
+                      rows={3}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "الوصف (إنجليزي)" : "Description (English)"}
+                      value={projectsForm.description_en}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, description_en: v }))}
+                      placeholder="Short project description"
+                      rows={3}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "الهدف (عربي)" : "Goal (Arabic)"}
+                      value={projectsForm.goal_ar}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, goal_ar: v }))}
+                      placeholder="هدف المشروع بالتفصيل"
+                      dir="rtl"
+                      rows={3}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "الهدف (إنجليزي)" : "Goal (English)"}
+                      value={projectsForm.goal_en}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, goal_en: v }))}
+                      placeholder="Detailed project goal"
+                      rows={3}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "الناتج المتوقع (عربي)" : "Expected Output (Arabic)"}
+                      value={projectsForm.expected_output_ar}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, expected_output_ar: v }))}
+                      placeholder="ما الذي ستحصل عليه عند الانتهاء"
+                      dir="rtl"
+                      rows={2}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "الناتج المتوقع (إنجليزي)" : "Expected Output (English)"}
+                      value={projectsForm.expected_output}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, expected_output: v }))}
+                      placeholder="What you'll have when done"
+                      rows={2}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "فكرة مستقبلية (عربي)" : "Future Idea (Arabic)"}
+                      value={projectsForm.future_idea_ar}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, future_idea_ar: v }))}
+                      placeholder="كيف يمكن توسيع المشروع لاحقاً"
+                      dir="rtl"
+                      rows={2}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "فكرة مستقبلية (إنجليزي)" : "Future Idea (English)"}
+                      value={projectsForm.future_idea}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, future_idea: v }))}
+                      placeholder="How to expand this project later"
+                      rows={2}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <AdminTextField
+                      label={isAr ? "الأيقونة" : "Icon"}
+                      value={projectsForm.icon}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, icon: v }))}
+                      placeholder="🚀"
+                    />
+                  </div>
+                </div>
+
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "تفاصيل إضافية (مفصولة بفواصل)" : "Extra Details (comma-separated)"}</h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTagsField
+                      label={isAr ? "التقنيات (Stack)" : "Stack"}
+                      value={projectsForm.stack}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, stack: v }))}
+                      placeholder="Python, LangChain, OpenAI"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "المهارات" : "Skills"}
+                      value={projectsForm.skills}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, skills: v }))}
+                      placeholder="RAG, Embeddings, Prompting"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <AdminTagsField
+                      label={isAr ? "الأدوات المطلوبة (IDs)" : "Required Tools (IDs)"}
+                      value={projectsForm.required_tools}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, required_tools: v }))}
+                      placeholder="chatgpt, vscode"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "دورات مرتبطة (IDs)" : "Related Courses (IDs)"}
+                      value={projectsForm.related_courses}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, related_courses: v }))}
+                      placeholder="ai-fundamentals, prompt-engineering"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "أدوات مرتبطة (IDs)" : "Related Tools (IDs)"}
+                      value={projectsForm.related_tools}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, related_tools: v }))}
+                      placeholder="langchain, pinecone"
+                    />
+                  </div>
+                </div>
+
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "خطوات البناء (JSON خام)" : "Build Steps (raw JSON)"}</h3>
+                  <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {isAr
+                      ? "أدخل مصفوفة JSON صالحة (أو اتركها فارغة). شكل الخطوة: { \"stepAr\": \"...\", \"stepEn\": \"...\", \"detailAr\": \"...\", \"detailEn\": \"...\" }"
+                      : "Enter a valid JSON array (or leave empty). Step shape: { \"stepAr\": \"...\", \"stepEn\": \"...\", \"detailAr\": \"...\", \"detailEn\": \"...\" }"}
+                  </p>
+                  <AdminTextAreaField
+                    label={isAr ? "خطوات البناء (buildSteps)" : "Build Steps (buildSteps)"}
+                    value={projectsForm.build_steps}
+                    onChange={(v) => setProjectsForm((f) => ({ ...f, build_steps: v }))}
+                    placeholder='[{"stepAr":"التهيئة","stepEn":"Setup","detailAr":"...","detailEn":"..."}]'
+                    dir="ltr"
+                    rows={8}
+                  />
+                </div>
+
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+                    <AdminSortOrderField
+                      label={isAr ? "ترتيب العرض" : "Sort order"}
+                      value={Number(projectsForm.sort_order) || 0}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, sort_order: String(v) }))}
+                    />
+                    <AdminStatusField
+                      value={projectsForm.status}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, status: v }))}
+                      label={isAr ? "الحالة" : "Status"}
+                    />
+                  </div>
+                  <div className="flex flex-wrap gap-6">
+                    <AdminToggleField
+                      label={isAr ? "مشروع مميز" : "Featured"}
+                      checked={projectsForm.featured}
+                      onChange={(v) => setProjectsForm((f) => ({ ...f, featured: v }))}
+                    />
+                  </div>
+                </div>
+
+                {/* Save */}
+                <div className="flex gap-3">
+                  <button type="submit" disabled={projectsSaving} className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold cursor-pointer disabled:opacity-50" style={{ background: "rgba(142,213,255,0.15)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.3)" }}>
+                    {projectsSaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (projectsEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر المشروع" : "💾 Publish Project"))}
+                  </button>
+                  <button type="button" onClick={() => setProjectsView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
                     {isAr ? "إلغاء" : "Cancel"}
                   </button>
                 </div>
