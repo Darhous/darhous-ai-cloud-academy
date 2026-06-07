@@ -1,17 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { verifyAdminRequest as verifyAdmin } from "@/lib/auth/admin";
 import { defaultSiteSettings } from "@/types/site_settings";
 import type { SiteSettings } from "@/types/site_settings";
-
-async function verifyAdmin() {
-  const supabase = await createClient();
-  if (!supabase) return { supabase: null, user: null };
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return { supabase, user: null };
-  const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single();
-  if (profile?.role !== "admin") return { supabase, user: null };
-  return { supabase, user };
-}
 
 export async function GET() {
   try {

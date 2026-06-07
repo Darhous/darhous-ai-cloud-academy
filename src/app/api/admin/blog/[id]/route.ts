@@ -5,16 +5,11 @@
  */
 import "server-only";
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { verifyAdminRequest } from "@/lib/auth/admin";
 
 async function requireAdmin() {
-  const supabase = await createClient();
-  if (!supabase) return null;
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
-  const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single();
-  if (profile?.role !== "admin") return null;
+  const { user } = await verifyAdminRequest();
   return user;
 }
 

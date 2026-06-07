@@ -1,24 +1,10 @@
 import "server-only";
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { verifyAdminRequest as verifyAdmin } from "@/lib/auth/admin";
 
 const MAX_SIZE = 5 * 1024 * 1024; // 5 MB
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 const BUCKET = "nano-banana";
-
-async function verifyAdmin() {
-  const supabase = await createClient();
-  if (!supabase) return { supabase: null, user: null };
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return { supabase, user: null };
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
-    .single();
-  if (profile?.role !== "admin") return { supabase, user: null };
-  return { supabase, user };
-}
 
 /** POST — upload image + save prompt row */
 export async function POST(req: NextRequest) {
