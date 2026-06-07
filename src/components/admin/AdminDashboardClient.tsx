@@ -35,12 +35,16 @@ import { defaultFeatureFlags } from "@/types/feature_flags";
 import { defaultSiteSettings } from "@/types/site_settings";
 import type { UserProfile } from "@/lib/auth/roles";
 import { PORTAL_SMART_CONFIG } from "@/lib/certificates/portalConfig";
+import { AutomationCMSPanel } from "@/components/admin/cms/AutomationCMSPanel";
+import { IoTCMSPanel } from "@/components/admin/cms/IoTCMSPanel";
+import { ExamsCMSPanel } from "@/components/admin/cms/ExamsCMSPanel";
 
 type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
   | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
-  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms" | "ai-projects-cms" | "ai-paths-cms";
+  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms" | "ai-projects-cms" | "ai-paths-cms"
+  | "automation-cms" | "iot-cms" | "exams-cms";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -503,6 +507,9 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "ai-courses-cms", labelAr: "🎓 الدورات",            labelEn: "🎓 Courses CMS",      icon: <GraduationCap size={15} /> },
     { id: "ai-projects-cms", labelAr: "🚀 المشاريع",          labelEn: "🚀 Projects CMS",     icon: <Rocket size={15} /> },
     { id: "ai-paths-cms",    labelAr: "🗺️ المسارات",          labelEn: "🗺️ Paths CMS",        icon: <Map size={15} /> },
+    { id: "automation-cms",  labelAr: "⚡ محتوى الأتمتة",      labelEn: "⚡ Automation CMS",   icon: <Zap size={15} /> },
+    { id: "iot-cms",         labelAr: "🔌 محتوى IoT",          labelEn: "🔌 IoT Lab CMS",      icon: <Wrench size={15} /> },
+    { id: "exams-cms",       labelAr: "📝 محتوى الاختبارات",   labelEn: "📝 Exams CMS",        icon: <BarChart2 size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -5561,6 +5568,10 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
           </div>
         );
       })()}
+
+      {tab === "automation-cms" && <AutomationCMSPanel isAr={isAr} />}
+      {tab === "iot-cms" && <IoTCMSPanel isAr={isAr} />}
+      {tab === "exams-cms" && <ExamsCMSPanel isAr={isAr} />}
 
     </div>
   );
