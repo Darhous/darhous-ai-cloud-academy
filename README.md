@@ -1,40 +1,87 @@
+<a id="top"></a>
+
 <div align="center">
 
-<img src="./public/og-image.svg" alt="Darhous AI Cloud Academy" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=210&color=0:020617,35:0F766E,70:571BC1,100:00668A&text=Darhous%20AI%20Cloud%20Academy&fontColor=ffffff&fontSize=42&fontAlignY=38&desc=Arabic-first%20AI%20%2B%20Cloud%20Learning%20Ecosystem&descSize=16&descAlignY=60&animation=fadeIn" alt="Darhous AI Cloud Academy" width="100%" />
+
+<img src="./public/og-image.svg" alt="Darhous AI Cloud Academy Preview" width="100%" />
 
 <br />
 
-# Darhous AI Cloud Academy
+<h1>Darhous AI Cloud Academy</h1>
+<h3>أكاديمية درهوس للذكاء الاصطناعي والكلاود</h3>
 
-### أكاديمية درهوس للذكاء الاصطناعي والكلاود
-
-**Arabic-first bilingual learning ecosystem for AI, cloud, automation, digital skills, career development, language assessment, IoT, tools, projects, and certificates.**
-
-<br />
-
-[![العربية](https://img.shields.io/badge/اقرأ_بالعربية-0F766E?style=for-the-badge)](#-العربية)
-[![English](https://img.shields.io/badge/Read_in_English-571BC1?style=for-the-badge)](#-english)
+<p>
+  <strong>Arabic-first bilingual learning ecosystem for AI, cloud, automation, digital skills, career development, language assessment, IoT, tools, projects, and certificates.</strong>
+</p>
 
 <br />
 
-[![Live Platform](https://img.shields.io/badge/Explore_Live_Platform-00668A?style=for-the-badge\&logo=vercel\&logoColor=white)](https://darhous-ai-cloud-academy.vercel.app)
-[![Arabic](https://img.shields.io/badge/العربية-0F766E?style=for-the-badge)](https://darhous-ai-cloud-academy.vercel.app/ar)
-[![English](https://img.shields.io/badge/English-571BC1?style=for-the-badge)](https://darhous-ai-cloud-academy.vercel.app/en)
+<a href="#arabic"><img src="https://img.shields.io/badge/Arabic-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-0F766E?style=for-the-badge&logo=googletranslate&logoColor=white" alt="Open Arabic section" /></a>
+<a href="#english"><img src="https://img.shields.io/badge/English-Read-571BC1?style=for-the-badge&logo=googletranslate&logoColor=white" alt="Open English section" /></a>
+<a href="https://darhous-ai-cloud-academy.vercel.app"><img src="https://img.shields.io/badge/Live-Platform-00668A?style=for-the-badge&logo=vercel&logoColor=white" alt="Open live platform" /></a>
+
+<br />
+<br />
+
+<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=22&duration=2800&pause=700&color=8ED5FF&center=true&vCenter=true&width=900&lines=AI+Academy+%E2%80%A2+Cloud+%E2%80%A2+Automation+%E2%80%A2+Career+%E2%80%A2+IoT;Arabic-first+learning+experience+with+premium+digital+depth;Build+skills+%E2%80%A2+Create+projects+%E2%80%A2+Advance+with+AI" alt="Darhous academy animated headline" />
+
+<br />
+<br />
+
+<table>
+  <tr>
+    <td align="center"><a href="https://darhous-ai-cloud-academy.vercel.app/en/ai-academy"><img src="https://img.shields.io/badge/AI-Academy-111827?style=for-the-badge&logo=openai&logoColor=8ED5FF" alt="AI Academy" /></a></td>
+    <td align="center"><a href="https://darhous-ai-cloud-academy.vercel.app/en/language"><img src="https://img.shields.io/badge/Language-Portal-111827?style=for-the-badge&logo=googletranslate&logoColor=C084FC" alt="Language Portal" /></a></td>
+    <td align="center"><a href="https://darhous-ai-cloud-academy.vercel.app/en/digital-exams"><img src="https://img.shields.io/badge/Digital-Exams-111827?style=for-the-badge&logo=googleclassroom&logoColor=3CE0FB" alt="Digital Exams" /></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://darhous-ai-cloud-academy.vercel.app/en/career"><img src="https://img.shields.io/badge/Career-Hub-111827?style=for-the-badge&logo=linkedin&logoColor=FBBF24" alt="Career Hub" /></a></td>
+    <td align="center"><a href="https://darhous-ai-cloud-academy.vercel.app/en/automation"><img src="https://img.shields.io/badge/Automation-Academy-111827?style=for-the-badge&logo=n8n&logoColor=4ADE80" alt="Automation Academy" /></a></td>
+    <td align="center"><a href="https://darhous-ai-cloud-academy.vercel.app/en/iot-lab"><img src="https://img.shields.io/badge/IoT-Arduino%20Lab-111827?style=for-the-badge&logo=arduino&logoColor=F97316" alt="IoT and Arduino Lab" /></a></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="3"><a href="https://darhous-ai-cloud-academy.vercel.app/en/tools"><img src="https://img.shields.io/badge/Tools-Directory-111827?style=for-the-badge&logo=googlegemini&logoColor=F59E0B" alt="Tools Directory" /></a></td>
+  </tr>
+</table>
 
 <br />
 
-[![Next.js](https://img.shields.io/badge/Next.js_16-000000?style=flat-square\&logo=nextdotjs\&logoColor=white)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React_19-20232A?style=flat-square\&logo=react\&logoColor=61DAFB)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript_5-3178C6?style=flat-square\&logo=typescript\&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?style=flat-square\&logo=tailwindcss\&logoColor=white)](https://tailwindcss.com/)
-[![Supabase](https://img.shields.io/badge/Supabase-181818?style=flat-square\&logo=supabase\&logoColor=3ECF8E)](https://supabase.com/)
-[![Vercel](https://img.shields.io/badge/Deployed_on_Vercel-000000?style=flat-square\&logo=vercel\&logoColor=white)](https://vercel.com/)
+<img src="https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="tech badge" />
+<img src="https://img.shields.io/badge/React-19-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="tech badge" />
+<img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="tech badge" />
+<img src="https://img.shields.io/badge/Tailwind%20CSS-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="tech badge" />
+<img src="https://img.shields.io/badge/Supabase-CMS/Auth-181818?style=flat-square&logo=supabase&logoColor=3ECF8E" alt="tech badge" />
+<img src="https://img.shields.io/badge/Vercel-Production-000000?style=flat-square&logo=vercel&logoColor=white" alt="tech badge" />
+
+
+<br />
+<br />
+
+<table>
+  <tr>
+    <td align="center"><a href="#arabic"><strong>العربية</strong></a></td>
+    <td align="center"><a href="#english"><strong>English</strong></a></td>
+    <td align="center"><a href="https://darhous-ai-cloud-academy.vercel.app"><strong>Live Platform</strong></a></td>
+    <td align="center"><a href="./DEVELOPMENT_GUIDE.md"><strong>Development</strong></a></td>
+    <td align="center"><a href="./DEPLOYMENT_GUIDE.md"><strong>Deployment</strong></a></td>
+    <td align="center"><a href="./SECURITY.md"><strong>Security</strong></a></td>
+  </tr>
+</table>
 
 </div>
 
 ---
+<a id="arabic"></a>
 
-# 🇦🇪 العربية
+<div align="center">
+
+<h2>العربية</h2>
+
+<a href="#english"><img src="https://img.shields.io/badge/English-Read-571BC1?style=for-the-badge&logo=googletranslate&logoColor=white" alt="Switch to English" /></a>
+<a href="#top"><img src="https://img.shields.io/badge/Top-Back%20to%20top-0B1020?style=for-the-badge&logo=github&logoColor=white" alt="Back to top" /></a>
+
+</div>
 
 <div dir="rtl" align="right">
 
@@ -47,34 +94,40 @@
 <table>
   <tr>
     <td width="33%" valign="top">
-      <h3>🤖 بوابة الذكاء الاصطناعي</h3>
+      <p><img src="https://img.shields.io/badge/AI-Academy-111827?style=for-the-badge&logo=openai&logoColor=8ED5FF" alt="AI Academy" /></p>
+      <h3>بوابة الذكاء الاصطناعي</h3>
       <p>دورات AI، هندسة البرومبت، أدوات ذكية، معامل تطبيقية، مشاريع، تحديات، ومرشد ذكي للتعلم.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/ar/ai-academy">ادخل البوابة ←</a>
     </td>
     <td width="33%" valign="top">
-      <h3>🌐 بوابة اللغة</h3>
+      <p><img src="https://img.shields.io/badge/Language-Portal-111827?style=for-the-badge&logo=googletranslate&logoColor=C084FC" alt="Language Portal" /></p>
+      <h3>بوابة اللغة</h3>
       <p>اختبار مستوى اللغة الإنجليزية، تقييم المهارات، نتائج فورية، سجل المحاولات، وتوصيات تعليمية.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/ar/language">اختبر مستواك ←</a>
     </td>
     <td width="33%" valign="top">
-      <h3>💻 الاختبارات الرقمية</h3>
+      <p><img src="https://img.shields.io/badge/Digital-Exams-111827?style=for-the-badge&logo=googleclassroom&logoColor=3CE0FB" alt="Digital Exams" /></p>
+      <h3>الاختبارات الرقمية</h3>
       <p>اختبارات في تكنولوجيا المعلومات، Microsoft Office، الأمن السيبراني، ومهارات التحول الرقمي الأساسية.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/ar/digital-exams">ابدأ اختبارًا ←</a>
     </td>
   </tr>
   <tr>
     <td width="33%" valign="top">
-      <h3>💼 مركز المسار المهني</h3>
+      <p><img src="https://img.shields.io/badge/Career-Hub-111827?style=for-the-badge&logo=linkedin&logoColor=FBBF24" alt="Career Hub" /></p>
+      <h3>مركز المسار المهني</h3>
       <p>تحليل السيرة الذاتية بالذكاء الاصطناعي، ATS scoring، بناء CV، مطابقة فرص، وتحضير للمقابلات.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/ar/career">طوّر مسارك ←</a>
     </td>
     <td width="33%" valign="top">
-      <h3>⚙️ أكاديمية الأتمتة</h3>
+      <p><img src="https://img.shields.io/badge/Automation-Academy-111827?style=for-the-badge&logo=n8n&logoColor=4ADE80" alt="Automation Academy" /></p>
+      <h3>أكاديمية الأتمتة</h3>
       <p>مسارات تعلم الأتمتة، وصفات workflows، معامل عملية، وقوالب تساعد على بناء حلول أتمتة حقيقية.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/ar/automation">استكشف الأتمتة ←</a>
     </td>
     <td width="33%" valign="top">
-      <h3>🔌 معمل IoT و Arduino</h3>
+      <p><img src="https://img.shields.io/badge/IoT-Arduino%20Lab-111827?style=for-the-badge&logo=arduino&logoColor=F97316" alt="IoT and Arduino Lab" /></p>
+      <h3>معمل IoT و Arduino</h3>
       <p>دروس Arduino، مشاريع تطبيقية، تحديات برمجية، مراجع للمكونات، وتجربة تعلم موجهة بالمحاكاة.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/ar/iot-lab">ادخل المعمل ←</a>
     </td>
@@ -390,7 +443,16 @@ npm run build
 
 ---
 
-# 🇬🇧 English
+<a id="english"></a>
+
+<div align="center">
+
+<h2>English</h2>
+
+<a href="#arabic"><img src="https://img.shields.io/badge/Arabic-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-0F766E?style=for-the-badge&logo=googletranslate&logoColor=white" alt="Switch to Arabic" /></a>
+<a href="#top"><img src="https://img.shields.io/badge/Top-Back%20to%20top-0B1020?style=for-the-badge&logo=github&logoColor=white" alt="Back to top" /></a>
+
+</div>
 
 ## One Ecosystem. Multiple Learning Portals.
 
@@ -401,34 +463,40 @@ The platform helps learners move from **understanding concepts** to **building p
 <table>
   <tr>
     <td width="33%" valign="top">
-      <h3>🤖 AI Academy</h3>
+      <p><img src="https://img.shields.io/badge/AI-Academy-111827?style=for-the-badge&logo=openai&logoColor=8ED5FF" alt="AI Academy" /></p>
+      <h3>AI Academy</h3>
       <p>AI courses, prompt engineering, intelligent labs, practical projects, challenges, and AI mentor support.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/en/ai-academy">Enter portal →</a>
     </td>
     <td width="33%" valign="top">
-      <h3>🌐 Language Portal</h3>
+      <p><img src="https://img.shields.io/badge/Language-Portal-111827?style=for-the-badge&logo=googletranslate&logoColor=C084FC" alt="Language Portal" /></p>
+      <h3>Language Portal</h3>
       <p>English level assessment, skill evaluation, instant results, learning history, and recommendations.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/en/language">Test your level →</a>
     </td>
     <td width="33%" valign="top">
-      <h3>💻 Digital Exams</h3>
+      <p><img src="https://img.shields.io/badge/Digital-Exams-111827?style=for-the-badge&logo=googleclassroom&logoColor=3CE0FB" alt="Digital Exams" /></p>
+      <h3>Digital Exams</h3>
       <p>Assessments for IT, Microsoft Office, cybersecurity, and essential digital transformation skills.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/en/digital-exams">Start an exam →</a>
     </td>
   </tr>
   <tr>
     <td width="33%" valign="top">
-      <h3>💼 Career Hub</h3>
+      <p><img src="https://img.shields.io/badge/Career-Hub-111827?style=for-the-badge&logo=linkedin&logoColor=FBBF24" alt="Career Hub" /></p>
+      <h3>Career Hub</h3>
       <p>AI-powered CV analysis, ATS scoring, CV building, job matching, and interview preparation.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/en/career">Build your career →</a>
     </td>
     <td width="33%" valign="top">
-      <h3>⚙️ Automation Academy</h3>
+      <p><img src="https://img.shields.io/badge/Automation-Academy-111827?style=for-the-badge&logo=n8n&logoColor=4ADE80" alt="Automation Academy" /></p>
+      <h3>Automation Academy</h3>
       <p>Business automation learning paths, curated workflow recipes, practical labs, and workflow guidance.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/en/automation">Explore automation →</a>
     </td>
     <td width="33%" valign="top">
-      <h3>🔌 IoT & Arduino Lab</h3>
+      <p><img src="https://img.shields.io/badge/IoT-Arduino%20Lab-111827?style=for-the-badge&logo=arduino&logoColor=F97316" alt="IoT and Arduino Lab" /></p>
+      <h3>IoT & Arduino Lab</h3>
       <p>Arduino lessons, applied projects, coding challenges, component references, and simulator-oriented learning.</p>
       <a href="https://darhous-ai-cloud-academy.vercel.app/en/iot-lab">Enter the lab →</a>
     </td>
@@ -781,7 +849,16 @@ For deployment details, environment configuration, and release guidance, see [`D
 * RLS policies should remain enabled for database content tables
 * never commit credentials, exported secrets, local tokens, or service-role keys
 
+
 ---
+
+<div align="center">
+
+<a href="#arabic"><img src="https://img.shields.io/badge/Arabic-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-0F766E?style=for-the-badge&logo=googletranslate&logoColor=white" alt="Arabic" /></a>
+<a href="#english"><img src="https://img.shields.io/badge/English-Read-571BC1?style=for-the-badge&logo=googletranslate&logoColor=white" alt="English" /></a>
+<a href="#top"><img src="https://img.shields.io/badge/Top-Back%20to%20top-0B1020?style=for-the-badge&logo=github&logoColor=white" alt="Back to top" /></a>
+
+</div>
 
 <div align="center">
 
