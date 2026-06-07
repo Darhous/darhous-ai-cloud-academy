@@ -15,7 +15,7 @@ import { portals as allPortals } from "@/config/portals";
 import { curatedWorkflows } from "@/data/automation/workflowLibrary";
 import { examSubjects } from "@/data/digital-exam-subjects";
 import { courses } from "@/data/courses";
-import { tools } from "@/data/tools";
+import { tools, toolCategories } from "@/data/tools";
 import { lessonsData } from "@/data/iot/lessons";
 import { projectsData } from "@/data/iot/projects";
 import { challengesData } from "@/data/iot/challenges";
@@ -25,6 +25,7 @@ import { glossaryCategories } from "@/data/glossary";
 import {
   AdminTextField, AdminTextAreaField, AdminSelectField,
   AdminStatusField, AdminToggleField, AdminSortOrderField,
+  AdminTagsField, parseTags,
 } from "@/components/admin/content-form/fields";
 import { prompts } from "@/data/prompts";
 import { nanaBananaPrompts } from "@/data/nano-banana-prompts";
@@ -38,7 +39,7 @@ type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
   | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
-  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary";
+  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -161,6 +162,26 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     featured: false, status: "published" as "published" | "draft" | "archived",
   };
   const [glossaryForm, setGlossaryForm] = useState(GLOSSARY_FORM_DEFAULT);
+
+  /* AI Tools CMS state */
+  type DbToolRow = { id: string; name: string; category: string; level: string; pricing_type: string; status: string; featured: boolean; sort_order: number; updated_at: string };
+  const [toolsDbRows, setToolsDbRows] = useState<DbToolRow[]>([]);
+  const [toolsLoading, setToolsLoading] = useState(false);
+  const [toolsView, setToolsView] = useState<"list" | "form">("list");
+  const [toolsEditId, setToolsEditId] = useState<string | null>(null);
+  const [toolsSaving, setToolsSaving] = useState(false);
+  const [toolsMsg, setToolsMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
+  const TOOLS_FORM_DEFAULT = {
+    id: "", name: "", category: "AI Chatbots",
+    short_description_ar: "", short_description_en: "",
+    use_cases: "", level: "beginner" as "beginner" | "intermediate" | "advanced",
+    pricing_type: "freemium" as "free" | "freemium" | "paid" | "open-source",
+    best_for: "", tags: "", website: "", featured: false,
+    status: "published" as "published" | "draft" | "archived", sort_order: "0",
+    overview_ar: "", overview_en: "",
+    pros: "", limitations: "", alternatives: "", related_courses: "", related_prompts: "",
+  };
+  const [toolsForm, setToolsForm] = useState(TOOLS_FORM_DEFAULT);
 
   const fetchData = useCallback(async () => {
     if (!user || !supabaseConfigured) return;
@@ -388,6 +409,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "nano-banana",    labelAr: "🍌 Nano Banana",        labelEn: "🍌 Nano Banana",     icon: <Sparkles size={15} /> },
     { id: "blog",           labelAr: "📰 المدونة",            labelEn: "📰 Blog CMS",         icon: <FileText size={15} /> },
     { id: "ai-glossary",    labelAr: "📖 المسرد",             labelEn: "📖 Glossary CMS",     icon: <BookOpen size={15} /> },
+    { id: "ai-tools-cms",   labelAr: "🛠️ أدوات AI",          labelEn: "🛠️ AI Tools CMS",    icon: <Wrench size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -3453,6 +3475,400 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                     {glossarySaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (glossaryEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر المصطلح" : "💾 Publish Term"))}
                   </button>
                   <button type="button" onClick={() => setGlossaryView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    {isAr ? "إلغاء" : "Cancel"}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        );
+      })()}
+
+      {tab === "ai-tools-cms" && (() => {
+        const TOOL_CAT_OPTIONS = toolCategories.map((c) => ({ value: c, label: c }));
+        const LEVEL_OPTIONS = [
+          { value: "beginner", label: isAr ? "مبتدئ" : "Beginner" },
+          { value: "intermediate", label: isAr ? "متوسط" : "Intermediate" },
+          { value: "advanced", label: isAr ? "متقدم" : "Advanced" },
+        ];
+        const PRICING_OPTIONS = [
+          { value: "free", label: isAr ? "مجاني" : "Free" },
+          { value: "freemium", label: isAr ? "مجاني جزئيًا" : "Freemium" },
+          { value: "paid", label: isAr ? "مدفوع" : "Paid" },
+          { value: "open-source", label: isAr ? "مفتوح المصدر" : "Open Source" },
+        ];
+
+        async function loadTools() {
+          setToolsLoading(true);
+          setToolsMsg(null);
+          try {
+            const res = await fetch("/api/admin/ai-tools");
+            if (res.ok) setToolsDbRows(await res.json());
+          } catch { /* silent */ } finally { setToolsLoading(false); }
+        }
+
+        function openCreate() {
+          setToolsEditId(null);
+          setToolsForm(TOOLS_FORM_DEFAULT);
+          setToolsMsg(null);
+          setToolsView("form");
+        }
+
+        async function openEdit(row: DbToolRow) {
+          setToolsMsg(null);
+          try {
+            const res = await fetch(`/api/admin/ai-tools/${row.id}`);
+            if (!res.ok) { setToolsMsg({ type: "err", text: isAr ? "فشل تحميل الأداة" : "Failed to load tool" }); return; }
+            const data = await res.json();
+            setToolsForm({
+              id:                   data.id ?? "",
+              name:                 data.name ?? "",
+              category:             data.category ?? "AI Chatbots",
+              short_description_ar: data.short_description_ar ?? "",
+              short_description_en: data.short_description_en ?? "",
+              use_cases:            (data.use_cases ?? []).join(", "),
+              level:                data.level ?? "beginner",
+              pricing_type:         data.pricing_type ?? "freemium",
+              best_for:             data.best_for ?? "",
+              tags:                 (data.tags ?? []).join(", "),
+              website:              data.website ?? "",
+              featured:             data.featured ?? false,
+              status:               data.status ?? "published",
+              sort_order:           String(data.sort_order ?? 0),
+              overview_ar:          data.overview_ar ?? "",
+              overview_en:          data.overview_en ?? "",
+              pros:                 (data.pros ?? []).join(", "),
+              limitations:          (data.limitations ?? []).join(", "),
+              alternatives:         (data.alternatives ?? []).join(", "),
+              related_courses:      (data.related_courses ?? []).join(", "),
+              related_prompts:      (data.related_prompts ?? []).join(", "),
+            });
+            setToolsEditId(row.id);
+            setToolsView("form");
+          } catch { setToolsMsg({ type: "err", text: "Error" }); }
+        }
+
+        async function handleArchive(row: DbToolRow) {
+          if (!confirm(isAr ? `أرشفة "${row.name}"؟` : `Archive "${row.name}"?`)) return;
+          const res = await fetch(`/api/admin/ai-tools/${row.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: "archived" }) });
+          if (res.ok) { setToolsDbRows((p) => p.map((x) => x.id === row.id ? { ...x, status: "archived" } : x)); }
+        }
+
+        async function handleDelete(row: DbToolRow) {
+          if (!confirm(isAr ? `حذف "${row.name}" نهائياً؟` : `Delete "${row.name}" permanently?`)) return;
+          const res = await fetch(`/api/admin/ai-tools/${row.id}`, { method: "DELETE" });
+          if (res.ok) { setToolsDbRows((p) => p.filter((x) => x.id !== row.id)); }
+        }
+
+        async function handleSaveTool(e: React.FormEvent) {
+          e.preventDefault();
+          setToolsSaving(true);
+          setToolsMsg(null);
+          try {
+            const payload = {
+              id:                   toolsForm.id,
+              name:                 toolsForm.name,
+              category:             toolsForm.category,
+              short_description_ar: toolsForm.short_description_ar,
+              short_description_en: toolsForm.short_description_en,
+              use_cases:            parseTags(toolsForm.use_cases),
+              level:                toolsForm.level,
+              pricing_type:         toolsForm.pricing_type,
+              best_for:             toolsForm.best_for,
+              tags:                 parseTags(toolsForm.tags),
+              website:              toolsForm.website,
+              featured:             toolsForm.featured,
+              status:               toolsForm.status,
+              sort_order:           Number(toolsForm.sort_order) || 0,
+              overview_ar:          toolsForm.overview_ar,
+              overview_en:          toolsForm.overview_en,
+              pros:                 parseTags(toolsForm.pros),
+              limitations:          parseTags(toolsForm.limitations),
+              alternatives:         parseTags(toolsForm.alternatives),
+              related_courses:      parseTags(toolsForm.related_courses),
+              related_prompts:      parseTags(toolsForm.related_prompts),
+            };
+            const url = toolsEditId ? `/api/admin/ai-tools/${toolsEditId}` : "/api/admin/ai-tools";
+            const method = toolsEditId ? "PATCH" : "POST";
+            const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+            if (!res.ok) {
+              const j = await res.json().catch(() => ({} as { error?: string }));
+              setToolsMsg({ type: "err", text: j.error ?? `Error ${res.status}` });
+              return;
+            }
+            setToolsMsg({ type: "ok", text: isAr ? "✅ تم الحفظ بنجاح" : "✅ Saved successfully" });
+            await loadTools();
+            setTimeout(() => setToolsView("list"), 1200);
+          } catch (err) {
+            setToolsMsg({ type: "err", text: err instanceof Error ? err.message : "Error" });
+          } finally {
+            setToolsSaving(false);
+          }
+        }
+
+        const slugifyId = (text: string) => text.toLowerCase().trim().replace(/[\s_]+/g, "-").replace(/[^a-z0-9-]/g, "").slice(0, 60);
+
+        return (
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
+                {toolsView === "list"
+                  ? (isAr ? "🛠️ إدارة أدوات AI" : "🛠️ AI Tools CMS")
+                  : (toolsEditId ? (isAr ? "✏️ تعديل أداة" : "✏️ Edit Tool") : (isAr ? "✏️ أداة جديدة" : "✏️ New Tool"))}
+              </h2>
+              <div className="flex gap-2 flex-wrap">
+                {toolsView === "list" ? (
+                  <>
+                    <button onClick={loadTools} disabled={toolsLoading} className="flex items-center gap-1 text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer disabled:opacity-50" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                      <RefreshCw size={12} className={toolsLoading ? "animate-spin" : ""} /> {isAr ? "تحديث" : "Refresh"}
+                    </button>
+                    <button onClick={openCreate} className="flex items-center gap-1 text-xs font-mono px-4 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(142,213,255,0.12)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.25)" }}>
+                      + {isAr ? "أداة جديدة" : "New Tool"}
+                    </button>
+                  </>
+                ) : (
+                  <button onClick={() => setToolsView("list")} className="text-xs font-mono px-3 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    ← {isAr ? "قائمة الأدوات" : "Tool List"}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {toolsMsg && (
+              <p className="text-xs font-mono px-3 py-2 rounded-lg" style={{ background: toolsMsg.type === "ok" ? "rgba(74,222,128,0.1)" : "rgba(248,113,113,0.1)", color: toolsMsg.type === "ok" ? "#4ade80" : "#f87171" }}>
+                {toolsMsg.text}
+              </p>
+            )}
+
+            {/* ── LIST VIEW ── */}
+            {toolsView === "list" && (
+              <div className="flex flex-col gap-3">
+                {toolsLoading ? (
+                  <p className="text-xs font-mono text-center py-6" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "جارٍ التحميل…" : "Loading…"}</p>
+                ) : toolsDbRows.length === 0 ? (
+                  <div className="glass-card rounded-2xl p-8 text-center">
+                    <p className="text-3xl mb-3">🛠️</p>
+                    <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "لا توجد أدوات في قاعدة البيانات بعد. اضغط «تحديث» أو «أداة جديدة»." : "No tools in DB yet. Click «Refresh» or «New Tool»."}</p>
+                    <p className="text-xs mt-2 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "تذكّر تطبيق migration v23 في Supabase أولاً." : "Remember to apply migration v23 in Supabase first."}</p>
+                  </div>
+                ) : (
+                  toolsDbRows.map((row) => (
+                    <div key={row.id} className="glass-card rounded-xl p-4 flex items-center gap-4 flex-wrap" style={{ border: `1px solid ${row.status === "published" ? "rgba(74,222,128,0.15)" : row.status === "draft" ? "rgba(250,204,21,0.15)" : "rgba(255,255,255,0.06)"}` }}>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-xs font-mono px-2 py-0.5 rounded-full" style={{ background: row.status === "published" ? "rgba(74,222,128,0.12)" : row.status === "draft" ? "rgba(250,204,21,0.12)" : "rgba(255,255,255,0.06)", color: row.status === "published" ? "#4ade80" : row.status === "draft" ? "#fbbf24" : "#888" }}>
+                            {row.status}
+                          </span>
+                          {row.featured && <span className="text-xs font-mono" style={{ color: "#f59e0b" }}>⭐ featured</span>}
+                          <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{row.category} · {row.level} · {row.pricing_type}</span>
+                        </div>
+                        <p className="font-semibold text-sm mt-1 truncate" style={{ color: "var(--color-on-surface)" }}>{row.name}</p>
+                        <p className="text-xs mt-1 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>#{row.id} · sort {row.sort_order} · {row.updated_at?.split("T")[0]}</p>
+                      </div>
+                      <div className="flex gap-2 flex-shrink-0">
+                        <a href={`/ar/tools/${row.id}`} target="_blank" rel="noreferrer" className="text-xs font-mono px-2.5 py-1.5 rounded-lg" style={{ background: "rgba(142,213,255,0.08)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.2)", textDecoration: "none" }}>
+                          {isAr ? "عرض" : "View"}
+                        </a>
+                        <button onClick={() => openEdit(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                          {isAr ? "تعديل" : "Edit"}
+                        </button>
+                        {row.status !== "archived" && (
+                          <button onClick={() => handleArchive(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(250,204,21,0.08)", color: "#fbbf24", border: "1px solid rgba(250,204,21,0.2)" }}>
+                            {isAr ? "أرشفة" : "Archive"}
+                          </button>
+                        )}
+                        <button onClick={() => handleDelete(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(239,68,68,0.08)", color: "#f87171", border: "1px solid rgba(239,68,68,0.2)" }}>
+                          {isAr ? "حذف" : "Delete"}
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            )}
+
+            {/* ── FORM VIEW ── */}
+            {toolsView === "form" && (
+              <form onSubmit={handleSaveTool} className="flex flex-col gap-5">
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "المعلومات الأساسية" : "Basic Info"}</h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextField
+                      label={isAr ? "اسم الأداة *" : "Tool Name *"}
+                      value={toolsForm.name}
+                      onChange={(v) => {
+                        setToolsForm((f) => ({ ...f, name: v }));
+                        if (!toolsEditId && !toolsForm.id) setToolsForm((f) => ({ ...f, id: slugifyId(v) }));
+                      }}
+                      placeholder="Claude"
+                      required
+                    />
+                    <AdminTextField
+                      label={isAr ? "المعرّف (id) *" : "ID (slug) *"}
+                      value={toolsForm.id}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, id: slugifyId(v) }))}
+                      placeholder="claude"
+                      required
+                      mono
+                      dir="ltr"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <AdminSelectField
+                      label={isAr ? "الفئة" : "Category"}
+                      value={toolsForm.category}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, category: v }))}
+                      options={TOOL_CAT_OPTIONS}
+                    />
+                    <AdminSelectField
+                      label={isAr ? "المستوى" : "Level"}
+                      value={toolsForm.level}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, level: v as typeof toolsForm.level }))}
+                      options={LEVEL_OPTIONS}
+                    />
+                    <AdminSelectField
+                      label={isAr ? "نوع التسعير" : "Pricing"}
+                      value={toolsForm.pricing_type}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, pricing_type: v as typeof toolsForm.pricing_type }))}
+                      options={PRICING_OPTIONS}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "وصف مختصر (عربي) *" : "Short Description (Arabic) *"}
+                      value={toolsForm.short_description_ar}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, short_description_ar: v }))}
+                      placeholder="وصف مختصر للأداة"
+                      required
+                      dir="rtl"
+                      rows={2}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "وصف مختصر (إنجليزي)" : "Short Description (English)"}
+                      value={toolsForm.short_description_en}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, short_description_en: v }))}
+                      placeholder="Brief tool description"
+                      rows={2}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextField
+                      label={isAr ? "الأفضل لـ" : "Best For"}
+                      value={toolsForm.best_for}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, best_for: v }))}
+                      placeholder="General use"
+                    />
+                    <AdminTextField
+                      label={isAr ? "الموقع الإلكتروني" : "Website"}
+                      value={toolsForm.website}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, website: v }))}
+                      placeholder="https://..."
+                      mono
+                      dir="ltr"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTagsField
+                      label={isAr ? "حالات الاستخدام" : "Use Cases"}
+                      value={toolsForm.use_cases}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, use_cases: v }))}
+                      placeholder="Coding, Writing, Analysis"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "الوسوم" : "Tags"}
+                      value={toolsForm.tags}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, tags: v }))}
+                      placeholder="claude, anthropic, chat"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+                    <AdminSortOrderField
+                      label={isAr ? "ترتيب العرض" : "Sort order"}
+                      value={Number(toolsForm.sort_order) || 0}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, sort_order: String(v) }))}
+                    />
+                    <div className="flex items-center gap-6">
+                      <AdminStatusField
+                        value={toolsForm.status}
+                        onChange={(v) => setToolsForm((f) => ({ ...f, status: v }))}
+                        label={isAr ? "الحالة" : "Status"}
+                      />
+                    </div>
+                  </div>
+                  <AdminToggleField
+                    label={isAr ? "أداة مميزة" : "Featured"}
+                    checked={toolsForm.featured}
+                    onChange={(v) => setToolsForm((f) => ({ ...f, featured: v }))}
+                  />
+                </div>
+
+                <div className="glass-card rounded-2xl p-5 flex flex-col gap-4">
+                  <h3 className="text-xs font-mono uppercase tracking-wider" style={{ color: "var(--color-primary)" }}>{isAr ? "تفاصيل إضافية (اختياري)" : "Extra Details (optional)"}</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTextAreaField
+                      label={isAr ? "نظرة عامة (عربي)" : "Overview (Arabic)"}
+                      value={toolsForm.overview_ar}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, overview_ar: v }))}
+                      placeholder="نظرة عامة موسعة على الأداة"
+                      dir="rtl"
+                      rows={3}
+                    />
+                    <AdminTextAreaField
+                      label={isAr ? "نظرة عامة (إنجليزي)" : "Overview (English)"}
+                      value={toolsForm.overview_en}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, overview_en: v }))}
+                      placeholder="Extended overview of the tool"
+                      rows={3}
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <AdminTagsField
+                      label={isAr ? "المميزات" : "Pros"}
+                      value={toolsForm.pros}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, pros: v }))}
+                      placeholder="Fast, Accurate, Free"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "القيود" : "Limitations"}
+                      value={toolsForm.limitations}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, limitations: v }))}
+                      placeholder="Paid, Needs internet"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "البدائل" : "Alternatives"}
+                      value={toolsForm.alternatives}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, alternatives: v }))}
+                      placeholder="cursor, windsurf"
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <AdminTagsField
+                      label={isAr ? "كورسات ذات صلة (ids)" : "Related Courses (ids)"}
+                      value={toolsForm.related_courses}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, related_courses: v }))}
+                      placeholder="claude-mastery"
+                    />
+                    <AdminTagsField
+                      label={isAr ? "برومبتات ذات صلة (ids)" : "Related Prompts (ids)"}
+                      value={toolsForm.related_prompts}
+                      onChange={(v) => setToolsForm((f) => ({ ...f, related_prompts: v }))}
+                      placeholder="build-website, fix-bug"
+                    />
+                  </div>
+                </div>
+
+                {/* Save */}
+                <div className="flex gap-3">
+                  <button type="submit" disabled={toolsSaving} className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold cursor-pointer disabled:opacity-50" style={{ background: "rgba(142,213,255,0.15)", color: "var(--color-primary)", border: "1px solid rgba(142,213,255,0.3)" }}>
+                    {toolsSaving ? (isAr ? "جارٍ الحفظ…" : "Saving…") : (toolsEditId ? (isAr ? "💾 حفظ التعديلات" : "💾 Save Changes") : (isAr ? "💾 نشر الأداة" : "💾 Publish Tool"))}
+                  </button>
+                  <button type="button" onClick={() => setToolsView("list")} className="px-4 py-2.5 rounded-xl text-sm cursor-pointer" style={{ background: "rgba(255,255,255,0.04)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.08)" }}>
                     {isAr ? "إلغاء" : "Cancel"}
                   </button>
                 </div>

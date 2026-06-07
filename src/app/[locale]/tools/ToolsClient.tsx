@@ -1,19 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CategoryFilter from "@/components/ui/CategoryFilter";
 import ToolCard from "@/components/cards/ToolCard";
-import { tools, toolCategories, toolStacks } from "@/data/tools";
+import { tools, toolCategories, toolStacks, type Tool } from "@/data/tools";
 
-export default function ToolsClient({ locale }: { locale: string }) {
+interface Props {
+  locale: string;
+  dbTools: Tool[];
+}
+
+export default function ToolsClient({ locale, dbTools }: Props) {
   const isAr = locale === "ar";
   const shouldReduce = useReducedMotion();
   const [activeCategory, setActiveCategory] = useState("all");
   const [search, setSearch] = useState("");
   const [searchFocused, setSearchFocused] = useState(false);
+
+  // Merge: DB tools first, then static — deduplicate by id
+  const allTools = useMemo(() => {
+    const seen = new Set<string>();
+    const merged: Tool[] = [];
+    for (const t of [...dbTools, ...tools]) {
+      if (!seen.has(t.id)) {
+        seen.add(t.id);
+        merged.push(t);
+      }
+    }
+    return merged;
+  }, [dbTools]);
+
+  const categories = useMemo(
+    () => [...new Set([...toolCategories, ...dbTools.map((t) => t.category)])],
+    [dbTools],
+  );
 
   // Phase 11: AI Tools Hub — scroll-reveal & focus polish (style/wrapper-only;
   // mirrors the fadeUp/stagger convention already used across landing sections, e.g. PortalGrid)
@@ -30,7 +53,7 @@ export default function ToolsClient({ locale }: { locale: string }) {
     show:   { opacity: 1, y: 0, transition: { duration: shouldReduce ? 0.15 : 0.4, ease: [0.0, 0.0, 0.2, 1] as const } },
   };
 
-  const filtered = tools.filter((t) => {
+  const filtered = allTools.filter((t) => {
     const catMatch = activeCategory === "all" || t.category === activeCategory;
     const q = search.toLowerCase();
     const textMatch =
@@ -41,7 +64,7 @@ export default function ToolsClient({ locale }: { locale: string }) {
     return catMatch && textMatch;
   });
 
-  const featured = tools.filter((t) => t.featured).slice(0, 6);
+  const featured = allTools.filter((t) => t.featured).slice(0, 6);
 
   return (
     <div className="container-xl py-16 flex flex-col gap-12">
@@ -117,7 +140,7 @@ export default function ToolsClient({ locale }: { locale: string }) {
           {isAr ? "الفئة:" : "Category:"}
         </p>
         <CategoryFilter
-          categories={toolCategories}
+          categories={categories}
           active={activeCategory}
           onChange={setActiveCategory}
           allLabel={isAr ? "جميع الأدوات" : "All Tools"}
@@ -193,7 +216,7 @@ export default function ToolsClient({ locale }: { locale: string }) {
               </div>
               <div className="flex flex-wrap gap-2">
                 {stack.tools.map((toolId) => {
-                  const t = tools.find((x) => x.id === toolId);
+                  const t = allTools.find((x) => x.id === toolId);
                   return t ? (
                     <span
                       key={toolId}
