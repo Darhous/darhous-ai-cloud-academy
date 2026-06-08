@@ -3,6 +3,27 @@ import Link from "next/link";
 import { ArrowRight, Clock, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import { projectsData } from "@/data/iot/projects";
+import type { Project } from "@/data/iot/projects";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+
+interface ProjectRow extends Record<string, unknown> {
+  id: string; title: string; category: string; difficulty: Project["difficulty"]; duration: string;
+  description: string; features: string[]; components: string[]; wiring_guide: string; code_snippet: string;
+  video_url?: string; simulator_link?: string;
+}
+function mapProjectRow(row: ProjectRow): Project {
+  return {
+    id: row.id, title: row.title, category: row.category, difficulty: row.difficulty, duration: row.duration,
+    description: row.description, features: row.features ?? [], components: row.components ?? [],
+    wiringGuide: row.wiring_guide, codeSnippet: row.code_snippet, videoUrl: row.video_url, simulatorLink: row.simulator_link,
+  };
+}
+async function fetchAllProjects(): Promise<Project[]> {
+  const dbProjects = await fetchPublishedList<ProjectRow, Project>({
+    table: "iot_projects", mapRow: mapProjectRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbProjects, projectsData);
+}
 
 export async function generateMetadata({
   params,
@@ -10,7 +31,8 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const project = projectsData.find((p) => p.id === slug);
+  const projects = await fetchAllProjects();
+  const project = projects.find((p) => p.id === slug);
   if (!project) return { title: "Not Found" };
   return { title: `${project.title} | مختبر درهوس`, description: project.description };
 }
@@ -27,7 +49,8 @@ export default async function IotProjectDetailPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const project = projectsData.find((p) => p.id === slug);
+  const projects = await fetchAllProjects();
+  const project = projects.find((p) => p.id === slug);
   if (!project) notFound();
 
   const color = DIFF_COLOR[project.difficulty] ?? "#f97316";

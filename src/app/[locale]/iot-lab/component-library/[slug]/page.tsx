@@ -3,6 +3,22 @@ import Link from "next/link";
 import { ArrowRight, DollarSign, ExternalLink, Cpu } from "lucide-react";
 import { notFound } from "next/navigation";
 import { componentsData } from "@/data/iot/components";
+import type { ComponentData } from "@/data/iot/components";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+
+interface ComponentRow extends Record<string, unknown> {
+  id: string; name: string; category: ComponentData["category"]; description: string;
+  pins: { name: string; description: string }[]; price_range?: string; buy_link?: string;
+}
+function mapComponentRow(row: ComponentRow): ComponentData {
+  return { id: row.id, name: row.name, category: row.category, description: row.description, pins: row.pins ?? [], priceRange: row.price_range, buyLink: row.buy_link };
+}
+async function fetchAllComponents(): Promise<ComponentData[]> {
+  const dbComponents = await fetchPublishedList<ComponentRow, ComponentData>({
+    table: "iot_components", mapRow: mapComponentRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbComponents, componentsData);
+}
 
 export async function generateMetadata({
   params,
@@ -10,7 +26,8 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const comp = componentsData.find((c) => c.id === slug);
+  const components = await fetchAllComponents();
+  const comp = components.find((c) => c.id === slug);
   if (!comp) return { title: "Not Found" };
   return { title: `${comp.name} | مكتبة المكونات`, description: comp.description };
 }
@@ -25,7 +42,8 @@ export default async function ComponentDetailPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const comp = componentsData.find((c) => c.id === slug);
+  const components = await fetchAllComponents();
+  const comp = components.find((c) => c.id === slug);
   if (!comp) notFound();
 
   return (

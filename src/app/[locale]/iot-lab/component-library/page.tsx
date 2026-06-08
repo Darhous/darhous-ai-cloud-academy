@@ -2,6 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Package } from "lucide-react";
 import { componentsData } from "@/data/iot/components";
+import type { ComponentData } from "@/data/iot/components";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+
+interface ComponentRow extends Record<string, unknown> {
+  id: string; name: string; category: ComponentData["category"]; description: string;
+  pins: { name: string; description: string }[]; price_range?: string; buy_link?: string;
+}
+function mapComponentRow(row: ComponentRow): ComponentData {
+  return { id: row.id, name: row.name, category: row.category, description: row.description, pins: row.pins ?? [], priceRange: row.price_range, buyLink: row.buy_link };
+}
+async function fetchAllComponents(): Promise<ComponentData[]> {
+  const dbComponents = await fetchPublishedList<ComponentRow, ComponentData>({
+    table: "iot_components", mapRow: mapComponentRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbComponents, componentsData);
+}
 
 export async function generateMetadata({
   params,
@@ -22,8 +38,9 @@ export default async function IotComponentLibraryPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const allComponents = await fetchAllComponents();
 
-  const grouped = componentsData.reduce<Record<string, typeof componentsData>>((acc, c) => {
+  const grouped = allComponents.reduce<Record<string, typeof allComponents>>((acc, c) => {
     if (!acc[c.category]) acc[c.category] = [];
     acc[c.category].push(c);
     return acc;
@@ -35,7 +52,7 @@ export default async function IotComponentLibraryPage({
         <ArrowRight size={14} />العودة للمختبر
       </Link>
       <h1 className="font-display font-bold text-3xl mb-2" style={{ color: "var(--color-on-surface)" }}>مكتبة المكونات الإلكترونية</h1>
-      <p className="text-sm mb-10" style={{ color: "var(--color-on-surface-variant)" }}>{componentsData.length}+ مكوّن موثق — الوصف، الاستخدام، والتوصيل لكل مكوّن.</p>
+      <p className="text-sm mb-10" style={{ color: "var(--color-on-surface-variant)" }}>{allComponents.length}+ مكوّن موثق — الوصف، الاستخدام، والتوصيل لكل مكوّن.</p>
 
       <div className="space-y-10">
         {Object.entries(grouped).map(([category, comps]) => (
