@@ -1,0 +1,12 @@
+{
+  "id": "ohm-law",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "قانون أوم (Ohm's Law)",
+  "title_en": "Ohm's Law",
+  "data": {
+    "definition": "قانون فيزيائي يوضح العلاقة بين الجهد والتيار والمقاومة (V=I*R).",
+    "example": "تطبيق قانون أوم لحساب قيمة المقاومة اللازمة لمصباح LED."
+  }
+}

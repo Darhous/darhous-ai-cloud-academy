@@ -1,0 +1,11 @@
+{
+  "id": "automation-glossary-google-apps-script",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "برمجة تطبيقات جوجل (GAS)",
+  "data": {
+    "definition": "لغة برمجة نصية تعتمد على السحابة وتستند إلى جافا سكريبت لتطوير التطبيقات وإضافة ميزات جديدة وربط خدمات Google Workspace.",
+    "example": "كتابة سكريبت لإنشاء ملفات PDF تلقائياً من بيانات Google Sheets وإرسالها عبر Gmail."
+  }
+}

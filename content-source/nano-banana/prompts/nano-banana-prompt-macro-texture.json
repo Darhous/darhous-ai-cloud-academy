@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-prompt-macro-texture",
+  "portal_id": "nano-banana",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "ملمس عن قرب",
+  "data": {
+    "prompt_text": "Extreme macro photography of [المادة], showing intricate details and textures, studio lighting.",
+    "instructions": "مفيد كخلفيات للتصاميم أو للمحتوى العلمي عن خواص المواد."
+  }
+}

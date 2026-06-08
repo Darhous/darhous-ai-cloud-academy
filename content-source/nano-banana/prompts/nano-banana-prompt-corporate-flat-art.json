@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-prompt-corporate-flat-art",
+  "portal_id": "nano-banana",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "فن مسطح للشركات",
+  "data": {
+    "prompt_text": "Corporate Memphis flat style illustration of diverse people working on [المهمة], vibrant colors, minimal background, suitable for a tech website.",
+    "instructions": "الأسلوب الشائع في مواقع الويب الحديثة والمواد التسويقية للشركات."
+  }
+}

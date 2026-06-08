@@ -1,0 +1,13 @@
+{
+  "id": "micropython-guide",
+  "portal_id": "iot-lab",
+  "title": "دليل مايكروبايثون",
+  "status": "draft",
+  "data": {
+    "url": "https://micropython.org/",
+    "description": "الموقع الرسمي لمايكروبايثون، لغة البايثون المخصصة للعمل على المتحكمات الدقيقة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Micropython Guide"
+}

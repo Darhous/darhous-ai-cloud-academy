@@ -1,0 +1,13 @@
+{
+  "title": "ChatGPT",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://chatgpt.com",
+    "description": "نموذج لغوي متقدم من OpenAI يستخدم في المحادثة وتوليد النصوص وحل المشكلات."
+  },
+  "id": "ai-academy-resource-chatgpt-2",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Chatgpt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-resource-item-03",
+  "title": "موقع كويزليت",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://quizlet.com",
+    "description": "أداة لإنشاء بطاقات تعليمية واختبارات تدريبية."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 03"
+}

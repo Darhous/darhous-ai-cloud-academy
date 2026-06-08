@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "قوالب سيرة ذاتية",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "موقع يقدم قوالب سيرة ذاتية احترافية ومجانية."
+  },
+  "id": "cv-templates",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Cv Templates"
+}

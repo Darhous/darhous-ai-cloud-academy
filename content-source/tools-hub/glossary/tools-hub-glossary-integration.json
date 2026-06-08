@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-glossary-integration-2",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التكامل (Integration)",
+  "data": {
+    "definition": "عملية ربط تطبيقين أو أداتين أو أكثر معاً لتمكينها من تبادل البيانات والعمل بتناغم دون الحاجة لإدخال البيانات يدوياً.",
+    "example": "ربط أداة Slack بأداة GitHub لتلقي إشعارات التحديثات مباشرة في قنوات المحادثة."
+  }
+}

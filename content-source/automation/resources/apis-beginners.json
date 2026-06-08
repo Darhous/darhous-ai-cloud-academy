@@ -1,0 +1,13 @@
+{
+  "id": "apis-beginners",
+  "portal_id": "automation",
+  "title": "واجهات برمجة التطبيقات للمبتدئين",
+  "status": "draft",
+  "data": {
+    "url": "https://zapier.com/learn/apis/",
+    "description": "كتاب إلكتروني مجاني من Zapier يشرح APIs بلغة بسيطة ومفهومة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Apis Beginners"
+}

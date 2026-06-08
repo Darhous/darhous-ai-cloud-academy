@@ -1,0 +1,11 @@
+{
+  "id": "career-resource-upwork",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أب وورك",
+  "data": {
+    "url": "https://www.upwork.com",
+    "description": "منصة عالمية للعمل الحر (Freelance) تربط الشركات بالمستقلين في مختلف المجالات."
+  }
+}

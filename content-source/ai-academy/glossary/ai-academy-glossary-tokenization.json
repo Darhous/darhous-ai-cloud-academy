@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-tokenization",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التقطيع النصي",
+  "data": {
+    "definition": "عملية تحويل النص إلى وحدات أصغر (رموز أو Tokens) لكي يتمكن النموذج من معالجتها.",
+    "example": "كلمة 'مستشفى' قد تقسم إلى عدة رموز بدلاً من معالجتها ككلمة واحدة في بعض اللغات."
+  }
+}

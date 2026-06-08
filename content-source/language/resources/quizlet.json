@@ -1,0 +1,11 @@
+{
+  "id": "quizlet",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "كويزلت",
+  "data": {
+    "url": "https://quizlet.com/",
+    "description": "أداة لإنشاء ومراجعة قوائم المفردات."
+  }
+}

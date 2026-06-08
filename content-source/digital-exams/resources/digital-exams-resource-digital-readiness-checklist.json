@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-resource-digital-readiness-checklist",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "قائمة التحقق للجاهزية الرقمية",
+  "data": {
+    "url": "",
+    "description": "ملف قابل للتحميل يحتوي على خطوات التأكد من جاهزية الحاسب الآلي للاختبارات عن بعد."
+  }
+}

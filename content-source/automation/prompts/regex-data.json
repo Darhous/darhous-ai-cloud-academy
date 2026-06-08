@@ -1,0 +1,13 @@
+{
+  "id": "regex-data",
+  "portal_id": "automation",
+  "title": "إنشاء تعبير نمطي لاستخراج البيانات",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اكتب تعبير نمطي (Regex) لاستخراج أرقام الهواتف من نص عشوائي.",
+    "instructions": "التعبيرات النمطية مفيدة جداً داخل أدوات الأتمتة لتنظيف البيانات."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Regex Data"
+}

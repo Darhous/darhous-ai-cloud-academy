@@ -1,0 +1,13 @@
+{
+  "id": "fritzing-software",
+  "portal_id": "iot-lab",
+  "title": "برنامج فريتزينج",
+  "status": "draft",
+  "data": {
+    "url": "https://fritzing.org/",
+    "description": "برنامج مفتوح المصدر لتصميم الدوائر الإلكترونية على ألواح التجارب بشكل مرئي."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Fritzing Software"
+}

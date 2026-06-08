@@ -1,0 +1,11 @@
+{
+  "id": "shadowing",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التظليل (Shadowing)",
+  "data": {
+    "definition": "تقنية استماع وتكرار فوري لتحسين النطق والإيقاع.",
+    "example": "Shadowing helps with pronunciation."
+  }
+}

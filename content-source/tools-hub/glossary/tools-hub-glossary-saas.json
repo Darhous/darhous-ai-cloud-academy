@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-glossary-saas",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "البرمجيات كخدمة (SaaS)",
+  "data": {
+    "definition": "نموذج لتوصيل البرامج حيث يتم استضافة البرنامج على السحابة وإتاحته للمستخدمين عبر الإنترنت، غالباً بنظام اشتراك.",
+    "example": "استخدام Notion أو Google Workspace بدلاً من تثبيت برامج على جهازك."
+  }
+}

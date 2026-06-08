@@ -1,0 +1,11 @@
+{
+  "id": "career-resource-coursera",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "كورسيرا",
+  "data": {
+    "url": "https://www.coursera.org",
+    "description": "منصة تعليمية توفر برامج وشهادات من جامعات وشركات عالمية رائدة لتطوير المهارات."
+  }
+}

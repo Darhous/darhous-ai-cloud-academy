@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-resource-item-4",
+  "title": "نصائح للتصوير الرقمي",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "نصائح للحصول على صور أفضل."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 4"
+}

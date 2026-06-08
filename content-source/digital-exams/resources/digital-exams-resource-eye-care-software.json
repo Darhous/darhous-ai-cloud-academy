@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-resource-eye-care-software",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "برنامج حماية العين للشاشات",
+  "data": {
+    "url": "https://justgetflux.com",
+    "description": "برنامج لتقليل إجهاد العين عبر تعديل إضاءة الشاشة تلقائياً أثناء المراجعة الطويلة أمام الحاسب."
+  }
+}

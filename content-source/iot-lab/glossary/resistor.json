@@ -1,0 +1,12 @@
+{
+  "id": "resistor",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مقاوم (Resistor)",
+  "title_en": "Resistor",
+  "data": {
+    "definition": "مكون إلكتروني سلبي يقلل من تدفق التيار الكهربائي.",
+    "example": "توصيل مقاومة على التوالي مع LED لحمايته من التيار الزائد."
+  }
+}

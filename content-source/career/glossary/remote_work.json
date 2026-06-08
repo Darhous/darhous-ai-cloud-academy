@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "العمل عن بعد",
+  "status": "draft",
+  "data": {
+    "definition": "العمل من موقع خارج المكتب التقليدي.",
+    "example": "مثال على استخدام مصطلح العمل عن بعد في السياق المهني."
+  },
+  "id": "remote-work",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Remote Work"
+}

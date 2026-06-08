@@ -1,0 +1,13 @@
+{
+  "id": "arduino-docs",
+  "portal_id": "iot-lab",
+  "title": "توثيق أردوينو الرسمي",
+  "status": "draft",
+  "data": {
+    "url": "https://www.arduino.cc/en/Guide",
+    "description": "الدليل الرسمي من أردوينو لتعلم الأساسيات والبدء في بناء المشاريع."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Arduino Docs"
+}

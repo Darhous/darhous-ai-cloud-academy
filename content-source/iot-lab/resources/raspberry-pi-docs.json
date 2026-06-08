@@ -1,0 +1,12 @@
+{
+  "id": "raspberry-pi-docs",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "توثيق راسبيري باي",
+  "title_en": "Raspberry Pi Documentation",
+  "data": {
+    "url": "https://www.raspberrypi.com/documentation/",
+    "description": "أدلة المستخدم والتفاصيل التقنية لأجهزة ونظام تشغيل راسبيري باي."
+  }
+}

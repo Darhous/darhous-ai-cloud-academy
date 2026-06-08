@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-resource-pomodoro-tracker",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أداة تتبع بومودورو",
+  "data": {
+    "url": "https://pomofocus.io",
+    "description": "أداة ممتازة لتقسيم وقت المذاكرة إلى فترات زمنية لزيادة التركيز وإدارة الوقت بفعالية."
+  }
+}

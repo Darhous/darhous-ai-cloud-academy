@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-resource-khan-academy-math",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أكاديمية خان (قسم الرياضيات)",
+  "data": {
+    "url": "https://ar.khanacademy.org",
+    "description": "شروحات مرئية وتمارين تفاعلية ممتازة لتأسيس وتقوية المهارات الرياضية المطلوبة في الاختبارات المعيارية."
+  }
+}

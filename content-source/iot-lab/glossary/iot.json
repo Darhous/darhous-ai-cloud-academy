@@ -1,0 +1,13 @@
+{
+  "id": "iot",
+  "portal_id": "iot-lab",
+  "title": "إنترنت الأشياء (IoT)",
+  "status": "draft",
+  "data": {
+    "definition": "شبكة من الأجهزة المادية المتصلة بالإنترنت لجمع وتبادل البيانات بذكاء.",
+    "example": "نظام زراعة ذكي يروي النباتات تلقائياً عند جفاف التربة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Iot"
+}

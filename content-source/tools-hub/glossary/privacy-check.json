@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "فحص الخصوصية (Privacy Check)",
+    "definition": "مراجعة سياسات وشروط الاستخدام للأدوات للتأكد من أنها لا تشارك بياناتك الحساسة.",
+    "example": "قراءة سياسة الخصوصية لتطبيق جديد قبل منحه صلاحية الوصول لجهات الاتصال."
+  },
+  "id": "privacy-check",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Privacy Check"
+}

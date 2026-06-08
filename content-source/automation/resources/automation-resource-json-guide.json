@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-json-guide",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "JSON Guide",
+  "data": {
+    "url": "https://www.w3schools.com/js/js_json_intro.asp",
+    "description": "مقدمة شاملة من W3Schools لفهم صيغة JSON، وكيفية كتابتها وقراءتها، وهو أمر أساسي في جميع مسارات الأتمتة تقريباً."
+  }
+}

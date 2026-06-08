@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "تحليل الخصوصية",
+    "prompt_text": "لخص سياسة الخصوصية الخاصة بـ [اسم الأداة] في نقاط بسيطة. هل تقوم ببيع البيانات لجهات خارجية؟ وما هي البيانات التي تجمعها بشكل أساسي؟",
+    "instructions": "للتأكد من أمان بياناتك بسرعة دون الحاجة لقراءة وثائق قانونية معقدة."
+  },
+  "id": "privacy-analysis",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Privacy Analysis"
+}

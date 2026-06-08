@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-prompt-item-10",
+  "title": "كيفية تدوين الملاحظات أثناء المذاكرة",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، اشرح أفضل الطرق لتدوين الملاحظات لتسهيل المراجعة قبل الاختبار.",
+    "instructions": "اشرح أفضل الطرق لتدوين الملاحظات لتسهيل المراجعة قبل الاختبار."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 10"
+}

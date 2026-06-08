@@ -1,0 +1,13 @@
+{
+  "id": "automation-glossary-integration",
+  "portal_id": "automation",
+  "title": "تكامل (Integration)",
+  "status": "draft",
+  "data": {
+    "definition": "عملية ربط أنظمة وتطبيقات مختلفة للعمل معًا ومشاركة البيانات.",
+    "example": "تكامل نظام إدارة علاقات العملاء (CRM) مع منصة التسويق عبر البريد الإلكتروني."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Integration"
+}

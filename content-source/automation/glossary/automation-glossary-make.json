@@ -1,0 +1,11 @@
+{
+  "id": "automation-glossary-make",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "منصة Make (Integromat سابقاً)",
+  "data": {
+    "definition": "منصة أتمتة مرئية قوية تتيح للمستخدمين ربط التطبيقات وبناء سيناريوهات أتمتة معقدة باستخدام واجهة رسومية تعتمد على السحب والإفلات.",
+    "example": "بناء سيناريو ينقل البيانات من Shopify إلى نظام المحاسبة Xero مع كل عملية بيع."
+  }
+}

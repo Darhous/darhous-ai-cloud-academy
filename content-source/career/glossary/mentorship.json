@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "الإرشاد المهني",
+  "status": "draft",
+  "data": {
+    "definition": "علاقة مهنية يقوم فيها شخص ذو خبرة بتوجيه شخص أقل خبرة.",
+    "example": "مثال على استخدام مصطلح الإرشاد المهني في السياق المهني."
+  },
+  "id": "mentorship",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Mentorship"
+}

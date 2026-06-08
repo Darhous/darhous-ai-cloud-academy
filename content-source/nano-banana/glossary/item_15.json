@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-glossary-item-15",
+  "title": "الخلفية",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "العناصر التي تظهر خلف العنصر الرئيسي في الصورة.",
+    "example": "مثال: خلفية ضبابية."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 15"
+}

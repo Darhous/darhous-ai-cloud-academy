@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-prompt-security-checklist",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "قائمة التحقق الأمني",
+  "data": {
+    "prompt_text": "أريد البدء في استخدام [الأداة] لحفظ ملفاتي المهمة. قم بإنشاء قائمة تحقق من 5 نقاط لمراجعة الإعدادات الأمنية (مثل 2FA والتشفير) في هذه الأداة قبل رفع بياناتي إليها.",
+    "instructions": "للتأكد من حماية بياناتك الحساسة."
+  }
+}

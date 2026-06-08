@@ -1,0 +1,13 @@
+{
+  "id": "prompt-4",
+  "portal_id": "language",
+  "title": "محاكاة مقابلة عمل",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اطرح أسئلة مقابلة عمل باللغة الإنجليزية.",
+    "instructions": "انتظر إجابتي ثم قدم ملاحظاتك."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Prompt 4"
+}

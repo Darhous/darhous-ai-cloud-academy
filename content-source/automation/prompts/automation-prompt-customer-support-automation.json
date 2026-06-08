@@ -1,0 +1,11 @@
+{
+  "id": "automation-prompt-customer-support-automation",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تصميم أتمتة دعم العملاء",
+  "data": {
+    "prompt_text": "اقترح سير عمل لأتمتة قسم دعم العملاء. نستخدم أنظمة مثل [اذكر الأنظمة، مثل Zendesk، Intercom]. الهدف هو تحسين وقت الاستجابة لـ [نوع الاستفسارات] وتوجيه المشاكل المعقدة للموظف المناسب.",
+    "instructions": "اذكر الأدوات المستخدمة وطبيعة استفسارات العملاء."
+  }
+}

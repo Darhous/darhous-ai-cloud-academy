@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-time-allocation",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تخصيص الوقت",
+  "data": {
+    "definition": "تحديد مدة زمنية قصوى لكل سؤال أو قسم لتجنب استنزاف الوقت في جزء واحد من الاختبار.",
+    "example": "تخصيص 90 ثانية كحد أقصى لكل سؤال في قسم القراءة لتتمكن من إكمال جميع الأسئلة."
+  }
+}

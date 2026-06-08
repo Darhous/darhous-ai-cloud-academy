@@ -1,0 +1,11 @@
+{
+  "id": "iot-lab-glossary-uart",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "بروتوكول UART",
+  "data": {
+    "definition": "وحدة اتصال تسلسلية غير متزامنة تستخدم لنقل البيانات بين جهازين.",
+    "example": "نقل البيانات بين الأردوينو وجهاز الكمبيوتر عبر منفذ USB."
+  }
+}

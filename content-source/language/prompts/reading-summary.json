@@ -1,0 +1,11 @@
+{
+  "id": "reading-summary",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "ملخص القراءة",
+  "data": {
+    "prompt_text": "Summarize this article in simple B1 level English: [المقال].",
+    "instructions": "تبسيط المقالات لتناسب مستواك."
+  }
+}

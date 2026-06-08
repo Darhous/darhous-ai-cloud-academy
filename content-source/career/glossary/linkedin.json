@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "لينكد إن",
+  "status": "draft",
+  "data": {
+    "definition": "منصة مهنية لبناء شبكة علاقات والبحث عن وظائف.",
+    "example": "مثال على استخدام مصطلح لينكد إن في السياق المهني."
+  },
+  "id": "linkedin",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Linkedin"
+}

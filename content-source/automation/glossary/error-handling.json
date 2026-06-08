@@ -1,0 +1,13 @@
+{
+  "id": "automation-glossary-error-handling-2",
+  "portal_id": "automation",
+  "title": "التعامل مع الأخطاء (Error Handling)",
+  "status": "draft",
+  "data": {
+    "definition": "إعداد سير العمل للتعامل مع الفشل المحتمل وكيفية الاستجابة له.",
+    "example": "إرسال رسالة تنبيه إلى المطور إذا فشل نقل البيانات."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Error Handling"
+}

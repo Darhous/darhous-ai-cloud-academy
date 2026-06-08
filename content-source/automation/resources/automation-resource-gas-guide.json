@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-gas-guide",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "Google Apps Script Guide",
+  "data": {
+    "url": "https://developers.google.com/apps-script",
+    "description": "الدليل الرسمي من جوجل لكتابة وتطوير سكريبتات لمنتجات Google Workspace مثل Sheets و Docs و Gmail للقيام بالأتمتة."
+  }
+}

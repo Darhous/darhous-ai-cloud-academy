@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-glossary-item-08",
+  "title": "المحاكاة",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "تهيئة بيئة مشابهة لبيئة الاختبار الحقيقي أثناء التدريب.",
+    "example": "مثال: الجلوس في غرفة هادئة وحل الاختبار بدون مقاطعة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 08"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "ترجمة وتحسين النصوص",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "ترجم هذا النص إلى العربية وحسّن صياغته لتبدو طبيعية واحترافية: [أدخل النص]",
+    "instructions": "أفضل من الترجمة الحرفية، حيث يركز على السياق وجودة الصياغة."
+  },
+  "id": "translate-text",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Translate Text"
+}

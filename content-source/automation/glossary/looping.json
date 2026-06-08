@@ -1,0 +1,13 @@
+{
+  "id": "looping",
+  "portal_id": "automation",
+  "title": "التكرار (Looping)",
+  "status": "draft",
+  "data": {
+    "definition": "تنفيذ نفس الإجراء عدة مرات لمجموعة من البيانات.",
+    "example": "إرسال رسائل منفصلة لكل بريد إلكتروني في قائمة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Looping"
+}

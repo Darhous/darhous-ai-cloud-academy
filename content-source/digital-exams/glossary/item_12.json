@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-glossary-item-12",
+  "title": "الصواب والخطأ",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "سؤال يتطلب تحديد ما إذا كانت العبارة صحيحة أم خاطئة.",
+    "example": "مثال: الأرض مسطحة. (خطأ)."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 12"
+}

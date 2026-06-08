@@ -1,0 +1,11 @@
+{
+  "id": "career-resource-my-interview-practice",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "ماي إنترفيو براكتس",
+  "data": {
+    "url": "https://myinterviewpractice.com",
+    "description": "أداة لمحاكاة مقابلات العمل وتسجيل إجاباتك لمراجعتها وتحسين أدائك."
+  }
+}

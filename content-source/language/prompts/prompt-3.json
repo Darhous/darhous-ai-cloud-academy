@@ -1,0 +1,13 @@
+{
+  "id": "prompt-3",
+  "portal_id": "language",
+  "title": "توسيع المفردات",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اقترح كلمات بديلة ومتقدمة.",
+    "instructions": "استبدل الكلمات البسيطة بمرادفاتها المناسبة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Prompt 3"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-aspect-ratio",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "نسبة العرض إلى الارتفاع",
+  "data": {
+    "definition": "التناسب بين عرض الصورة وارتفاعها، مثل 16:9 أو 1:1.",
+    "example": "مثال: استخدام نسبة 16:9 لصور العروض التقديمية."
+  }
+}

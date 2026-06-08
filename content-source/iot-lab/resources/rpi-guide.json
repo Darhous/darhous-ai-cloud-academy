@@ -1,0 +1,13 @@
+{
+  "id": "rpi-guide",
+  "portal_id": "iot-lab",
+  "title": "دليل البدء مع رازبري باي",
+  "status": "draft",
+  "data": {
+    "url": "https://www.raspberrypi.com/documentation/",
+    "description": "الوثائق الرسمية لرازبري باي والتي تشمل الإعداد والبرمجة والمشاريع."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Rpi Guide"
+}

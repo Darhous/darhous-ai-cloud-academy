@@ -1,0 +1,12 @@
+{
+  "id": "data-logging",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تسجيل البيانات (Data Logging)",
+  "title_en": "Data Logging",
+  "data": {
+    "definition": "عملية جمع وتخزين البيانات بمرور الوقت، إما محلياً أو على خادم سحابي.",
+    "example": "حفظ قراءات حساس الرطوبة كل 5 دقائق في بطاقة SD."
+  }
+}

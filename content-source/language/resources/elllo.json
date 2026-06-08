@@ -1,0 +1,11 @@
+{
+  "id": "elllo",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "مكتبة الاستماع",
+  "data": {
+    "url": "https://elllo.org/",
+    "description": "مكتبة ضخمة لمقاطع الاستماع مع نصوص."
+  }
+}

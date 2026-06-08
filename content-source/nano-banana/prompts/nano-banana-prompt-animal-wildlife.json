@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-prompt-animal-wildlife",
+  "portal_id": "nano-banana",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "الحياة البرية",
+  "data": {
+    "prompt_text": "A close-up wildlife photography of a [نوع الحيوان] in its natural habitat, sharp focus, vivid colors, documentary style.",
+    "instructions": "مناسب للمواد التعليمية الخاصة بعلوم الأحياء والمقالات الطبيعية."
+  }
+}

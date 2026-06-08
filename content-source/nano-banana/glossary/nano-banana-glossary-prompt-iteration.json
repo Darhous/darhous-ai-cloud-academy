@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-prompt-iteration",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تكرار الموجه",
+  "data": {
+    "definition": "عملية تعديل وتحسين الموجه بشكل متكرر بناءً على النتائج السابقة للوصول إلى الصورة المطلوبة.",
+    "example": "مثال: تغيير كلمة 'مظلم' إلى 'إضاءة خافتة' بعد رؤية النتيجة الأولى."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "resource-4",
+  "portal_id": "language",
+  "title": "TED Talks",
+  "status": "draft",
+  "data": {
+    "url": "https://www.ted.com",
+    "description": "مقاطع فيديو ملهمة لتحسين مهارة الاستماع."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Resource 4"
+}

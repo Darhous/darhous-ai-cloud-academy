@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "GitHub",
+    "url": "https://github.com/",
+    "description": "المنصة الأولى عالمياً لاستضافة الأكواد البرمجية ومشاريع المصدر المفتوح، ومكان رائع لاكتشاف أدوات جديدة."
+  },
+  "id": "github",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Github"
+}

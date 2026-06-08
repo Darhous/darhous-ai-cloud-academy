@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-generate-scenarios",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "توليد سيناريوهات",
+  "data": {
+    "prompt_text": "تخيل 3 سيناريوهات محتملة لنتائج [القرار أو الحدث] مع شرح موجز لكل منها.",
+    "instructions": "حدد الحدث أو القرار المراد توقعه في الأقواس."
+  }
+}

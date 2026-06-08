@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-prompt-memorization-techniques",
+  "portal_id": "digital-exams",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تقنيات الحفظ السريع",
+  "data": {
+    "prompt_text": "لدي قائمة من [عدد] مصطلحات أو قوانين أحتاج لحفظها: [القائمة]. اقترح علي طريقة (Mnemonics) أو قصة قصيرة أو اختصارات لحفظها بسهولة.",
+    "instructions": "يفضل وضع قوائم مترابطة ليكون الاختصار أو القصة ذات معنى."
+  }
+}

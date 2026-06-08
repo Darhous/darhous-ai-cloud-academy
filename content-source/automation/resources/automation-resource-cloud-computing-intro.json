@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-cloud-computing-intro",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "Introduction to Cloud Computing",
+  "data": {
+    "url": "https://aws.amazon.com/what-is-cloud-computing/",
+    "description": "مقدمة من AWS حول مفاهيم الحوسبة السحابية، والتي تُبنى عليها الغالبية العظمى من منصات وأدوات الأتمتة الحديثة."
+  }
+}

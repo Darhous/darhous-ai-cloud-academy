@@ -1,0 +1,13 @@
+{
+  "id": "power-automate",
+  "portal_id": "automation",
+  "title": "Power Automate",
+  "status": "draft",
+  "data": {
+    "definition": "خدمة من مايكروسوفت لأتمتة سير العمل بين التطبيقات والخدمات المفضلة.",
+    "example": "حفظ مرفقات البريد الإلكتروني الواردة تلقائيًا في OneDrive."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Power Automate"
+}

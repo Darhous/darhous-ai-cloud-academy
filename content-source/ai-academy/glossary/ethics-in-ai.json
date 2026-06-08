@@ -1,0 +1,13 @@
+{
+  "title": "أخلاقيات الذكاء الاصطناعي",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "مجال يدرس القضايا الأخلاقية المتعلقة بتطوير واستخدام الذكاء الاصطناعي.",
+    "example": "مناقشة الخصوصية واستخدام البيانات لتطوير النماذج."
+  },
+  "id": "ethics-in-ai",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Ethics In Ai"
+}

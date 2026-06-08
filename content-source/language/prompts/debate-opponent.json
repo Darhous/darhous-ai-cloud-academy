@@ -1,0 +1,11 @@
+{
+  "id": "debate-opponent",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "خصم للمناظرة",
+  "data": {
+    "prompt_text": "Argue against my opinion on [الموضوع]. My opinion is [رأيي].",
+    "instructions": "طور مهارات الإقناع والمناقشة بالإنجليزية."
+  }
+}

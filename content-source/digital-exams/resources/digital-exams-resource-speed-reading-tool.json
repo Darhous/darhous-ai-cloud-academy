@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-resource-speed-reading-tool",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أداة تدريب القراءة السريعة",
+  "data": {
+    "url": "",
+    "description": "منصة لتحسين سرعة القراءة واستيعاب المقروء، مهارة أساسية للأقسام اللفظية."
+  }
+}

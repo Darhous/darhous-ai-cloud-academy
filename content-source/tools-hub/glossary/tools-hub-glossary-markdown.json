@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-glossary-markdown",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "ماركداون (Markdown)",
+  "data": {
+    "definition": "لغة ترميز خفيفة الوزن تُستخدم لتنسيق النصوص العادية بشكل بسيط وسريع، وتُدعم بشكل واسع في أدوات تدوين الملاحظات.",
+    "example": "كتابة **نص عريض** باستخدام النجمتين لتنسيق المستندات في أدوات مثل Obsidian."
+  }
+}

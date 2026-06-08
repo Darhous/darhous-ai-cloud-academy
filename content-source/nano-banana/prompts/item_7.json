@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-prompt-item-7",
+  "title": "فن تجريدي",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "prompt_text": "أشكال هندسية متداخلة، ألوان دافئة، نسيج خشن.",
+    "instructions": "أسلوب حديث."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 7"
+}

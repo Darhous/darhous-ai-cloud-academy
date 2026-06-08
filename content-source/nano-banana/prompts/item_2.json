@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-prompt-item-2",
+  "title": "تصميم تعليمي",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "prompt_text": "رسم توضيحي لدورة حياة النبات، ألوان زاهية، أسلوب مسطح.",
+    "instructions": "ركز على الوضوح."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 2"
+}

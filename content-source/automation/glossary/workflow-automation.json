@@ -1,0 +1,13 @@
+{
+  "id": "workflow-automation",
+  "portal_id": "automation",
+  "title": "أتمتة سير العمل",
+  "status": "draft",
+  "data": {
+    "definition": "استخدام التكنولوجيا لتنفيذ المهام المتكررة تلقائيًا دون تدخل بشري.",
+    "example": "إرسال بريد إلكتروني ترحيبي تلقائيًا عند تسجيل مستخدم جديد."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Workflow Automation"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "wokwi",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "محاكي Wokwi",
+  "title_en": "Wokwi Simulator",
+  "data": {
+    "url": "https://wokwi.com/",
+    "description": "محاكي إلكترونيات عبر الإنترنت يدعم الأردوينو و ESP32 ومايكروبايثون."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "interrupt-usage",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "استخدام المقاطعات (Interrupts)",
+  "title_en": "Using Interrupts",
+  "data": {
+    "prompt_text": "اكتب كودًا يشرح كيفية استخدام المقاطعة الخارجية (External Interrupt) على المنفذ [رقم_منفذ_المقاطعة] لتنفيذ دالة معينة عند تغير حالة المنفذ.",
+    "instructions": "حدد رقم منفذ المقاطعة (مثال: 2 أو 3 في أردوينو أونو)."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-persona-pattern",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "نمط الشخصية",
+  "data": {
+    "definition": "تقنية في هندسة الأوامر تعتمد على الطلب من النموذج تقمص دور أو شخصية معينة.",
+    "example": "'تصرف كخبير مالي وقدم لي نصيحة حول الادخار.'"
+  }
+}

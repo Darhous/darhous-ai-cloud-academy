@@ -1,0 +1,13 @@
+{
+  "title": "الهلوسة (في الذكاء الاصطناعي)",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "عندما يقوم نموذج الذكاء الاصطناعي بتوليد معلومات خاطئة أو غير منطقية ولكن يقدمها بثقة.",
+    "example": "الادعاء بأن شخصية تاريخية قامت بفعل لم يحدث أبداً."
+  },
+  "id": "hallucination",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Hallucination"
+}

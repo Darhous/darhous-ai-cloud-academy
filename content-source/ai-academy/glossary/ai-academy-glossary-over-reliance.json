@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-over-reliance",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الاعتماد المفرط",
+  "data": {
+    "definition": "الاعتماد بشكل كبير على أنظمة الذكاء الاصطناعي لدرجة إهمال التفكير النقدي أو التحقق من صحة النتائج.",
+    "example": "نسخ ولصق إجابة النموذج في بحث أكاديمي دون مراجعتها أو فهمها."
+  }
+}

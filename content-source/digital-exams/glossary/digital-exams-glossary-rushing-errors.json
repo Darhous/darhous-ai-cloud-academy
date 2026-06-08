@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-rushing-errors",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "أخطاء التسرع",
+  "data": {
+    "definition": "الأخطاء الناتجة عن قراءة السؤال بسرعة أو تجاوز بعض المعطيات دون انتباه.",
+    "example": "اختيار الإجابة (أ) فوراً لأنها تبدو صحيحة دون إكمال قراءة باقي الخيارات (ب، ج، د)."
+  }
+}

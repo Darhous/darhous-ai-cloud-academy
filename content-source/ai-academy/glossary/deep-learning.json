@@ -1,0 +1,13 @@
+{
+  "title": "التعلم العميق",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "نوع من تعلم الآلة يستخدم شبكات عصبية اصطناعية متعددة الطبقات لحل المشكلات المعقدة.",
+    "example": "التعرف على الوجوه في الهواتف الذكية."
+  },
+  "id": "deep-learning",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Deep Learning"
+}

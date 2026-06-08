@@ -1,0 +1,12 @@
+{
+  "id": "pinout-xyz",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دليل منافذ راسبيري باي",
+  "title_en": "Raspberry Pi Pinout",
+  "data": {
+    "url": "https://pinout.xyz/",
+    "description": "دليل تفاعلي يوضح وظائف منافذ GPIO الخاصة بجميع إصدارات راسبيري باي."
+  }
+}

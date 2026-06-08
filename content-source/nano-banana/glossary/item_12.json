@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-glossary-item-12",
+  "title": "التكوين",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "طريقة ترتيب العناصر داخل إطار الصورة.",
+    "example": "مثال: قاعدة الأثلاث."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 12"
+}

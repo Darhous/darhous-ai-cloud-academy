@@ -1,0 +1,13 @@
+{
+  "id": "python-script-rpi",
+  "portal_id": "iot-lab",
+  "title": "كود بايثون لرازبري باي",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اكتب كود بايثون بسيط لتشغيل وإطفاء LED متصل بدبوس GPIO في رازبري باي.",
+    "instructions": "أضف تعليقات توضيحية على الكود لشرح كل خطوة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Python Script Rpi"
+}

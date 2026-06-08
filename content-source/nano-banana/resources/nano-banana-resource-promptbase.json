@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-promptbase",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "منصة برومبتبايس",
+  "data": {
+    "description": "سوق لبيع وشراء الموجهات الخاصة بنماذج الذكاء الاصطناعي المختلفة، يمكن استخدامه للإلهام.",
+    "url": "https://promptbase.com/"
+  }
+}

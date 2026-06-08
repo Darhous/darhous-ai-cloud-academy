@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-few-shot-prompting",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التوجيه ببعض الأمثلة",
+  "data": {
+    "definition": "تقديم عدة أمثلة للنموذج قبل طلب إكمال المهمة لتحسين الدقة.",
+    "example": "إيجابي: هذا رائع! سلبي: هذا سيء. إيجابي: أنا سعيد جداً. صنّف هذه الجملة: 'أنا محبط'."
+  }
+}

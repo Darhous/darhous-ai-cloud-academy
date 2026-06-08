@@ -1,0 +1,11 @@
+{
+  "id": "idiom",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المصطلح",
+  "data": {
+    "definition": "تعبير لا يمكن فهم معناه من الكلمات الفردية.",
+    "example": "It's raining cats and dogs."
+  }
+}

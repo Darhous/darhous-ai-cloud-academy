@@ -1,0 +1,11 @@
+{
+  "id": "iot-lab-glossary-pull-up",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مقاومة الرفع (Pull-up Resistor)",
+  "data": {
+    "definition": "مقاومة توصل بين طرف الإدخال وجهد التغذية لضمان قراءة مستوى منطقي عالٍ (HIGH) عندما لا يكون هناك إدخال.",
+    "example": "توصيل زر ضغطي مع مقاومة رفع لمنع القراءات العشوائية."
+  }
+}

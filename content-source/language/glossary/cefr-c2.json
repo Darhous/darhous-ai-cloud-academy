@@ -1,0 +1,11 @@
+{
+  "id": "cefr-c2",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مستوى C2",
+  "data": {
+    "definition": "المستوى المتقن.",
+    "example": "I can understand with ease virtually everything heard or read."
+  }
+}

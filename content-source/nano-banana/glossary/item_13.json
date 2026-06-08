@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-glossary-item-13",
+  "title": "الزاوية",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "المنظور الذي يتم التقاط الصورة منه.",
+    "example": "مثال: زاوية منخفضة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 13"
+}

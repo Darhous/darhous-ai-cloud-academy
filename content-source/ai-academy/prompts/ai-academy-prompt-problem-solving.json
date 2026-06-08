@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-problem-solving",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "حل المشكلات",
+  "data": {
+    "prompt_text": "أواجه المشكلة التالية: [المشكلة]. اقترح 3 حلول عملية ومتدرجة.",
+    "instructions": "اشرح مشكلتك بالتفصيل مكان [المشكلة]."
+  }
+}

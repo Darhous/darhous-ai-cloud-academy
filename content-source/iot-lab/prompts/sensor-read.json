@@ -1,0 +1,12 @@
+{
+  "id": "sensor-read",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "قراءة حساس تناظري",
+  "title_en": "Analog Sensor Reading",
+  "data": {
+    "prompt_text": "أحتاج إلى كود أردوينو لقراءة قيم من حساس [نوع_الحساس] متصل بالمنفذ التناظري [رقم_المنفذ]، مع عرض القيم على شاشة Serial Monitor.",
+    "instructions": "حدد نوع الحساس ورقم المنفذ التناظري."
+  }
+}

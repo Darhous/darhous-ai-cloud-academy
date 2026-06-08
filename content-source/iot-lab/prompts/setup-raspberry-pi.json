@@ -1,0 +1,13 @@
+{
+  "id": "setup-raspberry-pi",
+  "portal_id": "iot-lab",
+  "title": "إعداد رازبري باي",
+  "status": "draft",
+  "data": {
+    "prompt_text": "ما هي الخطوات الأولى لتجهيز جهاز رازبري باي جديد للمرة الأولى؟",
+    "instructions": "اذكر نظام التشغيل الموصى به وكيفية تثبيته وتوصيل الشاشة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Setup Raspberry Pi"
+}

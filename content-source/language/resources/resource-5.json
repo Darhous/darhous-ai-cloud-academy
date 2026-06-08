@@ -1,0 +1,13 @@
+{
+  "id": "resource-5",
+  "portal_id": "language",
+  "title": "English Grammar in Use",
+  "status": "draft",
+  "data": {
+    "url": "https://www.cambridge.org",
+    "description": "كتاب مرجعي رائع للقواعد."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Resource 5"
+}

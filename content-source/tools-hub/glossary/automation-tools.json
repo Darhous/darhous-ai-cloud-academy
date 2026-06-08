@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "أدوات الأتمتة (Automation Tools)",
+    "definition": "تطبيقات تقوم بتنفيذ سلسلة من المهام تلقائياً بناءً على شروط محددة مسبقاً دون تدخل بشري.",
+    "example": "استخدام Zapier لربط البريد الإلكتروني بجدول بيانات."
+  },
+  "id": "automation-tools",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Automation Tools"
+}

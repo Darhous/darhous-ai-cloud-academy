@@ -1,0 +1,11 @@
+{
+  "id": "cambridge-dictionary",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "قاموس كامبريدج",
+  "data": {
+    "url": "https://dictionary.cambridge.org/",
+    "description": "قاموس شامل مع أمثلة ونطق."
+  }
+}

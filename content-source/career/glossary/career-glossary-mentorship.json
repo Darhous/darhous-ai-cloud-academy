@@ -1,0 +1,11 @@
+{
+  "id": "career-glossary-mentorship",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التوجيه المهني (المنترشيب)",
+  "data": {
+    "definition": "علاقة مهنية يقوم فيها شخص ذو خبرة بتقديم النصح والإرشاد والدعم لشخص أقل خبرة في مساره المهني.",
+    "example": "البحث عن مرشد (Mentor) في شركتك لمساعدتك في تطوير مهاراتك القيادية."
+  }
+}

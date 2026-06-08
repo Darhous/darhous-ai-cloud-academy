@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-prompt-documentation-tools",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "أدوات التوثيق",
+  "data": {
+    "prompt_text": "أحتاج إلى أداة لتوثيق عمليات العمل الخاصة بي (SOPs). ما هي الخيارات التي تدعم البحث السريع، التنسيق الواضح، ومشاركة الروابط بسهولة؟",
+    "instructions": "لاختيار أفضل أدوات بناء قواعد المعرفة."
+  }
+}

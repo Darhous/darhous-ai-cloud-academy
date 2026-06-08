@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-study-schedule",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "جدول دراسي",
+  "data": {
+    "prompt_text": "صمم لي جدول دراسي لمدة أسبوع للتحضير لامتحان [المادة]، علماً أنني أستطيع الدراسة لـ [عدد الساعات] يومياً.",
+    "instructions": "حدد المادة وساعات التفرغ في الأقواس المخصصة."
+  }
+}

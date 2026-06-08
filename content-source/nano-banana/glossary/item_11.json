@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-glossary-item-11",
+  "title": "التفاصيل الدقيقة",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "العناصر الصغيرة التي تضفي واقعية على الصورة.",
+    "example": "مثال: نسيج القماش."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 11"
+}

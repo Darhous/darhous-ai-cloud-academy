@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "التحضير للمقابلة",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اطرح علي أسئلة مقابلة شائعة لوظيفة [المسمى الوظيفي] وقيّم إجاباتي.",
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+  },
+  "id": "interview-prep",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Interview Prep"
+}

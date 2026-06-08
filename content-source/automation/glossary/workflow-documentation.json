@@ -1,0 +1,13 @@
+{
+  "id": "workflow-documentation",
+  "portal_id": "automation",
+  "title": "توثيق سير العمل",
+  "status": "draft",
+  "data": {
+    "definition": "كتابة وتوضيح كيفية عمل الأنظمة المؤتمتة، ولماذا تم بناؤها.",
+    "example": "إنشاء رسم بياني يوضح مسار البيانات بين التطبيقات لفريق العمل."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Workflow Documentation"
+}

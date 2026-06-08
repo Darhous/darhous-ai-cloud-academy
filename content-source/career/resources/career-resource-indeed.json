@@ -1,0 +1,11 @@
+{
+  "id": "career-resource-indeed",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "إنديد",
+  "data": {
+    "url": "https://www.indeed.com",
+    "description": "واحد من أكبر محركات البحث عن الوظائف في العالم، يوفر أيضاً معلومات حول الرواتب وتقييمات الشركات."
+  }
+}

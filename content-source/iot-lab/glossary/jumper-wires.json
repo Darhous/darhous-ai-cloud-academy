@@ -1,0 +1,12 @@
+{
+  "id": "jumper-wires",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "أسلاك توصيل (Jumper Wires)",
+  "title_en": "Jumper Wires",
+  "data": {
+    "definition": "أسلاك قصيرة بأطراف صلبة تستخدم لتوصيل المكونات على لوح التجارب.",
+    "example": "استخدام أسلاك توصيل من نوع (ذكر-ذكر) لربط الحساسات بلوح التجارب."
+  }
+}

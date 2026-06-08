@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-adaptive-generation",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التوليد التكيفي",
+  "data": {
+    "definition": "استخدام أدوات الذكاء الاصطناعي لتوليد أسئلة تتكيف مع مستوى الطالب وتركز على نقاط ضعفه.",
+    "example": "الطلب من المعلم الذكي توليد 5 أسئلة صعبة في موضوع الكسور بعد اجتياز الأسئلة السهلة."
+  }
+}

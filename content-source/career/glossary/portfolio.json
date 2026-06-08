@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "معرض الأعمال",
+  "status": "draft",
+  "data": {
+    "definition": "مجموعة من أعمالك السابقة التي تثبت مهاراتك.",
+    "example": "مثال على استخدام مصطلح معرض الأعمال في السياق المهني."
+  },
+  "id": "portfolio",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Portfolio"
+}

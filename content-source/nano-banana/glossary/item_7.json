@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-glossary-item-7",
+  "title": "الإضاءة الدرامية",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "إضاءة تخلق ظلالاً قوية وتبايناً عالياً.",
+    "example": "مثال: إضاءة الاستوديو."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 7"
+}

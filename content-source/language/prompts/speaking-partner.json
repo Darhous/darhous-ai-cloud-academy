@@ -1,0 +1,11 @@
+{
+  "id": "speaking-partner",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "شريك محادثة",
+  "data": {
+    "prompt_text": "Act as an English speaking partner. Ask me questions about [الموضوع].",
+    "instructions": "تحدث مع الذكاء الاصطناعي كشريك محادثة."
+  }
+}

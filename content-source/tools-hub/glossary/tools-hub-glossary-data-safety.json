@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-glossary-data-safety",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "سلامة البيانات",
+  "data": {
+    "definition": "الإجراءات والممارسات التي تضمن حماية البيانات من الضياع، التلف، أو الوصول غير المصرح به.",
+    "example": "أخذ نسخ احتياطية دورية لمقالاتك وحفظها في أكثر من مكان لضمان سلامة البيانات."
+  }
+}

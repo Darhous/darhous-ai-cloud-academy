@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-performance-dashboard",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "لوحة الأداء",
+  "data": {
+    "definition": "واجهة مرئية تعرض بيانات تقدم الطالب، الدرجات، ونقاط القوة والضعف لتوجيه مسار التعلم.",
+    "example": "متابعة الرسم البياني الذي يوضح تحسن سرعة الحل في الأسئلة اللفظية عبر الأسابيع."
+  }
+}

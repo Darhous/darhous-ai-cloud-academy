@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-resource-fact-checking-tool",
+  "portal_id": "ai-academy",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أداة التحقق من الحقائق الذكية",
+  "data": {
+    "url": "",
+    "description": "منصة متخصصة في تحليل وتدقيق المعلومات المولدة آلياً."
+  }
+}

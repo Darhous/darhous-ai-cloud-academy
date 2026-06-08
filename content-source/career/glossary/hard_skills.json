@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "المهارات الصلبة",
+  "status": "draft",
+  "data": {
+    "definition": "قدرات تقنية ومعرفة متخصصة يمكن قياسها.",
+    "example": "مثال على استخدام مصطلح المهارات الصلبة في السياق المهني."
+  },
+  "id": "hard-skills",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Hard Skills"
+}

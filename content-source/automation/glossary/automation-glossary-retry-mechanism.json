@@ -1,0 +1,11 @@
+{
+  "id": "automation-glossary-retry-mechanism",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "آلية إعادة المحاولة (Retry)",
+  "data": {
+    "definition": "ميزة تقوم بتكرار محاولة تنفيذ خطوة فشلت (غالباً بسبب مشاكل مؤقتة في الشبكة أو ضغط على الخادم) لعدد محدد من المرات قبل الإعلان عن فشلها.",
+    "example": "إعداد Zapier لمحاولة إرسال البيانات مرة أخرى بعد 5 دقائق إذا أرجع الخادم خطأ 500."
+  }
+}

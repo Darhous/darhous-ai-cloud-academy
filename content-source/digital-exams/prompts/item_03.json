@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-prompt-item-03",
+  "title": "تقنيات تقليل قلق الاختبار",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، اذكر 5 تقنيات فعالة لتقليل التوتر والقلق أثناء الاختبارات الرقمية.",
+    "instructions": "اذكر 5 تقنيات فعالة لتقليل التوتر والقلق أثناء الاختبارات الرقمية."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 03"
+}

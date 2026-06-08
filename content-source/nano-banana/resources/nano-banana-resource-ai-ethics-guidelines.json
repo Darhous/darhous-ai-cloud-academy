@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-ai-ethics-guidelines",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "إرشادات أخلاقيات الذكاء الاصطناعي",
+  "data": {
+    "description": "وثيقة توضح المبادئ التوجيهية لتوليد الصور بمسؤولية وتجنب نشر المحتوى المضلل.",
+    "url": ""
+  }
+}

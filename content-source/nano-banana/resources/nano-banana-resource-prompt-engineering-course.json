@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-prompt-engineering-course",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دورة هندسة الموجهات",
+  "data": {
+    "description": "دورة تعليمية مجانية تشرح أساسيات هندسة الموجهات النصية والبصرية.",
+    "url": ""
+  }
+}

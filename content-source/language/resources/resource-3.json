@@ -1,0 +1,13 @@
+{
+  "id": "resource-3",
+  "portal_id": "language",
+  "title": "Duolingo",
+  "status": "draft",
+  "data": {
+    "url": "https://www.duolingo.com",
+    "description": "تطبيق مجاني لتعلم الأساسيات بطريقة ممتعة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Resource 3"
+}

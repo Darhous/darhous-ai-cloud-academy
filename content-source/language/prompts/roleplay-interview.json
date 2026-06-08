@@ -1,0 +1,11 @@
+{
+  "id": "roleplay-interview",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "محاكاة مقابلة عمل",
+  "data": {
+    "prompt_text": "Conduct a job interview in English for the position of [الوظيفة].",
+    "instructions": "تدرب على مقابلات العمل باللغة الإنجليزية."
+  }
+}

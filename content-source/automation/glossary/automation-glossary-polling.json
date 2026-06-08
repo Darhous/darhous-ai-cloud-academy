@@ -1,0 +1,11 @@
+{
+  "id": "automation-glossary-polling",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الاستعلام الدوري (Polling)",
+  "data": {
+    "definition": "طريقة أتمتة تقوم فيها الأداة بالتحقق من تطبيق معين بشكل دوري (مثلاً كل 15 دقيقة) لمعرفة ما إذا كانت هناك بيانات أو أحداث جديدة.",
+    "example": "أتمتة تقوم بـ Polling لحساب Gmail كل 5 دقائق للبحث عن رسائل تحتوي على كلمة 'عاجل'."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "automation-glossary-approval-workflow",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "سير عمل الموافقات",
+  "data": {
+    "definition": "نوع من الأتمتة يتوقف عند نقطة معينة في انتظار تدخل بشري (الموافقة أو الرفض) قبل متابعة الخطوات المتبقية.",
+    "example": "إرسال طلب شراء إلى المدير المالي، ولا يتم إنشاء أمر الشراء إلا بعد ضغطه على زر 'موافق'."
+  }
+}

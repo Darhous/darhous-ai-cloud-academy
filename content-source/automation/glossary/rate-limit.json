@@ -1,0 +1,13 @@
+{
+  "id": "rate-limit",
+  "portal_id": "automation",
+  "title": "حد المعدل (Rate Limit)",
+  "status": "draft",
+  "data": {
+    "definition": "الحد الأقصى لعدد الطلبات التي يمكن إجراؤها لـ API في فترة زمنية معينة.",
+    "example": "الحد من استدعاءات API لتجنب حظر الحساب."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Rate Limit"
+}

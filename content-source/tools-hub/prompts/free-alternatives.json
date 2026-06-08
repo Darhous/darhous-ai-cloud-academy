@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "بدائل مجانية",
+    "prompt_text": "أنا أستخدم [الأداة المدفوعة] حالياً ولكنها مكلفة. ما هي أفضل البدائل المجانية أو مفتوحة المصدر التي توفر معظم الميزات الأساسية؟",
+    "instructions": "مفيد لتقليل النفقات الشهرية على الاشتراكات الرقمية دون التضحية بالجودة."
+  },
+  "id": "free-alternatives",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Free Alternatives"
+}

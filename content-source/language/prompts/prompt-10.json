@@ -1,0 +1,13 @@
+{
+  "id": "prompt-10",
+  "portal_id": "language",
+  "title": "تكوين الجمل",
+  "status": "draft",
+  "data": {
+    "prompt_text": "أعطني كلمات عشوائية لأكون منها جملاً.",
+    "instructions": "قم بتصحيح الجمل التي أكتبها."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Prompt 10"
+}

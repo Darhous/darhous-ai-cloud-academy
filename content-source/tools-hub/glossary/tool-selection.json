@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "اختيار الأدوات (Tool Selection)",
+    "definition": "عملية البحث والمقارنة لاختيار الأداة الأنسب لتلبية حاجة أو حل مشكلة معينة.",
+    "example": "اختيار تطبيق Notion بدلاً من Evernote لتنظيم المهام المعقدة."
+  },
+  "id": "tool-selection",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Tool Selection"
+}

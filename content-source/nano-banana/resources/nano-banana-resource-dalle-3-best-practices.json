@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-dalle-3-best-practices",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أفضل الممارسات لـ DALL-E 3",
+  "data": {
+    "description": "مقالة توضح كيفية الحصول على أفضل النتائج من DALL-E 3 من خلال بناء الموجهات بشكل سليم.",
+    "url": ""
+  }
+}

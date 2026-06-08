@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-prompt-sci-fi-environment",
+  "portal_id": "nano-banana",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "بيئة خيال علمي",
+  "data": {
+    "prompt_text": "A futuristic sci-fi environment showing [المشهد], neon lighting, cyberpunk style, highly detailed architecture.",
+    "instructions": "استخدمه لإلهام الخيال في كتابة القصص أو عرض التطور التكنولوجي."
+  }
+}

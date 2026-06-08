@@ -1,0 +1,12 @@
+{
+  "id": "uart",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "بروتوكول UART",
+  "title_en": "Universal Asynchronous Receiver-Transmitter",
+  "data": {
+    "definition": "بروتوكول اتصال متسلسل غير متزامن يستخدم لنقل البيانات بين جهازين.",
+    "example": "التواصل بين شريحتي أردوينو عبر بروتوكول UART."
+  }
+}

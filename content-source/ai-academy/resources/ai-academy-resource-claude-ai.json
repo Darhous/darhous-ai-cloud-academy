@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-resource-claude-ai",
+  "portal_id": "ai-academy",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "كلود",
+  "data": {
+    "url": "https://claude.ai/",
+    "description": "مساعد ذكاء اصطناعي متقدم يتميز بنافذة سياق كبيرة وقدرات تحليلية عالية."
+  }
+}

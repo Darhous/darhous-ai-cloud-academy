@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-visual-reference",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مرجع بصري",
+  "data": {
+    "definition": "صورة أو مجموعة صور تستخدم كإلهام أو دليل لتوجيه أسلوب وتفاصيل الصورة المولدة.",
+    "example": "مثال: استخدام لوحة لبيكاسو كمرجع بصري لأسلوب التوليد."
+  }
+}

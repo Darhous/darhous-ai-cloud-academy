@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-prompt-sandbox-setup",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "إعداد بيئة تجريبية",
+  "data": {
+    "prompt_text": "كيف أقوم بإنشاء مساحة تجريبية (Sandbox) آمنة في تطبيق [اسم التطبيق] لاختبار الميزات الجديدة دون تدمير إعداداتي الحالية؟",
+    "instructions": "للتجربة الآمنة دون المخاطرة ببياناتك."
+  }
+}

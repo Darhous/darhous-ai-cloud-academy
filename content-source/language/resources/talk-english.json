@@ -1,0 +1,11 @@
+{
+  "id": "talk-english",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "تحدث الإنجليزية",
+  "data": {
+    "url": "https://www.talkenglish.com/",
+    "description": "دروس محادثة ونطق وتدريبات استماع."
+  }
+}

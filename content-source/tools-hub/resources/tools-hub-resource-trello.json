@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-resource-trello",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "تريلو (Trello)",
+  "data": {
+    "url": "https://trello.com",
+    "description": "أداة إدارة مشاريع بصرية تعتمد على نظام 'كانبان'، مثالية لتنظيم المهام بشكل مرئي."
+  }
+}

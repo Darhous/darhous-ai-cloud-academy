@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-progress-analytics",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تحليلات التقدم",
+  "data": {
+    "definition": "دراسة البيانات التفصيلية للأداء لتحديد الأنماط واتخاذ قرارات مبنية على البيانات لتحسين الدراسة.",
+    "example": "ملاحظة أن الوقت المستغرق في حل أسئلة قسم معين يتناقص مع زيادة عدد الاختبارات التجريبية."
+  }
+}

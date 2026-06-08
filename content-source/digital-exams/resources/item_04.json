@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-resource-item-04",
+  "title": "تطبيق بومودورو",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://pomofocus.io",
+    "description": "تطبيق لإدارة الوقت أثناء المذاكرة باستخدام تقنية بومودورو."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 04"
+}

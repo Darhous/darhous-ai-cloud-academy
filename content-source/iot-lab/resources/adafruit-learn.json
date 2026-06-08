@@ -1,0 +1,12 @@
+{
+  "id": "adafruit-learn",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "منصة تعليم Adafruit",
+  "title_en": "Adafruit Learning System",
+  "data": {
+    "url": "https://learn.adafruit.com/",
+    "description": "مئات الشروحات والمشاريع المفتوحة المصدر للميكروكنترولر والإلكترونيات."
+  }
+}

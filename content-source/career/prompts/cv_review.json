@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "مراجعة السيرة الذاتية",
+  "status": "draft",
+  "data": {
+    "prompt_text": "قم بمراجعة سيرتي الذاتية التالية واقترح تحسينات: [نص السيرة]",
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+  },
+  "id": "cv-review",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Cv Review"
+}

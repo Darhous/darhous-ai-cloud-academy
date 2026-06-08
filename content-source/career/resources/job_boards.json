@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "منصات التوظيف",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "أهم المنصات للبحث عن وظائف في العالم العربي."
+  },
+  "id": "job-boards",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Job Boards"
+}

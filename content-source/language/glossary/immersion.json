@@ -1,0 +1,11 @@
+{
+  "id": "immersion",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الانغماس",
+  "data": {
+    "definition": "إحاطة نفسك باللغة الهدف في كل جوانب حياتك.",
+    "example": "Immersion accelerates learning."
+  }
+}

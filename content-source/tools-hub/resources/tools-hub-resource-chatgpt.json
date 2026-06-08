@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-resource-chatgpt-2",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "تشات جي بي تي (ChatGPT)",
+  "data": {
+    "url": "https://chat.openai.com",
+    "description": "مساعد ذكاء اصطناعي نصي من OpenAI يستخدم في مهام الكتابة، البرمجة، والتحليل."
+  }
+}

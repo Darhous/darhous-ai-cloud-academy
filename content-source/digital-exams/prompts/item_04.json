@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-prompt-item-04",
+  "title": "كيفية التعامل مع الأسئلة الصعبة",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، اشرح خطوات التعامل مع الأسئلة التي لا تعرف إجابتها في الاختبار.",
+    "instructions": "اشرح خطوات التعامل مع الأسئلة التي لا تعرف إجابتها في الاختبار."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 04"
+}

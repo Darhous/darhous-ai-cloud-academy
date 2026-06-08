@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "كتابة خطاب مقدمة",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اكتب خطاب مقدمة احترافي لوظيفة [المسمى الوظيفي] في شركة [اسم الشركة].",
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+  },
+  "id": "cover-letter-gen",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Cover Letter Gen"
+}

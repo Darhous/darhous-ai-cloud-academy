@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-zapier-university",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "Zapier University",
+  "data": {
+    "url": "https://zapier.com/university",
+    "description": "دروس وفيديوهات تعليمية من Zapier مصممة لمساعدة المستخدمين على فهم الأتمتة وربط تطبيقاتهم المختلفة بشكل فعال."
+  }
+}

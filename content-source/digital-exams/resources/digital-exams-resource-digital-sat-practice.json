@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-resource-digital-sat-practice",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "تطبيق بلو بوك للتدريب الرقمي",
+  "data": {
+    "url": "https://bluebook.collegeboard.org",
+    "description": "تطبيق يحاكي بيئة الاختبارات الرقمية المعيارية للتدرب على الواجهة والأسئلة (مفيد لاختبارات مشابهة)."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-resource-item-06",
+  "title": "مدونة طالب",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://www.studentblog.com",
+    "description": "مقالات ونصائح للطلاب حول المذاكرة والتحضير للاختبارات."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 06"
+}

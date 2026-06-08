@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-resource-item-08",
+  "title": "تطبيق فورست",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://www.forestapp.cc",
+    "description": "تطبيق يساعد على التركيز والابتعاد عن الهاتف أثناء المذاكرة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 08"
+}

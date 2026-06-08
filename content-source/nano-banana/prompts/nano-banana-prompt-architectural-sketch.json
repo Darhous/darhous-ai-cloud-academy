@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-prompt-architectural-sketch",
+  "portal_id": "nano-banana",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "رسم معماري",
+  "data": {
+    "prompt_text": "A detailed architectural sketch of a [نوع المبنى], pencil drawing style, blueprints elements in the background.",
+    "instructions": "لدعم المحتوى المتعلق بالهندسة والتصميم العمراني."
+  }
+}

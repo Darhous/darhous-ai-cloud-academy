@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-style-reference-guide",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دليل مرجع الأسلوب",
+  "data": {
+    "description": "كيفية استخدام ميزة 'Style Reference' في نماذج توليد الصور لنسخ أسلوب صورة معينة.",
+    "url": ""
+  }
+}

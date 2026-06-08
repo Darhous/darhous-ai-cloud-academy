@@ -1,0 +1,13 @@
+{
+  "id": "prompt-6",
+  "portal_id": "language",
+  "title": "شرح المصطلحات",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اشرح المصطلح الإنجليزي المعطى.",
+    "instructions": "قدم أمثلة على كيفية استخدامه في جمل مفيدة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Prompt 6"
+}

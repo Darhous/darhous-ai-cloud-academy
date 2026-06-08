@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "دليل لينكد إن",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "دليل شامل لتحسين ملفك الشخصي على لينكد إن."
+  },
+  "id": "linkedin-guide",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Linkedin Guide"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-glossary-item-18",
+  "title": "التوجيه السلبي",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "الكلمات التي تمنع النموذج من إنشاء عناصر معينة.",
+    "example": "مثال: 'بدون إطار'."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 18"
+}

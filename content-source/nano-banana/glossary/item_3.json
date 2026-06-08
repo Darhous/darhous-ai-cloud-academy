@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-glossary-item-3",
+  "title": "النمط البصري",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "المظهر العام أو الأسلوب الفني للصورة.",
+    "example": "مثال: 'تصوير فوتوغرافي واقعي'."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 3"
+}

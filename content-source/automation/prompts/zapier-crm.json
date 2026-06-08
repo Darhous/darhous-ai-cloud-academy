@@ -1,0 +1,13 @@
+{
+  "id": "zapier-crm",
+  "portal_id": "automation",
+  "title": "دليل ربط Zapier مع CRM",
+  "status": "draft",
+  "data": {
+    "prompt_text": "أعطني دليلاً خطوة بخطوة لربط نماذج Google (Google Forms) مع نظام إدارة علاقات العملاء (مثل HubSpot) باستخدام Zapier.",
+    "instructions": "اتبع الخطوات بدقة لضمان نجاح عملية الربط."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Zapier Crm"
+}

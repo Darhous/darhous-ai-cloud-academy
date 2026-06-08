@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-negative-prompting-tips",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "نصائح الموجهات السلبية",
+  "data": {
+    "description": "شرح تفصيلي لكيفية استخدام الموجهات السلبية لإزالة التشوهات والأخطاء من الصور.",
+    "url": ""
+  }
+}

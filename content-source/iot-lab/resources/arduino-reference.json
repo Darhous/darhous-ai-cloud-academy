@@ -1,0 +1,12 @@
+{
+  "id": "arduino-reference",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "مرجع لغة أردوينو الرسمي",
+  "title_en": "Arduino Language Reference",
+  "data": {
+    "url": "https://www.arduino.cc/reference/en/",
+    "description": "المرجع الرسمي لجميع دوال ومكتبات لغة البرمجة الخاصة بالأردوينو."
+  }
+}

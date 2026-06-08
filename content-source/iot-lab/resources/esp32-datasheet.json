@@ -1,0 +1,13 @@
+{
+  "id": "esp32-datasheet",
+  "portal_id": "iot-lab",
+  "title": "ورقة بيانات ESP32",
+  "status": "draft",
+  "data": {
+    "url": "https://www.espressif.com/en/products/socs/esp32",
+    "description": "المعلومات التقنية الرسمية والمواصفات الكاملة لمتحكم ESP32."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Esp32 Datasheet"
+}

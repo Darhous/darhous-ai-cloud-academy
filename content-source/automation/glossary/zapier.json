@@ -1,0 +1,13 @@
+{
+  "id": "automation-glossary-zapier-2",
+  "portal_id": "automation",
+  "title": "Zapier",
+  "status": "draft",
+  "data": {
+    "definition": "منصة شهيرة لأتمتة المهام بين تطبيقات الويب المختلفة بسهولة ودون برمجة.",
+    "example": "ربط Gmail مع Slack لإرسال إشعار عند تلقي بريد هام."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Zapier"
+}

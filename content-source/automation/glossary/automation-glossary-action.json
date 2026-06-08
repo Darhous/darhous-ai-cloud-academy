@@ -1,0 +1,11 @@
+{
+  "id": "automation-glossary-action",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الإجراء (Action)",
+  "data": {
+    "definition": "الخطوة أو المهمة التي يتم تنفيذها بواسطة نظام الأتمتة بعد أن يتم إطلاقه بواسطة المحفز.",
+    "example": "إنشاء فاتورة جديدة، أو إرسال رسالة في Slack."
+  }
+}

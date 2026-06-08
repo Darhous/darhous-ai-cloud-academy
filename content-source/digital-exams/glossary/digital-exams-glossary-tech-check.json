@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-tech-check",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الفحص التقني المسبق",
+  "data": {
+    "definition": "التأكد من جاهزية الجهاز، اتصال الإنترنت، والمتصفح قبل بدء الاختبار الرقمي بوقت كافٍ.",
+    "example": "اختبار سرعة الإنترنت وتحديث متصفح الكروم قبل يوم من موعد الاختبار."
+  }
+}

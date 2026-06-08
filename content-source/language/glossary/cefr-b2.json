@@ -1,0 +1,11 @@
+{
+  "id": "cefr-b2",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مستوى B2",
+  "data": {
+    "definition": "المستوى فوق المتوسط.",
+    "example": "I can understand the main ideas of complex text."
+  }
+}

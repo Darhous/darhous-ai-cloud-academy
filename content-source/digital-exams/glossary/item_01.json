@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-glossary-item-01",
+  "title": "إدارة الوقت",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "توزيع الوقت المتاح على أسئلة الاختبار بشكل استراتيجي.",
+    "example": "مثال: تخصيص دقيقة واحدة لكل سؤال اختيار من متعدد."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 01"
+}

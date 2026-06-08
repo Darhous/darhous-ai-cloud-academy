@@ -1,0 +1,13 @@
+{
+  "id": "resource-8",
+  "portal_id": "language",
+  "title": "British Council - Learn English",
+  "status": "draft",
+  "data": {
+    "url": "https://learnenglish.britishcouncil.org",
+    "description": "موارد تعليمية مجانية للطلاب من جميع المستويات."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Resource 8"
+}

@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "منشئ معارض الأعمال",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "أداة لبناء معرض أعمال رقمي بسهولة."
+  },
+  "id": "portfolio-builder",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Portfolio Builder"
+}

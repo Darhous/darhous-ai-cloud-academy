@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-http-status-codes",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "HTTP Status Codes Directory",
+  "data": {
+    "url": "https://httpstatuses.com/",
+    "description": "دليل مرجعي شامل ومبسط لجميع رموز استجابة HTTP (مثل 200, 404, 500) التي تواجهها أثناء التعامل مع الـ APIs والويب هوك."
+  }
+}

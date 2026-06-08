@@ -1,0 +1,11 @@
+{
+  "id": "iot-lab-glossary-baud-rate",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "معدل الباود",
+  "data": {
+    "definition": "سرعة نقل البيانات عبر الاتصال التسلسلي، ويقاس بالبت في الثانية.",
+    "example": "ضبط معدل الباود على 9600 في كل من الأردوينو والشاشة التسلسلية."
+  }
+}

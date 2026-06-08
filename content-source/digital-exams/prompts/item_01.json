@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-prompt-item-01",
+  "title": "استراتيجية حل أسئلة الاختيار من متعدد",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، اكتب استراتيجية مفصلة لحل أسئلة الاختيار من متعدد بفعالية.",
+    "instructions": "اكتب استراتيجية مفصلة لحل أسئلة الاختيار من متعدد بفعالية."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 01"
+}

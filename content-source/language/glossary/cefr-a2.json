@@ -1,0 +1,11 @@
+{
+  "id": "cefr-a2",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مستوى A2",
+  "data": {
+    "definition": "المستوى الأساسي.",
+    "example": "I can understand simple sentences."
+  }
+}

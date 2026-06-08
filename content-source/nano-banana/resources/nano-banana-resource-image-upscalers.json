@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-image-upscalers",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أدوات رفع دقة الصور",
+  "data": {
+    "description": "قائمة بأفضل الأدوات المجانية والمدفوعة لرفع دقة الصور المولدة دون فقدان الجودة.",
+    "url": ""
+  }
+}

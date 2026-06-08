@@ -1,0 +1,12 @@
+{
+  "id": "circuit-schematic",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مخطط الدائرة (Circuit Schematic)",
+  "title_en": "Circuit Schematic",
+  "data": {
+    "definition": "رسم توضيحي يمثل المكونات الإلكترونية وطريقة توصيلها باستخدام رموز قياسية.",
+    "example": "رسم مخطط دائرة التحكم في محرك باستخدام الترانزستور قبل تنفيذها عملياً."
+  }
+}

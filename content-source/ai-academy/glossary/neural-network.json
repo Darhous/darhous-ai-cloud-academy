@@ -1,0 +1,13 @@
+{
+  "title": "الشبكة العصبية",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "نظام حاسوبي مستوحى من الدماغ البشري لمعالجة المعلومات.",
+    "example": "الشبكات المستخدمة في ترجمة جوجل."
+  },
+  "id": "neural-network",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Neural Network"
+}

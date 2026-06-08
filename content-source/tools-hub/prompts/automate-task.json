@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "أتمتة مهمة",
+    "prompt_text": "أقوم يومياً بـ [وصف المهمة الروتينية]. كيف يمكنني أتمتة هذه العملية باستخدام أدوات مثل Zapier أو Make؟ وما هي الخطوات لإنشاء هذا الربط؟",
+    "instructions": "يساعدك في توفير الوقت عن طريق تفويض الذكاء الاصطناعي بتصميم سير عمل مؤتمت لك."
+  },
+  "id": "automate-task",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Automate Task"
+}

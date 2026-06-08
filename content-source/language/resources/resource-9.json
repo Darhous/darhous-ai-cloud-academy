@@ -1,0 +1,13 @@
+{
+  "id": "resource-9",
+  "portal_id": "language",
+  "title": "Rachel's English",
+  "status": "draft",
+  "data": {
+    "url": "https://rachelsenglish.com",
+    "description": "قناة يوتيوب ممتازة لتحسين النطق الأمريكي."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Resource 9"
+}

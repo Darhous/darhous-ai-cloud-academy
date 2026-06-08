@@ -1,0 +1,11 @@
+{
+  "id": "vocabulary-expander",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "موسع المفردات",
+  "data": {
+    "prompt_text": "Give me 5 synonyms and antonyms for [الكلمة] with example sentences.",
+    "instructions": "احصل على مرادفات وأضداد للكلمات."
+  }
+}

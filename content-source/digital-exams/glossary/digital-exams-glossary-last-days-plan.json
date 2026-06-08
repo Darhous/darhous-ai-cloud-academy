@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-last-days-plan",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "خطة الأيام الأخيرة",
+  "data": {
+    "definition": "جدول مراجعة مكثف للأيام التي تسبق الاختبار يركز على الملخصات وسجل الأخطاء فقط.",
+    "example": "الامتناع عن دراسة مواضيع جديدة قبل الاختبار بيومين والتركيز على مراجعة القوانين الأساسية."
+  }
+}

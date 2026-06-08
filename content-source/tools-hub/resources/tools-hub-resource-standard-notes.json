@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-resource-standard-notes",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "ستاندرد نوتس (Standard Notes)",
+  "data": {
+    "url": "https://standardnotes.com",
+    "description": "تطبيق ملاحظات آمن للغاية يوفر تشفيراً من طرف إلى طرف (E2EE) لحماية بياناتك بالكامل."
+  }
+}

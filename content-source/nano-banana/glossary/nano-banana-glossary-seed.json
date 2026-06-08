@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-seed",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "البذرة",
+  "data": {
+    "definition": "رقم فريد يستخدم كقيمة ابتدائية لمولد الأرقام العشوائية للحصول على نتائج متطابقة أو متشابهة.",
+    "example": "مثال: استخدام نفس البذرة (Seed) مع تغيير طفيف في الموجه لتعديل التفاصيل الصغيرة."
+  }
+}

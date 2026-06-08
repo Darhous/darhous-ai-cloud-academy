@@ -1,0 +1,11 @@
+{
+  "id": "iot-lab-glossary-dac",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "محول الإشارة الرقمية إلى تناظرية (DAC)",
+  "data": {
+    "definition": "وحدة تحول الأرقام الرقمية إلى إشارات جهد كهربائي متغير.",
+    "example": "توليد إشارات صوتية من المتحكم الدقيق."
+  }
+}

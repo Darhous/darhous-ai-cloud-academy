@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-resource-item-01",
+  "title": "موقع كورسيرا",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://www.coursera.org",
+    "description": "منصة تعليمية تقدم دورات في مهارات الدراسة والتحضير للاختبارات."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 01"
+}

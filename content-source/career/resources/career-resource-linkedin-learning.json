@@ -1,0 +1,11 @@
+{
+  "id": "career-resource-linkedin-learning",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دورات لينكد إن التعليمية",
+  "data": {
+    "url": "https://www.linkedin.com/learning",
+    "description": "منصة تقدم آلاف الدورات التدريبية في مجالات الأعمال والتكنولوجيا والمهارات الإبداعية والناعمة."
+  }
+}

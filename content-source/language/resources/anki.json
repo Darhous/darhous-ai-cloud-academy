@@ -1,0 +1,11 @@
+{
+  "id": "anki",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أنكي",
+  "data": {
+    "url": "https://apps.ankiweb.net/",
+    "description": "برنامج لإنشاء بطاقات استذكار ذكية."
+  }
+}

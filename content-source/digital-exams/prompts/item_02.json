@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-prompt-item-02",
+  "title": "خطة مراجعة ليلة الاختبار",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، قم بإنشاء خطة مراجعة شاملة لليلة التي تسبق الاختبار الرقمي.",
+    "instructions": "قم بإنشاء خطة مراجعة شاملة لليلة التي تسبق الاختبار الرقمي."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 02"
+}

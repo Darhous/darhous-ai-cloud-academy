@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-lighting-setup",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "إعدادات الإضاءة",
+  "data": {
+    "definition": "وصف نوع الإضاءة واتجاهها وقوتها في الموجه للتأثير على مزاج وواقعية الصورة.",
+    "example": "مثال: إضاءة سينمائية، إضاءة خلفية، إضاءة ذهبية."
+  }
+}

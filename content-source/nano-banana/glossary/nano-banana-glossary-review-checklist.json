@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-review-checklist",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "قائمة مراجعة الصور",
+  "data": {
+    "definition": "قائمة بالمعايير التي يجب التحقق منها قبل اعتماد الصورة المولدة.",
+    "example": "مثال: التحقق من عدد الأصابع، دقة الإضاءة، وعدم وجود نصوص مشوهة."
+  }
+}

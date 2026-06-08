@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-texture",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الملمس",
+  "data": {
+    "definition": "المظهر البصري لسطح الأشياء في الصورة وكيف تبدو ملموسة.",
+    "example": "مثال: ملمس معدني صدئ، ملمس قماشي ناعم."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-resource-item-7",
+  "title": "أدوات اختيار الألوان",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "أدوات لتنسيق الألوان."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 7"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "واجهة برمجة التطبيقات (API)",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "مجموعة من القواعد التي تسمح للبرامج المختلفة بالتواصل مع بعضها البعض.",
+    "example": "استخدام API الخاص بـ OpenAI في تطبيقك الخاص."
+  },
+  "id": "ai-academy-glossary-api",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Api"
+}

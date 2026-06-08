@@ -1,0 +1,13 @@
+{
+  "title": "Google Gemini",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://gemini.google.com",
+    "description": "نموذج الذكاء الاصطناعي من جوجل المدمج في محرك البحث ومساحة العمل الخاصة بها."
+  },
+  "id": "google-gemini",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Google Gemini"
+}

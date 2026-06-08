@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-prompt-subscription-audit",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مراجعة الاشتراكات",
+  "data": {
+    "prompt_text": "أريد تقييم اشتراكاتي الرقمية. ساعدني في تصميم جدول بسيط لتقييم (عائد الاستثمار / التكلفة / البديل المجاني) لكل أداة أدفع لها شهرياً.",
+    "instructions": "لإدارة ميزانية الأدوات بفعالية."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "الحبس التقني (Vendor Lock-in)",
+    "definition": "صعوبة الانتقال من أداة إلى أخرى بسبب صعوبة نقل البيانات أو الاعتماد الشديد على ميزات حصرية.",
+    "example": "عدم القدرة على ترك تطبيق ملاحظات لأنه لا يوفر خياراً لتصدير الملاحظات بخطوة واحدة."
+  },
+  "id": "vendor-lock-in",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Vendor Lock In"
+}

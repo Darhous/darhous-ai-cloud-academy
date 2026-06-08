@@ -1,0 +1,11 @@
+{
+  "id": "oxford-learners-dictionaries",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "قواميس أكسفورد",
+  "data": {
+    "url": "https://www.oxfordlearnersdictionaries.com/",
+    "description": "قاموس موجه لمتعلمي اللغة الإنجليزية."
+  }
+}

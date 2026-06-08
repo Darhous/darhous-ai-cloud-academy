@@ -1,0 +1,13 @@
+{
+  "id": "json-schema",
+  "portal_id": "automation",
+  "title": "صياغة مخطط JSON",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اكتب هيكل JSON قياسي يمثل بيانات عميل جديد تشمل: الاسم، البريد الإلكتروني، رقم الهاتف، والشركة.",
+    "instructions": "استخدم هذا المخطط عند إرسال البيانات عبر Webhooks."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Json Schema"
+}

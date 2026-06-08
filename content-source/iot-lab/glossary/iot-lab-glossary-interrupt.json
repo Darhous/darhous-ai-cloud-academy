@@ -1,0 +1,11 @@
+{
+  "id": "iot-lab-glossary-interrupt",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المقاطعة (Interrupt)",
+  "data": {
+    "definition": "إشارة تُرسل للمتحكم لإيقاف ما يفعله حالياً لتنفيذ مهمة أكثر أهمية وفورية.",
+    "example": "استخدام زر ضغطي كمقاطعة لتشغيل إنذار فوري."
+  }
+}

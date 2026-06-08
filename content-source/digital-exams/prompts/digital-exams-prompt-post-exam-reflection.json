@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-prompt-post-exam-reflection",
+  "portal_id": "digital-exams",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "التأمل بعد الاختبار",
+  "data": {
+    "prompt_text": "لقد انتهيت للتو من اختباري. أريد توثيق تجربتي. اسألني 4 أسئلة تقييمية حول أدائي، استراتيجياتي، وما يمكنني تحسينه في الاختبارات القادمة.",
+    "instructions": "خطوة هامة لتحويل التجربة الحالية لدروس مستفادة للمستقبل."
+  }
+}

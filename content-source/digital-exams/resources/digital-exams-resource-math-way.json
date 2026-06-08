@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-resource-math-way",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "حلّال المسائل الرياضية",
+  "data": {
+    "url": "https://www.mathway.com",
+    "description": "أداة للتحقق من إجاباتك ومراجعة خطوات الحل الدقيقة في المسائل الجبرية والهندسية."
+  }
+}

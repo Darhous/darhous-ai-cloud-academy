@@ -1,0 +1,13 @@
+{
+  "id": "prompt-8",
+  "portal_id": "language",
+  "title": "تحسين النطق",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اقترح كلمات إنجليزية صعبة النطق.",
+    "instructions": "اكتبها مع طريقة نطقها الصحيحة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Prompt 8"
+}

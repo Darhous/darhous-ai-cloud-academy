@@ -1,0 +1,11 @@
+{
+  "id": "automation-glossary-execution-log",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "سجل التنفيذ",
+  "data": {
+    "definition": "سجل تفصيلي يسجل كل مرة يتم فيها تشغيل الأتمتة، والبيانات التي تم معالجتها، وأي أخطاء حدثت.",
+    "example": "مراجعة سجل التنفيذ في Make لمعرفة سبب فشل تحديث سجل معين في Salesforce."
+  }
+}

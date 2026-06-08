@@ -1,0 +1,11 @@
+{
+  "id": "career-glossary-star-method",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "طريقة ستار (STAR)",
+  "data": {
+    "definition": "استراتيجية للإجابة على أسئلة المقابلات السلوكية تتضمن وصف الموقف (Situation)، المهمة (Task)، الإجراء (Action)، والنتيجة (Result).",
+    "example": "استخدام طريقة ستار لشرح كيف قمت بحل مشكلة مع عميل غاضب وتحقيق نسبة رضا عالية."
+  }
+}

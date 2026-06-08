@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-resource-focus-music-playlist",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "موسيقى وأصوات بيضاء للتركيز",
+  "data": {
+    "url": "",
+    "description": "قائمة تشغيل مصممة للمساعدة على التركيز العميق أثناء المذاكرة وتقليل المشتتات الخارجية."
+  }
+}

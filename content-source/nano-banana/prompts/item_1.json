@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-prompt-item-1",
+  "title": "صورة منتج احترافية",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "prompt_text": "زجاجة عطر أنيقة على خلفية داكنة، إضاءة استوديو.",
+    "instructions": "استخدم إضاءة درامية."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 1"
+}

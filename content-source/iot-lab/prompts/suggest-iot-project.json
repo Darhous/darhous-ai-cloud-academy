@@ -1,0 +1,13 @@
+{
+  "id": "suggest-iot-project",
+  "portal_id": "iot-lab",
+  "title": "اقتراح مشروع ذكي",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اقترح فكرة مشروع إنترنت الأشياء للمبتدئين.",
+    "instructions": "اذكر المكونات المطلوبة وطريقة العمل بشكل مبسط."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Suggest Iot Project"
+}

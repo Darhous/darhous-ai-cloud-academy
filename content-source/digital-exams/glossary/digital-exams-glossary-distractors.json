@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-distractors",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المشتتات",
+  "data": {
+    "definition": "خيارات إجابة مصممة لتكون جذابة أو تبدو صحيحة للإيقاع بالطالب الذي لم يفهم المفهوم بشكل كامل.",
+    "example": "خيار يحتوي على رقم صحيح لكن بوحدة قياس خاطئة."
+  }
+}

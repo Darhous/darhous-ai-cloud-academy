@@ -1,0 +1,11 @@
+{
+  "id": "automation-prompt-zapier-to-make-migration",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تحويل مسار عمل من Zapier إلى Make",
+  "data": {
+    "prompt_text": "لدي Zap في منصة Zapier يقوم بـ [شرح الخطوات والمحفزات]. أريد نقل هذا المسار إلى منصة Make. كيف ستبدو الخطوات والوحدات (Modules) المقابلة في Make؟",
+    "instructions": "اذكر كل خطوة في الـ Zap الأصلي لضمان نقل دقيق."
+  }
+}

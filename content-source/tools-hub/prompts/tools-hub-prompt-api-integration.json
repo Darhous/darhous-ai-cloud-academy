@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-prompt-api-integration",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "ربط واجهة برمجية",
+  "data": {
+    "prompt_text": "أريد ربط واجهة برمجة تطبيقات (API) لأداة [الأداة A] مع [الأداة B]. اشرح لي كشخص غير تقني الخطوات الأساسية وكيف أجد مفتاح الـ API.",
+    "instructions": "لفهم أساسيات الربط البرمجي بين الأدوات."
+  }
+}

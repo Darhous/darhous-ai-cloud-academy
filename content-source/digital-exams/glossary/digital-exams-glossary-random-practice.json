@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-random-practice",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الممارسة العشوائية",
+  "data": {
+    "definition": "حل أسئلة من مواضيع متعددة بشكل مختلط لتدريب الدماغ على التنقل السريع بين المفاهيم.",
+    "example": "حل 10 أسئلة هندسة تليها 10 أسئلة جبر ثم 10 إحصاء بشكل متداخل."
+  }
+}

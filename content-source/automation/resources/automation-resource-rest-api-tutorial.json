@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-rest-api-tutorial",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "REST API Tutorial",
+  "data": {
+    "url": "https://restfulapi.net/",
+    "description": "مورد ممتاز لتعلم أساسيات واجهات برمجة التطبيقات (REST APIs)، والأفعال المستخدمة (GET, POST, PUT, DELETE) والرموز المرجعية."
+  }
+}

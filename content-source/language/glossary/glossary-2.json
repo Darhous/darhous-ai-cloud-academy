@@ -1,0 +1,13 @@
+{
+  "id": "glossary-2",
+  "portal_id": "language",
+  "title": "Vocabulary",
+  "status": "draft",
+  "data": {
+    "definition": "المفردات",
+    "example": "زيادة المفردات تساعد في التحدث بطلاقة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Glossary 2"
+}

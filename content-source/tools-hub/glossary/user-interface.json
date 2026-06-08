@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "واجهة المستخدم (UI)",
+    "definition": "العناصر البصرية والتصميمية التي يتفاعل معها المستخدم داخل الأداة.",
+    "example": "تصميم الأزرار والقوائم في التطبيق ليصبح سهل الاستخدام."
+  },
+  "id": "user-interface",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "User Interface"
+}

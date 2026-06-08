@@ -1,0 +1,13 @@
+{
+  "id": "ideas-marketing",
+  "portal_id": "automation",
+  "title": "توليد أفكار لأتمتة التسويق",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اقترح 5 أفكار لأتمتة مهام التسويق الرقمي لتوفير الوقت وزيادة كفاءة الحملات.",
+    "instructions": "استخدم هذا التلقين للحصول على أفكار عملية وقابلة للتطبيق باستخدام أدوات مثل Zapier."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Ideas Marketing"
+}

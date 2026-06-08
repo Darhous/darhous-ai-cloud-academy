@@ -1,0 +1,13 @@
+{
+  "title": "تنقيب البيانات",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "عملية اكتشاف الأنماط والمعلومات المفيدة في مجموعات البيانات الكبيرة.",
+    "example": "تحليل سلة المشتريات لاقتراح منتجات للعملاء."
+  },
+  "id": "data-mining",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Data Mining"
+}

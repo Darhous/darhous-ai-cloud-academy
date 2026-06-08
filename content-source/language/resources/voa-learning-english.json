@@ -1,0 +1,11 @@
+{
+  "id": "voa-learning-english",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "صوت أمريكا - تعلم الإنجليزية",
+  "data": {
+    "url": "https://learningenglish.voanews.com/",
+    "description": "أخبار ومقالات بلغة مبسطة."
+  }
+}

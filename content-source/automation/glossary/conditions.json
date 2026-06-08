@@ -1,0 +1,13 @@
+{
+  "id": "conditions",
+  "portal_id": "automation",
+  "title": "الشروط (Conditions/Filters)",
+  "status": "draft",
+  "data": {
+    "definition": "قواعد تحدد ما إذا كان يجب أن يستمر سير العمل أم لا بناءً على البيانات.",
+    "example": "الاستمرار في سير العمل فقط إذا كانت قيمة الطلب أكبر من 100 دولار."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Conditions"
+}

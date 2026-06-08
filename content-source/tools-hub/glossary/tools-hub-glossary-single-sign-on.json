@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-glossary-single-sign-on",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تسجيل الدخول الموحد (SSO)",
+  "data": {
+    "definition": "خاصية أمان تتيح للمستخدم الوصول إلى عدة تطبيقات وخدمات مستقلة باستخدام بيانات اعتماد تسجيل دخول واحدة (مثل حساب Google أو Microsoft).",
+    "example": "تسجيل الدخول إلى تطبيقات العمل المختلفة بمجرد النقر على 'تسجيل الدخول باستخدام Google'."
+  }
+}

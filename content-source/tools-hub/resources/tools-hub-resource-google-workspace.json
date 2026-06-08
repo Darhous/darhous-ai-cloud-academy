@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-resource-google-workspace",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "جوجل وورك سبيس",
+  "data": {
+    "url": "https://workspace.google.com",
+    "description": "حزمة أدوات العمل السحابية الشهيرة من جوجل، تتضمن المستندات والجداول السحابية."
+  }
+}

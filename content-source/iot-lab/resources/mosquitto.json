@@ -1,0 +1,12 @@
+{
+  "id": "mosquitto",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "وسيط إكليبس موسكيتو (Eclipse Mosquitto)",
+  "title_en": "Eclipse Mosquitto",
+  "data": {
+    "url": "https://mosquitto.org/",
+    "description": "وسيط رسائل مفتوح المصدر يدعم بروتوكول MQTT."
+  }
+}

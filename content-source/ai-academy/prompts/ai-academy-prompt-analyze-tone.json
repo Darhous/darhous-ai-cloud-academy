@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-analyze-tone",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تحليل النبرة",
+  "data": {
+    "prompt_text": "حلل نبرة هذا النص (إيجابي، سلبي، محايد) واشرح السبب باختصار: [النص]",
+    "instructions": "ضع النص المراد تحليله مكان [النص]."
+  }
+}

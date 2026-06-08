@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-product-visuals",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مرئيات المنتج",
+  "data": {
+    "definition": "صور مصممة خصيصاً لعرض المنتجات بشكل جذاب واحترافي لأغراض التسويق.",
+    "example": "مثال: صورة لزجاجة عطر على خلفية رخامية مع إضاءة ناعمة."
+  }
+}

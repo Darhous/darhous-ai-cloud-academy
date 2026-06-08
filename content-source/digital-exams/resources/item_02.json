@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-resource-item-02",
+  "title": "أكاديمية خان",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://ar.khanacademy.org",
+    "description": "دروس ومقاطع فيديو تعليمية مجانية في مختلف المواد."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 02"
+}

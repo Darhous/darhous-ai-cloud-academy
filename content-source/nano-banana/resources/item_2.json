@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-resource-item-2",
+  "title": "مكتبة الأنماط البصرية",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "مجموعة من الأنماط البصرية."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 2"
+}

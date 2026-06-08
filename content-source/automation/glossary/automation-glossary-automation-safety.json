@@ -1,0 +1,11 @@
+{
+  "id": "automation-glossary-automation-safety",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "أمان الأتمتة",
+  "data": {
+    "definition": "تطبيق ممارسات حماية البيانات والتحكم في الوصول وتشفير بيانات الاعتماد لمنع التسريبات الأمنية عبر مسارات الأتمتة.",
+    "example": "استخدام متغيرات البيئة (Environment Variables) لحفظ مفاتيح API في n8n بدلاً من كتابتها بوضوح."
+  }
+}

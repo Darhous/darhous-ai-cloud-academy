@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-environmental-design",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تصميم البيئات",
+  "data": {
+    "definition": "التركيز على توليد خلفيات وأماكن واسعة وتفصيلية.",
+    "example": "مثال: غابة سحرية مضيئة ليلاً."
+  }
+}

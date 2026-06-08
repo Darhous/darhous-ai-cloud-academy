@@ -1,0 +1,13 @@
+{
+  "id": "resource-6",
+  "portal_id": "language",
+  "title": "Oxford Learner's Dictionaries",
+  "status": "draft",
+  "data": {
+    "url": "https://www.oxfordlearnersdictionaries.com",
+    "description": "قاموس ممتاز للمتعلمين مع شروحات مبسطة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Resource 6"
+}

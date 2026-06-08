@@ -1,0 +1,11 @@
+{
+  "id": "accuracy",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الدقة",
+  "data": {
+    "definition": "استخدام القواعد والمفردات بشكل صحيح.",
+    "example": "Accuracy is important in formal writing."
+  }
+}

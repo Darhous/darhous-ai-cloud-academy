@@ -1,0 +1,11 @@
+{
+  "id": "breaking-news-english",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أخبار إنجليزية مبسطة",
+  "data": {
+    "url": "https://breakingnewsenglish.com/",
+    "description": "دروس مبنية على الأخبار بمستويات قراءة متعددة."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "resource-2",
+  "portal_id": "language",
+  "title": "Cambridge Dictionary",
+  "status": "draft",
+  "data": {
+    "url": "https://dictionary.cambridge.org",
+    "description": "قاموس إنجليزي موثوق مع أمثلة ونطق."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Resource 2"
+}

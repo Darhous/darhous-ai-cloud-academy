@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-prompt-evaluation",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تقييم الأوامر",
+  "data": {
+    "definition": "عملية اختبار وتحسين الأوامر المعطاة للنموذج لضمان الحصول على أفضل نتيجة ممكنة.",
+    "example": "تجربة ثلاثة أوامر مختلفة لنفس المهمة ومقارنة دقة المخرجات."
+  }
+}

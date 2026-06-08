@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-debug-code",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تصحيح الكود",
+  "data": {
+    "prompt_text": "هذا الكود يعطي خطأ [رسالة الخطأ]. الرجاء تصحيحه وشرح سبب الخطأ: [الكود]",
+    "instructions": "أدخل رسالة الخطأ والكود في الأقواس."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-fine-tuning",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الضبط الدقيق",
+  "data": {
+    "definition": "عملية تدريب نموذج موجود مسبقاً على مجموعة بيانات إضافية مخصصة لتحسين أدائه في مهمة معينة.",
+    "example": "تخصيص نموذج لغوي للإجابة على استفسارات عملاء شركة معينة بناءً على دليل الدعم الخاص بها."
+  }
+}

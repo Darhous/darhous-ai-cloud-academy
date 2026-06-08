@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-make-academy",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "Make.com Academy",
+  "data": {
+    "url": "https://academy.make.com/",
+    "description": "أكاديمية منصة Make التي تقدم دورات مجانية لتعلم كيفية استخدام المنصة لبناء الأتمتة من الصفر وتصميم السيناريوهات المتقدمة."
+  }
+}

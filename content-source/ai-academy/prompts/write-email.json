@@ -1,0 +1,13 @@
+{
+  "title": "كتابة بريد إلكتروني رسمي",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اكتب بريداً إلكترونياً احترافياً إلى مديري لطلب إجازة لمدة 3 أيام لظروف عائلية.",
+    "instructions": "يمكنك تعديل عدد الأيام والسبب حسب الحاجة."
+  },
+  "id": "write-email",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Write Email"
+}

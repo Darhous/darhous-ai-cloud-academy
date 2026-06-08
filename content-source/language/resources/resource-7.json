@@ -1,0 +1,13 @@
+{
+  "id": "resource-7",
+  "portal_id": "language",
+  "title": "Coursera - English for Career Development",
+  "status": "draft",
+  "data": {
+    "url": "https://www.coursera.org",
+    "description": "دورة مجانية لتحسين الإنجليزية لأغراض العمل."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Resource 7"
+}

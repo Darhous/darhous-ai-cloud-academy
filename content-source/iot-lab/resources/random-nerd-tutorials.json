@@ -1,0 +1,12 @@
+{
+  "id": "random-nerd-tutorials",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "شروحات Random Nerd Tutorials",
+  "title_en": "Random Nerd Tutorials",
+  "data": {
+    "url": "https://randomnerdtutorials.com/",
+    "description": "موقع ممتاز للمشاريع المتقدمة الخاصة بلوحات ESP32 و ESP8266."
+  }
+}

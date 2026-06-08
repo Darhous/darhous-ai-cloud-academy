@@ -1,0 +1,13 @@
+{
+  "id": "polling",
+  "portal_id": "automation",
+  "title": "الاقتراع (Polling)",
+  "status": "draft",
+  "data": {
+    "definition": "فحص التطبيق دورياً للبحث عن تحديثات أو بيانات جديدة.",
+    "example": "فحص صندوق الوارد كل 15 دقيقة للبحث عن رسائل جديدة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Polling"
+}

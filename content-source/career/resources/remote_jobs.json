@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "وظائف عن بعد",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "منصة متخصصة في الوظائف التي تتيح العمل عن بعد."
+  },
+  "id": "remote-jobs",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Remote Jobs"
+}

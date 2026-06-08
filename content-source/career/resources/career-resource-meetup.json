@@ -1,0 +1,11 @@
+{
+  "id": "career-resource-meetup",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "ميت أب",
+  "data": {
+    "url": "https://www.meetup.com",
+    "description": "منصة للعثور على مجموعات مهنية وتقنية وبناء شبكة علاقات (Networking) في منطقتك."
+  }
+}

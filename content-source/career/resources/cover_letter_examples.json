@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "نماذج خطابات مقدمة",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "مجموعة من خطابات المقدمة الناجحة لمختلف المجالات."
+  },
+  "id": "cover-letter-examples",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Cover Letter Examples"
+}

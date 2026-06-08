@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-plan-project",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تخطيط مشروع",
+  "data": {
+    "prompt_text": "أنشئ خطة مشروع مقسمة إلى مهام وجدول زمني أولي لتنفيذ [المشروع] خلال [المدة].",
+    "instructions": "حدد وصف المشروع والمدة الزمنية في الأقواس."
+  }
+}

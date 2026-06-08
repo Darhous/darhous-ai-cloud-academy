@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-glossary-item-06",
+  "title": "الاختبار التجريبي",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "نموذج مشابه للاختبار الحقيقي يستخدم للتدريب وقياس المستوى.",
+    "example": "مثال: حل اختبار تجريبي لشهادة PMP قبل الاختبار الفعلي."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 06"
+}

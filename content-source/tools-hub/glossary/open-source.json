@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "مفتوح المصدر (Open Source)",
+    "definition": "برامج يكون كودها المصدري متاحاً للجميع لتعديله وتحسينه، وغالباً ما تكون مجانية وتهتم بالخصوصية.",
+    "example": "استخدام متصفح Firefox بدلاً من متصفحات مغلقة المصدر."
+  },
+  "id": "open-source",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Open Source"
+}

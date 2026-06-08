@@ -1,0 +1,11 @@
+{
+  "id": "career-glossary-remote-work-skills",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مهارات العمل عن بعد",
+  "data": {
+    "definition": "القدرات اللازمة للعمل بفعالية وكفاءة خارج بيئة المكتب التقليدية، مثل إدارة الوقت والتواصل الافتراضي.",
+    "example": "استخدام أدوات مثل Slack و Trello لإدارة المهام والتواصل مع الفريق بسلاسة."
+  }
+}

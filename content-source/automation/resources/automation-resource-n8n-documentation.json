@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-n8n-documentation",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "n8n Documentation",
+  "data": {
+    "url": "https://docs.n8n.io/",
+    "description": "التوثيق الرسمي لمنصة n8n للأتمتة المفتوحة المصدر. يحتوي على أدلة مفصلة حول كيفية بناء مسارات العمل والعقد المتاحة وتطوير العقد المخصصة."
+  }
+}

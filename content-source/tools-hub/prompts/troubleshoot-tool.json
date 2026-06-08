@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "حل مشكلة في أداة",
+    "prompt_text": "أواجه مشكلة في [اسم الأداة] حيث [وصف المشكلة]. ما هي خطوات استكشاف الأخطاء وإصلاحها الشائعة التي يمكنني تجربتها؟",
+    "instructions": "استخدمه بدلاً من تضييع الوقت في البحث في المنتديات الطويلة لمعرفة الحل السريع."
+  },
+  "id": "troubleshoot-tool",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Troubleshoot Tool"
+}

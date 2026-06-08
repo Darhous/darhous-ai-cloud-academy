@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-improve-prompt",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تحسين موجه",
+  "data": {
+    "prompt_text": "لدي هذا الموجه: [الموجه]. أعد كتابته ليكون أكثر تفصيلاً ويضمن نتائج أفضل من الذكاء الاصطناعي.",
+    "instructions": "ضع الأمر البسيط الخاص بك مكان [الموجه]."
+  }
+}

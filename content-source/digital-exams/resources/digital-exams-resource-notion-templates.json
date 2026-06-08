@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-resource-notion-templates",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "قوالب نوشن للمراجعة",
+  "data": {
+    "url": "https://www.notion.so",
+    "description": "استخدم قوالب نوشن الجاهزة لتنظيم جدول المراجعة وبناء سجل الأخطاء الخاص بك."
+  }
+}

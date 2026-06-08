@@ -1,0 +1,13 @@
+{
+  "id": "zapier-blog",
+  "portal_id": "automation",
+  "title": "مدونة Zapier",
+  "status": "draft",
+  "data": {
+    "url": "https://zapier.com/blog",
+    "description": "مقالات رائعة وأدلة عملية حول الأتمتة وزيادة الإنتاجية."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Zapier Blog"
+}

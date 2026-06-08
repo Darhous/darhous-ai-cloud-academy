@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-resource-hallucination-checker",
+  "portal_id": "ai-academy",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "مكتشف الهلوسة",
+  "data": {
+    "url": "",
+    "description": "أداة برمجية لمقارنة نصوص الذكاء الاصطناعي مع المصادر الأصلية لضمان الدقة."
+  }
+}

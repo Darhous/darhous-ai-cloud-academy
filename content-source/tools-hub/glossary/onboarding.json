@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "التهيئة الأولية (Onboarding)",
+    "definition": "العملية التي يمر بها المستخدم لتعلم كيفية استخدام أداة جديدة والتعرف على واجهتها.",
+    "example": "اتباع الجولة الإرشادية في التطبيق عند فتحه لأول مرة."
+  },
+  "id": "tools-hub-glossary-onboarding",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Onboarding"
+}

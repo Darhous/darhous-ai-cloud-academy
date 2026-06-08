@@ -1,0 +1,12 @@
+{
+  "id": "button-debounce",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "قراءة حالة زر مع تفادي الارتداد (Debounce)",
+  "title_en": "Button Reading with Debounce",
+  "data": {
+    "prompt_text": "قم بكتابة كود لقراءة حالة زر ضاغط متصل بالمنفذ [رقم_المنفذ] بشكل صحيح دون مشكلة الارتداد (Debouncing)، واستخدامه لتغيير حالة متغير.",
+    "instructions": "حدد رقم المنفذ المتصل به الزر."
+  }
+}

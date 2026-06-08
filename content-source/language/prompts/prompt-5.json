@@ -1,0 +1,13 @@
+{
+  "id": "prompt-5",
+  "portal_id": "language",
+  "title": "التدريب على الاستماع",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اكتب فقرة قصيرة ثم اطرح أسئلة حولها.",
+    "instructions": "تأكد من تنوع الأسئلة لاختبار الفهم."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Prompt 5"
+}

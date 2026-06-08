@@ -1,0 +1,11 @@
+{
+  "id": "career-glossary-proof-of-work",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "إثبات العمل",
+  "data": {
+    "definition": "تقديم أدلة ملموسة على قدراتك ومهاراتك من خلال مشاريع حقيقية أو إنجازات سابقة بدلاً من الاعتماد فقط على الشهادات.",
+    "example": "المساهمة في مشاريع مفتوحة المصدر (Open Source) لإثبات كفاءتك البرمجية."
+  }
+}

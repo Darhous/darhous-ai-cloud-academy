@@ -1,0 +1,13 @@
+{
+  "id": "make-academy",
+  "portal_id": "automation",
+  "title": "أكاديمية Make",
+  "status": "draft",
+  "data": {
+    "url": "https://academy.make.com/",
+    "description": "دورات تدريبية مجانية لتعلم كيفية استخدام منصة Make للمبتدئين والمحترفين."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Make Academy"
+}

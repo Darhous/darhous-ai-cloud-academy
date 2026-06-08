@@ -1,0 +1,13 @@
+{
+  "id": "data-mapping",
+  "portal_id": "automation",
+  "title": "تخطيط البيانات (Data Mapping)",
+  "status": "draft",
+  "data": {
+    "definition": "ربط حقول البيانات من تطبيق المصدر بحقول تطبيق الهدف.",
+    "example": "ربط حقل 'الاسم الأول' في النموذج مع حقل 'First Name' في CRM."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Data Mapping"
+}

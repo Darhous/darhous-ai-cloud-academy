@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-resource-raycast",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "راي كاست (Raycast)",
+  "data": {
+    "url": "https://www.raycast.com",
+    "description": "أداة إنتاجية لأجهزة ماك تتيح لك تنفيذ المهام بسرعة من خلال لوحة المفاتيح والبحث المتقدم."
+  }
+}

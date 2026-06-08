@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-cron-job-syntax",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "Cron Job Syntax Guide",
+  "data": {
+    "url": "https://crontab.guru/",
+    "description": "أداة بسيطة تشرح وتساعد في صياغة توقيتات Cron Jobs لجدولة العمليات الأتمتية لتشغيلها في أوقات محددة بدقة."
+  }
+}

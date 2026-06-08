@@ -1,0 +1,11 @@
+{
+  "id": "comprehensible-input",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المدخلات المفهومة",
+  "data": {
+    "definition": "نصوص أو مقاطع صوتية تفهم معظمها ولكن تحتوي على تحدي بسيط.",
+    "example": "Reading graded readers is comprehensible input."
+  }
+}

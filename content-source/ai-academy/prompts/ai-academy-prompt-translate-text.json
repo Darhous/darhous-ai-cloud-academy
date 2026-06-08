@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-translate-text",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "ترجمة نص",
+  "data": {
+    "prompt_text": "ترجم النص التالي إلى اللغة [اللغة] مع الحفاظ على المعنى الدقيق والنبرة: [النص]",
+    "instructions": "حدد اللغة المطلوبة والنص في الأقواس المخصصة."
+  }
+}

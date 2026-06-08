@@ -1,0 +1,11 @@
+{
+  "id": "iot-lab-resource-datasheet-catalog",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دليل أوراق البيانات (Datasheets)",
+  "data": {
+    "url": "https://www.alldatasheet.com/",
+    "description": "موقع يوفر أوراق البيانات التقنية الرسمية للمكونات الإلكترونية، والتي تعد ضرورية لمعرفة خصائص الجهد والتيار لأي شريحة."
+  }
+}

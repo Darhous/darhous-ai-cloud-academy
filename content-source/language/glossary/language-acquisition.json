@@ -1,0 +1,11 @@
+{
+  "id": "language-acquisition",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "اكتساب اللغة",
+  "data": {
+    "definition": "التعلم الطبيعي واللاواعي للغة.",
+    "example": "Children show rapid language acquisition."
+  }
+}

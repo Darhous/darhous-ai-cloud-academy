@@ -1,0 +1,13 @@
+{
+  "title": "Canva Magic Studio",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://www.canva.com/magic/",
+    "description": "مجموعة أدوات الذكاء الاصطناعي داخل منصة كانفا لتسهيل تصميم الصور العروض التقديمية."
+  },
+  "id": "canva-magic-studio",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Canva Magic Studio"
+}

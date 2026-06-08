@@ -1,0 +1,13 @@
+{
+  "title": "خطة وجبات صحية",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "أنا نباتي وأريد خطة وجبات لمدة أسبوع تكون غنية بالبروتين واقتصادية وسهلة التحضير.",
+    "instructions": "يساعدك في تنظيم طعامك وفقاً لتفضيلاتك وحالتك الصحية."
+  },
+  "id": "meal-plan",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Meal Plan"
+}

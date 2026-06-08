@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-resource-item-3",
+  "title": "كيفية التحكم في الإضاءة",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "مقالة حول تقنيات الإضاءة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 3"
+}

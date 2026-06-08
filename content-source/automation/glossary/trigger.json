@@ -1,0 +1,13 @@
+{
+  "id": "trigger",
+  "portal_id": "automation",
+  "title": "محفز (Trigger)",
+  "status": "draft",
+  "data": {
+    "definition": "الحدث الذي يبدأ سير العمل المؤتمت.",
+    "example": "استلام رسالة بريد إلكتروني جديدة أو إضافة صف في جدول بيانات."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Trigger"
+}

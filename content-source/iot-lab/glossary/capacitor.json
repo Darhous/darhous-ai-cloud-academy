@@ -1,0 +1,12 @@
+{
+  "id": "capacitor",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مكثف (Capacitor)",
+  "title_en": "Capacitor",
+  "data": {
+    "definition": "مكون يقوم بتخزين الطاقة الكهربائية بشكل مؤقت وتفريغها عند الحاجة.",
+    "example": "استخدام مكثف لتنعيم إشارة الجهد الخارجة من مزود الطاقة."
+  }
+}

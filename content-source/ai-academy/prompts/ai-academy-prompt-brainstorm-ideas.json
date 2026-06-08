@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-brainstorm-ideas",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "توليد أفكار",
+  "data": {
+    "prompt_text": "قدم لي 5 أفكار إبداعية لمشروع حول [الموضوع].",
+    "instructions": "حدد الموضوع المطلوب في مكان [الموضوع]."
+  }
+}

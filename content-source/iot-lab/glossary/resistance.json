@@ -1,0 +1,12 @@
+{
+  "id": "resistance",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المقاومة الكهربائية (Resistance)",
+  "title_en": "Resistance",
+  "data": {
+    "definition": "ممانعة المادة لمرور التيار الكهربائي فيها، وتقاس بالأوم.",
+    "example": "استخدام مقاومة 220 أوم لحماية مصباح LED من الاحتراق."
+  }
+}

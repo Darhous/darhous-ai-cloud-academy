@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-error-handling-best-practices",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "Error Handling Best Practices",
+  "data": {
+    "url": "https://www.smashingmagazine.com/2020/08/error-handling-nodejs-error-classes/",
+    "description": "دليل تقني حول أفضل الممارسات في معالجة الأخطاء (Error Handling) في البرمجة النصية والتي يمكن تطبيقها على الأتمتة المتقدمة."
+  }
+}

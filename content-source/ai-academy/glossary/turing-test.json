@@ -1,0 +1,13 @@
+{
+  "title": "اختبار تورنغ",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "اختبار لقدرة الآلة على إظهار سلوك ذكي يعادل أو لا يمكن تمييزه عن سلوك الإنسان.",
+    "example": "محادثة نصية يحاول فيها الشخص معرفة ما إذا كان يتحدث مع إنسان أم آلة."
+  },
+  "id": "turing-test",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Turing Test"
+}

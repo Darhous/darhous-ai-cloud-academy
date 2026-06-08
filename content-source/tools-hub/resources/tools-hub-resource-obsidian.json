@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-resource-obsidian",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أوبسيديان (Obsidian)",
+  "data": {
+    "url": "https://obsidian.md",
+    "description": "تطبيق لتدوين الملاحظات يعتمد على الماركداون ويحفظ الملفات محلياً على جهازك، ممتاز لترابط الأفكار وحماية الخصوصية."
+  }
+}

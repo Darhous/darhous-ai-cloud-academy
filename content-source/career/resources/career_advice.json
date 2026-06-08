@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "نصائح مهنية",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "مدونة تقدم مقالات ونصائح قيمة لتطوير مسارك المهني."
+  },
+  "id": "career-advice",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Career Advice"
+}

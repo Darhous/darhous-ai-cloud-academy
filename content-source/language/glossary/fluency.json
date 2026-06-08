@@ -1,0 +1,11 @@
+{
+  "id": "fluency",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الطلاقة",
+  "data": {
+    "definition": "القدرة على التحدث بسلاسة وبدون توقف متكرر.",
+    "example": "She speaks English with great fluency."
+  }
+}

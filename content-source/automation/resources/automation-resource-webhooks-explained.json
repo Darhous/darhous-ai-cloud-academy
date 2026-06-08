@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-webhooks-explained",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "Webhooks Explained",
+  "data": {
+    "url": "https://zapier.com/blog/what-is-a-webhook/",
+    "description": "مقال شامل من Zapier يشرح مفهوم الويب هوك (Webhooks) وكيفية عملها وكيف تختلف عن الاستعلام الدوري (Polling)."
+  }
+}

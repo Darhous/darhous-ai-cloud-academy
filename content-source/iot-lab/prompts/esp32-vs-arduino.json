@@ -1,0 +1,13 @@
+{
+  "id": "esp32-vs-arduino",
+  "portal_id": "iot-lab",
+  "title": "مقارنة بين إي إس بي وأردوينو",
+  "status": "draft",
+  "data": {
+    "prompt_text": "ما الفرق بين لوحة الأردوينو أونو ولوحة ESP32، ومتى أستخدم كل منهما؟",
+    "instructions": "قدم مقارنة تشمل التكلفة، الاتصال بالإنترنت، وقوة المعالجة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Esp32 Vs Arduino"
+}

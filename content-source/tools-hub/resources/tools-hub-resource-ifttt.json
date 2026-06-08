@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-resource-ifttt",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "إف ذيس ذين ذات (IFTTT)",
+  "data": {
+    "url": "https://ifttt.com",
+    "description": "أداة أتمتة بسيطة جداً لربط التطبيقات والأجهزة الذكية، مناسبة للمبتدئين في مجال الأتمتة."
+  }
+}

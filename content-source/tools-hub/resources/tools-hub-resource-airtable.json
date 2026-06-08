@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-resource-airtable",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "إيرتيبل (Airtable)",
+  "data": {
+    "url": "https://airtable.com",
+    "description": "منصة تجمع بين بساطة جداول البيانات وقوة قواعد البيانات العلائقية لتنظيم أي نوع من المعلومات."
+  }
+}

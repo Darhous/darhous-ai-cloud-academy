@@ -1,0 +1,13 @@
+{
+  "id": "business-process-automation",
+  "portal_id": "automation",
+  "title": "أتمتة العمليات التجارية (BPA)",
+  "status": "draft",
+  "data": {
+    "definition": "استخدام التكنولوجيا لأتمتة العمليات التجارية المعقدة والمتعددة الخطوات.",
+    "example": "أتمتة عملية الموافقة على الإجازات بالكامل."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Business Process Automation"
+}

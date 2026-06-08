@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-resource-privacytools",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أدوات الخصوصية (PrivacyTools)",
+  "data": {
+    "url": "https://www.privacytools.io",
+    "description": "دليل شامل لأفضل التطبيقات والأدوات التي تحترم الخصوصية الرقمية وتقدم بدائل للشركات الكبرى."
+  }
+}

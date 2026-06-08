@@ -1,0 +1,13 @@
+{
+  "id": "gpio",
+  "portal_id": "iot-lab",
+  "title": "دبابيس الإدخال والإخراج (GPIO)",
+  "status": "draft",
+  "data": {
+    "definition": "دبابيس عامة الأغراض على لوحة المتحكم يمكن برمجتها للعمل كمدخلات أو مخرجات.",
+    "example": "توصيل LED بدبوس GPIO رقم 13 على الأردوينو."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Gpio"
+}

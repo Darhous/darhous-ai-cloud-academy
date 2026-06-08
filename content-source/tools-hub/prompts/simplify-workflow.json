@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "تبسيط سير العمل",
+    "prompt_text": "حاليًا أستخدم التطبيقات التالية لإنجاز عملي: [قائمة التطبيقات]. أشعر بإرهاق الأدوات. هل يمكنك اقتراح طريقة لدمجها أو تقليل عددها مع الحفاظ على الإنتاجية؟",
+    "instructions": "مثالي للتخلص من الفوضى الرقمية وبناء حزمة أدوات أكثر بساطة وفعالية."
+  },
+  "id": "simplify-workflow",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Simplify Workflow"
+}

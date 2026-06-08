@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-glossary-item-9",
+  "title": "البذور العشوائية (Seed)",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "رقم يستخدم لضمان استنساخ نفس النتيجة عند استخدام نفس الأمر.",
+    "example": "مثال: seed 12345."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 9"
+}

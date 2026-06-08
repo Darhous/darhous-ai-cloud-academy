@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-prompt-item-3",
+  "title": "صورة خلفية سينمائية",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "prompt_text": "مدينة مستقبلية في الليل، أضواء نيون، أمطار.",
+    "instructions": "أضف انعكاسات."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 3"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-api-security-best-practices",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "API Security Best Practices",
+  "data": {
+    "url": "https://owasp.org/www-project-api-security/",
+    "description": "موارد من منظمة OWASP العالمية حول أمان واجهات برمجة التطبيقات وكيفية حماية بياناتك أثناء استخدام الأتمتة."
+  }
+}

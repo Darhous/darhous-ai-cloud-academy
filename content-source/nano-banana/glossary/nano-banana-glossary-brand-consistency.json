@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-brand-consistency",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "اتساق العلامة التجارية",
+  "data": {
+    "definition": "ضمان توافق الصور المولدة مع الهوية البصرية للعلامة التجارية من حيث الألوان والأسلوب.",
+    "example": "مثال: استخدام لوحة ألوان محددة في جميع مطالبات الصور الخاصة بالشركة."
+  }
+}

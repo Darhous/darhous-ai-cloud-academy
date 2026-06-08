@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-prompt-item-07",
+  "title": "إدارة الوقت في الاختبارات الموقوتة",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، قدم نصائح عملية لإدارة الوقت بفعالية في الاختبارات التي تعتمد على الوقت.",
+    "instructions": "قدم نصائح عملية لإدارة الوقت بفعالية في الاختبارات التي تعتمد على الوقت."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 07"
+}

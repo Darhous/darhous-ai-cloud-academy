@@ -1,0 +1,13 @@
+{
+  "title": "التحيز في الذكاء الاصطناعي",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "عندما تعكس قرارات الذكاء الاصطناعي تحيزات بشرية موجودة في البيانات التي تدرب عليها.",
+    "example": "نظام توظيف يفضل مرشحين من جنس أو عرق معين بناءً على بيانات تاريخية."
+  },
+  "id": "bias-in-ai",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Bias In Ai"
+}

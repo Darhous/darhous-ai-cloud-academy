@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-prompt-historical-scene",
+  "portal_id": "nano-banana",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مشهد تاريخي",
+  "data": {
+    "prompt_text": "A realistic historical scene of [الحدث التاريخي] in the year [السنة], authentic clothing and architecture, cinematic lighting.",
+    "instructions": "استخدمه لإنشاء مرئيات تدعم دروس التاريخ."
+  }
+}

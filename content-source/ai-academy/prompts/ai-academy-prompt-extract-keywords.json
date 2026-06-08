@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-extract-keywords",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "استخراج الكلمات المفتاحية",
+  "data": {
+    "prompt_text": "استخرج 10 كلمات مفتاحية رئيسية من المقال التالي: [المقال]",
+    "instructions": "الصق المقال الطويل مكان [المقال]."
+  }
+}

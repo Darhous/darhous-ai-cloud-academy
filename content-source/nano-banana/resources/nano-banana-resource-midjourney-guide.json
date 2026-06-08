@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-midjourney-guide",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دليل استخدام ميدجورني",
+  "data": {
+    "description": "دليل شامل لكيفية استخدام منصة Midjourney لتوليد الصور الاحترافية، يتضمن شرح الأوامر الأساسية والمتقدمة.",
+    "url": "https://docs.midjourney.com/"
+  }
+}

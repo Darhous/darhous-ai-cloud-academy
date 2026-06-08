@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "العلامة التجارية الشخصية",
+  "status": "draft",
+  "data": {
+    "definition": "الطريقة التي تسوق بها نفسك مهنياً.",
+    "example": "مثال على استخدام مصطلح العلامة التجارية الشخصية في السياق المهني."
+  },
+  "id": "personal-branding",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Personal Branding"
+}

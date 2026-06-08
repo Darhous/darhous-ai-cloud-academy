@@ -1,0 +1,13 @@
+{
+  "id": "explain-pwm",
+  "portal_id": "iot-lab",
+  "title": "شرح تقنية PWM",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اشرح كيف تعمل تقنية تعديل عرض النبضة (PWM) وكيف يمكنني استخدامها لتخفيت إضاءة LED.",
+    "instructions": "استخدم لغة سهلة مع تقديم مثال لكود أردوينو بسيط."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Explain Pwm"
+}

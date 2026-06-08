@@ -1,0 +1,12 @@
+{
+  "id": "arduino-json",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "مكتبة ArduinoJson",
+  "title_en": "ArduinoJson Library",
+  "data": {
+    "url": "https://arduinojson.org/",
+    "description": "مكتبة مساعدة لتحليل وتكوين كائنات JSON في بيئة الأردوينو بكفاءة."
+  }
+}

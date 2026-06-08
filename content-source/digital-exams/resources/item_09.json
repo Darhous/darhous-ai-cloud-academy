@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-resource-item-09",
+  "title": "موقع جوجل درايف",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://drive.google.com",
+    "description": "مساحة لتخزين ومشاركة الملاحظات والملفات الدراسية."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 09"
+}

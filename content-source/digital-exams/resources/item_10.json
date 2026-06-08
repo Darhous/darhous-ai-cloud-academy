@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-resource-item-10",
+  "title": "موقع نوشن",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://www.notion.so",
+    "description": "أداة قوية لتنظيم الجداول الدراسية والملاحظات."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 10"
+}

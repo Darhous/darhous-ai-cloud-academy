@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-retry-policies-guide",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "Retry Policies Guide",
+  "data": {
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/transient-faults",
+    "description": "دليل تصميم الأنماط المعمارية للتعامل مع الأخطاء المؤقتة وآليات إعادة المحاولة (Retry Patterns) لضمان استقرار العمليات."
+  }
+}

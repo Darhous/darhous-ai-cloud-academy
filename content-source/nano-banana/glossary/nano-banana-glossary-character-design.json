@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-character-design",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تصميم الشخصيات",
+  "data": {
+    "definition": "توليد صور تبرز تفاصيل وملامح وأزياء شخصية خيالية.",
+    "example": "مثال: تصميم شخصية محارب من العصور الوسطى بدروع مفصلة."
+  }
+}

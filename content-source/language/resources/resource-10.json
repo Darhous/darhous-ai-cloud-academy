@@ -1,0 +1,13 @@
+{
+  "id": "resource-10",
+  "portal_id": "language",
+  "title": "EngVid",
+  "status": "draft",
+  "data": {
+    "url": "https://www.engvid.com",
+    "description": "دروس فيديو مجانية من معلمين ناطقين باللغة الإنجليزية."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Resource 10"
+}

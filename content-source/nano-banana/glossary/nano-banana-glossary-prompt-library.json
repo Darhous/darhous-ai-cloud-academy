@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-prompt-library",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مكتبة الموجهات",
+  "data": {
+    "definition": "مجموعة منظمة من الموجهات المجربة والناجحة يمكن إعادة استخدامها.",
+    "example": "مثال: إنشاء ملف يحتوي على أفضل الموجهات لتوليد صور الطبيعة."
+  }
+}

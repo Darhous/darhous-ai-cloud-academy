@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-image-prompt",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "موجه الصورة",
+  "data": {
+    "definition": "نص وصفي يستخدم لتوجيه نماذج الذكاء الاصطناعي لإنشاء صور.",
+    "example": "مثال: صورة فوتوغرافية لسيارة حمراء في شارع ممطر."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "تحليل فجوة المهارات",
+  "status": "draft",
+  "data": {
+    "prompt_text": "قارن بين مهاراتي الحالية ومتطلبات وظيفة [المسمى الوظيفي] وحدد المهارات التي أحتاج تطويرها.",
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+  },
+  "id": "skills-gap",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Skills Gap"
+}

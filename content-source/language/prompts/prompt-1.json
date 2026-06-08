@@ -1,0 +1,13 @@
+{
+  "id": "prompt-1",
+  "portal_id": "language",
+  "title": "ممارسة المحادثة اليومية",
+  "status": "draft",
+  "data": {
+    "prompt_text": "قم بدور متحدث أصلي للغة الإنجليزية.",
+    "instructions": "ابدأ المحادثة بسؤال بسيط عن يومي."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Prompt 1"
+}

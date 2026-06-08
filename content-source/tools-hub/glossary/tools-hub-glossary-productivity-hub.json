@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-glossary-productivity-hub",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مركز الإنتاجية",
+  "data": {
+    "definition": "تطبيق أو أداة شاملة تعمل كواجهة رئيسية لمركزة مهامك، وملاحظاتك، وتواصلك في مكان واحد لتقليل التشتت.",
+    "example": "استخدام Notion كمركز إنتاجية لجمع كل مستندات ومشاريع الشركة معاً."
+  }
+}

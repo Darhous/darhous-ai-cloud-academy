@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-oauth2-simplified",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "OAuth 2.0 Simplified",
+  "data": {
+    "url": "https://aaronparecki.com/oauth-2-simplified/",
+    "description": "شرح مبسط لآلية المصادقة OAuth 2.0 وكيفية عملها، وهو أمر حيوي لفهم كيفية ربط تطبيقات الأتمتة بشكل آمن."
+  }
+}

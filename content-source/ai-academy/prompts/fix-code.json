@@ -1,0 +1,13 @@
+{
+  "title": "تصحيح الأكواد البرمجية",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "يوجد خطأ في هذا الكود البرمجي بـ (لغة بايثون)، هل يمكنك إيجاده وإصلاحه مع الشرح؟ [أدخل الكود]",
+    "instructions": "مفيد للمبرمجين المبتدئين أو عند مواجهة مشكلة برمجية مستعصية."
+  },
+  "id": "fix-code",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Fix Code"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "grammarly",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "جرامرلي",
+  "data": {
+    "url": "https://www.grammarly.com/",
+    "description": "أداة لتصحيح القواعد والكتابة."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "title": "DeepL",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://www.deepl.com",
+    "description": "أداة ترجمة تعتمد على التعلم العميق تقدم ترجمات دقيقة واحترافية للغاية بين اللغات."
+  },
+  "id": "deepl",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Deepl"
+}

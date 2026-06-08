@@ -1,0 +1,11 @@
+{
+  "id": "career-resource-behance",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "بيهانس",
+  "data": {
+    "url": "https://www.behance.net",
+    "description": "منصة رائدة للمصممين والمبدعين لعرض أعمالهم (Portfolio) واكتشاف الفرص المهنية."
+  }
+}

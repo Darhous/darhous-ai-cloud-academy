@@ -1,0 +1,13 @@
+{
+  "title": "نموذج لغوي كبير (LLM)",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "نموذج ذكاء اصطناعي مدرب على كميات هائلة من النصوص لإنشاء وفهم لغة تشبه لغة البشر.",
+    "example": "ChatGPT و Gemini."
+  },
+  "id": "large-language-model",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Large Language Model"
+}

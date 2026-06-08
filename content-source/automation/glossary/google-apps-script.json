@@ -1,0 +1,13 @@
+{
+  "id": "google-apps-script",
+  "portal_id": "automation",
+  "title": "Google Apps Script",
+  "status": "draft",
+  "data": {
+    "definition": "منصة سحابية تعتمد على JavaScript تتيح لك أتمتة مهام Google Workspace.",
+    "example": "كتابة سكريبت لإنشاء مستندات جوجل تلقائيًا من بيانات نموذج."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Google Apps Script"
+}

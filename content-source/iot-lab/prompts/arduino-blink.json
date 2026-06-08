@@ -1,0 +1,12 @@
+{
+  "id": "arduino-blink",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "كتابة كود وميض (Blink) للأردوينو",
+  "title_en": "Arduino Blink Code Generation",
+  "data": {
+    "prompt_text": "اكتب كود أردوينو لجعل مصباح LED المتصل بالمنفذ [رقم_المنفذ] يومض بمعدل [مدة_التأخير] مللي ثانية. اشرح الكود سطرًا بسطر.",
+    "instructions": "أدخل رقم المنفذ المتصل به المصباح ومدة التأخير المفضلة."
+  }
+}

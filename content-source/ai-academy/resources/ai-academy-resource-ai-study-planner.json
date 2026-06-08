@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-resource-ai-study-planner",
+  "portal_id": "ai-academy",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "منظم الدراسة بالذكاء الاصطناعي",
+  "data": {
+    "url": "",
+    "description": "تطبيق يساعد الطلاب على تنظيم وقتهم وبناء خطط دراسية مخصصة."
+  }
+}

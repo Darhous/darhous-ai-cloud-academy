@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-artstation",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "آرت ستيشن",
+  "data": {
+    "description": "منصة للفنانين الرقميين للبحث عن مراجع بصرية واستكشاف أساليب فنية جديدة.",
+    "url": "https://www.artstation.com/"
+  }
+}

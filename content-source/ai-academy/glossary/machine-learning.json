@@ -1,0 +1,13 @@
+{
+  "title": "تعلّم الآلة",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "فرع من الذكاء الاصطناعي يركز على بناء أنظمة تتعلم من البيانات وتحسن أدائها بمرور الوقت.",
+    "example": "أنظمة التوصية في نتفليكس أو يوتيوب."
+  },
+  "id": "machine-learning",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Machine Learning"
+}

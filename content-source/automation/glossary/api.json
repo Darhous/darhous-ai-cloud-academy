@@ -1,0 +1,13 @@
+{
+  "id": "automation-glossary-api",
+  "portal_id": "automation",
+  "title": "واجهة برمجة التطبيقات (API)",
+  "status": "draft",
+  "data": {
+    "definition": "مجموعة من القواعد التي تسمح للبرامج المختلفة بالتواصل مع بعضها البعض.",
+    "example": "استخدام Twitter API لجلب أحدث التغريدات."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Api"
+}

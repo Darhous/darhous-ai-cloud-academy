@@ -1,0 +1,12 @@
+{
+  "id": "led",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "صمام ثنائي باعث للضوء (LED)",
+  "title_en": "Light Emitting Diode",
+  "data": {
+    "definition": "مكون إلكتروني يضيء عند مرور التيار الكهربائي فيه في اتجاه واحد.",
+    "example": "استخدام LED أحمر كمؤشر لعمل الجهاز."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-camera-angle",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "زاوية الكاميرا",
+  "data": {
+    "definition": "المنظور الذي يتم من خلاله عرض المشهد في الصورة المولدة.",
+    "example": "مثال: زاوية منخفضة (Low angle)، لقطة عين الطائر (Bird's-eye view)."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-prompt-reading-comprehension",
+  "portal_id": "digital-exams",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تحسين استيعاب المقروء",
+  "data": {
+    "prompt_text": "كيف أقرأ النصوص الطويلة في قسم الاستيعاب اللفظي بسرعة وبشكل فعال للإجابة على الأسئلة دون الحاجة لإعادة قراءة النص عدة مرات؟",
+    "instructions": "مفيد جداً لاختبارات القدرات التي تعتمد على استيعاب المقروء."
+  }
+}

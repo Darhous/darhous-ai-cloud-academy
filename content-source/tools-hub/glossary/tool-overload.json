@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "إرهاق الأدوات (Tool Overload)",
+    "definition": "الشعور بالتشتت والإرهاق نتيجة استخدام عدد كبير جداً من الأدوات والتطبيقات في نفس الوقت.",
+    "example": "نسيان أين حفظت الملاحظة لأنك تستخدم ثلاثة تطبيقات مختلفة لكتابة الملاحظات."
+  },
+  "id": "tool-overload",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Tool Overload"
+}

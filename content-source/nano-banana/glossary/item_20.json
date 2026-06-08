@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-glossary-item-20",
+  "title": "الذكاء الاصطناعي المسؤول",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "استخدام الذكاء الاصطناعي بطريقة أخلاقية وآمنة.",
+    "example": "مثال: تجنب الصور المضللة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 20"
+}

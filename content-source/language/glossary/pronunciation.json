@@ -1,0 +1,11 @@
+{
+  "id": "pronunciation",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "النطق",
+  "data": {
+    "definition": "طريقة إخراج الأصوات في اللغة.",
+    "example": "Good pronunciation makes you understood."
+  }
+}

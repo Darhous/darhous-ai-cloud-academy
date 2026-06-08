@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-rewrite-clarity",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "إعادة الصياغة للوضوح",
+  "data": {
+    "prompt_text": "أعد صياغة هذه الفقرة لتكون أكثر وضوحاً واحترافية: [الفقرة]",
+    "instructions": "أدخل النص غير الواضح بدلاً من [الفقرة]."
+  }
+}

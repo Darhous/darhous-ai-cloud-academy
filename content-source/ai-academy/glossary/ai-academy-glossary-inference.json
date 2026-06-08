@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-inference",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الاستدلال",
+  "data": {
+    "definition": "المرحلة التي يستخدم فيها النموذج المدرب مسبقاً معرفته لتوليد التوقعات أو الإجابات على البيانات الجديدة.",
+    "example": "عندما يقرأ النموذج سؤالك ويبدأ في توليد الكلمات للإجابة عليه."
+  }
+}

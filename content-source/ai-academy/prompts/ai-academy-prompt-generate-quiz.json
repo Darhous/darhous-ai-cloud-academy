@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-prompt-generate-quiz",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "إنشاء اختبار",
+  "data": {
+    "prompt_text": "قم بإنشاء اختبار من 5 أسئلة اختيار من متعدد حول [الموضوع] مع توفير الإجابات الصحيحة.",
+    "instructions": "اكتب المادة العلمية أو الموضوع مكان [الموضوع]."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-glossary-item-02",
+  "title": "استبعاد المشتتات",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "تقنية تعتمد على استبعاد الإجابات الخاطئة بوضوح لزيادة فرصة اختيار الإجابة الصحيحة.",
+    "example": "مثال: استبعاد خيارين من أصل أربعة يرفع نسبة النجاح إلى 50%."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 02"
+}

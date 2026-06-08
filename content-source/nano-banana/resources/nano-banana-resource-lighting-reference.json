@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-lighting-reference",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "مرجع إضاءة الاستوديو",
+  "data": {
+    "description": "موقع تفاعلي لشرح أنواع إضاءة الاستوديو وتأثيرها على الصور، مفيد لكتابة موجهات الإضاءة.",
+    "url": ""
+  }
+}

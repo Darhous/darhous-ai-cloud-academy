@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "الاختبار الآمن (Safe Testing)",
+    "definition": "تجربة أدوات جديدة في بيئة معزولة أو باستخدام بيانات غير حساسة لتجنب المخاطر.",
+    "example": "إنشاء حساب ببريد إلكتروني ثانوي لتجربة تطبيق غير معروف."
+  },
+  "id": "safe-testing",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Safe Testing"
+}

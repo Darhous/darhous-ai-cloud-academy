@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-prompt-item-06",
+  "title": "تحليل الأخطاء بعد الاختبار التجريبي",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، اشرح كيفية تحليل الأخطاء والاستفادة منها لتحسين الأداء.",
+    "instructions": "اشرح كيفية تحليل الأخطاء والاستفادة منها لتحسين الأداء."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 06"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "شرح مفهوم معقد",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اشرح لي مفهوم [الفيزياء الكمية] وكأني طفل في العاشرة من عمري.",
+    "instructions": "استبدل ما بين الأقواس بأي مفهوم صعب ترغب في فهمه بسهولة."
+  },
+  "id": "explain-concept",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Explain Concept"
+}

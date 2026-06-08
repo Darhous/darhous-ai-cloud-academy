@@ -1,0 +1,11 @@
+{
+  "id": "iot-lab-glossary-pwm",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تعديل عرض النبضة (PWM)",
+  "data": {
+    "definition": "تقنية للحصول على نتائج تناظرية باستخدام وسائل رقمية عبر تغيير نسبة وقت التشغيل إلى وقت التوقف.",
+    "example": "التحكم في سطوع مصباح LED أو سرعة محرك."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-keywords",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الكلمات المفتاحية",
+  "data": {
+    "definition": "المصطلحات أو الكلمات الأساسية في السؤال التي تحدد المطلوب بدقة وتوجه نحو الإجابة الصحيحة.",
+    "example": "التركيز على كلمة 'أقصى' أو 'أدنى' في مسائل القيم العظمى والصغرى."
+  }
+}

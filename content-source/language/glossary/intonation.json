@@ -1,0 +1,11 @@
+{
+  "id": "intonation",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التنغيم",
+  "data": {
+    "definition": "ارتفاع وانخفاض الصوت أثناء الكلام للتعبير عن المعنى أو المشاعر.",
+    "example": "A rising intonation is used for questions."
+  }
+}

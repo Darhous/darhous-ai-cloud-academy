@@ -1,0 +1,11 @@
+{
+  "id": "automation-glossary-data-mapping",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تخطيط البيانات (Data Mapping)",
+  "data": {
+    "definition": "عملية مطابقة الحقول من تطبيق المصدر (المحفز) مع الحقول المناسبة في تطبيق الهدف (الإجراء) لضمان انتقال البيانات بشكل صحيح.",
+    "example": "مطابقة حقل 'الاسم الأول' في نموذج التسجيل مع حقل 'First Name' في نظام إدارة علاقات العملاء (CRM)."
+  }
+}

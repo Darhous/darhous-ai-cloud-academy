@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-color-hunt",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "باليتات الألوان",
+  "data": {
+    "description": "موقع لاختيار لوحات ألوان متناسقة يمكن استخدام أسماء الألوان فيها داخل الموجهات.",
+    "url": "https://colorhunt.co/"
+  }
+}

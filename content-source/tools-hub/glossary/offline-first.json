@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "أولوية عدم الاتصال (Offline-First)",
+    "definition": "تطبيقات مصممة للعمل بكامل ميزاتها حتى بدون اتصال بالإنترنت، وتقوم بالمزامنة لاحقاً.",
+    "example": "كتابة الملاحظات في تطبيق يعمل محلياً أثناء السفر بدون إنترنت."
+  },
+  "id": "offline-first",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Offline First"
+}

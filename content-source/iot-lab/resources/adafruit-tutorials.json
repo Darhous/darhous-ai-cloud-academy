@@ -1,0 +1,13 @@
+{
+  "id": "adafruit-tutorials",
+  "portal_id": "iot-lab",
+  "title": "دروس آدافروت التعليمية",
+  "status": "draft",
+  "data": {
+    "url": "https://learn.adafruit.com/",
+    "description": "مجموعة واسعة من الدروس والمشاريع المبتكرة لتوصيل وبرمجة المستشعرات."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Adafruit Tutorials"
+}

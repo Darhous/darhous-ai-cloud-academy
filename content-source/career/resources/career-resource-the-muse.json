@@ -1,0 +1,11 @@
+{
+  "id": "career-resource-the-muse",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "ذا ميوز",
+  "data": {
+    "url": "https://www.themuse.com",
+    "description": "موقع يقدم نصائح مهنية ممتازة، وأدلة للبحث عن عمل، ونظرة من الداخل لثقافة الشركات."
+  }
+}

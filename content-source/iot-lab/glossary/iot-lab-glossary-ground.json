@@ -1,0 +1,11 @@
+{
+  "id": "iot-lab-glossary-ground",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التأريض (Ground - GND)",
+  "data": {
+    "definition": "النقطة المرجعية في الدائرة الكهربائية التي تقاس بالنسبة لها جميع الجهود الأخرى، وهو مسار العودة للتيار.",
+    "example": "يجب ربط الطرف السالب للبطارية بمنفذ GND."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "prompt-2",
+  "portal_id": "language",
+  "title": "تدقيق القواعد",
+  "status": "draft",
+  "data": {
+    "prompt_text": "قم بتصحيح الأخطاء النحوية في النص.",
+    "instructions": "اشرح سبب كل خطأ وكيفية تصحيحه."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Prompt 2"
+}

@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "Product Hunt",
+    "url": "https://www.producthunt.com/",
+    "description": "منصة ممتازة لاكتشاف أحدث الأدوات والمنتجات التقنية التي يتم إطلاقها يومياً في مختلف المجالات."
+  },
+  "id": "product-hunt",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Product Hunt"
+}

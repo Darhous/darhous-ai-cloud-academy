@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-resource-notion",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "نوشن (Notion)",
+  "data": {
+    "url": "https://www.notion.so",
+    "description": "أداة شاملة لمساحات العمل تتيح لك دمج الملاحظات، المهام، وقواعد البيانات في واجهة واحدة مرنة."
+  }
+}

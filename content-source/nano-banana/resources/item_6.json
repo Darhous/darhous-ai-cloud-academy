@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-resource-item-6",
+  "title": "إنشاء صور المنتجات",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "أفضل الممارسات لصور المنتجات."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 6"
+}

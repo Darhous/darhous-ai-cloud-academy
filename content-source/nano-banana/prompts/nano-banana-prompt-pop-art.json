@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-prompt-pop-art",
+  "portal_id": "nano-banana",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "فن البوب",
+  "data": {
+    "prompt_text": "A pop art style illustration of [الموضوع], Andy Warhol style, bright contrasting colors, halftone dot pattern.",
+    "instructions": "لإضافة لمسة فنية حيوية وجريئة للمحتوى الثقافي أو الترفيهي."
+  }
+}

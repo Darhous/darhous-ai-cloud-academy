@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-output-formatting",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تنسيق المخرجات",
+  "data": {
+    "definition": "توجيه النموذج لتقديم الإجابة في شكل محدد، مثل جدول، قائمة، أو كود JSON.",
+    "example": "'قدم الإجابة في شكل جدول من ثلاثة أعمدة: الميزة، الشرح، والمثال.'"
+  }
+}

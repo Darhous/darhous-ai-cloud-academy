@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-glossary-item-1",
+  "title": "هندسة الأوامر",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "فن صياغة النصوص للحصول على أفضل النتائج من نماذج الذكاء الاصطناعي.",
+    "example": "مثال: كتابة وصف دقيق للحصول على صورة محددة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Item 1"
+}

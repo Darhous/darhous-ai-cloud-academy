@@ -1,0 +1,13 @@
+{
+  "id": "digital-exams-resource-item-05",
+  "title": "موقع إيديكس",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://www.edx.org",
+    "description": "دورات تدريبية من جامعات عالمية لتطوير مهارات التعلم."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Item 05"
+}

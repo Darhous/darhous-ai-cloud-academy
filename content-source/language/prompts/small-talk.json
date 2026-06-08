@@ -1,0 +1,11 @@
+{
+  "id": "small-talk",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "أحاديث عابرة",
+  "data": {
+    "prompt_text": "Let's practice small talk. Start a conversation about [الموضوع].",
+    "instructions": "التدرب على المحادثات الخفيفة في المواقف الاجتماعية."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "أسئلة المقابلات",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "بنك لأسئلة المقابلات الشخصية مع إجابات نموذجية."
+  },
+  "id": "interview-questions",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Interview Questions"
+}

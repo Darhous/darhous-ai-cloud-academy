@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-prompt-onboarding-plan",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "خطة تهيئة لفريق",
+  "data": {
+    "prompt_text": "سنبدأ في استخدام أداة [اسم الأداة] لفريق مكون من [عدد الأشخاص]. صمم لي خطة تهيئة (Onboarding) مدتها أسبوع لضمان تعلم الجميع للأساسيات دون التأثير على سير العمل.",
+    "instructions": "لتطبيق أداة جديدة في بيئة العمل الجماعي."
+  }
+}

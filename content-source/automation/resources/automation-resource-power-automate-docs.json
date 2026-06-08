@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-power-automate-docs",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "Microsoft Power Automate Docs",
+  "data": {
+    "url": "https://learn.microsoft.com/en-us/power-automate/",
+    "description": "وثائق مايكروسوفت لتعلم كيفية إنشاء التدفقات وأتمتة العمليات باستخدام Power Automate ضمن بيئة Microsoft 365."
+  }
+}

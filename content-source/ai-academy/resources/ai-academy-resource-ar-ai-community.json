@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-resource-ar-ai-community",
+  "portal_id": "ai-academy",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "مجتمع الذكاء الاصطناعي العربي",
+  "data": {
+    "url": "",
+    "description": "منتدى للنقاشات وتبادل الخبرات حول الذكاء الاصطناعي باللغة العربية."
+  }
+}

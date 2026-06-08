@@ -1,0 +1,11 @@
+{
+  "id": "iot-lab-resource-tinkercad-circuits",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "محاكي الدوائر Tinkercad",
+  "data": {
+    "url": "https://www.tinkercad.com/circuits",
+    "description": "أداة مجانية من أوتوديسك لمحاكاة دوائر الأردوينو والإلكترونيات برمجياً قبل بنائها في الواقع، مما يحمي القطع من التلف."
+  }
+}

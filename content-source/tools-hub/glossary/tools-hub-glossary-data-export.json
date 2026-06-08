@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-glossary-data-export",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تصدير البيانات",
+  "data": {
+    "definition": "القدرة على استخراج بياناتك ومحتواك من أداة أو منصة معينة وحفظها في صيغة قياسية يمكن قراءتها بواسطة أدوات أخرى.",
+    "example": "تصدير جميع مقالاتك من منصة تدوين بصيغة Markdown أو CSV قبل الانتقال لمنصة أخرى."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-style-control",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التحكم في الأسلوب",
+  "data": {
+    "definition": "تقنيات وكلمات مفتاحية تستخدم لضمان توافق الصورة المولدة مع نمط فني أو بصري محدد.",
+    "example": "مثال: إضافة 'أسلوب الرسم المائي' أو 'واقعية مفرطة' للموجه."
+  }
+}

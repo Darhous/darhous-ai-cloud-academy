@@ -1,0 +1,12 @@
+{
+  "id": "debugging",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تصحيح الأخطاء (Debugging)",
+  "title_en": "Debugging",
+  "data": {
+    "definition": "عملية اكتشاف وتحديد وإصلاح الأخطاء في البرمجيات أو الدوائر الإلكترونية.",
+    "example": "استخدام شاشة الاتصال التسلسلي (Serial Monitor) لمراقبة قيم المتغيرات أثناء تشغيل الكود."
+  }
+}

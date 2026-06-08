@@ -1,0 +1,11 @@
+{
+  "id": "automation-glossary-payload",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "حمولة البيانات (Payload)",
+  "data": {
+    "definition": "البيانات الفعلية أو الرسالة التي يتم إرسالها أو استقبالها عبر الشبكة (عن طريق API أو Webhook) كجزء من الطلب.",
+    "example": "الـ Payload في طلب HTTP POST يمكن أن يحتوي على اسم المستخدم وكلمة المرور الخاصة به."
+  }
+}

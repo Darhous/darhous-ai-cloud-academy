@@ -1,0 +1,12 @@
+{
+  "id": "troubleshooting-guide",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "دليل استكشاف الأخطاء",
+  "title_en": "Troubleshooting Guide",
+  "data": {
+    "prompt_text": "أواجه مشكلة [وصف_المشكلة] في مشروعي الذي يستخدم [المكونات]. ما هي الخطوات المنهجية لتتبع المشكلة وحلها؟",
+    "instructions": "صف المشكلة التي تواجهها واذكر المكونات المستخدمة."
+  }
+}

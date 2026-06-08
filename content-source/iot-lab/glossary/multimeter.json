@@ -1,0 +1,12 @@
+{
+  "id": "multimeter",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مقياس متعدد (Multimeter)",
+  "title_en": "Multimeter",
+  "data": {
+    "definition": "أداة قياس إلكترونية تستخدم لقياس الجهد، التيار، والمقاومة.",
+    "example": "فحص استمرارية السلك باستخدام الملتيميتر للتأكد من عدم وجود قطع."
+  }
+}

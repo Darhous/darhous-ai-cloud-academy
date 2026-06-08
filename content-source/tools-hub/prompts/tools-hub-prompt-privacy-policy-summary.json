@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-prompt-privacy-policy-summary",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تلخيص سياسة الخصوصية",
+  "data": {
+    "prompt_text": "بناءً على النص التالي من سياسة الخصوصية لـ [اسم الأداة]، ما هي النقاط الثلاث الأكثر إثارة للقلق بشأن كيفية استخدامهم لبياناتي؟ [النص]",
+    "instructions": "انسخ والصق جزءاً من سياسة الخصوصية لتطبيق جديد."
+  }
+}

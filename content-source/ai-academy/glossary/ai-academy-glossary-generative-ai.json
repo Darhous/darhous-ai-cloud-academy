@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-generative-ai",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الذكاء الاصطناعي التوليدي",
+  "data": {
+    "definition": "نوع من الذكاء الاصطناعي قادر على إنشاء نصوص أو صور أو فيديوهات أو أصوات جديدة بناءً على بيانات التدريب.",
+    "example": "استخدام Midjourney لتوليد صورة أو ChatGPT لكتابة مقال."
+  }
+}

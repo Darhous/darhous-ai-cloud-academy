@@ -1,0 +1,11 @@
+{
+  "id": "coursera-english",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "كورسيرا للإنجليزية",
+  "data": {
+    "url": "https://www.coursera.org/courses?query=english",
+    "description": "دورات أكاديمية لتحسين اللغة."
+  }
+}

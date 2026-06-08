@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-resource-anki-flashcards",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "بطاقات أنكي الذكية",
+  "data": {
+    "url": "https://apps.ankiweb.net",
+    "description": "تطبيق يعتمد على خوارزميات التكرار المتباعد لمساعدتك على حفظ الكلمات المفتاحية والمصطلحات بسرعة."
+  }
+}

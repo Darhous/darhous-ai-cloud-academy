@@ -1,0 +1,11 @@
+{
+  "id": "automation-resource-regex-data-extraction",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "Regex for Data Extraction",
+  "data": {
+    "url": "https://regexr.com/",
+    "description": "أداة ومورد تعليمي رائع لاختبار وتعلم التعابير النمطية (Regular Expressions) المستخدمة لاستخراج بيانات محددة من نصوص داخل مسارات الأتمتة."
+  }
+}

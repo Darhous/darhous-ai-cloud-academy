@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-glossary-tech-stack",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "حزمة التكنولوجيا (Tech Stack)",
+  "data": {
+    "definition": "مجموعة محددة من الأدوات والتطبيقات والمنصات التي تختارها وتجمعها معاً لإنجاز مهامك أو إدارة أعمالك اليومية.",
+    "example": "مجموعة أدواتك الشخصية التي تتكون من Notion لإدارة المشاريع، Todoist للمهام اليومية، وGoogle Drive للملفات."
+  }
+}

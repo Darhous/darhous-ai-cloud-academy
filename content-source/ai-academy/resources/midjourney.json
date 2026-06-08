@@ -1,0 +1,13 @@
+{
+  "title": "Midjourney",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://www.midjourney.com",
+    "description": "أداة ذكاء اصطناعي توليدي لإنشاء صور عالية الجودة بناءً على الوصف النصي."
+  },
+  "id": "midjourney",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Midjourney"
+}

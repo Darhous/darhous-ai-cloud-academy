@@ -1,0 +1,12 @@
+{
+  "id": "relay",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مُرحل (Relay)",
+  "title_en": "Relay",
+  "data": {
+    "definition": "مفتاح كهرومغناطيسي يسمح لدائرة ذات جهد منخفض بالتحكم في دائرة ذات جهد عالي.",
+    "example": "استخدام المُرحل للتحكم في تشغيل مضخة مياه 220 فولت بواسطة الأردوينو."
+  }
+}

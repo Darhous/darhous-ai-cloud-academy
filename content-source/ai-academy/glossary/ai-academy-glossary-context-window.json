@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-context-window",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "نافذة السياق",
+  "data": {
+    "definition": "الحد الأقصى لعدد الرموز (Tokens) التي يمكن للنموذج معالجتها في وقت واحد.",
+    "example": "نافذة السياق المحدودة تعني أن النموذج قد ينسى بداية محادثة طويلة جداً."
+  }
+}

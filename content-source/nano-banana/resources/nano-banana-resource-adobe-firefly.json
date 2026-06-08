@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-adobe-firefly",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أدوبي فايرفلاي",
+  "data": {
+    "description": "منصة أدوبي لتوليد الصور والتعديل عليها بالذكاء الاصطناعي، تتميز بالتوليد المسؤول.",
+    "url": "https://firefly.adobe.com/"
+  }
+}

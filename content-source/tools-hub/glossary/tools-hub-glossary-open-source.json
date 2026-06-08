@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-glossary-open-source",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مفتوح المصدر",
+  "data": {
+    "definition": "برمجيات يُتاح كودها المصدري للجميع بحيث يمكن لأي شخص دراسته، تعديله، وتوزيعه. غالباً ما تكون مجانية وتتمتع بشفافية عالية في الخصوصية.",
+    "example": "استخدام Obsidian أو Linux بدلاً من البرامج المغلقة."
+  }
+}

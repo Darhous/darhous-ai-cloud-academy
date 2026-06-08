@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-photorealism",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الواقعية الفوتوغرافية",
+  "data": {
+    "definition": "أسلوب بصري يهدف إلى جعل الصورة المولدة تبدو كأنها التقطت بكاميرا حقيقية.",
+    "example": "مثال: إضافة كلمات مثل '8k resolution' و 'highly detailed' للموجه."
+  }
+}

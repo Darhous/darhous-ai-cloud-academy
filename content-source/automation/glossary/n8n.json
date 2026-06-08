@@ -1,0 +1,13 @@
+{
+  "id": "n8n",
+  "portal_id": "automation",
+  "title": "n8n",
+  "status": "draft",
+  "data": {
+    "definition": "أداة أتمتة مفتوحة المصدر تتيح لك ربط التطبيقات وبناء مسارات عمل معقدة.",
+    "example": "استخدام n8n لربط قاعدة بيانات محلية مع خدمات سحابية."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "N8N"
+}

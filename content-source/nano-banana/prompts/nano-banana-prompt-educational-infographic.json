@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-prompt-educational-infographic",
+  "portal_id": "nano-banana",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "رسم توضيحي تعليمي",
+  "data": {
+    "prompt_text": "An educational infographic vector illustration explaining [الموضوع], clean design, flat colors, easy to read, minimal background.",
+    "instructions": "استخدم هذا الموجه لإنشاء رسوم بيانية توضيحية مبسطة للدروس."
+  }
+}

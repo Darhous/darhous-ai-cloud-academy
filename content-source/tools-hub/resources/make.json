@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "Make (Integromat سابقاً)",
+    "url": "https://www.make.com/",
+    "description": "بديل ممتاز وقوي لـ Zapier يقدم واجهة مرئية رائعة لبناء مسارات الأتمتة المعقدة بأسعار معقولة."
+  },
+  "id": "tools-hub-resource-make",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Make"
+}

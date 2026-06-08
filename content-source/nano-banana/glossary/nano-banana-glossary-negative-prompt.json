@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-negative-prompt",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الموجه السلبي",
+  "data": {
+    "definition": "نص يحدد العناصر أو الأساليب التي يجب استبعادها من الصورة المولدة.",
+    "example": "مثال: إضافة 'نص، علامة مائية، تشوه' في الموجه السلبي."
+  }
+}

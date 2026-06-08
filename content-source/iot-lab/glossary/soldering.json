@@ -1,0 +1,12 @@
+{
+  "id": "soldering",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "اللحام (Soldering)",
+  "title_en": "Soldering",
+  "data": {
+    "definition": "عملية دمج المكونات الإلكترونية على لوحة الدوائر المطبوعة (PCB) باستخدام سبيكة معدنية قابلة للذوبان.",
+    "example": "لحام أسلاك التوصيل بمحرك تيار مستمر لضمان اتصال قوي."
+  }
+}

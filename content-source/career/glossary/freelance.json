@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "العمل الحر",
+  "status": "draft",
+  "data": {
+    "definition": "تقديم الخدمات بشكل مستقل لعدة عملاء.",
+    "example": "مثال على استخدام مصطلح العمل الحر في السياق المهني."
+  },
+  "id": "freelance",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Freelance"
+}

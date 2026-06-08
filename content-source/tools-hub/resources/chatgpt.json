@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "ChatGPT",
+    "url": "https://chat.openai.com/",
+    "description": "أداة الذكاء الاصطناعي الأشهر التي يمكن أن تساعدك في التعلم، الكتابة، البرمجة، وحتى تحليل البيانات."
+  },
+  "id": "tools-hub-resource-chatgpt",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Chatgpt"
+}

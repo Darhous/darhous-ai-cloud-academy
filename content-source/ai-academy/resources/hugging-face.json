@@ -1,0 +1,13 @@
+{
+  "title": "Hugging Face",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://huggingface.co",
+    "description": "منصة مفتوحة المصدر لمشاركة وتطوير نماذج الذكاء الاصطناعي وتعلم الآلة."
+  },
+  "id": "hugging-face",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Hugging Face"
+}

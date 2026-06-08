@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "AlternativeTo",
+    "url": "https://alternativeto.net/",
+    "description": "موقع رائع للبحث عن بدائل مجانية أو مدفوعة لأي برنامج أو تطبيق، يعتمد على تقييمات وتوصيات المستخدمين."
+  },
+  "id": "alternative-to",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Alternative To"
+}

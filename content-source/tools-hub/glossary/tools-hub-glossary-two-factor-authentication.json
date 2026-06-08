@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-glossary-two-factor-authentication",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المصادقة الثنائية (2FA)",
+  "data": {
+    "definition": "طبقة أمان إضافية تتطلب من المستخدم تقديم شكلين مختلفين من أشكال إثبات الهوية للوصول إلى الحساب.",
+    "example": "إدخال كلمة المرور ثم إدخال رمز مؤقت يُرسل إلى هاتفك أو تطبيق مصادقة."
+  }
+}

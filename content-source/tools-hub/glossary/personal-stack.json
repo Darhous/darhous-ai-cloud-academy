@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "حزمة الأدوات الشخصية (Personal Stack)",
+    "definition": "مجموعة محددة من التطبيقات والأدوات التي يعتمد عليها الفرد بانتظام لإنجاز مهامه اليومية.",
+    "example": "تتكون حزمتي من Todoist للمهام، وObsidian للملاحظات، وGoogle Calendar للوقت."
+  },
+  "id": "personal-stack",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Personal Stack"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "digital-signal",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "إشارة رقمية (Digital Signal)",
+  "title_en": "Digital Signal",
+  "data": {
+    "definition": "إشارة متقطعة تأخذ قيمتين فقط (عالي/منخفض أو 1/0).",
+    "example": "قراءة حالة زر ضاغط كإشارة رقمية (مضغوط أو غير مضغوط)."
+  }
+}

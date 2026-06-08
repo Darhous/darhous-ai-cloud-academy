@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-bias-in-ai",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التحيز في الذكاء الاصطناعي",
+  "data": {
+    "definition": "الميل لإنتاج نتائج غير عادلة أو تمييزية بناءً على خلل في بيانات التدريب أو خوارزميات النموذج.",
+    "example": "عندما يربط النموذج مهن معينة بجنس معين دون مبرر موضوعي."
+  }
+}

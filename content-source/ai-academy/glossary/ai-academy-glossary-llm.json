@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-llm",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "نموذج لغوي كبير",
+  "data": {
+    "definition": "نظام ذكاء اصطناعي مدرب على كميات هائلة من النصوص لفهم وتوليد اللغة البشرية.",
+    "example": "نماذج مثل GPT-4 و Claude و Gemini."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "esp32-wifi",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "إعداد اتصال Wi-Fi في ESP32",
+  "title_en": "ESP32 Wi-Fi Setup",
+  "data": {
+    "prompt_text": "قم بكتابة كود لربط لوحة ESP32 بشبكة Wi-Fi باسم (SSID) [اسم_الشبكة] وكلمة مرور [كلمة_المرور]، مع طباعة عنوان IP عند نجاح الاتصال.",
+    "instructions": "قدم اسم الشبكة وكلمة المرور الخاصة بها."
+  }
+}

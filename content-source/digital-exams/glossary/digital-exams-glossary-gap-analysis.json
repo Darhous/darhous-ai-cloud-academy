@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-gap-analysis",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تحليل الفجوات",
+  "data": {
+    "definition": "تحديد المواضيع الدقيقة التي سببت فقدان الدرجات للتركيز عليها في المراجعة القادمة.",
+    "example": "اكتشاف أن 80% من الأخطاء تركزت في موضوع الاحتمالات."
+  }
+}

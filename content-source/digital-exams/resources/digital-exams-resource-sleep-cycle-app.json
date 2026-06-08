@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-resource-sleep-cycle-app",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "تطبيق تتبع دورة النوم",
+  "data": {
+    "url": "https://www.sleepcycle.com",
+    "description": "يساعدك على ضبط مواعيد نومك لضمان الاستيقاظ في أقصى درجات النشاط يوم الاختبار."
+  }
+}

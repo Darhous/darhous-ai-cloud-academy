@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "خطة تغيير المسار",
+  "status": "draft",
+  "data": {
+    "prompt_text": "ضع لي خطة للانتقال من مجال [المجال الحالي] إلى مجال [المجال الجديد].",
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+  },
+  "id": "career-shift-plan",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Career Shift Plan"
+}

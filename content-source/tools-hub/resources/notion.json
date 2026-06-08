@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "Notion",
+    "url": "https://www.notion.so/",
+    "description": "مساحة عمل متكاملة تجمع بين الملاحظات، المهام، قواعد البيانات، والمشاريع في مكان واحد مرن."
+  },
+  "id": "notion",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Notion"
+}

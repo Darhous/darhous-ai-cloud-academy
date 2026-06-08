@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "حاسبة الرواتب",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "أداة لمعرفة متوسط الرواتب في مجالك."
+  },
+  "id": "salary-calculator",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Salary Calculator"
+}

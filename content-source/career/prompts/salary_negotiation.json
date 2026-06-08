@@ -1,0 +1,13 @@
+{
+  "portal_id": "career",
+  "title": "التفاوض على الراتب",
+  "status": "draft",
+  "data": {
+    "prompt_text": "كيف أفاوض على راتب أعلى لوظيفة [المسمى الوظيفي]؟ أعطني سيناريو وحوار مقترح.",
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+  },
+  "id": "salary-negotiation",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Salary Negotiation"
+}

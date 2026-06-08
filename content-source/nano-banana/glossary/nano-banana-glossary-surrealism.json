@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-surrealism",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "السريالية",
+  "data": {
+    "definition": "أسلوب فني يجمع بين عناصر غير منطقية أو حالمة في مشهد واحد.",
+    "example": "مثال: صورة لساعة تذوب في صحراء."
+  }
+}

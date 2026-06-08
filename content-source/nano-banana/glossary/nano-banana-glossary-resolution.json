@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-resolution",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الدقة",
+  "data": {
+    "definition": "كمية التفاصيل في الصورة وتُقاس بالبكسل.",
+    "example": "مثال: توليد صورة بدقة 4K للحصول على أعلى جودة."
+  }
+}

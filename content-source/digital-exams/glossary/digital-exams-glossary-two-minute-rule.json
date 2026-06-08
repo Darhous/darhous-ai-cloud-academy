@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-two-minute-rule",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "قاعدة الدقيقتين",
+  "data": {
+    "definition": "مبدأ ينص على تجاوز السؤال الذي يستغرق أكثر من دقيقتين للعودة إليه لاحقاً.",
+    "example": "إذا شعرت أنك عالق في مسألة رياضية وتجاوزت الدقيقتين، ضع علامة عليها وانتقل للتالي."
+  }
+}

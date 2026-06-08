@@ -1,0 +1,12 @@
+{
+  "id": "raspberry-pi-gpio",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "التحكم في منافذ GPIO في راسبيري باي",
+  "title_en": "Raspberry Pi GPIO Control",
+  "data": {
+    "prompt_text": "اكتب سكريبت بلغة بايثون لتشغيل وإطفاء جهاز متصل بمنفذ GPIO رقم [رقم_المنفذ] في جهاز راسبيري باي، مع وضع فاصل زمني مقداره [ثواني] ثانية بين التشغيل والإطفاء.",
+    "instructions": "أدخل رقم منفذ GPIO والفاصل الزمني بالثواني."
+  }
+}

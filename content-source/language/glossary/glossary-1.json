@@ -1,0 +1,13 @@
+{
+  "id": "glossary-1",
+  "portal_id": "language",
+  "title": "CEFR",
+  "status": "draft",
+  "data": {
+    "definition": "الإطار المرجعي الأوروبي المشترك للغات",
+    "example": "يستخدم لتقييم مستوى اللغة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Glossary 1"
+}

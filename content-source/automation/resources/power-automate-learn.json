@@ -1,0 +1,13 @@
+{
+  "id": "power-automate-learn",
+  "portal_id": "automation",
+  "title": "تعلم Power Automate",
+  "status": "draft",
+  "data": {
+    "url": "https://learn.microsoft.com/en-us/power-automate/",
+    "description": "وثائق مايكروسوفت الرسمية لتعلم أتمتة العمليات التجارية."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Power Automate Learn"
+}

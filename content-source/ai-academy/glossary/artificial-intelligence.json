@@ -1,0 +1,13 @@
+{
+  "title": "الذكاء الاصطناعي",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "مجال في علوم الحاسوب يهدف إلى إنشاء أنظمة قادرة على أداء مهام تتطلب ذكاءً بشرياً.",
+    "example": "المساعدات الصوتية مثل سيري و أليكسا."
+  },
+  "id": "artificial-intelligence",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Artificial Intelligence"
+}

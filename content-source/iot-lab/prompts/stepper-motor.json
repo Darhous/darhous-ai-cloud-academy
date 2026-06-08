@@ -1,0 +1,12 @@
+{
+  "id": "stepper-motor",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "التحكم في محرك خطوي (Stepper)",
+  "title_en": "Stepper Motor Control",
+  "data": {
+    "prompt_text": "أريد كودًا لتشغيل محرك خطوي لإكمال دورة كاملة في اتجاه عقارب الساعة ثم عكس الاتجاه، باستخدام مكتبة Stepper.h والمنفذ [منافذ_التحكم].",
+    "instructions": "حدد المنافذ المستخدمة للتحكم في المحرك (مثال: 8,9,10,11)."
+  }
+}

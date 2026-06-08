@@ -1,0 +1,11 @@
+{
+  "id": "memrise",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "ميمرايز",
+  "data": {
+    "url": "https://www.memrise.com/",
+    "description": "تطبيق لتعلم المفردات باستخدام التكرار المتباعد."
+  }
+}

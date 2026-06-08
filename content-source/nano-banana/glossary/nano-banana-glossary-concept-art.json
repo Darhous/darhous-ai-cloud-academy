@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-concept-art",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الفن المفاهيمي",
+  "data": {
+    "definition": "صور مصممة لنقل فكرة أو تصميم مبدئي لاستخدامه في ألعاب أو أفلام.",
+    "example": "مثال: فن مفاهيمي لبيئة فضائية غير مكتشفة."
+  }
+}

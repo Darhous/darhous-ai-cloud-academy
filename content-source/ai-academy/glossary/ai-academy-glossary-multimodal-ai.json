@@ -1,0 +1,11 @@
+{
+  "id": "ai-academy-glossary-multimodal-ai",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الذكاء الاصطناعي متعدد الوسائط",
+  "data": {
+    "definition": "نموذج قادر على معالجة وفهم أنواع متعددة من البيانات مثل النصوص والصور والصوت.",
+    "example": "إعطاء النموذج صورة لثلاجة وسؤاله عن الوصفات الممكنة من المكونات الموجودة فيها."
+  }
+}

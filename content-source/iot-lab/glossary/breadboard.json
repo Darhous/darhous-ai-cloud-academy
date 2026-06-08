@@ -1,0 +1,12 @@
+{
+  "id": "breadboard",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "لوح التجارب (Breadboard)",
+  "title_en": "Breadboard",
+  "data": {
+    "definition": "لوح بلاستيكي يحتوي على ثقوب لتوصيل المكونات الإلكترونية بدون لحام.",
+    "example": "توصيل دائرة بسيطة بمقاومة ومصباح LED على لوح التجارب."
+  }
+}

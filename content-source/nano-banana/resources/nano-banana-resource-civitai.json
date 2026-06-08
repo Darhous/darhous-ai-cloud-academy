@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-civitai",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "موقع سيفيتاي للنماذج",
+  "data": {
+    "description": "منصة لمشاركة النماذج والأدوات الإضافية (LoRAs) الخاصة بـ Stable Diffusion.",
+    "url": "https://civitai.com/"
+  }
+}

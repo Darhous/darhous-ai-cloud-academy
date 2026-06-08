@@ -1,0 +1,11 @@
+{
+  "id": "tools-hub-resource-figma",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "فيجما (Figma)",
+  "data": {
+    "url": "https://www.figma.com",
+    "description": "أداة تصميم تعاونية لإنشاء واجهات المستخدم والرسومات، تعمل بالكامل عبر المتصفح."
+  }
+}

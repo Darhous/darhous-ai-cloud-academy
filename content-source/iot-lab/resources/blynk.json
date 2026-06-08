@@ -1,0 +1,12 @@
+{
+  "id": "blynk",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "تطبيق ومنصة Blynk",
+  "title_en": "Blynk IoT Platform",
+  "data": {
+    "url": "https://blynk.io/",
+    "description": "منصة لإنشاء واجهات تحكم للهواتف المحمولة للتحكم بمشاريع إنترنت الأشياء."
+  }
+}

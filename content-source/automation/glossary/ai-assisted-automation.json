@@ -1,0 +1,13 @@
+{
+  "id": "ai-assisted-automation",
+  "portal_id": "automation",
+  "title": "الأتمتة المدعومة بالذكاء الاصطناعي",
+  "status": "draft",
+  "data": {
+    "definition": "دمج الذكاء الاصطناعي في سير العمل لاتخاذ قرارات أذكى ومعالجة نصوص.",
+    "example": "استخدام ChatGPT لتصنيف الدعم الفني وتوجيه التذاكر تلقائيًا."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Ai Assisted Automation"
+}

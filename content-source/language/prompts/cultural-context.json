@@ -1,0 +1,11 @@
+{
+  "id": "cultural-context",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "السياق الثقافي",
+  "data": {
+    "prompt_text": "Explain the cultural context behind the phrase [العبارة].",
+    "instructions": "فهم الفروق الثقافية في اللغة."
+  }
+}

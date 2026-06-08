@@ -1,0 +1,11 @@
+{
+  "id": "iot-lab-glossary-pcb",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "اللوحة المطبوعة (PCB)",
+  "data": {
+    "definition": "لوحة من مادة عازلة تحتوي على مسارات نحاسية محفورة لربط المكونات الإلكترونية بدلاً من الأسلاك.",
+    "example": "نقل المشروع من لوحة التجارب إلى PCB لجعله نهائياً ودائماً."
+  }
+}

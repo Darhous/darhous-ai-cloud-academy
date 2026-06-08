@@ -1,0 +1,11 @@
+{
+  "id": "career-glossary-informational-interview",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المقابلة الاستكشافية",
+  "data": {
+    "definition": "لقاء غير رسمي مع محترف في مجال معين للحصول على معلومات ونصائح حول هذا المجال، وليس لطلب وظيفة بشكل مباشر.",
+    "example": "دعوة مدير منتج لتناول القهوة وسؤاله عن تحديات مهنته والمهارات المطلوبة للنجاح فيها."
+  }
+}

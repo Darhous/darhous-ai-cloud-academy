@@ -1,0 +1,13 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "PrivacyTools",
+    "url": "https://www.privacytools.io/",
+    "description": "دليل شامل لأفضل الأدوات والخدمات التي تحترم الخصوصية والتشفير وتدعم البرمجيات مفتوحة المصدر."
+  },
+  "id": "privacy-tools",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "Privacy Tools"
+}

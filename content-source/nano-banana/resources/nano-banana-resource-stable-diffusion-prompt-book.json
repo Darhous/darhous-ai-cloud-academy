@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-stable-diffusion-prompt-book",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "كتاب موجهات ستيبل ديفيوجن",
+  "data": {
+    "description": "مورد مفتوح يضم مجموعة كبيرة من الموجهات المجربة مع صور توضيحية لنتائجها.",
+    "url": ""
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "english-club",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "نادي الإنجليزية",
+  "data": {
+    "url": "https://www.englishclub.com/",
+    "description": "موارد شاملة للقواعد والمفردات والمنتديات."
+  }
+}

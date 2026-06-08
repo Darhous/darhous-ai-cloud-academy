@@ -1,0 +1,11 @@
+{
+  "id": "digital-exams-glossary-mistake-log",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "سجل الأخطاء",
+  "data": {
+    "definition": "دفتر أو ملف لتدوين الأخطاء التي تم ارتكابها في الاختبارات التجريبية مع تحليل سبب الخطأ والإجابة الصحيحة.",
+    "example": "كتابة السؤال الذي أخطأت فيه، وتوضيح أن السبب كان 'عدم قراءة أداة النفي'."
+  }
+}

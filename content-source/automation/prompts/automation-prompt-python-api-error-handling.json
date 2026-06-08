@@ -1,0 +1,11 @@
+{
+  "id": "automation-prompt-python-api-error-handling",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "كتابة كود معالجة أخطاء API في Python",
+  "data": {
+    "prompt_text": "اكتب لي كود بايثون يتصل بـ API [رابط أو اسم الـ API] ويطبق معالجة أخطاء (Try/Except) شاملة، بالإضافة إلى آلية إعادة المحاولة (Retry Mechanism) في حال كان الخادم غير متاح (خطأ 5xx).",
+    "instructions": "حدد نوع البيانات المتوقعة وأي مكتبات مفضلة مثل requests."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-color-palette",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "لوحة الألوان",
+  "data": {
+    "definition": "مجموعة الألوان المحددة المستخدمة في الصورة لإعطاء طابع معين.",
+    "example": "مثال: ألوان الباستيل، ألوان نيون ساطعة."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "slang-translator",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مترجم العامية",
+  "data": {
+    "prompt_text": "Translate this slang phrase into formal English: [العبارة].",
+    "instructions": "تعرف على العامية وما يقابلها رسمياً."
+  }
+}

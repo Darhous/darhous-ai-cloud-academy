@@ -1,0 +1,13 @@
+{
+  "title": "الذكاء الاصطناعي التوليدي",
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "أنظمة ذكاء اصطناعي قادرة على إنشاء نصوص، صور، أو بيانات جديدة.",
+    "example": "Midjourney لإنشاء الصور."
+  },
+  "id": "generative-ai",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "Generative Ai"
+}

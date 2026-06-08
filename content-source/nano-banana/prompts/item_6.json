@@ -1,0 +1,13 @@
+{
+  "id": "nano-banana-prompt-item-6",
+  "title": "تصميم شعار",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "prompt_text": "شعار شركة تكنولوجيا، حرف T، أسلوب بسيط، لون أزرق.",
+    "instructions": "بدون خلفية."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Item 6"
+}

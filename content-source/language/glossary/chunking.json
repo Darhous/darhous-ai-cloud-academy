@@ -1,0 +1,11 @@
+{
+  "id": "chunking",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تجميع الكلمات",
+  "data": {
+    "definition": "تعلم العبارات ككتلة واحدة بدلاً من كلمات منفصلة.",
+    "example": "Chunking helps you speak faster."
+  }
+}

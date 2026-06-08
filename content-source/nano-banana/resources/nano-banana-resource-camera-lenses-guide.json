@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-resource-camera-lenses-guide",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دليل عدسات الكاميرا",
+  "data": {
+    "description": "دليل يشرح الفروق بين عدسات الكاميرا (مثل 35mm, 50mm) وتأثيرها على منظور الصورة.",
+    "url": ""
+  }
+}

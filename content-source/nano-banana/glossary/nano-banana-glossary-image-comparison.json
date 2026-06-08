@@ -1,0 +1,11 @@
+{
+  "id": "nano-banana-glossary-image-comparison",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مقارنة الصور",
+  "data": {
+    "definition": "تحليل وتقييم عدة نسخ مولدة من نفس الموجه لاختيار الأفضل.",
+    "example": "مثال: مقارنة 4 صور مولدة واختيار الصورة ذات التفاصيل الأوضح."
+  }
+}

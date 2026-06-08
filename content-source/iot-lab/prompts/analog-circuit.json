@@ -1,0 +1,13 @@
+{
+  "id": "analog-circuit",
+  "portal_id": "iot-lab",
+  "title": "شرح دائرة تماثلية",
+  "status": "draft",
+  "data": {
+    "prompt_text": "كيف تعمل دائرة مقسم الجهد (Voltage Divider) ولماذا نستخدمها في مشاريعنا؟",
+    "instructions": "قدم مثالاً يوضح استخدام مقاومتين لتقليل الجهد العالي ليناسب الأردوينو."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Analog Circuit"
+}

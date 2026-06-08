@@ -1,0 +1,13 @@
+{
+  "id": "prompt-7",
+  "portal_id": "language",
+  "title": "ممارسة الكتابة الأكاديمية",
+  "status": "draft",
+  "data": {
+    "prompt_text": "قم بتقييم مقالي الأكاديمي.",
+    "instructions": "ركز على بنية الجملة والترابط بين الأفكار."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Prompt 7"
+}

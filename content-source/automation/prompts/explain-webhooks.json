@@ -1,0 +1,13 @@
+{
+  "id": "explain-webhooks",
+  "portal_id": "automation",
+  "title": "شرح خطافات الويب (Webhooks)",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اشرح لي ببساطة وكأنني مبتدئ ما هي خطافات الويب (Webhooks) وكيف تختلف عن الـ APIs العادية في الأتمتة؟",
+    "instructions": "هذا التلقين مفيد لفهم المفاهيم الأساسية قبل البدء في التطبيق."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "Explain Webhooks"
+}
