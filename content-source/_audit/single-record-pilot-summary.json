@@ -1,0 +1,11 @@
+{
+  "selected_file": "content-source/_normalized/career/glossary/career-glossary-star-method.json",
+  "selected_id": "career-glossary-star-method",
+  "target_table": "career_glossary",
+  "status_to_insert": "draft",
+  "blocks_count": 5,
+  "expected_final_row_count": 0,
+  "touches_tables": ["career_glossary"],
+  "forbidden_tables_touched": [],
+  "safe_for_manual_execution": true
+}

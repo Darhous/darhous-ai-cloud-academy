@@ -1,0 +1,32 @@
+{
+  "selected_record": {
+    "id": "career-glossary-star-method",
+    "source_file": "content-source/_normalized/career/glossary/career-glossary-star-method.json",
+    "target_table": "career_glossary"
+  },
+  "execution_method": "Manual execution in Supabase Dashboard SQL Editor",
+  "inserted_status": "draft",
+  "verification_results": {
+    "pre_check_rows": 0,
+    "insert_success": true,
+    "verification_row_count": 1,
+    "rollback_success": true,
+    "post_rollback_rows": 0
+  },
+  "schema_tests_passed": {
+    "normalized_payload_accepted": true,
+    "arabic_text_encoding": true,
+    "jsonb_handling": true,
+    "text_array_handling": true,
+    "auto_timestamps": true
+  },
+  "safety_constraints_respected": {
+    "draft_status_used": true,
+    "no_bulk_import": true,
+    "tools_hub_untouched": true,
+    "nano_banana_untouched": true,
+    "app_code_unchanged": true,
+    "no_secrets_committed": true
+  },
+  "recommended_next_station": "Read-Only Database-Connected Dry-Run (without Service Role Key)"
+}
