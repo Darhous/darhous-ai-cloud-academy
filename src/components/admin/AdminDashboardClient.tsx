@@ -38,13 +38,14 @@ import { PORTAL_SMART_CONFIG } from "@/lib/certificates/portalConfig";
 import { AutomationCMSPanel } from "@/components/admin/cms/AutomationCMSPanel";
 import { IoTCMSPanel } from "@/components/admin/cms/IoTCMSPanel";
 import { ExamsCMSPanel } from "@/components/admin/cms/ExamsCMSPanel";
+import { DraftContentReviewPanel } from "@/components/admin/cms/DraftContentReviewPanel";
 
 type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
   | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
   | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms" | "ai-projects-cms" | "ai-paths-cms"
-  | "automation-cms" | "iot-cms" | "exams-cms";
+  | "automation-cms" | "iot-cms" | "exams-cms" | "draft-preview";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -510,6 +511,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
     { id: "automation-cms",  labelAr: "⚡ محتوى الأتمتة",      labelEn: "⚡ Automation CMS",   icon: <Zap size={15} /> },
     { id: "iot-cms",         labelAr: "🔌 محتوى IoT",          labelEn: "🔌 IoT Lab CMS",      icon: <Wrench size={15} /> },
     { id: "exams-cms",       labelAr: "📝 محتوى الاختبارات",   labelEn: "📝 Exams CMS",        icon: <BarChart2 size={15} /> },
+    { id: "draft-preview",   labelAr: "مراجعة المسودات",     labelEn: "Draft Preview",      icon: <Eye size={15} /> },
   ];
 
   const filteredUsers = users.filter((u) =>
@@ -5572,6 +5574,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
       {tab === "automation-cms" && <AutomationCMSPanel isAr={isAr} />}
       {tab === "iot-cms" && <IoTCMSPanel isAr={isAr} />}
       {tab === "exams-cms" && <ExamsCMSPanel isAr={isAr} />}
+      {tab === "draft-preview" && <DraftContentReviewPanel isAr={isAr} />}
 
     </div>
   );
