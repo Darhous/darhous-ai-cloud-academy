@@ -1,0 +1,28 @@
+{
+  "id": "build-a-sustainable-toolkit",
+  "portal_id": "tools-hub",
+  "content_type": "path",
+  "title_ar": "مسار بناء مجموعة أدوات شخصية مستدامة",
+  "title_en": "Build a Sustainable Personal Toolkit",
+  "excerpt_ar": "نظّم أدوات الدراسة والعمل، قلل التكرار، ووثق النسخ النهائية والبدائل.",
+  "excerpt_en": "Organize study and work tools, reduce duplication, and document final copies and fallbacks.",
+  "category": "productivity-stack",
+  "status": "draft",
+  "featured": false,
+  "tags": ["personal-toolkit", "productivity", "documentation"],
+  "sort_order": 30,
+  "data": {
+    "level": "beginner",
+    "estimated_hours": 7,
+    "goal_ar": "إنشاء نظام صغير وواضح يحدد وظيفة كل أداة ومكان النسخة النهائية وخطة الاستمرارية.",
+    "prerequisites_ar": ["سجل أسبوع من الأدوات المستخدمة", "قائمة اشتراكات حالية"],
+    "stages": [
+      {"order": 1, "title_ar": "الجرد", "outcome_ar": "قائمة كاملة بالتكلفة وآخر استخدام.", "activities_ar": ["مراجعة الأجهزة", "مراجعة الفواتير", "تسجيل الحسابات التجريبية"]},
+      {"order": 2, "title_ar": "ربط الوظائف", "outcome_ar": "أداة أساسية لكل وظيفة ومصدر حقيقة.", "activities_ar": ["رسم مسار مهمة", "تحديد التكرار", "اختيار مكان الملف النهائي"]},
+      {"order": 3, "title_ar": "التقليل والاختبار", "outcome_ar": "تجميد الأدوات المكررة وقياس الأثر.", "activities_ar": ["تجربة أسبوع", "تقليل الإشعارات", "منع أداة جديدة بلا حالة استخدام"]},
+      {"order": 4, "title_ar": "التوثيق والاستمرارية", "outcome_ar": "سجل محدث وتصدير وبديل.", "activities_ar": ["اختبار نسخة احتياطية", "تعيين موعد مراجعة", "كتابة تعليمات توقف"]}
+    ],
+    "final_deliverable_ar": "خريطة Toolkit من صفحة واحدة وسجل أدوات وخطة تنظيف شهرية.",
+    "success_criteria_ar": ["كل أداة لها وظيفة", "لا توجد نسختان نهائيتان", "التجديدات معروفة", "أهم البيانات قابلة للتصدير"]
+  }
+}

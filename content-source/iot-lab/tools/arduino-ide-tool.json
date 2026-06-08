@@ -1,0 +1,23 @@
+{
+  "id": "arduino-ide-tool",
+  "portal_id": "iot-lab",
+  "content_type": "tool",
+  "title_ar": "Arduino IDE",
+  "title_en": "Arduino IDE",
+  "excerpt_ar": "بيئة بسيطة لكتابة البرامج ورفعها ومراقبة القراءات التسلسلية.",
+  "excerpt_en": "A simple environment for coding, uploading, and serial monitoring.",
+  "category": "development-tools",
+  "status": "draft",
+  "featured": false,
+  "tags": ["arduino", "coding", "serial-monitor"],
+  "sort_order": 10,
+  "data": {
+    "purpose_ar": "برمجة لوحات Arduino واللوحات المتوافقة وتشغيل أمثلة المكتبات ومراقبة خرج Serial.",
+    "use_when_ar": ["تتعلم أول لوحة", "تريد رفع مثال سريع", "تحتاج Serial Monitor لتشخيص حساس"],
+    "avoid_when_ar": ["المشروع كبير ويحتاج إدارة بناء واختبارات متقدمة", "تحتاج تصحيحًا عميقًا على مستوى العتاد"],
+    "beginner_use_case_ar": "فتح Blink، اختيار اللوحة والمنفذ الصحيحين، رفع المثال، ثم تغيير زمن الوميض والتحقق من النتيجة.",
+    "workflow_ar": ["ثبت تعريف اللوحة من المصدر الموثوق", "اختر Board وPort", "تحقق Compile قبل Upload", "افتح Serial بالسرعة المطابقة للكود"],
+    "risks_limits_ar": ["اختيار لوحة أو منفذ خاطئ", "تعارض إصدارات المكتبات", "نسخ أسرار Wi-Fi داخل Sketch منشور"],
+    "alternatives_ar": ["PlatformIO للمشروعات المنظمة", "Arduino CLI للأتمتة", "ESP-IDF للتحكم الأعمق في ESP32"]
+  }
+}

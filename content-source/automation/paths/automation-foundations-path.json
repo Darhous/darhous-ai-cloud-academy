@@ -1,0 +1,27 @@
+{
+  "id": "automation-foundations-path",
+  "portal_id": "automation",
+  "content_type": "path",
+  "title_ar": "مسار تأسيس التفكير في الأتمتة",
+  "title_en": "Automation Foundations Path",
+  "excerpt_ar": "رحلة عملية من فهم العملية إلى بناء واختبار أول Workflow منخفض المخاطر.",
+  "excerpt_en": "A practical journey from process mapping to a tested low-risk workflow.",
+  "category": "automation-basics",
+  "status": "draft",
+  "featured": false,
+  "tags": ["automation-basics", "workflow-design", "no-code"],
+  "sort_order": 10,
+  "data": {
+    "audience": "مبتدئ لا يملك خبرة برمجية ويريد أتمتة مهمة متكررة بأمان.",
+    "duration": "3 أسابيع، 4 ساعات أسبوعيًا",
+    "outcomes": ["تمييز المحفزات والإجراءات والشروط", "توثيق عملية قبل بنائها", "اختبار الحالات الصحيحة والناقصة والمكررة", "قياس الوقت والجودة بعد التشغيل"],
+    "stages": [
+      {"order": 1, "title": "فهم العملية", "activities": ["سجل خمس مهام متكررة", "اختر مهمة واضحة وقابلة للعكس", "ارسم المدخلات والقرارات والمخرجات"], "deliverable": "خريطة Workflow من صفحة واحدة", "checkpoint": "يستطيع شخص آخر شرح العملية من الخريطة."},
+      {"order": 2, "title": "تصميم النسخة الأولى", "activities": ["حدد Trigger واحدًا", "اكتب Actions بأسماء واضحة", "أضف مسارًا للبيانات الناقصة"], "deliverable": "مواصفة تنفيذ واختبار", "checkpoint": "لكل خطوة مدخل ومخرج متوقعان."},
+      {"order": 3, "title": "البناء الآمن", "activities": ["استخدم بيانات وهمية", "ابن مسارًا قصيرًا", "أضف سجل تنفيذ وتنبيه خطأ"], "deliverable": "Workflow تجريبي", "checkpoint": "لا توجد صلاحيات أو عمليات إرسال غير لازمة."},
+      {"order": 4, "title": "الاختبار والقياس", "activities": ["اختبر النجاح والنقص والتكرار والفشل", "سجل النتائج", "قارن الوقت اليدوي بالآلي"], "deliverable": "تقرير جاهزية قصير", "checkpoint": "كل حالة اختبار لها نتيجة متوقعة ودليل."}
+    ],
+    "completion_project": "أتمتة نقل بيانات نموذج تجريبي إلى جدول مع تحقق وتنبيه داخلي.",
+    "safety_rules": ["لا تستخدم بيانات حساسة أثناء التعلم", "ابدأ بتشغيل يدوي", "احتفظ بنقطة مراجعة بشرية قبل أي أثر خارجي"]
+  }
+}

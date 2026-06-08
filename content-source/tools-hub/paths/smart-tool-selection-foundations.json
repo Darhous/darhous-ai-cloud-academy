@@ -1,0 +1,28 @@
+{
+  "id": "smart-tool-selection-foundations",
+  "portal_id": "tools-hub",
+  "content_type": "path",
+  "title_ar": "مسار الاختيار الذكي للأدوات",
+  "title_en": "Smart Tool Selection Foundations",
+  "excerpt_ar": "رحلة عملية من تعريف المشكلة إلى اختبار الأداة واتخاذ قرار موثق.",
+  "excerpt_en": "A practical journey from defining the problem to a documented tool decision.",
+  "category": "tool-selection",
+  "status": "draft",
+  "featured": false,
+  "tags": ["tool-selection", "evaluation", "decision-making"],
+  "sort_order": 10,
+  "data": {
+    "level": "beginner",
+    "estimated_hours": 5,
+    "goal_ar": "اختيار أداة تلائم مهمة حقيقية دون الانجراف وراء الشهرة أو قوائم الميزات.",
+    "prerequisites_ar": ["مهمة دراسية أو عملية تتكرر", "القدرة على استخدام بيانات اختبار غير حساسة"],
+    "stages": [
+      {"order": 1, "title_ar": "تعريف المشكلة", "outcome_ar": "وصف المهمة والنتيجة والقيود في بطاقة واحدة.", "activities_ar": ["قياس الوقت الحالي", "تحديد ثلاثة معايير ضرورية", "كتابة شرط رفض"]},
+      {"order": 2, "title_ar": "بناء قائمة قصيرة", "outcome_ar": "اختيار أداتين فقط بناءً على المعايير.", "activities_ar": ["فحص السعر والتصدير", "مراجعة دعم العربية", "استبعاد ما يفشل في شرط ضروري"]},
+      {"order": 3, "title_ar": "اختبار عادل", "outcome_ar": "نتائج قابلة للمقارنة من المهمة والبيانات نفسيهما.", "activities_ar": ["حالة عادية", "حالة فشل", "اختبار التصدير والحذف"]},
+      {"order": 4, "title_ar": "قرار ومراجعة", "outcome_ar": "قرار اعتماد محدود أو رفض مع تاريخ مراجعة.", "activities_ar": ["حساب الوقت والتكلفة", "توثيق المخاطر", "تحديد شرط الإيقاف"]}
+    ],
+    "final_deliverable_ar": "بطاقة قرار مكتملة وجدول مقارنة وخطة تجربة لمدة أسبوعين.",
+    "success_criteria_ar": ["المعايير مرتبطة بالمهمة", "الاختبار يستخدم بيانات آمنة", "القرار يذكر الدليل والحدود", "يوجد موعد مراجعة"]
+  }
+}

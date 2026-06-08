@@ -1,0 +1,24 @@
+{
+  "id": "privacy-and-tool-safety-quiz",
+  "portal_id": "tools-hub",
+  "content_type": "quiz",
+  "title_ar": "اختبار الخصوصية وأمان الأدوات",
+  "title_en": "Privacy and Tool Safety Quiz",
+  "excerpt_ar": "أسئلة تطبيقية عن تصنيف البيانات والصلاحيات والحذف.",
+  "excerpt_en": "Applied questions on data classification, permissions, and deletion.",
+  "category": "privacy",
+  "status": "draft",
+  "featured": false,
+  "tags": ["quiz", "privacy", "data-safety"],
+  "sort_order": 20,
+  "data": {
+    "passing_score": 70,
+    "questions": [
+      {"id": "q1", "type": "multiple-choice", "question_ar": "تريد اختبار أداة جديدة. أي بيانات تستخدم؟", "options_ar": ["بيانات وهمية غير حساسة", "بيانات عميل", "كلمات مرور", "سجل موظفين"], "correct_answer": 0, "explanation_ar": "البيانات الوهمية تقلل الضرر أثناء فهم سياسة الأداة وسلوكها."},
+      {"id": "q2", "type": "multiple-choice", "question_ar": "الأداة تطلب وصولًا إلى كل التخزين لمهمة ملف واحد. ما الإجراء الأفضل؟", "options_ar": ["رفض الوصول أو تقييده", "الموافقة دائمًا", "مشاركة الحساب", "تعطيل التوثيق"], "correct_answer": 0, "explanation_ar": "مبدأ أقل صلاحية يعني منح الحد الضروري فقط."},
+      {"id": "q3", "type": "multiple-choice", "question_ar": "ما الذي يجب فحصه مع عبارة تشفير البيانات؟", "options_ar": ["الاحتفاظ والتدريب والصلاحيات والحذف", "لون الشعار", "عدد القوالب", "الإعلانات"], "correct_answer": 0, "explanation_ar": "التشفير طبقة واحدة ولا يجيب عن دورة حياة البيانات أو الوصول."},
+      {"id": "q4", "type": "multiple-choice", "question_ar": "ما أفضل دليل على قابلية الخروج؟", "options_ar": ["تصدير عينة وفتحها خارج الأداة", "وجود زر تنزيل فقط", "وعد تسويقي", "اشتراك سنوي"], "correct_answer": 0, "explanation_ar": "التجربة العملية تكشف الصيغة ونقص البيانات ومشكلات النقل."},
+      {"id": "q5", "type": "multiple-choice", "question_ar": "متى تراجع التكاملات؟", "options_ar": ["دوريًا وعند توقف الحاجة", "مرة عند التسجيل فقط", "بعد تسرب فقط", "لا حاجة"], "correct_answer": 0, "explanation_ar": "التكامل القديم قد يحتفظ بوصول لا داعي له، لذا يحتاج مراجعة وإلغاء."}
+    ]
+  }
+}

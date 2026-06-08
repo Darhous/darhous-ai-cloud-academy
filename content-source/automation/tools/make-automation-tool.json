@@ -1,0 +1,23 @@
+{
+  "id": "make-automation-tool",
+  "portal_id": "automation",
+  "content_type": "tool",
+  "title_ar": "Make لتصميم السيناريوهات المرئية",
+  "title_en": "Make Visual Automation",
+  "excerpt_ar": "منصة مرئية مناسبة لربط التطبيقات ورؤية الفروع وحركة البيانات بسرعة.",
+  "excerpt_en": "A visual platform for app integrations, branches, and data flow.",
+  "category": "workflow-platform",
+  "status": "draft",
+  "featured": false,
+  "tags": ["make", "no-code", "integrations"],
+  "sort_order": 20,
+  "data": {
+    "purpose": "بناء سيناريوهات تكامل بين تطبيقات شائعة مع فلاتر وتحويلات وفروع.",
+    "use_when": ["تحتاج واجهة بصرية واضحة", "الخدمات المطلوبة مدعومة", "الحجم والتكلفة المتوقعة مفهومـان"],
+    "avoid_when": ["تحتاج استضافة ذاتية أو تحكمًا دقيقًا جدًا", "عدد العمليات قد يجعل التكلفة غير مناسبة", "الفريق لا يملك مراقبة السيناريوهات"],
+    "beginner_use_case": "استقبال نموذج تجريبي، فلترة السجلات الناقصة، ثم إضافة السليم إلى جدول وإرسال تنبيه داخلي.",
+    "risks_limits": ["سوء فهم احتساب العمليات", "خرائط الحقول قد تنكسر عند تغير المصدر", "السيناريو الواسع يصعب تشخيصه"],
+    "safe_start": ["ابدأ بتشغيل يدوي", "ضع حدًا لعدد السجلات", "اختبر القيم الفارغة", "راقب سجل التنفيذ"],
+    "alternatives": ["Zapier لمسارات خطية أبسط", "n8n لمرونة وتحكم أكبر", "Power Automate لبيئات Microsoft"]
+  }
+}

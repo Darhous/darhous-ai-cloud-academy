@@ -1,0 +1,24 @@
+{
+  "id": "microsoft-copilot",
+  "portal_id": "ai-academy",
+  "content_type": "tool",
+  "title_ar": "Microsoft Copilot",
+  "title_en": "Microsoft Copilot",
+  "category": "ai-assistants",
+  "status": "draft",
+  "featured": false,
+  "tags": ["microsoft-copilot", "ai-assistant", "microsoft-workflow"],
+  "sort_order": 40,
+  "data": {
+    "summary_ar": "اسم لمساعدات وتجارب AI ضمن بيئة Microsoft؛ ملاءمته تعتمد على المنتج والحساب والترخيص المستخدم.",
+    "best_for_ar": ["مهام عامة عبر المحادثة", "استكشاف المساعدة داخل منتجات Microsoft المتاحة", "تلخيص وصياغة مواد غير حساسة", "تنظيم خطوات العمل"],
+    "getting_started_ar": [
+      "حدد إصدار Copilot والمنتج الذي تستخدمه",
+      "اختر مهمة متكررة داخل بيئة عملك",
+      "اختبر الناتج على بيانات غير حساسة",
+      "قارن الوقت والجودة مع طريقتك الحالية"
+    ],
+    "limitations_ar": ["الميزات تختلف بين المنتجات والتراخيص", "قد تحتاج المؤسسة إلى إعدادات وسياسات خاصة", "المخرجات تحتاج مراجعة بشرية"],
+    "safety_notes_ar": ["اتبع سياسة مؤسستك", "تحقق من صلاحيات الملفات والمشاركين", "لا تفترض أن كل إصدار يعالج البيانات بالطريقة نفسها"]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "n8n-practical-builder-path",
+  "portal_id": "automation",
+  "content_type": "path",
+  "title_ar": "مسار بناء Workflows عملية باستخدام n8n",
+  "title_en": "Practical n8n Builder Path",
+  "excerpt_ar": "مسار تطبيقي لفهم البيانات والفروع والتكاملات ومعالجة الأخطاء داخل n8n.",
+  "excerpt_en": "A hands-on path for data, branches, integrations, and errors in n8n.",
+  "category": "n8n",
+  "status": "draft",
+  "featured": false,
+  "tags": ["n8n", "workflow-building", "error-handling"],
+  "sort_order": 20,
+  "data": {
+    "audience": "من يفهم مبادئ Workflow ويريد تنفيذ مسارات no-code قابلة للصيانة.",
+    "duration": "4 أسابيع، 5 ساعات أسبوعيًا",
+    "outcomes": ["قراءة مدخلات ومخرجات Nodes", "تنظيف وتحويل JSON", "بناء فروع وشروط", "التعامل مع الأخطاء ومنع التكرار"],
+    "stages": [
+      {"order": 1, "title": "البيانات والتنفيذ اليدوي", "activities": ["Manual Trigger", "إنشاء بيانات تجريبية", "فحص Input وOutput لكل Node"], "deliverable": "مسار يحول ثلاثة سجلات", "checkpoint": "يمكن تفسير كل قيمة ومصدرها."},
+      {"order": 2, "title": "الشروط والفروع", "activities": ["التحقق من الحقول", "توجيه السجلات الناقصة", "توحيد الأسماء والتواريخ"], "deliverable": "فرع نجاح وفرع مراجعة", "checkpoint": "لا يسقط أي سجل بصمت."},
+      {"order": 3, "title": "التكاملات المحدودة", "activities": ["ربط خدمة تجريبية", "تقليل الصلاحيات", "إخفاء الأسرار من السجلات"], "deliverable": "تكامل ثنائي الخدمات", "checkpoint": "يمكن تعطيله دون فقد بيانات."},
+      {"order": 4, "title": "الاعتمادية", "activities": ["تصنيف الأخطاء", "إعادة محاولة محدودة", "منع السجلات المكررة", "إرسال تنبيه مفيد"], "deliverable": "Workflow موثق وقابل للتشغيل", "checkpoint": "ينجح اختبار الانقطاع والتكرار."}
+    ],
+    "completion_project": "نظام استقبال طلبات داخلي يصنف السجل ويتحقق منه ويحفظه أو يرسله للمراجعة.",
+    "evidence": ["لقطات نتائج الاختبار", "جدول الحالات المتوقعة", "خريطة الحقول", "خطة الإيقاف والاستعادة"]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "automation-foundations-quiz",
+  "portal_id": "automation",
+  "content_type": "quiz",
+  "title_ar": "اختبار أساسيات التفكير في الأتمتة",
+  "title_en": "Automation Foundations Quiz",
+  "excerpt_ar": "أسئلة موقفية عن اختيار العملية والمحـفزات والإجراءات والاختبار.",
+  "excerpt_en": "Scenario questions on process choice, triggers, actions, and testing.",
+  "category": "automation-basics",
+  "status": "draft",
+  "featured": false,
+  "tags": ["automation-basics", "workflow-design", "assessment"],
+  "sort_order": 10,
+  "data": {
+    "passing_score": 70,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question_ar": "أي مهمة أفضل كأول أتمتة؟", "options": ["اعتماد خصم استثنائي", "نقل نموذج منظم إلى جدول تجريبي", "تقييم أداء موظف", "حذف سجلات قديمة"], "correct_answer": 1, "explanation_ar": "النقل المنظم متكرر وقاعدته واضحة وأثر الخطأ قابل للمراجعة."},
+      {"id": "q2", "type": "multiple_choice", "question_ar": "في مسار يبدأ عند إرسال نموذج، ما الـTrigger؟", "options": ["إضافة صف", "إرسال النموذج", "فحص البريد", "إرسال التنبيه"], "correct_answer": 1, "explanation_ar": "إرسال النموذج هو الحدث الذي يبدأ التنفيذ، والبقية إجراءات أو شروط."},
+      {"id": "q3", "type": "multiple_choice", "question_ar": "ماذا يجب أن يحدث عند نقص البريد؟", "options": ["تخمينه", "تجاهل السجل", "إيقاف المسار وتسجيل سبب للمراجعة", "إرسال الرسالة بأي حال"], "correct_answer": 2, "explanation_ar": "التوقف الواضح يحفظ السجل ويمنع أثرًا خاطئًا."},
+      {"id": "q4", "type": "multiple_choice", "question_ar": "ما الاختبار الذي يكشف التكرار؟", "options": ["تشغيل سجل واحد مرة", "تشغيل المعرف نفسه مرتين", "تغيير لون الجدول", "قياس سرعة الإنترنت"], "correct_answer": 1, "explanation_ar": "إعادة نفس المعرف تثبت وجود آلية idempotency أو منع التكرار."},
+      {"id": "q5", "type": "multiple_choice", "question_ar": "متى تكون الأتمتة ناجحة؟", "options": ["عندما تعمل كثيرًا فقط", "عندما تقلل الوقت مع جودة قابلة للقياس", "عندما لا يراها أحد", "عندما تحتوي Nodes كثيرة"], "correct_answer": 1, "explanation_ar": "النجاح يجمع الوقت والجودة ونسبة الاستثناءات وتكلفة الصيانة."}
+    ]
+  }
+}

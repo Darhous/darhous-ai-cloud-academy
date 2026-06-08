@@ -1,0 +1,27 @@
+{
+  "id": "exam-review-plan-template",
+  "portal_id": "digital-exams",
+  "content_type": "template",
+  "title_ar": "قالب خطة مراجعة الاختبار",
+  "title_en": "Exam Review Plan Template",
+  "category": "exam-preparation",
+  "status": "draft",
+  "featured": false,
+  "tags": ["review-plan", "study-template", "exam-preparation"],
+  "sort_order": 10,
+  "data": {
+    "purpose_ar": "توزيع وقت المراجعة حسب وزن الموضوع وضعف المتعلم بدلا من التقسيم المتساوي.",
+    "instructions_ar": ["املأ نطاق الاختبار أولا", "قيم مستواك باختبار قصير", "أعط الأولوية للموضوع المهم والضعيف", "حدد نشاطا واختبار إعادة لكل جلسة"],
+    "fields": [
+      {"label_ar": "الموضوع", "placeholder_ar": "مثال: الاحتمالات"},
+      {"label_ar": "وزنه في الاختبار", "placeholder_ar": "مرتفع أو متوسط أو منخفض"},
+      {"label_ar": "مستواي الحالي", "placeholder_ar": "قوي أو متوسط أو ضعيف مع دليل"},
+      {"label_ar": "نشاط المراجعة", "placeholder_ar": "شرح 20 دقيقة ثم 10 أسئلة"},
+      {"label_ar": "موعد التنفيذ", "placeholder_ar": "التاريخ والمدة"},
+      {"label_ar": "اختبار الإتقان", "placeholder_ar": "8 من 10 في أسئلة جديدة"},
+      {"label_ar": "موعد الإعادة", "placeholder_ar": "بعد يومين"}
+    ],
+    "copy_ready_ar": "الموضوع: ____\nالوزن: ____\nمستواي ودليلي: ____\nنشاط المراجعة: ____\nالتاريخ والمدة: ____\nمعيار الإتقان: ____\nموعد إعادة الاختبار: ____",
+    "review_question_ar": "هل تعالج الخطة أكبر فجوة مؤثرة، أم تكرر الموضوعات المريحة فقط؟"
+  }
+}

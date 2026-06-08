@@ -1,0 +1,31 @@
+{
+  "id": "speaking-self-review-sheet",
+  "portal_id": "language",
+  "content_type": "template",
+  "title_ar": "ورقة مراجعة تسجيل التحدث",
+  "title_en": "Speaking Self-Review Sheet",
+  "excerpt_ar": "قالب مراجعة يركز على المعنى والطلاقة والدقة دون إغراق المتعلم في التصحيح.",
+  "excerpt_en": "A focused review sheet for meaning, fluency, and accuracy.",
+  "category": "speaking",
+  "status": "draft",
+  "featured": false,
+  "tags": ["speaking", "self-review", "recording"],
+  "sort_order": 30,
+  "data": {
+    "instructions_ar": "استمع إلى التسجيل ثلاث مرات بأهداف مختلفة، ثم أعده مرة واحدة فقط.",
+    "passes": [
+      {"pass": 1, "focus_ar": "المعنى", "questions_ar": ["هل الفكرة مفهومة؟", "هل يوجد ترتيب واضح؟", "ما أفضل جزء؟"]},
+      {"pass": 2, "focus_ar": "الطلاقة", "questions_ar": ["أين طال التوقف؟", "هل كررت كلمات حشو؟", "هل استخدمت روابط؟"]},
+      {"pass": 3, "focus_ar": "الدقة والوضوح", "questions_ar": ["ما الخطآن اللذان يؤثران في المعنى؟", "ما صوت أو كلمة تحتاج تدريبًا؟", "ما العبارة البديلة؟"]}
+    ],
+    "fields": [
+      {"key": "topic", "label_ar": "الموضوع"},
+      {"key": "duration", "label_ar": "المدة"},
+      {"key": "two_strengths", "label_ar": "نقطتا قوة"},
+      {"key": "two_corrections", "label_ar": "تصحيحان فقط"},
+      {"key": "useful_phrase", "label_ar": "عبارة سأستخدمها"},
+      {"key": "second_take_result", "label_ar": "ما الذي تحسن في النسخة الثانية؟"}
+    ],
+    "rule_ar": "لا توقف التسجيل لتصحيح جملة، ولا تجعل اللكنة هدفًا إذا كان الكلام واضحًا."
+  }
+}

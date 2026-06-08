@@ -1,0 +1,24 @@
+{
+  "id": "weekly-job-search-review",
+  "portal_id": "career",
+  "content_type": "template",
+  "title_ar": "قالب مراجعة البحث الوظيفي الأسبوعية",
+  "title_en": "Weekly Job Search Review",
+  "category": "job-search",
+  "status": "draft",
+  "featured": false,
+  "tags": ["job-search", "review", "planning"],
+  "sort_order": 50,
+  "data": {
+    "purpose_ar": "استخدام نتائج الأسبوع لتحسين الاستهداف والأدلة.",
+    "instructions_ar": ["راجع الجودة لا العدد فقط", "لا تستنتج سبب الرفض بلا معلومات", "اختر تعديلا واحدا للأسبوع التالي"],
+    "fields_ar": [
+      {"label_ar": "فرص مناسبة وجدت", "placeholder_ar": "عدد مع ملاحظة الجودة"},
+      {"label_ar": "طلبات مخصصة أرسلت", "placeholder_ar": "الأدوار والنسخ"},
+      {"label_ar": "ردود أو مقابلات", "placeholder_ar": "الحالة فقط"},
+      {"label_ar": "فجوات متكررة", "placeholder_ar": "مهارة أو دليل"},
+      {"label_ar": "أفضل خطوة تالية", "placeholder_ar": "تعديل قابل للتنفيذ"}
+    ],
+    "reusable_text_ar": "ما الذي نجح؟\nما الذي استهلك وقتا بلا قيمة؟\nما الفجوة المتكررة؟\nما الدليل الذي سأبنيه؟\nما التغيير الوحيد للأسبوع القادم؟"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "room-temperature-monitor-project",
+  "portal_id": "iot-lab",
+  "content_type": "project",
+  "title_ar": "مراقب حرارة غرفة موثق",
+  "title_en": "Documented Room Temperature Monitor",
+  "excerpt_ar": "مشروع يقرأ الحرارة محليًا ويتحقق من منطقيتها ويسجلها قبل إضافة الاتصال.",
+  "excerpt_en": "Read, validate, and log room temperature before adding connectivity.",
+  "category": "beginner-projects",
+  "status": "draft",
+  "featured": false,
+  "tags": ["temperature-sensor", "data-validation", "arduino"],
+  "sort_order": 10,
+  "data": {
+    "goal_ar": "بناء نموذج يعرض درجة الحرارة بوحدة واضحة كل ثانيتين ويكشف القراءة الفاشلة.",
+    "scenario_ar": "غرفة دراسة تحتاج ملاحظة تغير الحرارة دون ادعاء دقة جهاز مختبر.",
+    "prerequisites_ar": ["لوحة متوافقة", "حساس حرارة موثق", "Breadboard", "ملتيميتر", "مرجع حرارة للمقارنة"],
+    "steps_ar": ["راجع Pinout والجهد", "ارسم التوصيل وافحص القصر", "اقرأ قيمة خام محليًا", "أضف الوحدة والوقت", "ارفض القيم الفارغة أو خارج النطاق", "اجمع 30 قراءة", "قارن بمرجع وسجل الفرق"],
+    "expected_output_ar": "جدول زمن ودرجة وحالة قراءة، مع رسم توصيل وصورة للنسخة المستقرة.",
+    "success_criteria_ar": ["30 قراءة بلا توقف", "القيمة تحمل °C", "فشل الحساس يظهر كخطأ لا كصفر", "الفرق عن المرجع موثق"],
+    "extension_ideas_ar": ["متوسط متحرك", "تنبيه محلي بحد قابل للتعديل", "إرسال قراءة كل خمس دقائق بعد ثبات النسخة المحلية"],
+    "safety_ar": ["افصل الطاقة عند تعديل الأسلاك", "لا تستخدم جهدًا أعلى من مواصفة الحساس"]
+  }
+}

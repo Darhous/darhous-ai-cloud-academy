@@ -1,0 +1,22 @@
+{
+  "id": "sensor-comparison-template",
+  "portal_id": "iot-lab",
+  "content_type": "template",
+  "title_ar": "بطاقة مقارنة الحساسات",
+  "title_en": "Sensor Comparison Card",
+  "excerpt_ar": "قالب لاتخاذ قرار تقني اعتمادًا على النطاق والدقة والواجهة والبيئة.",
+  "excerpt_en": "Compare sensors by range, accuracy, interface, and environment.",
+  "category": "selection-templates",
+  "status": "draft",
+  "featured": false,
+  "tags": ["sensor-selection", "datasheet", "comparison"],
+  "sort_order": 30,
+  "data": {
+    "measurement_need_ar": {"الكمية": "", "النطاق المطلوب": "", "الدقة المقبولة": "", "زمن الاستجابة": "", "البيئة": ""},
+    "candidates": [
+      {"name": "", "range": "", "accuracy": "", "interface": "", "voltage": "", "current": "", "library": "", "price": "", "limitations": ""},
+      {"name": "", "range": "", "accuracy": "", "interface": "", "voltage": "", "current": "", "library": "", "price": "", "limitations": ""}
+    ],
+    "decision_ar": {"selected": "", "technical_reasons": ["", ""], "test_before_commitment": "", "datasheet_link": ""}
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "daily-practice-decisions-quiz",
+  "portal_id": "language",
+  "content_type": "quiz",
+  "title_ar": "اختبار قرارات الممارسة اليومية",
+  "title_en": "Daily Practice Decisions Quiz",
+  "excerpt_ar": "اختبار عملي لاختيار أنشطة قصيرة تخدم الاستماع والمفردات والتحدث.",
+  "excerpt_en": "Practical decisions for effective daily language practice.",
+  "category": "learning-strategy",
+  "status": "draft",
+  "featured": false,
+  "tags": ["daily-practice", "learning-strategy", "quiz"],
+  "sort_order": 20,
+  "data": {
+    "instructions_ar": "اختر القرار الذي يزيد التعلم النشط والاستمرار، لا النشاط الذي يبدو أكثر صعوبة.",
+    "passing_score": 70,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question_ar": "لديك 20 دقيقة ومقطع مناسب. ما الترتيب الأفضل؟", "options_ar": ["ترجمة كل كلمة ثم التوقف", "استماع للفكرة ثم للتفاصيل ثم تلخيص قصير", "مشاهدة خمسة مقاطع بلا مهمة", "حفظ النص كاملًا"], "correct_answer": 1, "explanation_ar": "هذا الترتيب يدرب الفهم ثم يحوله إلى إنتاج يمكن تقييمه."},
+      {"id": "q2", "type": "multiple_choice", "question_ar": "أي بطاقة مفردات تساعد على الاستخدام؟", "options_ar": ["كلمة وترجمة فقط", "قائمة من 100 كلمة", "موقف وجملة ناقصة وعبارة ومثال شخصي", "تعريف طويل منسوخ"], "correct_answer": 2, "explanation_ar": "السياق والاستدعاء والمثال الشخصي تقرب العبارة من الاستخدام الحقيقي."},
+      {"id": "q3", "type": "multiple_choice", "question_ar": "أثناء التسجيل أخطأت في زمن فعل. ماذا تفعل؟", "options_ar": ["توقف وتحذف كل التسجيل", "تكمل الفكرة ثم تراجع الخطأ وتعيد التسجيل", "تتوقف عن التحدث أسبوعًا", "تطلب من أداة كتابة الإجابة"], "correct_answer": 1, "explanation_ar": "إكمال المعنى يحافظ على الطلاقة، والمراجعة اللاحقة تبني الدقة."},
+      {"id": "q4", "type": "multiple_choice", "question_ar": "المصدر صعب ولا تفهم إلا 20% بعد محاولتين. ما القرار الأفضل؟", "options_ar": ["الاستمرار لأنه محتوى أصلي", "اختيار مصدر أسهل مع تحد محدود", "ترجمة كل شيء", "ترك الاستماع نهائيًا"], "correct_answer": 1, "explanation_ar": "المحتوى المناسب يسمح بفهم عام ويترك مساحة معقولة للتعلم."},
+      {"id": "q5", "type": "multiple_choice", "question_ar": "كيف تعرف أن روتينك ناجح؟", "options_ar": ["اشتريت أدوات أكثر", "قضيت وقتًا أطول فقط", "تنتج عينات منتظمة وتلاحظ تحسنًا محددًا", "لم ترتكب أي خطأ"], "correct_answer": 2, "explanation_ar": "الاستمرار مع دليل أداء وتحسن محدد أهم من الوقت أو الكمال."}
+    ]
+  }
+}

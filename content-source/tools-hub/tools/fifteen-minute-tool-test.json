@@ -1,0 +1,24 @@
+{
+  "id": "fifteen-minute-tool-test",
+  "portal_id": "tools-hub",
+  "content_type": "tool",
+  "title_ar": "اختبار الأداة في 15 دقيقة",
+  "title_en": "Fifteen-Minute Tool Test",
+  "excerpt_ar": "بروتوكول سريع يختبر النتيجة والفشل والتصدير والقرار.",
+  "excerpt_en": "A quick protocol for output, failure, export, and decision testing.",
+  "category": "tool-testing",
+  "status": "draft",
+  "featured": false,
+  "tags": ["tool-testing", "quick-evaluation", "workflow"],
+  "sort_order": 30,
+  "data": {
+    "purpose_ar": "تحديد هل تستحق الأداة تجربة أعمق دون إهدار الوقت أو البيانات.",
+    "use_when_ar": ["عند ظهور أداة جديدة", "لفرز قائمة مرشحين", "قبل إدخال بطاقة دفع"],
+    "avoid_when_ar": ["لا يكفي لاعتماد عملية حرجة", "لا يستخدم ببيانات عملاء أو أسرار"],
+    "beginner_use_case_ar": "اختبار أداة تنظيم ملاحظات بخمس ملاحظات وهمية ثم تصديرها.",
+    "workflow_ar": ["دقيقتان للمعايير", "خمس دقائق لحالة عادية", "ثلاث دقائق لحالة فشل", "دقيقتان للتصدير والحذف", "ثلاث دقائق للخصوصية والسعر والقرار"],
+    "risks_limits_ar": ["حداثة الواجهة قد تحسن الانطباع", "الاختبار القصير لا يكشف الاستقرار", "الخطة المجانية قد تختلف"],
+    "alternatives_ar": ["تجربة أسبوعية", "عرض عملي من مستخدم حالي", "تنفيذ يدوي إذا كانت الحاجة نادرة"],
+    "output_ar": "قرار رفض أو تجربة أعمق أو اعتماد محدود مع سبب."
+  }
+}

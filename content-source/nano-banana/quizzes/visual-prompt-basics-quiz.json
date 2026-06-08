@@ -1,0 +1,24 @@
+{
+  "id": "visual-prompt-basics-quiz",
+  "portal_id": "nano-banana",
+  "content_type": "quiz",
+  "title_ar": "اختبار أساسيات البرومبت البصري",
+  "title_en": "Visual Prompt Basics Quiz",
+  "excerpt_ar": "أسئلة تطبيقية حول الموضوع والتكوين والإضاءة والقيود.",
+  "excerpt_en": "Practical questions on subject, composition, light, and constraints.",
+  "category": "image-prompts",
+  "status": "draft",
+  "featured": false,
+  "tags": ["quiz", "foundations", "image-prompts"],
+  "sort_order": 10,
+  "data": {
+    "passing_score": 70,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question": "أي بداية أكثر قابلية للتنفيذ؟", "options": ["صورة رائعة ومذهلة", "كوب خزفي أزرق على مكتب خشبي بضوء صباح جانبي", "فن احترافي جدًا", "اجعلها أفضل"], "correct_answer": 1, "explanation": "الخيار الثاني يحدد موضوعًا وبيئة وإضاءة يمكن رؤيتها."},
+      {"id": "q2", "type": "multiple_choice", "question": "ظهرت الخلفية جيدة لكن المنتج صغير. ما التعديل الأفضل أولًا؟", "options": ["غيّر الأسلوب والألوان", "اطلب لقطة أقرب واجعل المنتج يشغل معظم الإطار", "أضف صفات أكثر", "غيّر الأداة فورًا"], "correct_answer": 1, "explanation": "المشكلة في التكوين والحجم، لذا يجب تعديلهما مع تثبيت بقية القرارات."},
+      {"id": "q3", "type": "multiple_choice", "question": "لماذا يفضل تغيير متغير واحد؟", "options": ["لتقليل طول النص فقط", "لمعرفة سبب تحسن أو تراجع النتيجة", "لمنع حفظ الصورة", "لإلغاء الحاجة للمراجعة"], "correct_answer": 1, "explanation": "عزل المتغير يجعل المقارنة قابلة للتفسير."},
+      {"id": "q4", "type": "multiple_choice", "question": "متى تحدد نسبة الأبعاد؟", "options": ["بعد النشر", "عند معرفة قناة الاستخدام", "لا حاجة لها", "عندما تفشل الألوان"], "correct_answer": 1, "explanation": "القناة تحدد مساحة التكوين والقص قبل التوليد."},
+      {"id": "q5", "type": "multiple_choice", "question": "أي وصف أسلوبي أدق؟", "options": ["جميل", "سينمائي", "تباين منخفض وألوان ترابية وحواف ناعمة", "مثل أي صورة مشهورة"], "correct_answer": 2, "explanation": "الخصائص المرئية المحددة أوضح من الصفة العامة."}
+    ]
+  }
+}

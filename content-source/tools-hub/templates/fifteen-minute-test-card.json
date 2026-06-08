@@ -1,0 +1,18 @@
+{
+  "id": "fifteen-minute-test-card",
+  "portal_id": "tools-hub",
+  "content_type": "template",
+  "title_ar": "قالب اختبار أداة في 15 دقيقة",
+  "title_en": "Fifteen-Minute Tool Test Card",
+  "excerpt_ar": "بطاقة مؤقتة لاختبار النتيجة والفشل والخروج.",
+  "excerpt_en": "A timed card for testing output, failure, and exit.",
+  "category": "tool-testing",
+  "status": "draft",
+  "featured": false,
+  "tags": ["template", "tool-test", "quick-evaluation"],
+  "sort_order": 30,
+  "data": {
+    "instructions_ar": ["اضبط مؤقتًا", "لا تستخدم بيانات حقيقية", "لا توسع الاختبار أثناء التنفيذ"],
+    "template_ar": {"المهمة": "", "معيار_النجاح": "", "شرط_الرفض": "", "الدقائق_0_2": "تعريف المهمة", "الدقائق_2_7": "الحالة العادية", "الدقائق_7_10": "حالة الفشل", "الدقائق_10_12": "التصدير والحذف", "الدقائق_12_15": "الخصوصية والسعر", "نجح_في": [], "فشل_في": [], "الصلاحيات": [], "صيغة_التصدير": "", "القرار": "رفض/تجربة أعمق/اعتماد محدود", "السبب": ""}
+  }
+}

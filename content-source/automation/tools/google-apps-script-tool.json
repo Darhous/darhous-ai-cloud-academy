@@ -1,0 +1,23 @@
+{
+  "id": "google-apps-script-tool",
+  "portal_id": "automation",
+  "content_type": "tool",
+  "title_ar": "Google Apps Script لأتمتة Workspace",
+  "title_en": "Google Apps Script",
+  "excerpt_ar": "خيار برمجي خفيف لأتمتة Sheets وForms وDrive وGmail.",
+  "excerpt_en": "Lightweight scripting for Sheets, Forms, Drive, and Gmail.",
+  "category": "scripting-automation",
+  "status": "draft",
+  "featured": false,
+  "tags": ["google-apps-script", "google-workspace", "scripting"],
+  "sort_order": 50,
+  "data": {
+    "purpose": "تنفيذ منطق مخصص قريب من بيانات Google Workspace عندما لا يكفي التكامل الجاهز.",
+    "use_when": ["تحتاج تحويلًا مخصصًا داخل Sheets", "الحجم ضمن حدود الخدمة", "يوجد شخص يستطيع مراجعة الكود وصيانته"],
+    "avoid_when": ["لا توجد خبرة برمجية أو اختبارات", "العملية حرجة وتتطلب مراقبة متقدمة", "تتعامل مع حجم أو زمن تنفيذ يتجاوز الحدود"],
+    "beginner_use_case": "دالة تقرأ صفوفًا تجريبية، تميز الناقص بلون وحالة، وتنتج ملخصًا دون إرسال بريد.",
+    "risks_limits": ["حدود الحصص وزمن التنفيذ", "الأسرار قد تتسرب في الكود أو السجلات", "المحفزات قد تعمل باسم مالك غير مناسب"],
+    "safe_start": ["اعمل على نسخة جدول", "سجل معرف الصف لا محتواه الحساس", "اختبر الدالة يدويًا", "أضف المحفز بعد ثبات النتائج"],
+    "alternatives": ["أداة no-code للمبتدئ", "دوال Sheets للمنطق البسيط", "خدمة برمجية مستقلة للعمليات الحرجة"]
+  }
+}

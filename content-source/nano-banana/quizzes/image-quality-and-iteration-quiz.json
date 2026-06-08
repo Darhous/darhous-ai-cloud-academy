@@ -1,0 +1,24 @@
+{
+  "id": "image-quality-and-iteration-quiz",
+  "portal_id": "nano-banana",
+  "content_type": "quiz",
+  "title_ar": "اختبار جودة الصورة والتحسين",
+  "title_en": "Image Quality and Iteration Quiz",
+  "excerpt_ar": "اختبر قدرتك على تشخيص نتيجة ضعيفة واختيار التعديل التالي.",
+  "excerpt_en": "Diagnose weak outputs and choose the next revision.",
+  "category": "quality-control",
+  "status": "draft",
+  "featured": false,
+  "tags": ["quiz", "iteration", "quality"],
+  "sort_order": 20,
+  "data": {
+    "passing_score": 70,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question": "ما أول خطوة بعد نتيجة غير مرضية؟", "options": ["إعادة الطلب نفسه", "تحديد أكبر مشكلة مرئية", "إضافة عشر صفات", "حذف السجل"], "correct_answer": 1, "explanation": "التشخيص يسبق التعديل حتى لا يصبح التحسين عشوائيًا."},
+      {"id": "q2", "type": "multiple_choice", "question": "نسختان تختلفان في الضوء والزاوية والأسلوب. ماذا تستنتج؟", "options": ["تعرف سبب الفرق بدقة", "المقارنة ضعيفة لأن متغيرات كثيرة تغيرت", "الثانية أفضل دائمًا", "لا حاجة لهدف"], "correct_answer": 1, "explanation": "لا يمكن عزل سبب النتيجة عند تغيير عدة عوامل."},
+      {"id": "q3", "type": "multiple_choice", "question": "أي معيار يجب أن يملك وزنًا كبيرًا لصورة إعلان؟", "options": ["عدد الصفات في البرومبت", "وضوح المنتج والرسالة", "زمن كتابة البرومبت", "اسم الملف"], "correct_answer": 1, "explanation": "الصورة التسويقية تنجح عندما توصل المنتج والرسالة بوضوح."},
+      {"id": "q4", "type": "multiple_choice", "question": "ظهر نص مشوه داخل البوستر. ما المسار الأكثر موثوقية؟", "options": ["نشره كما هو", "توليد الخلفية وإضافة النص بأداة تصميم", "تصغيره حتى لا يرى", "إضافة نص أطول"], "correct_answer": 1, "explanation": "الأدوات المخصصة للنص تمنح دقة وتحكمًا أفضل."},
+      {"id": "q5", "type": "multiple_choice", "question": "متى تعتمد نسخة نهائية؟", "options": ["عندما تبدو مبهرة فقط", "عندما تجتاز معايير الهدف والحقوق والدقة", "بعد أول محاولة", "عند زيادة التشبع"], "correct_answer": 1, "explanation": "الجمال وحده لا يكفي للاستخدام المسؤول والعملي."}
+    ]
+  }
+}

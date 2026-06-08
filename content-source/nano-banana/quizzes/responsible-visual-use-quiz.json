@@ -1,0 +1,24 @@
+{
+  "id": "responsible-visual-use-quiz",
+  "portal_id": "nano-banana",
+  "content_type": "quiz",
+  "title_ar": "اختبار الاستخدام المسؤول للصور والمراجع",
+  "title_en": "Responsible Visual Use Quiz",
+  "excerpt_ar": "مواقف عملية حول المراجع والحقوق والدقة والخصوصية.",
+  "excerpt_en": "Practical scenarios on references, rights, accuracy, and privacy.",
+  "category": "responsible-use",
+  "status": "draft",
+  "featured": false,
+  "tags": ["quiz", "rights", "responsible-use"],
+  "sort_order": 30,
+  "data": {
+    "passing_score": 80,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question": "لديك صورة مرجعية. ما الاستخدام الأفضل؟", "options": ["طلب نسخة مطابقة", "استخراج خصائص عامة مثل الضوء واللون مع توثيق المصدر", "إزالة اسم المصور", "نسب الصورة لنفسك"], "correct_answer": 1, "explanation": "المرجع يساعد على وصف الخصائص، لكنه لا يبرر النسخ أو تجاهل الحقوق."},
+      {"id": "q2", "type": "multiple_choice", "question": "صورة تعليمية تعرض معلومة علمية. ما المطلوب قبل النشر؟", "options": ["الثقة بشكلها", "مراجعة الحقيقة مع مصدر موثوق", "زيادة المؤثرات", "حذف العنوان"], "correct_answer": 1, "explanation": "المولد ليس مصدرًا علميًا وقد ينتج تفاصيل مقنعة لكنها خاطئة."},
+      {"id": "q3", "type": "multiple_choice", "question": "أي بيانات يجب تجنب إدخالها في أداة عامة؟", "options": ["لون الخلفية", "معلومات عميل سرية وصور شخصية بلا إذن", "نسبة الأبعاد", "نوع الإضاءة"], "correct_answer": 1, "explanation": "الخصوصية والموافقة تسبقان سهولة التوليد."},
+      {"id": "q4", "type": "multiple_choice", "question": "غيّر المولد شكل المنتج الحقيقي. ماذا تفعل؟", "options": ["تنشره لأنه أجمل", "ترفضه أو تصلحه وتتحقق من التطابق", "تخفي المنتج", "تضيف ادعاء جديدًا"], "correct_answer": 1, "explanation": "تمثيل المنتج يجب ألا يضلل المشتري."},
+      {"id": "q5", "type": "multiple_choice", "question": "ما فائدة سجل الحقوق والبيانات؟", "options": ["زيادة حجم الملفات", "توضيح المصدر والأداة والترخيص والمراجع البشري", "إلغاء الحاجة للإذن", "ضمان صحة كل صورة تلقائيًا"], "correct_answer": 1, "explanation": "السجل يوفر أثرًا للمراجعة لكنه لا يستبدل الحق أو الحكم البشري."}
+    ]
+  }
+}

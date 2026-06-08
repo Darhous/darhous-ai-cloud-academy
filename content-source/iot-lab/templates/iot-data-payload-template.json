@@ -1,0 +1,19 @@
+{
+  "id": "iot-data-payload-template",
+  "portal_id": "iot-lab",
+  "content_type": "template",
+  "title_ar": "قالب رسالة بيانات IoT",
+  "title_en": "IoT Data Payload Template",
+  "excerpt_ar": "قالب JSON صغير يوضح هوية الجهاز والوقت والقيمة والوحدة وحالة القياس.",
+  "excerpt_en": "A compact JSON payload with device, time, value, unit, and status.",
+  "category": "connectivity-templates",
+  "status": "draft",
+  "featured": false,
+  "tags": ["json", "sensor-data", "mqtt"],
+  "sort_order": 50,
+  "data": {
+    "payload_example": {"device_id": "lab-01", "timestamp": "ISO-8601-UTC", "measurement": "temperature", "value": 24.6, "unit": "celsius", "status": "ok"},
+    "field_rules_ar": {"device_id": "معرف ثابت لا يحتوي بيانات شخصية", "timestamp": "وقت موحد مع منطقة زمنية", "value": "رقم لا نص عند نجاح القراءة", "unit": "وحدة صريحة ثابتة", "status": "ok أو sensor_error أو stale"},
+    "validation_ar": ["ارفض NaN والقيمة المفقودة", "حدد نطاقًا منطقيًا", "لا ترسل كلمات مرور أو مفاتيح", "اختبر رسالة خطأ كما تختبر رسالة النجاح"]
+  }
+}

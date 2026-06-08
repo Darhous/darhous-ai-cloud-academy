@@ -1,0 +1,24 @@
+{
+  "id": "iot-project-design-quiz",
+  "portal_id": "iot-lab",
+  "content_type": "quiz",
+  "title_ar": "اختبار تصميم مشروع IoT",
+  "title_en": "IoT Project Design Quiz",
+  "excerpt_ar": "أسئلة سيناريو تقيس التخطيط والاتصال والفشل والتوثيق.",
+  "excerpt_en": "Scenario questions on planning, connectivity, failure, and documentation.",
+  "category": "project-quizzes",
+  "status": "draft",
+  "featured": false,
+  "tags": ["iot-design", "project-planning", "reliability"],
+  "sort_order": 30,
+  "data": {
+    "passing_score": 80,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question_ar": "ما الذي يجب إثباته قبل إضافة Wi-Fi لمشروع حساس؟", "options_ar": ["استقرار القراءة محليًا", "شكل لوحة العرض", "اسم المنتج", "عدد المتابعين"], "correct_answer": 0, "explanation_ar": "إضافة الشبكة قبل ثبات القياس تخلط أخطاء الحساس بأخطاء الاتصال."},
+      {"id": "q2", "type": "multiple_choice", "question_ar": "انقطع الإنترنت. ما السلوك الأنسب لجهاز قياس؟", "options_ar": ["يواصل القياس ويسجل الفشل ويعيد المحاولة بتأخير", "يعيد التشغيل بلا نهاية", "يرسل كل الأسرار", "يوقف الحساس دائمًا"], "correct_answer": 0, "explanation_ar": "فصل وظيفة القياس عن الشبكة يحافظ على الخدمة ويمنع حلقة إعادة اتصال عدوانية."},
+      {"id": "q3", "type": "multiple_choice", "question_ar": "أي Payload أفضل؟", "options_ar": ["معرف ووقت وقيمة ووحدة وحالة", "قيمة بلا وحدة", "كلمة مرور مع القراءة", "نص طويل غير منظم"], "correct_answer": 0, "explanation_ar": "الحقول القليلة الواضحة تجعل الرسالة قابلة للتحقق دون كشف أسرار."},
+      {"id": "q4", "type": "multiple_choice", "question_ar": "ما معيار نجاح قابل للقياس لنظام تنبيه باب؟", "options_ar": ["يسجل انتقالًا واحدًا لكل فتح وإغلاق", "يبدو ذكيًا", "يستخدم أحدث لوحة", "له أسلاك كثيرة"], "correct_answer": 0, "explanation_ar": "المعيار يصف سلوكًا يمكن تكراره وقياسه، لا انطباعًا."},
+      {"id": "q5", "type": "multiple_choice", "question_ar": "لماذا توثق إصدار المكتبة؟", "options_ar": ["لإعادة إنتاج النسخة وتشخيص اختلاف السلوك", "لزيادة الجهد", "لإلغاء Datasheet", "لمنع الحاجة للاختبار"], "correct_answer": 0, "explanation_ar": "تغير الإصدارات قد يغير الواجهات والسلوك؛ توثيقها يحفظ قابلية الإعادة."}
+    ]
+  }
+}

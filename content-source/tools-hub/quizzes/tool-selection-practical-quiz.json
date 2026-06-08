@@ -1,0 +1,24 @@
+{
+  "id": "tool-selection-practical-quiz",
+  "portal_id": "tools-hub",
+  "content_type": "quiz",
+  "title_ar": "اختبار عملي في اختيار الأدوات",
+  "title_en": "Practical Tool Selection Quiz",
+  "excerpt_ar": "سيناريوهات تقيس تعريف المشكلة والمقارنة واتخاذ القرار.",
+  "excerpt_en": "Scenarios testing problem definition, comparison, and decisions.",
+  "category": "tool-selection",
+  "status": "draft",
+  "featured": false,
+  "tags": ["quiz", "tool-selection", "evaluation"],
+  "sort_order": 10,
+  "data": {
+    "passing_score": 70,
+    "questions": [
+      {"id": "q1", "type": "multiple-choice", "question_ar": "ما أول خطوة قبل مقارنة أدوات إدارة المهام؟", "options_ar": ["تعريف المهمة والنتيجة", "اختيار الأشهر", "شراء الخطة السنوية", "دعوة الفريق"], "correct_answer": 0, "explanation_ar": "تعريف المشكلة يمنع مقارنة ميزات لا ترتبط بالحاجة."},
+      {"id": "q2", "type": "multiple-choice", "question_ar": "أداتان تلخصان النص. كيف تجعل الاختبار عادلًا؟", "options_ar": ["نص وطلب ومعايير متطابقة", "طلب أسهل للأداة المفضلة", "الحكم على التصميم", "استخدام وثائق سرية"], "correct_answer": 0, "explanation_ar": "ثبات المدخلات والمعايير يسمح بعزو الفرق إلى الأداة."},
+      {"id": "q3", "type": "multiple-choice", "question_ar": "حصلت أداة على نقاط عالية لكنها فشلت في شرط عدم تدريب البيانات. ماذا تفعل؟", "options_ar": ["ترفضها أو تستخدم بديلًا معتمدًا", "تتجاهل الشرط", "تزيد وزن السرعة", "ترفع بيانات أكثر"], "correct_answer": 0, "explanation_ar": "شرط الرفض الإلزامي يسبق مجموع النقاط."},
+      {"id": "q4", "type": "multiple-choice", "question_ar": "ما الدليل الأقوى على قيمة أداة؟", "options_ar": ["تحسن مقاس في مهمة متكررة", "عدد المتابعين", "طول قائمة الميزات", "فيديو قصير"], "correct_answer": 0, "explanation_ar": "القيمة ترتبط بنتيجة فعلية مثل الدقة أو الوقت أو تقليل الخطأ."},
+      {"id": "q5", "type": "multiple-choice", "question_ar": "بعد نجاح تجربة قصيرة، ما القرار الأنسب لعملية مهمة؟", "options_ar": ["اعتماد محدود مع مراجعة", "نقل كل العمل فورًا", "اشتراك دائم", "إلغاء النسخ الاحتياطية"], "correct_answer": 0, "explanation_ar": "التدرج يكشف الاتساق والمخاطر قبل توسيع الاعتماد."}
+    ]
+  }
+}

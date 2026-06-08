@@ -1,0 +1,23 @@
+{
+  "id": "wokwi-simulator-tool",
+  "portal_id": "iot-lab",
+  "content_type": "tool",
+  "title_ar": "محاكي Wokwi",
+  "title_en": "Wokwi Simulator",
+  "excerpt_ar": "محاكاة دوائر ولوحات شائعة للتعلم واختبار المنطق قبل لمس العتاد.",
+  "excerpt_en": "Simulate common boards and circuits before using hardware.",
+  "category": "simulation-tools",
+  "status": "draft",
+  "featured": false,
+  "tags": ["simulation", "arduino", "esp32"],
+  "sort_order": 20,
+  "data": {
+    "purpose_ar": "تجربة كود وتوصيل افتراضي للوحات ومكونات مدعومة، ومشاركة نموذج يسهل مراجعته.",
+    "use_when_ar": ["لا تملك المكونات بعد", "تريد اختبار منطق البرنامج", "تشرح دائرة لمتعلم آخر"],
+    "avoid_when_ar": ["تحتاج قياس ضوضاء أو تيار حقيقي", "تختبر حساسًا أو توقيتًا غير ممثل بدقة"],
+    "beginner_use_case_ar": "بناء LED مع مقاومة، تشغيل Blink، ثم إضافة زر وملاحظة تغير الدخل في Serial Monitor.",
+    "workflow_ar": ["ابدأ بمثال صغير", "سم الأطراف والأسلاك", "اختبر حالة طبيعية وحالة خطأ", "أعد التجربة على عتاد حقيقي مع فحص الطاقة"],
+    "risks_limits_ar": ["نجاح المحاكاة لا يثبت سلامة الدائرة الحقيقية", "المكونات والنماذج محدودة", "الفروق الكهربائية الواقعية قد لا تظهر"],
+    "alternatives_ar": ["Tinkercad Circuits للتدريب الأساسي", "Proteus عند توفره للمحاكاة المتخصصة", "Breadboard حقيقية مع ملتيميتر"]
+  }
+}

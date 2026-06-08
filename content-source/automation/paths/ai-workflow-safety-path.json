@@ -1,0 +1,27 @@
+{
+  "id": "ai-workflow-safety-path",
+  "portal_id": "automation",
+  "content_type": "path",
+  "title_ar": "مسار دمج الذكاء الاصطناعي في الأتمتة بأمان",
+  "title_en": "Safe AI Workflow Path",
+  "excerpt_ar": "من اختيار خطوة مناسبة للـAI إلى التحقق والمراجعة والمراقبة المستمرة.",
+  "excerpt_en": "From selecting an AI step to validation, review, and monitoring.",
+  "category": "ai-automation",
+  "status": "draft",
+  "featured": false,
+  "tags": ["ai-automation", "human-review", "workflow-safety"],
+  "sort_order": 30,
+  "data": {
+    "audience": "باني Workflow يريد استخدام AI للتصنيف أو التلخيص دون منحه تحكمًا غير مقيد.",
+    "duration": "3 أسابيع، 4 ساعات أسبوعيًا",
+    "outcomes": ["اختيار حالات استخدام مناسبة", "طلب مخرجات منظمة", "تصميم تحقق وحالات fallback", "قياس الدقة والتكلفة والمراجعة"],
+    "stages": [
+      {"order": 1, "title": "تحديد الدور", "activities": ["افصل القواعد الثابتة عن الحكم اللغوي", "حدد البيانات المسموحة", "اكتب تعريف النجاح والفشل"], "deliverable": "بطاقة استخدام AI", "checkpoint": "الدور محدود في خطوة واحدة."},
+      {"order": 2, "title": "المخرجات المنظمة", "activities": ["حدد schema بسيطًا", "أضف فئة unclear", "تحقق من القيم قبل متابعة المسار"], "deliverable": "عقد مدخلات ومخرجات", "checkpoint": "أي ناتج غير صالح يتوقف بأمان."},
+      {"order": 3, "title": "المراجعة والاختبار", "activities": ["جهز عينة متنوعة", "قارن النتيجة بمرجع بشري", "حدد عتبة المراجعة"], "deliverable": "تقرير تقييم من 30 حالة", "checkpoint": "الأخطاء عالية الأثر لا تنفذ تلقائيًا."},
+      {"order": 4, "title": "التشغيل والمراقبة", "activities": ["راقب التكلفة والدقة", "سجل نسخة التعليمات", "راجع الانحراف شهريًا"], "deliverable": "لوحة مؤشرات وخطة رجوع", "checkpoint": "يمكن تعطيل AI والعودة لمسار بديل."}
+    ],
+    "completion_project": "مصنف رسائل داخلي يعيد فئة وسببًا وثقة، ويرسل الحالات غير الواضحة للمراجعة.",
+    "red_lines": ["لا قرارات توظيف أو مالية تلقائية", "لا إرسال محتوى مولد دون تحقق", "لا تمرير أسرار أو بيانات لا يحتاجها النموذج"]
+  }
+}

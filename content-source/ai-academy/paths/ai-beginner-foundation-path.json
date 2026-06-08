@@ -1,0 +1,33 @@
+{
+  "id": "ai-beginner-foundation-path",
+  "portal_id": "ai-academy",
+  "content_type": "path",
+  "title_ar": "مسار البداية العملية في الذكاء الاصطناعي",
+  "title_en": "Practical AI Beginner Foundation",
+  "category": "ai-basics",
+  "status": "draft",
+  "featured": false,
+  "tags": ["ai-basics", "beginner-path", "practical-ai"],
+  "sort_order": 10,
+  "data": {
+    "description_ar": "مسار تأسيسي قصير يساعد المبتدئ على استخدام أدوات الذكاء الاصطناعي بوضوح وأمان، ثم بناء أول سير عمل عملي.",
+    "level": "beginner",
+    "estimated_hours": 5,
+    "prerequisites_ar": ["لا توجد خبرة تقنية مطلوبة", "إمكانية استخدام أداة محادثة بالذكاء الاصطناعي"],
+    "outcomes_ar": [
+      "كتابة طلب واضح لمهمة بسيطة",
+      "تحسين الإجابة من خلال المتابعة",
+      "التحقق من المعلومات المهمة",
+      "اختيار أداة مناسبة لحالة استخدام",
+      "تنفيذ سير عمل صغير مع مراجعة بشرية"
+    ],
+    "items": [
+      {"content_type": "article", "id": "seven-day-practical-ai-plan", "sort_order": 10},
+      {"content_type": "article", "id": "write-strong-prompt-from-scratch", "sort_order": 20},
+      {"content_type": "article", "id": "common-ai-prompt-mistakes", "sort_order": 30},
+      {"content_type": "article", "id": "verify-ai-answers", "sort_order": 40},
+      {"content_type": "article", "id": "compare-chatgpt-claude-gemini-copilot", "sort_order": 50},
+      {"content_type": "project", "id": "personal-ai-study-assistant", "sort_order": 60}
+    ]
+  }
+}

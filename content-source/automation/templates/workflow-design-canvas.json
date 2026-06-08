@@ -1,0 +1,20 @@
+{
+  "id": "workflow-design-canvas",
+  "portal_id": "automation",
+  "content_type": "template",
+  "title_ar": "قالب تصميم Workflow من صفحة واحدة",
+  "title_en": "One-Page Workflow Design Canvas",
+  "excerpt_ar": "قالب جاهز لتوثيق الهدف والمدخلات والخطوات والاستثناءات قبل البناء.",
+  "excerpt_en": "A reusable canvas for goals, inputs, steps, and exceptions.",
+  "category": "workflow-design",
+  "status": "draft",
+  "featured": false,
+  "tags": ["workflow-template", "process-mapping", "documentation"],
+  "sort_order": 10,
+  "data": {
+    "instructions": "املأ القالب مع منفذ العملية، ولا تفتح أداة الأتمتة قبل تحديد الاستثناءات والمالك.",
+    "fields": {"workflow_name": "", "business_goal": "", "owner": "", "trigger": "", "input_fields": [], "steps": [], "decision_rules": [], "exceptions": [], "outputs": [], "external_actions": [], "permissions_needed": [], "error_notification": "", "stop_procedure": "", "success_metric": ""},
+    "step_format": {"order": 1, "name": "", "input": "", "action": "", "expected_output": "", "failure_route": ""},
+    "review_questions": ["هل القاعدة قابلة للشرح دون اسم الأداة؟", "ماذا يحدث عند نقص كل حقل؟", "أي خطوة لا يمكن عكسها؟", "من يراجع التنبيه؟"]
+  }
+}

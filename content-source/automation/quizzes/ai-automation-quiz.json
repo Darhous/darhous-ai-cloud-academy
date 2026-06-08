@@ -1,0 +1,24 @@
+{
+  "id": "ai-automation-quiz",
+  "portal_id": "automation",
+  "content_type": "quiz",
+  "title_ar": "اختبار دمج AI داخل الأتمتة",
+  "title_en": "AI Automation Quiz",
+  "excerpt_ar": "اختبار عملي للمخرجات المنظمة والمراجعة البشرية والقياس والحدود.",
+  "excerpt_en": "A practical quiz on structured output, human review, metrics, and limits.",
+  "category": "ai-automation",
+  "status": "draft",
+  "featured": false,
+  "tags": ["ai-automation", "human-review", "assessment"],
+  "sort_order": 30,
+  "data": {
+    "passing_score": 70,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question_ar": "أي دور أنسب للـAI في أول Workflow؟", "options": ["حذف حسابات", "تصنيف نص إلى فئات محددة مع مراجعة", "اعتماد دفعات", "تغيير الصلاحيات"], "correct_answer": 1, "explanation_ar": "التصنيف المحدود قابل للتقييم ويمكن تحويل الحالات غير الواضحة للبشر."},
+      {"id": "q2", "type": "multiple_choice", "question_ar": "لماذا نطلب JSON بدل نص حر؟", "options": ["ليكون أطول", "ليسهل التحقق والتوجيه", "لإخفاء الخطأ", "لزيادة التكلفة"], "correct_answer": 1, "explanation_ar": "البنية المحددة تسمح بفحص الحقول والقيم قبل متابعة المسار."},
+      {"id": "q3", "type": "multiple_choice", "question_ar": "ماذا تفعل النتيجة unclear؟", "options": ["ترسل تلقائيًا", "تذهب للمراجعة البشرية", "تحذف", "تتحول عشوائيًا"], "correct_answer": 1, "explanation_ar": "فئة عدم الوضوح تمنع إجبار النموذج على قرار زائف."},
+      {"id": "q4", "type": "multiple_choice", "question_ar": "أي قياس أكثر فائدة من الدقة العامة وحدها؟", "options": ["عدد كلمات التعليمات", "الدقة لكل فئة ونسبة تدخل البشر", "لون الواجهة", "عدد Nodes"], "correct_answer": 1, "explanation_ar": "المتوسط قد يخفي فشل فئة قليلة لكنها مهمة."},
+      {"id": "q5", "type": "multiple_choice", "question_ar": "متى يجب إيقاف خطوة AI؟", "options": ["عند تغير الدقة أو التكلفة فوق الحد", "عند وجود مراجعة", "عند استخدام بيانات تجريبية", "بعد نجاح اختبار واحد"], "correct_answer": 0, "explanation_ar": "عتبات التشغيل المحددة مسبقًا تمنع استمرار أداء منحرف أو تكلفة غير متوقعة."}
+    ]
+  }
+}

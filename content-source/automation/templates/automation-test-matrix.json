@@ -1,0 +1,26 @@
+{
+  "id": "automation-test-matrix",
+  "portal_id": "automation",
+  "content_type": "template",
+  "title_ar": "قالب مصفوفة اختبار الأتمتة",
+  "title_en": "Automation Test Matrix",
+  "excerpt_ar": "سجل حالات النجاح والنقص والتكرار والانقطاع مع النتيجة والدليل.",
+  "excerpt_en": "Track success, missing data, duplicates, outages, results, and evidence.",
+  "category": "automation-quality",
+  "status": "draft",
+  "featured": false,
+  "tags": ["testing", "quality-checklist", "workflow-reliability"],
+  "sort_order": 20,
+  "data": {
+    "instructions": "استخدم بيانات وهمية، وشغّل كل حالة منفردة، ولا تعتبر الاختبار ناجحًا دون دليل قابل للمراجعة.",
+    "columns": ["test_id", "scenario", "input", "expected_result", "actual_result", "evidence", "status", "owner", "notes"],
+    "starter_cases": [
+      {"test_id": "T01", "scenario": "بيانات صحيحة", "expected_result": "اكتمال مرة واحدة"},
+      {"test_id": "T02", "scenario": "حقل مطلوب ناقص", "expected_result": "توقف آمن مع سبب"},
+      {"test_id": "T03", "scenario": "معرف مكرر", "expected_result": "عدم تكرار الأثر"},
+      {"test_id": "T04", "scenario": "خدمة خارجية متوقفة", "expected_result": "إعادة محدودة ثم تنبيه"},
+      {"test_id": "T05", "scenario": "قيمة بصيغة غير صحيحة", "expected_result": "تحويل أو مراجعة دون تخمين"}
+    ],
+    "exit_rule": "لا تشغيل تلقائيًا مع حالة حرجة فاشلة أو نتيجة فعلية غير موثقة."
+  }
+}

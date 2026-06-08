@@ -1,0 +1,23 @@
+{
+  "id": "n8n-workflow-tool",
+  "portal_id": "automation",
+  "content_type": "tool",
+  "title_ar": "n8n لبناء الأتمتة المرئية",
+  "title_en": "n8n Workflow Automation",
+  "excerpt_ar": "أداة مرئية مرنة لبناء Workflows وفحص حركة البيانات بين الخطوات.",
+  "excerpt_en": "A flexible visual tool for workflows and inspecting data between steps.",
+  "category": "workflow-platform",
+  "status": "draft",
+  "featured": false,
+  "tags": ["n8n", "no-code", "workflow-platform"],
+  "sort_order": 10,
+  "data": {
+    "purpose": "ربط الخدمات وبناء منطق وفروع وتحويلات بيانات في مسار مرئي.",
+    "use_when": ["تحتاج تحكمًا واضحًا في البيانات", "لديك شروط وفروع متعددة", "تريد فحص كل تنفيذ خطوة بخطوة"],
+    "avoid_when": ["العملية غير موثقة", "لا يوجد من يملك التشغيل والصيانة", "المهمة البسيطة تنجز بتكامل جاهز أقل تعقيدًا"],
+    "beginner_use_case": "Manual Trigger ينتج ثلاثة سجلات، ثم توحيد الاسم، والتحقق من البريد، وتوجيه الناقص لقائمة مراجعة.",
+    "starter_workflow": ["استخدم بيانات وهمية", "سمّ كل Node بحسب وظيفتها", "افحص Input وOutput", "اختبر سجلًا ناقصًا ومكررًا"],
+    "risks_limits": ["التدفقات الطويلة تصبح صعبة الصيانة", "الصلاحيات الواسعة تزيد أثر الخطأ", "إعادة المحاولة قد تكرر إجراءات خارجية"],
+    "alternatives": ["Make للواجهات المرئية السريعة", "Zapier للتكاملات البسيطة", "سكريبت مخصص عندما يتطلب المنطق اختبارات وتحكمًا برمجيًا عميقًا"]
+  }
+}

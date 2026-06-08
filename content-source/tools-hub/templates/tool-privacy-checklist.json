@@ -1,0 +1,18 @@
+{
+  "id": "tool-privacy-checklist",
+  "portal_id": "tools-hub",
+  "content_type": "template",
+  "title_ar": "قالب قائمة خصوصية الأداة",
+  "title_en": "Tool Privacy Checklist Template",
+  "excerpt_ar": "قائمة قابلة لإعادة الاستخدام قبل رفع البيانات أو ربط حساب.",
+  "excerpt_en": "A reusable checklist before uploading data or connecting an account.",
+  "category": "privacy",
+  "status": "draft",
+  "featured": false,
+  "tags": ["template", "privacy", "data-safety"],
+  "sort_order": 20,
+  "data": {
+    "instructions_ar": ["استخدم بيانات وهمية أثناء الاختبار", "استعن بالمسؤول المختص للبيانات الحساسة", "سجل رابط السياسة وتاريخ المراجعة"],
+    "template_ar": {"اسم_الأداة": "", "نوع_الحساب": "", "تصنيف_البيانات": "", "الغرض": "", "تستخدم_للتدريب": "غير معروف", "مدة_الاحتفاظ": "", "مكان_التخزين": "", "الصلاحيات": [], "التكاملات": [], "التوثيق_المتعدد": false, "طريقة_التصدير": "", "طريقة_الحذف": "", "أسئلة_مفتوحة": [], "القرار": "مسموح/مشروط/مرفوض", "المسؤول": "", "تاريخ_المراجعة": ""}
+  }
+}

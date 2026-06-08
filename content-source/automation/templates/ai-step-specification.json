@@ -1,0 +1,21 @@
+{
+  "id": "ai-step-specification",
+  "portal_id": "automation",
+  "content_type": "template",
+  "title_ar": "قالب مواصفة خطوة AI داخل Workflow",
+  "title_en": "AI Workflow Step Specification",
+  "excerpt_ar": "حدد دور AI والمدخلات والمخرجات والتحقق والمراجعة قبل دمجه.",
+  "excerpt_en": "Define AI role, inputs, outputs, validation, and review before integration.",
+  "category": "ai-automation",
+  "status": "draft",
+  "featured": false,
+  "tags": ["ai-automation", "structured-output", "human-review"],
+  "sort_order": 50,
+  "data": {
+    "instructions": "اجعل المهمة ضيقة، واحذف البيانات غير اللازمة، واختبرها بعينة مرجعية قبل أي تشغيل حقيقي.",
+    "fields": {"task": "", "allowed_inputs": [], "prohibited_inputs": [], "allowed_categories": [], "output_schema": {}, "unclear_rule": "", "confidence_threshold": "", "validation_rules": [], "human_review_conditions": [], "fallback": "", "cost_limit": "", "model_or_version": ""},
+    "evaluation_set": {"sample_size": 30, "reference_owner": "", "metrics": ["valid_json_rate", "accuracy_by_category", "unclear_rate", "human_override_rate", "average_cost"]},
+    "launch_gate": ["كل مخرج يطابق schema", "القيم غير المسموحة تتوقف", "لا أثر خارجي دون مراجعة", "يوجد بديل عند تعطل AI"],
+    "monitoring": ["راجع عينة أسبوعية", "سجل نسخة التعليمات", "راقب تغير الأخطاء والتكلفة", "أوقف الخطوة عند تجاوز العتبة"]
+  }
+}

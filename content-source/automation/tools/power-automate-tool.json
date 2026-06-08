@@ -1,0 +1,23 @@
+{
+  "id": "power-automate-tool",
+  "portal_id": "automation",
+  "content_type": "tool",
+  "title_ar": "Power Automate لبيئة Microsoft",
+  "title_en": "Microsoft Power Automate",
+  "excerpt_ar": "أداة لأتمتة عمليات Microsoft 365 والموافقات والتدفقات المكتبية.",
+  "excerpt_en": "Automation for Microsoft 365, approvals, and office workflows.",
+  "category": "business-automation",
+  "status": "draft",
+  "featured": false,
+  "tags": ["power-automate", "microsoft-365", "admin-workflows"],
+  "sort_order": 40,
+  "data": {
+    "purpose": "ربط Forms وSharePoint وOutlook وTeams ضمن سياسات المؤسسة.",
+    "use_when": ["العمل يعتمد Microsoft 365", "الحسابات والصلاحيات مدارة مؤسسيًا", "تحتاج موافقة أو تنبيهًا داخليًا"],
+    "avoid_when": ["لا تفهم تراخيص الموصلات", "العملية تمتد لخدمات غير مدعومة جيدًا", "لا يوجد مسؤول عن البيئة والسياسات"],
+    "beginner_use_case": "حفظ طلب داخلي من Forms في قائمة SharePoint وإشعار المسؤول، مع إيقاف السجل الناقص.",
+    "risks_limits": ["تعقيد التراخيص والموصلات المميزة", "التدفق قد يعتمد على حساب موظف يغادر", "الموافقات الحساسة تحتاج سياسة واضحة"],
+    "safe_start": ["استخدم حساب خدمة إن سمحت السياسة", "وثق مالك التدفق", "اختبر الصلاحيات الأقل", "ضع بديلًا عند توقف الموصل"],
+    "alternatives": ["تكاملات Microsoft الأصلية", "n8n للبيئات المختلطة", "Make أو Zapier لمسار بسيط متعدد التطبيقات"]
+  }
+}

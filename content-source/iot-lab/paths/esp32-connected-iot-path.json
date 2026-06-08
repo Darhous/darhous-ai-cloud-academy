@@ -1,0 +1,28 @@
+{
+  "id": "esp32-connected-iot-path",
+  "portal_id": "iot-lab",
+  "content_type": "path",
+  "title_ar": "مسار ESP32 من الحساس إلى الإنترنت",
+  "title_en": "ESP32 Sensor-to-Internet Path",
+  "excerpt_ar": "مسار يبني الاتصال فوق قراءة محلية مستقرة مع حماية الأسرار ومعالجة الانقطاع.",
+  "excerpt_en": "Build connectivity over stable local readings with secrets and failure handling.",
+  "category": "learning-paths",
+  "status": "draft",
+  "featured": false,
+  "tags": ["esp32", "wifi", "mqtt", "iot-connectivity"],
+  "sort_order": 20,
+  "data": {
+    "level": "beginner-intermediate",
+    "estimated_hours": 14,
+    "goal_ar": "إرسال قياس موثوق من ESP32 إلى خدمة تجريبية مع تسجيل الأخطاء وإعادة محاولة محدودة.",
+    "prerequisites_ar": ["أساسيات التوصيل", "قراءة حساس محليًا", "معرفة بسيطة بالمتغيرات والشروط"],
+    "stages": [
+      {"order": 1, "title_ar": "تثبيت القياس المحلي", "outcomes_ar": ["فلترة القيم الفارغة", "اختيار معدل قراءة مناسب"], "deliverable_ar": "سجل 30 قراءة مستقرة"},
+      {"order": 2, "title_ar": "فهم الرسالة", "outcomes_ar": ["تصميم JSON صغير", "إضافة device_id والوقت والوحدة"], "deliverable_ar": "ثلاث رسائل اختبار موثقة"},
+      {"order": 3, "title_ar": "الاتصال الآمن", "outcomes_ar": ["فصل بيانات الشبكة عن المحتوى المنشور", "اختيار HTTP أو MQTT حسب الحاجة"], "deliverable_ar": "اتصال تجريبي دون أسرار في المستودع"},
+      {"order": 4, "title_ar": "تحمل الفشل", "outcomes_ar": ["مهلة اتصال", "إعادة محاولة بتأخير", "تسجيل القراءة الفاشلة"], "deliverable_ar": "اختبار انقطاع شبكة واستعادة ناجحة"},
+      {"order": 5, "title_ar": "لوحة العرض", "outcomes_ar": ["عرض القيمة والوحدة والزمن", "تمييز البيانات القديمة"], "deliverable_ar": "لوحة بسيطة ومعيار نجاح مكتوب"}
+    ],
+    "completion_criteria_ar": ["لا ترسل قراءات غير صالحة", "الأسرار غير موجودة في الملفات العامة", "انقطاع Wi-Fi لا يوقف حلقة القياس", "معدل الإرسال مبرر"]
+  }
+}

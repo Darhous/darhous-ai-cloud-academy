@@ -1,0 +1,23 @@
+{
+  "id": "zapier-automation-tool",
+  "portal_id": "automation",
+  "content_type": "tool",
+  "title_ar": "Zapier للأتمتة السريعة بين التطبيقات",
+  "title_en": "Zapier App Automation",
+  "excerpt_ar": "خيار مباشر لمسارات الأعمال البسيطة بين تطبيقات جاهزة.",
+  "excerpt_en": "A direct option for simple workflows across supported business apps.",
+  "category": "workflow-platform",
+  "status": "draft",
+  "featured": false,
+  "tags": ["zapier", "no-code", "business-automation"],
+  "sort_order": 30,
+  "data": {
+    "purpose": "تشغيل إجراء في تطبيق عند حدوث حدث في تطبيق آخر بأقل إعداد تقني.",
+    "use_when": ["المسار قصير وواضح", "التطبيقات مدعومة رسميًا", "تريد إثبات الفكرة بسرعة"],
+    "avoid_when": ["المنطق يحتاج فروعًا وتحويلات كثيرة", "التكلفة عند الحجم المتوقع غير مناسبة", "تحتاج استضافة ذاتية"],
+    "beginner_use_case": "عند إضافة صف تجريبي جديد، أنشئ مهمة داخلية بشرط وجود البريد، دون إرسال رسالة للعميل.",
+    "risks_limits": ["سهولة التشغيل قد تخفي ضعف تصميم العملية", "الـZap قد يعالج حدثًا مكررًا", "الخطة المجانية أو حدود المهام قد لا تناسب التشغيل"],
+    "review_checklist": ["تحقق من الحقول", "اختبر التكرار", "حدد مالك التنبيه", "راجع سجل المهام أسبوعيًا"],
+    "alternatives": ["Make للسيناريوهات البصرية", "n8n للتحكم والمرونة", "تكامل أصلي داخل التطبيق لمهمة واحدة"]
+  }
+}

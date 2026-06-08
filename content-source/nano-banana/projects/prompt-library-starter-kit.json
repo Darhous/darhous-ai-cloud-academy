@@ -1,0 +1,23 @@
+{
+  "id": "prompt-library-starter-kit",
+  "portal_id": "nano-banana",
+  "content_type": "project",
+  "title_ar": "حزمة بداية لمكتبة برومبتات بصرية",
+  "title_en": "Prompt Library Starter Kit",
+  "excerpt_ar": "ابنِ مكتبة صغيرة من قوالب مجربة مع متغيرات وتقييم وإصدارات.",
+  "excerpt_en": "Build a small tested and versioned visual prompt library.",
+  "category": "prompt-management",
+  "status": "draft",
+  "featured": false,
+  "tags": ["prompt-library", "documentation", "workflow"],
+  "sort_order": 30,
+  "data": {
+    "goal": "إنشاء عشرة قوالب قابلة لإعادة الاستخدام بدل تجميع نصوص غير موثقة.",
+    "scenario": "فريق محتوى يكرر أغلفة المقالات وصور المنتجات والمنشورات التعليمية.",
+    "prerequisites": ["عينات استخدام حقيقية", "نظام تسمية", "بطاقة تقييم", "مكان تخزين مشترك"],
+    "steps": ["اختر ثلاث حالات متكررة", "اجمع البرومبتات السابقة", "استخرج الأجزاء الثابتة والمتغيرة", "اختبر كل قالب مرتين", "سجل القيود والأداة", "اعتمد النسخ الناجحة", "أضف مالكًا وتاريخ مراجعة"],
+    "expected_output": ["10 قوالب", "فهرس حسب الاستخدام", "أمثلة قبل/بعد", "سجل إصدارات"],
+    "success_criteria": ["كل قالب يوضح المدخلات", "كل قالب جُرّب", "يمكن لشخص جديد استخدامه", "المراجع والحقوق موثقة"],
+    "extension_ideas": ["وسوم بحث", "مراجعة ربع سنوية", "قوالب خاصة بكل قناة"]
+  }
+}

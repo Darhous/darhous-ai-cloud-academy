@@ -1,0 +1,23 @@
+{
+  "id": "build-my-minimal-tool-stack",
+  "portal_id": "tools-hub",
+  "content_type": "project",
+  "title_ar": "مشروع بناء Tool Stack بسيط",
+  "title_en": "Build My Minimal Tool Stack",
+  "excerpt_ar": "حوّل جرد أدواتك إلى نظام صغير موثق وقابل للتصدير.",
+  "excerpt_en": "Turn your tool inventory into a small documented and exportable system.",
+  "category": "productivity-stack",
+  "status": "draft",
+  "featured": false,
+  "tags": ["minimal-toolkit", "productivity", "documentation"],
+  "sort_order": 30,
+  "data": {
+    "goal_ar": "اختيار أداة أساسية لكل وظيفة وتقليل التكرار والاشتراكات.",
+    "scenario_ar": "ملاحظاتك ومهامك وملفاتك موزعة بين تطبيقات كثيرة.",
+    "prerequisites_ar": ["سجل استخدام أسبوع", "قائمة الاشتراكات", "ساعة لتجربة التصدير"],
+    "steps_ar": ["اجرد الأدوات", "حدد الوظائف الأساسية", "عين مصدر الحقيقة", "ارسم مسار مهمة", "جمّد أداة مكررة", "اختبر النسخ الاحتياطي", "وثق المالك والبديل"],
+    "expected_output_ar": "خريطة تدفق وسجل أدوات وقائمة إلغاء أو تجميد.",
+    "success_criteria_ar": ["لا توجد وظيفة بلا أداة أو قاعدة", "النسخة النهائية معروفة", "التجديدات موثقة", "يوجد بديل لأهم مخرج"],
+    "extension_ideas_ar": ["قياس عدد الانتقالات أسبوعيًا", "مشاركة السجل مع الفريق", "تنظيف ربع سنوي"]
+  }
+}

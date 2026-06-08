@@ -1,0 +1,25 @@
+{
+  "id": "subscription-value-calculator",
+  "portal_id": "tools-hub",
+  "content_type": "tool",
+  "title_ar": "حاسبة قيمة اشتراك الأداة",
+  "title_en": "Tool Subscription Value Calculator",
+  "excerpt_ar": "احسب القيمة الشهرية بعد الاشتراك ووقت المراجعة والتعلم.",
+  "excerpt_en": "Calculate monthly value after subscription, review, and learning time.",
+  "category": "tool-cost",
+  "status": "draft",
+  "featured": false,
+  "tags": ["subscription", "cost", "tool-value"],
+  "sort_order": 50,
+  "data": {
+    "purpose_ar": "اختبار هل الاشتراك المدفوع يزيل قيدًا متكررًا بقيمة قابلة للقياس.",
+    "use_when_ar": ["قبل الترقية", "عند التجديد", "عند مقارنة خطتين"],
+    "avoid_when_ar": ["لا تختزل قرارات الخصوصية في المال", "لا تفترض أن كل دقيقة موفرة تتحول إلى دخل"],
+    "beginner_use_case_ar": "حساب قيمة أداة توفر 20 دقيقة في مهمة تتكرر 12 مرة شهريًا.",
+    "workflow_ar": ["سجل مرات الاستخدام", "قدر الوقت الموفر", "اطرح الاشتراك ووقت المراجعة والتعلم", "اختبر شهرًا", "حدد شرط الإلغاء"],
+    "formula_ar": "القيمة = (الساعات الموفرة × قيمة الساعة) - الاشتراك - تكلفة التعلم والمراجعة",
+    "risks_limits_ar": ["التقديرات قد تكون متفائلة", "الخصم السنوي قد يخفي ضعف الاستخدام", "السعر قد يزيد بالحجم"],
+    "alternatives_ar": ["الخطة المجانية", "شراء مرة واحدة", "طريقة يدوية محسنة", "أداة موجودة بالفعل"],
+    "output_ar": "قرار دفع أو تأجيل أو إلغاء مع تاريخ مراجعة."
+  }
+}

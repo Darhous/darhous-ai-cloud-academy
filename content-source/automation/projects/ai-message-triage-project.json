@@ -1,0 +1,24 @@
+{
+  "id": "ai-message-triage-project",
+  "portal_id": "automation",
+  "content_type": "project",
+  "title_ar": "مشروع فرز الرسائل بالذكاء الاصطناعي",
+  "title_en": "AI Message Triage Project",
+  "excerpt_ar": "صمم مصنفًا محدودًا يعيد فئة وسببًا ويرسل الحالات غير الواضحة للإنسان.",
+  "excerpt_en": "Design a bounded classifier that returns a category, reason, and review route.",
+  "category": "ai-automation",
+  "status": "draft",
+  "featured": false,
+  "tags": ["ai-classification", "human-review", "structured-output"],
+  "sort_order": 20,
+  "data": {
+    "goal": "تصنيف الرسائل الداخلية إلى sales وsupport وspam وunclear دون رد تلقائي.",
+    "scenario": "صندوق تجريبي يستقبل رسائل متنوعة، ويحتاج الفريق ترتيبها مع إبقاء القرار النهائي للبشر.",
+    "prerequisites": ["30 رسالة وهمية ومتوازنة", "أداة Workflow", "وصول تجريبي لنموذج AI", "مرجع تصنيف بشري"],
+    "steps": ["احذف أي بيانات حساسة", "عرّف الفئات بأمثلة وحدود", "اطلب JSON يحوي category وreason وconfidence", "تحقق من schema والقيم", "وجه unclear والثقة المنخفضة للمراجعة", "قارن النتائج بالمرجع", "سجل الأخطاء والتكلفة", "اختبر نصًا مضللًا أو فارغًا"],
+    "expected_output": "جدول تقييم يبين التصنيف المرجعي والناتج والثقة والقرار النهائي.",
+    "success_criteria": ["كل ناتج صالح بنيويًا أو متوقف بأمان", "لا يتم إرسال رد", "الحالات غير الواضحة تصل للمراجعة", "الدقة محسوبة لكل فئة لا كمتوسط فقط"],
+    "extension_ideas": ["اقتراح أولوية غير ملزمة", "مراجعة الانحراف شهريًا", "إضافة مسار قواعد ثابتة قبل AI"],
+    "risks": ["تسرب البيانات", "الثقة الزائفة", "انحياز عينة الاختبار", "زيادة التكلفة مع الرسائل الطويلة"]
+  }
+}

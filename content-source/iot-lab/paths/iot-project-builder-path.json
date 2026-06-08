@@ -1,0 +1,28 @@
+{
+  "id": "iot-project-builder-path",
+  "portal_id": "iot-lab",
+  "content_type": "path",
+  "title_ar": "مسار بناء مشروع IoT متكامل",
+  "title_en": "Complete IoT Project Builder",
+  "excerpt_ar": "من تعريف المشكلة واختيار الحساس إلى الاختبار والتوثيق وخطة التحسين.",
+  "excerpt_en": "From problem definition and sensor choice to testing and documentation.",
+  "category": "learning-paths",
+  "status": "draft",
+  "featured": false,
+  "tags": ["project-planning", "sensor-selection", "documentation"],
+  "sort_order": 30,
+  "data": {
+    "level": "intermediate",
+    "estimated_hours": 18,
+    "goal_ar": "تحويل مشكلة واقعية صغيرة إلى نموذج IoT قابل للفحص بدل تجميع مكونات بلا متطلبات.",
+    "prerequisites_ar": ["دائرة حساس ناجحة", "أساسيات ESP32 أو Arduino", "القدرة على قراءة Datasheet"],
+    "stages": [
+      {"order": 1, "title_ar": "تعريف المشكلة", "tasks_ar": ["تحديد المستخدم والقرار", "كتابة ثلاثة معايير نجاح", "تحديد البيئة والميزانية"]},
+      {"order": 2, "title_ar": "التصميم", "tasks_ar": ["رسم بلوكات المدخل والمعالجة والمخرج", "إعداد ميزانية طاقة", "مقارنة حساسين"]},
+      {"order": 3, "title_ar": "النموذج المحلي", "tasks_ar": ["تشغيل كل مكون منفردًا", "دمج نسخة دنيا", "حفظ قياسات مرجعية"]},
+      {"order": 4, "title_ar": "الاتصال والواجهة", "tasks_ar": ["تعريف Payload", "إضافة مهلة وفشل متوقع", "عرض حالة آخر تحديث"]},
+      {"order": 5, "title_ar": "التحقق والتسليم", "tasks_ar": ["اختبار الحدود والانقطاع", "توثيق الإصدارات والتوصيل", "إعداد عرض قصير للنتيجة والقيود"]}
+    ],
+    "review_gates_ar": ["لا شراء قبل اكتمال قائمة المتطلبات", "لا اتصال قبل ثبات القراءة", "لا تشغيل حمل كبير مباشرة من Pin", "لا ادعاء نجاح دون قياس"]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "wiring-safety-checklist-template",
+  "portal_id": "iot-lab",
+  "content_type": "template",
+  "title_ar": "قائمة فحص التوصيل قبل الطاقة",
+  "title_en": "Pre-Power Wiring Checklist",
+  "excerpt_ar": "قائمة قصيرة قابلة لإعادة الاستخدام قبل تشغيل أي دائرة منخفضة الجهد.",
+  "excerpt_en": "A reusable pre-power checklist for low-voltage circuits.",
+  "category": "safety-templates",
+  "status": "draft",
+  "featured": false,
+  "tags": ["wiring-safety", "checklist", "electronics"],
+  "sort_order": 20,
+  "data": {
+    "project": "",
+    "checks_ar": [
+      {"item": "جهد المصدر يطابق اللوحة والمكونات", "result": "", "evidence": ""},
+      {"item": "VCC وGND والقطبية مؤكدة من Datasheet", "result": "", "evidence": ""},
+      {"item": "لا استمرارية مباشرة غير مقصودة بين VCC وGND", "result": "", "evidence": ""},
+      {"item": "LED والأحمال لها مقاومة أو Driver مناسب", "result": "", "evidence": ""},
+      {"item": "كل الأنظمة تشترك في GND عند الحاجة", "result": "", "evidence": ""},
+      {"item": "الأسلاك المكشوفة والماء والأجزاء المتحركة بعيدة", "result": "", "evidence": ""}
+    ],
+    "approval_ar": {"reviewer": "", "date": "", "first_power_plan": "ابدأ بحد تيار منخفض وشغّل جزءًا واحدًا."}
+  }
+}

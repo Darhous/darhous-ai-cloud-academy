@@ -1,0 +1,32 @@
+{
+  "id": "prompt-engineering-practical-path",
+  "portal_id": "ai-academy",
+  "content_type": "path",
+  "title_ar": "مسار هندسة البرومبت للمبتدئين",
+  "title_en": "Practical Prompt Engineering for Beginners",
+  "category": "prompt-engineering",
+  "status": "draft",
+  "featured": false,
+  "tags": ["prompt-engineering", "prompt-writing", "beginner-path"],
+  "sort_order": 20,
+  "data": {
+    "description_ar": "مسار تطبيقي لبناء البرومبت وتحليل النتيجة وتحسينها عبر أمثلة وقوالب واختبار قصير.",
+    "level": "beginner",
+    "estimated_hours": 4,
+    "prerequisites_ar": ["معرفة أساسية باستخدام أدوات المحادثة"],
+    "outcomes_ar": [
+      "تمييز مكونات البرومبت الجيد",
+      "تحويل السؤال العام إلى مهمة محددة",
+      "تشخيص أسباب الإجابات الضعيفة",
+      "بناء قالب برومبت قابل لإعادة الاستخدام"
+    ],
+    "items": [
+      {"content_type": "article", "id": "write-strong-prompt-from-scratch", "sort_order": 10},
+      {"content_type": "article", "id": "good-prompt-components", "sort_order": 20},
+      {"content_type": "article", "id": "ordinary-vs-professional-ai-question", "sort_order": 30},
+      {"content_type": "article", "id": "common-ai-prompt-mistakes", "sort_order": 40},
+      {"content_type": "template", "id": "strong-prompt-template", "sort_order": 50},
+      {"content_type": "quiz", "id": "prompt-basics-quiz", "sort_order": 60}
+    ]
+  }
+}

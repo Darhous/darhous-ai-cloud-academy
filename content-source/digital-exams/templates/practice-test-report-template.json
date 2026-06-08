@@ -1,0 +1,29 @@
+{
+  "id": "practice-test-report-template",
+  "portal_id": "digital-exams",
+  "content_type": "template",
+  "title_ar": "قالب تقرير الاختبار التدريبي",
+  "title_en": "Practice Test Report Template",
+  "category": "practice-tests",
+  "status": "draft",
+  "featured": false,
+  "tags": ["practice-test", "performance-report", "study-decisions"],
+  "sort_order": 50,
+  "data": {
+    "purpose_ar": "تلخيص نتيجة اختبار تدريبي وتحويلها إلى قرارات للجلسات التالية.",
+    "instructions_ar": ["املأ التقرير بعد التصحيح مباشرة", "حلل الدقة والوقت ونوع الخطأ", "اختر قرارين فقط قابلين للتنفيذ", "حدد موعد اختبار إعادة"],
+    "fields": [
+      {"label_ar": "اسم الاختبار وتاريخه", "placeholder_ar": "اختبار الوحدة 3 - التاريخ"},
+      {"label_ar": "النتيجة", "placeholder_ar": "الصحيح من الإجمالي والنسبة"},
+      {"label_ar": "الوقت", "placeholder_ar": "المخطط والفعلي"},
+      {"label_ar": "أفضل موضوع", "placeholder_ar": "مع دليل من النتيجة"},
+      {"label_ar": "أضعف موضوع", "placeholder_ar": "مع عدد الأخطاء"},
+      {"label_ar": "أنماط الأخطاء", "placeholder_ar": "معرفة أو قراءة أو تطبيق أو وقت"},
+      {"label_ar": "قرار التدريب الأول", "placeholder_ar": "نشاط ومدة"},
+      {"label_ar": "قرار التدريب الثاني", "placeholder_ar": "نشاط ومدة"},
+      {"label_ar": "موعد إعادة الاختبار", "placeholder_ar": "تاريخ واختبار جديد"}
+    ],
+    "copy_ready_ar": "الاختبار والتاريخ: ____\nالنتيجة: ____ / ____\nالوقت المخطط / الفعلي: ____ / ____\nأفضل موضوع: ____\nأضعف موضوع: ____\nأكبر نمط خطأ: ____\nقرار 1: ____\nقرار 2: ____\nإعادة الاختبار: ____",
+    "review_question_ar": "ما الدليل الذي يجعل قراري التدريب أهم من إعادة الاختبار فورا؟"
+  }
+}

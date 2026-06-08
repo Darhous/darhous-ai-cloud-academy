@@ -1,0 +1,23 @@
+{
+  "id": "image-comparison-scorecard",
+  "portal_id": "nano-banana",
+  "content_type": "tool",
+  "title_ar": "بطاقة مقارنة نتائج الصور",
+  "title_en": "Image Comparison Scorecard",
+  "excerpt_ar": "أداة تقييم تمنع اختيار الصورة بالانطباع وحده.",
+  "excerpt_en": "Evaluate outputs with consistent criteria.",
+  "category": "quality-control",
+  "status": "draft",
+  "featured": false,
+  "tags": ["comparison", "quality", "ab-testing"],
+  "sort_order": 40,
+  "data": {
+    "purpose": "مقارنة نسختين أو أكثر وفق الهدف بدل الانبهار بالتفاصيل.",
+    "use_when": ["تختبر برومبتين", "تراجع مخرجات فريق", "تختار صورة لحملة أو درس"],
+    "avoid_when": ["لا يوجد هدف أو جمهور محدد", "تختلف المقاسات والاستخدامات جذريًا"],
+    "criteria": [{"name": "وضوح الفكرة", "weight": 30}, {"name": "سلامة التكوين", "weight": 25}, {"name": "دقة الموضوع", "weight": 20}, {"name": "ملاءمة الأسلوب", "weight": 15}, {"name": "الجاهزية للاستخدام", "weight": 10}],
+    "beginner_workflow": ["قيّم كل معيار من 1 إلى 5", "اكتب دليلًا مرئيًا للدرجة", "احسب النتيجة المرجحة", "حدد تعديلًا واحدًا"],
+    "risks_limits": ["الأرقام لا تعوض الحكم المهني", "قد تخفي الدرجة عيبًا قانونيًا حاسمًا"],
+    "alternatives": ["مراجعة أقران", "اختبار مع مستخدمين", "قائمة قبول/رفض بسيطة"]
+  }
+}

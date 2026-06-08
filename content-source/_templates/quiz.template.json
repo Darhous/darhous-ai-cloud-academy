@@ -1,0 +1,13 @@
+{
+  "id": "placeholder-quiz",
+  "portal_id": "ai-academy",
+  "content_type": "quiz",
+  "title_ar": "عنوان مؤقت",
+  "title_en": "Placeholder title",
+  "category": "placeholder",
+  "status": "draft",
+  "featured": false,
+  "tags": [],
+  "sort_order": 10,
+  "data": {}
+}

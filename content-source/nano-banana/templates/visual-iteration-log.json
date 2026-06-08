@@ -1,0 +1,19 @@
+{
+  "id": "visual-iteration-log",
+  "portal_id": "nano-banana",
+  "content_type": "template",
+  "title_ar": "قالب سجل تحسين صورة",
+  "title_en": "Visual Iteration Log",
+  "excerpt_ar": "سجل يربط المشكلة المرئية بالفرضية والتعديل والنتيجة.",
+  "excerpt_en": "Link a visible problem to a test and result.",
+  "category": "quality-control",
+  "status": "draft",
+  "featured": false,
+  "tags": ["iteration", "testing", "documentation"],
+  "sort_order": 30,
+  "data": {
+    "copy_ready_template": "معرف التجربة: [ID]\nالهدف: [الهدف]\nالبرومبت الحالي: [النص]\nالمشكلة المرئية الأكبر: [مشكلة واحدة]\nما يجب الحفاظ عليه: [العناصر]\nالفرضية: إذا غيّرت [متغير واحد] فسيتحسن [المعيار]\nالتعديل: [النص المعدل]\nالنتيجة: [ما حدث]\nالدرجة قبل/بعد: [الدرجة]\nالقرار التالي: [اعتماد/تعديل/رفض]",
+    "rules": ["متغير واحد في الجولة", "وصف قابل للرؤية", "احتفظ بالنسخة السابقة", "لا تعتمد النتيجة بلا مراجعة"],
+    "recommended_metrics": ["وضوح الموضوع", "التكوين", "الدقة", "ملاءمة الأسلوب", "الجاهزية"]
+  }
+}

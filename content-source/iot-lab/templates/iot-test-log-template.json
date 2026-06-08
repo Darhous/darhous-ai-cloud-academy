@@ -1,0 +1,20 @@
+{
+  "id": "iot-test-log-template",
+  "portal_id": "iot-lab",
+  "content_type": "template",
+  "title_ar": "سجل اختبار مشروع IoT",
+  "title_en": "IoT Test Log",
+  "excerpt_ar": "سجل يربط كل تغيير بنتيجة متوقعة وقياس وقرار تالٍ.",
+  "excerpt_en": "Link each change to an expected result, measurement, and next decision.",
+  "category": "documentation-templates",
+  "status": "draft",
+  "featured": false,
+  "tags": ["testing", "documentation", "troubleshooting"],
+  "sort_order": 40,
+  "data": {
+    "project": "",
+    "stable_version": "",
+    "entry_template_ar": {"التاريخ والوقت": "", "التغيير الوحيد": "", "النتيجة المتوقعة": "", "خطوات الاختبار": ["", ""], "القياسات والوحدات": "", "النتيجة الفعلية": "", "نجح": "", "صورة أو سجل": "", "القرار التالي": ""},
+    "rules_ar": ["غيّر متغيرًا واحدًا في كل تجربة", "اكتب لا يعمل بوصف قابل للقياس", "احفظ نسخة مستقرة قبل الدمج", "سجل إصدار المكتبة واللوحة"]
+  }
+}

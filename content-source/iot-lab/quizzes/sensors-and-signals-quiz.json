@@ -1,0 +1,24 @@
+{
+  "id": "sensors-and-signals-quiz",
+  "portal_id": "iot-lab",
+  "content_type": "quiz",
+  "title_ar": "اختبار الحساسات والإشارات",
+  "title_en": "Sensors and Signals Quiz",
+  "excerpt_ar": "اختبار عملي في Digital وAnalog والمعايرة وفهم القراءات.",
+  "excerpt_en": "A practical quiz on digital, analog, calibration, and readings.",
+  "category": "sensor-quizzes",
+  "status": "draft",
+  "featured": false,
+  "tags": ["sensors", "analog", "digital", "calibration"],
+  "sort_order": 20,
+  "data": {
+    "passing_score": 80,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question_ar": "زر غير موصول بمقاومة Pull-up أو Pull-down يعطي حالات عشوائية. السبب؟", "options_ar": ["المدخل عائم", "PWM بطيء", "الجهد مثالي", "الحساس يحتاج MQTT"], "correct_answer": 0, "explanation_ar": "المدخل العائم لا يملك مستوى منطقيًا ثابتًا ويلتقط الضوضاء."},
+      {"id": "q2", "type": "multiple_choice", "question_ar": "أي خطوة أفضل بعد أول قراءة من حساس حرارة؟", "options_ar": ["جمع عدة قراءات ومقارنتها بمرجع", "نشرها فورًا", "اعتبارها دقيقة تمامًا", "زيادة الجهد"], "correct_answer": 0, "explanation_ar": "التكرار والمرجع يكشفان التذبذب والانحياز قبل الاعتماد على البيانات."},
+      {"id": "q3", "type": "multiple_choice", "question_ar": "هل PWM خرج Analog حقيقي دائمًا؟", "options_ar": ["لا، غالبًا نبضات رقمية بمتوسط متغير", "نعم دائمًا", "هو دخل I2C", "هو بروتوكول شبكة"], "correct_answer": 0, "explanation_ar": "PWM يغير نسبة زمن التشغيل، وقد يحتاج ترشيحًا ليشبه جهدًا مستمرًا."},
+      {"id": "q4", "type": "multiple_choice", "question_ar": "حساسان لهما نفس عدد الخانات، لكن دقتهما مختلفة. ماذا يعني ذلك؟", "options_ar": ["الوضوح لا يساوي الدقة", "الأرخص أدق", "كل القراءات صحيحة", "الواجهة تحدد الدقة وحدها"], "correct_answer": 0, "explanation_ar": "قد يعرض الحساس تغيرات صغيرة بينما تبقى القيمة منحازة عن الحقيقة."},
+      {"id": "q5", "type": "multiple_choice", "question_ar": "قراءة واحدة قفزت بعيدًا عن 29 قراءة مستقرة. التصرف الأفضل؟", "options_ar": ["وسمها شاذة وفحص السبب", "تغيير كل التوصيل فورًا", "حذف كل البيانات", "رفع معدل الإرسال"], "correct_answer": 0, "explanation_ar": "سياق السلسلة يسمح بعزل الشذوذ ثم فحص الطاقة والتوصيل والبيئة."}
+    ]
+  }
+}

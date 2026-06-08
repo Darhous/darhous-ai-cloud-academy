@@ -1,0 +1,24 @@
+{
+  "id": "workflow-safety-quiz",
+  "portal_id": "automation",
+  "content_type": "quiz",
+  "title_ar": "اختبار سلامة واعتمادية Workflow",
+  "title_en": "Workflow Safety Quiz",
+  "excerpt_ar": "مواقف عملية عن الصلاحيات والأخطاء والتكرار والإطلاق الآمن.",
+  "excerpt_en": "Practical scenarios on permissions, failures, duplicates, and launch safety.",
+  "category": "automation-safety",
+  "status": "draft",
+  "featured": false,
+  "tags": ["automation-safety", "error-handling", "assessment"],
+  "sort_order": 20,
+  "data": {
+    "passing_score": 70,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question_ar": "فشلت خدمة بسبب مهلة مؤقتة. ما الاستجابة الأفضل؟", "options": ["محاولة بلا حد", "إعادة محدودة بتأخير ثم تنبيه", "حذف السجل", "بدء كل السجلات من جديد"], "correct_answer": 1, "explanation_ar": "الإعادة المحدودة تناسب العطل المؤقت وتمنع الحلقات والتكلفة غير المنضبطة."},
+      {"id": "q2", "type": "multiple_choice", "question_ar": "ما أقل صلاحية مناسبة لمسار يقرأ جدولًا؟", "options": ["مدير الحساب", "قراءة الجدول المطلوب فقط", "حذف كل الملفات", "وصول لكل المؤسسة"], "correct_answer": 1, "explanation_ar": "مبدأ أقل صلاحية يقلل أثر تسرب المفتاح أو الخطأ."},
+      {"id": "q3", "type": "multiple_choice", "question_ar": "لماذا نستخدم معرفًا ثابتًا للسجل؟", "options": ["لتحسين اللون", "لمنع تكرار الأثر عند إعادة التشغيل", "لزيادة عدد الخطوات", "لإخفاء الخطأ"], "correct_answer": 1, "explanation_ar": "المعرف يسمح بالتحقق مما إذا عولج الحدث سابقًا."},
+      {"id": "q4", "type": "multiple_choice", "question_ar": "أي بند يمنع الإطلاق؟", "options": ["اسم Node قصير", "فشل اختبار إرسال مكرر", "وجود توثيق", "استخدام بيانات وهمية"], "correct_answer": 1, "explanation_ar": "تكرار الإرسال خطر عالي الأثر ويجب إصلاحه قبل التشغيل."},
+      {"id": "q5", "type": "multiple_choice", "question_ar": "ما التنبيه المفيد؟", "options": ["حدث خطأ", "معرف التنفيذ والخطوة والتصنيف دون أسرار", "نسخة كاملة من كلمات المرور", "لا تنبيه"], "correct_answer": 1, "explanation_ar": "التنبيه يجب أن يتيح التشخيص مع حماية البيانات الحساسة."}
+    ]
+  }
+}

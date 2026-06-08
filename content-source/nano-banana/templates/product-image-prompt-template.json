@@ -1,0 +1,20 @@
+{
+  "id": "product-image-prompt-template",
+  "portal_id": "nano-banana",
+  "content_type": "template",
+  "title_ar": "قالب برومبت صورة منتج",
+  "title_en": "Product Image Prompt Template",
+  "excerpt_ar": "قالب يحافظ على خصائص المنتج ويضبط الخلفية والضوء ومساحة النص.",
+  "excerpt_en": "Control product identity, background, light, and copy space.",
+  "category": "product-images",
+  "status": "draft",
+  "featured": false,
+  "tags": ["product", "ecommerce", "prompt-template"],
+  "sort_order": 20,
+  "data": {
+    "fields": ["اسم المنتج", "الشكل والمواد", "الألوان الثابتة", "زاوية العرض", "الخلفية", "مصدر الضوء", "الظل والانعكاس", "مساحة النص", "النسبة", "القيود"],
+    "copy_ready_template": "صورة تجارية لـ[المنتج]، مصنوع من [المادة] بلون [اللون الثابت] وشكل [الوصف]. يظهر من زاوية [الزاوية] فوق [السطح] أمام خلفية [الخلفية]. إضاءة [الوصف] من [الاتجاه] مع ظل [الظل]. تكوين [النسبة] واترك مساحة فارغة [المكان]. حافظ بدقة على [الخصائص] ولا تضف [عناصر غير مطلوبة].",
+    "negative_checks": ["لا تغيّر الشعار أو اللون", "لا تضف مزايا غير حقيقية", "لا تعتمد على نص مولد داخل الصورة"],
+    "example_input": {"product": "زجاجة عطر مربعة", "fixed": "غطاء ذهبي وملصق أبيض", "scene": "رخام فاتح وإضاءة جانبية دافئة", "use": "منشور مربع"}
+  }
+}

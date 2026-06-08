@@ -1,0 +1,23 @@
+{
+  "id": "cover-letter-evidence-map",
+  "portal_id": "career",
+  "content_type": "template",
+  "title_ar": "قالب رسالة تغطية مبنية على الأدلة",
+  "title_en": "Evidence-Based Cover Letter",
+  "category": "job-applications",
+  "status": "draft",
+  "featured": false,
+  "tags": ["cover-letter", "job-application", "evidence"],
+  "sort_order": 40,
+  "data": {
+    "purpose_ar": "كتابة رسالة قصيرة تربط احتياج الدور بدليلين حقيقيين.",
+    "instructions_ar": ["حدد متطلبين قبل الكتابة", "لا تكرر CV حرفيا", "تحقق من الاسم والمسمى"],
+    "fields_ar": [
+      {"label_ar": "سبب الاهتمام المحدد", "placeholder_ar": "مهمة أو مجال في الدور"},
+      {"label_ar": "المتطلب الأول ودليله", "placeholder_ar": "احتياج + مثال"},
+      {"label_ar": "المتطلب الثاني ودليله", "placeholder_ar": "احتياج + مثال"},
+      {"label_ar": "الختام", "placeholder_ar": "طلب مناقشة مهني"}
+    ],
+    "reusable_text_ar": "أتقدم لوظيفة [المسمى] لأن [سبب محدد].\nفي [مشروع/خبرة] قمت بـ[فعل] وأنتجت [دليل]، وهو مرتبط بـ[متطلب].\nكما مارست [مهارة] عندما [مثال].\nيسعدني مناقشة مدى ملاءمة خبرتي لاحتياجات الدور."
+  }
+}

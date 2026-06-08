@@ -1,0 +1,31 @@
+{
+  "id": "vocabulary-phrase-card",
+  "portal_id": "language",
+  "content_type": "template",
+  "title_ar": "قالب بطاقة عبارة مفيدة",
+  "title_en": "Useful Phrase Card",
+  "excerpt_ar": "بطاقة تحول المفردة من ترجمة منفردة إلى عبارة قابلة للاستدعاء والاستخدام.",
+  "excerpt_en": "A card that turns isolated vocabulary into usable language.",
+  "category": "vocabulary",
+  "status": "draft",
+  "featured": false,
+  "tags": ["vocabulary", "phrases", "flashcards"],
+  "sort_order": 40,
+  "data": {
+    "instructions_ar": "أنشئ البطاقة فقط لعبارة تتوقع استخدامها. اكتب سياقًا في الأمام بدل وضع الكلمة العربية وحدها.",
+    "front_fields": [
+      {"key": "situation_ar", "label_ar": "الموقف", "placeholder_ar": "أريد أن أشرح سبب تأخري"},
+      {"key": "gap_sentence", "label_ar": "جملة ناقصة", "placeholder_ar": "The main reason ___ the delay was..."}
+    ],
+    "back_fields": [
+      {"key": "phrase", "label_ar": "العبارة", "placeholder_ar": "the main reason for"},
+      {"key": "simple_meaning_ar", "label_ar": "المعنى في هذا السياق"},
+      {"key": "personal_example", "label_ar": "مثال شخصي"},
+      {"key": "collocation", "label_ar": "تركيب شائع"},
+      {"key": "pronunciation_note", "label_ar": "ملاحظة نطق عند الحاجة"},
+      {"key": "source", "label_ar": "المصدر"}
+    ],
+    "review_schedule_ar": ["بعد يوم", "بعد ثلاثة أيام", "بعد سبعة أيام", "بعد أربعة عشر يومًا"],
+    "quality_check_ar": ["أستطيع تخيل موقف لاستخدامها", "المثال من حياتي", "لا تحتوي البطاقة على شرح طويل", "سأستدعي العبارة لا أتعرف عليها فقط"]
+  }
+}

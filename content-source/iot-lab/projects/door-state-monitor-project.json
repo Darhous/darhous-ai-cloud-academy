@@ -1,0 +1,24 @@
+{
+  "id": "door-state-monitor-project",
+  "portal_id": "iot-lab",
+  "content_type": "project",
+  "title_ar": "مراقب حالة باب مع سجل أحداث",
+  "title_en": "Door State Monitor with Event Log",
+  "excerpt_ar": "مشروع مدخل رقمي يعالج اهتزاز الإشارة ويسجل الفتح والإغلاق والزمن.",
+  "excerpt_en": "A digital-input project with debounce and timestamped event logging.",
+  "category": "iot-projects",
+  "status": "draft",
+  "featured": false,
+  "tags": ["digital-input", "reed-switch", "event-log"],
+  "sort_order": 30,
+  "data": {
+    "goal_ar": "تمييز فتح الباب وإغلاقه وتسجيل الانتقالات الفعلية دون تكرار وهمي.",
+    "scenario_ar": "باب خزانة أو غرفة تدريب يحتاج سجلًا محليًا للتجربة، وليس نظام أمان معتمدًا.",
+    "prerequisites_ar": ["Reed switch أو زر", "لوحة", "مقاومة Pull-up أو الداخلية", "Serial Monitor"],
+    "steps_ar": ["اختبر الحساس بالملتيميتر", "اختر INPUT_PULLUP ووثق المنطق المعكوس", "اطبع الحالة الحالية", "سجل التغير فقط", "أضف Debounce زمنيًا", "احسب مدة بقاء الباب مفتوحًا", "اختبر قطع السلك وإعادة التشغيل"],
+    "expected_output_ar": "أحداث OPEN وCLOSED مع وقت ومدة، ووثيقة تشرح معنى HIGH وLOW.",
+    "success_criteria_ar": ["انتقال واحد لكل حركة", "لا دخل عائم", "المدة تحسب بصورة صحيحة", "حالة بدء التشغيل واضحة"],
+    "extension_ideas_ar": ["صفارة بعد مدة", "إرسال الحدث عبر MQTT", "عداد فتح يومي"],
+    "limits_ar": ["ليس بديلًا لنظام أمان", "المغناطيس والمحاذاة يؤثران في القراءة"]
+  }
+}

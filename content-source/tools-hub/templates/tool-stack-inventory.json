@@ -1,0 +1,18 @@
+{
+  "id": "tool-stack-inventory",
+  "portal_id": "tools-hub",
+  "content_type": "template",
+  "title_ar": "قالب جرد مجموعة الأدوات",
+  "title_en": "Tool Stack Inventory Template",
+  "excerpt_ar": "سجل عملي للوظائف والملكية والبيانات والتكلفة والبدائل.",
+  "excerpt_en": "A practical inventory for purpose, ownership, data, cost, and fallback.",
+  "category": "tool-management",
+  "status": "draft",
+  "featured": false,
+  "tags": ["template", "inventory", "tool-management"],
+  "sort_order": 40,
+  "data": {
+    "instructions_ar": ["أضف الأدوات المستخدمة فعليًا", "لا تسجل كلمات المرور", "راجع السجل شهريًا"],
+    "template_ar": {"اسم_الأداة": "", "الوظيفة": "", "المالك": "", "المستخدمون": [], "نوع_البيانات": "", "التكاملات": [], "التكلفة_الشهرية": 0, "تاريخ_التجديد": "", "آخر_استخدام": "", "مكان_النسخة_النهائية": "", "طريقة_التصدير": "", "البديل": "", "القرار": "إبقاء/تقليل/استبدال/إلغاء", "الإجراء_التالي": "", "موعد_المراجعة": ""}
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "multimeter-tool",
+  "portal_id": "iot-lab",
+  "content_type": "tool",
+  "title_ar": "الملتيميتر الرقمي",
+  "title_en": "Digital Multimeter",
+  "excerpt_ar": "أداة القياس الأساسية لفحص الجهد والاستمرارية والمقاومة بأمان.",
+  "excerpt_en": "The essential tool for voltage, continuity, and resistance checks.",
+  "category": "measurement-tools",
+  "status": "draft",
+  "featured": false,
+  "tags": ["multimeter", "measurement", "wiring-safety"],
+  "sort_order": 30,
+  "data": {
+    "purpose_ar": "تحويل التخمين إلى قياس عند فحص مصدر الطاقة واتصال الأسلاك وقيم المقاومات.",
+    "use_when_ar": ["قبل تشغيل دائرة جديدة", "عند الشك في قصر", "عند غياب جهد متوقع"],
+    "avoid_when_ar": ["لا تعرف تصنيف الجهاز أو طريقة القياس", "قياس كهرباء منزلية دون تدريب وإشراف متخصص"],
+    "beginner_use_case_ar": "والطاقة مفصولة، استخدم وضع الاستمرارية لرسم خريطة صفوف Breadboard، ثم قس جهد 5V بطريقة التوازي.",
+    "workflow_ar": ["ضع المجسات في المنافذ الصحيحة", "اختر الوظيفة والنطاق", "ابدأ بنطاق أعلى عند الشك", "سجل الوحدة والنتيجة"],
+    "risks_limits_ar": ["قياس التيار بتوصيل المجسات على التوازي قد يسبب قصرًا", "المجس في منفذ التيار يسبب خطأ لاحقًا", "جهاز رخيص قد لا يكون مناسبًا للجهود الخطرة"],
+    "alternatives_ar": ["فاحص استمرارية بسيط", "راسم إشارة للزمن والإشارات السريعة", "Logic Analyzer للإشارات الرقمية"]
+  }
+}

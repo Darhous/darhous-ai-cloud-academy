@@ -1,0 +1,23 @@
+{
+  "id": "compare-two-tools-safely",
+  "portal_id": "tools-hub",
+  "content_type": "project",
+  "title_ar": "مشروع مقارنة أداتين بأمان",
+  "title_en": "Safely Compare Two Tools",
+  "excerpt_ar": "نفذ مقارنة عادلة على مهمة واحدة واصدر قرارًا موثقًا.",
+  "excerpt_en": "Run a fair comparison on one task and produce a documented decision.",
+  "category": "tool-evaluation",
+  "status": "draft",
+  "featured": false,
+  "tags": ["comparison", "privacy", "decision"],
+  "sort_order": 10,
+  "data": {
+    "goal_ar": "اختيار أداة لمهمة متكررة اعتمادًا على الدليل لا الانطباع.",
+    "scenario_ar": "تحتاج أداة لتلخيص تقارير عربية غير حساسة وتفكر في مرشحين.",
+    "prerequisites_ar": ["نص تجريبي تملك حق استخدامه", "خمسة معايير", "حسابان مجانيان إن لزم"],
+    "steps_ar": ["اكتب إجابة مرجعية", "حدد الأوزان وشرط الرفض", "استخدم الطلب نفسه", "تحقق من الحقائق", "اختبر التصدير والحذف", "احسب الوقت والتكلفة", "اكتب القرار"],
+    "expected_output_ar": "جدول مقارنة ومخرجان محفوظان وبطاقة قرار.",
+    "success_criteria_ar": ["البيانات غير حساسة", "الاختبار ثابت", "كل نقطة لها ملاحظة", "القرار يذكر المخاطر والمراجعة"],
+    "extension_ideas_ar": ["تكرار الاختبار بعد أسبوع", "إضافة حالة فشل", "مقارنة الخطة المجانية والمدفوعة"]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "iot-foundations-path",
+  "portal_id": "iot-lab",
+  "content_type": "path",
+  "title_ar": "مسار أساسيات الإلكترونيات وArduino",
+  "title_en": "Electronics and Arduino Foundations",
+  "excerpt_ar": "رحلة عملية من قواعد الطاقة والتوصيل الآمن إلى قراءة حساس وبناء نموذج موثق.",
+  "excerpt_en": "A practical journey from safe wiring to a documented sensor prototype.",
+  "category": "learning-paths",
+  "status": "draft",
+  "featured": false,
+  "tags": ["arduino", "electronics-basics", "wiring-safety"],
+  "sort_order": 10,
+  "data": {
+    "level": "beginner",
+    "estimated_hours": 12,
+    "goal_ar": "بناء دائرة منخفضة الجهد وقراءة حساس وفحص النتيجة دون تعريض اللوحة أو المكونات للتلف.",
+    "prerequisites_ar": ["حاسوب", "لوحة Arduino متوافقة", "Breadboard وأسلاك", "LED ومقاومة وحساس بسيط"],
+    "stages": [
+      {"order": 1, "title_ar": "الطاقة والسلامة", "outcomes_ar": ["تمييز VCC وGND", "حساب قدرة بسيطة", "إجراء فحص قبل الطاقة"], "activities_ar": ["رسم مسار الطاقة", "اختبار اتصال Breadboard"]},
+      {"order": 2, "title_ar": "المداخل والمخارج", "outcomes_ar": ["تشغيل LED بمقاومة", "قراءة زر", "تمييز Digital وAnalog"], "activities_ar": ["تعديل Blink", "تسجيل حالات الزر"]},
+      {"order": 3, "title_ar": "الحساس والبيانات", "outcomes_ar": ["قراءة قيمة خام", "تحويلها إلى وحدة", "اكتشاف قراءة غير منطقية"], "activities_ar": ["جمع 20 قراءة", "مقارنة بمرجع"]},
+      {"order": 4, "title_ar": "النموذج النهائي", "outcomes_ar": ["دمج الدائرة والكود", "توثيق التوصيل والاختبارات"], "activities_ar": ["بناء مؤشر حرارة أو ضوء", "تسليم سجل تجربة وصورة معنونة"]}
+    ],
+    "completion_criteria_ar": ["الدائرة تعمل ثلاث مرات من إعادة التشغيل", "لا تعديل والأسلاك تحت الطاقة", "القراءات تحمل وحدة ووقتًا", "شخص آخر يعيد البناء من الوثيقة"]
+  }
+}

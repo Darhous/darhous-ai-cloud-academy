@@ -1,0 +1,24 @@
+{
+  "id": "cv-achievement-builder",
+  "portal_id": "career",
+  "content_type": "template",
+  "title_ar": "قالب بناء نقطة إنجاز في CV",
+  "title_en": "CV Achievement Builder",
+  "category": "cv",
+  "status": "draft",
+  "featured": false,
+  "tags": ["cv", "achievements", "writing"],
+  "sort_order": 20,
+  "data": {
+    "purpose_ar": "تحويل المسؤولية أو المشروع إلى نقطة محددة قابلة للشرح.",
+    "instructions_ar": ["اكتب الحقائق الخام أولا", "استخدم رقما فقط إذا كان موثقا", "وضح دورك في العمل الجماعي"],
+    "fields_ar": [
+      {"label_ar": "الفعل", "placeholder_ar": "حللت / نظمت / صممت"},
+      {"label_ar": "المخرج", "placeholder_ar": "تقرير أو نموذج أو عملية"},
+      {"label_ar": "السياق أو الأداة", "placeholder_ar": "باستخدام... ضمن..."},
+      {"label_ar": "الهدف", "placeholder_ar": "من أجل..."},
+      {"label_ar": "الدليل أو التحقق", "placeholder_ar": "تمت المراجعة عبر..."}
+    ],
+    "reusable_text_ar": "[فعل] [مخرج] باستخدام [أداة/طريقة] من أجل [هدف]، وتم التحقق عبر [دليل].\nسؤال الصدق: هل أستطيع شرح كل كلمة بمثال؟"
+  }
+}

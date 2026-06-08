@@ -1,0 +1,19 @@
+{
+  "id": "visual-reference-analysis-template",
+  "portal_id": "nano-banana",
+  "content_type": "template",
+  "title_ar": "قالب تحليل مرجع بصري",
+  "title_en": "Visual Reference Analysis Template",
+  "excerpt_ar": "استخرج خصائص عامة من المرجع دون طلب نسخة مطابقة.",
+  "excerpt_en": "Extract general visual properties without copying.",
+  "category": "visual-references",
+  "status": "draft",
+  "featured": false,
+  "tags": ["references", "analysis", "responsible-use"],
+  "sort_order": 50,
+  "data": {
+    "copy_ready_template": "مصدر المرجع وترخيصه: [المصدر]\nالغرض من استخدامه: [الغرض]\nالخصائص المطلوبة فقط: اللون [الوصف]، الإضاءة [الوصف]، التكوين [الوصف]، الخامة [الوصف]\nالعناصر التي لن تُنسخ: [الأشخاص/الشعار/التصميم المميز]\nالصياغة البديلة: أنشئ عملًا أصليًا بخصائص [الخصائص العامة] لموضوع [موضوعك] وفي سياق [سياقك].",
+    "checklist": ["المصدر معروف", "الحق أو الترخيص واضح", "لا يوجد طلب نسخ مطابق", "تم فصل الخصائص عن العناصر المحمية", "النتيجة ستراجع بشريًا"],
+    "use_case": "تحويل مرجع بإضاءة جذابة إلى وصف: ضوء جانبي ناعم، تباين منخفض، خلفية محايدة؛ من دون نسخ الموضوع أو الهوية."
+  }
+}

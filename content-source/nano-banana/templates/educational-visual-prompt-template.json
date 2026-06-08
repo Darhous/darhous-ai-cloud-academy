@@ -1,0 +1,20 @@
+{
+  "id": "educational-visual-prompt-template",
+  "portal_id": "nano-banana",
+  "content_type": "template",
+  "title_ar": "قالب صورة تعليمية",
+  "title_en": "Educational Visual Prompt Template",
+  "excerpt_ar": "قالب يربط الهدف التعليمي بالمشهد والرموز ومستوى المتعلم.",
+  "excerpt_en": "Connect a learning objective to a clear visual.",
+  "category": "education",
+  "status": "draft",
+  "featured": false,
+  "tags": ["education", "infographic", "prompt-template"],
+  "sort_order": 40,
+  "data": {
+    "fields": ["الهدف التعليمي", "العمر أو المستوى", "الحقيقة التي يجب إظهارها", "العناصر والرموز", "التسلسل", "درجة البساطة", "مكان العناوين", "المصدر العلمي"],
+    "copy_ready_template": "صورة تعليمية تشرح [المفهوم] لمتعلم في مستوى [المستوى]. أظهر [الحقيقة] عبر [المشهد/العناصر] بترتيب [التسلسل]. استخدم رموزًا بسيطة وألوانًا تميز [الفئات]. اترك [المكان] لإضافة العنوان خارجيًا. تجنب الزخرفة المربكة وأي تفاصيل غير مؤكدة.",
+    "review_questions": ["هل الصورة صحيحة علميًا؟", "هل تخدم هدفًا واحدًا؟", "هل الرموز مفهومة؟", "هل النص سيضاف بأداة موثوقة؟"],
+    "warning": "راجع الحقائق مع مصدر موثوق؛ الصورة المولدة ليست مصدرًا علميًا."
+  }
+}

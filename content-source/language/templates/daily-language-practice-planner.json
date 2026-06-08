@@ -1,0 +1,36 @@
+{
+  "id": "daily-language-practice-planner",
+  "portal_id": "language",
+  "content_type": "template",
+  "title_ar": "قالب خطة ممارسة اللغة اليومية",
+  "title_en": "Daily Language Practice Planner",
+  "excerpt_ar": "قالب جلسة قصيرة يوازن بين الإدخال والإنتاج والمراجعة.",
+  "excerpt_en": "A short-session planner balancing input, output, and review.",
+  "category": "planning",
+  "status": "draft",
+  "featured": false,
+  "tags": ["daily-practice", "planning", "english-routine"],
+  "sort_order": 10,
+  "data": {
+    "instructions_ar": "املأ القالب قبل الجلسة في دقيقتين. اختر هدفًا صغيرًا ومصدرًا واحدًا، ولا تضف أنشطة أثناء التنفيذ.",
+    "fields": [
+      {"label_ar": "تاريخ الجلسة", "key": "date", "placeholder_ar": "YYYY-MM-DD"},
+      {"label_ar": "هدفي القابل للملاحظة", "key": "goal", "placeholder_ar": "سأشرح روتيني لمدة دقيقتين مستخدمًا because وbut"},
+      {"label_ar": "المصدر", "key": "input_source", "placeholder_ar": "اسم المقطع أو النص ومدته"},
+      {"label_ar": "10 دقائق إدخال", "key": "input_task", "placeholder_ar": "ما الذي سأقرأه أو أستمع إليه؟"},
+      {"label_ar": "10 دقائق إنتاج", "key": "output_task", "placeholder_ar": "ما الذي سأتحدث عنه أو أكتبه؟"},
+      {"label_ar": "5 دقائق مراجعة", "key": "review_task", "placeholder_ar": "عبارتان وخطأ واحد سأراجعه"},
+      {"label_ar": "دليل الإنجاز", "key": "evidence", "placeholder_ar": "تسجيل أو فقرة أو نتيجة فهم"},
+      {"label_ar": "الخطوة التالية", "key": "next_step", "placeholder_ar": "تعديل صغير للجلسة المقبلة"}
+    ],
+    "example_ar": {
+      "goal": "تلخيص مقطع A2 في أربع جمل",
+      "input_task": "استماع مرتان: للفكرة ثم للتفاصيل",
+      "output_task": "تسجيل ملخص دون قراءة",
+      "review_task": "مراجعة actually وat first وتصحيح زمن فعل واحد",
+      "evidence": "تسجيل 90 ثانية",
+      "next_step": "إعادة الملخص غدًا دون ملاحظات"
+    },
+    "checklist_ar": ["الهدف مناسب للوقت", "الإنتاج من عملي أنا", "اخترت خطأ واحدًا لا عشرة", "حفظت دليلًا للمقارنة"]
+  }
+}

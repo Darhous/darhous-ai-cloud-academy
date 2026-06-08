@@ -1,0 +1,24 @@
+{
+  "id": "personal-toolkit-management-quiz",
+  "portal_id": "tools-hub",
+  "content_type": "quiz",
+  "title_ar": "اختبار إدارة مجموعة الأدوات الشخصية",
+  "title_en": "Personal Toolkit Management Quiz",
+  "excerpt_ar": "اختبر فهمك لمصدر الحقيقة والتكرار والتكلفة والاستمرارية.",
+  "excerpt_en": "Test source-of-truth, duplication, cost, and continuity understanding.",
+  "category": "tool-management",
+  "status": "draft",
+  "featured": false,
+  "tags": ["quiz", "toolkit", "productivity"],
+  "sort_order": 30,
+  "data": {
+    "passing_score": 70,
+    "questions": [
+      {"id": "q1", "type": "multiple-choice", "question_ar": "لديك تطبيقان للملاحظات ولا تعرف النسخة النهائية. ما الحل الأول؟", "options_ar": ["تحديد مصدر حقيقة وقاعدة نقل", "إضافة تطبيق ثالث", "نسخ كل شيء يوميًا", "ترك الأمر للذاكرة"], "correct_answer": 0, "explanation_ar": "مصدر الحقيقة يمنع التعارض ويحدد أين تُعتمد النسخة."},
+      {"id": "q2", "type": "multiple-choice", "question_ar": "أداة بلا استخدام منذ شهرين وتجدد قريبًا. ماذا تفعل؟", "options_ar": ["راجع الحاجة وصدّر اللازم ثم ألغ أو جمّد", "جدد تلقائيًا", "اشتر خطة أعلى", "أضف مستخدمين"], "correct_answer": 0, "explanation_ar": "القرار يعتمد على الاستخدام والقيمة مع حفظ البيانات اللازمة قبل الإلغاء."},
+      {"id": "q3", "type": "multiple-choice", "question_ar": "ما الذي لا يوضع في سجل الأدوات؟", "options_ar": ["كلمات المرور", "المالك", "التكلفة", "طريقة التصدير"], "correct_answer": 0, "explanation_ar": "الأسرار تُحفظ في مدير معتمد، بينما السجل يوثق الإدارة."},
+      {"id": "q4", "type": "multiple-choice", "question_ar": "كيف تقلل تشتيت الأدوات الجديدة؟", "options_ar": ["موعد أسبوعي وقائمة انتظار", "تجربة كل إعلان فورًا", "تغيير النظام يوميًا", "فتح الإشعارات كلها"], "correct_answer": 0, "explanation_ar": "الفصل بين العمل وتقييم الأدوات يحمي التركيز."},
+      {"id": "q5", "type": "multiple-choice", "question_ar": "ما علامة Toolkit مستدامة؟", "options_ar": ["وظائف واضحة وتصدير وبدائل", "أكبر عدد تطبيقات", "اعتماد كامل على مزود", "لا توجد مراجعة"], "correct_answer": 0, "explanation_ar": "الوضوح وقابلية النقل وخطة الاستمرارية أهم من كثرة الأدوات."}
+    ]
+  }
+}

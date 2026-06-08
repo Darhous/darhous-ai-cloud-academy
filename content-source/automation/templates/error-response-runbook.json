@@ -1,0 +1,21 @@
+{
+  "id": "error-response-runbook",
+  "portal_id": "automation",
+  "content_type": "template",
+  "title_ar": "قالب دليل الاستجابة لأخطاء Workflow",
+  "title_en": "Workflow Error Response Runbook",
+  "excerpt_ar": "دليل تشغيلي مختصر لتشخيص الخطأ واحتوائه واستئناف المعالجة دون تكرار.",
+  "excerpt_en": "A runbook to diagnose, contain, and resume workflows without duplication.",
+  "category": "error-handling",
+  "status": "draft",
+  "featured": false,
+  "tags": ["error-handling", "runbook", "workflow-operations"],
+  "sort_order": 40,
+  "data": {
+    "instructions": "خصص نسخة لكل Workflow واجعلها متاحة لمن يستقبل التنبيه.",
+    "fields": {"workflow_name": "", "owner": "", "alert_channel": "", "workflow_id_location": "", "safe_stop_steps": [], "sensitive_fields_not_to_log": [], "recovery_owner": "", "escalation_contact": ""},
+    "incident_steps": ["أكد وقت ومعرف التنفيذ", "أوقف الأثر الخارجي إن كان مستمرًا", "صنف الخطأ: مؤقت أو بيانات أو صلاحيات أو منطق", "حدد آخر خطوة مكتملة", "صحح السبب على نسخة تجريبية", "استأنف من نقطة آمنة", "تحقق من عدم التكرار", "وثق السبب والإجراء"],
+    "incident_record": {"incident_id": "", "detected_at": "", "affected_records": [], "root_cause": "", "containment": "", "recovery": "", "duplicate_check": "", "follow_up": ""},
+    "never_do": ["إعادة تشغيل الكل دون فحص", "نسخ أسرار داخل التذكرة", "إخفاء الخطأ بحذف السجل"]
+  }
+}

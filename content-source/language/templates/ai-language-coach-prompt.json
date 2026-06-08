@@ -1,0 +1,33 @@
+{
+  "id": "ai-language-coach-prompt",
+  "portal_id": "language",
+  "content_type": "template",
+  "title_ar": "قالب جلسة مدرب اللغة بالذكاء الاصطناعي",
+  "title_en": "AI Language Coach Session Prompt",
+  "excerpt_ar": "تعليمات قابلة لإعادة الاستخدام لجلسة محادثة وتصحيح محدودة ومناسبة للمستوى.",
+  "excerpt_en": "A reusable prompt for level-appropriate conversation and focused feedback.",
+  "category": "ai-assisted-learning",
+  "status": "draft",
+  "featured": false,
+  "tags": ["ai", "prompt", "language-coach", "privacy"],
+  "sort_order": 50,
+  "data": {
+    "instructions_ar": "استبدل الأقواس، ولا تدخل معلومات شخصية أو نصوص عمل حساسة. تحقق من التصحيحات الدقيقة بمصدر موثوق.",
+    "prompt_ar": "أنت مدرب لغة إنجليزية لمتعلم مستواه [A1/A2/B1/B2]. هدف الجلسة هو [الهدف] وموضوعها [الموضوع]. اسألني سؤالًا واحدًا بالإنجليزية وانتظر إجابتي. اجعل لغتك مناسبة لمستواي. بعد كل إجابة: اذكر نقطة جيدة واحدة، وصحح خطأين مهمين فقط، واشرح السبب بالعربية باختصار، ثم اطلب مني إعادة الجملة. لا تكتب إجابتي نيابة عني. بعد [عدد] جولات، أنشئ ملخصًا يضم ثلاث عبارات مفيدة ونمط خطأ واحدًا وتمرينًا قصيرًا للغد.",
+    "configuration_fields": [
+      {"key": "level", "label_ar": "المستوى"},
+      {"key": "goal", "label_ar": "الهدف القابل للملاحظة"},
+      {"key": "topic", "label_ar": "موضوع المحادثة"},
+      {"key": "rounds", "label_ar": "عدد الجولات"},
+      {"key": "feedback_focus", "label_ar": "تركيز التصحيح"}
+    ],
+    "example_ar": {
+      "level": "A2",
+      "goal": "وصف تجربة سابقة باستخدام الماضي",
+      "topic": "رحلة قصيرة",
+      "rounds": 5,
+      "feedback_focus": "وضوح المعنى وزمن الماضي"
+    },
+    "safety_checklist_ar": ["حذفت البيانات الحساسة", "سأجيب قبل رؤية نموذج", "طلبت تصحيحًا محدودًا", "سأتحقق من القاعدة إذا بدا الشرح غير متسق"]
+  }
+}

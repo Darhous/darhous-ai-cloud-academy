@@ -1,0 +1,25 @@
+{
+  "id": "star-answer-card",
+  "portal_id": "career",
+  "content_type": "template",
+  "title_ar": "بطاقة إجابة STAR",
+  "title_en": "STAR Answer Card",
+  "category": "interviews",
+  "status": "draft",
+  "featured": false,
+  "tags": ["star-method", "interviews", "answers"],
+  "sort_order": 30,
+  "data": {
+    "purpose_ar": "تنظيم قصة مقابلة من دون حفظ نص حرفي.",
+    "instructions_ar": ["اكتب رؤوس أقلام", "خصص معظم المساحة للفعل", "أضف سؤال متابعة"],
+    "fields_ar": [
+      {"label_ar": "السؤال المستهدف", "placeholder_ar": "احك عن موقف..."},
+      {"label_ar": "الموقف", "placeholder_ar": "سياق مختصر"},
+      {"label_ar": "المهمة", "placeholder_ar": "مسؤوليتي أو التحدي"},
+      {"label_ar": "الفعل", "placeholder_ar": "ثلاث خطوات اتخذتها أنا"},
+      {"label_ar": "النتيجة", "placeholder_ar": "مخرج أو أثر أو تعلم"},
+      {"label_ar": "أسئلة المتابعة", "placeholder_ar": "لماذا؟ ماذا غيرت؟ كيف تحققت؟"}
+    ],
+    "reusable_text_ar": "الموقف:\nالمهمة:\nالفعل 1:\nالفعل 2:\nالفعل 3:\nالنتيجة:\nما تعلمته:\nسؤال متابعة محتمل:"
+  }
+}

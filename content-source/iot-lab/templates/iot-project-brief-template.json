@@ -1,0 +1,19 @@
+{
+  "id": "iot-project-brief-template",
+  "portal_id": "iot-lab",
+  "content_type": "template",
+  "title_ar": "قالب موجز مشروع IoT",
+  "title_en": "IoT Project Brief Template",
+  "excerpt_ar": "نموذج قابل للتعبئة يحول الفكرة إلى مشكلة ومدخلات وقيود ومعايير نجاح.",
+  "excerpt_en": "Turn an idea into inputs, constraints, and success criteria.",
+  "category": "planning-templates",
+  "status": "draft",
+  "featured": false,
+  "tags": ["project-planning", "requirements", "iot"],
+  "sort_order": 10,
+  "data": {
+    "instructions_ar": "املأه قبل شراء المكونات، واكتب أرقامًا بدل أوصاف عامة حيث يمكن.",
+    "fields_ar": {"اسم المشروع": "", "المستخدم والمشكلة": "", "القرار المطلوب": "", "المدخلات والحساسات": "", "المخرجات": "", "بيئة التشغيل": "", "مصدر الطاقة": "", "الاتصال": "", "الميزانية": "", "ثلاثة معايير نجاح": ["", "", ""], "أكبر ثلاثة مخاطر": ["", "", ""]},
+    "review_checklist_ar": ["هل يعمل محليًا دون الإنترنت؟", "هل جهد كل مكون معروف؟", "هل الحمل يحتاج Driver؟", "هل الفشل له سلوك آمن؟"]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "weekly-cefr-progress-review",
+  "portal_id": "language",
+  "content_type": "template",
+  "title_ar": "قالب مراجعة تقدم CEFR الأسبوعية",
+  "title_en": "Weekly CEFR Progress Review",
+  "excerpt_ar": "مراجعة تربط التقدم بما تستطيع فعله في المهارات الأربع.",
+  "excerpt_en": "A weekly review tied to practical can-do evidence.",
+  "category": "assessment",
+  "status": "draft",
+  "featured": false,
+  "tags": ["cefr", "weekly-review", "progress"],
+  "sort_order": 20,
+  "data": {
+    "instructions_ar": "خصص 15 دقيقة في نهاية الأسبوع وأجب بأدلة. لا تغيّر تقدير المستوى كل أسبوع؛ راقب اتجاه الأداء.",
+    "sections": [
+      {"title_ar": "القراءة", "prompts_ar": ["ما النص الذي فهمت فكرته؟", "ما التفاصيل التي فاتتني؟", "ما الدليل المحفوظ؟"]},
+      {"title_ar": "الاستماع", "prompts_ar": ["ماذا فهمت من الاستماع الأول؟", "ماذا أضاف النص أو التكرار؟", "هل السرعة مناسبة؟"]},
+      {"title_ar": "التحدث", "prompts_ar": ["كم تحدثت دون نص؟", "ما العبارة الجديدة التي استخدمتها؟", "ما التوقف المتكرر؟"]},
+      {"title_ar": "الكتابة", "prompts_ar": ["ماذا كتبت؟", "هل الفكرة منظمة؟", "ما نمط الخطأ الذي ظهر؟"]},
+      {"title_ar": "قرار الأسبوع القادم", "prompts_ar": ["مهارة الأولوية", "سلوك سأستمر عليه", "نشاط سأوقفه", "دليل سأنتجه"]}
+    ],
+    "rating_scale_ar": [
+      {"value": 1, "meaning_ar": "لم أنفذ مهمة مستقلة"},
+      {"value": 2, "meaning_ar": "نفذت بمساعدة كبيرة"},
+      {"value": 3, "meaning_ar": "نفذت بمساعدة محدودة"},
+      {"value": 4, "meaning_ar": "نفذت باستقلال ووضوح"}
+    ],
+    "summary_sentence_ar": "هذا الأسبوع استطعت ______ بصورة أفضل، والدليل ______. في الأسبوع القادم سأركز على ______ عبر ______."
+  }
+}

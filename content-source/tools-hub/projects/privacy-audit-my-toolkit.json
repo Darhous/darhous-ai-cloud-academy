@@ -1,0 +1,23 @@
+{
+  "id": "privacy-audit-my-toolkit",
+  "portal_id": "tools-hub",
+  "content_type": "project",
+  "title_ar": "مشروع تدقيق خصوصية مجموعة أدواتي",
+  "title_en": "Privacy Audit My Toolkit",
+  "excerpt_ar": "راجع البيانات والصلاحيات والتكاملات والحذف لخمس أدوات.",
+  "excerpt_en": "Audit data, permissions, integrations, and deletion for five tools.",
+  "category": "privacy",
+  "status": "draft",
+  "featured": false,
+  "tags": ["privacy-audit", "permissions", "toolkit"],
+  "sort_order": 20,
+  "data": {
+    "goal_ar": "تقليل الوصول غير الضروري وتوثيق التعامل مع البيانات.",
+    "scenario_ar": "تستخدم أدوات متعددة للدراسة أو العمل ولا تعرف أيها يصل إلى البريد أو التخزين.",
+    "prerequisites_ar": ["قائمة خمس أدوات", "وصول إلى إعدادات الحساب", "عدم تغيير حساب مؤسسي دون صلاحية"],
+    "steps_ar": ["صنف البيانات", "راجع التطبيقات المتصلة", "سجل التدريب والاحتفاظ", "ألغ أقل صلاحية غير لازمة", "فعّل التوثيق المتعدد", "اختبر تصديرًا وحذفًا", "حدد مراجعة شهرية"],
+    "expected_output_ar": "سجل خصوصية مع قرار وإجراء لكل أداة.",
+    "success_criteria_ar": ["لا تُحذف بيانات دون نسخة لازمة", "كل صلاحية مبررة", "التصدير مجرب", "الحسابات الحساسة محمية"],
+    "extension_ideas_ar": ["تدقيق أدوات الهاتف", "إنشاء سياسة شخصية للبيانات", "مراجعة الحسابات غير المستخدمة"]
+  }
+}

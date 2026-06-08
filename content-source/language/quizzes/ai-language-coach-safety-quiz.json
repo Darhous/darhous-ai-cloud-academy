@@ -1,0 +1,25 @@
+{
+  "id": "ai-language-coach-safety-quiz",
+  "portal_id": "language",
+  "content_type": "quiz",
+  "title_ar": "اختبار الاستخدام الآمن لمدرب اللغة بالذكاء الاصطناعي",
+  "title_en": "Safe AI Language Coach Quiz",
+  "excerpt_ar": "مواقف تختبر جودة التعليمات والخصوصية والتحقق من التصحيح.",
+  "excerpt_en": "Scenarios on prompting, privacy, and verification in AI-assisted learning.",
+  "category": "ai-assisted-learning",
+  "status": "draft",
+  "featured": false,
+  "tags": ["ai", "language-coach", "safety", "quiz"],
+  "sort_order": 30,
+  "data": {
+    "instructions_ar": "اختر التصرف الذي يحافظ على دورك كمتعلم ويقلل أخطاء الأداة ومخاطر الخصوصية.",
+    "passing_score": 70,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question_ar": "ما أفضل تعليمات لجلسة محادثة؟", "options_ar": ["علمني الإنجليزية", "اكتب حوارًا طويلًا", "اسأل سؤالًا واحدًا لمستوى A2 وانتظر إجابتي وصحح خطأين", "أجب عني بطريقة مثالية"], "correct_answer": 2, "explanation_ar": "التعليمات تحدد المستوى والتفاعل وحد التصحيح وتحافظ على إنتاج المتعلم."},
+      {"id": "q2", "type": "multiple_choice", "question_ar": "طلبت الأداة لصق بريد عمل سري لتصحيحه. ما التصرف الأنسب؟", "options_ar": ["لصقه كاملًا", "إزالة التفاصيل الحساسة واستخدام مثال عام", "إضافة بيانات أكثر", "نشره للحصول على آراء"], "correct_answer": 1, "explanation_ar": "يمكن تدريب اللغة بمثال مجهول أو مصطنع دون كشف معلومات حساسة."},
+      {"id": "q3", "type": "multiple_choice", "question_ar": "أعطت الأداة تفسيرين متناقضين لقاعدة. ماذا تفعل؟", "options_ar": ["تقبل الأخير", "تتوقف عن التعلم", "تتحقق من قاموس أو مرجع موثوق وتسأل عن أمثلة", "تحفظ التفسيرين"], "correct_answer": 2, "explanation_ar": "الأدوات قد تخطئ، والتحقق مهم عند التناقض أو القواعد الدقيقة."},
+      {"id": "q4", "type": "multiple_choice", "question_ar": "كيف تمنع الأداة من أداء المهمة بدلًا منك؟", "options_ar": ["اطلب النموذج النهائي أولًا", "أجب أنت ثم اطلب تلميحًا وتصحيحًا محدودًا", "انسخ الإجابة", "اطلب عشر نسخ"], "correct_answer": 1, "explanation_ar": "المحاولة الأولى تستدعي معرفتك، ثم تأتي التغذية الراجعة لدعم التعلم."},
+      {"id": "q5", "type": "multiple_choice", "question_ar": "ما أفضل ناتج لنهاية الجلسة؟", "options_ar": ["نص طويل من الأداة", "ثلاث عبارات وخطأ متكرر وتمرين للغد", "درجة مستوى نهائية بلا دليل", "قائمة 200 كلمة"], "correct_answer": 1, "explanation_ar": "الملخص الصغير القابل للمراجعة يربط الجلسة بالممارسة التالية."}
+    ]
+  }
+}

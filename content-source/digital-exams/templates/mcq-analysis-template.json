@@ -1,0 +1,29 @@
+{
+  "id": "mcq-analysis-template",
+  "portal_id": "digital-exams",
+  "content_type": "template",
+  "title_ar": "قالب تحليل سؤال اختيار من متعدد",
+  "title_en": "MCQ Analysis Template",
+  "category": "question-strategy",
+  "status": "draft",
+  "featured": false,
+  "tags": ["mcq", "question-analysis", "elimination"],
+  "sort_order": 40,
+  "data": {
+    "purpose_ar": "تدريب المتعلم على تفسير المطلوب واستبعاد البدائل بالدليل.",
+    "instructions_ar": ["استخدمه في التدريب لا لكتابة مطولة أثناء الاختبار الحقيقي", "حلل السؤال قبل رؤية الشرح", "راجع سبب كل استبعاد بعد التصحيح"],
+    "fields": [
+      {"label_ar": "فعل المطلوب", "placeholder_ar": "حدد أو قارن أو استنتج أو احسب"},
+      {"label_ar": "الكلمات الحاسمة", "placeholder_ar": "ليس أو الأفضل أو أولا أو وفق النص"},
+      {"label_ar": "توقعي قبل الخيارات", "placeholder_ar": "إن أمكن"},
+      {"label_ar": "الخيار أ", "placeholder_ar": "صحيح أو مستبعد والسبب"},
+      {"label_ar": "الخيار ب", "placeholder_ar": "صحيح أو مستبعد والسبب"},
+      {"label_ar": "الخيار ج", "placeholder_ar": "صحيح أو مستبعد والسبب"},
+      {"label_ar": "الخيار د", "placeholder_ar": "صحيح أو مستبعد والسبب"},
+      {"label_ar": "سبب الاختيار النهائي", "placeholder_ar": "دليل من القاعدة أو النص"},
+      {"label_ar": "نوع الخطأ إن وجد", "placeholder_ar": "معرفة أو قراءة أو استبعاد أو وقت"}
+    ],
+    "copy_ready_ar": "المطلوب: ____\nالكلمة الحاسمة: ____\nتوقعي: ____\nأ: ____ لأن ____\nب: ____ لأن ____\nج: ____ لأن ____\nد: ____ لأن ____\nاختياري: ____ لأن ____\nنوع الخطأ بعد التصحيح: ____",
+    "review_question_ar": "هل اخترت ما يجيب السؤال تحديدا أم عبارة صحيحة بشكل عام؟"
+  }
+}

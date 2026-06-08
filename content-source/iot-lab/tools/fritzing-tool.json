@@ -1,0 +1,23 @@
+{
+  "id": "fritzing-tool",
+  "portal_id": "iot-lab",
+  "content_type": "tool",
+  "title_ar": "Fritzing لتوثيق الدوائر",
+  "title_en": "Fritzing",
+  "excerpt_ar": "أداة لرسم توصيلات Breadboard ومخططات مبسطة تسهّل إعادة بناء المشروع.",
+  "excerpt_en": "Draw breadboard wiring and simple schematics for reproducible projects.",
+  "category": "documentation-tools",
+  "status": "draft",
+  "featured": false,
+  "tags": ["circuit-diagram", "documentation", "breadboard"],
+  "sort_order": 40,
+  "data": {
+    "purpose_ar": "إنتاج رسم واضح يبين اللوحة والمكونات وأسماء الأطراف ومسارات الطاقة.",
+    "use_when_ar": ["توثق مشروع مبتدئ", "تريد مراجعة التوصيل قبل التنفيذ", "تشارك تعليمات إعادة البناء"],
+    "avoid_when_ar": ["تحتاج تصميمًا احترافيًا مع تحقق قواعد كهربائية متقدم", "الرسم التصويري يخفي منطق الدائرة"],
+    "beginner_use_case_ar": "رسم دائرة حساس حرارة، تلوين VCC بالأحمر وGND بالأسود، وإضافة اسم Pin ووحدة الجهد.",
+    "workflow_ar": ["ابدأ بالمخطط المنطقي", "أضف القطع المطابقة", "استخدم ألوانًا ثابتة", "قارن كل وصلة بالدائرة الفعلية"],
+    "risks_limits_ar": ["الرسم الجميل قد يكون خاطئًا كهربائيًا", "قطع المجتمع قد تحمل Pinout غير دقيق", "تزاحم الأسلاك يقلل الوضوح"],
+    "alternatives_ar": ["KiCad للمخططات وPCB", "diagrams.net لمخطط البلوكات", "رسم يدوي معنّون لمشروع صغير"]
+  }
+}

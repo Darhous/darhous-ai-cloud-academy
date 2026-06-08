@@ -1,0 +1,24 @@
+{
+  "id": "job-posting-analysis",
+  "portal_id": "career",
+  "content_type": "template",
+  "title_ar": "قالب تحليل إعلان وظيفة",
+  "title_en": "Job Posting Analysis Template",
+  "category": "job-search",
+  "status": "draft",
+  "featured": false,
+  "tags": ["job-posting", "skills", "analysis"],
+  "sort_order": 10,
+  "data": {
+    "purpose_ar": "تحويل الإعلان إلى قرارات تخصيص وتعلم.",
+    "instructions_ar": ["انسخ المعنى لا البيانات الحساسة", "افصل الأساسي عن المفضل", "لا تكتب دليلا غير موجود"],
+    "fields_ar": [
+      {"label_ar": "المهمة أو المتطلب", "placeholder_ar": "مثال: إعداد تقرير أسبوعي"},
+      {"label_ar": "النوع", "placeholder_ar": "أساسي / مفضل / غير واضح"},
+      {"label_ar": "دليلي", "placeholder_ar": "مشروع أو خبرة محددة"},
+      {"label_ar": "مكان الدليل", "placeholder_ar": "CV / Portfolio / مقابلة"},
+      {"label_ar": "الفجوة والخطوة", "placeholder_ar": "تعلم أو مشروع أو سؤال توضيح"}
+    ],
+    "reusable_text_ar": "ملخص الدور:\nأهم خمس مهام:\nالمهارات المتكررة:\nأقوى ثلاثة أدلة لدي:\nالفجوة الأهم:\nقرار التقديم وسببه:"
+  }
+}

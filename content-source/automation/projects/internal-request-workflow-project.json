@@ -1,0 +1,24 @@
+{
+  "id": "internal-request-workflow-project",
+  "portal_id": "automation",
+  "content_type": "project",
+  "title_ar": "مشروع أتمتة استقبال الطلبات الداخلية",
+  "title_en": "Internal Request Workflow Project",
+  "excerpt_ar": "ابن نظامًا آمنًا يستقبل الطلبات ويتحقق منها ويسجلها ويوجه الناقص للمراجعة.",
+  "excerpt_en": "Build a safe workflow that validates, stores, and routes internal requests.",
+  "category": "business-automation",
+  "status": "draft",
+  "featured": false,
+  "tags": ["internal-workflow", "validation", "no-code"],
+  "sort_order": 10,
+  "data": {
+    "goal": "تقليل النقل اليدوي دون إرسال أو اعتماد أي طلب تلقائيًا.",
+    "scenario": "فريق إداري يستقبل طلبات شراء داخلية في نموذج، وبعض الطلبات تصل ناقصة أو مكررة.",
+    "prerequisites": ["نموذج وحساب تجريبيان", "جدول بيانات وهمي", "معرفة Trigger وAction وCondition"],
+    "steps": ["حدد الحقول المطلوبة ومعرفًا فريدًا", "ارسم مسار نجاح ومسار مراجعة", "استقبل سجلًا تجريبيًا", "تحقق من الحقول والصيغ", "امنع تكرار المعرف", "احفظ السليم وأرسل تنبيهًا داخليًا", "سجل الناقص مع سبب الرفض", "اختبر ست حالات متنوعة"],
+    "expected_output": "جدول طلبات نظيف، وقائمة مراجعة، وسجل تنفيذ يوضح النتيجة والسبب.",
+    "success_criteria": ["لا يُحفظ الطلب نفسه مرتين", "لا يختفي طلب ناقص", "التنبيه لا يحتوي بيانات حساسة", "يمكن تتبع كل نتيجة إلى معرف الطلب"],
+    "extension_ideas": ["إضافة موافقة بشرية", "لوحة أسبوعية للأسباب الشائعة", "مقياس زمن المعالجة"],
+    "deliverables": ["خريطة Workflow", "جدول حالات اختبار", "لقطة من سجل التنفيذ", "صفحة تشغيل وإيقاف"]
+  }
+}

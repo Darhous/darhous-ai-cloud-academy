@@ -1,0 +1,24 @@
+{
+  "id": "tool-stack-register",
+  "portal_id": "tools-hub",
+  "content_type": "tool",
+  "title_ar": "سجل مجموعة الأدوات",
+  "title_en": "Tool Stack Register",
+  "excerpt_ar": "سجل موحد للوظيفة والمالك والبيانات والتكلفة والتجديد والبديل.",
+  "excerpt_en": "A unified register for purpose, owner, data, cost, renewal, and fallback.",
+  "category": "tool-management",
+  "status": "draft",
+  "featured": false,
+  "tags": ["tool-inventory", "documentation", "vendor-management"],
+  "sort_order": 40,
+  "data": {
+    "purpose_ar": "كشف الأدوات المكررة والحسابات المنسية ومخاطر غياب المالك أو التصدير.",
+    "use_when_ar": ["في مراجعة شهرية", "عند تسليم مسؤولية", "قبل خفض التكاليف"],
+    "avoid_when_ar": ["لا تخزن كلمات المرور أو مفاتيح الوصول داخله", "لا تجعله بديلًا عن مدير الأسرار"],
+    "beginner_use_case_ar": "توثيق خمس أدوات أسبوعية وتحديد واحدة بلا مالك أو بديل.",
+    "workflow_ar": ["اجرد الأدوات", "اربط كل أداة بوظيفة", "سجل البيانات والتكاملات", "أضف التكلفة والتجديد", "اختبر التصدير", "حدد قرار المراجعة"],
+    "risks_limits_ar": ["السجل يفقد قيمته إن لم يحدث", "قد تُنسى أدوات المتصفح والهاتف", "اسم الأداة وحده لا يوضح الاعتماد"],
+    "alternatives_ar": ["جدول بسيط لفرد", "سجل أصول مؤسسي معتمد لفريق كبير"],
+    "output_ar": "قائمة قابلة للمراجعة بإجراءات إبقاء أو تقليل أو استبدال أو إلغاء."
+  }
+}

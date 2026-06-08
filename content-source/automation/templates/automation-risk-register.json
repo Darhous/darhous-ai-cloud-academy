@@ -1,0 +1,21 @@
+{
+  "id": "automation-risk-register",
+  "portal_id": "automation",
+  "content_type": "template",
+  "title_ar": "قالب سجل مخاطر الأتمتة",
+  "title_en": "Automation Risk Register",
+  "excerpt_ar": "قالب لتقدير أثر واحتمال المخاطر وتحديد الوقاية والاستجابة والمالك.",
+  "excerpt_en": "A register for risk impact, likelihood, prevention, response, and ownership.",
+  "category": "automation-safety",
+  "status": "draft",
+  "featured": false,
+  "tags": ["risk-management", "automation-safety", "operations"],
+  "sort_order": 30,
+  "data": {
+    "instructions": "سجل المخاطر قبل التشغيل وراجعها بعد كل تغيير في البيانات أو الصلاحيات أو الخطوات.",
+    "risk_record": {"risk_id": "", "description": "", "cause": "", "impact": "low|medium|high", "likelihood": "low|medium|high", "preventive_control": "", "detection": "", "response": "", "owner": "", "review_date": ""},
+    "starter_risks": ["إرسال مكرر", "بيانات ناقصة", "صلاحية منتهية", "تسرب بيانات في السجل", "حلقة إعادة محاولة", "قرار AI غير صحيح"],
+    "priority_rule": "أي خطر عالي الأثر يحتاج نقطة مراجعة أو منعًا تقنيًا وخطة إيقاف قبل الإطلاق.",
+    "review_prompts": ["هل تغير مصدر البيانات؟", "هل أضيف إجراء خارجي؟", "هل زادت الصلاحيات؟", "هل يوجد مالك فعلي للاستجابة؟"]
+  }
+}

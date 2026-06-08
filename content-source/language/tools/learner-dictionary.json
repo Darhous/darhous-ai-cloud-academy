@@ -1,0 +1,24 @@
+{
+  "id": "learner-dictionary",
+  "portal_id": "language",
+  "content_type": "tool",
+  "title_ar": "قاموس المتعلم أحادي اللغة",
+  "title_en": "Learner's Dictionary",
+  "excerpt_ar": "قاموس يقدم تعريفات مبسطة ونطقًا وأمثلة وتراكيب تساعد على الاستخدام الصحيح.",
+  "excerpt_en": "A dictionary with simple definitions, pronunciation, examples, and usage patterns.",
+  "category": "reference",
+  "status": "draft",
+  "featured": false,
+  "tags": ["dictionary", "vocabulary", "collocations"],
+  "sort_order": 40,
+  "data": {
+    "purpose_ar": "فهم معنى الكلمة وطريقة نطقها وتراكيبها الشائعة بدل الاكتفاء بترجمة سريعة.",
+    "use_when_ar": ["عند كتابة جملة جديدة", "عند الشك في حرف جر أو تركيب", "عند مقارنة كلمتين متقاربتين"],
+    "avoid_when_ar": ["أثناء الاستماع الأول للفكرة العامة", "عند محاولة البحث عن كل كلمة في نص", "إذا كان التعريف أعلى كثيرًا من مستواك"],
+    "beginner_use_case_ar": "ابحث عن كلمة work، استمع للنطق، اختر المعنى المناسب، ثم سجل تركيبًا مثل work on داخل جملة شخصية.",
+    "workflow_ar": ["خمن المعنى من السياق", "تحقق من المعنى المناسب", "استمع للنطق", "اقرأ مثالين", "سجل تركيبًا واحدًا", "اكتب مثالًا شخصيًا"],
+    "risks_limits_ar": ["تشتت المتعلم بين معان كثيرة", "نسخ أمثلة دون فهم", "تحويل القراءة إلى بحث مستمر"],
+    "alternatives_ar": ["قاموس ثنائي اللغة للبداية", "قاموس مصور", "سؤال معلم عن فروق الاستخدام"],
+    "success_signal_ar": "تختار المعنى والتركيب الصحيحين في سياق جديد."
+  }
+}

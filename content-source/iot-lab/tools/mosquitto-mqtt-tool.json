@@ -1,0 +1,23 @@
+{
+  "id": "mosquitto-mqtt-tool",
+  "portal_id": "iot-lab",
+  "content_type": "tool",
+  "title_ar": "Mosquitto وعميل MQTT",
+  "title_en": "Mosquitto MQTT",
+  "excerpt_ar": "وسيط خفيف لتعلّم النشر والاشتراك واختبار رسائل أجهزة IoT.",
+  "excerpt_en": "A lightweight broker for learning and testing IoT messages.",
+  "category": "connectivity-tools",
+  "status": "draft",
+  "featured": false,
+  "tags": ["mqtt", "iot-connectivity", "messaging"],
+  "sort_order": 50,
+  "data": {
+    "purpose_ar": "فصل الجهاز الناشر عن التطبيقات المشتركة عبر Topics ورسائل صغيرة.",
+    "use_when_ar": ["عدة مستهلكين يحتاجون نفس القياس", "تريد رسائل خفيفة", "تختبر نموذجًا محليًا"],
+    "avoid_when_ar": ["طلب HTTP بسيط يكفي", "لا تستطيع تأمين الوسيط أو إدارته", "تحتاج تخزينًا دائمًا دون مكون إضافي"],
+    "beginner_use_case_ar": "نشر درجة حرارة تجريبية على lab/room1/temperature والاشتراك بها من نافذة أخرى قبل ربط ESP32.",
+    "workflow_ar": ["صمم أسماء Topics واضحة", "اختبر محليًا", "أضف مصادقة وتشفيرًا", "حدد QoS والاحتفاظ بناء على الحاجة"],
+    "risks_limits_ar": ["وسيط مفتوح يكشف البيانات أو يسمح بالتحكم", "Retained message قد تكون قديمة", "إعادة الاتصال السيئة تسبب فيض رسائل"],
+    "alternatives_ar": ["HTTP API لطلبات مباشرة", "WebSocket للتحديث اللحظي للواجهة", "خدمة MQTT مُدارة عند الحاجة التشغيلية"]
+  }
+}

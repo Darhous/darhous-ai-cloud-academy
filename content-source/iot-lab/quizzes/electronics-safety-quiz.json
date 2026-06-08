@@ -1,0 +1,24 @@
+{
+  "id": "electronics-safety-quiz",
+  "portal_id": "iot-lab",
+  "content_type": "quiz",
+  "title_ar": "اختبار سلامة التوصيل والطاقة",
+  "title_en": "Wiring and Power Safety Quiz",
+  "excerpt_ar": "مواقف عملية حول القصر والقطبية وقياس الجهد وتشغيل الأحمال.",
+  "excerpt_en": "Practical scenarios on shorts, polarity, voltage, and loads.",
+  "category": "safety-quizzes",
+  "status": "draft",
+  "featured": false,
+  "tags": ["wiring-safety", "power", "multimeter"],
+  "sort_order": 10,
+  "data": {
+    "passing_score": 80,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question_ar": "قبل نقل سلك على Breadboard، ما الإجراء الأول؟", "options_ar": ["افصل الطاقة", "زد الجهد", "افتح Serial", "المس السلك"], "correct_answer": 0, "explanation_ar": "فصل الطاقة يمنع قصرًا لحظيًا وتلف المكونات أثناء التعديل."},
+      {"id": "q2", "type": "multiple_choice", "question_ar": "كيف تقيس جهد Pin بالنسبة إلى GND؟", "options_ar": ["على التوازي بين Pin وGND", "بوضع التيار على التوازي", "بوضع المقاومة والطاقة تعمل", "بتوصيل المجسين في منفذ التيار"], "correct_answer": 0, "explanation_ar": "قياس الجهد يكون على التوازي وبوضع ومنافذ الجهد الصحيحة."},
+      {"id": "q3", "type": "multiple_choice", "question_ar": "مضخة تسحب تيارًا أعلى من قدرة Pin. ما الحل؟", "options_ar": ["Driver ومصدر مناسب", "توصيلها مباشرة", "حذف GND", "زيادة زمن التأخير"], "correct_answer": 0, "explanation_ar": "الـ Pin إشارة تحكم، بينما Driver ومصدر منفصل يتعاملان مع تيار الحمل."},
+      {"id": "q4", "type": "multiple_choice", "question_ar": "وجدت استمرارية مباشرة بين VCC وGND قبل التشغيل. ماذا تفعل؟", "options_ar": ["لا تشغل وافحص التوصيل", "شغل لثانية", "استخدم مصدرًا أقوى", "احذف المقاومة"], "correct_answer": 0, "explanation_ar": "قد تشير الاستمرارية إلى قصر؛ يجب تحديد المسار قبل إدخال الطاقة."},
+      {"id": "q5", "type": "multiple_choice", "question_ar": "لماذا لا يكفي لون السلك لتحديد وظيفته؟", "options_ar": ["اللون تنظيم وليس دليلًا كهربائيًا", "لأن الأسود دائمًا إشارة", "لأن الأحمر يمنع القصر", "لأن اللون يغير الجهد"], "correct_answer": 0, "explanation_ar": "تُثبت الوظيفة بالمخطط والقياس وPinout، أما اللون فاتفاق تنظيمي فقط."}
+    ]
+  }
+}

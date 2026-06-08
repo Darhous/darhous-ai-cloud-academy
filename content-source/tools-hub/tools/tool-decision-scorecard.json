@@ -1,0 +1,24 @@
+{
+  "id": "tool-decision-scorecard",
+  "portal_id": "tools-hub",
+  "content_type": "tool",
+  "title_ar": "بطاقة تقييم واختيار الأدوات",
+  "title_en": "Tool Decision Scorecard",
+  "excerpt_ar": "أداة منهجية لمقارنة مرشحين على المهمة نفسها بمعايير موزونة.",
+  "excerpt_en": "A weighted scorecard for comparing candidates on the same task.",
+  "category": "tool-evaluation",
+  "status": "draft",
+  "featured": false,
+  "tags": ["scorecard", "tool-selection", "comparison"],
+  "sort_order": 10,
+  "data": {
+    "purpose_ar": "تحويل الانطباعات إلى قرار قابل للتفسير باستخدام الدقة والوقت والخصوصية والتكلفة والتصدير.",
+    "use_when_ar": ["عند الاختيار بين أداتين أو ثلاث", "قبل اشتراك مدفوع", "قبل اعتماد أداة لفريق"],
+    "avoid_when_ar": ["إذا لم تُعرّف المهمة بعد", "إذا كان أي مرشح يفشل في شرط أمان إلزامي"],
+    "beginner_use_case_ar": "مقارنة أداتين لتلخيص المستند نفسه، مع وزن أعلى للدقة ودعم العربية.",
+    "workflow_ar": ["حدد المهمة", "ضع أوزانًا مجموعها 100", "نفذ الاختبار نفسه", "امنح 1 إلى 5 مع دليل", "طبّق شروط الرفض قبل جمع النقاط"],
+    "risks_limits_ar": ["الأرقام لا تعوض حكمًا ضعيفًا", "يمكن تحيز الأوزان بعد رؤية النتيجة", "اختبار واحد لا يثبت الاتساق"],
+    "alternatives_ar": ["اختبار نجاح أو فشل بسيط لمهمة صغيرة", "تجربة محدودة لمدة أسبوعين"],
+    "output_ar": "جدول نقاط وقرار وشرط استخدام وموعد مراجعة."
+  }
+}

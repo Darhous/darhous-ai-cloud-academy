@@ -1,0 +1,18 @@
+{
+  "id": "subscription-decision-sheet",
+  "portal_id": "tools-hub",
+  "content_type": "template",
+  "title_ar": "قالب قرار الاشتراك المدفوع",
+  "title_en": "Paid Subscription Decision Sheet",
+  "excerpt_ar": "قالب لحساب القيمة ووضع شرط تجديد أو إلغاء.",
+  "excerpt_en": "A template to calculate value and set renewal or cancellation criteria.",
+  "category": "tool-cost",
+  "status": "draft",
+  "featured": false,
+  "tags": ["template", "subscription", "cost"],
+  "sort_order": 50,
+  "data": {
+    "instructions_ar": ["استخدم سجل استخدام حقيقيًا", "ابدأ بخطة شهرية", "ضع تذكيرًا قبل التجديد"],
+    "template_ar": {"الأداة": "", "سبب_الدفع": "", "الحد_الحالي": "", "مرات_الاستخدام_شهريًا": 0, "الدقائق_الموفرة_كل_مرة": 0, "قيمة_الساعة": 0, "تكلفة_الاشتراك": 0, "ساعات_التعلم_والمراجعة": 0, "ميزات_مدفوعة_مطلوبة": [], "طريقة_التصدير": "", "تكلفة_الانتقال": "", "القيمة_التقديرية": 0, "القرار": "دفع/تأجيل/إلغاء", "شرط_الإلغاء": "", "تاريخ_المراجعة": ""}
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "ai-for-study-and-work-path",
+  "portal_id": "ai-academy",
+  "content_type": "path",
+  "title_ar": "مسار استخدام AI في الدراسة والعمل",
+  "title_en": "AI for Study and Work",
+  "category": "applied-ai",
+  "status": "draft",
+  "featured": false,
+  "tags": ["ai-for-learning", "ai-for-work", "applied-ai"],
+  "sort_order": 30,
+  "data": {
+    "description_ar": "مسار يجمع تطبيقات التعلم والبحث والعمل مع التركيز على الدقة والخصوصية وتحويل المهام إلى خطوات.",
+    "level": "beginner",
+    "estimated_hours": 6,
+    "prerequisites_ar": ["القدرة على كتابة برومبت بسيط"],
+    "outcomes_ar": [
+      "استخدام AI كمدرس تفاعلي",
+      "تلخيص الملفات مع مراجعة المصدر",
+      "بناء خطة تعلم واقعية",
+      "تحسين وثائق التقديم للعمل دون اختلاق",
+      "تقسيم مهمة كبيرة إلى سير عمل قابل للتنفيذ"
+    ],
+    "items": [
+      {"content_type": "article", "id": "ai-personal-tutor", "sort_order": 10},
+      {"content_type": "article", "id": "summarize-file-or-lecture-with-ai", "sort_order": 20},
+      {"content_type": "article", "id": "personalized-ai-learning-plan", "sort_order": 30},
+      {"content_type": "article", "id": "ai-assisted-research", "sort_order": 40},
+      {"content_type": "article", "id": "ai-cv-cover-letter", "sort_order": 50},
+      {"content_type": "article", "id": "break-large-task-with-ai", "sort_order": 60},
+      {"content_type": "project", "id": "ai-research-summary-workflow", "sort_order": 70}
+    ]
+  }
+}

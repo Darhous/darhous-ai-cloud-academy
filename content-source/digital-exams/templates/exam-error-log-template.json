@@ -1,0 +1,28 @@
+{
+  "id": "exam-error-log-template",
+  "portal_id": "digital-exams",
+  "content_type": "template",
+  "title_ar": "قالب سجل أخطاء الاختبار",
+  "title_en": "Exam Error Log Template",
+  "category": "result-analysis",
+  "status": "draft",
+  "featured": false,
+  "tags": ["error-log", "result-analysis", "retest"],
+  "sort_order": 20,
+  "data": {
+    "purpose_ar": "تحويل كل خطأ إلى سبب وتدريب وموعد إعادة قابل للمتابعة.",
+    "instructions_ar": ["سجل الخطأ بعد التصحيح", "اختر سببا واحدا أساسيا", "اكتب علاجا صغيرا لا عبارة راجع الدرس", "استخدم سؤالا جديدا عند الإعادة"],
+    "fields": [
+      {"label_ar": "السؤال أو المهارة", "placeholder_ar": "وصف مختصر دون نسخ مادة سرية"},
+      {"label_ar": "الموضوع", "placeholder_ar": "الوحدة أو المهارة"},
+      {"label_ar": "إجابتي والصحيح", "placeholder_ar": "مختصر"},
+      {"label_ar": "نوع الخطأ", "placeholder_ar": "معرفة أو قراءة أو تطبيق أو وقت أو تقنية"},
+      {"label_ar": "السبب الجذري", "placeholder_ar": "ما الذي أدى فعلا إلى الخطأ؟"},
+      {"label_ar": "تدريب الإصلاح", "placeholder_ar": "مثالان مشروحان ثم 5 أسئلة"},
+      {"label_ar": "موعد الإعادة", "placeholder_ar": "تاريخ محدد"},
+      {"label_ar": "نتيجة الإعادة", "placeholder_ar": "النتيجة وما بقي"}
+    ],
+    "copy_ready_ar": "السؤال أو المهارة: ____\nالموضوع: ____\nإجابتي / الصحيح: ____ / ____\nنوع الخطأ: ____\nالسبب الجذري: ____\nتدريب الإصلاح: ____\nموعد الإعادة: ____\nنتيجة الإعادة: ____",
+    "review_question_ar": "هل العلاج يطابق سبب الخطأ، وهل اختبرت التحسن بسؤال جديد؟"
+  }
+}

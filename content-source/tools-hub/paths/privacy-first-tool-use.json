@@ -1,0 +1,28 @@
+{
+  "id": "privacy-first-tool-use",
+  "portal_id": "tools-hub",
+  "content_type": "path",
+  "title_ar": "مسار استخدام الأدوات بخصوصية وأمان",
+  "title_en": "Privacy-First Tool Use",
+  "excerpt_ar": "تعلم تصنيف البيانات وفحص الصلاحيات والتكاملات وبناء خطة خروج.",
+  "excerpt_en": "Learn data classification, permissions review, integrations, and exit planning.",
+  "category": "privacy",
+  "status": "draft",
+  "featured": false,
+  "tags": ["privacy", "data-safety", "permissions"],
+  "sort_order": 20,
+  "data": {
+    "level": "beginner-intermediate",
+    "estimated_hours": 6,
+    "goal_ar": "استخدام الأدوات بأقل قدر لازم من البيانات والصلاحيات مع قدرة واضحة على الحذف والخروج.",
+    "prerequisites_ar": ["حساب تجريبي غير حساس", "قائمة بأداتين تستخدمهما حاليًا"],
+    "stages": [
+      {"order": 1, "title_ar": "تصنيف البيانات", "outcome_ar": "تمييز العام والداخلي والشخصي والسري.", "activities_ar": ["جرد ما ترفعه", "تحديد المالك", "منع البيانات غير الضرورية"]},
+      {"order": 2, "title_ar": "قراءة السياسة عمليًا", "outcome_ar": "إجابات عن التدريب والاحتفاظ والموقع والحذف.", "activities_ar": ["فحص الإعدادات", "تسجيل الأسئلة المفتوحة", "مقارنة الحساب العام والمؤسسي"]},
+      {"order": 3, "title_ar": "تقليل الوصول", "outcome_ar": "صلاحيات وتكاملات محدودة ومراجعة.", "activities_ar": ["تفعيل التوثيق المتعدد", "إلغاء تكامل قديم", "اختبار أقل صلاحية"]},
+      {"order": 4, "title_ar": "خطة خروج", "outcome_ar": "تصدير مجرب وحذف وبديل.", "activities_ar": ["تنزيل عينة", "اختبار فتحها خارجيًا", "توثيق إغلاق الحساب"]}
+    ],
+    "final_deliverable_ar": "سجل خصوصية لأداتين يتضمن البيانات والصلاحيات والاحتفاظ والتصدير والحذف.",
+    "success_criteria_ar": ["لا تُستخدم بيانات حساسة في التجربة", "الصلاحيات مبررة", "التصدير مجرب", "يوجد مسؤول وموعد مراجعة"]
+  }
+}

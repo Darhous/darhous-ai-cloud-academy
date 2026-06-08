@@ -1,0 +1,25 @@
+{
+  "id": "cefr-practical-assessment-quiz",
+  "portal_id": "language",
+  "content_type": "quiz",
+  "title_ar": "اختبار التقييم العملي وCEFR",
+  "title_en": "CEFR Practical Assessment Quiz",
+  "excerpt_ar": "أسئلة مواقف تختبر اختيار دليل مستوى وخطوة تعلم مناسبة.",
+  "excerpt_en": "Scenario questions about evidence-based CEFR assessment.",
+  "category": "assessment",
+  "status": "draft",
+  "featured": false,
+  "tags": ["cefr", "assessment", "quiz"],
+  "sort_order": 10,
+  "data": {
+    "instructions_ar": "اختر أفضل إجابة بناء على ما يقيس الأداء الحقيقي، ثم اقرأ التفسير.",
+    "passing_score": 70,
+    "questions": [
+      {"id": "q1", "type": "multiple_choice", "question_ar": "حصل متعلم على نتيجة عالية في اختبار قواعد لكنه لا يستطيع تسجيل دقيقة عن يومه. ما الاستنتاج الأدق؟", "options_ar": ["مستواه متقدم في كل المهارات", "نتيجة القواعد لا تكفي لتحديد المستوى العام", "يجب أن يحفظ قواعد أكثر", "التحدث لا يدخل في CEFR"], "correct_answer": 1, "explanation_ar": "CEFR يصف القدرة العملية في مهارات متعددة، وقد يختلف الأداء بين القواعد والتحدث."},
+      {"id": "q2", "type": "multiple_choice", "question_ar": "ما أفضل دليل على تحسن الكتابة خلال شهر؟", "options_ar": ["الشعور بأن الكتابة أسهل", "عدد التطبيقات المستخدمة", "مقارنة مسودتين لمهمتين متقاربتين بقائمة معايير", "عدد الكلمات المحفوظة"], "correct_answer": 2, "explanation_ar": "العينات المتقاربة تكشف التنظيم والدقة والاستقلال بصورة يمكن مراجعتها."},
+      {"id": "q3", "type": "multiple_choice", "question_ar": "مستمع يفهم الفكرة بعد قراءة النص الكامل فقط. كيف يسجل الأداء؟", "options_ar": ["فهم مستقل كامل", "فهم بمساعدة ويحتاج تدريبًا إضافيًا", "فشل تام", "مستوى C1"], "correct_answer": 1, "explanation_ar": "قراءة النص نوع من المساعدة، ويجب تمييز الأداء المستقل عن الأداء المدعوم."},
+      {"id": "q4", "type": "multiple_choice", "question_ar": "أي هدف أسبوعي أفضل؟", "options_ar": ["تحسين الإنجليزية", "الوصول إلى B2 سريعًا", "تلخيص مقطعين A2 في أربع جمل لكل منهما", "دراسة كثير من الكلمات"], "correct_answer": 2, "explanation_ar": "الهدف محدد وقابل للتنفيذ والقياس وينتج دليلًا واضحًا."},
+      {"id": "q5", "type": "multiple_choice", "question_ar": "إذا كان التحدث A2 والقراءة B1، فما الخطة الأنسب؟", "options_ar": ["تجاهل القراءة", "وصف المستوى بكلمة واحدة فقط", "تقوية التحدث مع نشاط صيانة للقراءة", "إعادة اختبار القواعد يوميًا"], "correct_answer": 2, "explanation_ar": "الخطة الجيدة تعالج فجوة الأولوية وتحافظ على المهارة الأقوى."}
+    ]
+  }
+}
