@@ -3,6 +3,30 @@ import Link from "next/link";
 import { ArrowRight, Clock, BookOpen, Cpu } from "lucide-react";
 import { notFound } from "next/navigation";
 import { pathsData } from "@/data/iot/paths";
+import type { PathData } from "@/data/iot/paths";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+
+interface PathRow extends Record<string, unknown> {
+  id: string; title: string; english_title: string; level: PathData["level"]; duration: string;
+  target_learner: string; prerequisites: string; description: string; modules: string[];
+  related_lessons: string[]; related_projects: string[]; related_code_examples: string[]; related_components: string[];
+  final_project: string; cta_text: string;
+}
+function mapPathRow(row: PathRow): PathData {
+  return {
+    id: row.id, title: row.title, englishTitle: row.english_title, level: row.level, duration: row.duration,
+    targetLearner: row.target_learner, prerequisites: row.prerequisites, description: row.description,
+    modules: row.modules ?? [], relatedLessons: row.related_lessons ?? [], relatedProjects: row.related_projects ?? [],
+    relatedCodeExamples: row.related_code_examples ?? [], relatedComponents: row.related_components ?? [],
+    finalProject: row.final_project, ctaText: row.cta_text,
+  };
+}
+async function fetchAllPaths(): Promise<PathData[]> {
+  const dbPaths = await fetchPublishedList<PathRow, PathData>({
+    table: "iot_paths", mapRow: mapPathRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbPaths, pathsData);
+}
 
 export async function generateMetadata({
   params,
@@ -10,7 +34,8 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const path = pathsData.find((p) => p.id === slug);
+  const paths = await fetchAllPaths();
+  const path = paths.find((p) => p.id === slug);
   if (!path) return { title: "Not Found" };
   return {
     title: `${path.title} | مختبر درهوس`,
@@ -30,7 +55,8 @@ export default async function IotPathDetailPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const path = pathsData.find((p) => p.id === slug);
+  const paths = await fetchAllPaths();
+  const path = paths.find((p) => p.id === slug);
   if (!path) notFound();
 
   const color = LEVEL_COLOR[path.level] ?? "#f97316";

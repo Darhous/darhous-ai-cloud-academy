@@ -3,6 +3,22 @@ import Link from "next/link";
 import { ArrowRight, Star, Trophy, CheckCircle2 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { challengesData } from "@/data/iot/challenges";
+import type { Challenge } from "@/data/iot/challenges";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+
+interface ChallengeRow extends Record<string, unknown> {
+  id: string; title: string; description: string; level: Challenge["level"];
+  xp_reward: number; badge_id?: string; tasks: string[];
+}
+function mapChallengeRow(row: ChallengeRow): Challenge {
+  return { id: row.id, title: row.title, description: row.description, level: row.level, xpReward: row.xp_reward, badgeId: row.badge_id, tasks: row.tasks ?? [] };
+}
+async function fetchAllChallenges(): Promise<Challenge[]> {
+  const dbChallenges = await fetchPublishedList<ChallengeRow, Challenge>({
+    table: "iot_challenges", mapRow: mapChallengeRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbChallenges, challengesData);
+}
 
 export async function generateMetadata({
   params,
@@ -10,7 +26,8 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const ch = challengesData.find((c) => c.id === slug);
+  const challenges = await fetchAllChallenges();
+  const ch = challenges.find((c) => c.id === slug);
   if (!ch) return { title: "Not Found" };
   return { title: `${ch.title} | مختبر درهوس`, description: ch.description };
 }
@@ -27,7 +44,8 @@ export default async function IotChallengeDetailPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const ch = challengesData.find((c) => c.id === slug);
+  const challenges = await fetchAllChallenges();
+  const ch = challenges.find((c) => c.id === slug);
   if (!ch) notFound();
 
   const color = LEVEL_COLOR[ch.level] ?? "#f97316";

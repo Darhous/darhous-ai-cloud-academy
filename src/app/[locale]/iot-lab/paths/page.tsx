@@ -2,6 +2,30 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
 import { pathsData } from "@/data/iot/paths";
+import type { PathData } from "@/data/iot/paths";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+
+interface PathRow extends Record<string, unknown> {
+  id: string; title: string; english_title: string; level: PathData["level"]; duration: string;
+  target_learner: string; prerequisites: string; description: string; modules: string[];
+  related_lessons: string[]; related_projects: string[]; related_code_examples: string[]; related_components: string[];
+  final_project: string; cta_text: string;
+}
+function mapPathRow(row: PathRow): PathData {
+  return {
+    id: row.id, title: row.title, englishTitle: row.english_title, level: row.level, duration: row.duration,
+    targetLearner: row.target_learner, prerequisites: row.prerequisites, description: row.description,
+    modules: row.modules ?? [], relatedLessons: row.related_lessons ?? [], relatedProjects: row.related_projects ?? [],
+    relatedCodeExamples: row.related_code_examples ?? [], relatedComponents: row.related_components ?? [],
+    finalProject: row.final_project, ctaText: row.cta_text,
+  };
+}
+async function fetchAllPaths(): Promise<PathData[]> {
+  const dbPaths = await fetchPublishedList<PathRow, PathData>({
+    table: "iot_paths", mapRow: mapPathRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbPaths, pathsData);
+}
 
 export async function generateMetadata({
   params,
@@ -24,6 +48,7 @@ export default async function IotPathsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const allPaths = await fetchAllPaths();
 
   return (
     <div className="container-xl py-12" dir="rtl">
@@ -31,10 +56,10 @@ export default async function IotPathsPage({
         <ArrowRight size={14} />العودة للمختبر
       </Link>
       <h1 className="font-display font-bold text-3xl mb-2" style={{ color: "var(--color-on-surface)" }}>مسارات تعلم الأردوينو وإنترنت الأشياء</h1>
-      <p className="text-sm mb-8" style={{ color: "var(--color-on-surface-variant)" }}>{pathsData.length} مسار منظم — من لا خبرة إلى بناء مشاريع IoT متكاملة.</p>
+      <p className="text-sm mb-8" style={{ color: "var(--color-on-surface-variant)" }}>{allPaths.length} مسار منظم — من لا خبرة إلى بناء مشاريع IoT متكاملة.</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {pathsData.map((path) => {
+        {allPaths.map((path) => {
           const color = LEVEL_COLOR[path.level] ?? "#f97316";
           return (
             <Link

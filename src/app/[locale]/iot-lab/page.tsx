@@ -4,10 +4,108 @@ import { ArrowRight, BookOpen, Cpu, Trophy, Package, Monitor, FileCheck, Sparkle
 import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
 import PortalIdentityIntro from "@/components/portal/PortalIdentityIntro";
 import { lessonsData } from "@/data/iot/lessons";
+import type { Lesson } from "@/data/iot/lessons";
 import { projectsData } from "@/data/iot/projects";
+import type { Project } from "@/data/iot/projects";
 import { challengesData } from "@/data/iot/challenges";
+import type { Challenge } from "@/data/iot/challenges";
 import { componentsData } from "@/data/iot/components";
+import type { ComponentData } from "@/data/iot/components";
 import { pathsData } from "@/data/iot/paths";
+import type { PathData } from "@/data/iot/paths";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+
+interface LessonRow extends Record<string, unknown> {
+  id: string; title: string; category: string; duration: string; description: string; content: string;
+  components_needed: string[]; wiring_notes: string; code_example: string; common_mistakes: string;
+  simulator_link?: string; next_lesson_id?: string; title_en?: string; category_en?: string;
+  description_en?: string; content_en?: string; wiring_notes_en?: string; common_mistakes_en?: string;
+}
+function mapLessonRow(row: LessonRow): Lesson {
+  return {
+    id: row.id, title: row.title, category: row.category, duration: row.duration, description: row.description,
+    content: row.content, componentsNeeded: row.components_needed ?? [], wiringNotes: row.wiring_notes,
+    codeExample: row.code_example, commonMistakes: row.common_mistakes, simulatorLink: row.simulator_link,
+    nextLessonId: row.next_lesson_id, titleEn: row.title_en, categoryEn: row.category_en,
+    descriptionEn: row.description_en, contentEn: row.content_en, wiringNotesEn: row.wiring_notes_en,
+    commonMistakesEn: row.common_mistakes_en,
+  };
+}
+async function fetchAllLessons(): Promise<Lesson[]> {
+  const dbLessons = await fetchPublishedList<LessonRow, Lesson>({
+    table: "iot_lessons", mapRow: mapLessonRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbLessons, lessonsData);
+}
+
+interface ProjectRow extends Record<string, unknown> {
+  id: string; title: string; category: string; difficulty: Project["difficulty"]; duration: string;
+  description: string; features: string[]; components: string[]; wiring_guide: string; code_snippet: string;
+  video_url?: string; simulator_link?: string;
+}
+function mapProjectRow(row: ProjectRow): Project {
+  return {
+    id: row.id, title: row.title, category: row.category, difficulty: row.difficulty, duration: row.duration,
+    description: row.description, features: row.features ?? [], components: row.components ?? [],
+    wiringGuide: row.wiring_guide, codeSnippet: row.code_snippet, videoUrl: row.video_url, simulatorLink: row.simulator_link,
+  };
+}
+async function fetchAllProjects(): Promise<Project[]> {
+  const dbProjects = await fetchPublishedList<ProjectRow, Project>({
+    table: "iot_projects", mapRow: mapProjectRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbProjects, projectsData);
+}
+
+interface ChallengeRow extends Record<string, unknown> {
+  id: string; title: string; description: string; level: Challenge["level"];
+  xp_reward: number; badge_id?: string; tasks: string[];
+}
+function mapChallengeRow(row: ChallengeRow): Challenge {
+  return { id: row.id, title: row.title, description: row.description, level: row.level, xpReward: row.xp_reward, badgeId: row.badge_id, tasks: row.tasks ?? [] };
+}
+async function fetchAllChallenges(): Promise<Challenge[]> {
+  const dbChallenges = await fetchPublishedList<ChallengeRow, Challenge>({
+    table: "iot_challenges", mapRow: mapChallengeRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbChallenges, challengesData);
+}
+
+interface ComponentRow extends Record<string, unknown> {
+  id: string; name: string; category: ComponentData["category"]; description: string;
+  pins: { name: string; description: string }[]; price_range?: string; buy_link?: string;
+}
+function mapComponentRow(row: ComponentRow): ComponentData {
+  return { id: row.id, name: row.name, category: row.category, description: row.description, pins: row.pins ?? [], priceRange: row.price_range, buyLink: row.buy_link };
+}
+async function fetchAllComponents(): Promise<ComponentData[]> {
+  const dbComponents = await fetchPublishedList<ComponentRow, ComponentData>({
+    table: "iot_components", mapRow: mapComponentRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbComponents, componentsData);
+}
+
+interface PathRow extends Record<string, unknown> {
+  id: string; title: string; english_title: string; level: PathData["level"]; duration: string;
+  target_learner: string; prerequisites: string; description: string; modules: string[];
+  related_lessons: string[]; related_projects: string[]; related_code_examples: string[]; related_components: string[];
+  final_project: string; cta_text: string;
+}
+function mapPathRow(row: PathRow): PathData {
+  return {
+    id: row.id, title: row.title, englishTitle: row.english_title, level: row.level, duration: row.duration,
+    targetLearner: row.target_learner, prerequisites: row.prerequisites, description: row.description,
+    modules: row.modules ?? [], relatedLessons: row.related_lessons ?? [], relatedProjects: row.related_projects ?? [],
+    relatedCodeExamples: row.related_code_examples ?? [], relatedComponents: row.related_components ?? [],
+    finalProject: row.final_project, ctaText: row.cta_text,
+  };
+}
+async function fetchAllPaths(): Promise<PathData[]> {
+  const dbPaths = await fetchPublishedList<PathRow, PathData>({
+    table: "iot_paths", mapRow: mapPathRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbPaths, pathsData);
+}
 
 export async function generateMetadata({
   params,
@@ -34,78 +132,85 @@ export async function generateMetadata({
   };
 }
 
-const SECTIONS = [
-  {
-    href: "/iot-lab/paths",
-    icon: <BookOpen size={20} />,
-    titleAr: "مسارات التعلم",
-    descAr: "مسارات منظمة من الصفر: أردوينو للمبتدئين، أساسيات الإلكترونيات، الحساسات، والشاشات.",
-    color: "#f97316",
-    count: pathsData.length,
-    unit: "مسار",
-  },
-  {
-    href: "/iot-lab/lessons",
-    icon: <Cpu size={20} />,
-    titleAr: "الدروس",
-    descAr: "دروس تفاعلية بالعربية مع كود مثال، مخطط التوصيل، والأخطاء الشائعة لكل درس.",
-    color: "#8ed5ff",
-    count: lessonsData.length,
-    unit: "درس",
-  },
-  {
-    href: "/iot-lab/projects",
-    icon: <Trophy size={20} />,
-    titleAr: "المشاريع",
-    descAr: "72 مشروع من السهل للتخرج — كل مشروع بمكونات، مخطط توصيل، وكود جاهز.",
-    color: "#4ade80",
-    count: projectsData.length,
-    unit: "مشروع",
-  },
-  {
-    href: "/iot-lab/challenges",
-    icon: <Trophy size={20} />,
-    titleAr: "التحديات",
-    descAr: "تحديات برمجية مرتبة بالصعوبة مع نقاط XP وشارات — اختبر مهاراتك.",
-    color: "#d0bcff",
-    count: challengesData.length,
-    unit: "تحدي",
-  },
-  {
-    href: "/iot-lab/component-library",
-    icon: <Package size={20} />,
-    titleAr: "مكتبة المكونات",
-    descAr: "دليل شامل للمكونات الإلكترونية: الوصف، الاستخدام، ومثال توصيل لكل مكوّن.",
-    color: "#fbbf24",
-    count: componentsData.length,
-    unit: "مكوّن",
-  },
-  {
-    href: "/iot-lab/simulator",
-    icon: <Monitor size={20} />,
-    titleAr: "المحاكي التفاعلي",
-    descAr: "جرّب مشاريع الأردوينو مباشرة في المتصفح عبر Wokwi بدون أي أجهزة.",
-    color: "#3ce0fb",
-    count: null,
-    unit: "",
-  },
-  {
-    href: "/iot-lab/exams",
-    icon: <FileCheck size={20} />,
-    titleAr: "الاختبارات",
-    descAr: "اختبر فهمك للمفاهيم الإلكترونية والبرمجة واحصل على شهادة إنجاز.",
-    color: "#f87171",
-    count: null,
-    unit: "",
-  },
-];
-
 export default async function IotLabPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const [allLessons, allProjects, allChallenges, allComponents, allPaths] = await Promise.all([
+    fetchAllLessons(),
+    fetchAllProjects(),
+    fetchAllChallenges(),
+    fetchAllComponents(),
+    fetchAllPaths(),
+  ]);
+
+  const SECTIONS = [
+    {
+      href: "/iot-lab/paths",
+      icon: <BookOpen size={20} />,
+      titleAr: "مسارات التعلم",
+      descAr: "مسارات منظمة من الصفر: أردوينو للمبتدئين، أساسيات الإلكترونيات، الحساسات، والشاشات.",
+      color: "#f97316",
+      count: allPaths.length,
+      unit: "مسار",
+    },
+    {
+      href: "/iot-lab/lessons",
+      icon: <Cpu size={20} />,
+      titleAr: "الدروس",
+      descAr: "دروس تفاعلية بالعربية مع كود مثال، مخطط التوصيل، والأخطاء الشائعة لكل درس.",
+      color: "#8ed5ff",
+      count: allLessons.length,
+      unit: "درس",
+    },
+    {
+      href: "/iot-lab/projects",
+      icon: <Trophy size={20} />,
+      titleAr: "المشاريع",
+      descAr: "72 مشروع من السهل للتخرج — كل مشروع بمكونات، مخطط توصيل، وكود جاهز.",
+      color: "#4ade80",
+      count: allProjects.length,
+      unit: "مشروع",
+    },
+    {
+      href: "/iot-lab/challenges",
+      icon: <Trophy size={20} />,
+      titleAr: "التحديات",
+      descAr: "تحديات برمجية مرتبة بالصعوبة مع نقاط XP وشارات — اختبر مهاراتك.",
+      color: "#d0bcff",
+      count: allChallenges.length,
+      unit: "تحدي",
+    },
+    {
+      href: "/iot-lab/component-library",
+      icon: <Package size={20} />,
+      titleAr: "مكتبة المكونات",
+      descAr: "دليل شامل للمكونات الإلكترونية: الوصف، الاستخدام، ومثال توصيل لكل مكوّن.",
+      color: "#fbbf24",
+      count: allComponents.length,
+      unit: "مكوّن",
+    },
+    {
+      href: "/iot-lab/simulator",
+      icon: <Monitor size={20} />,
+      titleAr: "المحاكي التفاعلي",
+      descAr: "جرّب مشاريع الأردوينو مباشرة في المتصفح عبر Wokwi بدون أي أجهزة.",
+      color: "#3ce0fb",
+      count: null,
+      unit: "",
+    },
+    {
+      href: "/iot-lab/exams",
+      icon: <FileCheck size={20} />,
+      titleAr: "الاختبارات",
+      descAr: "اختبر فهمك للمفاهيم الإلكترونية والبرمجة واحصل على شهادة إنجاز.",
+      color: "#f87171",
+      count: null,
+      unit: "",
+    },
+  ];
 
   return (
     <PortalPageWrapper>
@@ -141,10 +246,10 @@ export default async function IotLabPage({
         {/* Stats bar */}
         <div className="flex flex-wrap justify-center gap-8 mb-16 py-6 rounded-2xl" style={{ background: "var(--portal-color-faint)", border: "1px solid var(--portal-color-border)" }}>
           {[
-            { v: `${lessonsData.length}+`, l: "درس تعليمي" },
-            { v: `${projectsData.length}`, l: "مشروع تطبيقي" },
-            { v: `${challengesData.length}+`, l: "تحدي برمجي" },
-            { v: `${componentsData.length}+`, l: "مكوّن إلكتروني" },
+            { v: `${allLessons.length}+`, l: "درس تعليمي" },
+            { v: `${allProjects.length}`, l: "مشروع تطبيقي" },
+            { v: `${allChallenges.length}+`, l: "تحدي برمجي" },
+            { v: `${allComponents.length}+`, l: "مكوّن إلكتروني" },
           ].map((s, i) => (
             <div key={i} className="text-center">
               <div className="text-2xl font-bold font-mono mb-1" style={{ color: "var(--portal-color)" }}>{s.v}</div>

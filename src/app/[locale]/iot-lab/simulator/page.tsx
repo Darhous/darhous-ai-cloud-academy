@@ -2,6 +2,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Monitor, ExternalLink, BookOpen, Cpu } from "lucide-react";
 import { simulatorsData } from "@/data/iot/simulators";
+import type { SimulatorTemplate } from "@/data/iot/simulators";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+
+interface SimulatorRow extends Record<string, unknown> {
+  id: string; title: string; description: string; category: SimulatorTemplate["category"]; wokwi_id: string;
+}
+function mapSimulatorRow(row: SimulatorRow): SimulatorTemplate {
+  return { id: row.id, title: row.title, description: row.description, category: row.category, wokwiId: row.wokwi_id };
+}
+async function fetchAllSimulators(): Promise<SimulatorTemplate[]> {
+  const dbSimulators = await fetchPublishedList<SimulatorRow, SimulatorTemplate>({
+    table: "iot_simulators", mapRow: mapSimulatorRow, match: { portal_id: "iot-lab" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbSimulators, simulatorsData);
+}
 
 export async function generateMetadata({
   params,
@@ -22,6 +37,7 @@ export default async function IotSimulatorPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const allSimulators = await fetchAllSimulators();
 
   return (
     <div className="container-xl py-12" dir="rtl">
@@ -67,11 +83,11 @@ export default async function IotSimulatorPage({
       </div>
 
       {/* Simulator templates */}
-      {simulatorsData.length > 0 && (
+      {allSimulators.length > 0 && (
         <div>
           <h2 className="font-bold text-xl mb-6" style={{ color: "var(--color-on-surface)" }}>محاكيات جاهزة</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {simulatorsData.map((sim) => (
+            {allSimulators.map((sim) => (
               <div key={sim.id} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: "1px solid rgba(60,224,251,0.12)" }}>
                 <h3 className="font-semibold text-sm" style={{ color: "var(--color-on-surface)" }}>{sim.title}</h3>
                 <p className="text-xs leading-relaxed flex-1" style={{ color: "var(--color-on-surface-variant)" }}>{sim.description}</p>
