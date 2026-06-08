@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-06-08T00:00:00+00:00",
+  "mode_used": "B (static evidence, no DB connection — Mode A requires LIVE_READINESS_DB_URL / read-only Supabase credentials, which are not configured; this is the expected and safest posture for a planning-only station)",
+  "total_normalized_files": 1040,
+  "raw_table_exists_split": {
+    "importable_count": 810,
+    "skipped_count": 230,
+    "note": "Comparable methodology to the two earlier (now-stale) reports — counts ANY existing target table as 'importable', regardless of whether the app already depends on it. Provided for continuity/comparison only. See tiered_breakdown for the actionable picture."
+  },
+  "tiered_breakdown": {
+    "tier_A_new_isolated_safe": 600,
+    "tier_B_preexisting_live_caution": 210,
+    "tier_C_deferred_missing": 230,
+    "tier_unclassified": 0
+  },
+  "tier_A_table_list": [
+    "career_glossary", "career_prompts", "career_resources", "career_lessons",
+    "language_glossary", "language_prompts", "language_resources", "language_lessons",
+    "digital_exams_glossary", "digital_exams_prompts", "digital_exams_resources", "digital_exams_lessons",
+    "ai_resources", "ai_lessons",
+    "automation_resources", "automation_lessons",
+    "iot_glossary", "iot_prompts", "iot_resources"
+  ],
+  "tier_B_table_list": [
+    "ai_glossary", "ai_prompts", "automation_glossary", "automation_prompts",
+    "iot_lessons", "nano_banana_custom_prompts"
+  ],
+  "tier_C_table_list": [
+    "tools_hub_glossary", "tools_hub_prompts", "tools_hub_resources", "tools_hub_lessons",
+    "nano_banana_glossary", "nano_banana_resources", "nano_banana_lessons"
+  ],
+  "recommended_safe_to_plan_import_now": 600,
+  "requires_separate_review_before_import": 210,
+  "cannot_import_deferred": 230,
+  "tools_hub_and_nano_banana_excluded_from_importable_recommendation": true,
+  "special_case_flagged": {
+    "table": "nano_banana_custom_prompts",
+    "portal_content_type": "nano-banana/prompts",
+    "file_count": 30,
+    "issue": "Technically an existing table (Tier B), but this is precisely the OLD table that the newly-generated 'nano_banana_prompts' schema was designed to replace/align with. The importer-plan.md itself flags a naming/routing mismatch risk here. Recommendation: treat this 30-file group with the SAME caution as the fully-deferred nano-banana groups — do NOT include it in any near-term import batch alongside Tier A content."
+  },
+  "missing_optional_field_impact": {
+    "title_en_missing_count": 425,
+    "title_en_missing_pct_of_total": "40.9%",
+    "excerpt_ar_missing_count": 11,
+    "excerpt_ar_missing_pct_of_total": "1.1%",
+    "classified_as_audit_issue": false,
+    "note": "normalized-schema-audit-summary.json reports these as missing_field_counts but does NOT count them toward BLOCKER/HIGH/MEDIUM/LOW (0/0/0/0) — implying they are treated as optional. This station did not cross-reference WHICH specific files (Tier A vs B vs C) are missing these fields, to avoid a heavy per-file CSV read. Recommended follow-up (next station): cross-reference normalized-schema-audit-details.csv against this tiered table to learn what fraction of the 600 'safe to import' Tier A files would surface with a blank English title or Arabic excerpt in the UI."
+  },
+  "safety_assertions": {
+    "script_performed_any_insert": false,
+    "script_performed_any_update": false,
+    "script_performed_any_delete": false,
+    "script_performed_any_upsert": false,
+    "script_performed_any_ddl": false,
+    "database_connection_attempted": false,
+    "service_role_key_used": false
+  },
+  "supersedes": [
+    "content-source/_audit/importer-dry-run-summary.json (210/830 — see report section 8 for why)",
+    "content-source/_audit/importer-readiness-summary.json (440/600 — see report section 8 for why)"
+  ]
+}
