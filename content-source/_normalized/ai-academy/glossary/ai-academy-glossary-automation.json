@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-automation",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الأتمتة",
+  "data": {
+    "definition": "استخدام التكنولوجيا لإنجاز المهام المتكررة تلقائياً وبأقل تدخل بشري.",
+    "example": "استخدام الذكاء الاصطناعي لفرز رسائل البريد الإلكتروني آلياً بناءً على محتواها."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 50
+}

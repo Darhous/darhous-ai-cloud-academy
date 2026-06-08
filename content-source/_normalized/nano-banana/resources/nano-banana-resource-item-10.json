@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-resource-item-10",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "كيفية تقييم جودة الصور المولدة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "تحليل جودة الصور",
+  "title_en": "Item 10",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "resource"
+  ],
+  "sort_order": 20
+}

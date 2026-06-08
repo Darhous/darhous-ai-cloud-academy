@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-current",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التيار الكهربائي (Current)",
+  "title_en": "Current",
+  "data": {
+    "definition": "معدل تدفق الشحنات الكهربائية في الدائرة، ويقاس بالأمبير.",
+    "example": "حساب التيار المار في مقاومة باستخدام قانون أوم."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 80
+}

@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-post-exam-eval",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التقييم البعدي",
+  "data": {
+    "definition": "مراجعة الأداء فور انتهاء الاختبار لتحديد نقاط القوة والضعف في استراتيجية الحل.",
+    "example": "تحليل ما إذا كان الوقت المخصص للقسم الكمي كافياً أم يحتاج لتعديل."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 220
+}

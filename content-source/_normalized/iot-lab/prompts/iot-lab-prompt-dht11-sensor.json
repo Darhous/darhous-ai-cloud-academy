@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-dht11-sensor",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "قراءة بيانات حساس DHT11",
+  "title_en": "DHT11 Sensor Reading",
+  "data": {
+    "prompt_text": "أريد كود لاستخدام حساس الحرارة والرطوبة DHT11 مع [نوع_اللوحة] لعرض درجة الحرارة بالدرجة المئوية والرطوبة بالنسبة المئوية كل [ثواني] ثانية.",
+    "instructions": "حدد نوع اللوحة (أردوينو أو ESP32) والفاصل الزمني بين القراءات."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 60
+}

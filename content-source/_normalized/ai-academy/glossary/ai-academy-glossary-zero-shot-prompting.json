@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-zero-shot-prompting",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التوجيه الخالي من الأمثلة",
+  "data": {
+    "definition": "إعطاء النموذج مهمة دون توفير أي أمثلة سابقة لحلها.",
+    "example": "ترجم هذه الجملة إلى الفرنسية: 'مرحبا'"
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 300
+}

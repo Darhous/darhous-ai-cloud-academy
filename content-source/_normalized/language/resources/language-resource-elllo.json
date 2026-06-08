@@ -1,0 +1,19 @@
+{
+  "id": "language-resource-elllo",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "مكتبة الاستماع",
+  "data": {
+    "url": "https://elllo.org/",
+    "description": "مكتبة ضخمة لمقاطع الاستماع مع نصوص."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 80
+}

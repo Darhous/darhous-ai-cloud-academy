@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-item-04",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "حالة نفسية تصيب الطالب قبل أو أثناء الاختبار وتؤثر على تركيزه.",
+    "example": "مثال: الشعور بتسارع نبضات القلب عند قراءة سؤال صعب."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "قلق الاختبار",
+  "title_en": "Item 04",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 340
+}

@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-pwm-2",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تعديل عرض النبضة (PWM)",
+  "title_en": "Pulse Width Modulation",
+  "data": {
+    "definition": "تقنية لمحاكاة إشارة تماثلية باستخدام إشارات رقمية سريعة التغيير.",
+    "example": "التحكم في سرعة محرك أو شدة إضاءة LED باستخدام إشارات PWM."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 390
+}

@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-automation-testing",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "اختبار الأتمتة",
+  "data": {
+    "definition": "التحقق من صحة سير العمل عن طريق إرسال بيانات تجريبية للتأكد من أن جميع الخطوات، الشروط، والتخريجات تعمل كما هو متوقع.",
+    "example": "إدخال بيانات وهمية في نموذج الاختبار ومراقبة تنفيذ الخطوات حتى وصول الرسالة النهائية بنجاح."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 100
+}

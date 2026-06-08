@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-esp32-datasheet",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "url": "https://www.espressif.com/en/products/socs/esp32",
+    "description": "المعلومات التقنية الرسمية والمواصفات الكاملة لمتحكم ESP32."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "ورقة بيانات ESP32",
+  "title_en": "Esp32 Datasheet",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 90
+}

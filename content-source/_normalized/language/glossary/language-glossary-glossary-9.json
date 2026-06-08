@@ -1,0 +1,20 @@
+{
+  "id": "language-glossary-glossary-9",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "definition": "الطلاقة",
+    "example": "القدرة على التحدث بسهولة ودون توقف."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Glossary 9",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 330,
+  "manual_review_required": true
+}

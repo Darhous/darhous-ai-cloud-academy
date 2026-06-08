@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-resource-item-03",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://quizlet.com",
+    "description": "أداة لإنشاء بطاقات تعليمية واختبارات تدريبية."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "موقع كويزليت",
+  "title_en": "Item 03",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "resource"
+  ],
+  "sort_order": 230
+}

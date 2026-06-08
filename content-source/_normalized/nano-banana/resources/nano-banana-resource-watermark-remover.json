@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-resource-watermark-remover",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أدوات إزالة العلامات المائية",
+  "data": {
+    "description": "نظرة عامة على أدوات تنظيف الصور وتعديل العيوب الناتجة عن التوليد.",
+    "url": ""
+  },
+  "title_en": "",
+  "category": "نانو بانانا",
+  "featured": false,
+  "tags": [
+    "نانو بانانا",
+    "resource"
+  ],
+  "sort_order": 300
+}

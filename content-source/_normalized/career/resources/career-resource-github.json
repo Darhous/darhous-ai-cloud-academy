@@ -1,0 +1,19 @@
+{
+  "id": "career-resource-github",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "جيت هب",
+  "data": {
+    "url": "https://github.com",
+    "description": "منصة أساسية للمبرمجين لبناء معرض أعمالهم ومشاركة الكود والمساهمة في مشاريع مفتوحة المصدر."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 40
+}

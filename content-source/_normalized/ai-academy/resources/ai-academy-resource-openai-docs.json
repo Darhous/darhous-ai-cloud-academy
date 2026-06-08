@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-resource-openai-docs",
+  "portal_id": "ai-academy",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "مستندات أوبن إي آي",
+  "data": {
+    "url": "https://platform.openai.com/docs/",
+    "description": "المرجع الرسمي لتعلم كيفية استخدام نماذج OpenAI."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 160
+}

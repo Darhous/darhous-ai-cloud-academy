@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-pwm-led",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "التحكم في شدة إضاءة LED بـ PWM",
+  "title_en": "LED Brightness Control with PWM",
+  "data": {
+    "prompt_text": "قم بكتابة برنامج لأردوينو لزيادة وتقليل شدة إضاءة LED متصل بالمنفذ [رقم_المنفذ_PWM] تدريجيًا باستخدام تقنية PWM.",
+    "instructions": "حدد رقم منفذ يدعم PWM (مثل 3, 5, 6, 9, 10, 11 في أردوينو أونو)."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 160
+}

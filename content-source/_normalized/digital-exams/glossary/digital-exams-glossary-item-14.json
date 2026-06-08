@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-item-14",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "تقنية استرخاء تساعد في تقليل التوتر أثناء الاختبار.",
+    "example": "مثال: أخذ نفس عميق والعد إلى خمسة قبل الإجابة على سؤال صعب."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "التنفس العميق",
+  "title_en": "Item 14",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 440
+}

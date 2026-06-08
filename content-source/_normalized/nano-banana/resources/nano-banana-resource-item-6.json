@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-resource-item-6",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "أفضل الممارسات لصور المنتجات."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "إنشاء صور المنتجات",
+  "title_en": "Item 6",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "resource"
+  ],
+  "sort_order": 70
+}

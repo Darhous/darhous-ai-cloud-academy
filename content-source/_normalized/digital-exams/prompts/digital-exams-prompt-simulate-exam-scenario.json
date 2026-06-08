@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-simulate-exam-scenario",
+  "portal_id": "digital-exams",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "محاكاة سيناريو اختبار صعب",
+  "data": {
+    "prompt_text": "تخيل أنك تختبرني شفوياً في موضوع [الموضوع]. اسألني سؤالاً صعباً، وانتظر إجابتي، ثم صحح لي وأعطني السؤال التالي. كرر ذلك 3 مرات.",
+    "instructions": "يستخدم للتدرب التفاعلي والمحاكاة الحية لمستوى الصعوبة."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 180
+}

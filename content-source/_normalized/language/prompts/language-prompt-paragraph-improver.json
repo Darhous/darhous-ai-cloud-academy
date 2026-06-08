@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-paragraph-improver",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "محسن الفقرات",
+  "data": {
+    "prompt_text": "Rewrite this paragraph to make it sound more natural and professional: [الفقرة].",
+    "instructions": "تحسين صياغة فقراتك لتصبح طبيعية أكثر."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 90
+}

@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-prompt-finding-alternatives",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "إيجاد بدائل",
+  "data": {
+    "prompt_text": "أبحث عن بديل مجاني أو مفتوح المصدر لأداة [اسم الأداة المدفوعة]. يجب أن يدعم [الميزة الضرورية]. ماذا تقترح؟",
+    "instructions": "للعثور على بدائل تحترم الخصوصية أو الميزانية."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 180
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-prompt-draft-email",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "صياغة بريد إلكتروني",
+  "data": {
+    "prompt_text": "اكتب بريداً إلكترونياً احترافياً إلى [المستلم] لطلب [الطلب] بنبرة مهذبة ومباشرة.",
+    "instructions": "املأ المستلم والطلب في الأماكن المخصصة."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 60
+}

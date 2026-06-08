@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-ai-ethics",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "أخلاقيات الذكاء الاصطناعي",
+  "data": {
+    "definition": "المبادئ التوجيهية لضمان تطوير واستخدام الذكاء الاصطناعي بشكل آمن ومسؤول وعادل.",
+    "example": "الاهتمام بالخصوصية وعدم التمييز في أنظمة التوظيف المعتمدة على الذكاء الاصطناعي."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 10
+}

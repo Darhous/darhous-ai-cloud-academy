@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-elevator-pitch",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "العرض التعريفي السريع",
+  "data": {
+    "definition": "مقدمة قصيرة ومقنعة عن نفسك ومهاراتك وما تبحث عنه مهنياً، تستغرق وقتاً لا يتجاوز ركوب المصعد.",
+    "example": "تقديم نفسك بوضوح في أقل من 30 ثانية في فعالية توظيف لإثارة اهتمام مسؤول التوظيف."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 90
+}

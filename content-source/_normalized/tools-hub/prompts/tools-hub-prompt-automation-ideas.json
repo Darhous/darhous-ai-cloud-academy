@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-prompt-automation-ideas",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "أفكار لأتمتة المهام",
+  "data": {
+    "prompt_text": "أقضي الكثير من الوقت في [المهمة اليدوية، مثلا: نقل البيانات من الإيميل إلى جدول البيانات]. كيف يمكنني أتمتة هذه العملية؟ ما هي الأدوات (مثل Zapier أو Make) التي تنصح بها لتحقيق ذلك؟",
+    "instructions": "ابحث عن طرق لتقليل العمل اليدوي باستخدام أدوات الأتمتة."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 130
+}

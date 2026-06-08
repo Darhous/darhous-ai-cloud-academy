@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-cefr-c1",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مستوى C1",
+  "data": {
+    "definition": "المستوى المتقدم.",
+    "example": "I can express ideas fluently and spontaneously."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 80
+}

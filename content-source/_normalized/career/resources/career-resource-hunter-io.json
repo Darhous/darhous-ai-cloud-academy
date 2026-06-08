@@ -1,0 +1,19 @@
+{
+  "id": "career-resource-hunter-io",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "هانتر",
+  "data": {
+    "url": "https://hunter.io",
+    "description": "أداة مفيدة للعثور على عناوين البريد الإلكتروني للمحترفين ومسؤولي التوظيف للتواصل المباشر."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 70
+}

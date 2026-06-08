@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-item-08",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، كيف يمكن للطالب الاستعداد نفسياً وذهنياً للاختبارات الرقمية؟",
+    "instructions": "كيف يمكن للطالب الاستعداد نفسياً وذهنياً للاختبارات الرقمية؟"
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "الاستعداد النفسي للاختبارات",
+  "title_en": "Item 08",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 280
+}

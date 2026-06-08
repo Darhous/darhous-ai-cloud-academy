@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-arduino",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "أردوينو (Arduino)",
+  "title_en": "Arduino",
+  "data": {
+    "definition": "منصة إلكترونية مفتوحة المصدر تعتمد على أجهزة وبرمجيات سهلة الاستخدام.",
+    "example": "برمجة أردوينو أونو لوميض مصباح LED."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 30
+}

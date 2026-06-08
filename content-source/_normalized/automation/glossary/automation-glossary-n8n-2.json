@@ -1,0 +1,20 @@
+{
+  "id": "automation-glossary-n8n-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "أداة أتمتة مفتوحة المصدر تتيح لك ربط التطبيقات وبناء مسارات عمل معقدة.",
+    "example": "استخدام n8n لربط قاعدة بيانات محلية مع خدمات سحابية."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "N8N",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 420,
+  "manual_review_required": true
+}

@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-onboarding",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التهيئة الوظيفية",
+  "data": {
+    "definition": "العملية التي يتم من خلالها دمج الموظفين الجدد في المؤسسة وتعريفهم بثقافتها وأدوارهم ومسؤولياتهم.",
+    "example": "حضور جلسات تعريفية عن سياسات الشركة وتلقي التدريب الأساسي في الأسبوع الأول من العمل."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 200
+}

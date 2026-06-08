@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-analog-signal",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "إشارة تماثلية (Analog Signal)",
+  "title_en": "Analog Signal",
+  "data": {
+    "definition": "إشارة مستمرة تتغير قيمتها بمرور الوقت، ويمكن أن تأخذ أي قيمة ضمن نطاق معين.",
+    "example": "قراءة إشارة تماثلية من حساس حرارة متصل بمدخل تماثلي في الأردوينو."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 20
+}

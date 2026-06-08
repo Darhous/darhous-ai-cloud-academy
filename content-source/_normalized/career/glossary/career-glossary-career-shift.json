@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-career-shift",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التحول المهني",
+  "data": {
+    "definition": "الانتقال من مجال عمل إلى مجال آخر مختلف، ويتطلب غالباً اكتساب مهارات جديدة وإعادة تقييم المسار المهني.",
+    "example": "الانتقال من مجال التسويق إلى مجال تحليل البيانات بعد دراسة دورات متخصصة."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 50
+}

@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-upskilling",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تطوير المهارات",
+  "data": {
+    "definition": "عملية تعلم مهارات جديدة أو تحسين المهارات الحالية لمواكبة التطورات في سوق العمل والتأهل لفرص أفضل.",
+    "example": "أخذ دورة تدريبية في الذكاء الاصطناعي لتعزيز مهاراتك التقنية."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 310
+}

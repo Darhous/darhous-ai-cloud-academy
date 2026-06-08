@@ -1,0 +1,20 @@
+{
+  "id": "language-resource-resource-10",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "url": "https://www.engvid.com",
+    "description": "دروس فيديو مجانية من معلمين ناطقين باللغة الإنجليزية."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Resource 10",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 180,
+  "manual_review_required": true
+}

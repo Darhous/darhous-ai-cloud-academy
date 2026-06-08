@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-resource-zapier",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "زابيير (Zapier)",
+  "data": {
+    "url": "https://zapier.com",
+    "description": "منصة أتمتة رائدة تتيح لك ربط آلاف التطبيقات ببعضها البعض لإنشاء مسارات عمل تلقائية بدون برمجة."
+  },
+  "title_en": "Zapier",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "resource"
+  ],
+  "sort_order": 290
+}

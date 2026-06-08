@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-mqtt",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "بروتوكول MQTT",
+  "title_en": "MQTT",
+  "data": {
+    "definition": "بروتوكول مراسلة خفيف الوزن يعتمد على نموذج النشر/الاشتراك، يستخدم بكثرة في إنترنت الأشياء.",
+    "example": "إرسال قراءات درجة الحرارة من ESP32 إلى وسيط MQTT."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 360
+}

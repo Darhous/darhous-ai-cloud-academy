@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "أداة لمعرفة متوسط الرواتب في مجالك."
+  },
+  "id": "career-resource-salary-calculator",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "حاسبة الرواتب",
+  "title_en": "Salary Calculator",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 290
+}

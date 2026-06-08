@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-resource-item-07",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://www.udemy.com",
+    "description": "دورات في كيفية التغلب على قلق الاختبارات."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "موقع يوديمي",
+  "title_en": "Item 07",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "resource"
+  ],
+  "sort_order": 270
+}

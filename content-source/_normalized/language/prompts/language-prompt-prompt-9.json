@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-prompt-9",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اشرح معنى الفعل المركب.",
+    "instructions": "قدم ثلاثة أمثلة في سياقات مختلفة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "تعلم الأفعال المركبة",
+  "title_en": "Prompt 9",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 210
+}

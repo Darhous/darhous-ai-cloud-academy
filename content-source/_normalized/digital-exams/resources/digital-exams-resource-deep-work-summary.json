@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-resource-deep-work-summary",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "ملخص كتاب العمل العميق",
+  "data": {
+    "url": "",
+    "description": "نصائح مستخلصة من كتاب 'العمل العميق' لكال نيوبورت لتعزيز التركيز أثناء دراسة المواضيع الصعبة."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "resource"
+  ],
+  "sort_order": 20
+}

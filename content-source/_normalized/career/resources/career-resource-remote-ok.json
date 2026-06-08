@@ -1,0 +1,19 @@
+{
+  "id": "career-resource-remote-ok",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "ريموت أوكيه",
+  "data": {
+    "url": "https://remoteok.com",
+    "description": "موقع متخصص في عرض الوظائف التي يمكن أداؤها عن بعد بالكامل للمحترفين الرقميين."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 170
+}

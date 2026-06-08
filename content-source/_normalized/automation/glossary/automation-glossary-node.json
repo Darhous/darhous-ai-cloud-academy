@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-node",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "العقدة (Node)",
+  "data": {
+    "definition": "مكون أساسي في منصات الأتمتة (مثل n8n) يمثل تطبيقاً أو أداة أو وظيفة برمجية محددة ضمن سير العمل.",
+    "example": "عقدة 'HTTP Request' لجلب البيانات، متبوعة بعقدة 'Google Sheets' لإضافتها لجدول."
+  },
+  "title_en": "Node",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 220
+}

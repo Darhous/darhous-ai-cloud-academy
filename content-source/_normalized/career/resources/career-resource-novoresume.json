@@ -1,0 +1,19 @@
+{
+  "id": "career-resource-novoresume",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "نوفو ريزومي",
+  "data": {
+    "url": "https://novoresume.com",
+    "description": "أداة لإنشاء سير ذاتية احترافية تتوافق مع أنظمة تتبع المتقدمين (ATS) بخطوات بسيطة."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 140
+}

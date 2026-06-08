@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-explain-concept-simply",
+  "portal_id": "digital-exams",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "شرح مفهوم معقد ببساطة",
+  "data": {
+    "prompt_text": "اشرح لي المفهوم التالي: [اسم المفهوم] وكأنني في المرحلة [المرحلة الدراسية]. استخدم أمثلة من الحياة اليومية لتوضيح الفكرة.",
+    "instructions": "هذا الموجه ممتاز لكسر حاجز صعوبة المواضيع المجردة في الفيزياء والرياضيات."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 70
+}

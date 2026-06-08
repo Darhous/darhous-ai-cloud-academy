@@ -1,0 +1,19 @@
+{
+  "id": "career-resource-interview-query",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "إنترفيو كويري",
+  "data": {
+    "url": "https://www.interviewquery.com",
+    "description": "منصة متخصصة للتحضير لمقابلات علوم البيانات والهندسة وتوفر أسئلة حقيقية من مقابلات شركات كبرى."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 90
+}

@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-conditional-logic",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المنطق الشرطي",
+  "data": {
+    "definition": "استخدام القواعد (مثل IF/THEN أو مسارات التوجيه Routers) لتنفيذ إجراءات مختلفة بناءً على البيانات الواردة.",
+    "example": "إذا كان مبلغ الفاتورة أكبر من 1000، أرسلها للمدير للموافقة، وإلا وافق عليها تلقائياً."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 120
+}

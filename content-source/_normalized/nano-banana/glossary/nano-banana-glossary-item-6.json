@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-glossary-item-6",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "الإضاءة العامة التي تنير المشهد بشكل متساوٍ.",
+    "example": "مثال: ضوء النهار."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "الإضاءة المحيطية",
+  "title_en": "Item 6",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "مصطلحات"
+  ],
+  "sort_order": 170
+}

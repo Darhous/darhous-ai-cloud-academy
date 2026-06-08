@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-06-08T10:57:41.825Z",
+  "scope": {
+    "portals": [
+      "ai-academy",
+      "automation",
+      "career",
+      "digital-exams",
+      "iot-lab",
+      "language",
+      "nano-banana",
+      "tools-hub"
+    ],
+    "content_types": [
+      "glossary",
+      "prompts",
+      "resources",
+      "lessons"
+    ],
+    "expected_counts_per_portal": {
+      "glossary": 50,
+      "prompts": 30,
+      "resources": 30,
+      "lessons": 20
+    }
+  },
+  "total_files_checked": 1040,
+  "total_issues_found": 6384,
+  "counts_by_portal_type": {
+    "ai-academy/glossary": 50,
+    "ai-academy/prompts": 30,
+    "ai-academy/resources": 30,
+    "ai-academy/lessons": 20,
+    "automation/glossary": 50,
+    "automation/prompts": 30,
+    "automation/resources": 30,
+    "automation/lessons": 20,
+    "career/glossary": 50,
+    "career/prompts": 30,
+    "career/resources": 30,
+    "career/lessons": 20,
+    "digital-exams/glossary": 50,
+    "digital-exams/prompts": 30,
+    "digital-exams/resources": 30,
+    "digital-exams/lessons": 20,
+    "iot-lab/glossary": 50,
+    "iot-lab/prompts": 30,
+    "iot-lab/resources": 30,
+    "iot-lab/lessons": 20,
+    "language/glossary": 50,
+    "language/prompts": 30,
+    "language/resources": 30,
+    "language/lessons": 20,
+    "nano-banana/glossary": 50,
+    "nano-banana/prompts": 30,
+    "nano-banana/resources": 30,
+    "nano-banana/lessons": 20,
+    "tools-hub/glossary": 50,
+    "tools-hub/prompts": 30,
+    "tools-hub/resources": 30,
+    "tools-hub/lessons": 20
+  },
+  "issue_counts_by_severity": {
+    "HIGH": 3050,
+    "MEDIUM": 2211,
+    "LOW": 624,
+    "BLOCKER": 499
+  },
+  "issue_counts_by_type": {
+    "MISSING_FIELD": 5261,
+    "UNEXPECTED_FIELD": 318,
+    "TITLE_AR_LATIN_ONLY": 342,
+    "TITLE_FIELD_UNDOCUMENTED": 306,
+    "ID_FILENAME_MISMATCH": 157
+  },
+  "missing_field_counts": {
+    "title_en": 810,
+    "category": 1040,
+    "featured": 694,
+    "tags": 1037,
+    "sort_order": 1040,
+    "excerpt_ar": 160,
+    "excerpt_en": 160,
+    "reading_time": 160,
+    "parent_id": 160
+  },
+  "unexpected_field_counts": {
+    "title": 306,
+    "author": 3,
+    "date": 3,
+    "description": 6
+  },
+  "title_mapping_issue_counts": {
+    "TITLE_AR_LATIN_ONLY": 342,
+    "TITLE_FIELD_UNDOCUMENTED": 306
+  },
+  "duplicate_counts_by_portal_type": {},
+  "cross_portal_id_collisions_by_type_informational": {
+    "glossary": 0,
+    "prompts": 0,
+    "resources": 0,
+    "lessons": 0
+  },
+  "recommended_next_action": "Create a normalized COPY of glossary/prompts/resources/lessons under a separate folder via a deterministic mapping script; do not edit originals; re-audit the copy before designing any Supabase import."
+}

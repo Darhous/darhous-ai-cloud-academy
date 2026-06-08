@@ -1,0 +1,20 @@
+{
+  "id": "automation-glossary-make-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "منصة أتمتة مرنة وبصرية (كانت تُعرف سابقًا بـ Integromat) لبناء سيناريوهات متقدمة.",
+    "example": "تحديث مخزون المتجر بناءً على عمليات الشراء عبر Make."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Make",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 410,
+  "manual_review_required": true
+}

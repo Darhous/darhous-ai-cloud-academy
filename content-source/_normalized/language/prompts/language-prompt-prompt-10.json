@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-prompt-10",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "prompt_text": "أعطني كلمات عشوائية لأكون منها جملاً.",
+    "instructions": "قم بتصحيح الجمل التي أكتبها."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "تكوين الجمل",
+  "title_en": "Prompt 10",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 130
+}

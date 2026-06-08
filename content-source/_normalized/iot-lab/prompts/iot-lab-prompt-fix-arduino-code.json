@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-fix-arduino-code",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "prompt_text": "لدي مشكلة في كود الأردوينو التالي، هل يمكنك تصحيحه؟ [أدخل الكود]",
+    "instructions": "قم بشرح الخطأ وكيفية إصلاحه برمجياً."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "تصحيح كود أردوينو",
+  "title_en": "Fix Arduino Code",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 110
+}

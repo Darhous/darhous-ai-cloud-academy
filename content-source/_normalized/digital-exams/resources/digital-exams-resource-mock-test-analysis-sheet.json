@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-resource-mock-test-analysis-sheet",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "نموذج تحليل الاختبارات التجريبية",
+  "data": {
+    "url": "",
+    "description": "جدول بيانات جاهز لمتابعة درجاتك في الاختبارات التجريبية وتحديد الفجوات المعرفية تلقائياً."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "resource"
+  ],
+  "sort_order": 120
+}

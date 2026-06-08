@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-esphome",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "نظام ESPHome",
+  "title_en": "ESPHome",
+  "data": {
+    "url": "https://esphome.io/",
+    "description": "نظام لإنشاء أجهزة ذكية مخصصة تتكامل بسهولة مع Home Assistant."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 110
+}

@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-work-life-balance",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التوازن بين العمل والحياة",
+  "data": {
+    "definition": "القدرة على إدارة الوقت بفعالية بين متطلبات العمل والمسؤوليات الشخصية والراحة.",
+    "example": "تحديد ساعات عمل محددة وتخصيص وقت للعائلة والهوايات لتجنب الإرهاق الوظيفي."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 320
+}

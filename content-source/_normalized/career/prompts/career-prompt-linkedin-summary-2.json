@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اكتب ملخص احترافي لملفي الشخصي على لينكد إن بناءً على خبراتي: [الخبرات]",
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+  },
+  "id": "career-prompt-linkedin-summary-2",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "ملخص لينكد إن",
+  "title_en": "Linkedin Summary",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "prompt"
+  ],
+  "sort_order": 250
+}

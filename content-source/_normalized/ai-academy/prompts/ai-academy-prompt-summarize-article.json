@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "قم بتلخيص المقال التالي في 3 نقاط رئيسية بسيطة: [أدخل المقال هنا]",
+    "instructions": "استخدم هذا الموجه عندما تريد الحصول على فكرة سريعة عن مقال طويل دون قراءته بالكامل."
+  },
+  "id": "ai-academy-prompt-summarize-article",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "تلخيص مقال",
+  "title_en": "Summarize Article",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 280
+}

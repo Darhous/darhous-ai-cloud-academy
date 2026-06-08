@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-micropython-guide",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "url": "https://micropython.org/",
+    "description": "الموقع الرسمي لمايكروبايثون، لغة البايثون المخصصة للعمل على المتحكمات الدقيقة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "دليل مايكروبايثون",
+  "title_en": "Micropython Guide",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 180
+}

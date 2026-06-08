@@ -1,0 +1,20 @@
+{
+  "id": "automation-glossary-google-apps-script-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "منصة سحابية تعتمد على JavaScript تتيح لك أتمتة مهام Google Workspace.",
+    "example": "كتابة سكريبت لإنشاء مستندات جوجل تلقائيًا من بيانات نموذج."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Google Apps Script",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 380,
+  "manual_review_required": true
+}

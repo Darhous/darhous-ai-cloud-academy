@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-item-16",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "تعبئة الدائرة المخصصة للإجابة الصحيحة في ورقة الإجابة بشكل كامل.",
+    "example": "مثال: استخدام قلم رصاص من نوع HB لتظليل الدائرة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "تظليل الإجابات",
+  "title_en": "Item 16",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 460
+}

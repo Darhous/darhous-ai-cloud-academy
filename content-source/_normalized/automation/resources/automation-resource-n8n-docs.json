@@ -1,0 +1,19 @@
+{
+  "id": "automation-resource-n8n-docs",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "url": "https://docs.n8n.io/",
+    "description": "الدليل الرسمي لاستخدام منصة n8n وبناء مسارات عمل مخصصة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "وثائق n8n",
+  "title_en": "N8N Docs",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "resource"
+  ],
+  "sort_order": 270
+}

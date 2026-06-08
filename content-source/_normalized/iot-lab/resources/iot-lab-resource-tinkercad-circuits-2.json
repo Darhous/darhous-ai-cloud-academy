@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-tinkercad-circuits-2",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "محاكي الدوائر من Tinkercad",
+  "title_en": "Tinkercad Circuits",
+  "data": {
+    "url": "https://www.tinkercad.com/circuits",
+    "description": "أداة مجانية لمحاكاة دوائر الأردوينو والإلكترونيات الأساسية على المتصفح."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 290
+}

@@ -1,0 +1,20 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://chatgpt.com",
+    "description": "نموذج لغوي متقدم من OpenAI يستخدم في المحادثة وتوليد النصوص وحل المشكلات."
+  },
+  "id": "ai-academy-resource-chatgpt-2",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Chatgpt",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 220,
+  "manual_review_required": true
+}

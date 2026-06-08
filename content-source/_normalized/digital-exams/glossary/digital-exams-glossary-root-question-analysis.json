@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-root-question-analysis",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تحليل جذر السؤال",
+  "data": {
+    "definition": "فهم المطلب الأساسي للسؤال دون التشتت بالتفاصيل الزائدة أو الحشو اللفظي.",
+    "example": "تحديد المتغير المطلوب حسابه في مسألة فيزيائية مليئة بالأرقام غير الضرورية."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 250
+}

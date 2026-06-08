@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-workflow-automation",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "أتمتة سير العمل",
+  "data": {
+    "definition": "استخدام التكنولوجيا لتنفيذ المهام المتكررة أو العمليات بخطوات متتابعة بشكل تلقائي دون تدخل بشري، مما يوفر الوقت ويقلل من الأخطاء.",
+    "example": "أتمتة عملية إرسال بريد إلكتروني ترحيبي عند تسجيل مستخدم جديد في النظام."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 320
+}

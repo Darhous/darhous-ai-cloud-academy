@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-language-learning",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تعلم اللغة",
+  "data": {
+    "definition": "الدراسة الواعية للقواعد والمفردات.",
+    "example": "Language learning requires active effort."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 400
+}

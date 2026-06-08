@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-deep-breathing",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التنفس العميق",
+  "data": {
+    "definition": "تقنية استرخاء للسيطرة على التوتر أثناء الاختبار من خلال تنظيم الشهيق والزفير.",
+    "example": "أخذ شهيق لمدة 4 ثوان، حبسه لثانيتين، ثم زفير لمدة 6 ثوان عند الشعور بالتوتر أثناء سؤال صعب."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 50
+}

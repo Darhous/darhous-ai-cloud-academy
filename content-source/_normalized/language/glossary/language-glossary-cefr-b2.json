@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-cefr-b2",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مستوى B2",
+  "data": {
+    "definition": "المستوى فوق المتوسط.",
+    "example": "I can understand the main ideas of complex text."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 70
+}

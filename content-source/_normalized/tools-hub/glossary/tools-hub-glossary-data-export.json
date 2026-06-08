@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "تصدير البيانات (Data Export)",
+    "definition": "عملية حفظ أو نقل بياناتك من أداة إلى ملف خارجي (مثل CSV) لتجنب الحبس التقني.",
+    "example": "تنزيل جميع الملاحظات كملفات نصية قبل إغلاق الحساب في التطبيق."
+  },
+  "id": "tools-hub-glossary-data-export",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Data Export",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 40,
+  "manual_review_required": true
+}

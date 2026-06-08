@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-api-2",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "واجهة برمجة التطبيقات (API)",
+  "data": {
+    "definition": "مجموعة من القواعد والبروتوكولات التي تتيح لتطبيقات البرامج المختلفة التواصل مع بعضها البعض ومشاركة البيانات أو الوظائف.",
+    "example": "استخدام Twitter API لجلب أحدث التغريدات وعرضها في تطبيقك."
+  },
+  "title_en": "API",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 70
+}

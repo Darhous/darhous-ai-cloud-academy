@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-item-15",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "المذاكرة والتحضير الجيد قبل الاختبار بفترة كافية.",
+    "example": "مثال: وضع جدول زمني للمذاكرة قبل الاختبار بشهر."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "الاستعداد المسبق",
+  "title_en": "Item 15",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 450
+}

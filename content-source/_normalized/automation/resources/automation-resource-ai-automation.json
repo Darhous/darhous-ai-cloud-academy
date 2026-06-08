@@ -1,0 +1,19 @@
+{
+  "id": "automation-resource-ai-automation",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "url": "https://www.forbes.com/sites/forbestechcouncil/2023/04/10/the-future-of-ai-and-automation/",
+    "description": "مقال يتحدث عن مستقبل دمج الذكاء الاصطناعي مع تقنيات الأتمتة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "الذكاء الاصطناعي في الأتمتة",
+  "title_en": "Ai Automation",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "resource"
+  ],
+  "sort_order": 10
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-alignment",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المحاذاة",
+  "data": {
+    "definition": "ضمان توافق أهداف وسلوك نظام الذكاء الاصطناعي مع القيم والنوايا البشرية.",
+    "example": "توجيه النموذج لرفض إعطاء تعليمات حول كيفية صنع مواد خطرة."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 40
+}

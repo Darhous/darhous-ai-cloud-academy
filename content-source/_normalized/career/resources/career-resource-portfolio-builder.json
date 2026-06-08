@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "أداة لبناء معرض أعمال رقمي بسهولة."
+  },
+  "id": "career-resource-portfolio-builder",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "منشئ معارض الأعمال",
+  "title_en": "Portfolio Builder",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 270
+}

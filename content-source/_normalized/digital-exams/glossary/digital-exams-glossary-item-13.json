@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-item-13",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "ترك السؤال الصعب والعودة إليه لاحقاً لتوفير الوقت.",
+    "example": "مثال: إذا استغرق السؤال أكثر من دقيقتين، تخطاه وعد إليه في النهاية."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "تخطي الأسئلة",
+  "title_en": "Item 13",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 430
+}

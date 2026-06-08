@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-gig-economy",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "اقتصاد العمل الحر",
+  "data": {
+    "definition": "سوق عمل يعتمد على الوظائف المؤقتة، والعمل المستقل، والعقود قصيرة الأجل بدلاً من الوظائف الدائمة.",
+    "example": "العمل كمصمم جرافيك مستقل (Freelancer) وتقديم خدمات للعديد من العملاء."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 100
+}

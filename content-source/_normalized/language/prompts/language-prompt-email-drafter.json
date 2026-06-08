@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-email-drafter",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "صائغ الإيميلات",
+  "data": {
+    "prompt_text": "Help me draft a professional email about [الموضوع] to [المتلقي].",
+    "instructions": "صياغة رسائل بريد إلكتروني احترافية."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 50
+}

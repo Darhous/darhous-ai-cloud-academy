@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-prompt-ai-tool-testing",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "اختبار أدوات الذكاء الاصطناعي",
+  "data": {
+    "prompt_text": "ظهرت أداة ذكاء اصطناعي جديدة تدعى [اسم الأداة]. ما هي المعايير الأساسية التي يجب أن أختبرها للتأكد من جودة مخرجاتها وهل هي آمنة للاستخدام في عملي المكتبي؟",
+    "instructions": "لتقييم أدوات الذكاء الاصطناعي الجديدة بعقلانية."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 100
+}

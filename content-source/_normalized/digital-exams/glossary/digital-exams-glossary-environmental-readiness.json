@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-environmental-readiness",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التهيئة المكانية",
+  "data": {
+    "definition": "إعداد بيئة هادئة ومناسبة لتقديم الاختبار وتجنب المشتتات المادية.",
+    "example": "إغلاق باب الغرفة وإبعاد الهاتف المحمول والتأكد من إضاءة المكان قبل بدء المراقبة الإلكترونية."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 100
+}

@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-glossary-item-16",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "ألوان تبرز بعضها البعض عند وضعها معاً.",
+    "example": "مثال: الأزرق والبرتقالي."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "الألوان المتباينة",
+  "title_en": "Item 16",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "مصطلحات"
+  ],
+  "sort_order": 80
+}

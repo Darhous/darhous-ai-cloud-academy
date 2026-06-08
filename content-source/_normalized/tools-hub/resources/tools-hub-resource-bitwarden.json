@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-resource-bitwarden",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "بت واردن (Bitwarden)",
+  "data": {
+    "url": "https://bitwarden.com",
+    "description": "مدير كلمات مرور مفتوح المصدر ومجاني يحافظ على أمان بياناتك عبر مختلف الأجهزة."
+  },
+  "title_en": "Bitwarden",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "resource"
+  ],
+  "sort_order": 120
+}

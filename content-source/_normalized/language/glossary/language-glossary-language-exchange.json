@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-language-exchange",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تبادل اللغات",
+  "data": {
+    "definition": "ممارسة اللغة مع متحدث أصلي يتعلم لغتك.",
+    "example": "I met a language exchange partner online."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 390
+}

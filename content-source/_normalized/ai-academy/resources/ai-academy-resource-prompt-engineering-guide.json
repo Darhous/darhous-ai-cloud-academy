@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-resource-prompt-engineering-guide",
+  "portal_id": "ai-academy",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دليل هندسة الأوامر",
+  "data": {
+    "url": "https://www.promptingguide.ai/",
+    "description": "دليل شامل لتعلم تقنيات هندسة الأوامر من الصفر للاحتراف."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 180
+}

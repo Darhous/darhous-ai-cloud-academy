@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-resource-item-05",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://www.edx.org",
+    "description": "دورات تدريبية من جامعات عالمية لتطوير مهارات التعلم."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "موقع إيديكس",
+  "title_en": "Item 05",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "resource"
+  ],
+  "sort_order": 250
+}

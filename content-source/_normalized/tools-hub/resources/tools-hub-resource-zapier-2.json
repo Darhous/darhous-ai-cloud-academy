@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "Zapier",
+    "url": "https://zapier.com/",
+    "description": "واحدة من أقوى أدوات الأتمتة التي تربط بين آلاف التطبيقات لإنشاء مسارات عمل تلقائية بسهولة."
+  },
+  "id": "tools-hub-resource-zapier-2",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Zapier",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "resource"
+  ],
+  "sort_order": 300,
+  "manual_review_required": true
+}

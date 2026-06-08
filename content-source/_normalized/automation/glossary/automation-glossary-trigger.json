@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-trigger",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المُحفّز (Trigger)",
+  "data": {
+    "definition": "الحدث الذي يبدأ أو يُطلق سير العمل الأتمتي. لا يمكن لأي أتمتة أن تبدأ دون محفز.",
+    "example": "استلام رسالة بريد إلكتروني جديدة، أو إضافة صف جديد في قاعدة بيانات."
+  },
+  "title_en": "Trigger",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 290
+}

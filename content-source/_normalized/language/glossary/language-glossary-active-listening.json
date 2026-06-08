@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-active-listening",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الاستماع النشط",
+  "data": {
+    "definition": "التركيز الكامل على المتحدث لفهم المعنى وتفاصيل النطق.",
+    "example": "Active listening improves comprehension."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 20
+}

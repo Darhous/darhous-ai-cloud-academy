@@ -1,0 +1,20 @@
+{
+  "id": "language-glossary-glossary-3",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "definition": "القواعد",
+    "example": "القواعد السليمة تمنع سوء الفهم."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Glossary 3",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 270,
+  "manual_review_required": true
+}

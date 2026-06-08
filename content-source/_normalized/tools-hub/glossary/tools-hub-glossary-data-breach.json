@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-glossary-data-breach",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "اختراق البيانات",
+  "data": {
+    "definition": "حادث أمني يتم فيه الوصول إلى البيانات السرية أو المحمية أو الحساسة أو الكشف عنها دون تفويض.",
+    "example": "تلقي رسالة تفيد بأن كلمات المرور الخاصة بك قد سُربت بسبب اختراق منصة كنت تستخدمها."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 240
+}

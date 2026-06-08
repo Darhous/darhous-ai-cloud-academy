@@ -1,0 +1,20 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://www.midjourney.com",
+    "description": "أداة ذكاء اصطناعي توليدي لإنشاء صور عالية الجودة بناءً على الوصف النصي."
+  },
+  "id": "ai-academy-resource-midjourney-2",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Midjourney",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 290,
+  "manual_review_required": true
+}

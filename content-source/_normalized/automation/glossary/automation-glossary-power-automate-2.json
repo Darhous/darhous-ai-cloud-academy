@@ -1,0 +1,20 @@
+{
+  "id": "automation-glossary-power-automate-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "خدمة من مايكروسوفت لأتمتة سير العمل بين التطبيقات والخدمات المفضلة.",
+    "example": "حفظ مرفقات البريد الإلكتروني الواردة تلقائيًا في OneDrive."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Power Automate",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 440,
+  "manual_review_required": true
+}

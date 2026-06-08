@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-trigger-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "الحدث الذي يبدأ سير العمل المؤتمت.",
+    "example": "استلام رسالة بريد إلكتروني جديدة أو إضافة صف في جدول بيانات."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "محفز (Trigger)",
+  "title_en": "Trigger",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 460
+}

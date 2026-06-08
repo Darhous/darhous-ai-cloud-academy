@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-pull-down",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مقاومة الخفض (Pull-down Resistor)",
+  "data": {
+    "definition": "مقاومة توصل بين طرف الإدخال والأرضي لضمان قراءة مستوى منطقي منخفض (LOW) عند عدم وجود إدخال.",
+    "example": "استخدام مقاومة خفض لضمان قراءة 0 فولت عند عدم ضغط الزر."
+  },
+  "title_en": "Pull-down Resistor",
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 240
+}

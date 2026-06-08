@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-prompt-compare-options",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مقارنة الخيارات",
+  "data": {
+    "prompt_text": "قارن بين [الخيار الأول] و [الخيار الثاني] من حيث التكلفة، الجودة، وسهولة الاستخدام في شكل جدول.",
+    "instructions": "حدد الشيئين اللذين تريد المقارنة بينهما."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 40
+}

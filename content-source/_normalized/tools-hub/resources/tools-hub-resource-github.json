@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "GitHub",
+    "url": "https://github.com/",
+    "description": "المنصة الأولى عالمياً لاستضافة الأكواد البرمجية ومشاريع المصدر المفتوح، ومكان رائع لاكتشاف أدوات جديدة."
+  },
+  "id": "tools-hub-resource-github",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Github",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "resource"
+  ],
+  "sort_order": 30,
+  "manual_review_required": true
+}

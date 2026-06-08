@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-glossary-end-to-end-encryption",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التشفير من طرف إلى طرف (E2EE)",
+  "data": {
+    "definition": "نظام اتصال يضمن أن البيانات مشفرة من جهاز المرسل ولا يمكن فك تشفيرها إلا على جهاز المستقبل، ولا حتى الشركة المطورة للتطبيق يمكنها قراءتها.",
+    "example": "تطبيقات المراسلة مثل Signal أو تطبيقات الملاحظات التي توفر ميزة E2EE مثل Standard Notes."
+  },
+  "title_en": "E2EE",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 280
+}

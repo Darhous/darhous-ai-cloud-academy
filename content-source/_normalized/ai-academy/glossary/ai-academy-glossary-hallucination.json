@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-hallucination",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الهلوسة",
+  "data": {
+    "definition": "توليد معلومات خاطئة أو غير دقيقة بثقة عالية بواسطة نموذج الذكاء الاصطناعي.",
+    "example": "عندما يخترع النموذج مصدراً غير موجود لدعم إجابته."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 150
+}

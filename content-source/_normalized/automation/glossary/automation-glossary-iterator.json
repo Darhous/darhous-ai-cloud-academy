@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-iterator",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المُكرّر (Iterator)",
+  "data": {
+    "definition": "أداة ضمن منصات الأتمتة تأخذ مجموعة من العناصر (Array) وتقوم بتشغيل الإجراءات اللاحقة لكل عنصر على حدة.",
+    "example": "استلام مصفوفة تحتوي على 5 مرفقات بريد إلكتروني، واستخدام Iterator لحفظ كل مرفق كملف منفصل."
+  },
+  "title_en": "Iterator",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 180
+}

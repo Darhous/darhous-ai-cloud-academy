@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-social-media-automation",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "أتمتة نشر المحتوى على وسائل التواصل",
+  "data": {
+    "prompt_text": "أريد أتمتة نشر المحتوى من [المصدر، مثلاً: مدونة RSS، Airtable] إلى منصات [اذكر المنصات، مثلاً: Twitter، LinkedIn]. ضع لي خطة لسير العمل وكيف أضمن تنسيق النصوص والصور بشكل صحيح لكل منصة.",
+    "instructions": "اذكر الأدوات التي تخزن فيها المحتوى الخاص بك."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 180
+}

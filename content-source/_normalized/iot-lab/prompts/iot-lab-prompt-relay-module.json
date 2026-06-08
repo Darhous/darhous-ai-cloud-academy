@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-relay-module",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "التحكم في مُرحل (Relay)",
+  "title_en": "Relay Module Control",
+  "data": {
+    "prompt_text": "اكتب كود لتشغيل مُرحل متصل بالمنفذ [رقم_المنفذ] عندما تصل قراءة حساس الضوء إلى أقل من [قيمة_عتبة].",
+    "instructions": "حدد رقم المنفذ للمرحل وقيمة العتبة لحساس الضوء."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 190
+}

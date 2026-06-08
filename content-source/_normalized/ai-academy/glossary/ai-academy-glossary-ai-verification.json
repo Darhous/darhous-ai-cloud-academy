@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-ai-verification",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التحقق من الذكاء الاصطناعي",
+  "data": {
+    "definition": "التأكد من صحة وموثوقية المعلومات التي يولدها النموذج من خلال مقارنتها بمصادر موثوقة.",
+    "example": "البحث في جوجل للتأكد من إحصائية ذكرها الذكاء الاصطناعي."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 30
+}

@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-thingspeak",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "منصة ThingSpeak لإنترنت الأشياء",
+  "title_en": "ThingSpeak IoT Platform",
+  "data": {
+    "url": "https://thingspeak.com/",
+    "description": "منصة لجمع وتحليل البيانات الخاصة بإنترنت الأشياء مدعومة من MATLAB."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 280
+}

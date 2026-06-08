@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-onboarding",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اقترح مسار عمل كامل لأتمتة عملية تهيئة موظف جديد (Onboarding) بدءاً من توقيع العقد وحتى إعداد بريده الإلكتروني.",
+    "instructions": "يمكن تنفيذ هذا المسار باستخدام أدوات مثل Power Automate أو Zapier."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "أتمتة تهيئة الموظفين",
+  "title_en": "Onboarding",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 280
+}

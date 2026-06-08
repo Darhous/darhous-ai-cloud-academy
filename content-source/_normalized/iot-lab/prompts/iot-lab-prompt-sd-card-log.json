@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-sd-card-log",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تسجيل البيانات على بطاقة SD",
+  "title_en": "Data Logging to SD Card",
+  "data": {
+    "prompt_text": "اكتب كود لـ [نوع_اللوحة] لحفظ قراءات حساس [نوع_الحساس] في ملف نصي باسم '[اسم_الملف]' على بطاقة SD متصلة عبر واجهة SPI.",
+    "instructions": "حدد نوع اللوحة، نوع الحساس، واسم الملف (مثال: data.txt)."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 200
+}

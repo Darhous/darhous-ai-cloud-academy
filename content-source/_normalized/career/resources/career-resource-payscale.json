@@ -1,0 +1,19 @@
+{
+  "id": "career-resource-payscale",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "باي سكيل",
+  "data": {
+    "url": "https://www.payscale.com",
+    "description": "موقع رائد لتقديم بيانات دقيقة حول الرواتب والتعويضات بناءً على المسمى الوظيفي والموقع والخبرة."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 150
+}

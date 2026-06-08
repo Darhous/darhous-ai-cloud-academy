@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "أدوات الذكاء الاصطناعي (AI Tools)",
+    "definition": "برامج وتطبيقات تعتمد على نماذج الذكاء الاصطناعي لأتمتة المهام أو توليد المحتوى.",
+    "example": "استخدام ChatGPT لكتابة مسودة بريد إلكتروني."
+  },
+  "id": "tools-hub-glossary-ai-tools-2",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Ai Tools",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 10,
+  "manual_review_required": true
+}

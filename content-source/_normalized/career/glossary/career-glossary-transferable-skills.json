@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-transferable-skills",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المهارات القابلة للنقل",
+  "data": {
+    "definition": "المهارات التي تكتسبها في وظيفة أو تجربة معينة ويمكن استخدامها وتطبيقها في وظائف ومجالات أخرى.",
+    "example": "مهارات القيادة والتواصل التي اكتسبتها في العمل التطوعي وتطبيقها في بيئة العمل للشركات."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 300
+}

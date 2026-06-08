@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-item-10",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "أسئلة تتطلب كتابة إجابة مفصلة وتعتمد على الفهم والتعبير.",
+    "example": "مثال: اشرح أسباب الحرب العالمية الأولى."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "الأسئلة المقالية",
+  "title_en": "Item 10",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 400
+}

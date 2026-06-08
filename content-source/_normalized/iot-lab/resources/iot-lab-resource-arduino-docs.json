@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-arduino-docs",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "url": "https://www.arduino.cc/en/Guide",
+    "description": "الدليل الرسمي من أردوينو لتعلم الأساسيات والبدء في بناء المشاريع."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "توثيق أردوينو الرسمي",
+  "title_en": "Arduino Docs",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 30
+}

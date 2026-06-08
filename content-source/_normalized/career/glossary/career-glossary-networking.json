@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-networking",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "بناء العلاقات المهنية",
+  "data": {
+    "definition": "التواصل مع المهنيين الآخرين لتبادل المعلومات والخبرات واكتشاف الفرص الوظيفية.",
+    "example": "حضور المؤتمرات والفعاليات المهنية للتواصل مع الخبراء والمهتمين بنفس المجال."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 190
+}

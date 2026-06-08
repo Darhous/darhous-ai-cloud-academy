@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-pronunciation-guide",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "دليل النطق",
+  "data": {
+    "prompt_text": "How do I pronounce [الكلمة]? Describe the mouth movements.",
+    "instructions": "تعلم النطق الصحيح للكلمات الصعبة."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 220
+}

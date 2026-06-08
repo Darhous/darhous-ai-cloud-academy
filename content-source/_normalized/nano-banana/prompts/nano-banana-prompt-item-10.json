@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-prompt-item-10",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "prompt_text": "مجموعة أيقونات مسطحة، موضوع الطقس.",
+    "instructions": "ألوان متناسقة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "أيقونات التطبيقات",
+  "title_en": "Item 10",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "prompt"
+  ],
+  "sort_order": 20
+}

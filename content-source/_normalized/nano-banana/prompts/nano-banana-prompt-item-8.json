@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-prompt-item-8",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "prompt_text": "غابة كثيفة، أشعة الشمس تتخلل الأشجار، ضباب خفيف.",
+    "instructions": "واقعية عالية."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "بيئة طبيعية",
+  "title_en": "Item 8",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "prompt"
+  ],
+  "sort_order": 90
+}

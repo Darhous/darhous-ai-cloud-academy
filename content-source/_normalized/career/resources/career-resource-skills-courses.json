@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "منصة تعليمية تقدم دورات لتطوير المهارات المطلوبة في سوق العمل."
+  },
+  "id": "career-resource-skills-courses",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "دورات تطوير المهارات",
+  "title_en": "Skills Courses",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 300
+}

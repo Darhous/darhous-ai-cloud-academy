@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-resource-online-whiteboard",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "السبورة البيضاء التفاعلية",
+  "data": {
+    "url": "https://awwapp.com",
+    "description": "مساحة مسودة افتراضية للتدرب على حل المسائل وكأنك في بيئة اختبار رقمية غير ورقية."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "resource"
+  ],
+  "sort_order": 140
+}

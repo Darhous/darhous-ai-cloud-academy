@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-servo-motor",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "التحكم في محرك سيرفو",
+  "title_en": "Servo Motor Control",
+  "data": {
+    "prompt_text": "قم بإنشاء كود أردوينو لتحريك محرك سيرفو متصل بالمنفذ [رقم_المنفذ] من الزاوية 0 إلى 180 درجة، ثم العودة إلى 0 مرة أخرى.",
+    "instructions": "حدد رقم المنفذ المتصل به محرك السيرفو."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 230
+}

@@ -1,0 +1,20 @@
+{
+  "id": "language-glossary-glossary-1",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "definition": "الإطار المرجعي الأوروبي المشترك للغات",
+    "example": "يستخدم لتقييم مستوى اللغة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Glossary 1",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 140,
+  "manual_review_required": true
+}

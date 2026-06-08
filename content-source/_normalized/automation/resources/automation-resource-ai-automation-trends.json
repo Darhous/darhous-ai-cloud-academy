@@ -1,0 +1,20 @@
+{
+  "id": "automation-resource-ai-automation-trends",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "data": {
+    "url": "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-next-frontier-of-process-automation",
+    "description": "تقرير من McKinsey حول كيفية دمج الذكاء الاصطناعي مع الأتمتة لخلق الجيل الجديد من العمليات الذكية."
+  },
+  "title_en": "AI in Automation Trends",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "resource"
+  ],
+  "sort_order": 40,
+  "manual_review_required": true
+}

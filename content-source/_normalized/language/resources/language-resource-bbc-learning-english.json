@@ -1,0 +1,19 @@
+{
+  "id": "language-resource-bbc-learning-english",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "بي بي سي لتعلم الإنجليزية",
+  "data": {
+    "url": "https://www.bbc.co.uk/learningenglish",
+    "description": "مصدر ممتاز للدروس الصوتية والمرئية."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 20
+}

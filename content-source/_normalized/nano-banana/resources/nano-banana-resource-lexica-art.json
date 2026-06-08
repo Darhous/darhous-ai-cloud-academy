@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-resource-lexica-art",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "محرك بحث لكسيكا",
+  "data": {
+    "description": "محرك بحث للصور المولدة بالذكاء الاصطناعي مع الموجهات المستخدمة لإنشائها.",
+    "url": "https://lexica.art/"
+  },
+  "title_en": "",
+  "category": "نانو بانانا",
+  "featured": false,
+  "tags": [
+    "نانو بانانا",
+    "resource"
+  ],
+  "sort_order": 210
+}

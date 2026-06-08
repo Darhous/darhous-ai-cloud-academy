@@ -1,0 +1,19 @@
+{
+  "id": "language-resource-quizlet",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "كويزلت",
+  "data": {
+    "url": "https://quizlet.com/",
+    "description": "أداة لإنشاء ومراجعة قوائم المفردات."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 150
+}

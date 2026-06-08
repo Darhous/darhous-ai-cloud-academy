@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "يوجد خطأ في هذا الكود البرمجي بـ (لغة بايثون)، هل يمكنك إيجاده وإصلاحه مع الشرح؟ [أدخل الكود]",
+    "instructions": "مفيد للمبرمجين المبتدئين أو عند مواجهة مشكلة برمجية مستعصية."
+  },
+  "id": "ai-academy-prompt-fix-code",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "تصحيح الأكواد البرمجية",
+  "title_en": "Fix Code",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 230
+}

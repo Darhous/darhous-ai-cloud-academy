@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-prompt-3",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اقترح كلمات بديلة ومتقدمة.",
+    "instructions": "استبدل الكلمات البسيطة بمرادفاتها المناسبة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "توسيع المفردات",
+  "title_en": "Prompt 3",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 150
+}

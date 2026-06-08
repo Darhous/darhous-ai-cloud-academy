@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-array-iteration-logic",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "إعداد تكرار منطقي للمصفوفات",
+  "data": {
+    "prompt_text": "أستلم من واجهة API مصفوفة (Array) تحتوي على قائمة بـ [وصف العناصر، مثلاً: تفاصيل 5 منتجات لطلب واحد]. كيف أستخدم أداة مثل الـ Iterator في [Make/n8n] لمعالجة كل عنصر على حدة وإضافته كصف جديد في قاعدة البيانات؟",
+    "instructions": "وضح الأداة التي تستخدمها لتحديد الخطوات الدقيقة."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 30
+}

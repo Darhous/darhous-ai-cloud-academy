@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "definition": "برامج تستخدم الذكاء الاصطناعي للمساعدة في المهام المهنية.",
+    "example": "مثال على استخدام مصطلح أدوات الذكاء الاصطناعي في السياق المهني."
+  },
+  "id": "career-glossary-ai-tools",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "أدوات الذكاء الاصطناعي",
+  "title_en": "Ai Tools",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 10
+}

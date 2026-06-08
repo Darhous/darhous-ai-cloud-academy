@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-prompt-fact-check",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "التحقق من الحقائق",
+  "data": {
+    "prompt_text": "تحقق من صحة الادعاءات التالية وقدم أدلة تدعمها أو تدحضها: [الادعاء]",
+    "instructions": "اكتب الجملة أو الادعاء المشكوك فيه مكان [الادعاء]."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 90
+}

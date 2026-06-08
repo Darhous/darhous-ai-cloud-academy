@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-embedding",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التضمين",
+  "data": {
+    "definition": "تمثيل رياضي للكلمات أو النصوص كمتجهات رقمية تمكن الحاسوب من فهم العلاقات والمعاني بينها.",
+    "example": "تضمين كلمة 'ملك' سيكون قريباً رياضياً من تضمين كلمة 'ملكة'."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 90
+}

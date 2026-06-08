@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-vocabulary-in-context",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المفردات في السياق",
+  "data": {
+    "definition": "تعلم الكلمات من خلال الجمل والمواقف وليس القوائم المنعزلة.",
+    "example": "Learning vocabulary in context is more effective."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 500
+}

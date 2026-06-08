@@ -1,0 +1,19 @@
+{
+  "id": "language-resource-ted-talks",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "محادثات تيد",
+  "data": {
+    "url": "https://www.ted.com/",
+    "description": "محاضرات ملهمة مفيدة للاستماع المتقدم."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 280
+}

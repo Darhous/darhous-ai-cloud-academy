@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-prompt-character-concept",
+  "portal_id": "nano-banana",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تصميم شخصية",
+  "data": {
+    "prompt_text": "Concept art of a [وصف الشخصية], [الحالة المزاجية/الإضاءة], detailed costume, digital painting style, trending on ArtStation.",
+    "instructions": "مثالي لإنشاء شخصيات للقصص أو المواد التعليمية التفاعلية."
+  },
+  "title_en": "",
+  "category": "نانو بانانا",
+  "featured": false,
+  "tags": [
+    "نانو بانانا",
+    "prompt"
+  ],
+  "sort_order": 140
+}

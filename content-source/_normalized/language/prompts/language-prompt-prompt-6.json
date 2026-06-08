@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-prompt-6",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اشرح المصطلح الإنجليزي المعطى.",
+    "instructions": "قدم أمثلة على كيفية استخدامه في جمل مفيدة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "شرح المصطلحات",
+  "title_en": "Prompt 6",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 180
+}

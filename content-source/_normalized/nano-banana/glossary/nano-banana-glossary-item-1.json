@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-glossary-item-1",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "فن صياغة النصوص للحصول على أفضل النتائج من نماذج الذكاء الاصطناعي.",
+    "example": "مثال: كتابة وصف دقيق للحصول على صورة محددة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "هندسة الأوامر",
+  "title_en": "Item 1",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "مصطلحات"
+  ],
+  "sort_order": 10
+}

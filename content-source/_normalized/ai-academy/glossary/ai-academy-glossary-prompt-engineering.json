@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-prompt-engineering",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "هندسة الأوامر",
+  "data": {
+    "definition": "فن صياغة التعليمات لتحقيق أفضل استجابة من النماذج اللغوية.",
+    "example": "بدلاً من كتابة 'اكتب قصة'، نكتب 'اكتب قصة بأسلوب شكسبير...'"
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 220
+}

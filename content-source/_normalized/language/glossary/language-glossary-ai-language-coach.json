@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-ai-language-coach",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مدرب اللغة الذكي",
+  "data": {
+    "definition": "استخدام الذكاء الاصطناعي لممارسة المحادثة وتلقي الملاحظات.",
+    "example": "ChatGPT can act as an AI language coach."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 30
+}

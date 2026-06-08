@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-resource-item-9",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "قوالب جاهزة للاستخدام."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "قوالب للصور التعليمية",
+  "title_en": "Item 9",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "resource"
+  ],
+  "sort_order": 100
+}

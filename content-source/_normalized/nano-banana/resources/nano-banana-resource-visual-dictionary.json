@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-resource-visual-dictionary",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "القاموس البصري للذكاء الاصطناعي",
+  "data": {
+    "description": "قاموس يجمع الكلمات المفتاحية المتعلقة بالأنماط الفنية والمواد والخامات باللغتين.",
+    "url": ""
+  },
+  "title_en": "",
+  "category": "نانو بانانا",
+  "featured": false,
+  "tags": [
+    "نانو بانانا",
+    "resource"
+  ],
+  "sort_order": 290
+}

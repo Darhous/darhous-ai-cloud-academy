@@ -1,0 +1,20 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://github.com/features/copilot",
+    "description": "مساعد برمجة مدعوم بالذكاء الاصطناعي يقترح أكواد برمجية ويساعد في كتابتها بسرعة."
+  },
+  "id": "ai-academy-resource-github-copilot",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Github Copilot",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 260,
+  "manual_review_required": true
+}

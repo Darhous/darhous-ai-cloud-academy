@@ -1,0 +1,20 @@
+{
+  "id": "language-resource-resource-1",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "url": "https://www.bbc.co.uk/learningenglish",
+    "description": "موقع ممتاز لتحسين مهارات الاستماع والقراءة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Resource 1",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 170,
+  "manual_review_required": true
+}

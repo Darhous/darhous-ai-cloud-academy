@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "عملية تصميم وتحسين الموجهات (prompts) للحصول على أفضل النتائج من نماذج الذكاء الاصطناعي.",
+    "example": "تعديل السؤال من 'ما هو الذكاء الاصطناعي؟' إلى 'اشرح الذكاء الاصطناعي لطفل في العاشرة'."
+  },
+  "id": "ai-academy-glossary-prompt-engineering-2",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "هندسة الأوامر",
+  "title_en": "Prompt Engineering",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 470
+}

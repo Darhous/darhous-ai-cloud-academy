@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-resource-ai-safety-fundamentals",
+  "portal_id": "ai-academy",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أساسيات أمان الذكاء الاصطناعي",
+  "data": {
+    "url": "https://course.aisafetyfundamentals.com/",
+    "description": "مساقات متخصصة في فهم وتقليل المخاطر المرتبطة بالذكاء الاصطناعي المتقدم."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 20
+}

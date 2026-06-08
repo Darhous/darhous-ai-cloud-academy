@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "التكامل (Integration)",
+    "definition": "قدرة أداة أو تطبيق على الاتصال والعمل بسلاسة مع أدوات أخرى لتبادل البيانات.",
+    "example": "ربط Slack مع Google Drive لمشاركة الملفات مباشرة في المحادثات."
+  },
+  "id": "tools-hub-glossary-integration",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Integration",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 60,
+  "manual_review_required": true
+}

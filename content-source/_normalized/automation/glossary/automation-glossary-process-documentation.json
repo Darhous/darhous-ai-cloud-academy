@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-process-documentation",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "توثيق العمليات",
+  "data": {
+    "definition": "وصف تفصيلي ومكتوب لكيفية عمل الأتمتة، التطبيقات المستخدمة، البيانات المتبادلة، ومسارات الأخطاء لتسهيل الصيانة ونقل المعرفة.",
+    "example": "إنشاء مستند يوضح مخطط سير العمل لعملية 'إلحاق الموظفين الجدد' في الشركة."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 260
+}

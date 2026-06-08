@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-chain-of-thought",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "سلسلة الأفكار",
+  "data": {
+    "definition": "تقنية تتطلب من النموذج التفكير خطوة بخطوة للوصول إلى الإجابة.",
+    "example": "استخدام عبارة 'دعنا نفكر في هذا خطوة بخطوة' في نهاية الموجه."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 70
+}

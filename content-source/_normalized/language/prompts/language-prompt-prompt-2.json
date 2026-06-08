@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-prompt-2",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "prompt_text": "قم بتصحيح الأخطاء النحوية في النص.",
+    "instructions": "اشرح سبب كل خطأ وكيفية تصحيحه."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "تدقيق القواعد",
+  "title_en": "Prompt 2",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 140
+}

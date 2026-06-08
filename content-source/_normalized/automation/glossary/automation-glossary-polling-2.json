@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-polling-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "فحص التطبيق دورياً للبحث عن تحديثات أو بيانات جديدة.",
+    "example": "فحص صندوق الوارد كل 15 دقيقة للبحث عن رسائل جديدة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "الاقتراع (Polling)",
+  "title_en": "Polling",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 430
+}

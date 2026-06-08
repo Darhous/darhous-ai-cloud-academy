@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-prompt-food-photography",
+  "portal_id": "nano-banana",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تصوير الأطعمة",
+  "data": {
+    "prompt_text": "A mouth-watering, professional food photography of [الطبق], garnished with [الإضافات], moody lighting, macro shot.",
+    "instructions": "مثالي للمحتوى المتعلق بالطبخ أو التغذية."
+  },
+  "title_en": "",
+  "category": "نانو بانانا",
+  "featured": false,
+  "tags": [
+    "نانو بانانا",
+    "prompt"
+  ],
+  "sort_order": 200
+}

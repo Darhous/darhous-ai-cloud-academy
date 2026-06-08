@@ -1,0 +1,20 @@
+{
+  "id": "language-glossary-glossary-8",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "definition": "القراءة",
+    "example": "قراءة المقالات الإنجليزية توسع المدارك."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Glossary 8",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 320,
+  "manual_review_required": true
+}

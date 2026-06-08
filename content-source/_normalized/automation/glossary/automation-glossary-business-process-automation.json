@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-business-process-automation",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "أتمتة العمليات التجارية (BPA)",
+  "data": {
+    "definition": "استخدام التكنولوجيا لأتمتة سير العمل المعقد والمترابط داخل المؤسسة بأكملها لتحسين الكفاءة وتقليل التكاليف.",
+    "example": "أتمتة دورة حياة المبيعات من استقطاب العميل المحتمل وحتى الفوترة وخدمة ما بعد البيع."
+  },
+  "title_en": "BPA",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 110
+}

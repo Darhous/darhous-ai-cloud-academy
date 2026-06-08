@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "definition": "علاقة مهنية يقوم فيها شخص ذو خبرة بتوجيه شخص أقل خبرة.",
+    "example": "مثال على استخدام مصطلح الإرشاد المهني في السياق المهني."
+  },
+  "id": "career-glossary-mentorship-2",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "الإرشاد المهني",
+  "title_en": "Mentorship",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 430
+}

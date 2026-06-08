@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اقترح علي أفكار مشاريع أضيفها لمعرض أعمالي في مجال [مجال العمل].",
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+  },
+  "id": "career-prompt-portfolio-ideas-2",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "أفكار لمعرض الأعمال",
+  "title_en": "Portfolio Ideas",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "prompt"
+  ],
+  "sort_order": 270
+}

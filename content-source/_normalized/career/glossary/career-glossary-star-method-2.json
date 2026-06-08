@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "definition": "هيكلية للإجابة على أسئلة المقابلات السلوكية.",
+    "example": "مثال على استخدام مصطلح طريقة STAR في السياق المهني."
+  },
+  "id": "career-glossary-star-method-2",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "طريقة STAR",
+  "title_en": "Star Method",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 500
+}

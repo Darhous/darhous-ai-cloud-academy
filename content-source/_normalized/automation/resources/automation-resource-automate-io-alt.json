@@ -1,0 +1,19 @@
+{
+  "id": "automation-resource-automate-io-alt",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "url": "https://zapier.com/apps/automateio/integrations",
+    "description": "نظرة على الخيارات البديلة المتاحة بعد إغلاق منصة Automate.io."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "بدائل Automate.io",
+  "title_en": "Automate Io Alt",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "resource"
+  ],
+  "sort_order": 30
+}

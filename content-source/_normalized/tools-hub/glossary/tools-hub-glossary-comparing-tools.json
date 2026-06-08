@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-glossary-comparing-tools",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مقارنة الأدوات",
+  "data": {
+    "definition": "عملية منهجية لتقييم أداتين أو أكثر بناءً على معايير محددة (كالسعر، الميزات، الخصوصية) لتحديد الخيار الأنسب لاحتياجاتك.",
+    "example": "إنشاء جدول لمقارنة بين Notion و Obsidian من حيث سهولة الاستخدام، التكلفة، ودعم الأوفلاين."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 220
+}

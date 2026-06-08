@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-interleaving",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التشابك المعرفي",
+  "data": {
+    "definition": "استراتيجية تعليمية تتضمن دمج مواضيع أو أنواع مختلفة من المسائل في جلسة دراسية واحدة لتحسين التمييز بينها.",
+    "example": "بدل حل 50 مسألة على نفس القاعدة، يتم حل مسائل تتطلب اختيار القاعدة المناسبة من بين عدة قواعد."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 140
+}

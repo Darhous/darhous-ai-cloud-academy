@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "مجموعة من خطابات المقدمة الناجحة لمختلف المجالات."
+  },
+  "id": "career-resource-cover-letter-examples",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "نماذج خطابات مقدمة",
+  "title_en": "Cover Letter Examples",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 220
+}

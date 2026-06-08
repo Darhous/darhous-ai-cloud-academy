@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-glossary-item-10",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "برنامج ذكاء اصطناعي يقوم بإنشاء محتوى جديد بناءً على البيانات التي تدرب عليها.",
+    "example": "مثال: Midjourney."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "النموذج المولد",
+  "title_en": "Item 10",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "مصطلحات"
+  ],
+  "sort_order": 20
+}

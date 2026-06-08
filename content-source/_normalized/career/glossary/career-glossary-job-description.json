@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-job-description",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الوصف الوظيفي",
+  "data": {
+    "definition": "وثيقة تحدد مسؤوليات الوظيفة ومهامها والمهارات والمؤهلات المطلوبة لأدائها.",
+    "example": "قراءة الوصف الوظيفي بعناية لتحديد ما إذا كانت الوظيفة تناسب خبراتك وأهدافك المهنية."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 140
+}

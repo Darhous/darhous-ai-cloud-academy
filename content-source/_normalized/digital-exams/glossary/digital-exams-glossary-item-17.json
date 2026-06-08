@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-item-17",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "التأكد من صحة الإجابات قبل تسليم ورقة الاختبار.",
+    "example": "مثال: تخصيص آخر 10 دقائق من وقت الاختبار لمراجعة الإجابات."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "مراجعة الإجابات",
+  "title_en": "Item 17",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 470
+}

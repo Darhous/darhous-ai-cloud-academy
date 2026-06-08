@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-confidence-calibration",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "معايرة الثقة",
+  "data": {
+    "definition": "القدرة على التقييم الدقيق لمدى صحة الإجابة التي تم اختيارها، وتجنب الثقة المفرطة أو الشك الزائد.",
+    "example": "إعطاء نسبة مئوية لثقتك في الإجابة، ومراجعة الأسئلة التي تقل نسبة ثقتك فيها عن 70%."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 40
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-fact-checking",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التحقق من الحقائق",
+  "data": {
+    "definition": "العملية المنظمة للتأكد من دقة المعلومات الواردة في النصوص أو مخرجات الذكاء الاصطناعي.",
+    "example": "التأكد من التواريخ والأرقام التي يقدمها النموذج باستخدام ويكيبيديا أو مصادر رسمية."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 110
+}

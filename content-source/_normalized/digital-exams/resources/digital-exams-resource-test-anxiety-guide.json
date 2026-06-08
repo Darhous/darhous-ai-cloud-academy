@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-resource-test-anxiety-guide",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دليل التعامل مع قلق الاختبارات",
+  "data": {
+    "url": "",
+    "description": "مقال شامل يقدم نصائح علمية للتغلب على القلق وتحسين الأداء تحت الضغط النفسي."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "resource"
+  ],
+  "sort_order": 190
+}

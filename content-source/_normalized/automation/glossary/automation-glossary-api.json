@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-api",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "مجموعة من القواعد التي تسمح للبرامج المختلفة بالتواصل مع بعضها البعض.",
+    "example": "استخدام Twitter API لجلب أحدث التغريدات."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "واجهة برمجة التطبيقات (API)",
+  "title_en": "Api",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 30
+}

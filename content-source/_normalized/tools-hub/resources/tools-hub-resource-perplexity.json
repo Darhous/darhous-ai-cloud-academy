@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-resource-perplexity",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "بيربليكسيتي (Perplexity)",
+  "data": {
+    "url": "https://www.perplexity.ai",
+    "description": "محرك بحث مدعوم بالذكاء الاصطناعي يقدم إجابات مباشرة وموثقة مع ذكر المصادر بدلاً من مجرد روابط."
+  },
+  "title_en": "Perplexity",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "resource"
+  ],
+  "sort_order": 230
+}

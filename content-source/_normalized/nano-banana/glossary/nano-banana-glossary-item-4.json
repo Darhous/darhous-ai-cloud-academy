@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-glossary-item-4",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "عدد البكسلات التي تتكون منها الصورة.",
+    "example": "مثال: 1920x1080."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "دقة الصورة",
+  "title_en": "Item 4",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "مصطلحات"
+  ],
+  "sort_order": 150
+}

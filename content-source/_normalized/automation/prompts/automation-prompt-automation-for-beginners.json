@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-automation-for-beginners",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "شرح مفاهيم الأتمتة لمبتدئ",
+  "data": {
+    "prompt_text": "أنا شخص غير تقني وأرغب في فهم كيف تعمل الأتمتة في الأعمال التجارية. اشرح لي المفاهيم الأساسية مثل (Trigger، Action، API، Webhook) بكلمات بسيطة مع أمثلة من الحياة اليومية.",
+    "instructions": "استخدم أمثلة عامة وغير معقدة تناسب المبتدئين."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 60
+}

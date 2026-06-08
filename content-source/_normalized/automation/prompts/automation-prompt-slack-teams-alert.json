@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-slack-teams-alert",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "إعداد رسالة تنبيه Slack أو Teams",
+  "data": {
+    "prompt_text": "كيف يمكنني إعداد أتمتة لإرسال تنبيه في منصة [Slack/Teams] عندما يحدث [أدخل المحفز، مثلاً: فشل في دفع اشتراك عميل]؟ يرجى توفير الخطوات باستخدام أداة مثل [Zapier/Make] وتنسيق الرسالة المراد إرسالها.",
+    "instructions": "حدد منصة المحادثة وأداة الأتمتة المتاحة لديك."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 170
+}

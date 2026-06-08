@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "اقتراح أداة",
+    "prompt_text": "أنا أبحث عن أداة تساعدني في [المهمة]. ميزانيتي هي [الميزانية] وأهم الميزات التي أحتاجها هي [الميزات]. هل يمكنك اقتراح 3 أدوات مناسبة مع ذكر إيجابيات وسلبيات كل منها؟",
+    "instructions": "استخدم هذا الموجه عندما تكون تائهاً بين الخيارات الكثيرة وتود قائمة مختصرة تلبي احتياجاتك المحددة."
+  },
+  "id": "tools-hub-prompt-tool-recommendation",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Tool Recommendation",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 90,
+  "manual_review_required": true
+}

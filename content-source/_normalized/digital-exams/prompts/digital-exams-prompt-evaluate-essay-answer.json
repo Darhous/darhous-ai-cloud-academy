@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-evaluate-essay-answer",
+  "portal_id": "digital-exams",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تقييم إجابة مقالية قصيرة",
+  "data": {
+    "prompt_text": "هذا هو السؤال: [نص السؤال]، وهذه هي إجابتي: [نص الإجابة]. قيّم إجابتي من 10، وحدد ما ينقصها لتكون إجابة نموذجية، وأعد كتابتها بالشكل الأمثل.",
+    "instructions": "مفيد للاختبارات التي تتضمن أسئلة ذات إجابات قصيرة أو تعليل."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 60
+}

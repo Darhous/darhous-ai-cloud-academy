@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-self-correction",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التصحيح الذاتي",
+  "data": {
+    "definition": "ملاحظة وتصحيح أخطائك أثناء التحدث أو الكتابة.",
+    "example": "Self-correction is a sign of progress."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 460
+}

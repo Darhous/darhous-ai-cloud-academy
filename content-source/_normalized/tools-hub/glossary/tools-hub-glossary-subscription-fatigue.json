@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-glossary-subscription-fatigue",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "إرهاق الاشتراكات",
+  "data": {
+    "definition": "الشعور بالاستنزاف المالي والنفسي نتيجة الدفع للعديد من الخدمات الرقمية والأدوات بنظام الاشتراك الشهري أو السنوي.",
+    "example": "مراجعة كشف حسابك البنكي وإلغاء 3 اشتراكات لتطبيقات لم تعد تستخدمها لتخفيف النفقات."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 400
+}

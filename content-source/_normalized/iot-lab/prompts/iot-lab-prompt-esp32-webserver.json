@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-esp32-webserver",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "إنشاء خادم ويب بسيط بـ ESP32",
+  "title_en": "Simple ESP32 Webserver",
+  "data": {
+    "prompt_text": "اكتب كود لجعل لوحة ESP32 تعمل كخادم ويب يعرض صفحة HTML بسيطة تحتوي على زر لتشغيل وإطفاء LED متصل بالمنفذ [رقم_المنفذ].",
+    "instructions": "حدد رقم المنفذ المتصل به الـ LED."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 80
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-prompt-summarize-document",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تلخيص مستند",
+  "data": {
+    "prompt_text": "قم بتلخيص المستند التالي في 3 نقاط رئيسية: [المستند]",
+    "instructions": "استبدل [المستند] بالنص الذي تريد تلخيصه."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 180
+}

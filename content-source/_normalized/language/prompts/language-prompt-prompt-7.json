@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-prompt-7",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "prompt_text": "قم بتقييم مقالي الأكاديمي.",
+    "instructions": "ركز على بنية الجملة والترابط بين الأفكار."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "ممارسة الكتابة الأكاديمية",
+  "title_en": "Prompt 7",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 190
+}

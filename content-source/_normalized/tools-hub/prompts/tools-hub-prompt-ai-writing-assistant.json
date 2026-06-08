@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-prompt-ai-writing-assistant",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تخصيص مساعد الكتابة",
+  "data": {
+    "prompt_text": "أستخدم أداة ذكاء اصطناعي للكتابة. كيف أكتب موجه تعليمات (System Prompt) لضمان أن الأداة تحافظ على أسلوبي الشخصي وتتجنب العبارات المبتذلة؟",
+    "instructions": "لتحسين جودة المخرجات من أدوات الذكاء الاصطناعي النصية."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 110
+}

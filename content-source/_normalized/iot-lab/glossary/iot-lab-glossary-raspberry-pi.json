@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-raspberry-pi",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "راسبيري باي (Raspberry Pi)",
+  "title_en": "Raspberry Pi",
+  "data": {
+    "definition": "حاسوب صغير بحجم بطاقة الائتمان يمكن استخدامه في مشاريع الإلكترونيات والحوسبة.",
+    "example": "إعداد راسبيري باي كخادم ويب منزلي."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 400
+}

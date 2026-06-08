@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-resource-item-8",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "مقالة حول أخلاقيات الذكاء الاصطناعي."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "الذكاء الاصطناعي المسؤول",
+  "title_en": "Item 8",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "resource"
+  ],
+  "sort_order": 90
+}

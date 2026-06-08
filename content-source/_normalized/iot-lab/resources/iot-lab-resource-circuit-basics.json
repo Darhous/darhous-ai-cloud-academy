@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-circuit-basics",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "url": "https://www.circuitbasics.com/",
+    "description": "موقع تعليمي ممتاز يقدم شروحات مبسطة لتوصيل وبناء الدوائر الإلكترونية."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "أساسيات الدوائر الإلكترونية",
+  "title_en": "Circuit Basics",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 70
+}

@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-resource-habit-tracker",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "متتبع العادات اليومية",
+  "data": {
+    "url": "https://loophabit.org",
+    "description": "تطبيق بسيط لمساعدتك في بناء عادة المذاكرة اليومية والالتزام بالجدول الزمني."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "resource"
+  ],
+  "sort_order": 80
+}

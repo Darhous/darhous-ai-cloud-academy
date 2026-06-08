@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-daily-journal",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "يومياتي",
+  "data": {
+    "prompt_text": "Review my daily journal entry and suggest better vocabulary: [اليوميات].",
+    "instructions": "تحسين كتابتك اليومية وتطوير أسلوبك."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 30
+}

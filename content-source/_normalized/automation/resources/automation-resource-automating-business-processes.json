@@ -1,0 +1,20 @@
+{
+  "id": "automation-resource-automating-business-processes",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "data": {
+    "url": "https://hbr.org/2018/06/before-you-automate-your-processes-redesign-them",
+    "description": "مقال من مجلة هارفارد بزنس ريفيو يناقش أهمية إعادة تصميم العمليات التجارية قبل محاولة أتمتتها لتحقيق أقصى استفادة."
+  },
+  "title_en": "Automating Business Processes",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "resource"
+  ],
+  "sort_order": 60,
+  "manual_review_required": true
+}

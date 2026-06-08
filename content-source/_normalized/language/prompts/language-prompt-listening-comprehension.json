@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-listening-comprehension",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "فهم المسموع",
+  "data": {
+    "prompt_text": "Write a short dialogue about [الموضوع] and generate 3 comprehension questions.",
+    "instructions": "تدريب على الفهم من خلال نصوص قصيرة."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 80
+}

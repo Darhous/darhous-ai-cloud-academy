@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-cefr-a1",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مستوى A1",
+  "data": {
+    "definition": "المستوى المبتدئ في الإطار الأوروبي المرجعي.",
+    "example": "I am a beginner."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 40
+}

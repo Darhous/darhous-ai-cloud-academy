@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-prompt-write-outline",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "كتابة مسودة",
+  "data": {
+    "prompt_text": "اكتب هيكلاً تفصيلياً (Outline) لمقال من 1000 كلمة حول [الموضوع].",
+    "instructions": "حدد عنوان المقال أو موضوعه مكان [الموضوع]."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 200
+}

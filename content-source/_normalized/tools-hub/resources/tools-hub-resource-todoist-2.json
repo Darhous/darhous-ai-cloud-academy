@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-resource-todoist-2",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "تودويست (Todoist)",
+  "data": {
+    "url": "https://todoist.com",
+    "description": "تطبيق إدارة مهام يتميز بالبساطة والقدرة على إضافة المهام بسرعة باستخدام اللغة الطبيعية."
+  },
+  "title_en": "Todoist",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "resource"
+  ],
+  "sort_order": 270
+}

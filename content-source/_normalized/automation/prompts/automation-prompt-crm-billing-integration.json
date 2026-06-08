@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-crm-billing-integration",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "ربط CRM بنظام الفوترة",
+  "data": {
+    "prompt_text": "كيف أقوم بربط نظام الـ CRM [اسم النظام، مثلاً: HubSpot] بنظام الفوترة [اسم النظام، مثلاً: Xero] لإنشاء فواتير تلقائياً عند تغيير حالة العميل إلى [حالة معينة]؟ وما هي البيانات الأساسية التي يجب تخطيطها (Data Mapping) بين النظامين؟",
+    "instructions": "اذكر أسماء الأنظمة بدقة وأي حقول مخصصة تهمك."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 80
+}

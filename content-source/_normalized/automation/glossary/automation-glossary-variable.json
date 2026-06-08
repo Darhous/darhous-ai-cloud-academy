@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-variable",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المتغير",
+  "data": {
+    "definition": "عنصر نائب يُستخدم لتخزين البيانات التي يمكن أن تتغير أثناء تشغيل سير العمل أو بين عمليات التشغيل المختلفة.",
+    "example": "استخدام متغير {{date}} لإضافة تاريخ اليوم الحالي في رسالة البريد الإلكتروني."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 300
+}

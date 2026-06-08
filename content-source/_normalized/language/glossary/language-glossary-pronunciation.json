@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-pronunciation",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "النطق",
+  "data": {
+    "definition": "طريقة إخراج الأصوات في اللغة.",
+    "example": "Good pronunciation makes you understood."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 450
+}

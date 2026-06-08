@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "أهم المنصات للبحث عن وظائف في العالم العربي."
+  },
+  "id": "career-resource-job-boards",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "منصات التوظيف",
+  "title_en": "Job Boards",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 250
+}

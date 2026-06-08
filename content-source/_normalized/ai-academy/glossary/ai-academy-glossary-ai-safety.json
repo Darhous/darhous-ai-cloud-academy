@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-ai-safety",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "أمان الذكاء الاصطناعي",
+  "data": {
+    "definition": "مجال يركز على بناء أنظمة ذكاء اصطناعي لا تسبب أذى للبشر وتعمل بشكل متوقع وموثوق.",
+    "example": "وضع قيود على النموذج لمنعه من توليد برمجيات خبيثة أو محتوى يحض على الكراهية."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 20
+}

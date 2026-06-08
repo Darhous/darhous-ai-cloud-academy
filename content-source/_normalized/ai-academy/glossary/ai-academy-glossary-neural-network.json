@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "نظام حاسوبي مستوحى من الدماغ البشري لمعالجة المعلومات.",
+    "example": "الشبكات المستخدمة في ترجمة جوجل."
+  },
+  "id": "ai-academy-glossary-neural-network",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "الشبكة العصبية",
+  "title_en": "Neural Network",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 460
+}

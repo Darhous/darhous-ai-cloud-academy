@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "prompt_text": "ساعدني في صياغة إجابة بطريقة STAR لموقف واجهت فيه تحدياً في العمل.",
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+  },
+  "id": "career-prompt-star-answer",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "إجابة STAR",
+  "title_en": "Star Answer",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "prompt"
+  ],
+  "sort_order": 300
+}

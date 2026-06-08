@@ -1,0 +1,19 @@
+{
+  "id": "language-resource-duolingo",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دوولينجو",
+  "data": {
+    "url": "https://www.duolingo.com/",
+    "description": "تطبيق مشهور للتدريب اليومي."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 70
+}

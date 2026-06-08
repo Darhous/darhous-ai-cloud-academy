@@ -1,0 +1,20 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://www.coursera.org/learn/ai-for-everyone",
+    "description": "دورة تدريبية مبسطة من أندرو نغ موجهة لغير المتخصصين لفهم أساسيات الذكاء الاصطناعي."
+  },
+  "id": "ai-academy-resource-coursera-ai-for-everyone",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Coursera Ai For Everyone",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 240,
+  "manual_review_required": true
+}

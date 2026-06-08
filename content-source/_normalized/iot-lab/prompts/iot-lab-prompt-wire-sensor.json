@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-wire-sensor",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "prompt_text": "كيف أقوم بتوصيل مستشعر الحركة PIR مع الأردوينو بشكل آمن؟",
+    "instructions": "وضح التوصيلات (الطاقة، الأرضي، إشارة البيانات) وقدم نصيحة للسلامة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "توصيل مستشعر",
+  "title_en": "Wire Sensor",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 300
+}

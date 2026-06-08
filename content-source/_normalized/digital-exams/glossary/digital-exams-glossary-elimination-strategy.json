@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-elimination-strategy",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "استراتيجية الاستبعاد",
+  "data": {
+    "definition": "تقنية لحل أسئلة الاختيار من متعدد تعتمد على حذف الخيارات الخاطئة بشكل مؤكد لزيادة احتمالية اختيار الإجابة الصحيحة.",
+    "example": "عندما تواجه سؤالاً لا تعرف إجابته المباشرة، ابدأ باستبعاد الخيارين اللذين يبدوان غير منطقيين."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 90
+}

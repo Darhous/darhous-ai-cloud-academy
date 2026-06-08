@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-logic-level",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مستوى الجهد المنطقي",
+  "data": {
+    "definition": "مستويات الجهد الكهربائي التي تمثل الحالة 0 أو 1 في الدوائر الرقمية، عادة 3.3 فولت أو 5 فولت.",
+    "example": "توصيل شريحة ESP32 التي تعمل بـ 3.3 فولت مع حساس 5 فولت يحتاج لمحول مستوى."
+  },
+  "title_en": "",
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 220
+}

@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-prompt-item-9",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "prompt_text": "تطبيق هاتف ذكي، الوضع الليلي، أزرار مضيئة.",
+    "instructions": "تصميم نظيف."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "واجهة مستخدم",
+  "title_en": "Item 9",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "prompt"
+  ],
+  "sort_order": 100
+}

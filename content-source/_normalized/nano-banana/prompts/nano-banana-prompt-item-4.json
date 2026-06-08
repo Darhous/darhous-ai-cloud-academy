@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-prompt-item-4",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "prompt_text": "شخصية كرتونية لطيفة، أسلوب بيكسار، إضاءة ناعمة.",
+    "instructions": "اجعل الألوان مرحة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "شخصية ثلاثية الأبعاد",
+  "title_en": "Item 4",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "prompt"
+  ],
+  "sort_order": 50
+}

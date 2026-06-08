@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-prompt-compare-two-tools",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مقارنة بين أداتين",
+  "data": {
+    "prompt_text": "قم بمقارنة بين [الأداة الأولى] و [الأداة الثانية] من حيث: 1. التسعير، 2. منحنى التعلم، 3. الخصوصية وأمان البيانات، 4. إمكانيات التكامل.",
+    "instructions": "استخدم هذا الموجه عندما تكون محتاراً بين أداتين شهيرتين."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 140
+}

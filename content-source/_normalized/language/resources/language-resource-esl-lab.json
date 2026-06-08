@@ -1,0 +1,19 @@
+{
+  "id": "language-resource-esl-lab",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "مختبر الاستماع",
+  "data": {
+    "url": "https://www.esl-lab.com/",
+    "description": "اختبارات استماع مسجلة بمستويات مختلفة."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 110
+}

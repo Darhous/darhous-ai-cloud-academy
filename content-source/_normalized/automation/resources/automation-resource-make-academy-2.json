@@ -1,0 +1,19 @@
+{
+  "id": "automation-resource-make-academy-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "url": "https://academy.make.com/",
+    "description": "دورات تدريبية مجانية لتعلم كيفية استخدام منصة Make للمبتدئين والمحترفين."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "أكاديمية Make",
+  "title_en": "Make Academy",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "resource"
+  ],
+  "sort_order": 260
+}

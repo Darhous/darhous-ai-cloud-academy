@@ -1,0 +1,19 @@
+{
+  "id": "language-resource-engvid",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "إنج فيد",
+  "data": {
+    "url": "https://www.engvid.com/",
+    "description": "دروس فيديو مجانية من معلمين ناطقين باللغة."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 100
+}

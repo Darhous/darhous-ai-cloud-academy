@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-sparkfun-tutorials",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دروس سبارك فن",
+  "title_en": "SparkFun Tutorials",
+  "data": {
+    "url": "https://learn.sparkfun.com/",
+    "description": "دروس تعليمية تغطي أساسيات الإلكترونيات وحتى المشاريع المعقدة."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 270
+}

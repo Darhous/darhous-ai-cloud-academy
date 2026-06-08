@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-make-alternatives",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "prompt_text": "ما هي أفضل البدائل لأداة Make (Integromat سابقاً) للشركات الصغيرة، مع مقارنة سريعة بينها؟",
+    "instructions": "اقرأ المقارنة لاختيار الأداة الأنسب لاحتياجات وميزانية شركتك."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "بدائل أداة Make",
+  "title_en": "Make Alternatives",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 270
+}

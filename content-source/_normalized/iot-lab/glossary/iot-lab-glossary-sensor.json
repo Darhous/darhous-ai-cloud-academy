@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-sensor",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مستشعر (Sensor)",
+  "title_en": "Sensor",
+  "data": {
+    "definition": "جهاز يكتشف التغيرات في البيئة (مثل الحرارة، الضوء، أو الحركة) ويحولها إلى إشارات كهربائية.",
+    "example": "استخدام مستشعر الموجات فوق الصوتية لقياس المسافة."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 440
+}

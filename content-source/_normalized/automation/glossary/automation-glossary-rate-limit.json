@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-rate-limit",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "الحد الأقصى لعدد الطلبات التي يمكن إجراؤها لـ API في فترة زمنية معينة.",
+    "example": "الحد من استدعاءات API لتجنب حظر الحساب."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "حد المعدل (Rate Limit)",
+  "title_en": "Rate Limit",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 450
+}

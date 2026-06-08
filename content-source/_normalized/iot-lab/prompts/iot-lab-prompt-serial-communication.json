@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-serial-communication",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "الاتصال التسلسلي بين لوحتين",
+  "title_en": "Serial Communication Between Two Boards",
+  "data": {
+    "prompt_text": "قدم كودًا للوحة المرسلة ولوحة المستقبلة لإرسال واستقبال رسالة نصية '[الرسالة]' باستخدام الاتصال التسلسلي (UART) بين لوحتي أردوينو.",
+    "instructions": "أدخل الرسالة المراد إرسالها."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 220
+}

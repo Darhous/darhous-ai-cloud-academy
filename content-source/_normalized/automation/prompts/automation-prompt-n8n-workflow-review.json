@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-n8n-workflow-review",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مراجعة وتقييم مسار عمل n8n",
+  "data": {
+    "prompt_text": "قمت بتصميم مسار العمل التالي في n8n: [اشرح مسار العمل أو الصق الـ JSON الخاص بالـ Workflow]. هل توجد أي مشاكل محتملة فيه، وكيف يمكنني تحسينه ليصبح أكثر استقراراً أو لمعالجة الأخطاء بشكل أفضل؟",
+    "instructions": "توفير معلومات دقيقة عن العقد والأهداف يحسن من جودة التقييم."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 130
+}

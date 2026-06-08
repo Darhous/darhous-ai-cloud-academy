@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "definition": "تقديم الخدمات بشكل مستقل لعدة عملاء.",
+    "example": "مثال على استخدام مصطلح العمل الحر في السياق المهني."
+  },
+  "id": "career-glossary-freelance",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "العمل الحر",
+  "title_en": "Freelance",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 370
+}

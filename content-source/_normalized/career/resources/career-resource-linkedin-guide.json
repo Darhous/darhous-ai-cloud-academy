@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "دليل شامل لتحسين ملفك الشخصي على لينكد إن."
+  },
+  "id": "career-resource-linkedin-guide",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "دليل لينكد إن",
+  "title_en": "Linkedin Guide",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 260
+}

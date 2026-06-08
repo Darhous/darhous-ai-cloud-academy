@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-troubleshoot-mqtt",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "prompt_text": "جهازي لا يتصل بخادم MQTT، ما هي أهم الخطوات لاستكشاف هذه المشكلة وإصلاحها؟",
+    "instructions": "اذكر أسباب شائعة مثل اسم المستخدم، كلمة المرور، أو مشاكل الشبكة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "استكشاف أخطاء MQTT",
+  "title_en": "Troubleshoot Mqtt",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 270
+}

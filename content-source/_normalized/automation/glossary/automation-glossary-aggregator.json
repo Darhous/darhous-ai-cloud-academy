@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-aggregator",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المُجمّع (Aggregator)",
+  "data": {
+    "definition": "عكس الـ Iterator؛ يقوم بجمع حزم بيانات منفصلة في مجموعة واحدة (Array) لمعالجتها كدفعة واحدة.",
+    "example": "جمع كل تفاصيل المنتجات في فاتورة واحدة لتوليد ملف PDF متكامل."
+  },
+  "title_en": "Aggregator",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 50
+}

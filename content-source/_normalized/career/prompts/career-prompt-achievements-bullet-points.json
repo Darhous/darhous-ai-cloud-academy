@@ -1,0 +1,19 @@
+{
+  "id": "career-prompt-achievements-bullet-points",
+  "portal_id": "career",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "صياغة نقاط إنجاز للسيرة الذاتية",
+  "data": {
+    "prompt_text": "حول هذه المهمة العادية: [وصف المهمة] إلى نقطة إنجاز قوية للسيرة الذاتية باستخدام صيغة (الفعل + المهمة + النتيجة أو التأثير) والأرقام إن أمكن.",
+    "instructions": "ركز على التأثير الذي أحدثته بدلاً من مجرد سرد المهام اليومية."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "prompt"
+  ],
+  "sort_order": 10
+}

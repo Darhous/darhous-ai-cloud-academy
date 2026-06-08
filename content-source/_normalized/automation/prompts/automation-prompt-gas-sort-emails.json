@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-gas-sort-emails",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اكتب Google Apps Script يقوم تلقائيًا بفرز رسائل البريد الإلكتروني في Gmail بناءً على الكلمات المفتاحية في الموضوع ونقلها إلى مجلدات محددة.",
+    "instructions": "يمكنك تعديل الكلمات المفتاحية في الكود لتناسب احتياجاتك."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "كتابة Google Apps Script لفرز البريد",
+  "title_en": "Gas Sort Emails",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 240
+}

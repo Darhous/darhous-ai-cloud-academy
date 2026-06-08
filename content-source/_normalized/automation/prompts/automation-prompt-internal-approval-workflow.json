@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-internal-approval-workflow",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تصميم سير عمل موافقات داخلية",
+  "data": {
+    "prompt_text": "أحتاج لتصميم سير عمل يطلب موافقة [الإدارة المطلوبة، مثلاً: المدير المالي] قبل تنفيذ [الإجراء، مثلاً: صرف ميزانية]. كيف يمكنني استخدام أدوات مثل [Slack/Email] لإرسال أزرار الموافقة/الرفض واستكمال سير العمل بناءً على القرار؟",
+    "instructions": "حدد أداة الاتصال المفضلة للموافقات وكيف يتم اتخاذ القرار."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 120
+}

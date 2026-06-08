@@ -1,0 +1,19 @@
+{
+  "id": "language-resource-british-council",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "المجلس الثقافي البريطاني",
+  "data": {
+    "url": "https://learnenglish.britishcouncil.org/",
+    "description": "دروس وتدريبات لكافة المستويات."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 40
+}

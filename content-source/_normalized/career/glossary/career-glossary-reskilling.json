@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-reskilling",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "إعادة التأهيل المهني",
+  "data": {
+    "definition": "تعلم مهارات جديدة ومختلفة تماماً عن مهاراتك الحالية للانتقال إلى مسار مهني جديد.",
+    "example": "تعلم البرمجة للعاملين في مجال المبيعات بهدف تغيير مسارهم المهني إلى تطوير البرمجيات."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 250
+}

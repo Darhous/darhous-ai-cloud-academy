@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-salary-negotiation",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التفاوض على الراتب",
+  "data": {
+    "definition": "مناقشة العرض المالي مع صاحب العمل للوصول إلى اتفاق يرضي الطرفين ويعكس القيمة السوقية لمهاراتك.",
+    "example": "البحث عن متوسط الرواتب في السوق لوظيفتك واستخدام هذه المعلومات لدعم موقفك التفاوضي."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 260
+}

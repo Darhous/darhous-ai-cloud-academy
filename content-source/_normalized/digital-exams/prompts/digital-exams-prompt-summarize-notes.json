@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-summarize-notes",
+  "portal_id": "digital-exams",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تلخيص ملاحظات المراجعة",
+  "data": {
+    "prompt_text": "قم بتلخيص الملاحظات التالية في نقاط رئيسية مركزة لتسهيل حفظها واسترجاعها ليلة الاختبار: [النص أو الملاحظات].",
+    "instructions": "يفضل ألا يتجاوز النص المدخل 1000 كلمة لضمان دقة التلخيص وتركيزه."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 190
+}

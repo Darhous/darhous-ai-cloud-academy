@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "definition": "برنامج يستخدمه أصحاب العمل لفرز السير الذاتية.",
+    "example": "مثال على استخدام مصطلح نظام تتبع المتقدمين في السياق المهني."
+  },
+  "id": "career-glossary-ats",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "نظام تتبع المتقدمين",
+  "title_en": "Ats",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 20
+}

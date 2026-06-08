@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-presentation-prep",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "التحضير للعروض",
+  "data": {
+    "prompt_text": "Give me feedback on the opening of my presentation: [مقدمة العرض].",
+    "instructions": "تدرب على إلقاء العروض التقديمية."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 110
+}

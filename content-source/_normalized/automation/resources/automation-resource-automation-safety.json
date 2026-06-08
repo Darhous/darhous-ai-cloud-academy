@@ -1,0 +1,19 @@
+{
+  "id": "automation-resource-automation-safety",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "url": "https://www.cybersecurity-insiders.com/automation-security/",
+    "description": "نصائح وإرشادات حول كيفية تأمين مسارات العمل المؤتمتة الخاصة بك والبيانات الحساسة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "دليل أمان الأتمتة",
+  "title_en": "Automation Safety",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "resource"
+  ],
+  "sort_order": 240
+}

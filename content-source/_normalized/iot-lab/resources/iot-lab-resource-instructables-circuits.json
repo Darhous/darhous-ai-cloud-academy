@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-instructables-circuits",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "قسم الدوائر في Instructables",
+  "title_en": "Instructables Circuits",
+  "data": {
+    "url": "https://www.instructables.com/circuits/",
+    "description": "آلاف المشاريع الإلكترونية المرفوعة من قبل مجتمع الصُناع (Makers)."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 150
+}

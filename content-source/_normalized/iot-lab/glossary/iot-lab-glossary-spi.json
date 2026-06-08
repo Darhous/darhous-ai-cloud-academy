@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-spi",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "بروتوكول SPI",
+  "data": {
+    "definition": "بروتوكول اتصال تسلسلي سريع جداً لنقل البيانات بين المتحكم الدقيق والشرائح الأخرى.",
+    "example": "قراءة البيانات من بطاقة SD باستخدام SPI."
+  },
+  "title_en": "",
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 300
+}

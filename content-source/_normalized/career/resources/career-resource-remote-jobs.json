@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "منصة متخصصة في الوظائف التي تتيح العمل عن بعد."
+  },
+  "id": "career-resource-remote-jobs",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "وظائف عن بعد",
+  "title_en": "Remote Jobs",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 280
+}

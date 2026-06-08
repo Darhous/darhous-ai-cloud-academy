@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-microcontroller",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "definition": "حاسوب صغير متكامل على شريحة واحدة مصمم للتحكم في الأجهزة والعمليات المحددة.",
+    "example": "شريحة ATmega328P المستخدمة في لوحة الأردوينو أونو."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "متحكم دقيق (Microcontroller)",
+  "title_en": "Microcontroller",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 350
+}

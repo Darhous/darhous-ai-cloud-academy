@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-temperature",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "درجة الحرارة (الإبداع)",
+  "data": {
+    "definition": "إعداد يتحكم في مدى عشوائية أو إبداع مخرجات النموذج. القيم الأعلى تعطي إجابات أكثر تنوعاً.",
+    "example": "استخدام درجة حرارة 0.9 لكتابة قصيدة، و0.1 لكتابة كود برمجي."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 280
+}

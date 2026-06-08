@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-decode-trick-questions",
+  "portal_id": "digital-exams",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "فك شفرة الأسئلة الخادعة",
+  "data": {
+    "prompt_text": "لماذا يعتبر هذا السؤال خادعاً؟ [نص السؤال والخيارات]. اشرح لي الفخ الذي يقع فيه الطلاب عادة وكيف أتجنبه مستقبلاً.",
+    "instructions": "خاص للأسئلة التي تبدو سهلة ولكن إجابتها البديهية خاطئة."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 50
+}

@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-resource-item-1",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "دليل شامل لكتابة أوامر الصور."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "دليل كتابة الأوامر",
+  "title_en": "Item 1",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "resource"
+  ],
+  "sort_order": 10
+}

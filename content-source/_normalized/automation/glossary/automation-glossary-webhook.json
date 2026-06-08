@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-webhook",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الويب هوك (Webhook)",
+  "data": {
+    "definition": "طريقة تتيح لتطبيق ما توفير معلومات في الوقت الفعلي (Real-time) لتطبيقات أخرى متى حدث تغيير أو حدث معين، وتُعرف أحياناً بـ 'HTTP push API'.",
+    "example": "استخدام Webhook لتلقي إشعار فوري من Stripe بمجرد نجاح عملية الدفع."
+  },
+  "title_en": "Webhook",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 310
+}

@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "قدرة الحاسوب على فهم وتفسير وتوليد اللغة البشرية.",
+    "example": "التدقيق الإملائي وتلخيص النصوص."
+  },
+  "id": "ai-academy-glossary-natural-language-processing",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "معالجة اللغات الطبيعية (NLP)",
+  "title_en": "Natural Language Processing",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 450
+}

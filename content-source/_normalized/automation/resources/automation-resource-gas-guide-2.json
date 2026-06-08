@@ -1,0 +1,19 @@
+{
+  "id": "automation-resource-gas-guide-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "url": "https://developers.google.com/apps-script/guides",
+    "description": "تعلم كيفية أتمتة تطبيقات Google Workspace وإنشاء إضافات مخصصة."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "أدلة Google Apps Script",
+  "title_en": "Gas Guide",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "resource"
+  ],
+  "sort_order": 250
+}

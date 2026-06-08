@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-fritzing-software",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "url": "https://fritzing.org/",
+    "description": "برنامج مفتوح المصدر لتصميم الدوائر الإلكترونية على ألواح التجارب بشكل مرئي."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "برنامج فريتزينج",
+  "title_en": "Fritzing Software",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 120
+}

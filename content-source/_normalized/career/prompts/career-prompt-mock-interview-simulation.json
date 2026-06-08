@@ -1,0 +1,19 @@
+{
+  "id": "career-prompt-mock-interview-simulation",
+  "portal_id": "career",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "محاكاة مقابلة عمل",
+  "data": {
+    "prompt_text": "أريدك أن تلعب دور مسؤول توظيف يجري مقابلة معي لوظيفة [اسم الوظيفة]. اطرح عليّ سؤالاً تلو الآخر، وانتظر إجابتي، ثم قدم لي تقييماً بناءً وكيف يمكنني تحسين إجابتي.",
+    "instructions": "تفاعل مع النموذج وكأنك في مقابلة حقيقية لتعظيم الفائدة."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "prompt"
+  ],
+  "sort_order": 140
+}

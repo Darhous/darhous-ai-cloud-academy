@@ -1,0 +1,20 @@
+{
+  "id": "language-resource-resource-8",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "url": "https://learnenglish.britishcouncil.org",
+    "description": "موارد تعليمية مجانية للطلاب من جميع المستويات."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Resource 8",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 250,
+  "manual_review_required": true
+}

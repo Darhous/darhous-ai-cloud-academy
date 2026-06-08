@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-mother-tongue-interference",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تأثير اللغة الأم",
+  "data": {
+    "definition": "تأثير قواعد ونطق اللغة الأم على اللغة المتعلمة.",
+    "example": "Translating directly causes mother tongue interference."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 420
+}

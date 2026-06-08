@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-story-generator",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مولد القصص",
+  "data": {
+    "prompt_text": "Write a short story using these vocabulary words: [الكلمات].",
+    "instructions": "قصص قصيرة لتثبيت الكلمات الجديدة."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 280
+}

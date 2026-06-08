@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-power-automate",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "أداة Power Automate",
+  "data": {
+    "definition": "منصة أتمتة من مايكروسوفت (المعروفة سابقاً بـ Microsoft Flow) تدمج بسهولة مع بيئة مايكروسوفت مثل Office 365 و Dynamics.",
+    "example": "أتمتة عملية الموافقة على طلبات الإجازة ونقلها إلى نظام HR الداخلي."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 250
+}

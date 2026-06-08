@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-learning-from-slips",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التعلم من الزلات",
+  "data": {
+    "definition": "تحويل الأخطاء غير المقصودة إلى دروس من خلال وضع استراتيجيات لتجنب تكرارها.",
+    "example": "اعتياد وضع دائرة حول الكلمات المفتاحية لتجنب زلة تخطيها."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 170
+}

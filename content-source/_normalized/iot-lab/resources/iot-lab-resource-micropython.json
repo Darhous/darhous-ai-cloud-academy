@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-micropython",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "مايكروبايثون",
+  "title_en": "MicroPython",
+  "data": {
+    "url": "https://micropython.org/",
+    "description": "نسخة مصغرة من لغة بايثون مصممة للعمل على المتحكمات الدقيقة."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 190
+}

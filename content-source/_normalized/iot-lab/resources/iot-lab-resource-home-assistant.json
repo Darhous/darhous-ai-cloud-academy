@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-home-assistant",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "المساعد المنزلي (Home Assistant)",
+  "title_en": "Home Assistant",
+  "data": {
+    "url": "https://www.home-assistant.io/",
+    "description": "نظام تشغيل مركزي مفتوح المصدر للتحكم في الأجهزة المنزلية الذكية."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 140
+}

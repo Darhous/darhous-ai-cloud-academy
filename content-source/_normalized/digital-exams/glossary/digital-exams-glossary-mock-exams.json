@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-mock-exams",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الاختبارات التجريبية",
+  "data": {
+    "definition": "نماذج امتحانية كاملة يتم حلها في ظروف مشابهة للاختبار الحقيقي لرفع الجاهزية.",
+    "example": "أداء اختبار تجريبي كامل يوم الجمعة مع ضبط مؤقت زمني وعدم استخدام أي مصادر مساعدة."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 190
+}

@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-error-handling",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "معالجة الأخطاء",
+  "data": {
+    "definition": "استراتيجيات مصممة لتوقع واكتشاف وتصحيح أو تسجيل الأخطاء التي تحدث أثناء تشغيل الأتمتة لمنع توقف سير العمل بالكامل.",
+    "example": "إضافة مسار بديل في Make يرسل رسالة تنبيه للمسؤول في حال فشل الاتصال بقاعدة البيانات."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 140
+}

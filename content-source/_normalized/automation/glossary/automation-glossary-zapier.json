@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-zapier",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "منصة Zapier",
+  "data": {
+    "definition": "أحد أشهر وأسهل أدوات الأتمتة التي تتيح للمستخدمين غير التقنيين ربط آلاف التطبيقات وإنشاء تدفقات عمل تُسمى 'Zaps'.",
+    "example": "إنشاء Zap يقوم بتسجيل المشتركين الجدد من Mailchimp في جدول بيانات Google Sheets."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 330
+}

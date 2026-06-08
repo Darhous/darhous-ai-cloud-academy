@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-resource-markdown-guide",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دليل الماركداون (Markdown Guide)",
+  "data": {
+    "url": "https://www.markdownguide.org",
+    "description": "دليل شامل ومجاني لتعلم صيغة الماركداون وكيفية استخدامها بفعالية."
+  },
+  "title_en": "Markdown Guide",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "resource"
+  ],
+  "sort_order": 200
+}

@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-soft-skills",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المهارات الشخصية (الناعمة)",
+  "data": {
+    "definition": "السمات الشخصية والقدرات الاجتماعية التي تساعدك على التفاعل مع الآخرين والعمل في بيئة جماعية.",
+    "example": "الذكاء العاطفي، حل المشكلات، العمل الجماعي، والمرونة."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 280
+}

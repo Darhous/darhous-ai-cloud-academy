@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "ماركداون (Markdown)",
+    "definition": "لغة ترميز خفيفة الوزن تستخدم لتنسيق النصوص بسهولة باستخدام الرموز بدلاً من الأزرار المعقدة.",
+    "example": "كتابة **نص غامق** باستخدام النجوم في ماركداون."
+  },
+  "id": "tools-hub-glossary-markdown",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Markdown",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 80,
+  "manual_review_required": true
+}

@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-battery-monitor",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مراقبة مستوى البطارية",
+  "title_en": "Battery Level Monitor",
+  "data": {
+    "prompt_text": "اكتب برنامجًا لأردوينو لقراءة الجهد من بطارية [نوع_البطارية] متصلة عبر مقسم جهد بالمنفذ [رقم_المنفذ_التناظري] وعرض نسبة الشحن المتبقية.",
+    "instructions": "حدد نوع البطارية ورقم المنفذ التناظري المستخدم."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 30
+}

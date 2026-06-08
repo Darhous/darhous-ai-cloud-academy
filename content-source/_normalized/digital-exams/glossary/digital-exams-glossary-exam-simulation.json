@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-exam-simulation",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "محاكاة الاختبار",
+  "data": {
+    "definition": "تطبيق نفس الظروف النفسية والجسدية والزمنية للاختبار الفعلي أثناء التدريب.",
+    "example": "الجلوس على مكتب مشابه لمكتب الاختبار وارتداء ملابس مريحة والالتزام بفترات الراحة الرسمية."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 110
+}

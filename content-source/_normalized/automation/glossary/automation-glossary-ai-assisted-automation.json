@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-ai-assisted-automation",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "دمج الذكاء الاصطناعي في سير العمل لاتخاذ قرارات أذكى ومعالجة نصوص.",
+    "example": "استخدام ChatGPT لتصنيف الدعم الفني وتوجيه التذاكر تلقائيًا."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "الأتمتة المدعومة بالذكاء الاصطناعي",
+  "title_en": "Ai Assisted Automation",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 20
+}

@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-api-data-structuring",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "هيكلة بيانات من واجهة برمجية",
+  "data": {
+    "prompt_text": "لدي الاستجابة التالية (JSON) من API: [أدخل استجابة JSON]. أحتاج إلى استخراج الحقول التالية: [قائمة الحقول] وتنسيقها بشكل مناسب لـ [الاستخدام المقصود، مثلاً: إدخالها في قاعدة بيانات]. هل يمكنك توضيح كيفية القيام بذلك؟",
+    "instructions": "تأكد من إدراج استجابة واجهة برمجة التطبيقات ضمن الطلب."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 20
+}

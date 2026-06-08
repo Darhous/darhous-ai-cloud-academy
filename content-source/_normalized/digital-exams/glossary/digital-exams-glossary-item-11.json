@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-item-11",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "سؤال يتطلب اختيار الإجابة الصحيحة من بين عدة خيارات.",
+    "example": "مثال: ما هي عاصمة فرنسا؟ أ) لندن ب) باريس ج) روما."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "اختيار من متعدد",
+  "title_en": "Item 11",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 410
+}

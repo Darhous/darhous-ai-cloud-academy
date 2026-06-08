@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-adc",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "محول الإشارة التناظرية إلى رقمية (ADC)",
+  "data": {
+    "definition": "وحدة إلكترونية تحول الإشارات الكهربائية المتغيرة (التناظرية) إلى أرقام يمكن للمتحكم قراءتها.",
+    "example": "قراءة قيمة مستشعر الضوء LDR."
+  },
+  "title_en": "ADC",
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 150
+}

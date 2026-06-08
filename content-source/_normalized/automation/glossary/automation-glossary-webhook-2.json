@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-webhook-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "طريقة لتواصل التطبيقات مع بعضها في الوقت الفعلي باستخدام طلبات HTTP.",
+    "example": "استلام بيانات الدفع فورياً من بوابة الدفع وتحديث النظام."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "خطاف الويب (Webhook)",
+  "title_en": "Webhook",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 470
+}

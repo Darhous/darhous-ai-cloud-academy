@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-double-checking",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المراجعة المزدوجة",
+  "data": {
+    "definition": "التحقق من الإجابة مرة أخرى بطريقة مختلفة للتأكد من عدم وجود أخطاء حسابية أو منطقية.",
+    "example": "حل المعادلة الرياضية ثم التعويض بالناتج في المعادلة الأصلية للتأكد من صحتها."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 70
+}

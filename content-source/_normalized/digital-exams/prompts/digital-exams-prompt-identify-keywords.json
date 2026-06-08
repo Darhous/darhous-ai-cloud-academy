@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-identify-keywords",
+  "portal_id": "digital-exams",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "استخراج الكلمات المفتاحية",
+  "data": {
+    "prompt_text": "إليك السؤال التالي: [نص السؤال الطويل]. ما هي الكلمات المفتاحية التي يجب أن أركز عليها للوصول للإجابة الصحيحة متجاهلاً الحشو الزائد؟",
+    "instructions": "استخدم هذا الموجه للتدرب على تحليل الأسئلة الطويلة أو المعقدة لفظياً."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 100
+}

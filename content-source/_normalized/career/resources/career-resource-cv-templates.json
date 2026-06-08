@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "موقع يقدم قوالب سيرة ذاتية احترافية ومجانية."
+  },
+  "id": "career-resource-cv-templates",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "قوالب سيرة ذاتية",
+  "title_en": "Cv Templates",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 230
+}

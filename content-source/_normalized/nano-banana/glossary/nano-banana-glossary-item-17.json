@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-glossary-item-17",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "وصف تفصيلي لما يجب أن تحتويه الصورة.",
+    "example": "مثال: 'شجرة تفاح تحت سماء زرقاء'."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "النص الوصفي",
+  "title_en": "Item 17",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "مصطلحات"
+  ],
+  "sort_order": 90
+}

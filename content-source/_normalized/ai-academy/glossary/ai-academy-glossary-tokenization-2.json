@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "تقسيم النص إلى وحدات أصغر (توكنات) مثل الكلمات أو أجزاء الكلمات لمعالجتها.",
+    "example": "تقسيم جملة 'أنا أحب التفاح' إلى كلمات منفصلة."
+  },
+  "id": "ai-academy-glossary-tokenization-2",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "الترميز (Tokenization)",
+  "title_en": "Tokenization",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 490
+}

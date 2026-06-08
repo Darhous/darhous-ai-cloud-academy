@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-resource-character-consistency",
+  "portal_id": "nano-banana",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "الحفاظ على اتساق الشخصية",
+  "data": {
+    "description": "تقنيات متقدمة للحصول على نفس الشخصية بملامح ثابتة في عدة صور مختلفة.",
+    "url": ""
+  },
+  "title_en": "",
+  "category": "نانو بانانا",
+  "featured": false,
+  "tags": [
+    "نانو بانانا",
+    "resource"
+  ],
+  "sort_order": 150
+}

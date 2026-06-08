@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-json",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "صيغة جيسون (JSON)",
+  "data": {
+    "definition": "صيغة لتبادل البيانات خفيفة الوزن وسهلة القراءة للبشر والكتابة، وسهلة الفهم والتوليد للآلات، تُستخدم بكثرة في واجهات API.",
+    "example": "{\"name\": \"أحمد\", \"role\": \"مدير\"} هو مثال بسيط على بيانات بصيغة JSON."
+  },
+  "title_en": "JSON",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 190
+}

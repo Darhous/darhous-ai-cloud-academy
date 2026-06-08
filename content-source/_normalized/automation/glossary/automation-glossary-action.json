@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-action",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "المهمة التي يتم تنفيذها كاستجابة للمحفز.",
+    "example": "إنشاء مهمة في تطبيق إدارة المشاريع."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "إجراء (Action)",
+  "title_en": "Action",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 10
+}

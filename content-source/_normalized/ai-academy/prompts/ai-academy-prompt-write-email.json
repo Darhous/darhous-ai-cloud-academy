@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اكتب بريداً إلكترونياً احترافياً إلى مديري لطلب إجازة لمدة 3 أيام لظروف عائلية.",
+    "instructions": "يمكنك تعديل عدد الأيام والسبب حسب الحاجة."
+  },
+  "id": "ai-academy-prompt-write-email",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "كتابة بريد إلكتروني رسمي",
+  "title_en": "Write Email",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 300
+}

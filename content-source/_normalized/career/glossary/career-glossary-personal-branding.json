@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-personal-branding",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "العلامة التجارية الشخصية",
+  "data": {
+    "definition": "الصورة والانطباع الذي تتركه لدى الآخرين عنك في مجالك المهني، وكيف تسوق لنفسك وخبراتك.",
+    "example": "نشر مقالات متخصصة في مجالك على مدونتك أو حسابك في لينكد إن لبناء سمعة كخبير."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 210
+}

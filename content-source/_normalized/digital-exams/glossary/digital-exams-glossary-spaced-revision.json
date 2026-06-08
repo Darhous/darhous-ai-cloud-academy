@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-spaced-revision",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المراجعة المتباعدة",
+  "data": {
+    "definition": "توزيع فترات دراسة ومراجعة المادة على فترات زمنية متزايدة لتثبيت المعلومات.",
+    "example": "مراجعة قواعد الرياضيات اليوم، ثم بعد 3 أيام، ثم بعد أسبوع."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 270
+}

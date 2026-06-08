@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-automation-documentation-strategy",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تصميم استراتيجية توثيق عمليات الأتمتة",
+  "data": {
+    "prompt_text": "لدينا العديد من مسارات الأتمتة المعقدة في الشركة. اقترح هيكلاً لتوثيق هذه العمليات بطريقة تساعد الفريق على صيانتها مستقبلاً، وما هي المعلومات الأساسية التي يجب تضمينها في كل توثيق؟",
+    "instructions": "اذكر حجم فريقك وعدد الأتمتات للحصول على استراتيجية ملائمة."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 50
+}

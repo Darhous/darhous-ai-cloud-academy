@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-fallback",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الخطة البديلة (Fallback)",
+  "data": {
+    "definition": "إجراء احتياطي يتم تنفيذه في حال فشل الإجراء الأساسي، لضمان استمرارية العمل ولو بشكل جزئي.",
+    "example": "إذا فشل إرسال رسالة SMS للعميل، تقوم الأتمتة بإرسال بريد إلكتروني بدلاً من ذلك كـ Fallback."
+  },
+  "title_en": "Fallback",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 160
+}

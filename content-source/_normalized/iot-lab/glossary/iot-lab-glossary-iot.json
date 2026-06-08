@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-iot",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "definition": "شبكة من الأجهزة المادية المتصلة بالإنترنت لجمع وتبادل البيانات بذكاء.",
+    "example": "نظام زراعة ذكي يروي النباتات تلقائياً عند جفاف التربة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "إنترنت الأشياء (IoT)",
+  "title_en": "Iot",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 320
+}

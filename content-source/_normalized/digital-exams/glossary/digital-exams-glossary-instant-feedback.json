@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-instant-feedback",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التغذية الراجعة الفورية",
+  "data": {
+    "definition": "الحصول على تصحيح وشرح للإجابات مباشرة بعد الحل لفهم الأخطاء في وقتها.",
+    "example": "قراءة شرح الذكاء الاصطناعي لسبب كون الخيار المختار خاطئاً وتصحيح المفهوم فوراً."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 130
+}

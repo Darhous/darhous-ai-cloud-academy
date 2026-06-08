@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-collocation",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المتلازمات اللفظية",
+  "data": {
+    "definition": "كلمات تأتي معاً بشكل طبيعي في اللغة.",
+    "example": "Make a mistake is a collocation."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 110
+}

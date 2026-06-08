@@ -1,0 +1,20 @@
+{
+  "id": "automation-glossary-zapier-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "منصة شهيرة لأتمتة المهام بين تطبيقات الويب المختلفة بسهولة ودون برمجة.",
+    "example": "ربط Gmail مع Slack لإرسال إشعار عند تلقي بريد هام."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Zapier",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 500,
+  "manual_review_required": true
+}

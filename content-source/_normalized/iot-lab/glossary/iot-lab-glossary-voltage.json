@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-voltage",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الجهد الكهربائي (Voltage)",
+  "title_en": "Voltage",
+  "data": {
+    "definition": "مقدار القوة الدافعة للإلكترونات في الدائرة الكهربائية، ويقاس بالفولت.",
+    "example": "قياس جهد بطارية باستخدام جهاز الملتيميتر."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 490
+}

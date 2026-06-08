@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-phrasal-verb-story",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "قصة الأفعال المركبة",
+  "data": {
+    "prompt_text": "Write a story focusing on phrasal verbs related to [الموضوع].",
+    "instructions": "تعلم الأفعال المركبة من خلال سياق قصصي."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 100
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-resource-hugging-face-course",
+  "portal_id": "ai-academy",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "دورة المعالجة اللغوية الطبيعية",
+  "data": {
+    "url": "https://huggingface.co/course/",
+    "description": "دورة مجانية ممتازة لفهم آليات عمل النماذج اللغوية الكبيرة."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 140
+}

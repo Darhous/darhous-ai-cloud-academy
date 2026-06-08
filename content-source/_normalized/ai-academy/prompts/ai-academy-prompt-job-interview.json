@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "تصرف وكأنك مدير توظيف في شركة تقنية واطرح علي 5 أسئلة شائعة لمقابلة وظيفة [مطور ويب]. انتظر إجاباتي ولا تعطني الأسئلة كلها دفعة واحدة.",
+    "instructions": "تدريب ممتاز لاختبار مهاراتك قبل المقابلة الحقيقية."
+  },
+  "id": "ai-academy-prompt-job-interview",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "التحضير لمقابلة عمل",
+  "title_en": "Job Interview",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 240
+}

@@ -1,0 +1,19 @@
+{
+  "id": "language-resource-coursera-english",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "كورسيرا للإنجليزية",
+  "data": {
+    "url": "https://www.coursera.org/courses?query=english",
+    "description": "دورات أكاديمية لتحسين اللغة."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 60
+}

@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "عملية اكتشاف الأنماط والمعلومات المفيدة في مجموعات البيانات الكبيرة.",
+    "example": "تحليل سلة المشتريات لاقتراح منتجات للعملاء."
+  },
+  "id": "ai-academy-glossary-data-mining",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "تنقيب البيانات",
+  "title_en": "Data Mining",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 370
+}

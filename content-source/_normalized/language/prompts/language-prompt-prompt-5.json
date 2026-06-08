@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-prompt-5",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اكتب فقرة قصيرة ثم اطرح أسئلة حولها.",
+    "instructions": "تأكد من تنوع الأسئلة لاختبار الفهم."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "التدريب على الاستماع",
+  "title_en": "Prompt 5",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 170
+}

@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-bootloader",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "محمل الإقلاع (Bootloader)",
+  "title_en": "Bootloader",
+  "data": {
+    "definition": "برنامج صغير مدمج في المتحكم الدقيق يهيئ الجهاز لبدء تشغيل البرنامج الرئيسي وتحديثه.",
+    "example": "حرق محمل الإقلاع على شريحة ATmega328P جديدة."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 40
+}

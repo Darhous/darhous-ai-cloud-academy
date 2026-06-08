@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-certainty-assessment",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تقييم اليقين",
+  "data": {
+    "definition": "تحديد مستوى التأكد من الإجابة أثناء الحل لتسهيل قرار المراجعة لاحقاً.",
+    "example": "وضع علامة نجمة بجوار الأسئلة التي تعتمد فيها على التخمين لتعود لها إن تبقى وقت."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 20
+}

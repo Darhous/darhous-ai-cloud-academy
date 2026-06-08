@@ -1,0 +1,3200 @@
+{
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\algorithm.json": {
+    "original_filename": "algorithm.json",
+    "normalized_filename": "ai-academy-glossary-algorithm.json",
+    "original_id": "algorithm",
+    "normalized_id": "ai-academy-glossary-algorithm"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\api.json": {
+    "original_filename": "api.json",
+    "normalized_filename": "ai-academy-glossary-api.json",
+    "original_id": "ai-academy-glossary-api",
+    "normalized_id": "ai-academy-glossary-api"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\artificial-intelligence.json": {
+    "original_filename": "artificial-intelligence.json",
+    "normalized_filename": "ai-academy-glossary-artificial-intelligence.json",
+    "original_id": "artificial-intelligence",
+    "normalized_id": "ai-academy-glossary-artificial-intelligence"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\bias-in-ai.json": {
+    "original_filename": "bias-in-ai.json",
+    "normalized_filename": "ai-academy-glossary-bias-in-ai-2.json",
+    "original_id": "bias-in-ai",
+    "normalized_id": "ai-academy-glossary-bias-in-ai-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\chatbot.json": {
+    "original_filename": "chatbot.json",
+    "normalized_filename": "ai-academy-glossary-chatbot.json",
+    "original_id": "chatbot",
+    "normalized_id": "ai-academy-glossary-chatbot"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\computer-vision.json": {
+    "original_filename": "computer-vision.json",
+    "normalized_filename": "ai-academy-glossary-computer-vision.json",
+    "original_id": "computer-vision",
+    "normalized_id": "ai-academy-glossary-computer-vision"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\data-mining.json": {
+    "original_filename": "data-mining.json",
+    "normalized_filename": "ai-academy-glossary-data-mining.json",
+    "original_id": "data-mining",
+    "normalized_id": "ai-academy-glossary-data-mining"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\deep-learning.json": {
+    "original_filename": "deep-learning.json",
+    "normalized_filename": "ai-academy-glossary-deep-learning.json",
+    "original_id": "deep-learning",
+    "normalized_id": "ai-academy-glossary-deep-learning"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\ethics-in-ai.json": {
+    "original_filename": "ethics-in-ai.json",
+    "normalized_filename": "ai-academy-glossary-ethics-in-ai.json",
+    "original_id": "ethics-in-ai",
+    "normalized_id": "ai-academy-glossary-ethics-in-ai"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\fine-tuning.json": {
+    "original_filename": "fine-tuning.json",
+    "normalized_filename": "ai-academy-glossary-fine-tuning-2.json",
+    "original_id": "fine-tuning",
+    "normalized_id": "ai-academy-glossary-fine-tuning-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\generative-ai.json": {
+    "original_filename": "generative-ai.json",
+    "normalized_filename": "ai-academy-glossary-generative-ai-2.json",
+    "original_id": "generative-ai",
+    "normalized_id": "ai-academy-glossary-generative-ai-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\hallucination.json": {
+    "original_filename": "hallucination.json",
+    "normalized_filename": "ai-academy-glossary-hallucination-2.json",
+    "original_id": "hallucination",
+    "normalized_id": "ai-academy-glossary-hallucination-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\large-language-model.json": {
+    "original_filename": "large-language-model.json",
+    "normalized_filename": "ai-academy-glossary-large-language-model.json",
+    "original_id": "large-language-model",
+    "normalized_id": "ai-academy-glossary-large-language-model"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\machine-learning.json": {
+    "original_filename": "machine-learning.json",
+    "normalized_filename": "ai-academy-glossary-machine-learning.json",
+    "original_id": "machine-learning",
+    "normalized_id": "ai-academy-glossary-machine-learning"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\natural-language-processing.json": {
+    "original_filename": "natural-language-processing.json",
+    "normalized_filename": "ai-academy-glossary-natural-language-processing.json",
+    "original_id": "natural-language-processing",
+    "normalized_id": "ai-academy-glossary-natural-language-processing"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\neural-network.json": {
+    "original_filename": "neural-network.json",
+    "normalized_filename": "ai-academy-glossary-neural-network.json",
+    "original_id": "neural-network",
+    "normalized_id": "ai-academy-glossary-neural-network"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\prompt-engineering.json": {
+    "original_filename": "prompt-engineering.json",
+    "normalized_filename": "ai-academy-glossary-prompt-engineering-2.json",
+    "original_id": "ai-academy-glossary-prompt-engineering-2",
+    "normalized_id": "ai-academy-glossary-prompt-engineering-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\prompt.json": {
+    "original_filename": "prompt.json",
+    "normalized_filename": "ai-academy-glossary-prompt.json",
+    "original_id": "prompt",
+    "normalized_id": "ai-academy-glossary-prompt"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\tokenization.json": {
+    "original_filename": "tokenization.json",
+    "normalized_filename": "ai-academy-glossary-tokenization-2.json",
+    "original_id": "tokenization",
+    "normalized_id": "ai-academy-glossary-tokenization-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\glossary\\turing-test.json": {
+    "original_filename": "turing-test.json",
+    "normalized_filename": "ai-academy-glossary-turing-test.json",
+    "original_id": "turing-test",
+    "normalized_id": "ai-academy-glossary-turing-test"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\prompts\\brainstorm-ideas.json": {
+    "original_filename": "brainstorm-ideas.json",
+    "normalized_filename": "ai-academy-prompt-brainstorm-ideas-2.json",
+    "original_id": "brainstorm-ideas",
+    "normalized_id": "ai-academy-prompt-brainstorm-ideas-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\prompts\\explain-concept.json": {
+    "original_filename": "explain-concept.json",
+    "normalized_filename": "ai-academy-prompt-explain-concept-2.json",
+    "original_id": "explain-concept",
+    "normalized_id": "ai-academy-prompt-explain-concept-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\prompts\\fix-code.json": {
+    "original_filename": "fix-code.json",
+    "normalized_filename": "ai-academy-prompt-fix-code.json",
+    "original_id": "fix-code",
+    "normalized_id": "ai-academy-prompt-fix-code"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\prompts\\job-interview.json": {
+    "original_filename": "job-interview.json",
+    "normalized_filename": "ai-academy-prompt-job-interview.json",
+    "original_id": "job-interview",
+    "normalized_id": "ai-academy-prompt-job-interview"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\prompts\\meal-plan.json": {
+    "original_filename": "meal-plan.json",
+    "normalized_filename": "ai-academy-prompt-meal-plan.json",
+    "original_id": "meal-plan",
+    "normalized_id": "ai-academy-prompt-meal-plan"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\prompts\\rewrite-formal.json": {
+    "original_filename": "rewrite-formal.json",
+    "normalized_filename": "ai-academy-prompt-rewrite-formal.json",
+    "original_id": "rewrite-formal",
+    "normalized_id": "ai-academy-prompt-rewrite-formal"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\prompts\\study-plan.json": {
+    "original_filename": "study-plan.json",
+    "normalized_filename": "ai-academy-prompt-study-plan.json",
+    "original_id": "study-plan",
+    "normalized_id": "ai-academy-prompt-study-plan"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\prompts\\summarize-article.json": {
+    "original_filename": "summarize-article.json",
+    "normalized_filename": "ai-academy-prompt-summarize-article.json",
+    "original_id": "summarize-article",
+    "normalized_id": "ai-academy-prompt-summarize-article"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\prompts\\translate-text.json": {
+    "original_filename": "translate-text.json",
+    "normalized_filename": "ai-academy-prompt-translate-text-2.json",
+    "original_id": "translate-text",
+    "normalized_id": "ai-academy-prompt-translate-text-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\prompts\\write-email.json": {
+    "original_filename": "write-email.json",
+    "normalized_filename": "ai-academy-prompt-write-email.json",
+    "original_id": "write-email",
+    "normalized_id": "ai-academy-prompt-write-email"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\resources\\canva-magic-studio.json": {
+    "original_filename": "canva-magic-studio.json",
+    "normalized_filename": "ai-academy-resource-canva-magic-studio.json",
+    "original_id": "canva-magic-studio",
+    "normalized_id": "ai-academy-resource-canva-magic-studio"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\resources\\chatgpt.json": {
+    "original_filename": "chatgpt.json",
+    "normalized_filename": "ai-academy-resource-chatgpt-2.json",
+    "original_id": "ai-academy-resource-chatgpt-2",
+    "normalized_id": "ai-academy-resource-chatgpt-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\resources\\claude.json": {
+    "original_filename": "claude.json",
+    "normalized_filename": "ai-academy-resource-claude.json",
+    "original_id": "claude",
+    "normalized_id": "ai-academy-resource-claude"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\resources\\coursera-ai-for-everyone.json": {
+    "original_filename": "coursera-ai-for-everyone.json",
+    "normalized_filename": "ai-academy-resource-coursera-ai-for-everyone.json",
+    "original_id": "coursera-ai-for-everyone",
+    "normalized_id": "ai-academy-resource-coursera-ai-for-everyone"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\resources\\deepl.json": {
+    "original_filename": "deepl.json",
+    "normalized_filename": "ai-academy-resource-deepl.json",
+    "original_id": "deepl",
+    "normalized_id": "ai-academy-resource-deepl"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\resources\\github-copilot.json": {
+    "original_filename": "github-copilot.json",
+    "normalized_filename": "ai-academy-resource-github-copilot.json",
+    "original_id": "github-copilot",
+    "normalized_id": "ai-academy-resource-github-copilot"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\resources\\google-gemini.json": {
+    "original_filename": "google-gemini.json",
+    "normalized_filename": "ai-academy-resource-google-gemini.json",
+    "original_id": "google-gemini",
+    "normalized_id": "ai-academy-resource-google-gemini"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\resources\\hugging-face.json": {
+    "original_filename": "hugging-face.json",
+    "normalized_filename": "ai-academy-resource-hugging-face.json",
+    "original_id": "hugging-face",
+    "normalized_id": "ai-academy-resource-hugging-face"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\resources\\midjourney.json": {
+    "original_filename": "midjourney.json",
+    "normalized_filename": "ai-academy-resource-midjourney-2.json",
+    "original_id": "midjourney",
+    "normalized_id": "ai-academy-resource-midjourney-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\resources\\perplexity.json": {
+    "original_filename": "perplexity.json",
+    "normalized_filename": "ai-academy-resource-perplexity-2.json",
+    "original_id": "perplexity",
+    "normalized_id": "ai-academy-resource-perplexity-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\lessons\\ai-for-study.md": {
+    "original_filename": "ai-for-study.md",
+    "normalized_filename": "ai-academy-lesson-ai-for-study-2.md",
+    "original_id": "ai-for-study",
+    "normalized_id": "ai-academy-lesson-ai-for-study-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\lessons\\ai-for-work.md": {
+    "original_filename": "ai-for-work.md",
+    "normalized_filename": "ai-academy-lesson-ai-for-work-2.md",
+    "original_id": "ai-for-work",
+    "normalized_id": "ai-academy-lesson-ai-for-work-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\lessons\\ai-hallucination.md": {
+    "original_filename": "ai-hallucination.md",
+    "normalized_filename": "ai-academy-lesson-ai-hallucination.md",
+    "original_id": "ai-hallucination",
+    "normalized_id": "ai-academy-lesson-ai-hallucination"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\lessons\\how-to-prompt.md": {
+    "original_filename": "how-to-prompt.md",
+    "normalized_filename": "ai-academy-lesson-how-to-prompt.md",
+    "original_id": "how-to-prompt",
+    "normalized_id": "ai-academy-lesson-how-to-prompt"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\lessons\\intro-to-ai.md": {
+    "original_filename": "intro-to-ai.md",
+    "normalized_filename": "ai-academy-lesson-intro-to-ai-2.md",
+    "original_id": "intro-to-ai",
+    "normalized_id": "ai-academy-lesson-intro-to-ai-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\ai-academy\\lessons\\safe-ai.md": {
+    "original_filename": "safe-ai.md",
+    "normalized_filename": "ai-academy-lesson-safe-ai.md",
+    "original_id": "safe-ai",
+    "normalized_id": "ai-academy-lesson-safe-ai"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\action.json": {
+    "original_filename": "action.json",
+    "normalized_filename": "automation-glossary-action.json",
+    "original_id": "action",
+    "normalized_id": "automation-glossary-action"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\ai-assisted-automation.json": {
+    "original_filename": "ai-assisted-automation.json",
+    "normalized_filename": "automation-glossary-ai-assisted-automation.json",
+    "original_id": "ai-assisted-automation",
+    "normalized_id": "automation-glossary-ai-assisted-automation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\api.json": {
+    "original_filename": "api.json",
+    "normalized_filename": "automation-glossary-api.json",
+    "original_id": "automation-glossary-api",
+    "normalized_id": "automation-glossary-api"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\automation-glossary-action.json": {
+    "original_filename": "automation-glossary-action.json",
+    "normalized_filename": "automation-glossary-action-2.json",
+    "original_id": "automation-glossary-action",
+    "normalized_id": "automation-glossary-action-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\automation-glossary-ai-assisted-automation.json": {
+    "original_filename": "automation-glossary-ai-assisted-automation.json",
+    "normalized_filename": "automation-glossary-ai-assisted-automation-2.json",
+    "original_id": "automation-glossary-ai-assisted-automation",
+    "normalized_id": "automation-glossary-ai-assisted-automation-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\automation-glossary-api.json": {
+    "original_filename": "automation-glossary-api.json",
+    "normalized_filename": "automation-glossary-api-2.json",
+    "original_id": "automation-glossary-api-2",
+    "normalized_id": "automation-glossary-api-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\business-process-automation.json": {
+    "original_filename": "business-process-automation.json",
+    "normalized_filename": "automation-glossary-business-process-automation-2.json",
+    "original_id": "business-process-automation",
+    "normalized_id": "automation-glossary-business-process-automation-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\conditions.json": {
+    "original_filename": "conditions.json",
+    "normalized_filename": "automation-glossary-conditions.json",
+    "original_id": "conditions",
+    "normalized_id": "automation-glossary-conditions"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\data-mapping.json": {
+    "original_filename": "data-mapping.json",
+    "normalized_filename": "automation-glossary-data-mapping-2.json",
+    "original_id": "data-mapping",
+    "normalized_id": "automation-glossary-data-mapping-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\error-handling.json": {
+    "original_filename": "error-handling.json",
+    "normalized_filename": "automation-glossary-error-handling-2.json",
+    "original_id": "automation-glossary-error-handling-2",
+    "normalized_id": "automation-glossary-error-handling-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\google-apps-script.json": {
+    "original_filename": "google-apps-script.json",
+    "normalized_filename": "automation-glossary-google-apps-script-2.json",
+    "original_id": "google-apps-script",
+    "normalized_id": "automation-glossary-google-apps-script-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\integration.json": {
+    "original_filename": "integration.json",
+    "normalized_filename": "automation-glossary-integration.json",
+    "original_id": "automation-glossary-integration",
+    "normalized_id": "automation-glossary-integration"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\looping.json": {
+    "original_filename": "looping.json",
+    "normalized_filename": "automation-glossary-looping.json",
+    "original_id": "looping",
+    "normalized_id": "automation-glossary-looping"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\make.json": {
+    "original_filename": "make.json",
+    "normalized_filename": "automation-glossary-make-2.json",
+    "original_id": "automation-glossary-make-2",
+    "normalized_id": "automation-glossary-make-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\n8n.json": {
+    "original_filename": "n8n.json",
+    "normalized_filename": "automation-glossary-n8n-2.json",
+    "original_id": "n8n",
+    "normalized_id": "automation-glossary-n8n-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\polling.json": {
+    "original_filename": "polling.json",
+    "normalized_filename": "automation-glossary-polling-2.json",
+    "original_id": "polling",
+    "normalized_id": "automation-glossary-polling-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\power-automate.json": {
+    "original_filename": "power-automate.json",
+    "normalized_filename": "automation-glossary-power-automate-2.json",
+    "original_id": "power-automate",
+    "normalized_id": "automation-glossary-power-automate-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\rate-limit.json": {
+    "original_filename": "rate-limit.json",
+    "normalized_filename": "automation-glossary-rate-limit.json",
+    "original_id": "rate-limit",
+    "normalized_id": "automation-glossary-rate-limit"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\trigger.json": {
+    "original_filename": "trigger.json",
+    "normalized_filename": "automation-glossary-trigger-2.json",
+    "original_id": "trigger",
+    "normalized_id": "automation-glossary-trigger-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\webhook.json": {
+    "original_filename": "webhook.json",
+    "normalized_filename": "automation-glossary-webhook-2.json",
+    "original_id": "webhook",
+    "normalized_id": "automation-glossary-webhook-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\workflow-automation.json": {
+    "original_filename": "workflow-automation.json",
+    "normalized_filename": "automation-glossary-workflow-automation-2.json",
+    "original_id": "workflow-automation",
+    "normalized_id": "automation-glossary-workflow-automation-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\workflow-documentation.json": {
+    "original_filename": "workflow-documentation.json",
+    "normalized_filename": "automation-glossary-workflow-documentation.json",
+    "original_id": "workflow-documentation",
+    "normalized_id": "automation-glossary-workflow-documentation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\glossary\\zapier.json": {
+    "original_filename": "zapier.json",
+    "normalized_filename": "automation-glossary-zapier-2.json",
+    "original_id": "automation-glossary-zapier-2",
+    "normalized_id": "automation-glossary-zapier-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\prompts\\debug-n8n.json": {
+    "original_filename": "debug-n8n.json",
+    "normalized_filename": "automation-prompt-debug-n8n.json",
+    "original_id": "debug-n8n",
+    "normalized_id": "automation-prompt-debug-n8n"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\prompts\\error-handling-best.json": {
+    "original_filename": "error-handling-best.json",
+    "normalized_filename": "automation-prompt-error-handling-best.json",
+    "original_id": "error-handling-best",
+    "normalized_id": "automation-prompt-error-handling-best"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\prompts\\explain-webhooks.json": {
+    "original_filename": "explain-webhooks.json",
+    "normalized_filename": "automation-prompt-explain-webhooks.json",
+    "original_id": "explain-webhooks",
+    "normalized_id": "automation-prompt-explain-webhooks"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\prompts\\gas-sort-emails.json": {
+    "original_filename": "gas-sort-emails.json",
+    "normalized_filename": "automation-prompt-gas-sort-emails.json",
+    "original_id": "gas-sort-emails",
+    "normalized_id": "automation-prompt-gas-sort-emails"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\prompts\\ideas-marketing.json": {
+    "original_filename": "ideas-marketing.json",
+    "normalized_filename": "automation-prompt-ideas-marketing.json",
+    "original_id": "ideas-marketing",
+    "normalized_id": "automation-prompt-ideas-marketing"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\prompts\\json-schema.json": {
+    "original_filename": "json-schema.json",
+    "normalized_filename": "automation-prompt-json-schema.json",
+    "original_id": "json-schema",
+    "normalized_id": "automation-prompt-json-schema"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\prompts\\make-alternatives.json": {
+    "original_filename": "make-alternatives.json",
+    "normalized_filename": "automation-prompt-make-alternatives.json",
+    "original_id": "make-alternatives",
+    "normalized_id": "automation-prompt-make-alternatives"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\prompts\\onboarding.json": {
+    "original_filename": "onboarding.json",
+    "normalized_filename": "automation-prompt-onboarding.json",
+    "original_id": "automation-prompt-onboarding",
+    "normalized_id": "automation-prompt-onboarding"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\prompts\\regex-data.json": {
+    "original_filename": "regex-data.json",
+    "normalized_filename": "automation-prompt-regex-data.json",
+    "original_id": "regex-data",
+    "normalized_id": "automation-prompt-regex-data"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\prompts\\zapier-crm.json": {
+    "original_filename": "zapier-crm.json",
+    "normalized_filename": "automation-prompt-zapier-crm.json",
+    "original_id": "zapier-crm",
+    "normalized_id": "automation-prompt-zapier-crm"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\resources\\ai-automation.json": {
+    "original_filename": "ai-automation.json",
+    "normalized_filename": "automation-resource-ai-automation.json",
+    "original_id": "ai-automation",
+    "normalized_id": "automation-resource-ai-automation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\resources\\apis-beginners.json": {
+    "original_filename": "apis-beginners.json",
+    "normalized_filename": "automation-resource-apis-beginners.json",
+    "original_id": "apis-beginners",
+    "normalized_id": "automation-resource-apis-beginners"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\resources\\automate-io-alt.json": {
+    "original_filename": "automate-io-alt.json",
+    "normalized_filename": "automation-resource-automate-io-alt.json",
+    "original_id": "automate-io-alt",
+    "normalized_id": "automation-resource-automate-io-alt"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\resources\\automation-safety.json": {
+    "original_filename": "automation-safety.json",
+    "normalized_filename": "automation-resource-automation-safety.json",
+    "original_id": "automation-safety",
+    "normalized_id": "automation-resource-automation-safety"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\resources\\gas-guide.json": {
+    "original_filename": "gas-guide.json",
+    "normalized_filename": "automation-resource-gas-guide-2.json",
+    "original_id": "gas-guide",
+    "normalized_id": "automation-resource-gas-guide-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\resources\\make-academy.json": {
+    "original_filename": "make-academy.json",
+    "normalized_filename": "automation-resource-make-academy-2.json",
+    "original_id": "make-academy",
+    "normalized_id": "automation-resource-make-academy-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\resources\\n8n-docs.json": {
+    "original_filename": "n8n-docs.json",
+    "normalized_filename": "automation-resource-n8n-docs.json",
+    "original_id": "n8n-docs",
+    "normalized_id": "automation-resource-n8n-docs"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\resources\\power-automate-learn.json": {
+    "original_filename": "power-automate-learn.json",
+    "normalized_filename": "automation-resource-power-automate-learn.json",
+    "original_id": "power-automate-learn",
+    "normalized_id": "automation-resource-power-automate-learn"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\resources\\webhooks-explained.json": {
+    "original_filename": "webhooks-explained.json",
+    "normalized_filename": "automation-resource-webhooks-explained-2.json",
+    "original_id": "webhooks-explained",
+    "normalized_id": "automation-resource-webhooks-explained-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\resources\\zapier-blog.json": {
+    "original_filename": "zapier-blog.json",
+    "normalized_filename": "automation-resource-zapier-blog.json",
+    "original_id": "zapier-blog",
+    "normalized_id": "automation-resource-zapier-blog"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\lessons\\ai-automation-intro.md": {
+    "original_filename": "ai-automation-intro.md",
+    "normalized_filename": "automation-lesson-ai-automation-intro.md",
+    "original_id": "ai-automation-intro",
+    "normalized_id": "automation-lesson-ai-automation-intro"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\lessons\\error-handling.md": {
+    "original_filename": "error-handling.md",
+    "normalized_filename": "automation-lesson-error-handling.md",
+    "original_id": "automation-lesson-error-handling",
+    "normalized_id": "automation-lesson-error-handling"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\lessons\\intro-automation.md": {
+    "original_filename": "intro-automation.md",
+    "normalized_filename": "automation-lesson-intro-automation.md",
+    "original_id": "intro-automation",
+    "normalized_id": "automation-lesson-intro-automation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\lessons\\triggers-actions.md": {
+    "original_filename": "triggers-actions.md",
+    "normalized_filename": "automation-lesson-triggers-actions.md",
+    "original_id": "triggers-actions",
+    "normalized_id": "automation-lesson-triggers-actions"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\lessons\\webhooks-integration.md": {
+    "original_filename": "webhooks-integration.md",
+    "normalized_filename": "automation-lesson-webhooks-integration.md",
+    "original_id": "webhooks-integration",
+    "normalized_id": "automation-lesson-webhooks-integration"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\automation\\lessons\\zapier-vs-make.md": {
+    "original_filename": "zapier-vs-make.md",
+    "normalized_filename": "automation-lesson-zapier-vs-make.md",
+    "original_id": "zapier-vs-make",
+    "normalized_id": "automation-lesson-zapier-vs-make"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\ai_tools.json": {
+    "original_filename": "ai_tools.json",
+    "normalized_filename": "career-glossary-ai-tools.json",
+    "original_id": "ai-tools",
+    "normalized_id": "career-glossary-ai-tools"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\ats.json": {
+    "original_filename": "ats.json",
+    "normalized_filename": "career-glossary-ats.json",
+    "original_id": "ats",
+    "normalized_id": "career-glossary-ats"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\career-glossary-ats.json": {
+    "original_filename": "career-glossary-ats.json",
+    "normalized_filename": "career-glossary-ats-2.json",
+    "original_id": "career-glossary-ats",
+    "normalized_id": "career-glossary-ats-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\career_shift.json": {
+    "original_filename": "career_shift.json",
+    "normalized_filename": "career-glossary-career-shift-2.json",
+    "original_id": "career-shift",
+    "normalized_id": "career-glossary-career-shift-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\cover_letter.json": {
+    "original_filename": "cover_letter.json",
+    "normalized_filename": "career-glossary-cover-letter-2.json",
+    "original_id": "cover-letter",
+    "normalized_id": "career-glossary-cover-letter-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\cv.json": {
+    "original_filename": "cv.json",
+    "normalized_filename": "career-glossary-cv.json",
+    "original_id": "cv",
+    "normalized_id": "career-glossary-cv"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\elevator_pitch.json": {
+    "original_filename": "elevator_pitch.json",
+    "normalized_filename": "career-glossary-elevator-pitch-2.json",
+    "original_id": "elevator-pitch",
+    "normalized_id": "career-glossary-elevator-pitch-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\freelance.json": {
+    "original_filename": "freelance.json",
+    "normalized_filename": "career-glossary-freelance.json",
+    "original_id": "freelance",
+    "normalized_id": "career-glossary-freelance"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\hard_skills.json": {
+    "original_filename": "hard_skills.json",
+    "normalized_filename": "career-glossary-hard-skills-2.json",
+    "original_id": "hard-skills",
+    "normalized_id": "career-glossary-hard-skills-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\internship.json": {
+    "original_filename": "internship.json",
+    "normalized_filename": "career-glossary-internship.json",
+    "original_id": "internship",
+    "normalized_id": "career-glossary-internship"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\interview.json": {
+    "original_filename": "interview.json",
+    "normalized_filename": "career-glossary-interview.json",
+    "original_id": "interview",
+    "normalized_id": "career-glossary-interview"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\job_description.json": {
+    "original_filename": "job_description.json",
+    "normalized_filename": "career-glossary-job-description-2.json",
+    "original_id": "job-description",
+    "normalized_id": "career-glossary-job-description-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\linkedin.json": {
+    "original_filename": "linkedin.json",
+    "normalized_filename": "career-glossary-linkedin.json",
+    "original_id": "linkedin",
+    "normalized_id": "career-glossary-linkedin"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\mentorship.json": {
+    "original_filename": "mentorship.json",
+    "normalized_filename": "career-glossary-mentorship-2.json",
+    "original_id": "mentorship",
+    "normalized_id": "career-glossary-mentorship-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\negotiation.json": {
+    "original_filename": "negotiation.json",
+    "normalized_filename": "career-glossary-negotiation.json",
+    "original_id": "negotiation",
+    "normalized_id": "career-glossary-negotiation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\networking.json": {
+    "original_filename": "networking.json",
+    "normalized_filename": "career-glossary-networking-2.json",
+    "original_id": "networking",
+    "normalized_id": "career-glossary-networking-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\personal_branding.json": {
+    "original_filename": "personal_branding.json",
+    "normalized_filename": "career-glossary-personal-branding-2.json",
+    "original_id": "personal-branding",
+    "normalized_id": "career-glossary-personal-branding-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\portfolio.json": {
+    "original_filename": "portfolio.json",
+    "normalized_filename": "career-glossary-portfolio-2.json",
+    "original_id": "portfolio",
+    "normalized_id": "career-glossary-portfolio-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\remote_work.json": {
+    "original_filename": "remote_work.json",
+    "normalized_filename": "career-glossary-remote-work.json",
+    "original_id": "remote-work",
+    "normalized_id": "career-glossary-remote-work"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\soft_skills.json": {
+    "original_filename": "soft_skills.json",
+    "normalized_filename": "career-glossary-soft-skills-2.json",
+    "original_id": "soft-skills",
+    "normalized_id": "career-glossary-soft-skills-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\glossary\\star_method.json": {
+    "original_filename": "star_method.json",
+    "normalized_filename": "career-glossary-star-method-2.json",
+    "original_id": "star-method",
+    "normalized_id": "career-glossary-star-method-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\prompts\\career_shift_plan.json": {
+    "original_filename": "career_shift_plan.json",
+    "normalized_filename": "career-prompt-career-shift-plan-2.json",
+    "original_id": "career-shift-plan",
+    "normalized_id": "career-prompt-career-shift-plan-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\prompts\\cover_letter_gen.json": {
+    "original_filename": "cover_letter_gen.json",
+    "normalized_filename": "career-prompt-cover-letter-gen.json",
+    "original_id": "cover-letter-gen",
+    "normalized_id": "career-prompt-cover-letter-gen"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\prompts\\cv_review.json": {
+    "original_filename": "cv_review.json",
+    "normalized_filename": "career-prompt-cv-review.json",
+    "original_id": "cv-review",
+    "normalized_id": "career-prompt-cv-review"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\prompts\\interview_prep.json": {
+    "original_filename": "interview_prep.json",
+    "normalized_filename": "career-prompt-interview-prep.json",
+    "original_id": "interview-prep",
+    "normalized_id": "career-prompt-interview-prep"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\prompts\\linkedin_summary.json": {
+    "original_filename": "linkedin_summary.json",
+    "normalized_filename": "career-prompt-linkedin-summary-2.json",
+    "original_id": "linkedin-summary",
+    "normalized_id": "career-prompt-linkedin-summary-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\prompts\\networking_msg.json": {
+    "original_filename": "networking_msg.json",
+    "normalized_filename": "career-prompt-networking-msg.json",
+    "original_id": "networking-msg",
+    "normalized_id": "career-prompt-networking-msg"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\prompts\\portfolio_ideas.json": {
+    "original_filename": "portfolio_ideas.json",
+    "normalized_filename": "career-prompt-portfolio-ideas-2.json",
+    "original_id": "portfolio-ideas",
+    "normalized_id": "career-prompt-portfolio-ideas-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\prompts\\salary_negotiation.json": {
+    "original_filename": "salary_negotiation.json",
+    "normalized_filename": "career-prompt-salary-negotiation.json",
+    "original_id": "salary-negotiation",
+    "normalized_id": "career-prompt-salary-negotiation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\prompts\\skills_gap.json": {
+    "original_filename": "skills_gap.json",
+    "normalized_filename": "career-prompt-skills-gap.json",
+    "original_id": "skills-gap",
+    "normalized_id": "career-prompt-skills-gap"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\prompts\\star_answer.json": {
+    "original_filename": "star_answer.json",
+    "normalized_filename": "career-prompt-star-answer.json",
+    "original_id": "star-answer",
+    "normalized_id": "career-prompt-star-answer"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\resources\\career_advice.json": {
+    "original_filename": "career_advice.json",
+    "normalized_filename": "career-resource-career-advice.json",
+    "original_id": "career-advice",
+    "normalized_id": "career-resource-career-advice"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\resources\\cover_letter_examples.json": {
+    "original_filename": "cover_letter_examples.json",
+    "normalized_filename": "career-resource-cover-letter-examples.json",
+    "original_id": "cover-letter-examples",
+    "normalized_id": "career-resource-cover-letter-examples"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\resources\\cv_templates.json": {
+    "original_filename": "cv_templates.json",
+    "normalized_filename": "career-resource-cv-templates.json",
+    "original_id": "cv-templates",
+    "normalized_id": "career-resource-cv-templates"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\resources\\interview_questions.json": {
+    "original_filename": "interview_questions.json",
+    "normalized_filename": "career-resource-interview-questions.json",
+    "original_id": "interview-questions",
+    "normalized_id": "career-resource-interview-questions"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\resources\\job_boards.json": {
+    "original_filename": "job_boards.json",
+    "normalized_filename": "career-resource-job-boards.json",
+    "original_id": "job-boards",
+    "normalized_id": "career-resource-job-boards"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\resources\\linkedin_guide.json": {
+    "original_filename": "linkedin_guide.json",
+    "normalized_filename": "career-resource-linkedin-guide.json",
+    "original_id": "linkedin-guide",
+    "normalized_id": "career-resource-linkedin-guide"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\resources\\portfolio_builder.json": {
+    "original_filename": "portfolio_builder.json",
+    "normalized_filename": "career-resource-portfolio-builder.json",
+    "original_id": "portfolio-builder",
+    "normalized_id": "career-resource-portfolio-builder"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\resources\\remote_jobs.json": {
+    "original_filename": "remote_jobs.json",
+    "normalized_filename": "career-resource-remote-jobs.json",
+    "original_id": "remote-jobs",
+    "normalized_id": "career-resource-remote-jobs"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\resources\\salary_calculator.json": {
+    "original_filename": "salary_calculator.json",
+    "normalized_filename": "career-resource-salary-calculator.json",
+    "original_id": "salary-calculator",
+    "normalized_id": "career-resource-salary-calculator"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\resources\\skills_courses.json": {
+    "original_filename": "skills_courses.json",
+    "normalized_filename": "career-resource-skills-courses.json",
+    "original_id": "skills-courses",
+    "normalized_id": "career-resource-skills-courses"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\lessons\\ace_the_interview.md": {
+    "original_filename": "ace_the_interview.md",
+    "normalized_filename": "career-lesson-ace-the-interview.md",
+    "original_id": "ace-the-interview",
+    "normalized_id": "career-lesson-ace-the-interview"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\lessons\\ai_in_job_search.md": {
+    "original_filename": "ai_in_job_search.md",
+    "normalized_filename": "career-lesson-ai-in-job-search.md",
+    "original_id": "ai-in-job-search",
+    "normalized_id": "career-lesson-ai-in-job-search"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\lessons\\career_transition.md": {
+    "original_filename": "career_transition.md",
+    "normalized_filename": "career-lesson-career-transition.md",
+    "original_id": "career-transition",
+    "normalized_id": "career-lesson-career-transition"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\lessons\\linkedin_mastery.md": {
+    "original_filename": "linkedin_mastery.md",
+    "normalized_filename": "career-lesson-linkedin-mastery.md",
+    "original_id": "linkedin-mastery",
+    "normalized_id": "career-lesson-linkedin-mastery"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\lessons\\perfect_cv.md": {
+    "original_filename": "perfect_cv.md",
+    "normalized_filename": "career-lesson-perfect-cv.md",
+    "original_id": "perfect-cv",
+    "normalized_id": "career-lesson-perfect-cv"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\career\\lessons\\star_method_guide.md": {
+    "original_filename": "star_method_guide.md",
+    "normalized_filename": "career-lesson-star-method-guide.md",
+    "original_id": "star-method-guide",
+    "normalized_id": "career-lesson-star-method-guide"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_01.json": {
+    "original_filename": "item_01.json",
+    "normalized_filename": "digital-exams-glossary-item-01.json",
+    "original_id": "digital-exams-glossary-item-01",
+    "normalized_id": "digital-exams-glossary-item-01"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_02.json": {
+    "original_filename": "item_02.json",
+    "normalized_filename": "digital-exams-glossary-item-02.json",
+    "original_id": "digital-exams-glossary-item-02",
+    "normalized_id": "digital-exams-glossary-item-02"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_03.json": {
+    "original_filename": "item_03.json",
+    "normalized_filename": "digital-exams-glossary-item-03.json",
+    "original_id": "digital-exams-glossary-item-03",
+    "normalized_id": "digital-exams-glossary-item-03"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_04.json": {
+    "original_filename": "item_04.json",
+    "normalized_filename": "digital-exams-glossary-item-04.json",
+    "original_id": "digital-exams-glossary-item-04",
+    "normalized_id": "digital-exams-glossary-item-04"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_05.json": {
+    "original_filename": "item_05.json",
+    "normalized_filename": "digital-exams-glossary-item-05.json",
+    "original_id": "digital-exams-glossary-item-05",
+    "normalized_id": "digital-exams-glossary-item-05"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_06.json": {
+    "original_filename": "item_06.json",
+    "normalized_filename": "digital-exams-glossary-item-06.json",
+    "original_id": "digital-exams-glossary-item-06",
+    "normalized_id": "digital-exams-glossary-item-06"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_07.json": {
+    "original_filename": "item_07.json",
+    "normalized_filename": "digital-exams-glossary-item-07.json",
+    "original_id": "digital-exams-glossary-item-07",
+    "normalized_id": "digital-exams-glossary-item-07"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_08.json": {
+    "original_filename": "item_08.json",
+    "normalized_filename": "digital-exams-glossary-item-08.json",
+    "original_id": "digital-exams-glossary-item-08",
+    "normalized_id": "digital-exams-glossary-item-08"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_09.json": {
+    "original_filename": "item_09.json",
+    "normalized_filename": "digital-exams-glossary-item-09.json",
+    "original_id": "digital-exams-glossary-item-09",
+    "normalized_id": "digital-exams-glossary-item-09"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_10.json": {
+    "original_filename": "item_10.json",
+    "normalized_filename": "digital-exams-glossary-item-10.json",
+    "original_id": "digital-exams-glossary-item-10",
+    "normalized_id": "digital-exams-glossary-item-10"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_11.json": {
+    "original_filename": "item_11.json",
+    "normalized_filename": "digital-exams-glossary-item-11.json",
+    "original_id": "digital-exams-glossary-item-11",
+    "normalized_id": "digital-exams-glossary-item-11"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_12.json": {
+    "original_filename": "item_12.json",
+    "normalized_filename": "digital-exams-glossary-item-12.json",
+    "original_id": "digital-exams-glossary-item-12",
+    "normalized_id": "digital-exams-glossary-item-12"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_13.json": {
+    "original_filename": "item_13.json",
+    "normalized_filename": "digital-exams-glossary-item-13.json",
+    "original_id": "digital-exams-glossary-item-13",
+    "normalized_id": "digital-exams-glossary-item-13"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_14.json": {
+    "original_filename": "item_14.json",
+    "normalized_filename": "digital-exams-glossary-item-14.json",
+    "original_id": "digital-exams-glossary-item-14",
+    "normalized_id": "digital-exams-glossary-item-14"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_15.json": {
+    "original_filename": "item_15.json",
+    "normalized_filename": "digital-exams-glossary-item-15.json",
+    "original_id": "digital-exams-glossary-item-15",
+    "normalized_id": "digital-exams-glossary-item-15"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_16.json": {
+    "original_filename": "item_16.json",
+    "normalized_filename": "digital-exams-glossary-item-16.json",
+    "original_id": "digital-exams-glossary-item-16",
+    "normalized_id": "digital-exams-glossary-item-16"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_17.json": {
+    "original_filename": "item_17.json",
+    "normalized_filename": "digital-exams-glossary-item-17.json",
+    "original_id": "digital-exams-glossary-item-17",
+    "normalized_id": "digital-exams-glossary-item-17"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_18.json": {
+    "original_filename": "item_18.json",
+    "normalized_filename": "digital-exams-glossary-item-18.json",
+    "original_id": "digital-exams-glossary-item-18",
+    "normalized_id": "digital-exams-glossary-item-18"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_19.json": {
+    "original_filename": "item_19.json",
+    "normalized_filename": "digital-exams-glossary-item-19.json",
+    "original_id": "digital-exams-glossary-item-19",
+    "normalized_id": "digital-exams-glossary-item-19"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\glossary\\item_20.json": {
+    "original_filename": "item_20.json",
+    "normalized_filename": "digital-exams-glossary-item-20.json",
+    "original_id": "digital-exams-glossary-item-20",
+    "normalized_id": "digital-exams-glossary-item-20"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\prompts\\item_01.json": {
+    "original_filename": "item_01.json",
+    "normalized_filename": "digital-exams-prompt-item-01.json",
+    "original_id": "digital-exams-prompt-item-01",
+    "normalized_id": "digital-exams-prompt-item-01"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\prompts\\item_02.json": {
+    "original_filename": "item_02.json",
+    "normalized_filename": "digital-exams-prompt-item-02.json",
+    "original_id": "digital-exams-prompt-item-02",
+    "normalized_id": "digital-exams-prompt-item-02"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\prompts\\item_03.json": {
+    "original_filename": "item_03.json",
+    "normalized_filename": "digital-exams-prompt-item-03.json",
+    "original_id": "digital-exams-prompt-item-03",
+    "normalized_id": "digital-exams-prompt-item-03"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\prompts\\item_04.json": {
+    "original_filename": "item_04.json",
+    "normalized_filename": "digital-exams-prompt-item-04.json",
+    "original_id": "digital-exams-prompt-item-04",
+    "normalized_id": "digital-exams-prompt-item-04"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\prompts\\item_05.json": {
+    "original_filename": "item_05.json",
+    "normalized_filename": "digital-exams-prompt-item-05.json",
+    "original_id": "digital-exams-prompt-item-05",
+    "normalized_id": "digital-exams-prompt-item-05"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\prompts\\item_06.json": {
+    "original_filename": "item_06.json",
+    "normalized_filename": "digital-exams-prompt-item-06.json",
+    "original_id": "digital-exams-prompt-item-06",
+    "normalized_id": "digital-exams-prompt-item-06"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\prompts\\item_07.json": {
+    "original_filename": "item_07.json",
+    "normalized_filename": "digital-exams-prompt-item-07.json",
+    "original_id": "digital-exams-prompt-item-07",
+    "normalized_id": "digital-exams-prompt-item-07"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\prompts\\item_08.json": {
+    "original_filename": "item_08.json",
+    "normalized_filename": "digital-exams-prompt-item-08.json",
+    "original_id": "digital-exams-prompt-item-08",
+    "normalized_id": "digital-exams-prompt-item-08"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\prompts\\item_09.json": {
+    "original_filename": "item_09.json",
+    "normalized_filename": "digital-exams-prompt-item-09.json",
+    "original_id": "digital-exams-prompt-item-09",
+    "normalized_id": "digital-exams-prompt-item-09"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\prompts\\item_10.json": {
+    "original_filename": "item_10.json",
+    "normalized_filename": "digital-exams-prompt-item-10.json",
+    "original_id": "digital-exams-prompt-item-10",
+    "normalized_id": "digital-exams-prompt-item-10"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\resources\\item_01.json": {
+    "original_filename": "item_01.json",
+    "normalized_filename": "digital-exams-resource-item-01.json",
+    "original_id": "digital-exams-resource-item-01",
+    "normalized_id": "digital-exams-resource-item-01"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\resources\\item_02.json": {
+    "original_filename": "item_02.json",
+    "normalized_filename": "digital-exams-resource-item-02.json",
+    "original_id": "digital-exams-resource-item-02",
+    "normalized_id": "digital-exams-resource-item-02"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\resources\\item_03.json": {
+    "original_filename": "item_03.json",
+    "normalized_filename": "digital-exams-resource-item-03.json",
+    "original_id": "digital-exams-resource-item-03",
+    "normalized_id": "digital-exams-resource-item-03"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\resources\\item_04.json": {
+    "original_filename": "item_04.json",
+    "normalized_filename": "digital-exams-resource-item-04.json",
+    "original_id": "digital-exams-resource-item-04",
+    "normalized_id": "digital-exams-resource-item-04"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\resources\\item_05.json": {
+    "original_filename": "item_05.json",
+    "normalized_filename": "digital-exams-resource-item-05.json",
+    "original_id": "digital-exams-resource-item-05",
+    "normalized_id": "digital-exams-resource-item-05"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\resources\\item_06.json": {
+    "original_filename": "item_06.json",
+    "normalized_filename": "digital-exams-resource-item-06.json",
+    "original_id": "digital-exams-resource-item-06",
+    "normalized_id": "digital-exams-resource-item-06"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\resources\\item_07.json": {
+    "original_filename": "item_07.json",
+    "normalized_filename": "digital-exams-resource-item-07.json",
+    "original_id": "digital-exams-resource-item-07",
+    "normalized_id": "digital-exams-resource-item-07"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\resources\\item_08.json": {
+    "original_filename": "item_08.json",
+    "normalized_filename": "digital-exams-resource-item-08.json",
+    "original_id": "digital-exams-resource-item-08",
+    "normalized_id": "digital-exams-resource-item-08"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\resources\\item_09.json": {
+    "original_filename": "item_09.json",
+    "normalized_filename": "digital-exams-resource-item-09.json",
+    "original_id": "digital-exams-resource-item-09",
+    "normalized_id": "digital-exams-resource-item-09"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\resources\\item_10.json": {
+    "original_filename": "item_10.json",
+    "normalized_filename": "digital-exams-resource-item-10.json",
+    "original_id": "digital-exams-resource-item-10",
+    "normalized_id": "digital-exams-resource-item-10"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\lessons\\item_01.md": {
+    "original_filename": "item_01.md",
+    "normalized_filename": "digital-exams-lesson-item-01.md",
+    "original_id": "digital-exams-lesson-item-01",
+    "normalized_id": "digital-exams-lesson-item-01"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\lessons\\item_02.md": {
+    "original_filename": "item_02.md",
+    "normalized_filename": "digital-exams-lesson-item-02.md",
+    "original_id": "digital-exams-lesson-item-02",
+    "normalized_id": "digital-exams-lesson-item-02"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\lessons\\item_03.md": {
+    "original_filename": "item_03.md",
+    "normalized_filename": "digital-exams-lesson-item-03.md",
+    "original_id": "digital-exams-lesson-item-03",
+    "normalized_id": "digital-exams-lesson-item-03"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\lessons\\item_04.md": {
+    "original_filename": "item_04.md",
+    "normalized_filename": "digital-exams-lesson-item-04.md",
+    "original_id": "digital-exams-lesson-item-04",
+    "normalized_id": "digital-exams-lesson-item-04"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\lessons\\item_05.md": {
+    "original_filename": "item_05.md",
+    "normalized_filename": "digital-exams-lesson-item-05.md",
+    "original_id": "digital-exams-lesson-item-05",
+    "normalized_id": "digital-exams-lesson-item-05"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\digital-exams\\lessons\\item_06.md": {
+    "original_filename": "item_06.md",
+    "normalized_filename": "digital-exams-lesson-item-06.md",
+    "original_id": "digital-exams-lesson-item-06",
+    "normalized_id": "digital-exams-lesson-item-06"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\actuator.json": {
+    "original_filename": "actuator.json",
+    "normalized_filename": "iot-lab-glossary-actuator.json",
+    "original_id": "actuator",
+    "normalized_id": "iot-lab-glossary-actuator"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\analog-signal.json": {
+    "original_filename": "analog-signal.json",
+    "normalized_filename": "iot-lab-glossary-analog-signal.json",
+    "original_id": "analog-signal",
+    "normalized_id": "iot-lab-glossary-analog-signal"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\arduino.json": {
+    "original_filename": "arduino.json",
+    "normalized_filename": "iot-lab-glossary-arduino.json",
+    "original_id": "arduino",
+    "normalized_id": "iot-lab-glossary-arduino"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\bootloader.json": {
+    "original_filename": "bootloader.json",
+    "normalized_filename": "iot-lab-glossary-bootloader.json",
+    "original_id": "bootloader",
+    "normalized_id": "iot-lab-glossary-bootloader"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\breadboard.json": {
+    "original_filename": "breadboard.json",
+    "normalized_filename": "iot-lab-glossary-breadboard.json",
+    "original_id": "breadboard",
+    "normalized_id": "iot-lab-glossary-breadboard"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\capacitor.json": {
+    "original_filename": "capacitor.json",
+    "normalized_filename": "iot-lab-glossary-capacitor.json",
+    "original_id": "capacitor",
+    "normalized_id": "iot-lab-glossary-capacitor"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\circuit-schematic.json": {
+    "original_filename": "circuit-schematic.json",
+    "normalized_filename": "iot-lab-glossary-circuit-schematic.json",
+    "original_id": "circuit-schematic",
+    "normalized_id": "iot-lab-glossary-circuit-schematic"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\current.json": {
+    "original_filename": "current.json",
+    "normalized_filename": "iot-lab-glossary-current.json",
+    "original_id": "current",
+    "normalized_id": "iot-lab-glossary-current"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\data-logging.json": {
+    "original_filename": "data-logging.json",
+    "normalized_filename": "iot-lab-glossary-data-logging.json",
+    "original_id": "data-logging",
+    "normalized_id": "iot-lab-glossary-data-logging"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\debugging.json": {
+    "original_filename": "debugging.json",
+    "normalized_filename": "iot-lab-glossary-debugging.json",
+    "original_id": "debugging",
+    "normalized_id": "iot-lab-glossary-debugging"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\digital-signal.json": {
+    "original_filename": "digital-signal.json",
+    "normalized_filename": "iot-lab-glossary-digital-signal.json",
+    "original_id": "digital-signal",
+    "normalized_id": "iot-lab-glossary-digital-signal"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\esp32.json": {
+    "original_filename": "esp32.json",
+    "normalized_filename": "iot-lab-glossary-esp32.json",
+    "original_id": "esp32",
+    "normalized_id": "iot-lab-glossary-esp32"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\gpio.json": {
+    "original_filename": "gpio.json",
+    "normalized_filename": "iot-lab-glossary-gpio.json",
+    "original_id": "gpio",
+    "normalized_id": "iot-lab-glossary-gpio"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\i2c.json": {
+    "original_filename": "i2c.json",
+    "normalized_filename": "iot-lab-glossary-i2c.json",
+    "original_id": "i2c",
+    "normalized_id": "iot-lab-glossary-i2c"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\iot-lab-glossary-i2c.json": {
+    "original_filename": "iot-lab-glossary-i2c.json",
+    "normalized_filename": "iot-lab-glossary-i2c-2.json",
+    "original_id": "iot-lab-glossary-i2c",
+    "normalized_id": "iot-lab-glossary-i2c-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\iot.json": {
+    "original_filename": "iot.json",
+    "normalized_filename": "iot-lab-glossary-iot.json",
+    "original_id": "iot",
+    "normalized_id": "iot-lab-glossary-iot"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\jumper-wires.json": {
+    "original_filename": "jumper-wires.json",
+    "normalized_filename": "iot-lab-glossary-jumper-wires.json",
+    "original_id": "jumper-wires",
+    "normalized_id": "iot-lab-glossary-jumper-wires"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\led.json": {
+    "original_filename": "led.json",
+    "normalized_filename": "iot-lab-glossary-led.json",
+    "original_id": "led",
+    "normalized_id": "iot-lab-glossary-led"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\microcontroller.json": {
+    "original_filename": "microcontroller.json",
+    "normalized_filename": "iot-lab-glossary-microcontroller.json",
+    "original_id": "microcontroller",
+    "normalized_id": "iot-lab-glossary-microcontroller"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\mqtt.json": {
+    "original_filename": "mqtt.json",
+    "normalized_filename": "iot-lab-glossary-mqtt.json",
+    "original_id": "mqtt",
+    "normalized_id": "iot-lab-glossary-mqtt"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\multimeter.json": {
+    "original_filename": "multimeter.json",
+    "normalized_filename": "iot-lab-glossary-multimeter.json",
+    "original_id": "multimeter",
+    "normalized_id": "iot-lab-glossary-multimeter"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\ohm-law.json": {
+    "original_filename": "ohm-law.json",
+    "normalized_filename": "iot-lab-glossary-ohm-law.json",
+    "original_id": "ohm-law",
+    "normalized_id": "iot-lab-glossary-ohm-law"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\pwm.json": {
+    "original_filename": "pwm.json",
+    "normalized_filename": "iot-lab-glossary-pwm-2.json",
+    "original_id": "pwm",
+    "normalized_id": "iot-lab-glossary-pwm-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\raspberry-pi.json": {
+    "original_filename": "raspberry-pi.json",
+    "normalized_filename": "iot-lab-glossary-raspberry-pi.json",
+    "original_id": "raspberry-pi",
+    "normalized_id": "iot-lab-glossary-raspberry-pi"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\relay.json": {
+    "original_filename": "relay.json",
+    "normalized_filename": "iot-lab-glossary-relay-2.json",
+    "original_id": "relay",
+    "normalized_id": "iot-lab-glossary-relay-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\resistance.json": {
+    "original_filename": "resistance.json",
+    "normalized_filename": "iot-lab-glossary-resistance.json",
+    "original_id": "resistance",
+    "normalized_id": "iot-lab-glossary-resistance"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\resistor.json": {
+    "original_filename": "resistor.json",
+    "normalized_filename": "iot-lab-glossary-resistor.json",
+    "original_id": "resistor",
+    "normalized_id": "iot-lab-glossary-resistor"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\sensor.json": {
+    "original_filename": "sensor.json",
+    "normalized_filename": "iot-lab-glossary-sensor.json",
+    "original_id": "sensor",
+    "normalized_id": "iot-lab-glossary-sensor"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\soldering.json": {
+    "original_filename": "soldering.json",
+    "normalized_filename": "iot-lab-glossary-soldering.json",
+    "original_id": "soldering",
+    "normalized_id": "iot-lab-glossary-soldering"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\spi.json": {
+    "original_filename": "spi.json",
+    "normalized_filename": "iot-lab-glossary-spi-2.json",
+    "original_id": "spi",
+    "normalized_id": "iot-lab-glossary-spi-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\transistor.json": {
+    "original_filename": "transistor.json",
+    "normalized_filename": "iot-lab-glossary-transistor.json",
+    "original_id": "transistor",
+    "normalized_id": "iot-lab-glossary-transistor"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\uart.json": {
+    "original_filename": "uart.json",
+    "normalized_filename": "iot-lab-glossary-uart-2.json",
+    "original_id": "uart",
+    "normalized_id": "iot-lab-glossary-uart-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\voltage.json": {
+    "original_filename": "voltage.json",
+    "normalized_filename": "iot-lab-glossary-voltage.json",
+    "original_id": "voltage",
+    "normalized_id": "iot-lab-glossary-voltage"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\glossary\\wifi-module.json": {
+    "original_filename": "wifi-module.json",
+    "normalized_filename": "iot-lab-glossary-wifi-module.json",
+    "original_id": "wifi-module",
+    "normalized_id": "iot-lab-glossary-wifi-module"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\analog-circuit.json": {
+    "original_filename": "analog-circuit.json",
+    "normalized_filename": "iot-lab-prompt-analog-circuit.json",
+    "original_id": "analog-circuit",
+    "normalized_id": "iot-lab-prompt-analog-circuit"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\arduino-blink.json": {
+    "original_filename": "arduino-blink.json",
+    "normalized_filename": "iot-lab-prompt-arduino-blink.json",
+    "original_id": "arduino-blink",
+    "normalized_id": "iot-lab-prompt-arduino-blink"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\battery-monitor.json": {
+    "original_filename": "battery-monitor.json",
+    "normalized_filename": "iot-lab-prompt-battery-monitor.json",
+    "original_id": "battery-monitor",
+    "normalized_id": "iot-lab-prompt-battery-monitor"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\button-debounce.json": {
+    "original_filename": "button-debounce.json",
+    "normalized_filename": "iot-lab-prompt-button-debounce.json",
+    "original_id": "button-debounce",
+    "normalized_id": "iot-lab-prompt-button-debounce"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\calibrate-sensor.json": {
+    "original_filename": "calibrate-sensor.json",
+    "normalized_filename": "iot-lab-prompt-calibrate-sensor.json",
+    "original_id": "calibrate-sensor",
+    "normalized_id": "iot-lab-prompt-calibrate-sensor"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\dht11-sensor.json": {
+    "original_filename": "dht11-sensor.json",
+    "normalized_filename": "iot-lab-prompt-dht11-sensor.json",
+    "original_id": "dht11-sensor",
+    "normalized_id": "iot-lab-prompt-dht11-sensor"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\esp32-vs-arduino.json": {
+    "original_filename": "esp32-vs-arduino.json",
+    "normalized_filename": "iot-lab-prompt-esp32-vs-arduino.json",
+    "original_id": "esp32-vs-arduino",
+    "normalized_id": "iot-lab-prompt-esp32-vs-arduino"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\esp32-webserver.json": {
+    "original_filename": "esp32-webserver.json",
+    "normalized_filename": "iot-lab-prompt-esp32-webserver.json",
+    "original_id": "esp32-webserver",
+    "normalized_id": "iot-lab-prompt-esp32-webserver"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\esp32-wifi.json": {
+    "original_filename": "esp32-wifi.json",
+    "normalized_filename": "iot-lab-prompt-esp32-wifi.json",
+    "original_id": "esp32-wifi",
+    "normalized_id": "iot-lab-prompt-esp32-wifi"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\explain-pwm.json": {
+    "original_filename": "explain-pwm.json",
+    "normalized_filename": "iot-lab-prompt-explain-pwm.json",
+    "original_id": "explain-pwm",
+    "normalized_id": "iot-lab-prompt-explain-pwm"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\fix-arduino-code.json": {
+    "original_filename": "fix-arduino-code.json",
+    "normalized_filename": "iot-lab-prompt-fix-arduino-code.json",
+    "original_id": "fix-arduino-code",
+    "normalized_id": "iot-lab-prompt-fix-arduino-code"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\i2c-lcd.json": {
+    "original_filename": "i2c-lcd.json",
+    "normalized_filename": "iot-lab-prompt-i2c-lcd.json",
+    "original_id": "i2c-lcd",
+    "normalized_id": "iot-lab-prompt-i2c-lcd"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\interrupt-usage.json": {
+    "original_filename": "interrupt-usage.json",
+    "normalized_filename": "iot-lab-prompt-interrupt-usage.json",
+    "original_id": "interrupt-usage",
+    "normalized_id": "iot-lab-prompt-interrupt-usage"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\mqtt-publish.json": {
+    "original_filename": "mqtt-publish.json",
+    "normalized_filename": "iot-lab-prompt-mqtt-publish.json",
+    "original_id": "mqtt-publish",
+    "normalized_id": "iot-lab-prompt-mqtt-publish"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\pid-controller.json": {
+    "original_filename": "pid-controller.json",
+    "normalized_filename": "iot-lab-prompt-pid-controller.json",
+    "original_id": "pid-controller",
+    "normalized_id": "iot-lab-prompt-pid-controller"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\pwm-led.json": {
+    "original_filename": "pwm-led.json",
+    "normalized_filename": "iot-lab-prompt-pwm-led.json",
+    "original_id": "pwm-led",
+    "normalized_id": "iot-lab-prompt-pwm-led"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\python-script-rpi.json": {
+    "original_filename": "python-script-rpi.json",
+    "normalized_filename": "iot-lab-prompt-python-script-rpi.json",
+    "original_id": "python-script-rpi",
+    "normalized_id": "iot-lab-prompt-python-script-rpi"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\raspberry-pi-gpio.json": {
+    "original_filename": "raspberry-pi-gpio.json",
+    "normalized_filename": "iot-lab-prompt-raspberry-pi-gpio.json",
+    "original_id": "raspberry-pi-gpio",
+    "normalized_id": "iot-lab-prompt-raspberry-pi-gpio"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\relay-module.json": {
+    "original_filename": "relay-module.json",
+    "normalized_filename": "iot-lab-prompt-relay-module.json",
+    "original_id": "relay-module",
+    "normalized_id": "iot-lab-prompt-relay-module"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\sd-card-log.json": {
+    "original_filename": "sd-card-log.json",
+    "normalized_filename": "iot-lab-prompt-sd-card-log.json",
+    "original_id": "sd-card-log",
+    "normalized_id": "iot-lab-prompt-sd-card-log"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\sensor-read.json": {
+    "original_filename": "sensor-read.json",
+    "normalized_filename": "iot-lab-prompt-sensor-read.json",
+    "original_id": "sensor-read",
+    "normalized_id": "iot-lab-prompt-sensor-read"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\serial-communication.json": {
+    "original_filename": "serial-communication.json",
+    "normalized_filename": "iot-lab-prompt-serial-communication.json",
+    "original_id": "serial-communication",
+    "normalized_id": "iot-lab-prompt-serial-communication"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\servo-motor.json": {
+    "original_filename": "servo-motor.json",
+    "normalized_filename": "iot-lab-prompt-servo-motor.json",
+    "original_id": "servo-motor",
+    "normalized_id": "iot-lab-prompt-servo-motor"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\setup-raspberry-pi.json": {
+    "original_filename": "setup-raspberry-pi.json",
+    "normalized_filename": "iot-lab-prompt-setup-raspberry-pi.json",
+    "original_id": "setup-raspberry-pi",
+    "normalized_id": "iot-lab-prompt-setup-raspberry-pi"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\stepper-motor.json": {
+    "original_filename": "stepper-motor.json",
+    "normalized_filename": "iot-lab-prompt-stepper-motor.json",
+    "original_id": "stepper-motor",
+    "normalized_id": "iot-lab-prompt-stepper-motor"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\suggest-iot-project.json": {
+    "original_filename": "suggest-iot-project.json",
+    "normalized_filename": "iot-lab-prompt-suggest-iot-project.json",
+    "original_id": "suggest-iot-project",
+    "normalized_id": "iot-lab-prompt-suggest-iot-project"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\troubleshoot-mqtt.json": {
+    "original_filename": "troubleshoot-mqtt.json",
+    "normalized_filename": "iot-lab-prompt-troubleshoot-mqtt.json",
+    "original_id": "troubleshoot-mqtt",
+    "normalized_id": "iot-lab-prompt-troubleshoot-mqtt"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\troubleshooting-guide.json": {
+    "original_filename": "troubleshooting-guide.json",
+    "normalized_filename": "iot-lab-prompt-troubleshooting-guide.json",
+    "original_id": "troubleshooting-guide",
+    "normalized_id": "iot-lab-prompt-troubleshooting-guide"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\ultrasonic-distance.json": {
+    "original_filename": "ultrasonic-distance.json",
+    "normalized_filename": "iot-lab-prompt-ultrasonic-distance.json",
+    "original_id": "ultrasonic-distance",
+    "normalized_id": "iot-lab-prompt-ultrasonic-distance"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\prompts\\wire-sensor.json": {
+    "original_filename": "wire-sensor.json",
+    "normalized_filename": "iot-lab-prompt-wire-sensor.json",
+    "original_id": "wire-sensor",
+    "normalized_id": "iot-lab-prompt-wire-sensor"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\adafruit-learn.json": {
+    "original_filename": "adafruit-learn.json",
+    "normalized_filename": "iot-lab-resource-adafruit-learn.json",
+    "original_id": "adafruit-learn",
+    "normalized_id": "iot-lab-resource-adafruit-learn"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\adafruit-tutorials.json": {
+    "original_filename": "adafruit-tutorials.json",
+    "normalized_filename": "iot-lab-resource-adafruit-tutorials.json",
+    "original_id": "adafruit-tutorials",
+    "normalized_id": "iot-lab-resource-adafruit-tutorials"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\arduino-docs.json": {
+    "original_filename": "arduino-docs.json",
+    "normalized_filename": "iot-lab-resource-arduino-docs.json",
+    "original_id": "arduino-docs",
+    "normalized_id": "iot-lab-resource-arduino-docs"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\arduino-json.json": {
+    "original_filename": "arduino-json.json",
+    "normalized_filename": "iot-lab-resource-arduino-json.json",
+    "original_id": "arduino-json",
+    "normalized_id": "iot-lab-resource-arduino-json"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\arduino-reference.json": {
+    "original_filename": "arduino-reference.json",
+    "normalized_filename": "iot-lab-resource-arduino-reference.json",
+    "original_id": "arduino-reference",
+    "normalized_id": "iot-lab-resource-arduino-reference"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\blynk.json": {
+    "original_filename": "blynk.json",
+    "normalized_filename": "iot-lab-resource-blynk.json",
+    "original_id": "blynk",
+    "normalized_id": "iot-lab-resource-blynk"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\circuit-basics.json": {
+    "original_filename": "circuit-basics.json",
+    "normalized_filename": "iot-lab-resource-circuit-basics.json",
+    "original_id": "circuit-basics",
+    "normalized_id": "iot-lab-resource-circuit-basics"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\circuitpython.json": {
+    "original_filename": "circuitpython.json",
+    "normalized_filename": "iot-lab-resource-circuitpython.json",
+    "original_id": "circuitpython",
+    "normalized_id": "iot-lab-resource-circuitpython"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\esp32-datasheet.json": {
+    "original_filename": "esp32-datasheet.json",
+    "normalized_filename": "iot-lab-resource-esp32-datasheet.json",
+    "original_id": "esp32-datasheet",
+    "normalized_id": "iot-lab-resource-esp32-datasheet"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\esp32-idf-docs.json": {
+    "original_filename": "esp32-idf-docs.json",
+    "normalized_filename": "iot-lab-resource-esp32-idf-docs.json",
+    "original_id": "esp32-idf-docs",
+    "normalized_id": "iot-lab-resource-esp32-idf-docs"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\esphome.json": {
+    "original_filename": "esphome.json",
+    "normalized_filename": "iot-lab-resource-esphome.json",
+    "original_id": "esphome",
+    "normalized_id": "iot-lab-resource-esphome"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\fritzing-software.json": {
+    "original_filename": "fritzing-software.json",
+    "normalized_filename": "iot-lab-resource-fritzing-software.json",
+    "original_id": "fritzing-software",
+    "normalized_id": "iot-lab-resource-fritzing-software"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\fritzing.json": {
+    "original_filename": "fritzing.json",
+    "normalized_filename": "iot-lab-resource-fritzing.json",
+    "original_id": "fritzing",
+    "normalized_id": "iot-lab-resource-fritzing"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\home-assistant.json": {
+    "original_filename": "home-assistant.json",
+    "normalized_filename": "iot-lab-resource-home-assistant.json",
+    "original_id": "home-assistant",
+    "normalized_id": "iot-lab-resource-home-assistant"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\instructables-circuits.json": {
+    "original_filename": "instructables-circuits.json",
+    "normalized_filename": "iot-lab-resource-instructables-circuits.json",
+    "original_id": "instructables-circuits",
+    "normalized_id": "iot-lab-resource-instructables-circuits"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\micropython-guide.json": {
+    "original_filename": "micropython-guide.json",
+    "normalized_filename": "iot-lab-resource-micropython-guide.json",
+    "original_id": "micropython-guide",
+    "normalized_id": "iot-lab-resource-micropython-guide"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\micropython.json": {
+    "original_filename": "micropython.json",
+    "normalized_filename": "iot-lab-resource-micropython.json",
+    "original_id": "micropython",
+    "normalized_id": "iot-lab-resource-micropython"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\mosquitto.json": {
+    "original_filename": "mosquitto.json",
+    "normalized_filename": "iot-lab-resource-mosquitto.json",
+    "original_id": "mosquitto",
+    "normalized_id": "iot-lab-resource-mosquitto"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\mqtt-org.json": {
+    "original_filename": "mqtt-org.json",
+    "normalized_filename": "iot-lab-resource-mqtt-org.json",
+    "original_id": "mqtt-org",
+    "normalized_id": "iot-lab-resource-mqtt-org"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\mqtt-spec.json": {
+    "original_filename": "mqtt-spec.json",
+    "normalized_filename": "iot-lab-resource-mqtt-spec.json",
+    "original_id": "mqtt-spec",
+    "normalized_id": "iot-lab-resource-mqtt-spec"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\pinout-xyz.json": {
+    "original_filename": "pinout-xyz.json",
+    "normalized_filename": "iot-lab-resource-pinout-xyz.json",
+    "original_id": "pinout-xyz",
+    "normalized_id": "iot-lab-resource-pinout-xyz"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\random-nerd-tutorials.json": {
+    "original_filename": "random-nerd-tutorials.json",
+    "normalized_filename": "iot-lab-resource-random-nerd-tutorials.json",
+    "original_id": "random-nerd-tutorials",
+    "normalized_id": "iot-lab-resource-random-nerd-tutorials"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\raspberry-pi-docs.json": {
+    "original_filename": "raspberry-pi-docs.json",
+    "normalized_filename": "iot-lab-resource-raspberry-pi-docs.json",
+    "original_id": "raspberry-pi-docs",
+    "normalized_id": "iot-lab-resource-raspberry-pi-docs"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\rpi-guide.json": {
+    "original_filename": "rpi-guide.json",
+    "normalized_filename": "iot-lab-resource-rpi-guide.json",
+    "original_id": "rpi-guide",
+    "normalized_id": "iot-lab-resource-rpi-guide"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\sparkfun-tutorials.json": {
+    "original_filename": "sparkfun-tutorials.json",
+    "normalized_filename": "iot-lab-resource-sparkfun-tutorials.json",
+    "original_id": "sparkfun-tutorials",
+    "normalized_id": "iot-lab-resource-sparkfun-tutorials"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\thingspeak.json": {
+    "original_filename": "thingspeak.json",
+    "normalized_filename": "iot-lab-resource-thingspeak.json",
+    "original_id": "thingspeak",
+    "normalized_id": "iot-lab-resource-thingspeak"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\tinkercad-circuits.json": {
+    "original_filename": "tinkercad-circuits.json",
+    "normalized_filename": "iot-lab-resource-tinkercad-circuits-2.json",
+    "original_id": "tinkercad-circuits",
+    "normalized_id": "iot-lab-resource-tinkercad-circuits-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\resources\\wokwi.json": {
+    "original_filename": "wokwi.json",
+    "normalized_filename": "iot-lab-resource-wokwi.json",
+    "original_id": "wokwi",
+    "normalized_id": "iot-lab-resource-wokwi"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\actuators-intro.md": {
+    "original_filename": "actuators-intro.md",
+    "normalized_filename": "iot-lab-lesson-actuators-intro.md",
+    "original_id": "actuators-intro",
+    "normalized_id": "iot-lab-lesson-actuators-intro"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\breadboard-safety.md": {
+    "original_filename": "breadboard-safety.md",
+    "normalized_filename": "iot-lab-lesson-breadboard-safety.md",
+    "original_id": "breadboard-safety",
+    "normalized_id": "iot-lab-lesson-breadboard-safety"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\breadboard-wiring.md": {
+    "original_filename": "breadboard-wiring.md",
+    "normalized_filename": "iot-lab-lesson-breadboard-wiring.md",
+    "original_id": "breadboard-wiring",
+    "normalized_id": "iot-lab-lesson-breadboard-wiring"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\connecting-wifi.md": {
+    "original_filename": "connecting-wifi.md",
+    "normalized_filename": "iot-lab-lesson-connecting-wifi.md",
+    "original_id": "connecting-wifi",
+    "normalized_id": "iot-lab-lesson-connecting-wifi"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\debugging-projects.md": {
+    "original_filename": "debugging-projects.md",
+    "normalized_filename": "iot-lab-lesson-debugging-projects.md",
+    "original_id": "debugging-projects",
+    "normalized_id": "iot-lab-lesson-debugging-projects"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\digital-vs-analog.md": {
+    "original_filename": "digital-vs-analog.md",
+    "normalized_filename": "iot-lab-lesson-digital-vs-analog.md",
+    "original_id": "digital-vs-analog",
+    "normalized_id": "iot-lab-lesson-digital-vs-analog"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\documenting-circuits.md": {
+    "original_filename": "documenting-circuits.md",
+    "normalized_filename": "iot-lab-lesson-documenting-circuits.md",
+    "original_id": "documenting-circuits",
+    "normalized_id": "iot-lab-lesson-documenting-circuits"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\electricity-basics.md": {
+    "original_filename": "electricity-basics.md",
+    "normalized_filename": "iot-lab-lesson-electricity-basics.md",
+    "original_id": "electricity-basics",
+    "normalized_id": "iot-lab-lesson-electricity-basics"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\first-circuit-led.md": {
+    "original_filename": "first-circuit-led.md",
+    "normalized_filename": "iot-lab-lesson-first-circuit-led.md",
+    "original_id": "first-circuit-led",
+    "normalized_id": "iot-lab-lesson-first-circuit-led"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\getting-started-esp32.md": {
+    "original_filename": "getting-started-esp32.md",
+    "normalized_filename": "iot-lab-lesson-getting-started-esp32.md",
+    "original_id": "getting-started-esp32",
+    "normalized_id": "iot-lab-lesson-getting-started-esp32"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\intro-to-arduino.md": {
+    "original_filename": "intro-to-arduino.md",
+    "normalized_filename": "iot-lab-lesson-intro-to-arduino.md",
+    "original_id": "intro-to-arduino",
+    "normalized_id": "iot-lab-lesson-intro-to-arduino"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\intro-to-esp32.md": {
+    "original_filename": "intro-to-esp32.md",
+    "normalized_filename": "iot-lab-lesson-intro-to-esp32.md",
+    "original_id": "intro-to-esp32",
+    "normalized_id": "iot-lab-lesson-intro-to-esp32"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\mqtt-intro.md": {
+    "original_filename": "mqtt-intro.md",
+    "normalized_filename": "iot-lab-lesson-mqtt-intro.md",
+    "original_id": "mqtt-intro",
+    "normalized_id": "iot-lab-lesson-mqtt-intro"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\raspberry-pi-basics.md": {
+    "original_filename": "raspberry-pi-basics.md",
+    "normalized_filename": "iot-lab-lesson-raspberry-pi-basics.md",
+    "original_id": "raspberry-pi-basics",
+    "normalized_id": "iot-lab-lesson-raspberry-pi-basics"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\sensors-intro.md": {
+    "original_filename": "sensors-intro.md",
+    "normalized_filename": "iot-lab-lesson-sensors-intro.md",
+    "original_id": "sensors-intro",
+    "normalized_id": "iot-lab-lesson-sensors-intro"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\what-is-mqtt.md": {
+    "original_filename": "what-is-mqtt.md",
+    "normalized_filename": "iot-lab-lesson-what-is-mqtt.md",
+    "original_id": "what-is-mqtt",
+    "normalized_id": "iot-lab-lesson-what-is-mqtt"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\iot-lab\\lessons\\wiring-safety.md": {
+    "original_filename": "wiring-safety.md",
+    "normalized_filename": "iot-lab-lesson-wiring-safety.md",
+    "original_id": "wiring-safety",
+    "normalized_id": "iot-lab-lesson-wiring-safety"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\accuracy.json": {
+    "original_filename": "accuracy.json",
+    "normalized_filename": "language-glossary-accuracy.json",
+    "original_id": "accuracy",
+    "normalized_id": "language-glossary-accuracy"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\active-listening.json": {
+    "original_filename": "active-listening.json",
+    "normalized_filename": "language-glossary-active-listening.json",
+    "original_id": "active-listening",
+    "normalized_id": "language-glossary-active-listening"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\ai-language-coach.json": {
+    "original_filename": "ai-language-coach.json",
+    "normalized_filename": "language-glossary-ai-language-coach.json",
+    "original_id": "ai-language-coach",
+    "normalized_id": "language-glossary-ai-language-coach"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\cefr-a1.json": {
+    "original_filename": "cefr-a1.json",
+    "normalized_filename": "language-glossary-cefr-a1.json",
+    "original_id": "cefr-a1",
+    "normalized_id": "language-glossary-cefr-a1"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\cefr-a2.json": {
+    "original_filename": "cefr-a2.json",
+    "normalized_filename": "language-glossary-cefr-a2.json",
+    "original_id": "cefr-a2",
+    "normalized_id": "language-glossary-cefr-a2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\cefr-b1.json": {
+    "original_filename": "cefr-b1.json",
+    "normalized_filename": "language-glossary-cefr-b1.json",
+    "original_id": "cefr-b1",
+    "normalized_id": "language-glossary-cefr-b1"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\cefr-b2.json": {
+    "original_filename": "cefr-b2.json",
+    "normalized_filename": "language-glossary-cefr-b2.json",
+    "original_id": "cefr-b2",
+    "normalized_id": "language-glossary-cefr-b2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\cefr-c1.json": {
+    "original_filename": "cefr-c1.json",
+    "normalized_filename": "language-glossary-cefr-c1.json",
+    "original_id": "cefr-c1",
+    "normalized_id": "language-glossary-cefr-c1"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\cefr-c2.json": {
+    "original_filename": "cefr-c2.json",
+    "normalized_filename": "language-glossary-cefr-c2.json",
+    "original_id": "cefr-c2",
+    "normalized_id": "language-glossary-cefr-c2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\chunking.json": {
+    "original_filename": "chunking.json",
+    "normalized_filename": "language-glossary-chunking.json",
+    "original_id": "chunking",
+    "normalized_id": "language-glossary-chunking"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\collocation.json": {
+    "original_filename": "collocation.json",
+    "normalized_filename": "language-glossary-collocation.json",
+    "original_id": "collocation",
+    "normalized_id": "language-glossary-collocation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\comprehensible-input.json": {
+    "original_filename": "comprehensible-input.json",
+    "normalized_filename": "language-glossary-comprehensible-input.json",
+    "original_id": "comprehensible-input",
+    "normalized_id": "language-glossary-comprehensible-input"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\fluency.json": {
+    "original_filename": "fluency.json",
+    "normalized_filename": "language-glossary-fluency.json",
+    "original_id": "fluency",
+    "normalized_id": "language-glossary-fluency"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-1.json": {
+    "original_filename": "glossary-1.json",
+    "normalized_filename": "language-glossary-glossary-1.json",
+    "original_id": "glossary-1",
+    "normalized_id": "language-glossary-glossary-1"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-10.json": {
+    "original_filename": "glossary-10.json",
+    "normalized_filename": "language-glossary-glossary-10.json",
+    "original_id": "glossary-10",
+    "normalized_id": "language-glossary-glossary-10"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-11.json": {
+    "original_filename": "glossary-11.json",
+    "normalized_filename": "language-glossary-glossary-11.json",
+    "original_id": "glossary-11",
+    "normalized_id": "language-glossary-glossary-11"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-12.json": {
+    "original_filename": "glossary-12.json",
+    "normalized_filename": "language-glossary-glossary-12.json",
+    "original_id": "glossary-12",
+    "normalized_id": "language-glossary-glossary-12"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-13.json": {
+    "original_filename": "glossary-13.json",
+    "normalized_filename": "language-glossary-glossary-13.json",
+    "original_id": "glossary-13",
+    "normalized_id": "language-glossary-glossary-13"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-14.json": {
+    "original_filename": "glossary-14.json",
+    "normalized_filename": "language-glossary-glossary-14.json",
+    "original_id": "glossary-14",
+    "normalized_id": "language-glossary-glossary-14"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-15.json": {
+    "original_filename": "glossary-15.json",
+    "normalized_filename": "language-glossary-glossary-15.json",
+    "original_id": "glossary-15",
+    "normalized_id": "language-glossary-glossary-15"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-16.json": {
+    "original_filename": "glossary-16.json",
+    "normalized_filename": "language-glossary-glossary-16.json",
+    "original_id": "glossary-16",
+    "normalized_id": "language-glossary-glossary-16"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-17.json": {
+    "original_filename": "glossary-17.json",
+    "normalized_filename": "language-glossary-glossary-17.json",
+    "original_id": "glossary-17",
+    "normalized_id": "language-glossary-glossary-17"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-18.json": {
+    "original_filename": "glossary-18.json",
+    "normalized_filename": "language-glossary-glossary-18.json",
+    "original_id": "glossary-18",
+    "normalized_id": "language-glossary-glossary-18"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-19.json": {
+    "original_filename": "glossary-19.json",
+    "normalized_filename": "language-glossary-glossary-19.json",
+    "original_id": "glossary-19",
+    "normalized_id": "language-glossary-glossary-19"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-2.json": {
+    "original_filename": "glossary-2.json",
+    "normalized_filename": "language-glossary-glossary-2.json",
+    "original_id": "glossary-2",
+    "normalized_id": "language-glossary-glossary-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-20.json": {
+    "original_filename": "glossary-20.json",
+    "normalized_filename": "language-glossary-glossary-20.json",
+    "original_id": "glossary-20",
+    "normalized_id": "language-glossary-glossary-20"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-3.json": {
+    "original_filename": "glossary-3.json",
+    "normalized_filename": "language-glossary-glossary-3.json",
+    "original_id": "glossary-3",
+    "normalized_id": "language-glossary-glossary-3"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-4.json": {
+    "original_filename": "glossary-4.json",
+    "normalized_filename": "language-glossary-glossary-4.json",
+    "original_id": "glossary-4",
+    "normalized_id": "language-glossary-glossary-4"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-5.json": {
+    "original_filename": "glossary-5.json",
+    "normalized_filename": "language-glossary-glossary-5.json",
+    "original_id": "glossary-5",
+    "normalized_id": "language-glossary-glossary-5"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-6.json": {
+    "original_filename": "glossary-6.json",
+    "normalized_filename": "language-glossary-glossary-6.json",
+    "original_id": "glossary-6",
+    "normalized_id": "language-glossary-glossary-6"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-7.json": {
+    "original_filename": "glossary-7.json",
+    "normalized_filename": "language-glossary-glossary-7.json",
+    "original_id": "glossary-7",
+    "normalized_id": "language-glossary-glossary-7"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-8.json": {
+    "original_filename": "glossary-8.json",
+    "normalized_filename": "language-glossary-glossary-8.json",
+    "original_id": "glossary-8",
+    "normalized_id": "language-glossary-glossary-8"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\glossary-9.json": {
+    "original_filename": "glossary-9.json",
+    "normalized_filename": "language-glossary-glossary-9.json",
+    "original_id": "glossary-9",
+    "normalized_id": "language-glossary-glossary-9"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\grammar-in-context.json": {
+    "original_filename": "grammar-in-context.json",
+    "normalized_filename": "language-glossary-grammar-in-context.json",
+    "original_id": "grammar-in-context",
+    "normalized_id": "language-glossary-grammar-in-context"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\idiom.json": {
+    "original_filename": "idiom.json",
+    "normalized_filename": "language-glossary-idiom.json",
+    "original_id": "idiom",
+    "normalized_id": "language-glossary-idiom"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\immersion.json": {
+    "original_filename": "immersion.json",
+    "normalized_filename": "language-glossary-immersion.json",
+    "original_id": "immersion",
+    "normalized_id": "language-glossary-immersion"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\intonation.json": {
+    "original_filename": "intonation.json",
+    "normalized_filename": "language-glossary-intonation.json",
+    "original_id": "intonation",
+    "normalized_id": "language-glossary-intonation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\language-acquisition.json": {
+    "original_filename": "language-acquisition.json",
+    "normalized_filename": "language-glossary-language-acquisition.json",
+    "original_id": "language-acquisition",
+    "normalized_id": "language-glossary-language-acquisition"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\language-exchange.json": {
+    "original_filename": "language-exchange.json",
+    "normalized_filename": "language-glossary-language-exchange.json",
+    "original_id": "language-exchange",
+    "normalized_id": "language-glossary-language-exchange"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\language-learning.json": {
+    "original_filename": "language-learning.json",
+    "normalized_filename": "language-glossary-language-learning.json",
+    "original_id": "language-learning",
+    "normalized_id": "language-glossary-language-learning"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\minimal-pairs.json": {
+    "original_filename": "minimal-pairs.json",
+    "normalized_filename": "language-glossary-minimal-pairs.json",
+    "original_id": "minimal-pairs",
+    "normalized_id": "language-glossary-minimal-pairs"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\mother-tongue-interference.json": {
+    "original_filename": "mother-tongue-interference.json",
+    "normalized_filename": "language-glossary-mother-tongue-interference.json",
+    "original_id": "mother-tongue-interference",
+    "normalized_id": "language-glossary-mother-tongue-interference"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\passive-listening.json": {
+    "original_filename": "passive-listening.json",
+    "normalized_filename": "language-glossary-passive-listening.json",
+    "original_id": "passive-listening",
+    "normalized_id": "language-glossary-passive-listening"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\phrasal-verb.json": {
+    "original_filename": "phrasal-verb.json",
+    "normalized_filename": "language-glossary-phrasal-verb.json",
+    "original_id": "phrasal-verb",
+    "normalized_id": "language-glossary-phrasal-verb"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\pronunciation.json": {
+    "original_filename": "pronunciation.json",
+    "normalized_filename": "language-glossary-pronunciation.json",
+    "original_id": "pronunciation",
+    "normalized_id": "language-glossary-pronunciation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\self-correction.json": {
+    "original_filename": "self-correction.json",
+    "normalized_filename": "language-glossary-self-correction.json",
+    "original_id": "self-correction",
+    "normalized_id": "language-glossary-self-correction"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\shadowing.json": {
+    "original_filename": "shadowing.json",
+    "normalized_filename": "language-glossary-shadowing.json",
+    "original_id": "shadowing",
+    "normalized_id": "language-glossary-shadowing"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\spaced-repetition.json": {
+    "original_filename": "spaced-repetition.json",
+    "normalized_filename": "language-glossary-spaced-repetition.json",
+    "original_id": "spaced-repetition",
+    "normalized_id": "language-glossary-spaced-repetition"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\stress.json": {
+    "original_filename": "stress.json",
+    "normalized_filename": "language-glossary-stress.json",
+    "original_id": "stress",
+    "normalized_id": "language-glossary-stress"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\glossary\\vocabulary-in-context.json": {
+    "original_filename": "vocabulary-in-context.json",
+    "normalized_filename": "language-glossary-vocabulary-in-context.json",
+    "original_id": "vocabulary-in-context",
+    "normalized_id": "language-glossary-vocabulary-in-context"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\accent-coach.json": {
+    "original_filename": "accent-coach.json",
+    "normalized_filename": "language-prompt-accent-coach.json",
+    "original_id": "accent-coach",
+    "normalized_id": "language-prompt-accent-coach"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\cultural-context.json": {
+    "original_filename": "cultural-context.json",
+    "normalized_filename": "language-prompt-cultural-context.json",
+    "original_id": "cultural-context",
+    "normalized_id": "language-prompt-cultural-context"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\daily-journal.json": {
+    "original_filename": "daily-journal.json",
+    "normalized_filename": "language-prompt-daily-journal.json",
+    "original_id": "daily-journal",
+    "normalized_id": "language-prompt-daily-journal"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\debate-opponent.json": {
+    "original_filename": "debate-opponent.json",
+    "normalized_filename": "language-prompt-debate-opponent.json",
+    "original_id": "debate-opponent",
+    "normalized_id": "language-prompt-debate-opponent"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\email-drafter.json": {
+    "original_filename": "email-drafter.json",
+    "normalized_filename": "language-prompt-email-drafter.json",
+    "original_id": "email-drafter",
+    "normalized_id": "language-prompt-email-drafter"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\grammar-checker.json": {
+    "original_filename": "grammar-checker.json",
+    "normalized_filename": "language-prompt-grammar-checker.json",
+    "original_id": "grammar-checker",
+    "normalized_id": "language-prompt-grammar-checker"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\idiom-explainer.json": {
+    "original_filename": "idiom-explainer.json",
+    "normalized_filename": "language-prompt-idiom-explainer.json",
+    "original_id": "idiom-explainer",
+    "normalized_id": "language-prompt-idiom-explainer"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\listening-comprehension.json": {
+    "original_filename": "listening-comprehension.json",
+    "normalized_filename": "language-prompt-listening-comprehension.json",
+    "original_id": "listening-comprehension",
+    "normalized_id": "language-prompt-listening-comprehension"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\paragraph-improver.json": {
+    "original_filename": "paragraph-improver.json",
+    "normalized_filename": "language-prompt-paragraph-improver.json",
+    "original_id": "paragraph-improver",
+    "normalized_id": "language-prompt-paragraph-improver"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\phrasal-verb-story.json": {
+    "original_filename": "phrasal-verb-story.json",
+    "normalized_filename": "language-prompt-phrasal-verb-story.json",
+    "original_id": "phrasal-verb-story",
+    "normalized_id": "language-prompt-phrasal-verb-story"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\presentation-prep.json": {
+    "original_filename": "presentation-prep.json",
+    "normalized_filename": "language-prompt-presentation-prep.json",
+    "original_id": "presentation-prep",
+    "normalized_id": "language-prompt-presentation-prep"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\prompt-1.json": {
+    "original_filename": "prompt-1.json",
+    "normalized_filename": "language-prompt-prompt-1.json",
+    "original_id": "prompt-1",
+    "normalized_id": "language-prompt-prompt-1"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\prompt-10.json": {
+    "original_filename": "prompt-10.json",
+    "normalized_filename": "language-prompt-prompt-10.json",
+    "original_id": "prompt-10",
+    "normalized_id": "language-prompt-prompt-10"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\prompt-2.json": {
+    "original_filename": "prompt-2.json",
+    "normalized_filename": "language-prompt-prompt-2.json",
+    "original_id": "prompt-2",
+    "normalized_id": "language-prompt-prompt-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\prompt-3.json": {
+    "original_filename": "prompt-3.json",
+    "normalized_filename": "language-prompt-prompt-3.json",
+    "original_id": "prompt-3",
+    "normalized_id": "language-prompt-prompt-3"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\prompt-4.json": {
+    "original_filename": "prompt-4.json",
+    "normalized_filename": "language-prompt-prompt-4.json",
+    "original_id": "prompt-4",
+    "normalized_id": "language-prompt-prompt-4"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\prompt-5.json": {
+    "original_filename": "prompt-5.json",
+    "normalized_filename": "language-prompt-prompt-5.json",
+    "original_id": "prompt-5",
+    "normalized_id": "language-prompt-prompt-5"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\prompt-6.json": {
+    "original_filename": "prompt-6.json",
+    "normalized_filename": "language-prompt-prompt-6.json",
+    "original_id": "prompt-6",
+    "normalized_id": "language-prompt-prompt-6"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\prompt-7.json": {
+    "original_filename": "prompt-7.json",
+    "normalized_filename": "language-prompt-prompt-7.json",
+    "original_id": "prompt-7",
+    "normalized_id": "language-prompt-prompt-7"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\prompt-8.json": {
+    "original_filename": "prompt-8.json",
+    "normalized_filename": "language-prompt-prompt-8.json",
+    "original_id": "prompt-8",
+    "normalized_id": "language-prompt-prompt-8"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\prompt-9.json": {
+    "original_filename": "prompt-9.json",
+    "normalized_filename": "language-prompt-prompt-9.json",
+    "original_id": "prompt-9",
+    "normalized_id": "language-prompt-prompt-9"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\pronunciation-guide.json": {
+    "original_filename": "pronunciation-guide.json",
+    "normalized_filename": "language-prompt-pronunciation-guide.json",
+    "original_id": "pronunciation-guide",
+    "normalized_id": "language-prompt-pronunciation-guide"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\reading-summary.json": {
+    "original_filename": "reading-summary.json",
+    "normalized_filename": "language-prompt-reading-summary.json",
+    "original_id": "reading-summary",
+    "normalized_id": "language-prompt-reading-summary"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\roleplay-interview.json": {
+    "original_filename": "roleplay-interview.json",
+    "normalized_filename": "language-prompt-roleplay-interview.json",
+    "original_id": "roleplay-interview",
+    "normalized_id": "language-prompt-roleplay-interview"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\slang-translator.json": {
+    "original_filename": "slang-translator.json",
+    "normalized_filename": "language-prompt-slang-translator.json",
+    "original_id": "slang-translator",
+    "normalized_id": "language-prompt-slang-translator"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\small-talk.json": {
+    "original_filename": "small-talk.json",
+    "normalized_filename": "language-prompt-small-talk.json",
+    "original_id": "small-talk",
+    "normalized_id": "language-prompt-small-talk"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\speaking-partner.json": {
+    "original_filename": "speaking-partner.json",
+    "normalized_filename": "language-prompt-speaking-partner.json",
+    "original_id": "speaking-partner",
+    "normalized_id": "language-prompt-speaking-partner"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\story-generator.json": {
+    "original_filename": "story-generator.json",
+    "normalized_filename": "language-prompt-story-generator.json",
+    "original_id": "story-generator",
+    "normalized_id": "language-prompt-story-generator"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\translation-corrector.json": {
+    "original_filename": "translation-corrector.json",
+    "normalized_filename": "language-prompt-translation-corrector.json",
+    "original_id": "translation-corrector",
+    "normalized_id": "language-prompt-translation-corrector"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\prompts\\vocabulary-expander.json": {
+    "original_filename": "vocabulary-expander.json",
+    "normalized_filename": "language-prompt-vocabulary-expander.json",
+    "original_id": "vocabulary-expander",
+    "normalized_id": "language-prompt-vocabulary-expander"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\anki.json": {
+    "original_filename": "anki.json",
+    "normalized_filename": "language-resource-anki.json",
+    "original_id": "anki",
+    "normalized_id": "language-resource-anki"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\bbc-learning-english.json": {
+    "original_filename": "bbc-learning-english.json",
+    "normalized_filename": "language-resource-bbc-learning-english.json",
+    "original_id": "bbc-learning-english",
+    "normalized_id": "language-resource-bbc-learning-english"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\breaking-news-english.json": {
+    "original_filename": "breaking-news-english.json",
+    "normalized_filename": "language-resource-breaking-news-english.json",
+    "original_id": "breaking-news-english",
+    "normalized_id": "language-resource-breaking-news-english"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\british-council.json": {
+    "original_filename": "british-council.json",
+    "normalized_filename": "language-resource-british-council.json",
+    "original_id": "british-council",
+    "normalized_id": "language-resource-british-council"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\cambridge-dictionary.json": {
+    "original_filename": "cambridge-dictionary.json",
+    "normalized_filename": "language-resource-cambridge-dictionary.json",
+    "original_id": "cambridge-dictionary",
+    "normalized_id": "language-resource-cambridge-dictionary"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\coursera-english.json": {
+    "original_filename": "coursera-english.json",
+    "normalized_filename": "language-resource-coursera-english.json",
+    "original_id": "coursera-english",
+    "normalized_id": "language-resource-coursera-english"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\duolingo.json": {
+    "original_filename": "duolingo.json",
+    "normalized_filename": "language-resource-duolingo.json",
+    "original_id": "duolingo",
+    "normalized_id": "language-resource-duolingo"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\elllo.json": {
+    "original_filename": "elllo.json",
+    "normalized_filename": "language-resource-elllo.json",
+    "original_id": "elllo",
+    "normalized_id": "language-resource-elllo"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\english-club.json": {
+    "original_filename": "english-club.json",
+    "normalized_filename": "language-resource-english-club.json",
+    "original_id": "english-club",
+    "normalized_id": "language-resource-english-club"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\engvid.json": {
+    "original_filename": "engvid.json",
+    "normalized_filename": "language-resource-engvid.json",
+    "original_id": "engvid",
+    "normalized_id": "language-resource-engvid"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\esl-lab.json": {
+    "original_filename": "esl-lab.json",
+    "normalized_filename": "language-resource-esl-lab.json",
+    "original_id": "esl-lab",
+    "normalized_id": "language-resource-esl-lab"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\grammarly.json": {
+    "original_filename": "grammarly.json",
+    "normalized_filename": "language-resource-grammarly.json",
+    "original_id": "grammarly",
+    "normalized_id": "language-resource-grammarly"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\memrise.json": {
+    "original_filename": "memrise.json",
+    "normalized_filename": "language-resource-memrise.json",
+    "original_id": "memrise",
+    "normalized_id": "language-resource-memrise"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\oxford-learners-dictionaries.json": {
+    "original_filename": "oxford-learners-dictionaries.json",
+    "normalized_filename": "language-resource-oxford-learners-dictionaries.json",
+    "original_id": "oxford-learners-dictionaries",
+    "normalized_id": "language-resource-oxford-learners-dictionaries"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\quizlet.json": {
+    "original_filename": "quizlet.json",
+    "normalized_filename": "language-resource-quizlet.json",
+    "original_id": "quizlet",
+    "normalized_id": "language-resource-quizlet"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\rachel-english.json": {
+    "original_filename": "rachel-english.json",
+    "normalized_filename": "language-resource-rachel-english.json",
+    "original_id": "rachel-english",
+    "normalized_id": "language-resource-rachel-english"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\resource-1.json": {
+    "original_filename": "resource-1.json",
+    "normalized_filename": "language-resource-resource-1.json",
+    "original_id": "resource-1",
+    "normalized_id": "language-resource-resource-1"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\resource-10.json": {
+    "original_filename": "resource-10.json",
+    "normalized_filename": "language-resource-resource-10.json",
+    "original_id": "resource-10",
+    "normalized_id": "language-resource-resource-10"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\resource-2.json": {
+    "original_filename": "resource-2.json",
+    "normalized_filename": "language-resource-resource-2.json",
+    "original_id": "resource-2",
+    "normalized_id": "language-resource-resource-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\resource-3.json": {
+    "original_filename": "resource-3.json",
+    "normalized_filename": "language-resource-resource-3.json",
+    "original_id": "resource-3",
+    "normalized_id": "language-resource-resource-3"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\resource-4.json": {
+    "original_filename": "resource-4.json",
+    "normalized_filename": "language-resource-resource-4.json",
+    "original_id": "resource-4",
+    "normalized_id": "language-resource-resource-4"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\resource-5.json": {
+    "original_filename": "resource-5.json",
+    "normalized_filename": "language-resource-resource-5.json",
+    "original_id": "resource-5",
+    "normalized_id": "language-resource-resource-5"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\resource-6.json": {
+    "original_filename": "resource-6.json",
+    "normalized_filename": "language-resource-resource-6.json",
+    "original_id": "resource-6",
+    "normalized_id": "language-resource-resource-6"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\resource-7.json": {
+    "original_filename": "resource-7.json",
+    "normalized_filename": "language-resource-resource-7.json",
+    "original_id": "resource-7",
+    "normalized_id": "language-resource-resource-7"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\resource-8.json": {
+    "original_filename": "resource-8.json",
+    "normalized_filename": "language-resource-resource-8.json",
+    "original_id": "resource-8",
+    "normalized_id": "language-resource-resource-8"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\resource-9.json": {
+    "original_filename": "resource-9.json",
+    "normalized_filename": "language-resource-resource-9.json",
+    "original_id": "resource-9",
+    "normalized_id": "language-resource-resource-9"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\talk-english.json": {
+    "original_filename": "talk-english.json",
+    "normalized_filename": "language-resource-talk-english.json",
+    "original_id": "talk-english",
+    "normalized_id": "language-resource-talk-english"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\ted-talks.json": {
+    "original_filename": "ted-talks.json",
+    "normalized_filename": "language-resource-ted-talks.json",
+    "original_id": "ted-talks",
+    "normalized_id": "language-resource-ted-talks"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\voa-learning-english.json": {
+    "original_filename": "voa-learning-english.json",
+    "normalized_filename": "language-resource-voa-learning-english.json",
+    "original_id": "voa-learning-english",
+    "normalized_id": "language-resource-voa-learning-english"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\resources\\youglish.json": {
+    "original_filename": "youglish.json",
+    "normalized_filename": "language-resource-youglish.json",
+    "original_id": "youglish",
+    "normalized_id": "language-resource-youglish"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\active-vs-passive-listening.md": {
+    "original_filename": "active-vs-passive-listening.md",
+    "normalized_filename": "language-lesson-active-vs-passive-listening.md",
+    "original_id": "active-vs-passive-listening",
+    "normalized_id": "language-lesson-active-vs-passive-listening"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\conversation-practice.md": {
+    "original_filename": "conversation-practice.md",
+    "normalized_filename": "language-lesson-conversation-practice.md",
+    "original_id": "conversation-practice",
+    "normalized_id": "language-lesson-conversation-practice"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\grammar-in-context.md": {
+    "original_filename": "grammar-in-context.md",
+    "normalized_filename": "language-lesson-grammar-in-context-2.md",
+    "original_id": "grammar-in-context-2",
+    "normalized_id": "language-lesson-grammar-in-context-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\how-to-start-speaking.md": {
+    "original_filename": "how-to-start-speaking.md",
+    "normalized_filename": "language-lesson-how-to-start-speaking.md",
+    "original_id": "how-to-start-speaking",
+    "normalized_id": "language-lesson-how-to-start-speaking"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\interview-english.md": {
+    "original_filename": "interview-english.md",
+    "normalized_filename": "language-lesson-interview-english.md",
+    "original_id": "interview-english",
+    "normalized_id": "language-lesson-interview-english"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\introduction-to-cefr.md": {
+    "original_filename": "introduction-to-cefr.md",
+    "normalized_filename": "language-lesson-introduction-to-cefr.md",
+    "original_id": "introduction-to-cefr",
+    "normalized_id": "language-lesson-introduction-to-cefr"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\lesson-1.md": {
+    "original_filename": "lesson-1.md",
+    "normalized_filename": "language-lesson-lesson-1.md",
+    "original_id": "language-lesson-lesson-1",
+    "normalized_id": "language-lesson-lesson-1"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\lesson-2.md": {
+    "original_filename": "lesson-2.md",
+    "normalized_filename": "language-lesson-lesson-2.md",
+    "original_id": "language-lesson-lesson-2",
+    "normalized_id": "language-lesson-lesson-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\lesson-3.md": {
+    "original_filename": "lesson-3.md",
+    "normalized_filename": "language-lesson-lesson-3.md",
+    "original_id": "language-lesson-lesson-3",
+    "normalized_id": "language-lesson-lesson-3"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\lesson-4.md": {
+    "original_filename": "lesson-4.md",
+    "normalized_filename": "language-lesson-lesson-4.md",
+    "original_id": "language-lesson-lesson-4",
+    "normalized_id": "language-lesson-lesson-4"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\lesson-5.md": {
+    "original_filename": "lesson-5.md",
+    "normalized_filename": "language-lesson-lesson-5.md",
+    "original_id": "language-lesson-lesson-5",
+    "normalized_id": "language-lesson-lesson-5"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\lesson-6.md": {
+    "original_filename": "lesson-6.md",
+    "normalized_filename": "language-lesson-lesson-6.md",
+    "original_id": "language-lesson-lesson-6",
+    "normalized_id": "language-lesson-lesson-6"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\mastering-shadowing.md": {
+    "original_filename": "mastering-shadowing.md",
+    "normalized_filename": "language-lesson-mastering-shadowing.md",
+    "original_id": "mastering-shadowing",
+    "normalized_id": "language-lesson-mastering-shadowing"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\perfecting-pronunciation.md": {
+    "original_filename": "perfecting-pronunciation.md",
+    "normalized_filename": "language-lesson-perfecting-pronunciation.md",
+    "original_id": "perfecting-pronunciation",
+    "normalized_id": "language-lesson-perfecting-pronunciation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\self-correction-techniques.md": {
+    "original_filename": "self-correction-techniques.md",
+    "normalized_filename": "language-lesson-self-correction-techniques.md",
+    "original_id": "self-correction-techniques",
+    "normalized_id": "language-lesson-self-correction-techniques"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\stop-translating.md": {
+    "original_filename": "stop-translating.md",
+    "normalized_filename": "language-lesson-stop-translating.md",
+    "original_id": "stop-translating",
+    "normalized_id": "language-lesson-stop-translating"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\using-ai-coaches.md": {
+    "original_filename": "using-ai-coaches.md",
+    "normalized_filename": "language-lesson-using-ai-coaches.md",
+    "original_id": "using-ai-coaches",
+    "normalized_id": "language-lesson-using-ai-coaches"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\vocabulary-systems.md": {
+    "original_filename": "vocabulary-systems.md",
+    "normalized_filename": "language-lesson-vocabulary-systems.md",
+    "original_id": "vocabulary-systems",
+    "normalized_id": "language-lesson-vocabulary-systems"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\weekly-progress-tracking.md": {
+    "original_filename": "weekly-progress-tracking.md",
+    "normalized_filename": "language-lesson-weekly-progress-tracking.md",
+    "original_id": "weekly-progress-tracking",
+    "normalized_id": "language-lesson-weekly-progress-tracking"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\language\\lessons\\writing-clear-paragraphs.md": {
+    "original_filename": "writing-clear-paragraphs.md",
+    "normalized_filename": "language-lesson-writing-clear-paragraphs.md",
+    "original_id": "writing-clear-paragraphs",
+    "normalized_id": "language-lesson-writing-clear-paragraphs"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_1.json": {
+    "original_filename": "item_1.json",
+    "normalized_filename": "nano-banana-glossary-item-1.json",
+    "original_id": "nano-banana-glossary-item-1",
+    "normalized_id": "nano-banana-glossary-item-1"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_10.json": {
+    "original_filename": "item_10.json",
+    "normalized_filename": "nano-banana-glossary-item-10.json",
+    "original_id": "nano-banana-glossary-item-10",
+    "normalized_id": "nano-banana-glossary-item-10"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_11.json": {
+    "original_filename": "item_11.json",
+    "normalized_filename": "nano-banana-glossary-item-11.json",
+    "original_id": "nano-banana-glossary-item-11",
+    "normalized_id": "nano-banana-glossary-item-11"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_12.json": {
+    "original_filename": "item_12.json",
+    "normalized_filename": "nano-banana-glossary-item-12.json",
+    "original_id": "nano-banana-glossary-item-12",
+    "normalized_id": "nano-banana-glossary-item-12"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_13.json": {
+    "original_filename": "item_13.json",
+    "normalized_filename": "nano-banana-glossary-item-13.json",
+    "original_id": "nano-banana-glossary-item-13",
+    "normalized_id": "nano-banana-glossary-item-13"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_14.json": {
+    "original_filename": "item_14.json",
+    "normalized_filename": "nano-banana-glossary-item-14.json",
+    "original_id": "nano-banana-glossary-item-14",
+    "normalized_id": "nano-banana-glossary-item-14"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_15.json": {
+    "original_filename": "item_15.json",
+    "normalized_filename": "nano-banana-glossary-item-15.json",
+    "original_id": "nano-banana-glossary-item-15",
+    "normalized_id": "nano-banana-glossary-item-15"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_16.json": {
+    "original_filename": "item_16.json",
+    "normalized_filename": "nano-banana-glossary-item-16.json",
+    "original_id": "nano-banana-glossary-item-16",
+    "normalized_id": "nano-banana-glossary-item-16"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_17.json": {
+    "original_filename": "item_17.json",
+    "normalized_filename": "nano-banana-glossary-item-17.json",
+    "original_id": "nano-banana-glossary-item-17",
+    "normalized_id": "nano-banana-glossary-item-17"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_18.json": {
+    "original_filename": "item_18.json",
+    "normalized_filename": "nano-banana-glossary-item-18.json",
+    "original_id": "nano-banana-glossary-item-18",
+    "normalized_id": "nano-banana-glossary-item-18"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_19.json": {
+    "original_filename": "item_19.json",
+    "normalized_filename": "nano-banana-glossary-item-19.json",
+    "original_id": "nano-banana-glossary-item-19",
+    "normalized_id": "nano-banana-glossary-item-19"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_2.json": {
+    "original_filename": "item_2.json",
+    "normalized_filename": "nano-banana-glossary-item-2.json",
+    "original_id": "nano-banana-glossary-item-2",
+    "normalized_id": "nano-banana-glossary-item-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_20.json": {
+    "original_filename": "item_20.json",
+    "normalized_filename": "nano-banana-glossary-item-20.json",
+    "original_id": "nano-banana-glossary-item-20",
+    "normalized_id": "nano-banana-glossary-item-20"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_3.json": {
+    "original_filename": "item_3.json",
+    "normalized_filename": "nano-banana-glossary-item-3.json",
+    "original_id": "nano-banana-glossary-item-3",
+    "normalized_id": "nano-banana-glossary-item-3"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_4.json": {
+    "original_filename": "item_4.json",
+    "normalized_filename": "nano-banana-glossary-item-4.json",
+    "original_id": "nano-banana-glossary-item-4",
+    "normalized_id": "nano-banana-glossary-item-4"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_5.json": {
+    "original_filename": "item_5.json",
+    "normalized_filename": "nano-banana-glossary-item-5.json",
+    "original_id": "nano-banana-glossary-item-5",
+    "normalized_id": "nano-banana-glossary-item-5"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_6.json": {
+    "original_filename": "item_6.json",
+    "normalized_filename": "nano-banana-glossary-item-6.json",
+    "original_id": "nano-banana-glossary-item-6",
+    "normalized_id": "nano-banana-glossary-item-6"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_7.json": {
+    "original_filename": "item_7.json",
+    "normalized_filename": "nano-banana-glossary-item-7.json",
+    "original_id": "nano-banana-glossary-item-7",
+    "normalized_id": "nano-banana-glossary-item-7"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_8.json": {
+    "original_filename": "item_8.json",
+    "normalized_filename": "nano-banana-glossary-item-8.json",
+    "original_id": "nano-banana-glossary-item-8",
+    "normalized_id": "nano-banana-glossary-item-8"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\glossary\\item_9.json": {
+    "original_filename": "item_9.json",
+    "normalized_filename": "nano-banana-glossary-item-9.json",
+    "original_id": "nano-banana-glossary-item-9",
+    "normalized_id": "nano-banana-glossary-item-9"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\prompts\\item_1.json": {
+    "original_filename": "item_1.json",
+    "normalized_filename": "nano-banana-prompt-item-1.json",
+    "original_id": "nano-banana-prompt-item-1",
+    "normalized_id": "nano-banana-prompt-item-1"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\prompts\\item_10.json": {
+    "original_filename": "item_10.json",
+    "normalized_filename": "nano-banana-prompt-item-10.json",
+    "original_id": "nano-banana-prompt-item-10",
+    "normalized_id": "nano-banana-prompt-item-10"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\prompts\\item_2.json": {
+    "original_filename": "item_2.json",
+    "normalized_filename": "nano-banana-prompt-item-2.json",
+    "original_id": "nano-banana-prompt-item-2",
+    "normalized_id": "nano-banana-prompt-item-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\prompts\\item_3.json": {
+    "original_filename": "item_3.json",
+    "normalized_filename": "nano-banana-prompt-item-3.json",
+    "original_id": "nano-banana-prompt-item-3",
+    "normalized_id": "nano-banana-prompt-item-3"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\prompts\\item_4.json": {
+    "original_filename": "item_4.json",
+    "normalized_filename": "nano-banana-prompt-item-4.json",
+    "original_id": "nano-banana-prompt-item-4",
+    "normalized_id": "nano-banana-prompt-item-4"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\prompts\\item_5.json": {
+    "original_filename": "item_5.json",
+    "normalized_filename": "nano-banana-prompt-item-5.json",
+    "original_id": "nano-banana-prompt-item-5",
+    "normalized_id": "nano-banana-prompt-item-5"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\prompts\\item_6.json": {
+    "original_filename": "item_6.json",
+    "normalized_filename": "nano-banana-prompt-item-6.json",
+    "original_id": "nano-banana-prompt-item-6",
+    "normalized_id": "nano-banana-prompt-item-6"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\prompts\\item_7.json": {
+    "original_filename": "item_7.json",
+    "normalized_filename": "nano-banana-prompt-item-7.json",
+    "original_id": "nano-banana-prompt-item-7",
+    "normalized_id": "nano-banana-prompt-item-7"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\prompts\\item_8.json": {
+    "original_filename": "item_8.json",
+    "normalized_filename": "nano-banana-prompt-item-8.json",
+    "original_id": "nano-banana-prompt-item-8",
+    "normalized_id": "nano-banana-prompt-item-8"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\prompts\\item_9.json": {
+    "original_filename": "item_9.json",
+    "normalized_filename": "nano-banana-prompt-item-9.json",
+    "original_id": "nano-banana-prompt-item-9",
+    "normalized_id": "nano-banana-prompt-item-9"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\resources\\item_1.json": {
+    "original_filename": "item_1.json",
+    "normalized_filename": "nano-banana-resource-item-1.json",
+    "original_id": "nano-banana-resource-item-1",
+    "normalized_id": "nano-banana-resource-item-1"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\resources\\item_10.json": {
+    "original_filename": "item_10.json",
+    "normalized_filename": "nano-banana-resource-item-10.json",
+    "original_id": "nano-banana-resource-item-10",
+    "normalized_id": "nano-banana-resource-item-10"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\resources\\item_2.json": {
+    "original_filename": "item_2.json",
+    "normalized_filename": "nano-banana-resource-item-2.json",
+    "original_id": "nano-banana-resource-item-2",
+    "normalized_id": "nano-banana-resource-item-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\resources\\item_3.json": {
+    "original_filename": "item_3.json",
+    "normalized_filename": "nano-banana-resource-item-3.json",
+    "original_id": "nano-banana-resource-item-3",
+    "normalized_id": "nano-banana-resource-item-3"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\resources\\item_4.json": {
+    "original_filename": "item_4.json",
+    "normalized_filename": "nano-banana-resource-item-4.json",
+    "original_id": "nano-banana-resource-item-4",
+    "normalized_id": "nano-banana-resource-item-4"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\resources\\item_5.json": {
+    "original_filename": "item_5.json",
+    "normalized_filename": "nano-banana-resource-item-5.json",
+    "original_id": "nano-banana-resource-item-5",
+    "normalized_id": "nano-banana-resource-item-5"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\resources\\item_6.json": {
+    "original_filename": "item_6.json",
+    "normalized_filename": "nano-banana-resource-item-6.json",
+    "original_id": "nano-banana-resource-item-6",
+    "normalized_id": "nano-banana-resource-item-6"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\resources\\item_7.json": {
+    "original_filename": "item_7.json",
+    "normalized_filename": "nano-banana-resource-item-7.json",
+    "original_id": "nano-banana-resource-item-7",
+    "normalized_id": "nano-banana-resource-item-7"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\resources\\item_8.json": {
+    "original_filename": "item_8.json",
+    "normalized_filename": "nano-banana-resource-item-8.json",
+    "original_id": "nano-banana-resource-item-8",
+    "normalized_id": "nano-banana-resource-item-8"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\resources\\item_9.json": {
+    "original_filename": "item_9.json",
+    "normalized_filename": "nano-banana-resource-item-9.json",
+    "original_id": "nano-banana-resource-item-9",
+    "normalized_id": "nano-banana-resource-item-9"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\lessons\\lesson_1.md": {
+    "original_filename": "lesson_1.md",
+    "normalized_filename": "nano-banana-lesson-lesson-1.md",
+    "original_id": "nano-banana-lesson-lesson-1",
+    "normalized_id": "nano-banana-lesson-lesson-1"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\lessons\\lesson_2.md": {
+    "original_filename": "lesson_2.md",
+    "normalized_filename": "nano-banana-lesson-lesson-2.md",
+    "original_id": "nano-banana-lesson-lesson-2",
+    "normalized_id": "nano-banana-lesson-lesson-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\lessons\\lesson_3.md": {
+    "original_filename": "lesson_3.md",
+    "normalized_filename": "nano-banana-lesson-lesson-3.md",
+    "original_id": "nano-banana-lesson-lesson-3",
+    "normalized_id": "nano-banana-lesson-lesson-3"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\lessons\\lesson_4.md": {
+    "original_filename": "lesson_4.md",
+    "normalized_filename": "nano-banana-lesson-lesson-4.md",
+    "original_id": "nano-banana-lesson-lesson-4",
+    "normalized_id": "nano-banana-lesson-lesson-4"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\lessons\\lesson_5.md": {
+    "original_filename": "lesson_5.md",
+    "normalized_filename": "nano-banana-lesson-lesson-5.md",
+    "original_id": "nano-banana-lesson-lesson-5",
+    "normalized_id": "nano-banana-lesson-lesson-5"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\nano-banana\\lessons\\lesson_6.md": {
+    "original_filename": "lesson_6.md",
+    "normalized_filename": "nano-banana-lesson-lesson-6.md",
+    "original_id": "nano-banana-lesson-lesson-6",
+    "normalized_id": "nano-banana-lesson-lesson-6"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\ai-tools.json": {
+    "original_filename": "ai-tools.json",
+    "normalized_filename": "tools-hub-glossary-ai-tools-2.json",
+    "original_id": "ai-tools-2",
+    "normalized_id": "tools-hub-glossary-ai-tools-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\automation-tools.json": {
+    "original_filename": "automation-tools.json",
+    "normalized_filename": "tools-hub-glossary-automation-tools.json",
+    "original_id": "automation-tools",
+    "normalized_id": "tools-hub-glossary-automation-tools"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\cloud-tools.json": {
+    "original_filename": "cloud-tools.json",
+    "normalized_filename": "tools-hub-glossary-cloud-tools.json",
+    "original_id": "cloud-tools",
+    "normalized_id": "tools-hub-glossary-cloud-tools"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\data-export.json": {
+    "original_filename": "data-export.json",
+    "normalized_filename": "tools-hub-glossary-data-export.json",
+    "original_id": "data-export",
+    "normalized_id": "tools-hub-glossary-data-export"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\freemium.json": {
+    "original_filename": "freemium.json",
+    "normalized_filename": "tools-hub-glossary-freemium.json",
+    "original_id": "freemium",
+    "normalized_id": "tools-hub-glossary-freemium"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\integration.json": {
+    "original_filename": "integration.json",
+    "normalized_filename": "tools-hub-glossary-integration.json",
+    "original_id": "tools-hub-glossary-integration",
+    "normalized_id": "tools-hub-glossary-integration"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\keyboard-shortcuts.json": {
+    "original_filename": "keyboard-shortcuts.json",
+    "normalized_filename": "tools-hub-glossary-keyboard-shortcuts.json",
+    "original_id": "keyboard-shortcuts",
+    "normalized_id": "tools-hub-glossary-keyboard-shortcuts"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\markdown.json": {
+    "original_filename": "markdown.json",
+    "normalized_filename": "tools-hub-glossary-markdown.json",
+    "original_id": "markdown",
+    "normalized_id": "tools-hub-glossary-markdown"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\offline-first.json": {
+    "original_filename": "offline-first.json",
+    "normalized_filename": "tools-hub-glossary-offline-first.json",
+    "original_id": "offline-first",
+    "normalized_id": "tools-hub-glossary-offline-first"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\onboarding.json": {
+    "original_filename": "onboarding.json",
+    "normalized_filename": "tools-hub-glossary-onboarding.json",
+    "original_id": "tools-hub-glossary-onboarding",
+    "normalized_id": "tools-hub-glossary-onboarding"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\open-source.json": {
+    "original_filename": "open-source.json",
+    "normalized_filename": "tools-hub-glossary-open-source.json",
+    "original_id": "open-source",
+    "normalized_id": "tools-hub-glossary-open-source"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\personal-stack.json": {
+    "original_filename": "personal-stack.json",
+    "normalized_filename": "tools-hub-glossary-personal-stack.json",
+    "original_id": "personal-stack",
+    "normalized_id": "tools-hub-glossary-personal-stack"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\privacy-check.json": {
+    "original_filename": "privacy-check.json",
+    "normalized_filename": "tools-hub-glossary-privacy-check.json",
+    "original_id": "privacy-check",
+    "normalized_id": "tools-hub-glossary-privacy-check"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\safe-testing.json": {
+    "original_filename": "safe-testing.json",
+    "normalized_filename": "tools-hub-glossary-safe-testing.json",
+    "original_id": "safe-testing",
+    "normalized_id": "tools-hub-glossary-safe-testing"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\tool-evaluation.json": {
+    "original_filename": "tool-evaluation.json",
+    "normalized_filename": "tools-hub-glossary-tool-evaluation.json",
+    "original_id": "tool-evaluation",
+    "normalized_id": "tools-hub-glossary-tool-evaluation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\tool-overload.json": {
+    "original_filename": "tool-overload.json",
+    "normalized_filename": "tools-hub-glossary-tool-overload.json",
+    "original_id": "tool-overload",
+    "normalized_id": "tools-hub-glossary-tool-overload"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\tool-selection.json": {
+    "original_filename": "tool-selection.json",
+    "normalized_filename": "tools-hub-glossary-tool-selection.json",
+    "original_id": "tool-selection",
+    "normalized_id": "tools-hub-glossary-tool-selection"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\tools-hub-glossary-data-export.json": {
+    "original_filename": "tools-hub-glossary-data-export.json",
+    "normalized_filename": "tools-hub-glossary-data-export-2.json",
+    "original_id": "tools-hub-glossary-data-export",
+    "normalized_id": "tools-hub-glossary-data-export-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\tools-hub-glossary-freemium.json": {
+    "original_filename": "tools-hub-glossary-freemium.json",
+    "normalized_filename": "tools-hub-glossary-freemium-2.json",
+    "original_id": "tools-hub-glossary-freemium",
+    "normalized_id": "tools-hub-glossary-freemium-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\tools-hub-glossary-integration.json": {
+    "original_filename": "tools-hub-glossary-integration.json",
+    "normalized_filename": "tools-hub-glossary-integration-2.json",
+    "original_id": "tools-hub-glossary-integration-2",
+    "normalized_id": "tools-hub-glossary-integration-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\tools-hub-glossary-markdown.json": {
+    "original_filename": "tools-hub-glossary-markdown.json",
+    "normalized_filename": "tools-hub-glossary-markdown-2.json",
+    "original_id": "tools-hub-glossary-markdown",
+    "normalized_id": "tools-hub-glossary-markdown-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\tools-hub-glossary-onboarding.json": {
+    "original_filename": "tools-hub-glossary-onboarding.json",
+    "normalized_filename": "tools-hub-glossary-onboarding-2.json",
+    "original_id": "tools-hub-glossary-onboarding-2",
+    "normalized_id": "tools-hub-glossary-onboarding-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\tools-hub-glossary-open-source.json": {
+    "original_filename": "tools-hub-glossary-open-source.json",
+    "normalized_filename": "tools-hub-glossary-open-source-2.json",
+    "original_id": "tools-hub-glossary-open-source",
+    "normalized_id": "tools-hub-glossary-open-source-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\tools-hub-glossary-tool-overload.json": {
+    "original_filename": "tools-hub-glossary-tool-overload.json",
+    "normalized_filename": "tools-hub-glossary-tool-overload-2.json",
+    "original_id": "tools-hub-glossary-tool-overload",
+    "normalized_id": "tools-hub-glossary-tool-overload-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\user-interface.json": {
+    "original_filename": "user-interface.json",
+    "normalized_filename": "tools-hub-glossary-user-interface.json",
+    "original_id": "user-interface",
+    "normalized_id": "tools-hub-glossary-user-interface"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\vendor-lock-in.json": {
+    "original_filename": "vendor-lock-in.json",
+    "normalized_filename": "tools-hub-glossary-vendor-lock-in-2.json",
+    "original_id": "vendor-lock-in",
+    "normalized_id": "tools-hub-glossary-vendor-lock-in-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\glossary\\workflow.json": {
+    "original_filename": "workflow.json",
+    "normalized_filename": "tools-hub-glossary-workflow.json",
+    "original_id": "workflow",
+    "normalized_id": "tools-hub-glossary-workflow"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\prompts\\automate-task.json": {
+    "original_filename": "automate-task.json",
+    "normalized_filename": "tools-hub-prompt-automate-task.json",
+    "original_id": "automate-task",
+    "normalized_id": "tools-hub-prompt-automate-task"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\prompts\\compare-tools.json": {
+    "original_filename": "compare-tools.json",
+    "normalized_filename": "tools-hub-prompt-compare-tools.json",
+    "original_id": "compare-tools",
+    "normalized_id": "tools-hub-prompt-compare-tools"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\prompts\\free-alternatives.json": {
+    "original_filename": "free-alternatives.json",
+    "normalized_filename": "tools-hub-prompt-free-alternatives.json",
+    "original_id": "free-alternatives",
+    "normalized_id": "tools-hub-prompt-free-alternatives"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\prompts\\learn-tool.json": {
+    "original_filename": "learn-tool.json",
+    "normalized_filename": "tools-hub-prompt-learn-tool.json",
+    "original_id": "learn-tool",
+    "normalized_id": "tools-hub-prompt-learn-tool"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\prompts\\markdown-conversion.json": {
+    "original_filename": "markdown-conversion.json",
+    "normalized_filename": "tools-hub-prompt-markdown-conversion.json",
+    "original_id": "markdown-conversion",
+    "normalized_id": "tools-hub-prompt-markdown-conversion"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\prompts\\privacy-analysis.json": {
+    "original_filename": "privacy-analysis.json",
+    "normalized_filename": "tools-hub-prompt-privacy-analysis.json",
+    "original_id": "privacy-analysis",
+    "normalized_id": "tools-hub-prompt-privacy-analysis"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\prompts\\prompt-engineering.json": {
+    "original_filename": "prompt-engineering.json",
+    "normalized_filename": "tools-hub-prompt-prompt-engineering.json",
+    "original_id": "tools-hub-prompt-prompt-engineering",
+    "normalized_id": "tools-hub-prompt-prompt-engineering"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\prompts\\simplify-workflow.json": {
+    "original_filename": "simplify-workflow.json",
+    "normalized_filename": "tools-hub-prompt-simplify-workflow.json",
+    "original_id": "simplify-workflow",
+    "normalized_id": "tools-hub-prompt-simplify-workflow"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\prompts\\tool-recommendation.json": {
+    "original_filename": "tool-recommendation.json",
+    "normalized_filename": "tools-hub-prompt-tool-recommendation.json",
+    "original_id": "tool-recommendation",
+    "normalized_id": "tools-hub-prompt-tool-recommendation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\prompts\\troubleshoot-tool.json": {
+    "original_filename": "troubleshoot-tool.json",
+    "normalized_filename": "tools-hub-prompt-troubleshoot-tool.json",
+    "original_id": "troubleshoot-tool",
+    "normalized_id": "tools-hub-prompt-troubleshoot-tool"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\alternative-to.json": {
+    "original_filename": "alternative-to.json",
+    "normalized_filename": "tools-hub-resource-alternative-to.json",
+    "original_id": "alternative-to",
+    "normalized_id": "tools-hub-resource-alternative-to"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\chatgpt.json": {
+    "original_filename": "chatgpt.json",
+    "normalized_filename": "tools-hub-resource-chatgpt.json",
+    "original_id": "tools-hub-resource-chatgpt",
+    "normalized_id": "tools-hub-resource-chatgpt"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\github.json": {
+    "original_filename": "github.json",
+    "normalized_filename": "tools-hub-resource-github.json",
+    "original_id": "github",
+    "normalized_id": "tools-hub-resource-github"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\make.json": {
+    "original_filename": "make.json",
+    "normalized_filename": "tools-hub-resource-make.json",
+    "original_id": "tools-hub-resource-make",
+    "normalized_id": "tools-hub-resource-make"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\notion.json": {
+    "original_filename": "notion.json",
+    "normalized_filename": "tools-hub-resource-notion.json",
+    "original_id": "notion",
+    "normalized_id": "tools-hub-resource-notion"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\obsidian.json": {
+    "original_filename": "obsidian.json",
+    "normalized_filename": "tools-hub-resource-obsidian.json",
+    "original_id": "obsidian",
+    "normalized_id": "tools-hub-resource-obsidian"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\privacy-tools.json": {
+    "original_filename": "privacy-tools.json",
+    "normalized_filename": "tools-hub-resource-privacy-tools.json",
+    "original_id": "privacy-tools",
+    "normalized_id": "tools-hub-resource-privacy-tools"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\product-hunt.json": {
+    "original_filename": "product-hunt.json",
+    "normalized_filename": "tools-hub-resource-product-hunt.json",
+    "original_id": "product-hunt",
+    "normalized_id": "tools-hub-resource-product-hunt"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\todoist.json": {
+    "original_filename": "todoist.json",
+    "normalized_filename": "tools-hub-resource-todoist.json",
+    "original_id": "todoist",
+    "normalized_id": "tools-hub-resource-todoist"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\tools-hub-resource-chatgpt.json": {
+    "original_filename": "tools-hub-resource-chatgpt.json",
+    "normalized_filename": "tools-hub-resource-chatgpt-2.json",
+    "original_id": "tools-hub-resource-chatgpt-2",
+    "normalized_id": "tools-hub-resource-chatgpt-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\tools-hub-resource-github.json": {
+    "original_filename": "tools-hub-resource-github.json",
+    "normalized_filename": "tools-hub-resource-github-2.json",
+    "original_id": "tools-hub-resource-github",
+    "normalized_id": "tools-hub-resource-github-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\tools-hub-resource-make.json": {
+    "original_filename": "tools-hub-resource-make.json",
+    "normalized_filename": "tools-hub-resource-make-2.json",
+    "original_id": "tools-hub-resource-make-2",
+    "normalized_id": "tools-hub-resource-make-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\tools-hub-resource-notion.json": {
+    "original_filename": "tools-hub-resource-notion.json",
+    "normalized_filename": "tools-hub-resource-notion-2.json",
+    "original_id": "tools-hub-resource-notion",
+    "normalized_id": "tools-hub-resource-notion-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\tools-hub-resource-obsidian.json": {
+    "original_filename": "tools-hub-resource-obsidian.json",
+    "normalized_filename": "tools-hub-resource-obsidian-2.json",
+    "original_id": "tools-hub-resource-obsidian",
+    "normalized_id": "tools-hub-resource-obsidian-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\tools-hub-resource-todoist.json": {
+    "original_filename": "tools-hub-resource-todoist.json",
+    "normalized_filename": "tools-hub-resource-todoist-2.json",
+    "original_id": "tools-hub-resource-todoist",
+    "normalized_id": "tools-hub-resource-todoist-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\resources\\zapier.json": {
+    "original_filename": "zapier.json",
+    "normalized_filename": "tools-hub-resource-zapier-2.json",
+    "original_id": "tools-hub-resource-zapier-2",
+    "normalized_id": "tools-hub-resource-zapier-2"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\lessons\\avoiding-tool-overload.md": {
+    "original_filename": "avoiding-tool-overload.md",
+    "normalized_filename": "tools-hub-lesson-avoiding-tool-overload.md",
+    "original_id": "avoiding-tool-overload",
+    "normalized_id": "tools-hub-lesson-avoiding-tool-overload"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\lessons\\building-personal-stack.md": {
+    "original_filename": "building-personal-stack.md",
+    "normalized_filename": "tools-hub-lesson-building-personal-stack.md",
+    "original_id": "building-personal-stack",
+    "normalized_id": "tools-hub-lesson-building-personal-stack"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\lessons\\how-to-choose-tools.md": {
+    "original_filename": "how-to-choose-tools.md",
+    "normalized_filename": "tools-hub-lesson-how-to-choose-tools.md",
+    "original_id": "how-to-choose-tools",
+    "normalized_id": "tools-hub-lesson-how-to-choose-tools"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\lessons\\introduction-to-automation.md": {
+    "original_filename": "introduction-to-automation.md",
+    "normalized_filename": "tools-hub-lesson-introduction-to-automation.md",
+    "original_id": "introduction-to-automation",
+    "normalized_id": "tools-hub-lesson-introduction-to-automation"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\lessons\\markdown-basics.md": {
+    "original_filename": "markdown-basics.md",
+    "normalized_filename": "tools-hub-lesson-markdown-basics.md",
+    "original_id": "markdown-basics",
+    "normalized_id": "tools-hub-lesson-markdown-basics"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\lessons\\privacy-and-security.md": {
+    "original_filename": "privacy-and-security.md",
+    "normalized_filename": "tools-hub-lesson-privacy-and-security.md",
+    "original_id": "privacy-and-security",
+    "normalized_id": "tools-hub-lesson-privacy-and-security"
+  },
+  "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\content-source\\tools-hub\\lessons\\tools-hub-lesson-avoiding-tool-overload.md": {
+    "original_filename": "tools-hub-lesson-avoiding-tool-overload.md",
+    "normalized_filename": "tools-hub-lesson-avoiding-tool-overload-2.md",
+    "original_id": "tools-hub-lesson-avoiding-tool-overload",
+    "normalized_id": "tools-hub-lesson-avoiding-tool-overload-2"
+  }
+}

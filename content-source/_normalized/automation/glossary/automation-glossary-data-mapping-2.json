@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-data-mapping-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "ربط حقول البيانات من تطبيق المصدر بحقول تطبيق الهدف.",
+    "example": "ربط حقل 'الاسم الأول' في النموذج مع حقل 'First Name' في CRM."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "تخطيط البيانات (Data Mapping)",
+  "title_en": "Data Mapping",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 360
+}

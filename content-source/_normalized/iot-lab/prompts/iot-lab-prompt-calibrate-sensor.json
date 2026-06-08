@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-calibrate-sensor",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "prompt_text": "كيف أستطيع معايرة مستشعر درجة الحرارة LM35 ليعطي قراءات دقيقة؟",
+    "instructions": "اشرح الخطوات الرياضية المطلوبة لتحويل الإشارة التماثلية إلى درجة مئوية."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "معايرة مستشعر",
+  "title_en": "Calibrate Sensor",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 50
+}

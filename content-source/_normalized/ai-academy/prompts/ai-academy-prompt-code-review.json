@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-prompt-code-review",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مراجعة الكود",
+  "data": {
+    "prompt_text": "راجع الكود البرمجي التالي واستخرج أي أخطاء أو فرص للتحسين: [الكود]",
+    "instructions": "ضع الكود المراد مراجعته في خانة [الكود]."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 30
+}

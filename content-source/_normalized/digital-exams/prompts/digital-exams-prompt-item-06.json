@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-item-06",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، اشرح كيفية تحليل الأخطاء والاستفادة منها لتحسين الأداء.",
+    "instructions": "اشرح كيفية تحليل الأخطاء والاستفادة منها لتحسين الأداء."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "تحليل الأخطاء بعد الاختبار التجريبي",
+  "title_en": "Item 06",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 260
+}

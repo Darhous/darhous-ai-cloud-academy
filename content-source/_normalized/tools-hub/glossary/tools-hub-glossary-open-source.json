@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "مفتوح المصدر (Open Source)",
+    "definition": "برامج يكون كودها المصدري متاحاً للجميع لتعديله وتحسينه، وغالباً ما تكون مجانية وتهتم بالخصوصية.",
+    "example": "استخدام متصفح Firefox بدلاً من متصفحات مغلقة المصدر."
+  },
+  "id": "tools-hub-glossary-open-source",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Open Source",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 110,
+  "manual_review_required": true
+}

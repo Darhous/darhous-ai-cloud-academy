@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "تحويل إلى ماركداون",
+    "prompt_text": "قم بتحويل النص التالي إلى تنسيق ماركداون نظيف ومقسم إلى عناوين وقوائم ونقاط هامة: [ضع النص هنا]",
+    "instructions": "يساعدك في تجهيز نصوصك للنشر السريع في المدونات أو أدوات الملاحظات التي تدعم ماركداون."
+  },
+  "id": "tools-hub-prompt-markdown-conversion",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Markdown Conversion",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 50,
+  "manual_review_required": true
+}

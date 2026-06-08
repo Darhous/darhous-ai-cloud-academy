@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-glossary-misleading-visuals",
+  "portal_id": "nano-banana",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مرئيات مضللة",
+  "data": {
+    "definition": "صور مولدة قد تخدع المشاهد ليعتقد أنها حقيقية أو تمثل واقعاً غير صحيح.",
+    "example": "مثال: صور لأحداث تاريخية لم تقع تبدو كأنها صور فوتوغرافية حقيقية."
+  },
+  "title_en": "",
+  "category": "نانو بانانا",
+  "featured": false,
+  "tags": [
+    "نانو بانانا",
+    "مصطلحات"
+  ],
+  "sort_order": 360
+}

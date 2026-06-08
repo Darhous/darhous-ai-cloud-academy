@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "أنا نباتي وأريد خطة وجبات لمدة أسبوع تكون غنية بالبروتين واقتصادية وسهلة التحضير.",
+    "instructions": "يساعدك في تنظيم طعامك وفقاً لتفضيلاتك وحالتك الصحية."
+  },
+  "id": "ai-academy-prompt-meal-plan",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "خطة وجبات صحية",
+  "title_en": "Meal Plan",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 250
+}

@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اكتب رسالة تواصل احترافية لإرسالها لشخص يعمل في شركة أحلم بالعمل بها.",
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+  },
+  "id": "career-prompt-networking-msg",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "رسالة تشبيك",
+  "title_en": "Networking Msg",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "prompt"
+  ],
+  "sort_order": 260
+}

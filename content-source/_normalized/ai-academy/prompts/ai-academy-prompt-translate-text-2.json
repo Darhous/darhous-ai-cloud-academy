@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "ترجم هذا النص إلى العربية وحسّن صياغته لتبدو طبيعية واحترافية: [أدخل النص]",
+    "instructions": "أفضل من الترجمة الحرفية، حيث يركز على السياق وجودة الصياغة."
+  },
+  "id": "ai-academy-prompt-translate-text-2",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "ترجمة وتحسين النصوص",
+  "title_en": "Translate Text",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 290
+}

@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-serial-monitor",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الشاشة التسلسلية",
+  "data": {
+    "definition": "أداة في بيئة تطوير الأردوينو لعرض البيانات المرسلة من المتحكم الدقيق وإرسال الأوامر إليه.",
+    "example": "طباعة قيم المستشعر على الشاشة لمراقبتها أثناء التصحيح."
+  },
+  "title_en": "",
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 290
+}

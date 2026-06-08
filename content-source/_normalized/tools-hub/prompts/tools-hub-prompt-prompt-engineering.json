@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "تحسين الأوامر للأدوات",
+    "prompt_text": "لدي هذا الأمر السريع الذي أستخدمه مع أداة الذكاء الاصطناعي: [الأمر الحالي]. كيف يمكنني تحسينه ليصبح أكثر دقة ويعطيني نتائج أفضل لغرض [الهدف]؟",
+    "instructions": "لتطوير مهاراتك في التحدث مع نماذج اللغات وتوجيهها بشكل صحيح."
+  },
+  "id": "tools-hub-prompt-prompt-engineering",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Prompt Engineering",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 70,
+  "manual_review_required": true
+}

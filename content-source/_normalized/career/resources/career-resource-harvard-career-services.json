@@ -1,0 +1,19 @@
+{
+  "id": "career-resource-harvard-career-services",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "خدمات التوظيف بجامعة هارفارد",
+  "data": {
+    "url": "https://careerservices.fas.harvard.edu",
+    "description": "مكتبة غنية بالأدلة والنماذج المجانية لكتابة السير الذاتية وخطابات المقدمة والتحضير للمقابلات."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 60
+}

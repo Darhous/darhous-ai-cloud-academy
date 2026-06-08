@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-cognitive-reframing",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "إعادة التأطير المعرفي",
+  "data": {
+    "definition": "تغيير النظرة السلبية للاختبار أو السؤال إلى تحدٍ إيجابي يمكن تجاوزه.",
+    "example": "بدلاً من التفكير 'لن أستطيع حل هذا'، التفكير في 'سأستخدم استراتيجية الاستبعاد لأصل لأفضل خيار'."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 30
+}

@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-glossary-item-8",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "عملية تعديل الأوامر بشكل مستمر لتحسين النتائج.",
+    "example": "مثال: إضافة تفاصيل في كل محاولة."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "التكرار",
+  "title_en": "Item 8",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "مصطلحات"
+  ],
+  "sort_order": 190
+}

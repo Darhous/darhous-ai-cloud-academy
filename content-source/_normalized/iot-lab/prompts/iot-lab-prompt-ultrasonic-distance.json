@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-ultrasonic-distance",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "قياس المسافة بحساس الموجات فوق الصوتية",
+  "title_en": "Distance Measurement with Ultrasonic Sensor",
+  "data": {
+    "prompt_text": "اكتب كود لقياس المسافة بالسنتيمترات باستخدام حساس HC-SR04 المتصل بالمنفذين Trig [منفذ_trig] و Echo [منفذ_echo]، وطباعة النتيجة.",
+    "instructions": "أدخل رقم منفذ Trig ورقم منفذ Echo."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 290
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-emergent-abilities",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "القدرات الناشئة",
+  "data": {
+    "definition": "مهارات أو قدرات معقدة يظهرها النموذج دون أن يُدرب عليها صراحة، وعادة ما تظهر مع زيادة حجم النموذج.",
+    "example": "قدرة النموذج على حل مسائل حسابية بسيطة رغم تدريبه على النصوص فقط وليس على الرياضيات المنطقية."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 100
+}

@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-fritzing",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "برنامج فريتزينج لتصميم الدوائر",
+  "title_en": "Fritzing",
+  "data": {
+    "url": "https://fritzing.org/",
+    "description": "أداة مفتوحة المصدر لتصميم ورسم وتوثيق الدوائر الإلكترونية للمبتدئين."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 130
+}

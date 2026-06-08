@@ -1,0 +1,19 @@
+{
+  "id": "career-prompt-career-growth-discussion",
+  "portal_id": "career",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مناقشة التطور المهني مع المدير",
+  "data": {
+    "prompt_text": "أرغب في مناقشة فرص التطور المهني والترقية مع مديري. اقترح عليّ هيكلاً لهذه المناقشة، والنقاط التي يجب أن أركز عليها، وكيف يمكنني طلب دعم الشركة في خطتي التطويرية.",
+    "instructions": "اجمع أدلة على إنجازاتك وقيمتك المضافة قبل هذا الاجتماع."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "prompt"
+  ],
+  "sort_order": 20
+}

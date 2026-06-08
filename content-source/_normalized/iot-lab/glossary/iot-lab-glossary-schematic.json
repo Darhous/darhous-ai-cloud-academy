@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-schematic",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المخطط الكهربائي",
+  "data": {
+    "definition": "رسم هندسي يوضح التوصيلات الكهربائية بين المكونات الإلكترونية باستخدام الرموز القياسية.",
+    "example": "قراءة المخطط لتوصيل الدائرة بشكل صحيح على لوحة التجارب."
+  },
+  "title_en": "",
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 280
+}

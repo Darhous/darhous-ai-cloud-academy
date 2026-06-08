@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-cefr-c2",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مستوى C2",
+  "data": {
+    "definition": "المستوى المتقن.",
+    "example": "I can understand with ease virtually everything heard or read."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 90
+}

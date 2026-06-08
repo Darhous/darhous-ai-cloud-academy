@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-prompt-tech-stack-audit",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مراجعة حزمة الأدوات",
+  "data": {
+    "prompt_text": "هذه هي الأدوات التي أستخدمها حالياً: [قائمة الأدوات]. هدفي الأساسي هو [الهدف، مثلا: إدارة مشروع برمجي]. هل هناك أي تكرار في وظائف هذه الأدوات؟ وما الذي يمكنني حذفه لتبسيط عملي؟",
+    "instructions": "لتخفيف عبء الأدوات وتقليل التكاليف."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 260
+}

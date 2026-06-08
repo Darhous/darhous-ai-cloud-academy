@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-mqtt-spec",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "url": "https://mqtt.org/",
+    "description": "الموقع الرسمي لبروتوكول MQTT الذي يحتوي على التعريفات وآليات العمل."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "مواصفات بروتوكول MQTT",
+  "title_en": "Mqtt Spec",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 220
+}

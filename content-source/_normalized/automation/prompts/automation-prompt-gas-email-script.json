@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-gas-email-script",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "كتابة كود GAS لإرسال إيميل",
+  "data": {
+    "prompt_text": "اكتب لي سكريبت باستخدام Google Apps Script يقوم بـ [وصف العملية، مثلاً: قراءة صفوف جديدة في Google Sheets وإرسال بريد إلكتروني تلقائي ببيانات الصف إلى المستلم]. يرجى تضمين التعليقات في الكود لشرح كل خطوة.",
+    "instructions": "حدد الأعمدة الموجودة في Google Sheets وما يجب أن يحتويه البريد الإلكتروني."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 110
+}

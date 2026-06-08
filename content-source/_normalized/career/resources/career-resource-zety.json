@@ -1,0 +1,19 @@
+{
+  "id": "career-resource-zety",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "زيتي",
+  "data": {
+    "url": "https://zety.com",
+    "description": "منصة شهيرة لبناء السير الذاتية وخطابات المقدمة مع تقديم نصائح وأمثلة عملية."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 200
+}

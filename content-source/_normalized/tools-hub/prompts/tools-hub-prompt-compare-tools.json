@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "مقارنة بين أدوات",
+    "prompt_text": "قم بإجراء مقارنة تفصيلية بين [الأداة الأولى] و [الأداة الثانية] من حيث: سهولة الاستخدام، السعر، التكامل مع أدوات أخرى، وميزات التعاون. أيهما أفضل لـ [نوع المستخدم]؟",
+    "instructions": "مفيد جداً قبل اتخاذ قرار نهائي أو الدفع لاشتراك سنوي في تطبيق معين."
+  },
+  "id": "tools-hub-prompt-compare-tools",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Compare Tools",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 20,
+  "manual_review_required": true
+}

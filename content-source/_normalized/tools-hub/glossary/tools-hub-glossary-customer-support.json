@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-glossary-customer-support",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "دعم العملاء",
+  "data": {
+    "definition": "الخدمة التي تقدمها الشركة المطورة للأداة لمساعدة المستخدمين في حل المشكلات التقنية أو الإجابة على استفساراتهم.",
+    "example": "التواصل مع دعم الأداة عبر الدردشة المباشرة لحل مشكلة عدم مزامنة البيانات."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 230
+}

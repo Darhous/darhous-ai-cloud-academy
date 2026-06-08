@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-resource-github-2",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "جيت هاب (GitHub)",
+  "data": {
+    "url": "https://github.com",
+    "description": "منصة استضافة للكود البرمجي تدعم التحكم في الإصدارات، مفيدة لتخزين المستندات التقنية وأكواد الأتمتة."
+  },
+  "title_en": "GitHub",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "resource"
+  ],
+  "sort_order": 160
+}

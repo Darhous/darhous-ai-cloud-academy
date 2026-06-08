@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-i2c",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "بروتوكول I2C",
+  "title_en": "Inter-Integrated Circuit",
+  "data": {
+    "definition": "بروتوكول اتصال متسلسل يسمح بتوصيل أجهزة متعددة باستخدام سلكين فقط.",
+    "example": "قراءة البيانات من حساس الضغط الجوي باستخدام بروتوكول I2C."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 140
+}

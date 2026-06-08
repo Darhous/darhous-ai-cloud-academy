@@ -1,0 +1,20 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://www.perplexity.ai",
+    "description": "محرك بحث مدعوم بالذكاء الاصطناعي يقدم إجابات مباشرة وموثقة بالمصادر."
+  },
+  "id": "ai-academy-resource-perplexity-2",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Perplexity",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 300,
+  "manual_review_required": true
+}

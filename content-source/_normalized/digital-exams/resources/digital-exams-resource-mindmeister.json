@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-resource-mindmeister",
+  "portal_id": "digital-exams",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "أداة الخرائط الذهنية (مايند مايستر)",
+  "data": {
+    "url": "https://www.mindmeister.com",
+    "description": "منصة لإنشاء خرائط ذهنية إلكترونية تساعد في تلخيص المواضيع المعقدة وربط الأفكار."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "resource"
+  ],
+  "sort_order": 110
+}

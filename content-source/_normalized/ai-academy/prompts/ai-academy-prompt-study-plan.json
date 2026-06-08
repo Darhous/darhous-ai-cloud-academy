@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "ضع لي خطة دراسية لتعلم لغة بايثون من الصفر خلال شهر واحد، بمعدل ساعتين يومياً.",
+    "instructions": "يفيد الطلاب في تنظيم وقتهم وتحديد مسار واضح للتعلم."
+  },
+  "id": "ai-academy-prompt-study-plan",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "إنشاء خطة دراسية",
+  "title_en": "Study Plan",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 270
+}

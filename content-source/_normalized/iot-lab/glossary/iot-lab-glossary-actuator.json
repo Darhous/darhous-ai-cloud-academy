@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-actuator",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مشغل (Actuator)",
+  "title_en": "Actuator",
+  "data": {
+    "definition": "جهاز يحول الإشارة الكهربائية إلى حركة ميكانيكية أو فعل فيزيائي.",
+    "example": "التحكم في محرك سيرفو لتدوير ذراع آلي."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 10
+}

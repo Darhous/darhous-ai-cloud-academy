@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "أعطني 10 أفكار لمشروع تخرج في مجال الذكاء الاصطناعي لحل مشاكل البيئة.",
+    "instructions": "استخدمه لاستلهام أفكار جديدة لمشاريعك أو أعمالك."
+  },
+  "id": "ai-academy-prompt-brainstorm-ideas-2",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "العصف الذهني للأفكار",
+  "title_en": "Brainstorm Ideas",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 210
+}

@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-analog-circuit",
+  "portal_id": "iot-lab",
+  "status": "draft",
+  "data": {
+    "prompt_text": "كيف تعمل دائرة مقسم الجهد (Voltage Divider) ولماذا نستخدمها في مشاريعنا؟",
+    "instructions": "قدم مثالاً يوضح استخدام مقاومتين لتقليل الجهد العالي ليناسب الأردوينو."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "شرح دائرة تماثلية",
+  "title_en": "Analog Circuit",
+  "category": "إنترنت الأشياء",
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 10
+}

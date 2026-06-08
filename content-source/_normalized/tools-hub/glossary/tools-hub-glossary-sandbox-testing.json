@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-glossary-sandbox-testing",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "بيئة الاختبار (Sandbox)",
+  "data": {
+    "definition": "بيئة معزولة وآمنة حيث يمكنك تجربة أداة أو ميزة جديدة أو تنفيذ كود دون التأثير على بياناتك الحقيقية أو نظامك الأساسي.",
+    "example": "إنشاء حساب مجاني تجريبي لأداة جديدة وتجربتها ببيانات وهمية قبل اعتمادها في عملك الفعلي."
+  },
+  "title_en": "Sandbox",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 380
+}

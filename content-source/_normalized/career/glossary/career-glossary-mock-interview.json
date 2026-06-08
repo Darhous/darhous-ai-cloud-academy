@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-mock-interview",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المقابلة التجريبية",
+  "data": {
+    "definition": "محاكاة لمقابلة عمل حقيقية للتدرب على الإجابات وتقليل التوتر وتحسين الأداء.",
+    "example": "إجراء مقابلة تجريبية مع صديق أو مستشار مهني وتلقي ملاحظات بناءة على أدائك."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 180
+}

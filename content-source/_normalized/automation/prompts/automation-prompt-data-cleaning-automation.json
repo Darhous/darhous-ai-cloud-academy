@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-data-cleaning-automation",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تنظيف البيانات قبل إدخالها للنظام",
+  "data": {
+    "prompt_text": "أتلقى بيانات خام من [المصدر] تحتوي على نصوص غير منسقة وتواريخ بصيغ مختلفة. كيف يمكنني إعداد خطوة وسيطة في مسار الأتمتة لتنظيف هذه البيانات (مثل إزالة المسافات وتوحيد التواريخ) قبل إرسالها إلى [نظام الوجهة]؟",
+    "instructions": "أعطِ أمثلة على شكل البيانات الخام المطلوبة معالجتها."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 100
+}

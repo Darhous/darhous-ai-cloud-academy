@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-semantic-search",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "البحث الدلالي",
+  "data": {
+    "definition": "طريقة للبحث عن المعلومات لا تعتمد فقط على تطابق الكلمات، بل على فهم المعنى والسياق.",
+    "example": "البحث عن 'أجهزة الجوال الذكية' وظهور نتائج لـ 'الهواتف المحمولة' رغم اختلاف الكلمات."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 260
+}

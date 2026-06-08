@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-plan-last-week",
+  "portal_id": "digital-exams",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "خطة الأسبوع الأخير",
+  "data": {
+    "prompt_text": "بقي أسبوع واحد على اختبار [اسم الاختبار]. كيف أنظم الأيام السبعة المتبقية لضمان مراجعة شاملة دون إرهاق نفسي (Burnout)؟",
+    "instructions": "يساعدك في الانتقال من مرحلة التعلم لمرحلة تثبيت المعلومات والتدريب."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 140
+}

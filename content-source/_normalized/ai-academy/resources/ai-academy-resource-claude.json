@@ -1,0 +1,20 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "url": "https://claude.ai",
+    "description": "مساعد ذكاء اصطناعي من Anthropic معروف بقدرته العالية على التحليل وتلخيص الملفات الكبيرة."
+  },
+  "id": "ai-academy-resource-claude",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Claude",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 230,
+  "manual_review_required": true
+}

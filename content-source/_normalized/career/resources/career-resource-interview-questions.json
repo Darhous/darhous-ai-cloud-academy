@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "url": "",
+    "description": "بنك لأسئلة المقابلات الشخصية مع إجابات نموذجية."
+  },
+  "id": "career-resource-interview-questions",
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "أسئلة المقابلات",
+  "title_en": "Interview Questions",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 240
+}

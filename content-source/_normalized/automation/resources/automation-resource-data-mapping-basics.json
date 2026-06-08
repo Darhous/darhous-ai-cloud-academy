@@ -1,0 +1,20 @@
+{
+  "id": "automation-resource-data-mapping-basics",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "data": {
+    "url": "https://www.ibm.com/topics/data-mapping",
+    "description": "نظرة عامة من IBM حول مفهوم تخطيط البيانات (Data Mapping) وكيف يتم نقل البيانات من أنظمة مختلفة والتأكد من مطابقتها."
+  },
+  "title_en": "Data Mapping Basics",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "resource"
+  ],
+  "sort_order": 100,
+  "manual_review_required": true
+}

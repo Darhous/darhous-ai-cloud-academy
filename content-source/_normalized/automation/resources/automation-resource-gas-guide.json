@@ -1,0 +1,20 @@
+{
+  "id": "automation-resource-gas-guide",
+  "portal_id": "automation",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "data": {
+    "url": "https://developers.google.com/apps-script",
+    "description": "الدليل الرسمي من جوجل لكتابة وتطوير سكريبتات لمنتجات Google Workspace مثل Sheets و Docs و Gmail للقيام بالأتمتة."
+  },
+  "title_en": "Google Apps Script Guide",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "resource"
+  ],
+  "sort_order": 120,
+  "manual_review_required": true
+}

@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-n8n",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "منصة n8n",
+  "data": {
+    "definition": "أداة أتمتة مفتوحة المصدر (Fair-code) تعتمد على العقد (Nodes) وتسمح بربط التطبيقات وواجهات برمجة التطبيقات (APIs) لتنفيذ مهام معقدة مع إمكانية استضافتها ذاتياً.",
+    "example": "ربط نموذج Google Forms بـ Telegram لإرسال إشعارات فورية عند تقديم الردود باستخدام n8n."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 210
+}

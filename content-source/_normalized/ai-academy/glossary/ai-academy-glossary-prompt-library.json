@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-prompt-library",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "مكتبة الأوامر",
+  "data": {
+    "definition": "مجموعة منظمة من الأوامر المجربة والفعالة التي يمكن إعادة استخدامها لمختلف المهام.",
+    "example": "ملف يحتوي على أفضل الأوامر لتلخيص النصوص وكتابة رسائل البريد الإلكتروني والمراجعة البرمجية."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 240
+}

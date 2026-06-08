@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-circuitpython",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "سيركت بايثون",
+  "title_en": "CircuitPython",
+  "data": {
+    "url": "https://circuitpython.org/",
+    "description": "تفرع من مايكروبايثون موجه للمبتدئين ومدعوم بشكل كبير من Adafruit."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 80
+}

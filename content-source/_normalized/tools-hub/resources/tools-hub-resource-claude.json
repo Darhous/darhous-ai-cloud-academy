@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-resource-claude",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "كلود (Claude)",
+  "data": {
+    "url": "https://claude.ai",
+    "description": "نموذج ذكاء اصطناعي من Anthropic يتميز بالنوافذ السياقية الكبيرة وقدرة عالية على تلخيص المستندات الطويلة."
+  },
+  "title_en": "Claude",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "resource"
+  ],
+  "sort_order": 140
+}

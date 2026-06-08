@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-glossary-item-3",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "المظهر العام أو الأسلوب الفني للصورة.",
+    "example": "مثال: 'تصوير فوتوغرافي واقعي'."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "النمط البصري",
+  "title_en": "Item 3",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "مصطلحات"
+  ],
+  "sort_order": 140
+}

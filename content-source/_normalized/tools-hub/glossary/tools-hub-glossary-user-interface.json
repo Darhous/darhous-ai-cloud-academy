@@ -1,0 +1,21 @@
+{
+  "portal_id": "tools-hub",
+  "status": "draft",
+  "data": {
+    "title": "واجهة المستخدم (UI)",
+    "definition": "العناصر البصرية والتصميمية التي يتفاعل معها المستخدم داخل الأداة.",
+    "example": "تصميم الأزرار والقوائم في التطبيق ليصبح سهل الاستخدام."
+  },
+  "id": "tools-hub-glossary-user-interface",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "User Interface",
+  "category": "منصة الأدوات",
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 480,
+  "manual_review_required": true
+}

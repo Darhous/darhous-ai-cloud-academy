@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "definition": "فترة عمل مؤقتة لاكتساب خبرة عملية في مجال معين.",
+    "example": "مثال على استخدام مصطلح التدريب المهني في السياق المهني."
+  },
+  "id": "career-glossary-internship",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "التدريب المهني",
+  "title_en": "Internship",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 390
+}

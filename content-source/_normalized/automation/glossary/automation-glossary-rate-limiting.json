@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-rate-limiting",
+  "portal_id": "automation",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "تقييد معدل الطلبات",
+  "data": {
+    "definition": "القيود التي يفرضها موفر الـ API على عدد الطلبات التي يمكن إرسالها خلال فترة زمنية معينة لحماية خوادمه.",
+    "example": "تلقي خطأ 429 Too Many Requests بسبب تجاوز الحد الأقصى المسموح لطلبات تويتر API."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 270
+}

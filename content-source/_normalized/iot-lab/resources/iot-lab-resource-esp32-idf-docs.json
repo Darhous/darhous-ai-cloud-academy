@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-resource-esp32-idf-docs",
+  "portal_id": "iot-lab",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "توثيق ESP-IDF للوحة ESP32",
+  "title_en": "ESP-IDF Programming Guide",
+  "data": {
+    "url": "https://docs.espressif.com/projects/esp-idf/en/latest/esp32/",
+    "description": "التوثيق الرسمي لإطار عمل تطوير إنترنت الأشياء من Espressif."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "resource"
+  ],
+  "sort_order": 100
+}

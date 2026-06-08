@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-resource-chatgpt",
+  "portal_id": "ai-academy",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "شات جي بي تي",
+  "data": {
+    "url": "https://chat.openai.com/",
+    "description": "أداة ذكاء اصطناعي تفاعلية لتوليد النصوص، البرمجة، والتعلم."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 70
+}

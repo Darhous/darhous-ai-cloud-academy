@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-i2c-2",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "بروتوكول I2C",
+  "data": {
+    "definition": "بروتوكول اتصال تسلسلي يسمح لعدة أجهزة طرفية بالتواصل مع متحكم واحد باستخدام سلكين فقط.",
+    "example": "توصيل شاشة LCD ومستشعر حرارة بنفس منافذ I2C."
+  },
+  "title_en": "",
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 200
+}

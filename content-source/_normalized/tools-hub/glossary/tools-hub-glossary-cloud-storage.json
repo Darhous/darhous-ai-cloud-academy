@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-glossary-cloud-storage",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التخزين السحابي",
+  "data": {
+    "definition": "نموذج لحفظ البيانات الرقمية عبر الإنترنت على خوادم تديرها شركات خارجية، مما يتيح الوصول إليها من أي جهاز متصل بالإنترنت.",
+    "example": "حفظ صورك وملفاتك على Google Drive أو Dropbox لتوفير مساحة على جهازك الشخصي."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 210
+}

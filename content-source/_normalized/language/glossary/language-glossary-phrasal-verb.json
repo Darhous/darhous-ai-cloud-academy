@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-phrasal-verb",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "الفعل المركب",
+  "data": {
+    "definition": "فعل يتكون من فعل وحرف جر أو حال يغير معناه.",
+    "example": "Give up means to stop trying."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 440
+}

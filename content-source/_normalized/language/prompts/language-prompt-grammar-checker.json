@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-grammar-checker",
+  "portal_id": "language",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "مصحح القواعد",
+  "data": {
+    "prompt_text": "Correct my grammar and explain the mistakes: [النص].",
+    "instructions": "اكتب نصك ليتم تصحيحه مع الشرح."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 60
+}

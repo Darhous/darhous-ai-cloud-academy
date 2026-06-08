@@ -1,0 +1,19 @@
+{
+  "id": "automation-resource-webhooks-explained-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "url": "https://sendgrid.com/blog/webhook-vs-api-whats-difference/",
+    "description": "مقال يشرح الفرق بين Webhooks و APIs ومتى تستخدم كل منها."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "شرح خطافات الويب",
+  "title_en": "Webhooks Explained",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "resource"
+  ],
+  "sort_order": 290
+}

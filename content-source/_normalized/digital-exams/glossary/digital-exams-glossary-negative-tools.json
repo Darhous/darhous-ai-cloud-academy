@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-negative-tools",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "أدوات النفي والاستثناء",
+  "data": {
+    "definition": "الكلمات التي تعكس معنى السؤال ويغفل عنها الطلاب غالباً وتؤدي لإجابات خاطئة.",
+    "example": "الانتباه لكلمات مثل: 'ليس'، 'ما عدا'، 'باستثناء' التي تغير المطلوب تماماً."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 200
+}

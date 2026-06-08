@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-prompt-tool-overload-cure",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "علاج إرهاق الأدوات",
+  "data": {
+    "prompt_text": "أشعر بالتشتت لأنني أستخدم 5 تطبيقات مختلفة لتنظيم وقتي. كيف أبني نظاماً مركزياً يعتمد على تطبيقين على الأكثر؟",
+    "instructions": "للحد من الفوضى الرقمية وتوحيد مساحات العمل."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 290
+}

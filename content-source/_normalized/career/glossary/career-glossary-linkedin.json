@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "definition": "منصة مهنية لبناء شبكة علاقات والبحث عن وظائف.",
+    "example": "مثال على استخدام مصطلح لينكد إن في السياق المهني."
+  },
+  "id": "career-glossary-linkedin",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "لينكد إن",
+  "title_en": "Linkedin",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 420
+}

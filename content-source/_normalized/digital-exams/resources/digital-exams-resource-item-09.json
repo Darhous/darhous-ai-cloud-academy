@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-resource-item-09",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "url": "https://drive.google.com",
+    "description": "مساحة لتخزين ومشاركة الملاحظات والملفات الدراسية."
+  },
+  "content_type": "resource",
+  "featured": false,
+  "title_ar": "موقع جوجل درايف",
+  "title_en": "Item 09",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "resource"
+  ],
+  "sort_order": 290
+}

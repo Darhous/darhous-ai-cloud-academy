@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "definition": "رسالة ترفق مع السيرة الذاتية لتوضيح سبب اهتمامك بالوظيفة.",
+    "example": "مثال على استخدام مصطلح خطاب المقدمة في السياق المهني."
+  },
+  "id": "career-glossary-cover-letter-2",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "خطاب المقدمة",
+  "title_en": "Cover Letter",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 340
+}

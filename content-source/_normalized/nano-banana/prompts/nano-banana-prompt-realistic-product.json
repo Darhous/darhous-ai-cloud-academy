@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-prompt-realistic-product",
+  "portal_id": "nano-banana",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "صورة منتج واقعية",
+  "data": {
+    "prompt_text": "A high-quality, photorealistic product photography of [المنتج], placed on a [السطح/الخلفية], professional studio lighting, 8k resolution, highly detailed.",
+    "instructions": "قم باستبدال [المنتج] و [السطح/الخلفية] للحصول على صورة احترافية تناسب الإعلانات."
+  },
+  "title_en": "",
+  "category": "نانو بانانا",
+  "featured": false,
+  "tags": [
+    "نانو بانانا",
+    "prompt"
+  ],
+  "sort_order": 270
+}

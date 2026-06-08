@@ -1,0 +1,19 @@
+{
+  "id": "career-glossary-imposter-syndrome",
+  "portal_id": "career",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "متلازمة المحتال",
+  "data": {
+    "definition": "شعور داخلي بعدم الكفاءة والشك في الذات رغم وجود أدلة على النجاح، والخوف من أن يكتشف الآخرون أنك \"محتال\".",
+    "example": "الشعور بأنك لا تستحق الترقية التي حصلت عليها وأنها كانت مجرد حظ."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 120
+}

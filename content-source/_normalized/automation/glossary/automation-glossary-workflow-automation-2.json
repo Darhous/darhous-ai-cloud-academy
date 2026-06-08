@@ -1,0 +1,19 @@
+{
+  "id": "automation-glossary-workflow-automation-2",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "definition": "استخدام التكنولوجيا لتنفيذ المهام المتكررة تلقائيًا دون تدخل بشري.",
+    "example": "إرسال بريد إلكتروني ترحيبي تلقائيًا عند تسجيل مستخدم جديد."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "أتمتة سير العمل",
+  "title_en": "Workflow Automation",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "مصطلحات"
+  ],
+  "sort_order": 480
+}

@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-prompt-markdown-learning",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تعلم الماركداون",
+  "data": {
+    "prompt_text": "أنا مبتدئ في كتابة الماركداون. كيف يمكنني كتابة [العنصر المطلوب، مثلا: جدول أو رابط] باستخدام الماركداون؟ أعطني أمثلة واضحة وتدريباً بسيطاً.",
+    "instructions": "لتسريع تعلمك لأدوات تدوين الملاحظات المبنية على الماركداون."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 200
+}

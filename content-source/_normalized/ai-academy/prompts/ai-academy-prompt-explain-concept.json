@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-prompt-explain-concept",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "شرح مفهوم",
+  "data": {
+    "prompt_text": "اشرح مفهوم [المفهوم] بأسلوب مبسط وكأنني طفل في العاشرة من عمره.",
+    "instructions": "اكتب المفهوم المعقد مكان [المفهوم]."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 70
+}

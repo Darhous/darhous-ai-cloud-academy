@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-glossary-encryption",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التشفير",
+  "data": {
+    "definition": "عملية تحويل البيانات من شكلها القابل للقراءة إلى صيغة غير مفهومة لمنع الوصول غير المصرح به، مما يعزز أمان المعلومات.",
+    "example": "تشفير قاعدة بيانات كلمات المرور في تطبيق مثل 1Password."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 270
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-resource-code-assistant",
+  "portal_id": "ai-academy",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "المساعد البرمجي",
+  "data": {
+    "url": "https://github.com/features/copilot",
+    "description": "أداة من جيت هاب تساعد المبرمجين في كتابة الكود بشكل أسرع وأدق."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "resource"
+  ],
+  "sort_order": 90
+}

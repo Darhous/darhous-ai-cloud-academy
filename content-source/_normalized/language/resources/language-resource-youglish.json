@@ -1,0 +1,19 @@
+{
+  "id": "language-resource-youglish",
+  "portal_id": "language",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "يوجليش",
+  "data": {
+    "url": "https://youglish.com/",
+    "description": "ابحث عن نطق أي كلمة في سياقات حقيقية على يوتيوب."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "resource"
+  ],
+  "sort_order": 300
+}

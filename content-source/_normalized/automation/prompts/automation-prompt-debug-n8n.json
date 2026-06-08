@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-debug-n8n",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "prompt_text": "لدي مسار عمل في n8n يفشل في عقدة نقل البيانات إلى قاعدة البيانات. هذه هي رسالة الخطأ: [أدخل رسالة الخطأ]. كيف أصلحه؟",
+    "instructions": "استبدل القوسين برسالة الخطأ الفعلية التي تظهر لك."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "اكتشاف الأخطاء في n8n",
+  "title_en": "Debug N8N",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 210
+}

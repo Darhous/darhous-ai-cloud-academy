@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-item-20",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "definition": "توجيه الانتباه بالكامل نحو الاختبار وتجاهل المشتتات الخارجية.",
+    "example": "مثال: عدم الالتفات للأصوات في قاعة الاختبار."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "التركيز",
+  "title_en": "Item 20",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 500
+}

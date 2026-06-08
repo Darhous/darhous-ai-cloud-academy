@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-prompt-roleplay-interview",
+  "portal_id": "ai-academy",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "محاكاة مقابلة",
+  "data": {
+    "prompt_text": "تصرف كأنك مدير توظيف في شركة تقنية، واسألني أسئلة مقابلة لوظيفة [الوظيفة] واحداً تلو الآخر.",
+    "instructions": "حدد المسمى الوظيفي المرغوب في [الوظيفة]."
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 160
+}

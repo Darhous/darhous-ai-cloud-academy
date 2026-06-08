@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-item-05",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، اكتب مقالاً قصيراً حول أهمية إجراء الاختبارات التجريبية قبل الاختبار الفعلي.",
+    "instructions": "اكتب مقالاً قصيراً حول أهمية إجراء الاختبارات التجريبية قبل الاختبار الفعلي."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "أهمية الاختبارات التجريبية",
+  "title_en": "Item 05",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 250
+}

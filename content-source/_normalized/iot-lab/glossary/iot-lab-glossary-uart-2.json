@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-uart-2",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "بروتوكول UART",
+  "title_en": "Universal Asynchronous Receiver-Transmitter",
+  "data": {
+    "definition": "بروتوكول اتصال متسلسل غير متزامن يستخدم لنقل البيانات بين جهازين.",
+    "example": "التواصل بين شريحتي أردوينو عبر بروتوكول UART."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 480
+}

@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-automated-periodic-report",
+  "portal_id": "automation",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "إنشاء تقرير دوري تلقائي",
+  "data": {
+    "prompt_text": "كيف أقوم بإنشاء سير عمل يقوم بجمع البيانات من [مصادر البيانات، مثلاً: Google Analytics، CRM] كل [فترة، مثلاً: يوم إثنين]، وتجميعها في تقرير PDF، ثم إرسالها بالبريد الإلكتروني إلى فريق الإدارة؟",
+    "instructions": "اذكر مصادر البيانات والمدة الزمنية للتقرير."
+  },
+  "title_en": "",
+  "category": "الأتمتة",
+  "featured": false,
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 40
+}

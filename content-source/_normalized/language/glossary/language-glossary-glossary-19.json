@@ -1,0 +1,20 @@
+{
+  "id": "language-glossary-glossary-19",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "definition": "حرف ساكن",
+    "example": "باقي الحروف الأبجدية."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_en": "Glossary 19",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 240,
+  "manual_review_required": true
+}

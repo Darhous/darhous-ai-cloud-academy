@@ -1,0 +1,19 @@
+{
+  "id": "automation-prompt-error-handling-best",
+  "portal_id": "automation",
+  "status": "draft",
+  "data": {
+    "prompt_text": "ما هي أفضل الممارسات للتعامل مع الأخطاء (Error Handling) عند بناء مسارات أتمتة معقدة؟",
+    "instructions": "تطبيق هذه الممارسات يضمن استقرار مسارات العمل الخاصة بك وعدم توقفها فجأة."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "أفضل ممارسات التعامل مع الأخطاء",
+  "title_en": "Error Handling Best",
+  "category": "الأتمتة",
+  "tags": [
+    "الأتمتة",
+    "prompt"
+  ],
+  "sort_order": 220
+}

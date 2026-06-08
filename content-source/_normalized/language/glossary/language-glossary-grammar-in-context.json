@@ -1,0 +1,19 @@
+{
+  "id": "language-glossary-grammar-in-context",
+  "portal_id": "language",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "القواعد في السياق",
+  "data": {
+    "definition": "فهم القواعد من خلال النصوص والاستخدام الفعلي.",
+    "example": "Read stories to learn grammar in context."
+  },
+  "title_en": "",
+  "category": "تعلم اللغات",
+  "featured": false,
+  "tags": [
+    "تعلم اللغات",
+    "مصطلحات"
+  ],
+  "sort_order": 340
+}

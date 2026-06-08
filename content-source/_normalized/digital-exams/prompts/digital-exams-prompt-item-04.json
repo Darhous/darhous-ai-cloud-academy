@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-item-04",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، اشرح خطوات التعامل مع الأسئلة التي لا تعرف إجابتها في الاختبار.",
+    "instructions": "اشرح خطوات التعامل مع الأسئلة التي لا تعرف إجابتها في الاختبار."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "كيفية التعامل مع الأسئلة الصعبة",
+  "title_en": "Item 04",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 240
+}

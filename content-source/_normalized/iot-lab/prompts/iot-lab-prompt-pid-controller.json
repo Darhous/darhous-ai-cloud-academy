@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-prompt-pid-controller",
+  "portal_id": "iot-lab",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تنفيذ متحكم PID بسيط",
+  "title_en": "Simple PID Controller Implementation",
+  "data": {
+    "prompt_text": "اكتب هيكل كود أساسي لتنفيذ متحكم PID في أردوينو للحفاظ على درجة حرارة عند نقطة مستهدفة [النقطة_المستهدفة] باستخدام حساس وسخان.",
+    "instructions": "حدد النقطة المستهدفة لدرجة الحرارة."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "prompt"
+  ],
+  "sort_order": 150
+}

@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "definition": "عرض تقديمي قصير جداً عن نفسك ومهاراتك.",
+    "example": "مثال على استخدام مصطلح الخطاب الموجز في السياق المهني."
+  },
+  "id": "career-glossary-elevator-pitch-2",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "الخطاب الموجز",
+  "title_en": "Elevator Pitch",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 360
+}

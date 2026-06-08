@@ -1,0 +1,19 @@
+{
+  "id": "career-prompt-elevator-pitch-creation",
+  "portal_id": "career",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "صياغة العرض التعريفي السريع",
+  "data": {
+    "prompt_text": "استناداً إلى خبرتي في [مجال الخبرة] وإنجازي الأبرز وهو [الإنجاز]، قم بصياغة عرض تعريفي سريع (Elevator Pitch) يستغرق 30 ثانية أستخدمه في فعاليات التواصل المهني لتعريف الناس بما أقوم به وما أبحث عنه.",
+    "instructions": "تدرب على إلقاء العرض بصوت عالٍ حتى يبدو طبيعياً وواثقاً."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "prompt"
+  ],
+  "sort_order": 60
+}

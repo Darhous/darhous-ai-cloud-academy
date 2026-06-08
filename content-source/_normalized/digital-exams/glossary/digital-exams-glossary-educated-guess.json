@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-glossary-educated-guess",
+  "portal_id": "digital-exams",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "التخمين المدروس",
+  "data": {
+    "definition": "استنتاج الإجابة الأقرب للصحة بناءً على المعرفة السابقة أو السياق بدلاً من الاختيار العشوائي.",
+    "example": "استخدام الجذور اللغوية للكلمات في الخيارات لتخمين المعنى الأقرب للسياق."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "مصطلحات"
+  ],
+  "sort_order": 80
+}

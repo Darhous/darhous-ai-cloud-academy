@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-relay",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "المُرحِّل (Relay)",
+  "data": {
+    "definition": "مفتاح كهرومغناطيسي يستخدم للتحكم بدائرة كهربائية ذات جهد عالي باستخدام إشارة ذات جهد منخفض.",
+    "example": "استخدام الأردوينو لتشغيل مصباح 220 فولت عبر الريلاي."
+  },
+  "title_en": "Relay",
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 270
+}

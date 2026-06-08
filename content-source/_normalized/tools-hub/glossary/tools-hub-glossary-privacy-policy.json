@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-glossary-privacy-policy",
+  "portal_id": "tools-hub",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "سياسة الخصوصية",
+  "data": {
+    "definition": "وثيقة قانونية توضح كيف تقوم الأداة أو التطبيق بجمع بيانات المستخدمين واستخدامها ومشاركتها وحمايتها.",
+    "example": "قراءة سياسة الخصوصية لتطبيق ملاحظات للتأكد من أنهم لا يبيعون بياناتك لجهات خارجية."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "مصطلحات"
+  ],
+  "sort_order": 340
+}

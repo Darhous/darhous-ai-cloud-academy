@@ -1,0 +1,19 @@
+{
+  "portal_id": "career",
+  "status": "draft",
+  "data": {
+    "definition": "وثيقة تقدم ملخصاً عن خبراتك ومهاراتك.",
+    "example": "مثال على استخدام مصطلح السيرة الذاتية في السياق المهني."
+  },
+  "id": "career-glossary-cv",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "السيرة الذاتية",
+  "title_en": "Cv",
+  "category": "المسار المهني",
+  "tags": [
+    "المسار المهني",
+    "مصطلحات"
+  ],
+  "sort_order": 350
+}

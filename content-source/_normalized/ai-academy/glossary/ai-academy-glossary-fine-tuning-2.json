@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "definition": "عملية إعادة تدريب نموذج ذكاء اصطناعي مسبق التدريب على مجموعة بيانات مخصصة لتحسين أدائه في مهمة معينة.",
+    "example": "تدريب نموذج لغوي على نصوص طبية ليكون مساعداً للأطباء."
+  },
+  "id": "ai-academy-glossary-fine-tuning-2",
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "الضبط الدقيق (Fine-tuning)",
+  "title_en": "Fine Tuning",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 400
+}

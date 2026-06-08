@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-resource-alternativeto",
+  "portal_id": "tools-hub",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "ألترناتيف تو (AlternativeTo)",
+  "data": {
+    "url": "https://alternativeto.net",
+    "description": "موقع رائع للبحث عن بدائل للتطبيقات والبرامج، يعتمد على توصيات المستخدمين."
+  },
+  "title_en": "AlternativeTo",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "resource"
+  ],
+  "sort_order": 110
+}

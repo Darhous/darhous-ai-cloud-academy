@@ -1,0 +1,19 @@
+{
+  "id": "career-resource-edx",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "إي دي إكس",
+  "data": {
+    "url": "https://www.edx.org",
+    "description": "منصة تعليمية توفر دورات مجانية ومدفوعة من أفضل الجامعات والمؤسسات حول العالم."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 30
+}

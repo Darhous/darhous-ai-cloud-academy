@@ -1,0 +1,19 @@
+{
+  "id": "tools-hub-prompt-evaluate-ui-ux",
+  "portal_id": "tools-hub",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "تقييم واجهة المستخدم",
+  "data": {
+    "prompt_text": "ما هي المبادئ الثلاثة الأساسية التي يجب أن ألاحظها في واجهة المستخدم (UI) وتجربة المستخدم (UX) عند تجربة تطبيق إنتاجية جديد لأول مرة؟",
+    "instructions": "لتحسين قدرتك على اختيار الأدوات المريحة للعين والاستخدام."
+  },
+  "title_en": "",
+  "category": "منصة الأدوات",
+  "featured": false,
+  "tags": [
+    "منصة الأدوات",
+    "prompt"
+  ],
+  "sort_order": 170
+}

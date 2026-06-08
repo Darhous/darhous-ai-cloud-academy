@@ -1,0 +1,19 @@
+{
+  "id": "ai-academy-glossary-system-prompt",
+  "portal_id": "ai-academy",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "موجه النظام",
+  "data": {
+    "definition": "مجموعة من التعليمات الأولية التي تحدد شخصية وسلوك النموذج طوال المحادثة.",
+    "example": "'أنت مساعد ذكي ومتخصص في تطوير الويب، أجب بشكل مختصر ودقيق.'"
+  },
+  "title_en": "",
+  "category": "الذكاء الاصطناعي",
+  "featured": false,
+  "tags": [
+    "الذكاء الاصطناعي",
+    "مصطلحات"
+  ],
+  "sort_order": 270
+}

@@ -1,0 +1,19 @@
+{
+  "portal_id": "ai-academy",
+  "status": "draft",
+  "data": {
+    "prompt_text": "أعد صياغة هذا النص ليكون بأسلوب رسمي واحترافي مناسب لبيئة العمل: [أدخل النص]",
+    "instructions": "يحول الرسائل العادية إلى خطابات رسمية مناسبة للمراسلات المهمة."
+  },
+  "id": "ai-academy-prompt-rewrite-formal",
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "إعادة صياغة بشكل رسمي",
+  "title_en": "Rewrite Formal",
+  "category": "الذكاء الاصطناعي",
+  "tags": [
+    "الذكاء الاصطناعي",
+    "prompt"
+  ],
+  "sort_order": 260
+}

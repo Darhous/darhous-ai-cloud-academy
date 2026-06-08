@@ -1,0 +1,19 @@
+{
+  "id": "language-prompt-prompt-4",
+  "portal_id": "language",
+  "status": "draft",
+  "data": {
+    "prompt_text": "اطرح أسئلة مقابلة عمل باللغة الإنجليزية.",
+    "instructions": "انتظر إجابتي ثم قدم ملاحظاتك."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "محاكاة مقابلة عمل",
+  "title_en": "Prompt 4",
+  "category": "تعلم اللغات",
+  "tags": [
+    "تعلم اللغات",
+    "prompt"
+  ],
+  "sort_order": 160
+}

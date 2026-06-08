@@ -1,0 +1,19 @@
+{
+  "id": "nano-banana-glossary-item-19",
+  "portal_id": "nano-banana",
+  "status": "draft",
+  "data": {
+    "definition": "تصميم الصور والمواد البصرية لدعم عملية التعلم.",
+    "example": "مثال: رسوم توضيحية للعمليات."
+  },
+  "content_type": "glossary",
+  "featured": false,
+  "title_ar": "التصميم التعليمي",
+  "title_en": "Item 19",
+  "category": "نانو بانانا",
+  "tags": [
+    "نانو بانانا",
+    "مصطلحات"
+  ],
+  "sort_order": 110
+}

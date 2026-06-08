@@ -1,0 +1,19 @@
+{
+  "id": "career-resource-jobscan",
+  "portal_id": "career",
+  "content_type": "resource",
+  "status": "draft",
+  "title_ar": "جوب سكان",
+  "data": {
+    "url": "https://www.jobscan.co",
+    "description": "أداة لمقارنة سيرتك الذاتية مع الوصف الوظيفي وتحديد الكلمات المفتاحية المفقودة لتحسين فرصك."
+  },
+  "title_en": "",
+  "category": "المسار المهني",
+  "featured": false,
+  "tags": [
+    "المسار المهني",
+    "resource"
+  ],
+  "sort_order": 100
+}

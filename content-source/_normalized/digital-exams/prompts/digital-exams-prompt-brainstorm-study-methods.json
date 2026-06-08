@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-brainstorm-study-methods",
+  "portal_id": "digital-exams",
+  "content_type": "prompt",
+  "status": "draft",
+  "title_ar": "طرق دراسة مبتكرة",
+  "data": {
+    "prompt_text": "أشعر بالملل من طريقتي التقليدية في المراجعة. اقترح 5 طرق مبتكرة وتفاعلية لمراجعة مادة [اسم المادة] استعداداً للاختبار النهائي.",
+    "instructions": "تطبيق الطرق المقترحة يكسر الروتين ويزيد من استبقاء المعلومات."
+  },
+  "title_en": "",
+  "category": "الاختبارات الرقمية",
+  "featured": false,
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 20
+}

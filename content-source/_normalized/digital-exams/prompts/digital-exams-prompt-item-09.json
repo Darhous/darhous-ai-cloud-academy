@@ -1,0 +1,19 @@
+{
+  "id": "digital-exams-prompt-item-09",
+  "portal_id": "digital-exams",
+  "status": "draft",
+  "data": {
+    "prompt_text": "بصفتك خبير في التحضير للاختبارات، قارن بين الاختبارات الورقية والرقمية من حيث المزايا والعيوب وتهيئة النفس.",
+    "instructions": "قارن بين الاختبارات الورقية والرقمية من حيث المزايا والعيوب وتهيئة النفس."
+  },
+  "content_type": "prompt",
+  "featured": false,
+  "title_ar": "الفرق بين الاختبارات الورقية والرقمية",
+  "title_en": "Item 09",
+  "category": "الاختبارات الرقمية",
+  "tags": [
+    "الاختبارات الرقمية",
+    "prompt"
+  ],
+  "sort_order": 290
+}

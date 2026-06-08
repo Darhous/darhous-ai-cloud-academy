@@ -1,0 +1,19 @@
+{
+  "id": "iot-lab-glossary-esp32",
+  "portal_id": "iot-lab",
+  "content_type": "glossary",
+  "status": "draft",
+  "title_ar": "إي إس بي 32 (ESP32)",
+  "title_en": "ESP32",
+  "data": {
+    "definition": "شريحة تحكم دقيقة منخفضة التكلفة والطاقة تتميز بوجود Wi-Fi و Bluetooth مدمجين.",
+    "example": "استخدام ESP32 لإرسال بيانات الحساسات إلى خادم سحابي."
+  },
+  "category": "إنترنت الأشياء",
+  "featured": false,
+  "tags": [
+    "إنترنت الأشياء",
+    "مصطلحات"
+  ],
+  "sort_order": 120
+}
