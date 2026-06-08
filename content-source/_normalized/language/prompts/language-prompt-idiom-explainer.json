@@ -6,14 +6,16 @@
   "title_ar": "شارح المصطلحات",
   "data": {
     "prompt_text": "Explain the idiom [المصطلح] and give 3 examples.",
-    "instructions": "فهم المصطلحات الإنجليزية وكيفية استخدامها."
+    "instructions": "فهم المصطلحات الإنجليزية وكيفية استخدامها.",
+    "prompt_text_ar": "Explain the idiom [المصطلح] and give 3 examples."
   },
-  "title_en": "",
+  "title_en": "Idiom Explainer",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 70
+  "sort_order": 70,
+  "slug": "language-prompt-idiom-explainer"
 }

@@ -8,12 +8,13 @@
     "url": "https://www.jobscan.co",
     "description": "أداة لمقارنة سيرتك الذاتية مع الوصف الوظيفي وتحديد الكلمات المفتاحية المفقودة لتحسين فرصك."
   },
-  "title_en": "",
+  "title_en": "Jobscan",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 100
+  "sort_order": 100,
+  "slug": "career-resource-jobscan"
 }

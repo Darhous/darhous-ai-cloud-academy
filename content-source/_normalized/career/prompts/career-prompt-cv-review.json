@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "قم بمراجعة سيرتي الذاتية التالية واقترح تحسينات: [نص السيرة]",
-    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني.",
+    "prompt_text_ar": "قم بمراجعة سيرتي الذاتية التالية واقترح تحسينات: [نص السيرة]"
   },
   "id": "career-prompt-cv-review",
   "content_type": "prompt",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "prompt"
   ],
-  "sort_order": 230
+  "sort_order": 230,
+  "slug": "career-prompt-cv-review"
 }

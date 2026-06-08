@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-portfolio-evidence"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "بناء معرض أعمال كدليل إثبات"
-title_en: "Building Portfolio Evidence"
-excerpt_ar: "في سوق العمل التنافسي اليوم، السيرة الذاتية لا تكفي وحدها. أصحاب العمل يريدون أن 'يروا' قدراتك بدلاً من مجرد القراءة عنها."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-portfolio-evidence
+portal_id: career
+content_type: lesson
+title_ar: بناء معرض أعمال كدليل إثبات
+title_en: Building Portfolio Evidence
+excerpt_ar: في سوق العمل التنافسي اليوم، السيرة الذاتية لا تكفي وحدها. أصحاب العمل
+  يريدون أن 'يروا' قدراتك بدلاً من مجرد القراءة عنها.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 130
 reading_time: 1
 parent_id: null
+slug: career-lesson-portfolio-evidence
+data: {}
 ---
 # بناء معرض أعمال كدليل إثبات (Proof of Work)
 

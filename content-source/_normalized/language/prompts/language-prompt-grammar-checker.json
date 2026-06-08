@@ -6,14 +6,16 @@
   "title_ar": "مصحح القواعد",
   "data": {
     "prompt_text": "Correct my grammar and explain the mistakes: [النص].",
-    "instructions": "اكتب نصك ليتم تصحيحه مع الشرح."
+    "instructions": "اكتب نصك ليتم تصحيحه مع الشرح.",
+    "prompt_text_ar": "Correct my grammar and explain the mistakes: [النص]."
   },
-  "title_en": "",
+  "title_en": "Grammar Checker",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 60
+  "sort_order": 60,
+  "slug": "language-prompt-grammar-checker"
 }

@@ -7,7 +7,8 @@
   "title_en": "Light Emitting Diode",
   "data": {
     "definition": "مكون إلكتروني يضيء عند مرور التيار الكهربائي فيه في اتجاه واحد.",
-    "example": "استخدام LED أحمر كمؤشر لعمل الجهاز."
+    "example": "استخدام LED أحمر كمؤشر لعمل الجهاز.",
+    "definition_ar": "مكون إلكتروني يضيء عند مرور التيار الكهربائي فيه في اتجاه واحد."
   },
   "category": "إنترنت الأشياء",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "مصطلحات"
   ],
-  "sort_order": 340
+  "sort_order": 340,
+  "slug": "iot-lab-glossary-led"
 }

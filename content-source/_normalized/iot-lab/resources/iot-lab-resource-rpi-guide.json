@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 260
+  "sort_order": 260,
+  "slug": "iot-lab-resource-rpi-guide"
 }

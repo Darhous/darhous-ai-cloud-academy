@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 10
+  "sort_order": 10,
+  "slug": "iot-lab-resource-adafruit-learn"
 }

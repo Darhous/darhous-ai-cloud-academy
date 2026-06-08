@@ -6,14 +6,16 @@
   "title_ar": "اكتساب اللغة",
   "data": {
     "definition": "التعلم الطبيعي واللاواعي للغة.",
-    "example": "Children show rapid language acquisition."
+    "example": "Children show rapid language acquisition.",
+    "definition_ar": "التعلم الطبيعي واللاواعي للغة."
   },
-  "title_en": "",
+  "title_en": "Acquisition",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 380
+  "sort_order": 380,
+  "slug": "language-glossary-language-acquisition"
 }

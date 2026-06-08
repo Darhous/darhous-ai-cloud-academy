@@ -8,12 +8,13 @@
     "url": "https://zety.com",
     "description": "منصة شهيرة لبناء السير الذاتية وخطابات المقدمة مع تقديم نصائح وأمثلة عملية."
   },
-  "title_en": "",
+  "title_en": "Zety",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 200
+  "sort_order": 200,
+  "slug": "career-resource-zety"
 }

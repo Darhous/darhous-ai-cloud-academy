@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "جهازي لا يتصل بخادم MQTT، ما هي أهم الخطوات لاستكشاف هذه المشكلة وإصلاحها؟",
-    "instructions": "اذكر أسباب شائعة مثل اسم المستخدم، كلمة المرور، أو مشاكل الشبكة."
+    "instructions": "اذكر أسباب شائعة مثل اسم المستخدم، كلمة المرور، أو مشاكل الشبكة.",
+    "prompt_text_ar": "جهازي لا يتصل بخادم MQTT، ما هي أهم الخطوات لاستكشاف هذه المشكلة وإصلاحها؟"
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "prompt"
   ],
-  "sort_order": 270
+  "sort_order": 270,
+  "slug": "iot-lab-prompt-troubleshoot-mqtt"
 }

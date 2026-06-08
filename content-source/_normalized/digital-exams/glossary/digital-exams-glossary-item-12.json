@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "سؤال يتطلب تحديد ما إذا كانت العبارة صحيحة أم خاطئة.",
-    "example": "مثال: الأرض مسطحة. (خطأ)."
+    "example": "مثال: الأرض مسطحة. (خطأ).",
+    "definition_ar": "سؤال يتطلب تحديد ما إذا كانت العبارة صحيحة أم خاطئة."
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "الاختبارات الرقمية",
     "مصطلحات"
   ],
-  "sort_order": 420
+  "sort_order": 420,
+  "slug": "digital-exams-glossary-item-12"
 }

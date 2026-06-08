@@ -8,12 +8,13 @@
     "url": "",
     "description": "منصة متخصصة في تحليل وتدقيق المعلومات المولدة آلياً."
   },
-  "title_en": "",
+  "title_en": "Fact Checking Tool",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 110
+  "sort_order": 110,
+  "slug": "ai-academy-resource-fact-checking-tool"
 }

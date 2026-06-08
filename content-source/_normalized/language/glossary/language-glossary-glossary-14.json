@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "مضاد",
-    "example": "كلمة لها معنى معاكس."
+    "example": "كلمة لها معنى معاكس.",
+    "definition_ar": "مضاد"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 190
+  "sort_order": 190,
+  "slug": "language-glossary-glossary-14"
 }

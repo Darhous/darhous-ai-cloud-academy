@@ -6,14 +6,16 @@
   "title_ar": "تعلم اللغة",
   "data": {
     "definition": "الدراسة الواعية للقواعد والمفردات.",
-    "example": "Language learning requires active effort."
+    "example": "Language learning requires active effort.",
+    "definition_ar": "الدراسة الواعية للقواعد والمفردات."
   },
-  "title_en": "",
+  "title_en": "Learning",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 400
+  "sort_order": 400,
+  "slug": "language-glossary-language-learning"
 }

@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "فعل مركب",
-    "example": "فعل يتكون من فعل وحرف جر."
+    "example": "فعل يتكون من فعل وحرف جر.",
+    "definition_ar": "فعل مركب"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 170
+  "sort_order": 170,
+  "slug": "language-glossary-glossary-12"
 }

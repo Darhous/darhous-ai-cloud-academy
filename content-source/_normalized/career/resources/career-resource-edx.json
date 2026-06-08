@@ -8,12 +8,13 @@
     "url": "https://www.edx.org",
     "description": "منصة تعليمية توفر دورات مجانية ومدفوعة من أفضل الجامعات والمؤسسات حول العالم."
   },
-  "title_en": "",
+  "title_en": "Edx",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 30
+  "sort_order": 30,
+  "slug": "career-resource-edx"
 }

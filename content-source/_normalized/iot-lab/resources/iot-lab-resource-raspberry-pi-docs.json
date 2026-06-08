@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 250
+  "sort_order": 250,
+  "slug": "iot-lab-resource-raspberry-pi-docs"
 }

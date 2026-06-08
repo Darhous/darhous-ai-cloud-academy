@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "هيكلية للإجابة على أسئلة المقابلات السلوكية.",
-    "example": "مثال على استخدام مصطلح طريقة STAR في السياق المهني."
+    "example": "مثال على استخدام مصطلح طريقة STAR في السياق المهني.",
+    "definition_ar": "هيكلية للإجابة على أسئلة المقابلات السلوكية."
   },
   "id": "career-glossary-star-method-2",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 500
+  "sort_order": 500,
+  "slug": "career-glossary-star-method-2"
 }

@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "ساعدني في صياغة إجابة بطريقة STAR لموقف واجهت فيه تحدياً في العمل.",
-    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني.",
+    "prompt_text_ar": "ساعدني في صياغة إجابة بطريقة STAR لموقف واجهت فيه تحدياً في العمل."
   },
   "id": "career-prompt-star-answer",
   "content_type": "prompt",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "prompt"
   ],
-  "sort_order": 300
+  "sort_order": 300,
+  "slug": "career-prompt-star-answer"
 }

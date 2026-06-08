@@ -1,20 +1,23 @@
 ---
-id: "career-lesson-career-transition"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "الانتقال السلس لمسار مهني جديد"
-title_en: "Career Transition"
-excerpt_ar: "# الانتقال السلس لمسار مهني جديد"
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-career-transition
+portal_id: career
+content_type: lesson
+title_ar: الانتقال السلس لمسار مهني جديد
+title_en: Career Transition
+excerpt_ar: '# الانتقال السلس لمسار مهني جديد'
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 170
 reading_time: 1
 parent_id: null
+slug: career-lesson-career-transition
+data: {}
 ---
-
 # الانتقال السلس لمسار مهني جديد
 
 ## مقدمة

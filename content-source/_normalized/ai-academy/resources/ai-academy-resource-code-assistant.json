@@ -8,12 +8,13 @@
     "url": "https://github.com/features/copilot",
     "description": "أداة من جيت هاب تساعد المبرمجين في كتابة الكود بشكل أسرع وأدق."
   },
-  "title_en": "",
+  "title_en": "Code Assistant",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 90
+  "sort_order": 90,
+  "slug": "ai-academy-resource-code-assistant"
 }

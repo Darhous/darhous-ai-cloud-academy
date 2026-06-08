@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "كيف تعمل دائرة مقسم الجهد (Voltage Divider) ولماذا نستخدمها في مشاريعنا؟",
-    "instructions": "قدم مثالاً يوضح استخدام مقاومتين لتقليل الجهد العالي ليناسب الأردوينو."
+    "instructions": "قدم مثالاً يوضح استخدام مقاومتين لتقليل الجهد العالي ليناسب الأردوينو.",
+    "prompt_text_ar": "كيف تعمل دائرة مقسم الجهد (Voltage Divider) ولماذا نستخدمها في مشاريعنا؟"
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "prompt"
   ],
-  "sort_order": 10
+  "sort_order": 10,
+  "slug": "iot-lab-prompt-analog-circuit"
 }

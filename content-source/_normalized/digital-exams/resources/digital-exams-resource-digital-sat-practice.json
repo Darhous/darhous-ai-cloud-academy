@@ -8,12 +8,13 @@
     "url": "https://bluebook.collegeboard.org",
     "description": "تطبيق يحاكي بيئة الاختبارات الرقمية المعيارية للتدرب على الواجهة والأسئلة (مفيد لاختبارات مشابهة)."
   },
-  "title_en": "",
+  "title_en": "Sat Practice",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 40
+  "sort_order": 40,
+  "slug": "digital-exams-resource-digital-sat-practice"
 }

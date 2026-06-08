@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "وثيقة توضح المهام والمسؤوليات المطلوبة لوظيفة معينة.",
-    "example": "مثال على استخدام مصطلح الوصف الوظيفي في السياق المهني."
+    "example": "مثال على استخدام مصطلح الوصف الوظيفي في السياق المهني.",
+    "definition_ar": "وثيقة توضح المهام والمسؤوليات المطلوبة لوظيفة معينة."
   },
   "id": "career-glossary-job-description-2",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 410
+  "sort_order": 410,
+  "slug": "career-glossary-job-description-2"
 }

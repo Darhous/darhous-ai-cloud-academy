@@ -8,12 +8,13 @@
     "url": "https://www.pramp.com",
     "description": "منصة مجانية لإجراء مقابلات تجريبية (Mock Interviews) مع زملاء في مجالات البرمجة والتصميم وإدارة المنتجات."
   },
-  "title_en": "",
+  "title_en": "Pramp",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 160
+  "sort_order": 160,
+  "slug": "career-resource-pramp"
 }

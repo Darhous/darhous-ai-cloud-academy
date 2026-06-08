@@ -6,14 +6,16 @@
   "title_ar": "ملخص القراءة",
   "data": {
     "prompt_text": "Summarize this article in simple B1 level English: [المقال].",
-    "instructions": "تبسيط المقالات لتناسب مستواك."
+    "instructions": "تبسيط المقالات لتناسب مستواك.",
+    "prompt_text_ar": "Summarize this article in simple B1 level English: [المقال]."
   },
-  "title_en": "",
+  "title_en": "Reading Summary",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 230
+  "sort_order": 230,
+  "slug": "language-prompt-reading-summary"
 }

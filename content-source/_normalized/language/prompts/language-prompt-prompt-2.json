@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "قم بتصحيح الأخطاء النحوية في النص.",
-    "instructions": "اشرح سبب كل خطأ وكيفية تصحيحه."
+    "instructions": "اشرح سبب كل خطأ وكيفية تصحيحه.",
+    "prompt_text_ar": "قم بتصحيح الأخطاء النحوية في النص."
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 140
+  "sort_order": 140,
+  "slug": "language-prompt-prompt-2"
 }

@@ -6,14 +6,16 @@
   "title_ar": "النبر",
   "data": {
     "definition": "التشديد على مقطع معين في الكلمة أو كلمة في الجملة.",
-    "example": "In 'record', the stress is on the first syllable for the noun."
+    "example": "In 'record', the stress is on the first syllable for the noun.",
+    "definition_ar": "التشديد على مقطع معين في الكلمة أو كلمة في الجملة."
   },
-  "title_en": "",
+  "title_en": "Stress",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 490
+  "sort_order": 490,
+  "slug": "language-glossary-stress"
 }

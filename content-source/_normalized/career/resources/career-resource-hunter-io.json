@@ -8,12 +8,13 @@
     "url": "https://hunter.io",
     "description": "أداة مفيدة للعثور على عناوين البريد الإلكتروني للمحترفين ومسؤولي التوظيف للتواصل المباشر."
   },
-  "title_en": "",
+  "title_en": "Hunter Io",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 70
+  "sort_order": 70,
+  "slug": "career-resource-hunter-io"
 }

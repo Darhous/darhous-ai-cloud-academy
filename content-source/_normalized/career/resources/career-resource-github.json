@@ -8,12 +8,13 @@
     "url": "https://github.com",
     "description": "منصة أساسية للمبرمجين لبناء معرض أعمالهم ومشاركة الكود والمساهمة في مشاريع مفتوحة المصدر."
   },
-  "title_en": "",
+  "title_en": "Github",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 40
+  "sort_order": 40,
+  "slug": "career-resource-github"
 }

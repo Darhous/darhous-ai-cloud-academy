@@ -1,20 +1,23 @@
 ---
-id: "automation-lesson-error-handling"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "التعامل مع الأخطاء في الأتمتة"
-title_en: "Error Handling"
-excerpt_ar: "## ماذا تفعل عندما تفشل الأتمتة؟"
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-error-handling
+portal_id: automation
+content_type: lesson
+title_ar: التعامل مع الأخطاء في الأتمتة
+title_en: Error Handling
+excerpt_ar: '## ماذا تفعل عندما تفشل الأتمتة؟'
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 160
 reading_time: 1
 parent_id: null
+slug: automation-lesson-error-handling
+data: {}
 ---
-
 ## ماذا تفعل عندما تفشل الأتمتة؟
 
 حتى أفضل مسارات العمل يمكن أن تفشل (مثلاً: تغيرت كلمة المرور، أو توقف التطبيق الآخر عن العمل). لذلك، يجب بناء مسارات عمل قوية.

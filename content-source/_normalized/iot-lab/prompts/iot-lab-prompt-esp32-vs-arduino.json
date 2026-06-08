@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "ما الفرق بين لوحة الأردوينو أونو ولوحة ESP32، ومتى أستخدم كل منهما؟",
-    "instructions": "قدم مقارنة تشمل التكلفة، الاتصال بالإنترنت، وقوة المعالجة."
+    "instructions": "قدم مقارنة تشمل التكلفة، الاتصال بالإنترنت، وقوة المعالجة.",
+    "prompt_text_ar": "ما الفرق بين لوحة الأردوينو أونو ولوحة ESP32، ومتى أستخدم كل منهما؟"
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "prompt"
   ],
-  "sort_order": 70
+  "sort_order": 70,
+  "slug": "iot-lab-prompt-esp32-vs-arduino"
 }

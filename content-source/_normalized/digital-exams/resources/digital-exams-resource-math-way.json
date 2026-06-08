@@ -8,12 +8,13 @@
     "url": "https://www.mathway.com",
     "description": "أداة للتحقق من إجاباتك ومراجعة خطوات الحل الدقيقة في المسائل الجبرية والهندسية."
   },
-  "title_en": "",
+  "title_en": "Math Way",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 100
+  "sort_order": 100,
+  "slug": "digital-exams-resource-math-way"
 }

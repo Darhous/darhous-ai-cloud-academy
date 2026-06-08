@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 60
+  "sort_order": 60,
+  "slug": "iot-lab-resource-blynk"
 }

@@ -6,14 +6,16 @@
   "title_ar": "الاستماع السلبي",
   "data": {
     "definition": "الاستماع للغة في الخلفية دون تركيز كامل.",
-    "example": "Passive listening helps get used to the sounds."
+    "example": "Passive listening helps get used to the sounds.",
+    "definition_ar": "الاستماع للغة في الخلفية دون تركيز كامل."
   },
-  "title_en": "",
+  "title_en": "Passive Listening",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 430
+  "sort_order": 430,
+  "slug": "language-glossary-passive-listening"
 }

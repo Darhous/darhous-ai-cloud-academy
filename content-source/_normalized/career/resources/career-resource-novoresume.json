@@ -8,12 +8,13 @@
     "url": "https://novoresume.com",
     "description": "أداة لإنشاء سير ذاتية احترافية تتوافق مع أنظمة تتبع المتقدمين (ATS) بخطوات بسيطة."
   },
-  "title_en": "",
+  "title_en": "Novoresume",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 140
+  "sort_order": 140,
+  "slug": "career-resource-novoresume"
 }

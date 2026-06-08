@@ -1,20 +1,23 @@
 ---
-id: "career-lesson-ace-the-interview"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "النجاح في المقابلة الشخصية"
-title_en: "Ace The Interview"
-excerpt_ar: "# النجاح في المقابلة الشخصية"
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-ace-the-interview
+portal_id: career
+content_type: lesson
+title_ar: النجاح في المقابلة الشخصية
+title_en: Ace The Interview
+excerpt_ar: '# النجاح في المقابلة الشخصية'
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 10
 reading_time: 1
 parent_id: null
+slug: career-lesson-ace-the-interview
+data: {}
 ---
-
 # النجاح في المقابلة الشخصية
 
 ## مقدمة

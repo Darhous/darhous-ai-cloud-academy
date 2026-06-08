@@ -1,20 +1,23 @@
 ---
-id: "automation-lesson-ai-automation-intro"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "الأتمتة المدعومة بالذكاء الاصطناعي"
-title_en: "Ai Automation Intro"
-excerpt_ar: "## عصر جديد للأتمتة"
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-ai-automation-intro
+portal_id: automation
+content_type: lesson
+title_ar: الأتمتة المدعومة بالذكاء الاصطناعي
+title_en: Ai Automation Intro
+excerpt_ar: '## عصر جديد للأتمتة'
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 10
 reading_time: 1
 parent_id: null
+slug: automation-lesson-ai-automation-intro
+data: {}
 ---
-
 ## عصر جديد للأتمتة
 
 دمج الذكاء الاصطناعي (مثل ChatGPT) مع أدوات الأتمتة (مثل Zapier) ينقل قدراتك إلى مستوى سحري.

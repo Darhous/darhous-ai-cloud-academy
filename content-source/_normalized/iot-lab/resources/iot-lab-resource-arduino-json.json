@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 40
+  "sort_order": 40,
+  "slug": "iot-lab-resource-arduino-json"
 }

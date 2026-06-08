@@ -1,20 +1,23 @@
 ---
-id: "automation-lesson-intro-automation"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "مقدمة في أتمتة سير العمل"
-title_en: "Intro Automation"
-excerpt_ar: "## مرحباً بك في عالم الأتمتة"
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-intro-automation
+portal_id: automation
+content_type: lesson
+title_ar: مقدمة في أتمتة سير العمل
+title_en: Intro Automation
+excerpt_ar: '## مرحباً بك في عالم الأتمتة'
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 170
 reading_time: 1
 parent_id: null
+slug: automation-lesson-intro-automation
+data: {}
 ---
-
 ## مرحباً بك في عالم الأتمتة
 
 الأتمتة ليست مجرد أداة تقنية للمبرمجين، بل هي مهارة أساسية لأي شخص يرغب في توفير وقته وجهده وتقليل الأخطاء البشرية. في هذا الدرس، سنتعرف على أساسيات أتمتة سير العمل.

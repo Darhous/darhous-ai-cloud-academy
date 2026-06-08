@@ -8,12 +8,13 @@
     "url": "https://www.notion.so",
     "description": "استخدم قوالب نوشن الجاهزة لتنظيم جدول المراجعة وبناء سجل الأخطاء الخاص بك."
   },
-  "title_en": "",
+  "title_en": "Notion Templates",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 130
+  "sort_order": 130,
+  "slug": "digital-exams-resource-notion-templates"
 }

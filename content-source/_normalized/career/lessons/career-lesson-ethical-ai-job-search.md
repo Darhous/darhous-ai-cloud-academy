@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-ethical-ai-job-search"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "الاستخدام الأخلاقي للذكاء الاصطناعي في البحث عن عمل"
-title_en: "Ethical Use of AI in Job Searching"
-excerpt_ar: "أدوات الذكاء الاصطناعي مثل ChatGPT يمكن أن تكون مساعداً قوياً في رحلة البحث عن عمل، ولكن يجب استخدامها بحذر ومسؤولية للحفاظ على مصداقيتك."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-ethical-ai-job-search
+portal_id: career
+content_type: lesson
+title_ar: الاستخدام الأخلاقي للذكاء الاصطناعي في البحث عن عمل
+title_en: Ethical Use of AI in Job Searching
+excerpt_ar: أدوات الذكاء الاصطناعي مثل ChatGPT يمكن أن تكون مساعداً قوياً في رحلة
+  البحث عن عمل، ولكن يجب استخدامها بحذر ومسؤولية للحفاظ على مصداقيتك.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 80
 reading_time: 1
 parent_id: null
+slug: career-lesson-ethical-ai-job-search
+data: {}
 ---
 # الاستخدام الأخلاقي للذكاء الاصطناعي في التوظيف
 

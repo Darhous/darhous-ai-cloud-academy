@@ -1,20 +1,23 @@
 ---
-id: "career-lesson-linkedin-mastery"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "احتراف استخدام لينكد إن"
-title_en: "Linkedin Mastery"
-excerpt_ar: "# احتراف استخدام لينكد إن"
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-linkedin-mastery
+portal_id: career
+content_type: lesson
+title_ar: احتراف استخدام لينكد إن
+title_en: Linkedin Mastery
+excerpt_ar: '# احتراف استخدام لينكد إن'
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 180
 reading_time: 1
 parent_id: null
+slug: career-lesson-linkedin-mastery
+data: {}
 ---
-
 # احتراف استخدام لينكد إن
 
 ## مقدمة

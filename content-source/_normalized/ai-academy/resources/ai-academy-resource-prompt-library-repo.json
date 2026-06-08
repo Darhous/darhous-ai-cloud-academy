@@ -8,12 +8,13 @@
     "url": "",
     "description": "مستودع يحتوي على قوالب جاهزة لأوامر ذكاء اصطناعي لمختلف المهام."
   },
-  "title_en": "",
+  "title_en": "Prompt Library Repo",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 190
+  "sort_order": 190,
+  "slug": "ai-academy-resource-prompt-library-repo"
 }

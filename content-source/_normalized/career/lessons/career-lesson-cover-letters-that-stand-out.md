@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-cover-letters-that-stand-out"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "كتابة خطاب مقدمة متميز"
-title_en: "Writing a Standout Cover Letter"
-excerpt_ar: "خطاب المقدمة هو فرصتك للتحدث المباشر مع صاحب العمل وشرح 'السبب' وراء رغبتك في الانضمام إليهم، وليس فقط إعادة صياغة سيرتك الذاتية."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-cover-letters-that-stand-out
+portal_id: career
+content_type: lesson
+title_ar: كتابة خطاب مقدمة متميز
+title_en: Writing a Standout Cover Letter
+excerpt_ar: خطاب المقدمة هو فرصتك للتحدث المباشر مع صاحب العمل وشرح 'السبب' وراء رغبتك
+  في الانضمام إليهم، وليس فقط إعادة صياغة سيرتك الذاتية.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 50
 reading_time: 1
 parent_id: null
+slug: career-lesson-cover-letters-that-stand-out
+data: {}
 ---
 # كتابة خطاب مقدمة متميز
 

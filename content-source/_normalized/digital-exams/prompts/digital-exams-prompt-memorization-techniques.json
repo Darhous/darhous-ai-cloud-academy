@@ -6,14 +6,16 @@
   "title_ar": "تقنيات الحفظ السريع",
   "data": {
     "prompt_text": "لدي قائمة من [عدد] مصطلحات أو قوانين أحتاج لحفظها: [القائمة]. اقترح علي طريقة (Mnemonics) أو قصة قصيرة أو اختصارات لحفظها بسهولة.",
-    "instructions": "يفضل وضع قوائم مترابطة ليكون الاختصار أو القصة ذات معنى."
+    "instructions": "يفضل وضع قوائم مترابطة ليكون الاختصار أو القصة ذات معنى.",
+    "prompt_text_ar": "لدي قائمة من [عدد] مصطلحات أو قوانين أحتاج لحفظها: [القائمة]. اقترح علي طريقة (Mnemonics) أو قصة قصيرة أو اختصارات لحفظها بسهولة."
   },
-  "title_en": "",
+  "title_en": "Memorization Techniques",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "prompt"
   ],
-  "sort_order": 120
+  "sort_order": 120,
+  "slug": "digital-exams-prompt-memorization-techniques"
 }

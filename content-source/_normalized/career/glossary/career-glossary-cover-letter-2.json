@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "رسالة ترفق مع السيرة الذاتية لتوضيح سبب اهتمامك بالوظيفة.",
-    "example": "مثال على استخدام مصطلح خطاب المقدمة في السياق المهني."
+    "example": "مثال على استخدام مصطلح خطاب المقدمة في السياق المهني.",
+    "definition_ar": "رسالة ترفق مع السيرة الذاتية لتوضيح سبب اهتمامك بالوظيفة."
   },
   "id": "career-glossary-cover-letter-2",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 340
+  "sort_order": 340,
+  "slug": "career-glossary-cover-letter-2"
 }

@@ -1,18 +1,22 @@
 ---
-id: "digital-exams-lesson-reading-comprehension-tricks"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "استيعاب المقروء: تقنيات القراءة الفعالة"
-title_en: "Reading Comprehension: Effective Techniques"
-excerpt_ar: "في أقسام استيعاب المقروء، قراءة النص كاملاً بتمعن تستهلك كل وقتك."
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-reading-comprehension-tricks
+portal_id: digital-exams
+content_type: lesson
+title_ar: 'استيعاب المقروء: تقنيات القراءة الفعالة'
+title_en: 'Reading Comprehension: Effective Techniques'
+excerpt_ar: في أقسام استيعاب المقروء، قراءة النص كاملاً بتمعن تستهلك كل وقتك.
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 130
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-reading-comprehension-tricks
+data: {}
 ---
 # استيعاب المقروء: تقنيات القراءة الفعالة
 

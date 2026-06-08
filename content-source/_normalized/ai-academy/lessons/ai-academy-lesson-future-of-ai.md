@@ -1,18 +1,23 @@
 ---
-id: "ai-academy-lesson-future-of-ai"
-portal_id: "ai-academy"
-content_type: "lesson"
-title_ar: "مستقبل الذكاء الاصطناعي"
-title_en: "Future of AI"
-excerpt_ar: "نظرة مستقبلية على التقنيات الناشئة في مجال الذكاء الاصطناعي، مثل الوكلاء المستقلين (Autonomous Agents) والذكاء الاصطناعي العام (AGI). كيف نستعد لهذه ا..."
-excerpt_en: ""
-category: "الذكاء الاصطناعي"
-status: "draft"
+id: ai-academy-lesson-future-of-ai
+portal_id: ai-academy
+content_type: lesson
+title_ar: مستقبل الذكاء الاصطناعي
+title_en: Future of AI
+excerpt_ar: نظرة مستقبلية على التقنيات الناشئة في مجال الذكاء الاصطناعي، مثل الوكلاء
+  المستقلين (Autonomous Agents) والذكاء الاصطناعي العام (AGI). كيف نستعد لهذه ا...
+excerpt_en: ''
+category: الذكاء الاصطناعي
+status: draft
 featured: false
-tags: ["الذكاء الاصطناعي", "lesson"]
+tags:
+- الذكاء الاصطناعي
+- lesson
 sort_order: 70
 reading_time: 1
 parent_id: null
+slug: ai-academy-lesson-future-of-ai
+data: {}
 ---
 # مستقبل الذكاء الاصطناعي
 

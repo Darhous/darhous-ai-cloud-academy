@@ -15,5 +15,6 @@
     "الأتمتة",
     "resource"
   ],
-  "sort_order": 50
+  "sort_order": 50,
+  "slug": "automation-resource-api-security-best-practices"
 }

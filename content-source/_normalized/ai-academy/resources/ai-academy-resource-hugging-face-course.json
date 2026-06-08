@@ -8,12 +8,13 @@
     "url": "https://huggingface.co/course/",
     "description": "دورة مجانية ممتازة لفهم آليات عمل النماذج اللغوية الكبيرة."
   },
-  "title_en": "",
+  "title_en": "Hugging Face Course",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 140
+  "sort_order": 140,
+  "slug": "ai-academy-resource-hugging-face-course"
 }

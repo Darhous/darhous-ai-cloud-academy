@@ -8,12 +8,13 @@
     "url": "https://www.themuse.com",
     "description": "موقع يقدم نصائح مهنية ممتازة، وأدلة للبحث عن عمل، ونظرة من الداخل لثقافة الشركات."
   },
-  "title_en": "",
+  "title_en": "The Muse",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 180
+  "sort_order": 180,
+  "slug": "career-resource-the-muse"
 }

@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "منصة مهنية لبناء شبكة علاقات والبحث عن وظائف.",
-    "example": "مثال على استخدام مصطلح لينكد إن في السياق المهني."
+    "example": "مثال على استخدام مصطلح لينكد إن في السياق المهني.",
+    "definition_ar": "منصة مهنية لبناء شبكة علاقات والبحث عن وظائف."
   },
   "id": "career-glossary-linkedin",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 420
+  "sort_order": 420,
+  "slug": "career-glossary-linkedin"
 }

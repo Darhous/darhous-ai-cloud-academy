@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اشرح معنى الفعل المركب.",
-    "instructions": "قدم ثلاثة أمثلة في سياقات مختلفة."
+    "instructions": "قدم ثلاثة أمثلة في سياقات مختلفة.",
+    "prompt_text_ar": "اشرح معنى الفعل المركب."
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 210
+  "sort_order": 210,
+  "slug": "language-prompt-prompt-9"
 }

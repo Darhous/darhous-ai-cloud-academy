@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اطرح علي أسئلة مقابلة شائعة لوظيفة [المسمى الوظيفي] وقيّم إجاباتي.",
-    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني.",
+    "prompt_text_ar": "اطرح علي أسئلة مقابلة شائعة لوظيفة [المسمى الوظيفي] وقيّم إجاباتي."
   },
   "id": "career-prompt-interview-prep",
   "content_type": "prompt",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "prompt"
   ],
-  "sort_order": 240
+  "sort_order": 240,
+  "slug": "career-prompt-interview-prep"
 }

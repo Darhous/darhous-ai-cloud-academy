@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "قم بدور متحدث أصلي للغة الإنجليزية.",
-    "instructions": "ابدأ المحادثة بسؤال بسيط عن يومي."
+    "instructions": "ابدأ المحادثة بسؤال بسيط عن يومي.",
+    "prompt_text_ar": "قم بدور متحدث أصلي للغة الإنجليزية."
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 120
+  "sort_order": 120,
+  "slug": "language-prompt-prompt-1"
 }

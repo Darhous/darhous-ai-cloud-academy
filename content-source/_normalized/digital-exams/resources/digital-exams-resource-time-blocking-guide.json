@@ -8,12 +8,13 @@
     "url": "",
     "description": "شرح مفصل لكيفية استخدام استراتيجية Time Blocking لتنظيم يومك خلال فترة المراجعة النهائية."
   },
-  "title_en": "",
+  "title_en": "Time Blocking Guide",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 200
+  "sort_order": 200,
+  "slug": "digital-exams-resource-time-blocking-guide"
 }

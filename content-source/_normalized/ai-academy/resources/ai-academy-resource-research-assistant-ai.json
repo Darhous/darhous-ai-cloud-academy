@@ -8,12 +8,13 @@
     "url": "",
     "description": "منصة تدعم الباحثين في تلخيص الأوراق العلمية واستخراج البيانات."
   },
-  "title_en": "",
+  "title_en": "Research Assistant",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 200
+  "sort_order": 200,
+  "slug": "ai-academy-resource-research-assistant-ai"
 }

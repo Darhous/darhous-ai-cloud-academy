@@ -6,14 +6,16 @@
   "title_ar": "الدقة",
   "data": {
     "definition": "استخدام القواعد والمفردات بشكل صحيح.",
-    "example": "Accuracy is important in formal writing."
+    "example": "Accuracy is important in formal writing.",
+    "definition_ar": "استخدام القواعد والمفردات بشكل صحيح."
   },
-  "title_en": "",
+  "title_en": "Accuracy",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 10
+  "sort_order": 10,
+  "slug": "language-glossary-accuracy"
 }

@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اكتب كود بايثون بسيط لتشغيل وإطفاء LED متصل بدبوس GPIO في رازبري باي.",
-    "instructions": "أضف تعليقات توضيحية على الكود لشرح كل خطوة."
+    "instructions": "أضف تعليقات توضيحية على الكود لشرح كل خطوة.",
+    "prompt_text_ar": "اكتب كود بايثون بسيط لتشغيل وإطفاء LED متصل بدبوس GPIO في رازبري باي."
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "prompt"
   ],
-  "sort_order": 170
+  "sort_order": 170,
+  "slug": "iot-lab-prompt-python-script-rpi"
 }

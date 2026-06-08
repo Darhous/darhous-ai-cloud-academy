@@ -8,12 +8,13 @@
     "url": "https://youglish.com/",
     "description": "ابحث عن نطق أي كلمة في سياقات حقيقية على يوتيوب."
   },
-  "title_en": "",
+  "title_en": "Youglish",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "resource"
   ],
-  "sort_order": 300
+  "sort_order": 300,
+  "slug": "language-resource-youglish"
 }

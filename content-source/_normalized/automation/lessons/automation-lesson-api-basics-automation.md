@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-api-basics-automation"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "أساسيات واجهات برمجة التطبيقات للأتمتة"
-title_en: "API Basics for Automation"
-excerpt_ar: "واجهة برمجة التطبيقات (API) هي لغة التواصل التي تستخدمها البرامج للتحدث مع بعضها البعض ومشاركة البيانات. في عالم الأتمتة، الـ APIs هي العمود الفقري."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-api-basics-automation
+portal_id: automation
+content_type: lesson
+title_ar: أساسيات واجهات برمجة التطبيقات للأتمتة
+title_en: API Basics for Automation
+excerpt_ar: واجهة برمجة التطبيقات (API) هي لغة التواصل التي تستخدمها البرامج للتحدث
+  مع بعضها البعض ومشاركة البيانات. في عالم الأتمتة، الـ APIs هي العمود الفقري.
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 30
 reading_time: 1
 parent_id: null
+slug: automation-lesson-api-basics-automation
+data: {}
 ---
 # أساسيات واجهات برمجة التطبيقات (APIs) للأتمتة
 

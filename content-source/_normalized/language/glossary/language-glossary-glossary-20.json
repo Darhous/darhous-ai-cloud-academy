@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "التنغيم",
-    "example": "ارتفاع وانخفاض الصوت عند التحدث."
+    "example": "ارتفاع وانخفاض الصوت عند التحدث.",
+    "definition_ar": "التنغيم"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 260
+  "sort_order": 260,
+  "slug": "language-glossary-glossary-20"
 }

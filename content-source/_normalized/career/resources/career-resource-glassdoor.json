@@ -8,12 +8,13 @@
     "url": "https://www.glassdoor.com",
     "description": "موقع للبحث عن الوظائف ومراجعات الشركات ومقارنة الرواتب والتحضير للمقابلات."
   },
-  "title_en": "",
+  "title_en": "Glassdoor",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 50
+  "sort_order": 50,
+  "slug": "career-resource-glassdoor"
 }

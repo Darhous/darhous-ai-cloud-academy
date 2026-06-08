@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-data-mapping-between-apps"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "تخطيط البيانات بين التطبيقات"
-title_en: "Data Mapping Between Apps"
-excerpt_ar: "أثناء نقل البيانات من تطبيق إلى آخر في الأتمتة، نادراً ما تتطابق أسماء الحقول والتنسيقات. هنا يأتي دور تخطيط البيانات (Data Mapping)."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-data-mapping-between-apps
+portal_id: automation
+content_type: lesson
+title_ar: تخطيط البيانات بين التطبيقات
+title_en: Data Mapping Between Apps
+excerpt_ar: أثناء نقل البيانات من تطبيق إلى آخر في الأتمتة، نادراً ما تتطابق أسماء
+  الحقول والتنسيقات. هنا يأتي دور تخطيط البيانات (Data Mapping).
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 80
 reading_time: 1
 parent_id: null
+slug: automation-lesson-data-mapping-between-apps
+data: {}
 ---
 # تخطيط البيانات (Data Mapping) بين التطبيقات
 

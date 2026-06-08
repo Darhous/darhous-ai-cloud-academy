@@ -6,14 +6,16 @@
   "title_ar": "محاكاة مقابلة عمل",
   "data": {
     "prompt_text": "Conduct a job interview in English for the position of [الوظيفة].",
-    "instructions": "تدرب على مقابلات العمل باللغة الإنجليزية."
+    "instructions": "تدرب على مقابلات العمل باللغة الإنجليزية.",
+    "prompt_text_ar": "Conduct a job interview in English for the position of [الوظيفة]."
   },
-  "title_en": "",
+  "title_en": "Roleplay Interview",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 240
+  "sort_order": 240,
+  "slug": "language-prompt-roleplay-interview"
 }

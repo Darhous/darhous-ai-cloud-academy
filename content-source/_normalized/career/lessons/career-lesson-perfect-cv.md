@@ -1,20 +1,23 @@
 ---
-id: "career-lesson-perfect-cv"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "كتابة السيرة الذاتية المثالية"
-title_en: "Perfect Cv"
-excerpt_ar: "# كتابة السيرة الذاتية المثالية"
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-perfect-cv
+portal_id: career
+content_type: lesson
+title_ar: كتابة السيرة الذاتية المثالية
+title_en: Perfect Cv
+excerpt_ar: '# كتابة السيرة الذاتية المثالية'
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 190
 reading_time: 1
 parent_id: null
+slug: career-lesson-perfect-cv
+data: {}
 ---
-
 # كتابة السيرة الذاتية المثالية
 
 ## مقدمة

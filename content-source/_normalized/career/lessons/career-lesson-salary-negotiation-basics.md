@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-salary-negotiation-basics"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "أساسيات التفاوض على الراتب بثقة"
-title_en: "Basics of Confident Salary Negotiation"
-excerpt_ar: "العديد من المهنيين يتجنبون التفاوض على الراتب خوفاً من فقدان العرض الوظيفي، لكن التفاوض هو جزء طبيعي ومتوقع من عملية التوظيف."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-salary-negotiation-basics
+portal_id: career
+content_type: lesson
+title_ar: أساسيات التفاوض على الراتب بثقة
+title_en: Basics of Confident Salary Negotiation
+excerpt_ar: العديد من المهنيين يتجنبون التفاوض على الراتب خوفاً من فقدان العرض الوظيفي،
+  لكن التفاوض هو جزء طبيعي ومتوقع من عملية التوظيف.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 150
 reading_time: 1
 parent_id: null
+slug: career-lesson-salary-negotiation-basics
+data: {}
 ---
 # أساسيات التفاوض على الراتب بثقة
 

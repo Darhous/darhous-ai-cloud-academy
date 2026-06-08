@@ -1,18 +1,23 @@
 ---
-id: "digital-exams-lesson-digital-time-management"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "إدارة الوقت في الاختبارات الرقمية"
-title_en: "Time Management in Digital Exams"
-excerpt_ar: "في الاختبارات الورقية، كان من السهل تصفح الأوراق لتوزيع الوقت. أما رقمياً، فأنت تواجه الشاشة فقط."
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-digital-time-management
+portal_id: digital-exams
+content_type: lesson
+title_ar: إدارة الوقت في الاختبارات الرقمية
+title_en: Time Management in Digital Exams
+excerpt_ar: في الاختبارات الورقية، كان من السهل تصفح الأوراق لتوزيع الوقت. أما رقمياً،
+  فأنت تواجه الشاشة فقط.
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 40
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-digital-time-management
+data: {}
 ---
 # إدارة الوقت في الاختبارات الرقمية
 

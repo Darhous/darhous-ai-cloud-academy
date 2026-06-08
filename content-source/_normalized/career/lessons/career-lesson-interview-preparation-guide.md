@@ -1,18 +1,22 @@
 ---
-id: "career-lesson-interview-preparation-guide"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "الدليل الشامل للتحضير للمقابلات"
-title_en: "Comprehensive Interview Preparation Guide"
-excerpt_ar: "التحضير الجيد هو المفتاح للتغلب على توتر المقابلات وإظهار ثقتك وكفاءتك."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-interview-preparation-guide
+portal_id: career
+content_type: lesson
+title_ar: الدليل الشامل للتحضير للمقابلات
+title_en: Comprehensive Interview Preparation Guide
+excerpt_ar: التحضير الجيد هو المفتاح للتغلب على توتر المقابلات وإظهار ثقتك وكفاءتك.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 90
 reading_time: 1
 parent_id: null
+slug: career-lesson-interview-preparation-guide
+data: {}
 ---
 # الدليل الشامل للتحضير للمقابلات
 

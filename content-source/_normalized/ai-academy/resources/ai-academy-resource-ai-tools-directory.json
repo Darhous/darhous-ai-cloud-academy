@@ -8,12 +8,13 @@
     "url": "",
     "description": "قائمة محدثة بأهم الأدوات المفيدة في مختلف المجالات العملية والتعليمية."
   },
-  "title_en": "",
+  "title_en": "Tools Directory",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 40
+  "sort_order": 40,
+  "slug": "ai-academy-resource-ai-tools-directory"
 }

@@ -8,12 +8,13 @@
     "url": "https://remoteok.com",
     "description": "موقع متخصص في عرض الوظائف التي يمكن أداؤها عن بعد بالكامل للمحترفين الرقميين."
   },
-  "title_en": "",
+  "title_en": "Remote Ok",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 170
+  "sort_order": 170,
+  "slug": "career-resource-remote-ok"
 }

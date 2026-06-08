@@ -1,20 +1,23 @@
 ---
-id: "digital-exams-lesson-item-06"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "قراءة السؤال بدقة: الكلمات المفتاحية"
-title_en: "Item 06"
-excerpt_ar: "# قراءة السؤال بدقة: الكلمات المفتاحية"
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-item-06
+portal_id: digital-exams
+content_type: lesson
+title_ar: 'قراءة السؤال بدقة: الكلمات المفتاحية'
+title_en: Item 06
+excerpt_ar: '# قراءة السؤال بدقة: الكلمات المفتاحية'
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 200
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-item-06
+data: {}
 ---
-
 # قراءة السؤال بدقة: الكلمات المفتاحية
 
 ## مقدمة

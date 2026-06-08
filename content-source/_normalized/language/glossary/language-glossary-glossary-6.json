@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "التحدث",
-    "example": "التدرب على التحدث يوميا يحسن الثقة."
+    "example": "التدرب على التحدث يوميا يحسن الثقة.",
+    "definition_ar": "التحدث"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 300
+  "sort_order": 300,
+  "slug": "language-glossary-glossary-6"
 }

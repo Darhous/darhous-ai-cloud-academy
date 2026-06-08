@@ -6,14 +6,16 @@
   "title_ar": "تجميع الكلمات",
   "data": {
     "definition": "تعلم العبارات ككتلة واحدة بدلاً من كلمات منفصلة.",
-    "example": "Chunking helps you speak faster."
+    "example": "Chunking helps you speak faster.",
+    "definition_ar": "تعلم العبارات ككتلة واحدة بدلاً من كلمات منفصلة."
   },
-  "title_en": "",
+  "title_en": "Chunking",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 100
+  "sort_order": 100,
+  "slug": "language-glossary-chunking"
 }

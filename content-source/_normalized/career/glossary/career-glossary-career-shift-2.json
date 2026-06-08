@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "الانتقال للعمل في مجال مختلف عن مجالك الحالي أو السابق.",
-    "example": "مثال على استخدام مصطلح تغيير المسار المهني في السياق المهني."
+    "example": "مثال على استخدام مصطلح تغيير المسار المهني في السياق المهني.",
+    "definition_ar": "الانتقال للعمل في مجال مختلف عن مجالك الحالي أو السابق."
   },
   "id": "career-glossary-career-shift-2",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 330
+  "sort_order": 330,
+  "slug": "career-glossary-career-shift-2"
 }

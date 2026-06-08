@@ -7,7 +7,8 @@
   "title_en": "Universal Asynchronous Receiver-Transmitter",
   "data": {
     "definition": "بروتوكول اتصال متسلسل غير متزامن يستخدم لنقل البيانات بين جهازين.",
-    "example": "التواصل بين شريحتي أردوينو عبر بروتوكول UART."
+    "example": "التواصل بين شريحتي أردوينو عبر بروتوكول UART.",
+    "definition_ar": "بروتوكول اتصال متسلسل غير متزامن يستخدم لنقل البيانات بين جهازين."
   },
   "category": "إنترنت الأشياء",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "مصطلحات"
   ],
-  "sort_order": 480
+  "sort_order": 480,
+  "slug": "iot-lab-glossary-uart-2"
 }

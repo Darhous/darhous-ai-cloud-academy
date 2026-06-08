@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-understanding-triggers-actions"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "فهم المحفزات والإجراءات"
-title_en: "Understanding Triggers and Actions"
-excerpt_ar: "تتكون أي عملية أتمتة من جزأين رئيسيين: المحفز (Trigger) والإجراء (Action). بدون فهم هذين العنصرين، لا يمكن بناء سير عمل سليم."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-understanding-triggers-actions
+portal_id: automation
+content_type: lesson
+title_ar: فهم المحفزات والإجراءات
+title_en: Understanding Triggers and Actions
+excerpt_ar: 'تتكون أي عملية أتمتة من جزأين رئيسيين: المحفز (Trigger) والإجراء (Action).
+  بدون فهم هذين العنصرين، لا يمكن بناء سير عمل سليم.'
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 140
 reading_time: 1
 parent_id: null
+slug: automation-lesson-understanding-triggers-actions
+data: {}
 ---
 # فهم المحفزات والإجراءات (Triggers and Actions)
 

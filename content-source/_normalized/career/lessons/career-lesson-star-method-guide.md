@@ -1,20 +1,23 @@
 ---
-id: "career-lesson-star-method-guide"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "الدليل الشامل لطريقة STAR"
-title_en: "Star Method Guide"
-excerpt_ar: "# الدليل الشامل لطريقة STAR"
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-star-method-guide
+portal_id: career
+content_type: lesson
+title_ar: الدليل الشامل لطريقة STAR
+title_en: Star Method Guide
+excerpt_ar: '# الدليل الشامل لطريقة STAR'
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 200
 reading_time: 1
 parent_id: null
+slug: career-lesson-star-method-guide
+data: {}
 ---
-
 # الدليل الشامل لطريقة STAR
 
 ## مقدمة

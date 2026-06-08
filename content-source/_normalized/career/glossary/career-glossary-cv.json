@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "وثيقة تقدم ملخصاً عن خبراتك ومهاراتك.",
-    "example": "مثال على استخدام مصطلح السيرة الذاتية في السياق المهني."
+    "example": "مثال على استخدام مصطلح السيرة الذاتية في السياق المهني.",
+    "definition_ar": "وثيقة تقدم ملخصاً عن خبراتك ومهاراتك."
   },
   "id": "career-glossary-cv",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 350
+  "sort_order": 350,
+  "slug": "career-glossary-cv"
 }

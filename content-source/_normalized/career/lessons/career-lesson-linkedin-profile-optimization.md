@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-linkedin-profile-optimization"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "بناء ملف شخصي احترافي على لينكد إن"
-title_en: "Building a Professional LinkedIn Profile"
-excerpt_ar: "لينكد إن هو واجهتك الرقمية الأولى وأهم شبكة مهنية. الملف الشخصي القوي لا يجذب فقط أصحاب العمل بل يفتح لك أبواباً لفرص وتواصل غير متوقع."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-linkedin-profile-optimization
+portal_id: career
+content_type: lesson
+title_ar: بناء ملف شخصي احترافي على لينكد إن
+title_en: Building a Professional LinkedIn Profile
+excerpt_ar: لينكد إن هو واجهتك الرقمية الأولى وأهم شبكة مهنية. الملف الشخصي القوي
+  لا يجذب فقط أصحاب العمل بل يفتح لك أبواباً لفرص وتواصل غير متوقع.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 100
 reading_time: 1
 parent_id: null
+slug: career-lesson-linkedin-profile-optimization
+data: {}
 ---
 # بناء ملف شخصي احترافي على لينكد إن
 

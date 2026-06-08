@@ -1,20 +1,23 @@
 ---
-id: "language-lesson-lesson-5"
-portal_id: "language"
-content_type: "lesson"
-title_ar: "نظام فعال لحفظ المفردات"
-title_en: "Lesson 5"
-excerpt_ar: "مرحباً بك في هذا الدرس حول نظام فعال لحفظ المفردات."
-excerpt_en: ""
-category: "تعلم اللغات"
-status: "draft"
+id: language-lesson-lesson-5
+portal_id: language
+content_type: lesson
+title_ar: نظام فعال لحفظ المفردات
+title_en: Lesson 5
+excerpt_ar: مرحباً بك في هذا الدرس حول نظام فعال لحفظ المفردات.
+excerpt_en: ''
+category: تعلم اللغات
+status: draft
 featured: false
-tags: ["تعلم اللغات", "lesson"]
+tags:
+- تعلم اللغات
+- lesson
 sort_order: 110
 reading_time: 1
 parent_id: null
+slug: language-lesson-lesson-5
+data: {}
 ---
-
 مرحباً بك في هذا الدرس حول نظام فعال لحفظ المفردات.
 
 استراتيجيات لتذكر الكلمات الجديدة لفترة طويلة باستخدام التكرار المتباعد (Spaced Repetition).

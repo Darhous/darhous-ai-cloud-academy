@@ -1,20 +1,23 @@
 ---
-id: "ai-academy-lesson-intro-to-ai-2"
-portal_id: "ai-academy"
-content_type: "lesson"
-title_ar: "مقدمة في الذكاء الاصطناعي"
-title_en: "Intro To Ai"
-excerpt_ar: "# مقدمة في الذكاء الاصطناعي"
-excerpt_en: ""
-category: "الذكاء الاصطناعي"
-status: "draft"
+id: ai-academy-lesson-intro-to-ai-2
+portal_id: ai-academy
+content_type: lesson
+title_ar: مقدمة في الذكاء الاصطناعي
+title_en: Intro To Ai
+excerpt_ar: '# مقدمة في الذكاء الاصطناعي'
+excerpt_en: ''
+category: الذكاء الاصطناعي
+status: draft
 featured: false
-tags: ["الذكاء الاصطناعي", "lesson"]
+tags:
+- الذكاء الاصطناعي
+- lesson
 sort_order: 190
 reading_time: 1
 parent_id: null
+slug: ai-academy-lesson-intro-to-ai-2
+data: {}
 ---
-
 # مقدمة في الذكاء الاصطناعي
 
 ## ما هو الذكاء الاصطناعي؟

@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-bpa-case-study"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "أتمتة العمليات التجارية: دراسة حالة"
-title_en: "Business Process Automation: Case Study"
-excerpt_ar: "أتمتة العمليات التجارية تعني أخذ عملية معقدة تتضمن عدة أقسام وأتمتتها بالكامل. لفهم ذلك، لندرس حالة عملية حقيقية (إلحاق موظف جديد - Onboarding)."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-bpa-case-study
+portal_id: automation
+content_type: lesson
+title_ar: 'أتمتة العمليات التجارية: دراسة حالة'
+title_en: 'Business Process Automation: Case Study'
+excerpt_ar: أتمتة العمليات التجارية تعني أخذ عملية معقدة تتضمن عدة أقسام وأتمتتها
+  بالكامل. لفهم ذلك، لندرس حالة عملية حقيقية (إلحاق موظف جديد - Onboarding).
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 60
 reading_time: 1
 parent_id: null
+slug: automation-lesson-bpa-case-study
+data: {}
 ---
 # أتمتة العمليات التجارية (BPA): دراسة حالة
 

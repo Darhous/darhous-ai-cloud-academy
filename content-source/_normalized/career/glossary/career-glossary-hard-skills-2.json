@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "قدرات تقنية ومعرفة متخصصة يمكن قياسها.",
-    "example": "مثال على استخدام مصطلح المهارات الصلبة في السياق المهني."
+    "example": "مثال على استخدام مصطلح المهارات الصلبة في السياق المهني.",
+    "definition_ar": "قدرات تقنية ومعرفة متخصصة يمكن قياسها."
   },
   "id": "career-glossary-hard-skills-2",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 380
+  "sort_order": 380,
+  "slug": "career-glossary-hard-skills-2"
 }

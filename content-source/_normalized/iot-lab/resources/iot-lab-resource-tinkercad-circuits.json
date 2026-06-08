@@ -8,12 +8,13 @@
     "url": "https://www.tinkercad.com/circuits",
     "description": "أداة مجانية من أوتوديسك لمحاكاة دوائر الأردوينو والإلكترونيات برمجياً قبل بنائها في الواقع، مما يحمي القطع من التلف."
   },
-  "title_en": "",
+  "title_en": "Tinkercad Circuits",
   "category": "إنترنت الأشياء",
   "featured": false,
   "tags": [
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 170
+  "sort_order": 170,
+  "slug": "iot-lab-resource-tinkercad-circuits"
 }

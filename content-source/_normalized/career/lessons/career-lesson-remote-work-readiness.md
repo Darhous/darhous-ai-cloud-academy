@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-remote-work-readiness"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "الاستعداد والنجاح في العمل عن بعد"
-title_en: "Readiness and Success in Remote Work"
-excerpt_ar: "العمل عن بعد يتطلب مجموعة مختلفة من المهارات عن العمل المكتبي التقليدي، بدءاً من الانضباط الذاتي وحتى التواصل غير المتزامن."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-remote-work-readiness
+portal_id: career
+content_type: lesson
+title_ar: الاستعداد والنجاح في العمل عن بعد
+title_en: Readiness and Success in Remote Work
+excerpt_ar: العمل عن بعد يتطلب مجموعة مختلفة من المهارات عن العمل المكتبي التقليدي،
+  بدءاً من الانضباط الذاتي وحتى التواصل غير المتزامن.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 140
 reading_time: 1
 parent_id: null
+slug: career-lesson-remote-work-readiness
+data: {}
 ---
 # الاستعداد والنجاح في العمل عن بعد
 

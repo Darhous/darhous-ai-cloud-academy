@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "النطق",
-    "example": "النطق الصحيح يسهل التواصل."
+    "example": "النطق الصحيح يسهل التواصل.",
+    "definition_ar": "النطق"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 280
+  "sort_order": 280,
+  "slug": "language-glossary-glossary-4"
 }

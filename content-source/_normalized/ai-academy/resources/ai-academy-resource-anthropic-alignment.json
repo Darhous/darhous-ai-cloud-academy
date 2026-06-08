@@ -8,12 +8,13 @@
     "url": "https://www.anthropic.com/research",
     "description": "أبحاث حول كيفية جعل الذكاء الاصطناعي أكثر أماناً وتوافقاً."
   },
-  "title_en": "",
+  "title_en": "Anthropic Alignment",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 50
+  "sort_order": 50,
+  "slug": "ai-academy-resource-anthropic-alignment"
 }

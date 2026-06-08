@@ -6,14 +6,16 @@
   "title_ar": "صائغ الإيميلات",
   "data": {
     "prompt_text": "Help me draft a professional email about [الموضوع] to [المتلقي].",
-    "instructions": "صياغة رسائل بريد إلكتروني احترافية."
+    "instructions": "صياغة رسائل بريد إلكتروني احترافية.",
+    "prompt_text_ar": "Help me draft a professional email about [الموضوع] to [المتلقي]."
   },
-  "title_en": "",
+  "title_en": "Email Drafter",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 50
+  "sort_order": 50,
+  "slug": "language-prompt-email-drafter"
 }

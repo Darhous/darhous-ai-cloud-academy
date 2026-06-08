@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "ما هي الخطوات الأولى لتجهيز جهاز رازبري باي جديد للمرة الأولى؟",
-    "instructions": "اذكر نظام التشغيل الموصى به وكيفية تثبيته وتوصيل الشاشة."
+    "instructions": "اذكر نظام التشغيل الموصى به وكيفية تثبيته وتوصيل الشاشة.",
+    "prompt_text_ar": "ما هي الخطوات الأولى لتجهيز جهاز رازبري باي جديد للمرة الأولى؟"
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "prompt"
   ],
-  "sort_order": 240
+  "sort_order": 240,
+  "slug": "iot-lab-prompt-setup-raspberry-pi"
 }

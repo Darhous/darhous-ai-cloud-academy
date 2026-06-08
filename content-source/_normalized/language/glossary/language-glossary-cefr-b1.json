@@ -6,14 +6,16 @@
   "title_ar": "مستوى B1",
   "data": {
     "definition": "المستوى المتوسط.",
-    "example": "I can describe experiences and events."
+    "example": "I can describe experiences and events.",
+    "definition_ar": "المستوى المتوسط."
   },
-  "title_en": "",
+  "title_en": "CEFR B1",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 60
+  "sort_order": 60,
+  "slug": "language-glossary-cefr-b1"
 }

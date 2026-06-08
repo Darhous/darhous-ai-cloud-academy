@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اقترح كلمات إنجليزية صعبة النطق.",
-    "instructions": "اكتبها مع طريقة نطقها الصحيحة."
+    "instructions": "اكتبها مع طريقة نطقها الصحيحة.",
+    "prompt_text_ar": "اقترح كلمات إنجليزية صعبة النطق."
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 200
+  "sort_order": 200,
+  "slug": "language-prompt-prompt-8"
 }

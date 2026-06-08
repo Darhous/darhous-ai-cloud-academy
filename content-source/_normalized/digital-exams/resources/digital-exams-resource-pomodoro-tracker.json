@@ -8,12 +8,13 @@
     "url": "https://pomofocus.io",
     "description": "أداة ممتازة لتقسيم وقت المذاكرة إلى فترات زمنية لزيادة التركيز وإدارة الوقت بفعالية."
   },
-  "title_en": "",
+  "title_en": "Pomodoro Tracker",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 150
+  "sort_order": 150,
+  "slug": "digital-exams-resource-pomodoro-tracker"
 }

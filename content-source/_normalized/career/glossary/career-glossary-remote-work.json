@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "العمل من موقع خارج المكتب التقليدي.",
-    "example": "مثال على استخدام مصطلح العمل عن بعد في السياق المهني."
+    "example": "مثال على استخدام مصطلح العمل عن بعد في السياق المهني.",
+    "definition_ar": "العمل من موقع خارج المكتب التقليدي."
   },
   "id": "career-glossary-remote-work",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 480
+  "sort_order": 480,
+  "slug": "career-glossary-remote-work"
 }

@@ -8,12 +8,13 @@
     "url": "https://www.coursera.org",
     "description": "منصة تعليمية توفر برامج وشهادات من جامعات وشركات عالمية رائدة لتطوير المهارات."
   },
-  "title_en": "",
+  "title_en": "Coursera",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 20
+  "sort_order": 20,
+  "slug": "career-resource-coursera"
 }

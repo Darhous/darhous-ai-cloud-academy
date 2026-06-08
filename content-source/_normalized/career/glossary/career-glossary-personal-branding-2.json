@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "الطريقة التي تسوق بها نفسك مهنياً.",
-    "example": "مثال على استخدام مصطلح العلامة التجارية الشخصية في السياق المهني."
+    "example": "مثال على استخدام مصطلح العلامة التجارية الشخصية في السياق المهني.",
+    "definition_ar": "الطريقة التي تسوق بها نفسك مهنياً."
   },
   "id": "career-glossary-personal-branding-2",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 460
+  "sort_order": 460,
+  "slug": "career-glossary-personal-branding-2"
 }

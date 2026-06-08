@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 300
+  "sort_order": 300,
+  "slug": "iot-lab-resource-wokwi"
 }

@@ -1,20 +1,23 @@
 ---
-id: "ai-academy-lesson-ai-for-work-2"
-portal_id: "ai-academy"
-content_type: "lesson"
-title_ar: "تعزيز الإنتاجية باستخدام الذكاء الاصطناعي"
-title_en: "Ai For Work"
-excerpt_ar: "# تعزيز الإنتاجية باستخدام الذكاء الاصطناعي"
-excerpt_en: ""
-category: "الذكاء الاصطناعي"
-status: "draft"
+id: ai-academy-lesson-ai-for-work-2
+portal_id: ai-academy
+content_type: lesson
+title_ar: تعزيز الإنتاجية باستخدام الذكاء الاصطناعي
+title_en: Ai For Work
+excerpt_ar: '# تعزيز الإنتاجية باستخدام الذكاء الاصطناعي'
+excerpt_en: ''
+category: الذكاء الاصطناعي
+status: draft
 featured: false
-tags: ["الذكاء الاصطناعي", "lesson"]
+tags:
+- الذكاء الاصطناعي
+- lesson
 sort_order: 160
 reading_time: 1
 parent_id: null
+slug: ai-academy-lesson-ai-for-work-2
+data: {}
 ---
-
 # تعزيز الإنتاجية باستخدام الذكاء الاصطناعي
 
 ## لماذا تحتاج الذكاء الاصطناعي في عملك؟

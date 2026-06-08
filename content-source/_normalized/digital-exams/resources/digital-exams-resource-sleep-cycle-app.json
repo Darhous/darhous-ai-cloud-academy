@@ -8,12 +8,13 @@
     "url": "https://www.sleepcycle.com",
     "description": "يساعدك على ضبط مواعيد نومك لضمان الاستيقاظ في أقصى درجات النشاط يوم الاختبار."
   },
-  "title_en": "",
+  "title_en": "Sleep Cycle App",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 170
+  "sort_order": 170,
+  "slug": "digital-exams-resource-sleep-cycle-app"
 }

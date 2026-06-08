@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-intro-google-apps-script"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "مدخل إلى برمجة تطبيقات جوجل"
-title_en: "Intro to Google Apps Script"
-excerpt_ar: "برمجة تطبيقات جوجل (GAS) هي لغة تعتمد على JavaScript تتيح لك تطوير وأتمتة ميزات وتدفقات عمل ضمن بيئة Google Workspace (Sheets, Docs, Gmail, Forms... إ..."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-intro-google-apps-script
+portal_id: automation
+content_type: lesson
+title_ar: مدخل إلى برمجة تطبيقات جوجل
+title_en: Intro to Google Apps Script
+excerpt_ar: برمجة تطبيقات جوجل (GAS) هي لغة تعتمد على JavaScript تتيح لك تطوير وأتمتة
+  ميزات وتدفقات عمل ضمن بيئة Google Workspace (Sheets, Docs, Gmail, Forms... إ...
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 110
 reading_time: 1
 parent_id: null
+slug: automation-lesson-intro-google-apps-script
+data: {}
 ---
 # مدخل إلى برمجة تطبيقات جوجل (Google Apps Script)
 

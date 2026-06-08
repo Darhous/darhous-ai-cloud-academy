@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 90
+  "sort_order": 90,
+  "slug": "iot-lab-resource-esp32-datasheet"
 }

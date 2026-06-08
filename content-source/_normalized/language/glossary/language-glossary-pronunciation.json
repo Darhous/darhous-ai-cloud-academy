@@ -6,14 +6,16 @@
   "title_ar": "النطق",
   "data": {
     "definition": "طريقة إخراج الأصوات في اللغة.",
-    "example": "Good pronunciation makes you understood."
+    "example": "Good pronunciation makes you understood.",
+    "definition_ar": "طريقة إخراج الأصوات في اللغة."
   },
-  "title_en": "",
+  "title_en": "Pronunciation",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 450
+  "sort_order": 450,
+  "slug": "language-glossary-pronunciation"
 }

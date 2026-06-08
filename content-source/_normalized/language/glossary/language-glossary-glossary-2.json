@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "المفردات",
-    "example": "زيادة المفردات تساعد في التحدث بطلاقة."
+    "example": "زيادة المفردات تساعد في التحدث بطلاقة.",
+    "definition_ar": "المفردات"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 250
+  "sort_order": 250,
+  "slug": "language-glossary-glossary-2"
 }

@@ -8,12 +8,13 @@
     "url": "https://myinterviewpractice.com",
     "description": "أداة لمحاكاة مقابلات العمل وتسجيل إجاباتك لمراجعتها وتحسين أدائك."
   },
-  "title_en": "",
+  "title_en": "My Interview Practice",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 130
+  "sort_order": 130,
+  "slug": "career-resource-my-interview-practice"
 }

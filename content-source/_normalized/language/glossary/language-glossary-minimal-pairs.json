@@ -6,14 +6,16 @@
   "title_ar": "الأزواج الدنيا",
   "data": {
     "definition": "كلمتان تختلفان في صوت واحد فقط، تستخدم للتدريب على النطق.",
-    "example": "Ship and sheep are minimal pairs."
+    "example": "Ship and sheep are minimal pairs.",
+    "definition_ar": "كلمتان تختلفان في صوت واحد فقط، تستخدم للتدريب على النطق."
   },
-  "title_en": "",
+  "title_en": "Minimal Pairs",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 410
+  "sort_order": 410,
+  "slug": "language-glossary-minimal-pairs"
 }

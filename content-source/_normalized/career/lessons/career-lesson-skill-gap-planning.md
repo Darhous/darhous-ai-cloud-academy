@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-skill-gap-planning"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "التخطيط لسد الفجوة في المهارات"
-title_en: "Skill Gap Planning"
-excerpt_ar: "لتحقيق التطور المهني المستمر والوصول إلى أهدافك، يجب أن تكون قادراً على تحديد المهارات التي تنقصك ووضع خطة لاكتسابها."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-skill-gap-planning
+portal_id: career
+content_type: lesson
+title_ar: التخطيط لسد الفجوة في المهارات
+title_en: Skill Gap Planning
+excerpt_ar: لتحقيق التطور المهني المستمر والوصول إلى أهدافك، يجب أن تكون قادراً على
+  تحديد المهارات التي تنقصك ووضع خطة لاكتسابها.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 160
 reading_time: 1
 parent_id: null
+slug: career-lesson-skill-gap-planning
+data: {}
 ---
 # التخطيط لسد الفجوة في المهارات
 

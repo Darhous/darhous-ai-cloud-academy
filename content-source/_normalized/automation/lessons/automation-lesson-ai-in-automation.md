@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-ai-in-automation"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "دمج الذكاء الاصطناعي لتطوير الأتمتة"
-title_en: "Integrating AI in Automation"
-excerpt_ar: "الذكاء الاصطناعي (AI) أضاف بعداً جديداً كلياً للأتمتة؛ فبدلاً من أن تقوم الأداة بنقل البيانات فقط، أصبحت الآن قادرة على 'فهم' البيانات وتصنيفها وتلخيص..."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-ai-in-automation
+portal_id: automation
+content_type: lesson
+title_ar: دمج الذكاء الاصطناعي لتطوير الأتمتة
+title_en: Integrating AI in Automation
+excerpt_ar: الذكاء الاصطناعي (AI) أضاف بعداً جديداً كلياً للأتمتة؛ فبدلاً من أن تقوم
+  الأداة بنقل البيانات فقط، أصبحت الآن قادرة على 'فهم' البيانات وتصنيفها وتلخيص...
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 20
 reading_time: 1
 parent_id: null
+slug: automation-lesson-ai-in-automation
+data: {}
 ---
 # دمج الذكاء الاصطناعي لتطوير عمليات الأتمتة
 

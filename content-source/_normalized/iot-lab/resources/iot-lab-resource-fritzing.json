@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 130
+  "sort_order": 130,
+  "slug": "iot-lab-resource-fritzing"
 }

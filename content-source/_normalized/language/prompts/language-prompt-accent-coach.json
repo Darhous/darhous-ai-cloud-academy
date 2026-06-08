@@ -6,14 +6,16 @@
   "title_ar": "مدرب اللهجات",
   "data": {
     "prompt_text": "What are the differences in pronouncing [الكلمة] in US vs UK English?",
-    "instructions": "التعرف على الفروق بين اللهجات المختلفة."
+    "instructions": "التعرف على الفروق بين اللهجات المختلفة.",
+    "prompt_text_ar": "What are the differences in pronouncing [الكلمة] in US vs UK English?"
   },
-  "title_en": "",
+  "title_en": "Accent Coach",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 10
+  "sort_order": 10,
+  "slug": "language-prompt-accent-coach"
 }

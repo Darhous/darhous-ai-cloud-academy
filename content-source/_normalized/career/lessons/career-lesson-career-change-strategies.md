@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-career-change-strategies"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "استراتيجيات للتحول المهني الناجح"
-title_en: "Strategies for a Successful Career Change"
-excerpt_ar: "التحول المهني قد يكون مخيفاً، لكنه خطوة ضرورية للعديد من المهنيين للوصول إلى الرضا الوظيفي وتحقيق أهدافهم."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-career-change-strategies
+portal_id: career
+content_type: lesson
+title_ar: استراتيجيات للتحول المهني الناجح
+title_en: Strategies for a Successful Career Change
+excerpt_ar: التحول المهني قد يكون مخيفاً، لكنه خطوة ضرورية للعديد من المهنيين للوصول
+  إلى الرضا الوظيفي وتحقيق أهدافهم.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 40
 reading_time: 1
 parent_id: null
+slug: career-lesson-career-change-strategies
+data: {}
 ---
 # استراتيجيات للتحول المهني الناجح
 

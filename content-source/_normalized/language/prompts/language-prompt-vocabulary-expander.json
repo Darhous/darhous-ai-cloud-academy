@@ -6,14 +6,16 @@
   "title_ar": "موسع المفردات",
   "data": {
     "prompt_text": "Give me 5 synonyms and antonyms for [الكلمة] with example sentences.",
-    "instructions": "احصل على مرادفات وأضداد للكلمات."
+    "instructions": "احصل على مرادفات وأضداد للكلمات.",
+    "prompt_text_ar": "Give me 5 synonyms and antonyms for [الكلمة] with example sentences."
   },
-  "title_en": "",
+  "title_en": "Vocabulary Expander",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 300
+  "sort_order": 300,
+  "slug": "language-prompt-vocabulary-expander"
 }

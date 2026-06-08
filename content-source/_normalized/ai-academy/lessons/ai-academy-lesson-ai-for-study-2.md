@@ -1,20 +1,23 @@
 ---
-id: "ai-academy-lesson-ai-for-study-2"
-portal_id: "ai-academy"
-content_type: "lesson"
-title_ar: "الذكاء الاصطناعي كمعلمك الخاص"
-title_en: "Ai For Study"
-excerpt_ar: "# الذكاء الاصطناعي كمعلمك الخاص"
-excerpt_en: ""
-category: "الذكاء الاصطناعي"
-status: "draft"
+id: ai-academy-lesson-ai-for-study-2
+portal_id: ai-academy
+content_type: lesson
+title_ar: الذكاء الاصطناعي كمعلمك الخاص
+title_en: Ai For Study
+excerpt_ar: '# الذكاء الاصطناعي كمعلمك الخاص'
+excerpt_en: ''
+category: الذكاء الاصطناعي
+status: draft
 featured: false
-tags: ["الذكاء الاصطناعي", "lesson"]
+tags:
+- الذكاء الاصطناعي
+- lesson
 sort_order: 150
 reading_time: 1
 parent_id: null
+slug: ai-academy-lesson-ai-for-study-2
+data: {}
 ---
-
 # الذكاء الاصطناعي كمعلمك الخاص
 
 ## كيف يمكن للطلاب الاستفادة؟

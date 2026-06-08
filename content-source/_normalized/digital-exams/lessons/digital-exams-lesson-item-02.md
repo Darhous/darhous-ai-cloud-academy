@@ -1,20 +1,23 @@
 ---
-id: "digital-exams-lesson-item-02"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "التعامل مع قلق الاختبارات"
-title_en: "Item 02"
-excerpt_ar: "# التعامل مع قلق الاختبارات"
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-item-02
+portal_id: digital-exams
+content_type: lesson
+title_ar: التعامل مع قلق الاختبارات
+title_en: Item 02
+excerpt_ar: '# التعامل مع قلق الاختبارات'
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 160
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-item-02
+data: {}
 ---
-
 # التعامل مع قلق الاختبارات
 
 ## مقدمة

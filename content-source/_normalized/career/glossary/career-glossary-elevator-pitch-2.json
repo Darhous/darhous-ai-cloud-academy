@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "عرض تقديمي قصير جداً عن نفسك ومهاراتك.",
-    "example": "مثال على استخدام مصطلح الخطاب الموجز في السياق المهني."
+    "example": "مثال على استخدام مصطلح الخطاب الموجز في السياق المهني.",
+    "definition_ar": "عرض تقديمي قصير جداً عن نفسك ومهاراتك."
   },
   "id": "career-glossary-elevator-pitch-2",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 360
+  "sort_order": 360,
+  "slug": "career-glossary-elevator-pitch-2"
 }

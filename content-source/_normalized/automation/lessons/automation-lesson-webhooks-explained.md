@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-webhooks-explained"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "ما هو الويب هوك وكيف يعمل؟"
-title_en: "What is a Webhook and How it Works?"
-excerpt_ar: "الويب هوك (Webhook) هو طريقة فعالة جداً لنقل البيانات في الوقت الفعلي بين التطبيقات. وهو يعتمد على مبدأ 'لا تتصل بنا، نحن سنتصل بك'."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-webhooks-explained
+portal_id: automation
+content_type: lesson
+title_ar: ما هو الويب هوك وكيف يعمل؟
+title_en: What is a Webhook and How it Works?
+excerpt_ar: الويب هوك (Webhook) هو طريقة فعالة جداً لنقل البيانات في الوقت الفعلي
+  بين التطبيقات. وهو يعتمد على مبدأ 'لا تتصل بنا، نحن سنتصل بك'.
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 150
 reading_time: 1
 parent_id: null
+slug: automation-lesson-webhooks-explained
+data: {}
 ---
 # ما هو الويب هوك (Webhook) وكيف يعمل؟
 

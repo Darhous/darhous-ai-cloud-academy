@@ -8,12 +8,13 @@
     "url": "",
     "description": "ملف قابل للتحميل يحتوي على خطوات التأكد من جاهزية الحاسب الآلي للاختبارات عن بعد."
   },
-  "title_en": "",
+  "title_en": "Readiness Checklist",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 30
+  "sort_order": 30,
+  "slug": "digital-exams-resource-digital-readiness-checklist"
 }

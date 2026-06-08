@@ -8,12 +8,13 @@
     "url": "",
     "description": "منتدى للنقاشات وتبادل الخبرات حول الذكاء الاصطناعي باللغة العربية."
   },
-  "title_en": "",
+  "title_en": "Ar Community",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 60
+  "sort_order": 60,
+  "slug": "ai-academy-resource-ar-ai-community"
 }

@@ -15,5 +15,6 @@
     "الأتمتة",
     "resource"
   ],
-  "sort_order": 130
+  "sort_order": 130,
+  "slug": "automation-resource-http-status-codes"
 }

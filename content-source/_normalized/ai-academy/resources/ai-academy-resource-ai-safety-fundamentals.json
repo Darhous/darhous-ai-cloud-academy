@@ -8,12 +8,13 @@
     "url": "https://course.aisafetyfundamentals.com/",
     "description": "مساقات متخصصة في فهم وتقليل المخاطر المرتبطة بالذكاء الاصطناعي المتقدم."
   },
-  "title_en": "",
+  "title_en": "Safety Fundamentals",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 20
+  "sort_order": 20,
+  "slug": "ai-academy-resource-ai-safety-fundamentals"
 }

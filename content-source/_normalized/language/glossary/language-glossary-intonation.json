@@ -6,14 +6,16 @@
   "title_ar": "التنغيم",
   "data": {
     "definition": "ارتفاع وانخفاض الصوت أثناء الكلام للتعبير عن المعنى أو المشاعر.",
-    "example": "A rising intonation is used for questions."
+    "example": "A rising intonation is used for questions.",
+    "definition_ar": "ارتفاع وانخفاض الصوت أثناء الكلام للتعبير عن المعنى أو المشاعر."
   },
-  "title_en": "",
+  "title_en": "Intonation",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 370
+  "sort_order": 370,
+  "slug": "language-glossary-intonation"
 }

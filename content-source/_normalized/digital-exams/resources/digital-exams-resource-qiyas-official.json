@@ -8,12 +8,13 @@
     "url": "https://etec.gov.sa",
     "description": "الموقع الرسمي للاطلاع على مواعيد الاختبارات الرقمية، تسجيل الدخول، ومعرفة الشروط والتعليمات."
   },
-  "title_en": "",
+  "title_en": "Qiyas Official",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 160
+  "sort_order": 160,
+  "slug": "digital-exams-resource-qiyas-official"
 }

@@ -1,18 +1,22 @@
 ---
-id: "digital-exams-lesson-final-week-strategy"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "استراتيجية الأسبوع الحاسم"
-title_en: "The Final Week Strategy"
-excerpt_ar: "في الأسبوع الأخير، التعلم الجديد غير فعال. الهدف هو التثبيت والجاهزية."
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-final-week-strategy
+portal_id: digital-exams
+content_type: lesson
+title_ar: استراتيجية الأسبوع الحاسم
+title_en: The Final Week Strategy
+excerpt_ar: في الأسبوع الأخير، التعلم الجديد غير فعال. الهدف هو التثبيت والجاهزية.
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 60
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-final-week-strategy
+data: {}
 ---
 # استراتيجية الأسبوع الحاسم
 

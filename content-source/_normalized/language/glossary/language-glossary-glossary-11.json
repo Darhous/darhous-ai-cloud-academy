@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "مصطلح",
-    "example": "تعبير لا يمكن فهمه من معاني الكلمات المنفردة."
+    "example": "تعبير لا يمكن فهمه من معاني الكلمات المنفردة.",
+    "definition_ar": "مصطلح"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 160
+  "sort_order": 160,
+  "slug": "language-glossary-glossary-11"
 }

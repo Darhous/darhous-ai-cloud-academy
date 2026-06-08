@@ -1,20 +1,23 @@
 ---
-id: "automation-lesson-triggers-actions"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "فهم المحفزات والإجراءات"
-title_en: "Triggers Actions"
-excerpt_ar: "## كيف تعمل أي أتمتة؟"
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-triggers-actions
+portal_id: automation
+content_type: lesson
+title_ar: فهم المحفزات والإجراءات
+title_en: Triggers Actions
+excerpt_ar: '## كيف تعمل أي أتمتة؟'
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 180
 reading_time: 1
 parent_id: null
+slug: automation-lesson-triggers-actions
+data: {}
 ---
-
 ## كيف تعمل أي أتمتة؟
 
 تعتمد جميع منصات الأتمتة (مثل Zapier و Make) على مفهومين أساسيين: المحفز (Trigger) والإجراء (Action).

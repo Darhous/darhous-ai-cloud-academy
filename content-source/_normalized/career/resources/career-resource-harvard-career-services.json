@@ -8,12 +8,13 @@
     "url": "https://careerservices.fas.harvard.edu",
     "description": "مكتبة غنية بالأدلة والنماذج المجانية لكتابة السير الذاتية وخطابات المقدمة والتحضير للمقابلات."
   },
-  "title_en": "",
+  "title_en": "Harvard Services",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 60
+  "sort_order": 60,
+  "slug": "career-resource-harvard-career-services"
 }

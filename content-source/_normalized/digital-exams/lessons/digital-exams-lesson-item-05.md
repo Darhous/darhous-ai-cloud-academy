@@ -1,20 +1,23 @@
 ---
-id: "digital-exams-lesson-item-05"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "مراجعة الأخطاء بفعالية"
-title_en: "Item 05"
-excerpt_ar: "# مراجعة الأخطاء بفعالية"
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-item-05
+portal_id: digital-exams
+content_type: lesson
+title_ar: مراجعة الأخطاء بفعالية
+title_en: Item 05
+excerpt_ar: '# مراجعة الأخطاء بفعالية'
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 190
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-item-05
+data: {}
 ---
-
 # مراجعة الأخطاء بفعالية
 
 ## مقدمة

@@ -8,12 +8,13 @@
     "url": "https://awwapp.com",
     "description": "مساحة مسودة افتراضية للتدرب على حل المسائل وكأنك في بيئة اختبار رقمية غير ورقية."
   },
-  "title_en": "",
+  "title_en": "Online Whiteboard",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 140
+  "sort_order": 140,
+  "slug": "digital-exams-resource-online-whiteboard"
 }

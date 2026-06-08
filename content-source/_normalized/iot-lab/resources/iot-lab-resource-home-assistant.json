@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 140
+  "sort_order": 140,
+  "slug": "iot-lab-resource-home-assistant"
 }

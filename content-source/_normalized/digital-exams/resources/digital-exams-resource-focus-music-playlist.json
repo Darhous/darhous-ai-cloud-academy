@@ -8,12 +8,13 @@
     "url": "",
     "description": "قائمة تشغيل مصممة للمساعدة على التركيز العميق أثناء المذاكرة وتقليل المشتتات الخارجية."
   },
-  "title_en": "",
+  "title_en": "Focus Music Playlist",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 70
+  "sort_order": 70,
+  "slug": "digital-exams-resource-focus-music-playlist"
 }

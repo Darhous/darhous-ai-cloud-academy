@@ -1,18 +1,23 @@
 ---
-id: "ai-academy-lesson-intro-to-ai"
-portal_id: "ai-academy"
-content_type: "lesson"
-title_ar: "مقدمة في الذكاء الاصطناعي"
-title_en: "Introduction to AI"
-excerpt_ar: "الذكاء الاصطناعي هو محاكاة للذكاء البشري في الآلات. في هذا الدرس سنتعرف على أساسيات الذكاء الاصطناعي وأنواعه المختلفة، وكيف تطور من الأنظمة المبنية عل..."
-excerpt_en: ""
-category: "الذكاء الاصطناعي"
-status: "draft"
+id: ai-academy-lesson-intro-to-ai
+portal_id: ai-academy
+content_type: lesson
+title_ar: مقدمة في الذكاء الاصطناعي
+title_en: Introduction to AI
+excerpt_ar: الذكاء الاصطناعي هو محاكاة للذكاء البشري في الآلات. في هذا الدرس سنتعرف
+  على أساسيات الذكاء الاصطناعي وأنواعه المختلفة، وكيف تطور من الأنظمة المبنية عل...
+excerpt_en: ''
+category: الذكاء الاصطناعي
+status: draft
 featured: false
-tags: ["الذكاء الاصطناعي", "lesson"]
+tags:
+- الذكاء الاصطناعي
+- lesson
 sort_order: 90
 reading_time: 1
 parent_id: null
+slug: ai-academy-lesson-intro-to-ai
+data: {}
 ---
 # مقدمة في الذكاء الاصطناعي
 

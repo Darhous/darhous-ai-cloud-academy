@@ -1,20 +1,23 @@
 ---
-id: "ai-academy-lesson-how-to-prompt"
-portal_id: "ai-academy"
-content_type: "lesson"
-title_ar: "هندسة الأوامر: فن التحدث مع الآلة"
-title_en: "How To Prompt"
-excerpt_ar: "# هندسة الأوامر: فن التحدث مع الآلة"
-excerpt_en: ""
-category: "الذكاء الاصطناعي"
-status: "draft"
+id: ai-academy-lesson-how-to-prompt
+portal_id: ai-academy
+content_type: lesson
+title_ar: 'هندسة الأوامر: فن التحدث مع الآلة'
+title_en: How To Prompt
+excerpt_ar: '# هندسة الأوامر: فن التحدث مع الآلة'
+excerpt_en: ''
+category: الذكاء الاصطناعي
+status: draft
 featured: false
-tags: ["الذكاء الاصطناعي", "lesson"]
+tags:
+- الذكاء الاصطناعي
+- lesson
 sort_order: 180
 reading_time: 1
 parent_id: null
+slug: ai-academy-lesson-how-to-prompt
+data: {}
 ---
-
 # هندسة الأوامر: فن التحدث مع الآلة
 
 ## ما هي هندسة الأوامر؟

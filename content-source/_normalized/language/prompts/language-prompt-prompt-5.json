@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اكتب فقرة قصيرة ثم اطرح أسئلة حولها.",
-    "instructions": "تأكد من تنوع الأسئلة لاختبار الفهم."
+    "instructions": "تأكد من تنوع الأسئلة لاختبار الفهم.",
+    "prompt_text_ar": "اكتب فقرة قصيرة ثم اطرح أسئلة حولها."
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 170
+  "sort_order": 170,
+  "slug": "language-prompt-prompt-5"
 }

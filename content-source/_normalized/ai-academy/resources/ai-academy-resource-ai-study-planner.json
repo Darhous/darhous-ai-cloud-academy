@@ -8,12 +8,13 @@
     "url": "",
     "description": "تطبيق يساعد الطلاب على تنظيم وقتهم وبناء خطط دراسية مخصصة."
   },
-  "title_en": "",
+  "title_en": "Study Planner",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 30
+  "sort_order": 30,
+  "slug": "ai-academy-resource-ai-study-planner"
 }

@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اشرح المصطلح الإنجليزي المعطى.",
-    "instructions": "قدم أمثلة على كيفية استخدامه في جمل مفيدة."
+    "instructions": "قدم أمثلة على كيفية استخدامه في جمل مفيدة.",
+    "prompt_text_ar": "اشرح المصطلح الإنجليزي المعطى."
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 180
+  "sort_order": 180,
+  "slug": "language-prompt-prompt-6"
 }

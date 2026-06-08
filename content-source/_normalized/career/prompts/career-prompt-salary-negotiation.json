@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "كيف أفاوض على راتب أعلى لوظيفة [المسمى الوظيفي]؟ أعطني سيناريو وحوار مقترح.",
-    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني.",
+    "prompt_text_ar": "كيف أفاوض على راتب أعلى لوظيفة [المسمى الوظيفي]؟ أعطني سيناريو وحوار مقترح."
   },
   "id": "career-prompt-salary-negotiation",
   "content_type": "prompt",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "prompt"
   ],
-  "sort_order": 280
+  "sort_order": 280,
+  "slug": "career-prompt-salary-negotiation"
 }

@@ -8,12 +8,13 @@
     "url": "https://apps.ankiweb.net",
     "description": "تطبيق يعتمد على خوارزميات التكرار المتباعد لمساعدتك على حفظ الكلمات المفتاحية والمصطلحات بسرعة."
   },
-  "title_en": "",
+  "title_en": "Anki Flashcards",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 10
+  "sort_order": 10,
+  "slug": "digital-exams-resource-anki-flashcards"
 }

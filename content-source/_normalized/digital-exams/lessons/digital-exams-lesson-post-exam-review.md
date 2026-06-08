@@ -1,18 +1,22 @@
 ---
-id: "digital-exams-lesson-post-exam-review"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "التقييم البعدي: ما بعد الاختبار التجريبي"
-title_en: "Post-Exam Review: After the Mock Test"
-excerpt_ar: "إنهاء الاختبار التجريبي هو مجرد البداية. المرحلة الأهم هي المراجعة البعدية."
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-post-exam-review
+portal_id: digital-exams
+content_type: lesson
+title_ar: 'التقييم البعدي: ما بعد الاختبار التجريبي'
+title_en: 'Post-Exam Review: After the Mock Test'
+excerpt_ar: إنهاء الاختبار التجريبي هو مجرد البداية. المرحلة الأهم هي المراجعة البعدية.
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 120
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-post-exam-review
+data: {}
 ---
 # التقييم البعدي: ما بعد الاختبار التجريبي
 

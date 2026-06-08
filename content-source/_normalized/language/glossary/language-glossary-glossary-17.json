@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "مقطع لفظي",
-    "example": "جزء من الكلمة يحتوي على صوت متحرك."
+    "example": "جزء من الكلمة يحتوي على صوت متحرك.",
+    "definition_ar": "مقطع لفظي"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 220
+  "sort_order": 220,
+  "slug": "language-glossary-glossary-17"
 }

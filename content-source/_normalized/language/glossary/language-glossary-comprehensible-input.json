@@ -6,14 +6,16 @@
   "title_ar": "المدخلات المفهومة",
   "data": {
     "definition": "نصوص أو مقاطع صوتية تفهم معظمها ولكن تحتوي على تحدي بسيط.",
-    "example": "Reading graded readers is comprehensible input."
+    "example": "Reading graded readers is comprehensible input.",
+    "definition_ar": "نصوص أو مقاطع صوتية تفهم معظمها ولكن تحتوي على تحدي بسيط."
   },
-  "title_en": "",
+  "title_en": "Comprehensible Input",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 120
+  "sort_order": 120,
+  "slug": "language-glossary-comprehensible-input"
 }

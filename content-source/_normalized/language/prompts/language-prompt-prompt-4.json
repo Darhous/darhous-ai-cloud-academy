@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اطرح أسئلة مقابلة عمل باللغة الإنجليزية.",
-    "instructions": "انتظر إجابتي ثم قدم ملاحظاتك."
+    "instructions": "انتظر إجابتي ثم قدم ملاحظاتك.",
+    "prompt_text_ar": "اطرح أسئلة مقابلة عمل باللغة الإنجليزية."
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 160
+  "sort_order": 160,
+  "slug": "language-prompt-prompt-4"
 }

@@ -6,14 +6,16 @@
   "title_ar": "مستوى C2",
   "data": {
     "definition": "المستوى المتقن.",
-    "example": "I can understand with ease virtually everything heard or read."
+    "example": "I can understand with ease virtually everything heard or read.",
+    "definition_ar": "المستوى المتقن."
   },
-  "title_en": "",
+  "title_en": "CEFR C2",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 90
+  "sort_order": 90,
+  "slug": "language-glossary-cefr-c2"
 }

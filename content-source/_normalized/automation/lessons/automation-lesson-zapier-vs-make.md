@@ -1,20 +1,23 @@
 ---
-id: "automation-lesson-zapier-vs-make"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "مقدمة إلى Zapier و Make"
-title_en: "Zapier Vs Make"
-excerpt_ar: "## مقارنة بين عمالقة الأتمتة"
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-zapier-vs-make
+portal_id: automation
+content_type: lesson
+title_ar: مقدمة إلى Zapier و Make
+title_en: Zapier Vs Make
+excerpt_ar: '## مقارنة بين عمالقة الأتمتة'
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 200
 reading_time: 1
 parent_id: null
+slug: automation-lesson-zapier-vs-make
+data: {}
 ---
-
 ## مقارنة بين عمالقة الأتمتة
 
 هناك العديد من المنصات لربط التطبيقات دون برمجة، ولكن الأشهر حالياً هما Zapier و Make (سابقاً Integromat).

@@ -6,14 +6,16 @@
   "title_ar": "مترجم العامية",
   "data": {
     "prompt_text": "Translate this slang phrase into formal English: [العبارة].",
-    "instructions": "تعرف على العامية وما يقابلها رسمياً."
+    "instructions": "تعرف على العامية وما يقابلها رسمياً.",
+    "prompt_text_ar": "Translate this slang phrase into formal English: [العبارة]."
   },
-  "title_en": "",
+  "title_en": "Slang Translator",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 250
+  "sort_order": 250,
+  "slug": "language-prompt-slang-translator"
 }

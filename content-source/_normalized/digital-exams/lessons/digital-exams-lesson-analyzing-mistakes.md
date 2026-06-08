@@ -1,18 +1,22 @@
 ---
-id: "digital-exams-lesson-analyzing-mistakes"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "كيف تحلل أخطاءك لبناء سجل الأخطاء"
-title_en: "How to Analyze Mistakes for Mistake Log"
-excerpt_ar: "الخطأ في الاختبار التجريبي هو كنز من المعلومات إذا تم استغلاله بشكل صحيح."
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-analyzing-mistakes
+portal_id: digital-exams
+content_type: lesson
+title_ar: كيف تحلل أخطاءك لبناء سجل الأخطاء
+title_en: How to Analyze Mistakes for Mistake Log
+excerpt_ar: الخطأ في الاختبار التجريبي هو كنز من المعلومات إذا تم استغلاله بشكل صحيح.
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 20
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-analyzing-mistakes
+data: {}
 ---
 # كيف تحلل أخطاءك لبناء سجل الأخطاء
 

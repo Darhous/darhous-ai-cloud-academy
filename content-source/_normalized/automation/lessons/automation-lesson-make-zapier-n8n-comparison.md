@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-make-zapier-n8n-comparison"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "مقارنة بين Make و Zapier و n8n"
-title_en: "Make vs Zapier vs n8n Comparison"
-excerpt_ar: "اختيار الأداة المناسبة هو نصف الحل. كل أداة من هذه الأدوات لها نقاط قوة تناسب فئات معينة."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-make-zapier-n8n-comparison
+portal_id: automation
+content_type: lesson
+title_ar: مقارنة بين Make و Zapier و n8n
+title_en: Make vs Zapier vs n8n Comparison
+excerpt_ar: اختيار الأداة المناسبة هو نصف الحل. كل أداة من هذه الأدوات لها نقاط قوة
+  تناسب فئات معينة.
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 120
 reading_time: 1
 parent_id: null
+slug: automation-lesson-make-zapier-n8n-comparison
+data: {}
 ---
 # مقارنة بين أدوات الأتمتة: Make و Zapier و n8n
 

@@ -6,14 +6,16 @@
   "title_ar": "أحاديث عابرة",
   "data": {
     "prompt_text": "Let's practice small talk. Start a conversation about [الموضوع].",
-    "instructions": "التدرب على المحادثات الخفيفة في المواقف الاجتماعية."
+    "instructions": "التدرب على المحادثات الخفيفة في المواقف الاجتماعية.",
+    "prompt_text_ar": "Let's practice small talk. Start a conversation about [الموضوع]."
   },
-  "title_en": "",
+  "title_en": "Small Talk",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 260
+  "sort_order": 260,
+  "slug": "language-prompt-small-talk"
 }

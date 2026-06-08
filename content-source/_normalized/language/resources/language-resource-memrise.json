@@ -8,12 +8,13 @@
     "url": "https://www.memrise.com/",
     "description": "تطبيق لتعلم المفردات باستخدام التكرار المتباعد."
   },
-  "title_en": "",
+  "title_en": "Memrise",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "resource"
   ],
-  "sort_order": 130
+  "sort_order": 130,
+  "slug": "language-resource-memrise"
 }

@@ -1,18 +1,23 @@
 ---
-id: "digital-exams-lesson-exam-night-routine"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "روتين ليلة الاختبار لتقليل القلق"
-title_en: "Exam Night Routine to Reduce Anxiety"
-excerpt_ar: "ما تفعله في الليلة التي تسبق الاختبار يحدد أداءك بنسبة كبيرة. السهر للمراجعة هو أسوأ استراتيجية ممكنة."
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-exam-night-routine
+portal_id: digital-exams
+content_type: lesson
+title_ar: روتين ليلة الاختبار لتقليل القلق
+title_en: Exam Night Routine to Reduce Anxiety
+excerpt_ar: ما تفعله في الليلة التي تسبق الاختبار يحدد أداءك بنسبة كبيرة. السهر للمراجعة
+  هو أسوأ استراتيجية ممكنة.
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 50
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-exam-night-routine
+data: {}
 ---
 # روتين ليلة الاختبار لتقليل القلق
 

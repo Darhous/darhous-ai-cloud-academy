@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 220
+  "sort_order": 220,
+  "slug": "iot-lab-resource-mqtt-spec"
 }

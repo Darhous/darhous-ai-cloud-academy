@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "الاستماع",
-    "example": "مهارة أساسية لفهم المتحدثين الأصليين."
+    "example": "مهارة أساسية لفهم المتحدثين الأصليين.",
+    "definition_ar": "الاستماع"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 290
+  "sort_order": 290,
+  "slug": "language-glossary-glossary-5"
 }

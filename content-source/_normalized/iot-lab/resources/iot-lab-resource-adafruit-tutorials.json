@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 20
+  "sort_order": 20,
+  "slug": "iot-lab-resource-adafruit-tutorials"
 }

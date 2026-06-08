@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اكتب ملخص احترافي لملفي الشخصي على لينكد إن بناءً على خبراتي: [الخبرات]",
-    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني.",
+    "prompt_text_ar": "اكتب ملخص احترافي لملفي الشخصي على لينكد إن بناءً على خبراتي: [الخبرات]"
   },
   "id": "career-prompt-linkedin-summary-2",
   "content_type": "prompt",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "prompt"
   ],
-  "sort_order": 250
+  "sort_order": 250,
+  "slug": "career-prompt-linkedin-summary-2"
 }

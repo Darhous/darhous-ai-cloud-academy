@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "دبابيس عامة الأغراض على لوحة المتحكم يمكن برمجتها للعمل كمدخلات أو مخرجات.",
-    "example": "توصيل LED بدبوس GPIO رقم 13 على الأردوينو."
+    "example": "توصيل LED بدبوس GPIO رقم 13 على الأردوينو.",
+    "definition_ar": "دبابيس عامة الأغراض على لوحة المتحكم يمكن برمجتها للعمل كمدخلات أو مخرجات."
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "مصطلحات"
   ],
-  "sort_order": 130
+  "sort_order": 130,
+  "slug": "iot-lab-glossary-gpio"
 }

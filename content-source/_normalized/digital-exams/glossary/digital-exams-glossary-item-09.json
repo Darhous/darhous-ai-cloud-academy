@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "معرفة الأخطاء بعد الاختبار التجريبي وتصحيحها.",
-    "example": "مثال: مراجعة الأسئلة الخاطئة ومعرفة سبب الخطأ."
+    "example": "مثال: مراجعة الأسئلة الخاطئة ومعرفة سبب الخطأ.",
+    "definition_ar": "معرفة الأخطاء بعد الاختبار التجريبي وتصحيحها."
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "الاختبارات الرقمية",
     "مصطلحات"
   ],
-  "sort_order": 390
+  "sort_order": 390,
+  "slug": "digital-exams-glossary-item-09"
 }

@@ -1,18 +1,22 @@
 ---
-id: "digital-exams-lesson-confidence-rating"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "معايرة الثقة أثناء الحل"
-title_en: "Confidence Rating During Exams"
-excerpt_ar: "الوعي الذاتي بمدى صحة إجابتك يوفر عليك وقت المراجعة."
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-confidence-rating
+portal_id: digital-exams
+content_type: lesson
+title_ar: معايرة الثقة أثناء الحل
+title_en: Confidence Rating During Exams
+excerpt_ar: الوعي الذاتي بمدى صحة إجابتك يوفر عليك وقت المراجعة.
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 30
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-confidence-rating
+data: {}
 ---
 # معايرة الثقة أثناء الحل
 

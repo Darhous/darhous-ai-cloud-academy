@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "القواعد",
-    "example": "القواعد السليمة تمنع سوء الفهم."
+    "example": "القواعد السليمة تمنع سوء الفهم.",
+    "definition_ar": "القواعد"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 270
+  "sort_order": 270,
+  "slug": "language-glossary-glossary-3"
 }

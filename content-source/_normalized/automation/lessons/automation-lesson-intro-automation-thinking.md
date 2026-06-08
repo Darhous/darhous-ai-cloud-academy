@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-intro-automation-thinking"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "مقدمة في التفكير الأتمتي"
-title_en: "Intro to Automation Thinking"
-excerpt_ar: "التفكير الأتمتي هو منهجية لحل المشكلات تعتمد على تحديد المهام المتكررة والبحث عن طرق لإنجازها باستخدام التكنولوجيا دون تدخل بشري مستمر."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-intro-automation-thinking
+portal_id: automation
+content_type: lesson
+title_ar: مقدمة في التفكير الأتمتي
+title_en: Intro to Automation Thinking
+excerpt_ar: التفكير الأتمتي هو منهجية لحل المشكلات تعتمد على تحديد المهام المتكررة
+  والبحث عن طرق لإنجازها باستخدام التكنولوجيا دون تدخل بشري مستمر.
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 100
 reading_time: 1
 parent_id: null
+slug: automation-lesson-intro-automation-thinking
+data: {}
 ---
 # مقدمة في التفكير الأتمتي
 

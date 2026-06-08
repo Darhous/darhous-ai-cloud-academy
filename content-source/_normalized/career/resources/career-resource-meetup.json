@@ -8,12 +8,13 @@
     "url": "https://www.meetup.com",
     "description": "منصة للعثور على مجموعات مهنية وتقنية وبناء شبكة علاقات (Networking) في منطقتك."
   },
-  "title_en": "",
+  "title_en": "Meetup",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 120
+  "sort_order": 120,
+  "slug": "career-resource-meetup"
 }

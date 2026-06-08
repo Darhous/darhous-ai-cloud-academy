@@ -8,12 +8,13 @@
     "url": "https://www.mindmeister.com",
     "description": "منصة لإنشاء خرائط ذهنية إلكترونية تساعد في تلخيص المواضيع المعقدة وربط الأفكار."
   },
-  "title_en": "",
+  "title_en": "Mindmeister",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 110
+  "sort_order": 110,
+  "slug": "digital-exams-resource-mindmeister"
 }

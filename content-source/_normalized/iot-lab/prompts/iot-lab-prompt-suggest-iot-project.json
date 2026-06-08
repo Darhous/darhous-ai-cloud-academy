@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اقترح فكرة مشروع إنترنت الأشياء للمبتدئين.",
-    "instructions": "اذكر المكونات المطلوبة وطريقة العمل بشكل مبسط."
+    "instructions": "اذكر المكونات المطلوبة وطريقة العمل بشكل مبسط.",
+    "prompt_text_ar": "اقترح فكرة مشروع إنترنت الأشياء للمبتدئين."
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "prompt"
   ],
-  "sort_order": 260
+  "sort_order": 260,
+  "slug": "iot-lab-prompt-suggest-iot-project"
 }

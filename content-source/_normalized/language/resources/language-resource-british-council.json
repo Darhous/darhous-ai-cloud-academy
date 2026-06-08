@@ -8,12 +8,13 @@
     "url": "https://learnenglish.britishcouncil.org/",
     "description": "دروس وتدريبات لكافة المستويات."
   },
-  "title_en": "",
+  "title_en": "British Council",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "resource"
   ],
-  "sort_order": 40
+  "sort_order": 40,
+  "slug": "language-resource-british-council"
 }

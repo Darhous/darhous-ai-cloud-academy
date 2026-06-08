@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "سمات شخصية ومهارات تواصل تؤثر على طريقة عملك.",
-    "example": "مثال على استخدام مصطلح المهارات الناعمة في السياق المهني."
+    "example": "مثال على استخدام مصطلح المهارات الناعمة في السياق المهني.",
+    "definition_ar": "سمات شخصية ومهارات تواصل تؤثر على طريقة عملك."
   },
   "id": "career-glossary-soft-skills-2",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 490
+  "sort_order": 490,
+  "slug": "career-glossary-soft-skills-2"
 }

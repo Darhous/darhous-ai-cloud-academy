@@ -8,12 +8,13 @@
     "url": "https://ar.khanacademy.org",
     "description": "شروحات مرئية وتمارين تفاعلية ممتازة لتأسيس وتقوية المهارات الرياضية المطلوبة في الاختبارات المعيارية."
   },
-  "title_en": "",
+  "title_en": "Khan Academy Math",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 90
+  "sort_order": 90,
+  "slug": "digital-exams-resource-khan-academy-math"
 }

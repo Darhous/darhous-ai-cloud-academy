@@ -1,20 +1,23 @@
 ---
-id: "digital-exams-lesson-item-04"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "أهمية الاختبارات التجريبية"
-title_en: "Item 04"
-excerpt_ar: "# أهمية الاختبارات التجريبية"
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-item-04
+portal_id: digital-exams
+content_type: lesson
+title_ar: أهمية الاختبارات التجريبية
+title_en: Item 04
+excerpt_ar: '# أهمية الاختبارات التجريبية'
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 180
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-item-04
+data: {}
 ---
-
 # أهمية الاختبارات التجريبية
 
 ## مقدمة

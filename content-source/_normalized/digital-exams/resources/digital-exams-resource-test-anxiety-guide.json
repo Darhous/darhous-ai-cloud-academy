@@ -8,12 +8,13 @@
     "url": "",
     "description": "مقال شامل يقدم نصائح علمية للتغلب على القلق وتحسين الأداء تحت الضغط النفسي."
   },
-  "title_en": "",
+  "title_en": "Test Anxiety Guide",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 190
+  "sort_order": 190,
+  "slug": "digital-exams-resource-test-anxiety-guide"
 }

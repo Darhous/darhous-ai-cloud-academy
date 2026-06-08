@@ -6,14 +6,16 @@
   "title_ar": "السياق الثقافي",
   "data": {
     "prompt_text": "Explain the cultural context behind the phrase [العبارة].",
-    "instructions": "فهم الفروق الثقافية في اللغة."
+    "instructions": "فهم الفروق الثقافية في اللغة.",
+    "prompt_text_ar": "Explain the cultural context behind the phrase [العبارة]."
   },
-  "title_en": "",
+  "title_en": "Cultural Context",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 20
+  "sort_order": 20,
+  "slug": "language-prompt-cultural-context"
 }

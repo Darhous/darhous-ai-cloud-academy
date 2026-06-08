@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-automation-documentation-testing"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "توثيق واختبار عمليات الأتمتة"
-title_en: "Documentation and Testing Automation"
-excerpt_ar: "أن تبني الأتمتة شيء، وأن تضمن استمرارها وإمكانية صيانتها شيء آخر. التوثيق والاختبار هما الفارق بين الهواة والمحترفين في الأتمتة."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-automation-documentation-testing
+portal_id: automation
+content_type: lesson
+title_ar: توثيق واختبار عمليات الأتمتة
+title_en: Documentation and Testing Automation
+excerpt_ar: أن تبني الأتمتة شيء، وأن تضمن استمرارها وإمكانية صيانتها شيء آخر. التوثيق
+  والاختبار هما الفارق بين الهواة والمحترفين في الأتمتة.
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 40
 reading_time: 1
 parent_id: null
+slug: automation-lesson-automation-documentation-testing
+data: {}
 ---
 # توثيق واختبار عمليات الأتمتة
 

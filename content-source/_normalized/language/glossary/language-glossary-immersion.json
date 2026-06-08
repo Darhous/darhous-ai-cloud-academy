@@ -6,14 +6,16 @@
   "title_ar": "الانغماس",
   "data": {
     "definition": "إحاطة نفسك باللغة الهدف في كل جوانب حياتك.",
-    "example": "Immersion accelerates learning."
+    "example": "Immersion accelerates learning.",
+    "definition_ar": "إحاطة نفسك باللغة الهدف في كل جوانب حياتك."
   },
-  "title_en": "",
+  "title_en": "Immersion",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 360
+  "sort_order": 360,
+  "slug": "language-glossary-immersion"
 }

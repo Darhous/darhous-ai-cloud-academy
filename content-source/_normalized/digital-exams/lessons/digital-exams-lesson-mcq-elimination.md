@@ -1,18 +1,23 @@
 ---
-id: "digital-exams-lesson-mcq-elimination"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "فن استراتيجية الاستبعاد"
-title_en: "The Art of Elimination Strategy"
-excerpt_ar: "يعتبر سؤال الاختيار من متعدد تحدياً ذهنياً أكثر منه اختباراً للحفظ. تعتمد استراتيجية الاستبعاد على مبدأ بسيط: إذا لم تعرف الإجابة الصحيحة، فابحث عن ال..."
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-mcq-elimination
+portal_id: digital-exams
+content_type: lesson
+title_ar: فن استراتيجية الاستبعاد
+title_en: The Art of Elimination Strategy
+excerpt_ar: 'يعتبر سؤال الاختيار من متعدد تحدياً ذهنياً أكثر منه اختباراً للحفظ. تعتمد
+  استراتيجية الاستبعاد على مبدأ بسيط: إذا لم تعرف الإجابة الصحيحة، فابحث عن ال...'
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 100
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-mcq-elimination
+data: {}
 ---
 # فن استراتيجية الاستبعاد
 

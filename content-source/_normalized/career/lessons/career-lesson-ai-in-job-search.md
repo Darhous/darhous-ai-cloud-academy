@@ -1,20 +1,23 @@
 ---
-id: "career-lesson-ai-in-job-search"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "استخدام الذكاء الاصطناعي في البحث عن وظيفة"
-title_en: "Ai In Job Search"
-excerpt_ar: "# استخدام الذكاء الاصطناعي في البحث عن وظيفة"
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-ai-in-job-search
+portal_id: career
+content_type: lesson
+title_ar: استخدام الذكاء الاصطناعي في البحث عن وظيفة
+title_en: Ai In Job Search
+excerpt_ar: '# استخدام الذكاء الاصطناعي في البحث عن وظيفة'
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 20
 reading_time: 1
 parent_id: null
+slug: career-lesson-ai-in-job-search
+data: {}
 ---
-
 # استخدام الذكاء الاصطناعي في البحث عن وظيفة
 
 ## مقدمة

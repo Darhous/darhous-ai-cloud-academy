@@ -1,20 +1,23 @@
 ---
-id: "ai-academy-lesson-safe-ai"
-portal_id: "ai-academy"
-content_type: "lesson"
-title_ar: "الاستخدام الآمن للذكاء الاصطناعي"
-title_en: "Safe Ai"
-excerpt_ar: "# الاستخدام الآمن للذكاء الاصطناعي"
-excerpt_en: ""
-category: "الذكاء الاصطناعي"
-status: "draft"
+id: ai-academy-lesson-safe-ai
+portal_id: ai-academy
+content_type: lesson
+title_ar: الاستخدام الآمن للذكاء الاصطناعي
+title_en: Safe Ai
+excerpt_ar: '# الاستخدام الآمن للذكاء الاصطناعي'
+excerpt_en: ''
+category: الذكاء الاصطناعي
+status: draft
 featured: false
-tags: ["الذكاء الاصطناعي", "lesson"]
+tags:
+- الذكاء الاصطناعي
+- lesson
 sort_order: 200
 reading_time: 1
 parent_id: null
+slug: ai-academy-lesson-safe-ai
+data: {}
 ---
-
 # الاستخدام الآمن للذكاء الاصطناعي
 
 ## حماية بياناتك

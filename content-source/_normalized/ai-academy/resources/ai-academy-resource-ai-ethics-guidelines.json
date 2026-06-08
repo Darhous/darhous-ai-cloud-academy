@@ -8,12 +8,13 @@
     "url": "",
     "description": "وثيقة شاملة للمبادئ الأخلاقية عند استخدام وتطوير نماذج الذكاء الاصطناعي."
   },
-  "title_en": "",
+  "title_en": "Ethics Guidelines",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 10
+  "sort_order": 10,
+  "slug": "ai-academy-resource-ai-ethics-guidelines"
 }

@@ -8,12 +8,13 @@
     "url": "https://claude.ai/",
     "description": "مساعد ذكاء اصطناعي متقدم يتميز بنافذة سياق كبيرة وقدرات تحليلية عالية."
   },
-  "title_en": "",
+  "title_en": "Claude",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 80
+  "sort_order": 80,
+  "slug": "ai-academy-resource-claude-ai"
 }

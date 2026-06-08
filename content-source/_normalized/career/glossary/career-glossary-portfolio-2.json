@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "مجموعة من أعمالك السابقة التي تثبت مهاراتك.",
-    "example": "مثال على استخدام مصطلح معرض الأعمال في السياق المهني."
+    "example": "مثال على استخدام مصطلح معرض الأعمال في السياق المهني.",
+    "definition_ar": "مجموعة من أعمالك السابقة التي تثبت مهاراتك."
   },
   "id": "career-glossary-portfolio-2",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 470
+  "sort_order": 470,
+  "slug": "career-glossary-portfolio-2"
 }

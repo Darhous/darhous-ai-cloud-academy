@@ -6,14 +6,16 @@
   "title_ar": "الطلاقة",
   "data": {
     "definition": "القدرة على التحدث بسلاسة وبدون توقف متكرر.",
-    "example": "She speaks English with great fluency."
+    "example": "She speaks English with great fluency.",
+    "definition_ar": "القدرة على التحدث بسلاسة وبدون توقف متكرر."
   },
-  "title_en": "",
+  "title_en": "Fluency",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 130
+  "sort_order": 130,
+  "slug": "language-glossary-fluency"
 }

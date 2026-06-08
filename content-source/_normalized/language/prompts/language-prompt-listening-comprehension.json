@@ -6,14 +6,16 @@
   "title_ar": "فهم المسموع",
   "data": {
     "prompt_text": "Write a short dialogue about [الموضوع] and generate 3 comprehension questions.",
-    "instructions": "تدريب على الفهم من خلال نصوص قصيرة."
+    "instructions": "تدريب على الفهم من خلال نصوص قصيرة.",
+    "prompt_text_ar": "Write a short dialogue about [الموضوع] and generate 3 comprehension questions."
   },
-  "title_en": "",
+  "title_en": "Listening Comprehension",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 80
+  "sort_order": 80,
+  "slug": "language-prompt-listening-comprehension"
 }

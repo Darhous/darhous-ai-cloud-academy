@@ -1,18 +1,23 @@
 ---
-id: "ai-academy-lesson-ai-for-study"
-portal_id: "ai-academy"
-content_type: "lesson"
-title_ar: "استخدام الذكاء الاصطناعي للدراسة"
-title_en: "AI for Study"
-excerpt_ar: "كيف نستخدم الذكاء الاصطناعي كمدرس خصوصي بدلاً من أداة لحل الواجبات؟ سنتعلم كيفية توجيه الذكاء الاصطناعي لإنشاء خطط دراسية، شرح المفاهيم المعقدة بطرق م..."
-excerpt_en: ""
-category: "الذكاء الاصطناعي"
-status: "draft"
+id: ai-academy-lesson-ai-for-study
+portal_id: ai-academy
+content_type: lesson
+title_ar: استخدام الذكاء الاصطناعي للدراسة
+title_en: AI for Study
+excerpt_ar: كيف نستخدم الذكاء الاصطناعي كمدرس خصوصي بدلاً من أداة لحل الواجبات؟ سنتعلم
+  كيفية توجيه الذكاء الاصطناعي لإنشاء خطط دراسية، شرح المفاهيم المعقدة بطرق م...
+excerpt_en: ''
+category: الذكاء الاصطناعي
+status: draft
 featured: false
-tags: ["الذكاء الاصطناعي", "lesson"]
+tags:
+- الذكاء الاصطناعي
+- lesson
 sort_order: 30
 reading_time: 1
 parent_id: null
+slug: ai-academy-lesson-ai-for-study
+data: {}
 ---
 # استخدام الذكاء الاصطناعي للدراسة
 

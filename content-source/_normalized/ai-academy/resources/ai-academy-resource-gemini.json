@@ -8,12 +8,13 @@
     "url": "https://gemini.google.com/",
     "description": "نموذج الذكاء الاصطناعي متعدد الوسائط من جوجل."
   },
-  "title_en": "",
+  "title_en": "Gemini",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 120
+  "sort_order": 120,
+  "slug": "ai-academy-resource-gemini"
 }

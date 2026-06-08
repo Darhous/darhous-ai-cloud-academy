@@ -6,14 +6,16 @@
   "title_ar": "مصحح الترجمة",
   "data": {
     "prompt_text": "I translated this from Arabic: [الترجمة]. How would a native speaker say it?",
-    "instructions": "تجنب الترجمة الحرفية وتحدث كأصحاب اللغة."
+    "instructions": "تجنب الترجمة الحرفية وتحدث كأصحاب اللغة.",
+    "prompt_text_ar": "I translated this from Arabic: [الترجمة]. How would a native speaker say it?"
   },
-  "title_en": "",
+  "title_en": "Translation Corrector",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 290
+  "sort_order": 290,
+  "slug": "language-prompt-translation-corrector"
 }

@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 110
+  "sort_order": 110,
+  "slug": "iot-lab-resource-esphome"
 }

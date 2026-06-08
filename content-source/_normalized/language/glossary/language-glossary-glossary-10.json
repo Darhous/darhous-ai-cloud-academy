@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "الدقة",
-    "example": "استخدام اللغة بدون أخطاء."
+    "example": "استخدام اللغة بدون أخطاء.",
+    "definition_ar": "الدقة"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 150
+  "sort_order": 150,
+  "slug": "language-glossary-glossary-10"
 }

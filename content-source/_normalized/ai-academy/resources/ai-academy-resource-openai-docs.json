@@ -8,12 +8,13 @@
     "url": "https://platform.openai.com/docs/",
     "description": "المرجع الرسمي لتعلم كيفية استخدام نماذج OpenAI."
   },
-  "title_en": "",
+  "title_en": "Openai Docs",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 160
+  "sort_order": 160,
+  "slug": "ai-academy-resource-openai-docs"
 }

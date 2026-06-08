@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "كيف أقوم بتوصيل مستشعر الحركة PIR مع الأردوينو بشكل آمن؟",
-    "instructions": "وضح التوصيلات (الطاقة، الأرضي، إشارة البيانات) وقدم نصيحة للسلامة."
+    "instructions": "وضح التوصيلات (الطاقة، الأرضي، إشارة البيانات) وقدم نصيحة للسلامة.",
+    "prompt_text_ar": "كيف أقوم بتوصيل مستشعر الحركة PIR مع الأردوينو بشكل آمن؟"
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "prompt"
   ],
-  "sort_order": 300
+  "sort_order": 300,
+  "slug": "iot-lab-prompt-wire-sensor"
 }

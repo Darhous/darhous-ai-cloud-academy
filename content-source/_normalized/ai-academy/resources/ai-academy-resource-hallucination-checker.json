@@ -8,12 +8,13 @@
     "url": "",
     "description": "أداة برمجية لمقارنة نصوص الذكاء الاصطناعي مع المصادر الأصلية لضمان الدقة."
   },
-  "title_en": "",
+  "title_en": "Hallucination Checker",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 130
+  "sort_order": 130,
+  "slug": "ai-academy-resource-hallucination-checker"
 }

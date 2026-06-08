@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اقترح علي أفكار مشاريع أضيفها لمعرض أعمالي في مجال [مجال العمل].",
-    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني.",
+    "prompt_text_ar": "اقترح علي أفكار مشاريع أضيفها لمعرض أعمالي في مجال [مجال العمل]."
   },
   "id": "career-prompt-portfolio-ideas-2",
   "content_type": "prompt",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "prompt"
   ],
-  "sort_order": 270
+  "sort_order": 270,
+  "slug": "career-prompt-portfolio-ideas-2"
 }

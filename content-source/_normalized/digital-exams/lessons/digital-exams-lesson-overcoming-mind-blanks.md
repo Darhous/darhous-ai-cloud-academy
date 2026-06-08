@@ -1,18 +1,23 @@
 ---
-id: "digital-exams-lesson-overcoming-mind-blanks"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "التعامل مع الصدمة الذهنية (Mind Blanking)"
-title_en: "Handling Mind Blanking"
-excerpt_ar: "يحدث أحياناً أن تقرأ سؤالاً فتشعر أن عقلك أصبح فارغاً تماماً نتيجة التوتر اللحظي."
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-overcoming-mind-blanks
+portal_id: digital-exams
+content_type: lesson
+title_ar: التعامل مع الصدمة الذهنية (Mind Blanking)
+title_en: Handling Mind Blanking
+excerpt_ar: يحدث أحياناً أن تقرأ سؤالاً فتشعر أن عقلك أصبح فارغاً تماماً نتيجة التوتر
+  اللحظي.
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 110
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-overcoming-mind-blanks
+data: {}
 ---
 # التعامل مع الصدمة الذهنية (Mind Blanking)
 

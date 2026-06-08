@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "بادئة",
-    "example": "حروف تضاف في بداية الكلمة."
+    "example": "حروف تضاف في بداية الكلمة.",
+    "definition_ar": "بادئة"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 200
+  "sort_order": 200,
+  "slug": "language-glossary-glossary-15"
 }

@@ -1,0 +1,12 @@
+{
+  "records_scanned": 600,
+  "files_changed": 600,
+  "total_repairs_applied": 1200,
+  "total_skipped_issues": 100,
+  "repair_types": {
+    "slug_filled": 600,
+    "title_en_generated": 280,
+    "data_key_migrated": 320
+  },
+  "generated_at": "2026-06-08T22:43:02.557873+00:00"
+}

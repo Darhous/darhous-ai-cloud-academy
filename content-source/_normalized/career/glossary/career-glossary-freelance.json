@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "تقديم الخدمات بشكل مستقل لعدة عملاء.",
-    "example": "مثال على استخدام مصطلح العمل الحر في السياق المهني."
+    "example": "مثال على استخدام مصطلح العمل الحر في السياق المهني.",
+    "definition_ar": "تقديم الخدمات بشكل مستقل لعدة عملاء."
   },
   "id": "career-glossary-freelance",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 370
+  "sort_order": 370,
+  "slug": "career-glossary-freelance"
 }

@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-building-proof-of-work"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "أهمية بناء إثبات العمل في مسيرتك"
-title_en: "The Importance of Building Proof of Work"
-excerpt_ar: "في الماضي، كانت الشهادات الجامعية هي جواز السفر الوحيد لسوق العمل. اليوم، الشهادات لا تزال مهمة، لكن 'إثبات العمل' أصبح العامل الحاسم للتميز في العديد..."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-building-proof-of-work
+portal_id: career
+content_type: lesson
+title_ar: أهمية بناء إثبات العمل في مسيرتك
+title_en: The Importance of Building Proof of Work
+excerpt_ar: في الماضي، كانت الشهادات الجامعية هي جواز السفر الوحيد لسوق العمل. اليوم،
+  الشهادات لا تزال مهمة، لكن 'إثبات العمل' أصبح العامل الحاسم للتميز في العديد...
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 30
 reading_time: 1
 parent_id: null
+slug: career-lesson-building-proof-of-work
+data: {}
 ---
 # أهمية بناء إثبات العمل في مسيرتك (Proof of Work)
 

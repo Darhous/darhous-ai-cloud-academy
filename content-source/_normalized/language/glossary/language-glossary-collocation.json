@@ -6,14 +6,16 @@
   "title_ar": "المتلازمات اللفظية",
   "data": {
     "definition": "كلمات تأتي معاً بشكل طبيعي في اللغة.",
-    "example": "Make a mistake is a collocation."
+    "example": "Make a mistake is a collocation.",
+    "definition_ar": "كلمات تأتي معاً بشكل طبيعي في اللغة."
   },
-  "title_en": "",
+  "title_en": "Collocation",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 110
+  "sort_order": 110,
+  "slug": "language-glossary-collocation"
 }

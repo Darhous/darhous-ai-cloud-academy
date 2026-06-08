@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "الإطار المرجعي الأوروبي المشترك للغات",
-    "example": "يستخدم لتقييم مستوى اللغة."
+    "example": "يستخدم لتقييم مستوى اللغة.",
+    "definition_ar": "الإطار المرجعي الأوروبي المشترك للغات"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 140
+  "sort_order": 140,
+  "slug": "language-glossary-glossary-1"
 }

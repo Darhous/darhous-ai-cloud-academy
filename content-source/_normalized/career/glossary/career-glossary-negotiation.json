@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "النقاش للوصول إلى اتفاق حول الراتب والمزايا.",
-    "example": "مثال على استخدام مصطلح التفاوض في السياق المهني."
+    "example": "مثال على استخدام مصطلح التفاوض في السياق المهني.",
+    "definition_ar": "النقاش للوصول إلى اتفاق حول الراتب والمزايا."
   },
   "id": "career-glossary-negotiation",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 440
+  "sort_order": 440,
+  "slug": "career-glossary-negotiation"
 }

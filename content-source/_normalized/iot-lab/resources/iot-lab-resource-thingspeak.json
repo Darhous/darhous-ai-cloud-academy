@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 280
+  "sort_order": 280,
+  "slug": "iot-lab-resource-thingspeak"
 }

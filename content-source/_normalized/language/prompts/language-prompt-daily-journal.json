@@ -6,14 +6,16 @@
   "title_ar": "يومياتي",
   "data": {
     "prompt_text": "Review my daily journal entry and suggest better vocabulary: [اليوميات].",
-    "instructions": "تحسين كتابتك اليومية وتطوير أسلوبك."
+    "instructions": "تحسين كتابتك اليومية وتطوير أسلوبك.",
+    "prompt_text_ar": "Review my daily journal entry and suggest better vocabulary: [اليوميات]."
   },
-  "title_en": "",
+  "title_en": "Daily Journal",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 30
+  "sort_order": 30,
+  "slug": "language-prompt-daily-journal"
 }

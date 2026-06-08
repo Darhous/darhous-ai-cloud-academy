@@ -37,11 +37,13 @@ In a subsequent station, 6 Markdown lesson files that had syntax errors in their
 These repairs were purely syntax-related (replacing double quotes with single quotes inside excerpt strings) to allow the parser to read them. No other metadata quality repairs were applied yet.
 
 ## What Remains Unrepaired
-**NO REPAIRS WERE APPLIED IN THIS STATION.** 
-The data in Supabase, and the normalized source files, remain exactly as they were before this station. The reports surface a significant amount of optional gaps (such as `title_en` missing or holding placeholders like "Item 1", "Item 20", missing excerpts, etc.), but all records remain safe drafts.
+**NO REPAIRS WERE APPLIED IN THIS AUDIT STATION.** 
+The data in Supabase, and the normalized source files, remained exactly as they were initially. The reports surface a significant amount of optional gaps (such as `title_en` missing or holding placeholders like "Item 1", "Item 20", missing excerpts, etc.), but all records remain safe drafts.
+
+## Source Repairs Applied Later
+A subsequent station performed safe, deterministic source-level metadata repairs. Please refer to [Metadata Source Repair Handoff](file:///C:/Users/ahmed/Desktop/ai%20cources/darhous-ai-cloud-academy/docs/handoffs/metadata-source-repair-handoff.md) for details on the fixes applied to the `content-source/_normalized` directory.
 
 ## What the Next Station Should Do
-The next station ("Metadata Quality Repair Execution") should read the audit outputs and apply the recommended repairs. 
-Repairs should ideally be applied directly to the normalized JSON/Markdown files, generating a SQL update script, or by automating updates via transaction-wrapped SQL, to keep the content source and database in sync.
+The next station ("Tier-A DB Sync") should read the repaired `content-source/_normalized` files and generate/execute a SQL update script to sync the metadata improvements into the Supabase `draft` records safely.
 
 > **WARNING**: No database writes, publishing, data mutations, or migrations occurred. The 210 live-wired records and 230 deferred records remain untouched.

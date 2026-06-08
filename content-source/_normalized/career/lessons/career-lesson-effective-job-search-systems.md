@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-effective-job-search-systems"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "أنظمة فعالة للبحث عن عمل"
-title_en: "Effective Job Search Systems"
-excerpt_ar: "البحث عن عمل هو وظيفة بحد ذاتها، ويتطلب تنظيماً ونهجاً استراتيجياً للحصول على أفضل النتائج."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-effective-job-search-systems
+portal_id: career
+content_type: lesson
+title_ar: أنظمة فعالة للبحث عن عمل
+title_en: Effective Job Search Systems
+excerpt_ar: البحث عن عمل هو وظيفة بحد ذاتها، ويتطلب تنظيماً ونهجاً استراتيجياً للحصول
+  على أفضل النتائج.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 70
 reading_time: 1
 parent_id: null
+slug: career-lesson-effective-job-search-systems
+data: {}
 ---
 # أنظمة فعالة للبحث عن عمل
 

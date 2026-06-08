@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "ضع لي خطة للانتقال من مجال [المجال الحالي] إلى مجال [المجال الجديد].",
-    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني.",
+    "prompt_text_ar": "ضع لي خطة للانتقال من مجال [المجال الحالي] إلى مجال [المجال الجديد]."
   },
   "id": "career-prompt-career-shift-plan-2",
   "content_type": "prompt",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "prompt"
   ],
-  "sort_order": 210
+  "sort_order": 210,
+  "slug": "career-prompt-career-shift-plan-2"
 }

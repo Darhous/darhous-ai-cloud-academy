@@ -6,14 +6,16 @@
   "title_ar": "التحضير للعروض",
   "data": {
     "prompt_text": "Give me feedback on the opening of my presentation: [مقدمة العرض].",
-    "instructions": "تدرب على إلقاء العروض التقديمية."
+    "instructions": "تدرب على إلقاء العروض التقديمية.",
+    "prompt_text_ar": "Give me feedback on the opening of my presentation: [مقدمة العرض]."
   },
-  "title_en": "",
+  "title_en": "Presentation Prep",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 110
+  "sort_order": 110,
+  "slug": "language-prompt-presentation-prep"
 }

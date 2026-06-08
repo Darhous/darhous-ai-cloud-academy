@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اكتب خطاب مقدمة احترافي لوظيفة [المسمى الوظيفي] في شركة [اسم الشركة].",
-    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني.",
+    "prompt_text_ar": "اكتب خطاب مقدمة احترافي لوظيفة [المسمى الوظيفي] في شركة [اسم الشركة]."
   },
   "id": "career-prompt-cover-letter-gen",
   "content_type": "prompt",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "prompt"
   ],
-  "sort_order": 220
+  "sort_order": 220,
+  "slug": "career-prompt-cover-letter-gen"
 }

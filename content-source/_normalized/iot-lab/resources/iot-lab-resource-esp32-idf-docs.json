@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 100
+  "sort_order": 100,
+  "slug": "iot-lab-resource-esp32-idf-docs"
 }

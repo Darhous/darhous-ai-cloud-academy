@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "لاحقة",
-    "example": "حروف تضاف في نهاية الكلمة."
+    "example": "حروف تضاف في نهاية الكلمة.",
+    "definition_ar": "لاحقة"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 210
+  "sort_order": 210,
+  "slug": "language-glossary-glossary-16"
 }

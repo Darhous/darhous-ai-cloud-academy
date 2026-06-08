@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "فترة عمل مؤقتة لاكتساب خبرة عملية في مجال معين.",
-    "example": "مثال على استخدام مصطلح التدريب المهني في السياق المهني."
+    "example": "مثال على استخدام مصطلح التدريب المهني في السياق المهني.",
+    "definition_ar": "فترة عمل مؤقتة لاكتساب خبرة عملية في مجال معين."
   },
   "id": "career-glossary-internship",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 390
+  "sort_order": 390,
+  "slug": "career-glossary-internship"
 }

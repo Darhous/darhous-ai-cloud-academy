@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "بناء علاقات مهنية مفيدة لتبادل المعلومات والفرص.",
-    "example": "مثال على استخدام مصطلح التشبيك في السياق المهني."
+    "example": "مثال على استخدام مصطلح التشبيك في السياق المهني.",
+    "definition_ar": "بناء علاقات مهنية مفيدة لتبادل المعلومات والفرص."
   },
   "id": "career-glossary-networking-2",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 450
+  "sort_order": 450,
+  "slug": "career-glossary-networking-2"
 }

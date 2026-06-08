@@ -8,12 +8,13 @@
     "url": "https://chat.openai.com/",
     "description": "أداة ذكاء اصطناعي تفاعلية لتوليد النصوص، البرمجة، والتعلم."
   },
-  "title_en": "",
+  "title_en": "Chatgpt",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 70
+  "sort_order": 70,
+  "slug": "ai-academy-resource-chatgpt"
 }

@@ -8,12 +8,13 @@
     "url": "https://www.indeed.com",
     "description": "واحد من أكبر محركات البحث عن الوظائف في العالم، يوفر أيضاً معلومات حول الرواتب وتقييمات الشركات."
   },
-  "title_en": "",
+  "title_en": "Indeed",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 80
+  "sort_order": 80,
+  "slug": "career-resource-indeed"
 }

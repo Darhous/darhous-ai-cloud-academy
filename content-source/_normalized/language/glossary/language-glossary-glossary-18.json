@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "حرف متحرك",
-    "example": "الحروف a, e, i, o, u."
+    "example": "الحروف a, e, i, o, u.",
+    "definition_ar": "حرف متحرك"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 230
+  "sort_order": 230,
+  "slug": "language-glossary-glossary-18"
 }

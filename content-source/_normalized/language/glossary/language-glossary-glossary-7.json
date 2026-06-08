@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "الكتابة",
-    "example": "كتابة فقرات واضحة مهارة مهمة."
+    "example": "كتابة فقرات واضحة مهارة مهمة.",
+    "definition_ar": "الكتابة"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 310
+  "sort_order": 310,
+  "slug": "language-glossary-glossary-7"
 }

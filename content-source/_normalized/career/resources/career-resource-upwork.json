@@ -8,12 +8,13 @@
     "url": "https://www.upwork.com",
     "description": "منصة عالمية للعمل الحر (Freelance) تربط الشركات بالمستقلين في مختلف المجالات."
   },
-  "title_en": "",
+  "title_en": "Upwork",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 190
+  "sort_order": 190,
+  "slug": "career-resource-upwork"
 }

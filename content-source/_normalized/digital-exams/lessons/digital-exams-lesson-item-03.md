@@ -1,20 +1,23 @@
 ---
-id: "digital-exams-lesson-item-03"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "استراتيجية استبعاد المشتتات"
-title_en: "Item 03"
-excerpt_ar: "# استراتيجية استبعاد المشتتات"
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-item-03
+portal_id: digital-exams
+content_type: lesson
+title_ar: استراتيجية استبعاد المشتتات
+title_en: Item 03
+excerpt_ar: '# استراتيجية استبعاد المشتتات'
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 170
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-item-03
+data: {}
 ---
-
 # استراتيجية استبعاد المشتتات
 
 ## مقدمة

@@ -8,12 +8,13 @@
     "url": "https://www.promptingguide.ai/",
     "description": "دليل شامل لتعلم تقنيات هندسة الأوامر من الصفر للاحتراف."
   },
-  "title_en": "",
+  "title_en": "Prompt Engineering Guide",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 180
+  "sort_order": 180,
+  "slug": "ai-academy-resource-prompt-engineering-guide"
 }

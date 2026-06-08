@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "حرف ساكن",
-    "example": "باقي الحروف الأبجدية."
+    "example": "باقي الحروف الأبجدية.",
+    "definition_ar": "حرف ساكن"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 240
+  "sort_order": 240,
+  "slug": "language-glossary-glossary-19"
 }

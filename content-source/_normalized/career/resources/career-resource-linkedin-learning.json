@@ -8,12 +8,13 @@
     "url": "https://www.linkedin.com/learning",
     "description": "منصة تقدم آلاف الدورات التدريبية في مجالات الأعمال والتكنولوجيا والمهارات الإبداعية والناعمة."
   },
-  "title_en": "",
+  "title_en": "Linkedin Learning",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 110
+  "sort_order": 110,
+  "slug": "career-resource-linkedin-learning"
 }

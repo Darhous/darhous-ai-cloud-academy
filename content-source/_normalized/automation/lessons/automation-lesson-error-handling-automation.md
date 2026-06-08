@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-error-handling-automation"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "معالجة الأخطاء في الأتمتة"
-title_en: "Error Handling in Automation"
-excerpt_ar: "حتى أفضل مسارات العمل الأتمتية عرضة للفشل. قد يتوقف سيرفر، أو تتغير صيغة بيانات الـ API، أو ينفد رصيد حسابك في خدمة معينة. معالجة الأخطاء تضمن عدم توق..."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-error-handling-automation
+portal_id: automation
+content_type: lesson
+title_ar: معالجة الأخطاء في الأتمتة
+title_en: Error Handling in Automation
+excerpt_ar: حتى أفضل مسارات العمل الأتمتية عرضة للفشل. قد يتوقف سيرفر، أو تتغير صيغة
+  بيانات الـ API، أو ينفد رصيد حسابك في خدمة معينة. معالجة الأخطاء تضمن عدم توق...
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 90
 reading_time: 1
 parent_id: null
+slug: automation-lesson-error-handling-automation
+data: {}
 ---
 # معالجة الأخطاء (Error Handling) في الأتمتة
 

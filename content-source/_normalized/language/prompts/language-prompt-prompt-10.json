@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "أعطني كلمات عشوائية لأكون منها جملاً.",
-    "instructions": "قم بتصحيح الجمل التي أكتبها."
+    "instructions": "قم بتصحيح الجمل التي أكتبها.",
+    "prompt_text_ar": "أعطني كلمات عشوائية لأكون منها جملاً."
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 130
+  "sort_order": 130,
+  "slug": "language-prompt-prompt-10"
 }

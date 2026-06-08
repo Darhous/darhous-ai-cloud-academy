@@ -8,12 +8,13 @@
     "url": "https://loophabit.org",
     "description": "تطبيق بسيط لمساعدتك في بناء عادة المذاكرة اليومية والالتزام بالجدول الزمني."
   },
-  "title_en": "",
+  "title_en": "Habit Tracker",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 80
+  "sort_order": 80,
+  "slug": "digital-exams-resource-habit-tracker"
 }

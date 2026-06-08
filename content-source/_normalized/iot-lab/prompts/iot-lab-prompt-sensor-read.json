@@ -7,7 +7,8 @@
   "title_en": "Analog Sensor Reading",
   "data": {
     "prompt_text": "أحتاج إلى كود أردوينو لقراءة قيم من حساس [نوع_الحساس] متصل بالمنفذ التناظري [رقم_المنفذ]، مع عرض القيم على شاشة Serial Monitor.",
-    "instructions": "حدد نوع الحساس ورقم المنفذ التناظري."
+    "instructions": "حدد نوع الحساس ورقم المنفذ التناظري.",
+    "prompt_text_ar": "أحتاج إلى كود أردوينو لقراءة قيم من حساس [نوع_الحساس] متصل بالمنفذ التناظري [رقم_المنفذ]، مع عرض القيم على شاشة Serial Monitor."
   },
   "category": "إنترنت الأشياء",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "prompt"
   ],
-  "sort_order": 210
+  "sort_order": 210,
+  "slug": "iot-lab-prompt-sensor-read"
 }

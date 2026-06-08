@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "اكتب رسالة تواصل احترافية لإرسالها لشخص يعمل في شركة أحلم بالعمل بها.",
-    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني."
+    "instructions": "استخدم هذا التلقين للحصول على مساعدة في مسارك المهني.",
+    "prompt_text_ar": "اكتب رسالة تواصل احترافية لإرسالها لشخص يعمل في شركة أحلم بالعمل بها."
   },
   "id": "career-prompt-networking-msg",
   "content_type": "prompt",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "prompt"
   ],
-  "sort_order": 260
+  "sort_order": 260,
+  "slug": "career-prompt-networking-msg"
 }

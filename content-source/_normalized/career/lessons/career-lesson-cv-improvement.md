@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-cv-improvement"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "تحسين السيرة الذاتية لنتائج أفضل"
-title_en: "CV Improvement for Better Results"
-excerpt_ar: "السيرة الذاتية ليست مجرد سجل تاريخي لماضيك المهني، بل هي أداة تسويقية تهدف إلى إبراز قيمتك المستقبلية للشركة."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-cv-improvement
+portal_id: career
+content_type: lesson
+title_ar: تحسين السيرة الذاتية لنتائج أفضل
+title_en: CV Improvement for Better Results
+excerpt_ar: السيرة الذاتية ليست مجرد سجل تاريخي لماضيك المهني، بل هي أداة تسويقية
+  تهدف إلى إبراز قيمتك المستقبلية للشركة.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 60
 reading_time: 1
 parent_id: null
+slug: career-lesson-cv-improvement
+data: {}
 ---
 # تحسين السيرة الذاتية لنتائج أفضل
 

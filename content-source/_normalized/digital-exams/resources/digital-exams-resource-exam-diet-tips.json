@@ -8,12 +8,13 @@
     "url": "",
     "description": "دليل صحي لما يجب تناوله قبل وأثناء فترة الاختبارات لضمان أعلى مستويات النشاط الذهني."
   },
-  "title_en": "",
+  "title_en": "Exam Diet Tips",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 50
+  "sort_order": 50,
+  "slug": "digital-exams-resource-exam-diet-tips"
 }

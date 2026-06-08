@@ -1,18 +1,23 @@
 ---
-id: "career-lesson-mastering-star-stories"
-portal_id: "career"
-content_type: "lesson"
-title_ar: "إتقان قصص طريقة ستار (STAR)"
-title_en: "Mastering STAR Stories"
-excerpt_ar: "طريقة STAR هي الهيكل الأمثل للإجابة على أسئلة المقابلات السلوكية التي تبدأ عادة بـ 'حدثني عن وقت...' أو 'أعطني مثالاً على...'."
-excerpt_en: ""
-category: "المسار المهني"
-status: "draft"
+id: career-lesson-mastering-star-stories
+portal_id: career
+content_type: lesson
+title_ar: إتقان قصص طريقة ستار (STAR)
+title_en: Mastering STAR Stories
+excerpt_ar: طريقة STAR هي الهيكل الأمثل للإجابة على أسئلة المقابلات السلوكية التي
+  تبدأ عادة بـ 'حدثني عن وقت...' أو 'أعطني مثالاً على...'.
+excerpt_en: ''
+category: المسار المهني
+status: draft
 featured: false
-tags: ["المسار المهني", "lesson"]
+tags:
+- المسار المهني
+- lesson
 sort_order: 110
 reading_time: 1
 parent_id: null
+slug: career-lesson-mastering-star-stories
+data: {}
 ---
 # إتقان قصص طريقة ستار (STAR)
 

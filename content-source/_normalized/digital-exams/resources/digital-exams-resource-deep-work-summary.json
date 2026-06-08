@@ -8,12 +8,13 @@
     "url": "",
     "description": "نصائح مستخلصة من كتاب 'العمل العميق' لكال نيوبورت لتعزيز التركيز أثناء دراسة المواضيع الصعبة."
   },
-  "title_en": "",
+  "title_en": "Deep Work Summary",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 20
+  "sort_order": 20,
+  "slug": "digital-exams-resource-deep-work-summary"
 }

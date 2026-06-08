@@ -3,7 +3,8 @@
   "status": "draft",
   "data": {
     "definition": "لقاء لتقييم مدى ملاءمتك للوظيفة.",
-    "example": "مثال على استخدام مصطلح المقابلة الشخصية في السياق المهني."
+    "example": "مثال على استخدام مصطلح المقابلة الشخصية في السياق المهني.",
+    "definition_ar": "لقاء لتقييم مدى ملاءمتك للوظيفة."
   },
   "id": "career-glossary-interview",
   "content_type": "glossary",
@@ -15,5 +16,6 @@
     "المسار المهني",
     "مصطلحات"
   ],
-  "sort_order": 400
+  "sort_order": 400,
+  "slug": "career-glossary-interview"
 }

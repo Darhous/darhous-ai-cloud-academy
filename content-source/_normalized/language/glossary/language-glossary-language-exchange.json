@@ -6,14 +6,16 @@
   "title_ar": "تبادل اللغات",
   "data": {
     "definition": "ممارسة اللغة مع متحدث أصلي يتعلم لغتك.",
-    "example": "I met a language exchange partner online."
+    "example": "I met a language exchange partner online.",
+    "definition_ar": "ممارسة اللغة مع متحدث أصلي يتعلم لغتك."
   },
-  "title_en": "",
+  "title_en": "Exchange",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 390
+  "sort_order": 390,
+  "slug": "language-glossary-language-exchange"
 }

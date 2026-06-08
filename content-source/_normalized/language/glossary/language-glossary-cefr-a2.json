@@ -6,14 +6,16 @@
   "title_ar": "مستوى A2",
   "data": {
     "definition": "المستوى الأساسي.",
-    "example": "I can understand simple sentences."
+    "example": "I can understand simple sentences.",
+    "definition_ar": "المستوى الأساسي."
   },
-  "title_en": "",
+  "title_en": "CEFR A2",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 50
+  "sort_order": 50,
+  "slug": "language-glossary-cefr-a2"
 }

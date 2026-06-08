@@ -28,27 +28,26 @@
   },
   "missing_records_by_table": {},
   "issues_by_severity": {
-    "BLOCKER": 500,
-    "HIGH": 600,
+    "BLOCKER": 0,
+    "HIGH": 46,
     "MEDIUM": 100,
     "LOW": 0
   },
   "issues_by_type": {
-    "missing": 654,
-    "missing_slug": 500,
+    "missing": 100,
     "placeholder": 46
   },
   "readiness_counts": {
-    "READY_FOR_REVIEW": 0,
-    "NEEDS_METADATA_REPAIR": 6,
+    "READY_FOR_REVIEW": 460,
+    "NEEDS_METADATA_REPAIR": 46,
     "NEEDS_CONTENT_REPAIR": 0,
     "NEEDS_TRANSLATION_REPAIR": 94,
     "NEEDS_SCHEMA_REVIEW": 0,
-    "BLOCKED": 500
+    "BLOCKED": 0
   },
-  "blocker_count": 500,
-  "high_count": 600,
+  "blocker_count": 0,
+  "high_count": 46,
   "medium_count": 100,
   "low_count": 0,
-  "generated_at": "2026-06-08T21:50:47.203659+00:00"
+  "generated_at": "2026-06-08T22:43:15.322023+00:00"
 }

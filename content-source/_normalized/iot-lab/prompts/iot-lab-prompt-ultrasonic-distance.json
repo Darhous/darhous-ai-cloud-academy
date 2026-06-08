@@ -7,7 +7,8 @@
   "title_en": "Distance Measurement with Ultrasonic Sensor",
   "data": {
     "prompt_text": "اكتب كود لقياس المسافة بالسنتيمترات باستخدام حساس HC-SR04 المتصل بالمنفذين Trig [منفذ_trig] و Echo [منفذ_echo]، وطباعة النتيجة.",
-    "instructions": "أدخل رقم منفذ Trig ورقم منفذ Echo."
+    "instructions": "أدخل رقم منفذ Trig ورقم منفذ Echo.",
+    "prompt_text_ar": "اكتب كود لقياس المسافة بالسنتيمترات باستخدام حساس HC-SR04 المتصل بالمنفذين Trig [منفذ_trig] و Echo [منفذ_echo]، وطباعة النتيجة."
   },
   "category": "إنترنت الأشياء",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "prompt"
   ],
-  "sort_order": 290
+  "sort_order": 290,
+  "slug": "iot-lab-prompt-ultrasonic-distance"
 }

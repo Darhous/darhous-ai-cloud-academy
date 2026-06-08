@@ -8,12 +8,13 @@
     "url": "https://www.payscale.com",
     "description": "موقع رائد لتقديم بيانات دقيقة حول الرواتب والتعويضات بناءً على المسمى الوظيفي والموقع والخبرة."
   },
-  "title_en": "",
+  "title_en": "Payscale",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 150
+  "sort_order": 150,
+  "slug": "career-resource-payscale"
 }

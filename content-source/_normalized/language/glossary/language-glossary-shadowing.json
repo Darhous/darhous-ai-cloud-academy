@@ -6,7 +6,8 @@
   "title_ar": "التظليل (Shadowing)",
   "data": {
     "definition": "تقنية استماع وتكرار فوري لتحسين النطق والإيقاع.",
-    "example": "Shadowing helps with pronunciation."
+    "example": "Shadowing helps with pronunciation.",
+    "definition_ar": "تقنية استماع وتكرار فوري لتحسين النطق والإيقاع."
   },
   "title_en": "Shadowing",
   "category": "تعلم اللغات",
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 470
+  "sort_order": 470,
+  "slug": "language-glossary-shadowing"
 }

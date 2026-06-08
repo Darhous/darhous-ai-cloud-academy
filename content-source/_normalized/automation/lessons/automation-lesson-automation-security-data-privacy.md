@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-automation-security-data-privacy"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "أمان الأتمتة وحماية البيانات"
-title_en: "Automation Security and Data Privacy"
-excerpt_ar: "في خضم حماسنا لربط التطبيقات وتسهيل العمل، قد نتجاهل الجانب الأمني، وهو ما قد يؤدي إلى تسريب بيانات حساسة أو اختراق الأنظمة. الأمان في الأتمتة ليس أمر..."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-automation-security-data-privacy
+portal_id: automation
+content_type: lesson
+title_ar: أمان الأتمتة وحماية البيانات
+title_en: Automation Security and Data Privacy
+excerpt_ar: في خضم حماسنا لربط التطبيقات وتسهيل العمل، قد نتجاهل الجانب الأمني، وهو
+  ما قد يؤدي إلى تسريب بيانات حساسة أو اختراق الأنظمة. الأمان في الأتمتة ليس أمر...
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 50
 reading_time: 1
 parent_id: null
+slug: automation-lesson-automation-security-data-privacy
+data: {}
 ---
 # أمان الأتمتة وحماية البيانات
 

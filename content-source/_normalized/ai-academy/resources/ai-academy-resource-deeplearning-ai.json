@@ -8,12 +8,13 @@
     "url": "https://www.deeplearning.ai/",
     "description": "دورات تعليمية متقدمة في مجالات الذكاء الاصطناعي من تقديم أندرو نج."
   },
-  "title_en": "",
+  "title_en": "Deeplearning",
   "category": "الذكاء الاصطناعي",
   "featured": false,
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 100
+  "sort_order": 100,
+  "slug": "ai-academy-resource-deeplearning-ai"
 }

@@ -6,14 +6,16 @@
   "title_ar": "مولد القصص",
   "data": {
     "prompt_text": "Write a short story using these vocabulary words: [الكلمات].",
-    "instructions": "قصص قصيرة لتثبيت الكلمات الجديدة."
+    "instructions": "قصص قصيرة لتثبيت الكلمات الجديدة.",
+    "prompt_text_ar": "Write a short story using these vocabulary words: [الكلمات]."
   },
-  "title_en": "",
+  "title_en": "Story Generator",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 280
+  "sort_order": 280,
+  "slug": "language-prompt-story-generator"
 }

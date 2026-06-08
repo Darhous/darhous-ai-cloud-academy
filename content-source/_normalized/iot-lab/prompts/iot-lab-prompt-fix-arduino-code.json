@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "لدي مشكلة في كود الأردوينو التالي، هل يمكنك تصحيحه؟ [أدخل الكود]",
-    "instructions": "قم بشرح الخطأ وكيفية إصلاحه برمجياً."
+    "instructions": "قم بشرح الخطأ وكيفية إصلاحه برمجياً.",
+    "prompt_text_ar": "لدي مشكلة في كود الأردوينو التالي، هل يمكنك تصحيحه؟ [أدخل الكود]"
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "prompt"
   ],
-  "sort_order": 110
+  "sort_order": 110,
+  "slug": "iot-lab-prompt-fix-arduino-code"
 }

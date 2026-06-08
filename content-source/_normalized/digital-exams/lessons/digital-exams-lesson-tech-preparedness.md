@@ -1,18 +1,23 @@
 ---
-id: "digital-exams-lesson-tech-preparedness"
-portal_id: "digital-exams"
-content_type: "lesson"
-title_ar: "الاستعداد التقني للاختبارات عن بعد"
-title_en: "Tech Preparedness for Remote Exams"
-excerpt_ar: "المشاكل التقنية أثناء الاختبار قد تسبب توتراً يفسد أداءك بالكامل. يجب أن تكون مستعداً."
-excerpt_en: ""
-category: "الاختبارات الرقمية"
-status: "draft"
+id: digital-exams-lesson-tech-preparedness
+portal_id: digital-exams
+content_type: lesson
+title_ar: الاستعداد التقني للاختبارات عن بعد
+title_en: Tech Preparedness for Remote Exams
+excerpt_ar: المشاكل التقنية أثناء الاختبار قد تسبب توتراً يفسد أداءك بالكامل. يجب
+  أن تكون مستعداً.
+excerpt_en: ''
+category: الاختبارات الرقمية
+status: draft
 featured: false
-tags: ["الاختبارات الرقمية", "lesson"]
+tags:
+- الاختبارات الرقمية
+- lesson
 sort_order: 140
 reading_time: 1
 parent_id: null
+slug: digital-exams-lesson-tech-preparedness
+data: {}
 ---
 # الاستعداد التقني للاختبارات عن بعد
 

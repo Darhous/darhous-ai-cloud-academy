@@ -6,14 +6,16 @@
   "title_ar": "التكرار المتباعد",
   "data": {
     "definition": "نظام مراجعة المفردات على فترات متباعدة لتثبيتها في الذاكرة.",
-    "example": "Anki uses spaced repetition."
+    "example": "Anki uses spaced repetition.",
+    "definition_ar": "نظام مراجعة المفردات على فترات متباعدة لتثبيتها في الذاكرة."
   },
-  "title_en": "",
+  "title_en": "Spaced Repetition",
   "category": "تعلم اللغات",
   "featured": false,
   "tags": [
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 480
+  "sort_order": 480,
+  "slug": "language-glossary-spaced-repetition"
 }

@@ -6,7 +6,7 @@ This report details the metadata quality gaps in the imported Tier-A draft recor
 ## 2. Scope
 - **Total Records Scanned**: 600 / 600
 - **Source File Types**: JSON (500), Markdown (100)
-- **Total Issues Found**: 1200
+- **Total Issues Found**: 146
 - **Excluded**: tools_hub, nano_banana, live-wired records, deferred records.
 
 ## 3. Counts by Portal/Table
@@ -31,18 +31,18 @@ This report details the metadata quality gaps in the imported Tier-A draft recor
 - `language_resources`: 30 (Expected: 30)
 
 ## 4. Total Issues by Severity
-- **BLOCKER**: 500
-- **HIGH**: 600
+- **BLOCKER**: 0
+- **HIGH**: 46
 - **MEDIUM**: 100
 - **LOW**: 0
 
 ## 5. Public Readiness Summary
-- **READY_FOR_REVIEW**: 0
-- **NEEDS_METADATA_REPAIR**: 6
+- **READY_FOR_REVIEW**: 460
+- **NEEDS_METADATA_REPAIR**: 46
 - **NEEDS_CONTENT_REPAIR**: 0
 - **NEEDS_TRANSLATION_REPAIR**: 94
 - **NEEDS_SCHEMA_REVIEW**: 0
-- **BLOCKED**: 500
+- **BLOCKED**: 0
 
 ## 6. Examples of Representative Problems
 | Table | Record ID | Field | Issue | Recommendation |

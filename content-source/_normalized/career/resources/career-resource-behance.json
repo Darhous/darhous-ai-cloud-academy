@@ -8,12 +8,13 @@
     "url": "https://www.behance.net",
     "description": "منصة رائدة للمصممين والمبدعين لعرض أعمالهم (Portfolio) واكتشاف الفرص المهنية."
   },
-  "title_en": "",
+  "title_en": "Behance",
   "category": "المسار المهني",
   "featured": false,
   "tags": [
     "المسار المهني",
     "resource"
   ],
-  "sort_order": 10
+  "sort_order": 10,
+  "slug": "career-resource-behance"
 }

@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "مرادف",
-    "example": "كلمة لها نفس المعنى."
+    "example": "كلمة لها نفس المعنى.",
+    "definition_ar": "مرادف"
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "مصطلحات"
   ],
-  "sort_order": 180
+  "sort_order": 180,
+  "slug": "language-glossary-glossary-13"
 }

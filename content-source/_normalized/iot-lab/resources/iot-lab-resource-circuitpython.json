@@ -15,5 +15,6 @@
     "إنترنت الأشياء",
     "resource"
   ],
-  "sort_order": 80
+  "sort_order": 80,
+  "slug": "iot-lab-resource-circuitpython"
 }

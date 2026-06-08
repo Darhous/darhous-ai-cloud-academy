@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-building-approval-workflow"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "بناء سير عمل موافقات"
-title_en: "Building an Approval Workflow"
-excerpt_ar: "سير عمل الموافقات هو أحد أهم الاستخدامات للأتمتة في بيئات العمل المشتركة، حيث يتطلب اتخاذ القرار تدخلاً بشرياً ولكن يمكن أتمتة كل ما يسبق ويلحق هذا ال..."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-building-approval-workflow
+portal_id: automation
+content_type: lesson
+title_ar: بناء سير عمل موافقات
+title_en: Building an Approval Workflow
+excerpt_ar: سير عمل الموافقات هو أحد أهم الاستخدامات للأتمتة في بيئات العمل المشتركة،
+  حيث يتطلب اتخاذ القرار تدخلاً بشرياً ولكن يمكن أتمتة كل ما يسبق ويلحق هذا ال...
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 70
 reading_time: 1
 parent_id: null
+slug: automation-lesson-building-approval-workflow
+data: {}
 ---
 # بناء سير عمل موافقات (Approval Workflow)
 

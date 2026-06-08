@@ -15,5 +15,6 @@
     "الأتمتة",
     "resource"
   ],
-  "sort_order": 90
+  "sort_order": 90,
+  "slug": "automation-resource-cron-job-syntax"
 }

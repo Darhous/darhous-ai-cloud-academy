@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "prompt_text": "قم بتقييم مقالي الأكاديمي.",
-    "instructions": "ركز على بنية الجملة والترابط بين الأفكار."
+    "instructions": "ركز على بنية الجملة والترابط بين الأفكار.",
+    "prompt_text_ar": "قم بتقييم مقالي الأكاديمي."
   },
   "content_type": "prompt",
   "featured": false,
@@ -15,5 +16,6 @@
     "تعلم اللغات",
     "prompt"
   ],
-  "sort_order": 190
+  "sort_order": 190,
+  "slug": "language-prompt-prompt-7"
 }

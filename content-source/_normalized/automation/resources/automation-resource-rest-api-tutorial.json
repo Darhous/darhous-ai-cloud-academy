@@ -15,5 +15,6 @@
     "الأتمتة",
     "resource"
   ],
-  "sort_order": 200
+  "sort_order": 200,
+  "slug": "automation-resource-rest-api-tutorial"
 }

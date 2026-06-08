@@ -8,12 +8,13 @@
     "url": "https://justgetflux.com",
     "description": "برنامج لتقليل إجهاد العين عبر تعديل إضاءة الشاشة تلقائياً أثناء المراجعة الطويلة أمام الحاسب."
   },
-  "title_en": "",
+  "title_en": "Eye Care Software",
   "category": "الاختبارات الرقمية",
   "featured": false,
   "tags": [
     "الاختبارات الرقمية",
     "resource"
   ],
-  "sort_order": 60
+  "sort_order": 60,
+  "slug": "digital-exams-resource-eye-care-software"
 }

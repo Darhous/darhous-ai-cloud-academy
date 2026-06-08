@@ -1,18 +1,23 @@
 ---
-id: "automation-lesson-retries-and-fallbacks"
-portal_id: "automation"
-content_type: "lesson"
-title_ar: "استراتيجيات إعادة المحاولة والخطط البديلة"
-title_en: "Retries and Fallbacks"
-excerpt_ar: "في عالم الشبكات، يمكن أن تفشل طلبات البيانات لعدة أسباب مؤقتة (مثل انقطاع لحظي للشبكة أو تحديث سريع للسيرفر). لذلك نحتاج إلى استراتيجيات للتعامل مع هذ..."
-excerpt_en: ""
-category: "الأتمتة"
-status: "draft"
+id: automation-lesson-retries-and-fallbacks
+portal_id: automation
+content_type: lesson
+title_ar: استراتيجيات إعادة المحاولة والخطط البديلة
+title_en: Retries and Fallbacks
+excerpt_ar: في عالم الشبكات، يمكن أن تفشل طلبات البيانات لعدة أسباب مؤقتة (مثل انقطاع
+  لحظي للشبكة أو تحديث سريع للسيرفر). لذلك نحتاج إلى استراتيجيات للتعامل مع هذ...
+excerpt_en: ''
+category: الأتمتة
+status: draft
 featured: false
-tags: ["الأتمتة", "lesson"]
+tags:
+- الأتمتة
+- lesson
 sort_order: 130
 reading_time: 1
 parent_id: null
+slug: automation-lesson-retries-and-fallbacks
+data: {}
 ---
 # استراتيجيات إعادة المحاولة والخطط البديلة (Retries and Fallbacks)
 

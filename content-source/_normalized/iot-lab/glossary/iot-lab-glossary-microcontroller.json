@@ -4,7 +4,8 @@
   "status": "draft",
   "data": {
     "definition": "حاسوب صغير متكامل على شريحة واحدة مصمم للتحكم في الأجهزة والعمليات المحددة.",
-    "example": "شريحة ATmega328P المستخدمة في لوحة الأردوينو أونو."
+    "example": "شريحة ATmega328P المستخدمة في لوحة الأردوينو أونو.",
+    "definition_ar": "حاسوب صغير متكامل على شريحة واحدة مصمم للتحكم في الأجهزة والعمليات المحددة."
   },
   "content_type": "glossary",
   "featured": false,
@@ -15,5 +16,6 @@
     "إنترنت الأشياء",
     "مصطلحات"
   ],
-  "sort_order": 350
+  "sort_order": 350,
+  "slug": "iot-lab-glossary-microcontroller"
 }

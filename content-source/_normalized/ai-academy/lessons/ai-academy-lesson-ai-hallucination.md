@@ -1,20 +1,23 @@
 ---
-id: "ai-academy-lesson-ai-hallucination"
-portal_id: "ai-academy"
-content_type: "lesson"
-title_ar: "هلوسة الذكاء الاصطناعي: عندما تكذب الآلة بثقة"
-title_en: "Ai Hallucination"
-excerpt_ar: "# هلوسة الذكاء الاصطناعي: عندما تكذب الآلة بثقة"
-excerpt_en: ""
-category: "الذكاء الاصطناعي"
-status: "draft"
+id: ai-academy-lesson-ai-hallucination
+portal_id: ai-academy
+content_type: lesson
+title_ar: 'هلوسة الذكاء الاصطناعي: عندما تكذب الآلة بثقة'
+title_en: Ai Hallucination
+excerpt_ar: '# هلوسة الذكاء الاصطناعي: عندما تكذب الآلة بثقة'
+excerpt_en: ''
+category: الذكاء الاصطناعي
+status: draft
 featured: false
-tags: ["الذكاء الاصطناعي", "lesson"]
+tags:
+- الذكاء الاصطناعي
+- lesson
 sort_order: 170
 reading_time: 1
 parent_id: null
+slug: ai-academy-lesson-ai-hallucination
+data: {}
 ---
-
 # هلوسة الذكاء الاصطناعي: عندما تكذب الآلة بثقة
 
 ## ما هي الهلوسة؟
