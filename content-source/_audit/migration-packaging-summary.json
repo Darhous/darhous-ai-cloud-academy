@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-06-08T12:07:54.914292+00:00",
+  "migration_files_created": [
+    "20260608120701_career_content_tables.sql",
+    "20260608120702_language_content_tables.sql",
+    "20260608120703_digital_exams_content_tables.sql",
+    "20260608120704_tools_hub_content_tables.sql",
+    "20260608120705_nano_banana_content_tables.sql",
+    "20260608120706_remaining_content_tables.sql"
+  ],
+  "total_tables_included": 26,
+  "tables_included": [
+    "career_lessons",
+    "career_resources",
+    "career_prompts",
+    "career_glossary",
+    "language_resources",
+    "language_lessons",
+    "language_prompts",
+    "language_glossary",
+    "digital_exams_resources",
+    "digital_exams_prompts",
+    "digital_exams_glossary",
+    "digital_exams_lessons",
+    "tools_hub_glossary",
+    "tools_hub_resources",
+    "tools_hub_lessons",
+    "tools_hub_prompts",
+    "nano_banana_lessons",
+    "nano_banana_glossary",
+    "nano_banana_resources",
+    "ai_resources",
+    "ai_lessons",
+    "automation_resources",
+    "iot_glossary",
+    "iot_resources",
+    "iot_prompts",
+    "automation_lessons"
+  ],
+  "safety_review": {
+    "no_drop_table": true,
+    "no_delete": true,
+    "no_truncate": true,
+    "no_data_insert": true
+  },
+  "app_product_risks": [
+    "tools-hub tables packaged but require app route registration.",
+    "nano-banana tables packaged but require naming alignment with existing nano_banana_custom_prompts."
+  ]
+}
