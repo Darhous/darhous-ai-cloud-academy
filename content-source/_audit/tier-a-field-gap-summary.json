@@ -1,0 +1,40 @@
+{
+  "total_tier_a_records_expected": 600,
+  "total_tier_a_records_analyzed": 600,
+  "analyzed_by_portal": {
+    "ai-academy": 50,
+    "automation": 50,
+    "career": 130,
+    "digital-exams": 130,
+    "iot-lab": 110,
+    "language": 130
+  },
+  "analyzed_by_content_type": {
+    "resources": 180,
+    "lessons": 100,
+    "glossary": 200,
+    "prompts": 120
+  },
+  "issue_counts_by_field": {
+    "title_en": 234,
+    "excerpt_ar": 500,
+    "excerpt_en": 594,
+    "title_ar": 0
+  },
+  "issue_counts_by_severity": {
+    "BLOCKER": 6,
+    "HIGH": 0,
+    "MEDIUM": 1328,
+    "LOW": 0
+  },
+  "import_blockers_count": 6,
+  "pilot_blockers_count": 6,
+  "ui_quality_warnings_count": 1328,
+  "missing_title_en_count": 234,
+  "missing_excerpt_ar_count": 500,
+  "missing_excerpt_en_count": 594,
+  "recommended_next_station": "Single-Record Pilot Station",
+  "can_proceed_to_single_record_pilot": false,
+  "recommended_pilot_table": "career_glossary",
+  "recommended_pilot_selection_rules": "Select a record with ID starting with 'career', ensure title_ar exists, and status is set to 'draft'."
+}
