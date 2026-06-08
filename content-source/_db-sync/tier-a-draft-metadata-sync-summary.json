@@ -1,0 +1,36 @@
+{
+  "expected_total_records": 600,
+  "generated_update_count": 600,
+  "generated_update_count_by_table": {
+    "ai_lessons": 20,
+    "ai_resources": 30,
+    "automation_lessons": 20,
+    "automation_resources": 30,
+    "career_glossary": 50,
+    "career_lessons": 20,
+    "career_prompts": 30,
+    "career_resources": 30,
+    "digital_exams_glossary": 50,
+    "digital_exams_lessons": 20,
+    "digital_exams_prompts": 30,
+    "digital_exams_resources": 30,
+    "iot_glossary": 50,
+    "iot_prompts": 30,
+    "iot_resources": 30,
+    "language_glossary": 50,
+    "language_lessons": 20,
+    "language_prompts": 30,
+    "language_resources": 30
+  },
+  "skipped_count": 0,
+  "skipped_reasons": {},
+  "output_sql_files": [
+    "tier-a-draft-metadata-sync.sql",
+    "tier-a-draft-metadata-sync-verification.sql",
+    "tier-a-draft-metadata-sync-rollback.sql"
+  ],
+  "dry_run_default": true,
+  "requires_manual_execution": true,
+  "supabase_executed": false,
+  "generated_at": "2026-06-08T23:11:15.872929+00:00"
+}
