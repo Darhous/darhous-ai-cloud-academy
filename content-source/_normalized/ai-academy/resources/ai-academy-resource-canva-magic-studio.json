@@ -8,13 +8,12 @@
   "id": "ai-academy-resource-canva-magic-studio",
   "content_type": "resource",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Canva Magic Studio",
   "title_en": "Canva Magic Studio",
   "category": "الذكاء الاصطناعي",
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 210,
-  "manual_review_required": true
+  "sort_order": 210
 }

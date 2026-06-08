@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "بدائل مجانية",
     "prompt_text": "أنا أستخدم [الأداة المدفوعة] حالياً ولكنها مكلفة. ما هي أفضل البدائل المجانية أو مفتوحة المصدر التي توفر معظم الميزات الأساسية؟",
     "instructions": "مفيد لتقليل النفقات الشهرية على الاشتراكات الرقمية دون التضحية بالجودة."
   },
   "id": "tools-hub-prompt-free-alternatives",
   "content_type": "prompt",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "بدائل مجانية",
   "title_en": "Free Alternatives",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "prompt"
   ],
-  "sort_order": 30,
-  "manual_review_required": true
+  "sort_order": 30
 }

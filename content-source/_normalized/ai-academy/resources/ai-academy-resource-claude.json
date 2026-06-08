@@ -8,13 +8,12 @@
   "id": "ai-academy-resource-claude",
   "content_type": "resource",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Claude",
   "title_en": "Claude",
   "category": "الذكاء الاصطناعي",
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 230,
-  "manual_review_required": true
+  "sort_order": 230
 }

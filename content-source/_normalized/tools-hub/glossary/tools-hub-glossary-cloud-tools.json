@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "أدوات سحابية (Cloud Tools)",
     "definition": "تطبيقات تعمل عبر الإنترنت وتخزن بياناتك على خوادم بعيدة بدلاً من جهازك الشخصي.",
     "example": "تعديل مستند على Google Docs من أي جهاز متصل بالإنترنت."
   },
   "id": "tools-hub-glossary-cloud-tools",
   "content_type": "glossary",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "أدوات سحابية (Cloud Tools)",
   "title_en": "Cloud Tools",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "مصطلحات"
   ],
-  "sort_order": 30,
-  "manual_review_required": true
+  "sort_order": 30
 }

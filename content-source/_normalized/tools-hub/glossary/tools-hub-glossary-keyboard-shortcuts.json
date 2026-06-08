@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "اختصارات لوحة المفاتيح (Keyboard Shortcuts)",
     "definition": "مجموعات من المفاتيح تستخدم لتنفيذ إجراءات في الأداة بسرعة دون استخدام الفأرة.",
     "example": "الضغط على Ctrl+C لنسخ نص معين."
   },
   "id": "tools-hub-glossary-keyboard-shortcuts",
   "content_type": "glossary",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "اختصارات لوحة المفاتيح (Keyboard Shortcuts)",
   "title_en": "Keyboard Shortcuts",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "مصطلحات"
   ],
-  "sort_order": 70,
-  "manual_review_required": true
+  "sort_order": 70
 }

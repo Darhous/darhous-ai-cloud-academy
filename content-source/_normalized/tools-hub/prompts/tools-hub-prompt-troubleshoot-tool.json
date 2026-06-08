@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "حل مشكلة في أداة",
     "prompt_text": "أواجه مشكلة في [اسم الأداة] حيث [وصف المشكلة]. ما هي خطوات استكشاف الأخطاء وإصلاحها الشائعة التي يمكنني تجربتها؟",
     "instructions": "استخدمه بدلاً من تضييع الوقت في البحث في المنتديات الطويلة لمعرفة الحل السريع."
   },
   "id": "tools-hub-prompt-troubleshoot-tool",
   "content_type": "prompt",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "حل مشكلة في أداة",
   "title_en": "Troubleshoot Tool",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "prompt"
   ],
-  "sort_order": 300,
-  "manual_review_required": true
+  "sort_order": 300
 }

@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "تقييم الأدوات (Tool Evaluation)",
     "definition": "تحليل أداء الأداة وميزاتها لتحديد ما إذا كانت تستحق الاستخدام المستمر أو الدفع مقابلها.",
     "example": "مقارنة سرعتي تطبيقين مختلفين لإدارة المشاريع خلال فترة تجريبية."
   },
   "id": "tools-hub-glossary-tool-evaluation",
   "content_type": "glossary",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "تقييم الأدوات (Tool Evaluation)",
   "title_en": "Tool Evaluation",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "مصطلحات"
   ],
-  "sort_order": 150,
-  "manual_review_required": true
+  "sort_order": 150
 }

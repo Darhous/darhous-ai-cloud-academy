@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "Todoist",
     "url": "https://todoist.com/",
     "description": "تطبيق بسيط وفعال لإدارة المهام اليومية يدعم إدخال المهام باللغة الطبيعية ويتكامل مع الكثير من الأدوات."
   },
   "id": "tools-hub-resource-todoist",
   "content_type": "resource",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Todoist",
   "title_en": "Todoist",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "resource"
   ],
-  "sort_order": 90,
-  "manual_review_required": true
+  "sort_order": 90
 }

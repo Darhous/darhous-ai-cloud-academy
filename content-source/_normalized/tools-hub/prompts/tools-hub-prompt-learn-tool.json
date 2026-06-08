@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "تعلم أداة جديدة",
     "prompt_text": "أنا مبتدئ في استخدام [اسم الأداة]. أعطني خطة تعليمية سريعة من 5 خطوات للبدء، مع التركيز على أهم الميزات التي يجب أن أتعلمها أولاً.",
     "instructions": "للتغلب على رهبة البدايات وتجنب الإرهاق عند فتح أداة معقدة لأول مرة."
   },
   "id": "tools-hub-prompt-learn-tool",
   "content_type": "prompt",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "تعلم أداة جديدة",
   "title_en": "Learn Tool",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "prompt"
   ],
-  "sort_order": 40,
-  "manual_review_required": true
+  "sort_order": 40
 }

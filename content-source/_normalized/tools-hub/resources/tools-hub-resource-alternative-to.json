@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "AlternativeTo",
     "url": "https://alternativeto.net/",
     "description": "موقع رائع للبحث عن بدائل مجانية أو مدفوعة لأي برنامج أو تطبيق، يعتمد على تقييمات وتوصيات المستخدمين."
   },
   "id": "tools-hub-resource-alternative-to",
   "content_type": "resource",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد AlternativeTo",
   "title_en": "Alternative To",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "resource"
   ],
-  "sort_order": 10,
-  "manual_review_required": true
+  "sort_order": 10
 }

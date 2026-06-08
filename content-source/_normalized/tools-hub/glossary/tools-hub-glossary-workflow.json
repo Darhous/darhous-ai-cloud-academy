@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "سير العمل (Workflow)",
     "definition": "سلسلة من الخطوات والأدوات المحددة لإنجاز مهمة أو مشروع معين بكفاءة.",
     "example": "سير العمل لإنشاء فيديو يبدأ بالبحث ثم كتابة النص ثم التصوير فالمونتاج."
   },
   "id": "tools-hub-glossary-workflow",
   "content_type": "glossary",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "سير العمل (Workflow)",
   "title_en": "Workflow",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "مصطلحات"
   ],
-  "sort_order": 500,
-  "manual_review_required": true
+  "sort_order": 500
 }

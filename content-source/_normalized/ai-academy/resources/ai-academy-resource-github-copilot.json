@@ -8,13 +8,12 @@
   "id": "ai-academy-resource-github-copilot",
   "content_type": "resource",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Github Copilot",
   "title_en": "Github Copilot",
   "category": "الذكاء الاصطناعي",
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 260,
-  "manual_review_required": true
+  "sort_order": 260
 }

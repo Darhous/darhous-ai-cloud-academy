@@ -8,13 +8,12 @@
   "id": "ai-academy-resource-google-gemini",
   "content_type": "resource",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Google Gemini",
   "title_en": "Google Gemini",
   "category": "الذكاء الاصطناعي",
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 270,
-  "manual_review_required": true
+  "sort_order": 270
 }

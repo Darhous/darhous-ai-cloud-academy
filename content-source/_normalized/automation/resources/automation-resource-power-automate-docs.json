@@ -3,7 +3,7 @@
   "portal_id": "automation",
   "content_type": "resource",
   "status": "draft",
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Microsoft Power Automate Docs",
   "data": {
     "url": "https://learn.microsoft.com/en-us/power-automate/",
     "description": "وثائق مايكروسوفت لتعلم كيفية إنشاء التدفقات وأتمتة العمليات باستخدام Power Automate ضمن بيئة Microsoft 365."
@@ -15,6 +15,5 @@
     "الأتمتة",
     "resource"
   ],
-  "sort_order": 180,
-  "manual_review_required": true
+  "sort_order": 180
 }

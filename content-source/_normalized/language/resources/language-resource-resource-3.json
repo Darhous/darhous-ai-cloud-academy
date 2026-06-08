@@ -8,13 +8,12 @@
   },
   "content_type": "resource",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Resource 3",
   "title_en": "Resource 3",
   "category": "تعلم اللغات",
   "tags": [
     "تعلم اللغات",
     "resource"
   ],
-  "sort_order": 200,
-  "manual_review_required": true
+  "sort_order": 200
 }

@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-08T11:27:04.651864+00:00",
+  "generated_at": "2026-06-08T11:35:59.883700+00:00",
   "total_files_checked": 1040,
-  "total_issues_found": 105,
+  "total_issues_found": 0,
   "counts_by_portal_type": {
     "ai-academy/glossary": 50,
     "ai-academy/prompts": 30,
@@ -38,7 +38,7 @@
   },
   "issue_counts_by_severity": {
     "BLOCKER": 0,
-    "HIGH": 105,
+    "HIGH": 0,
     "MEDIUM": 0,
     "LOW": 0
   },

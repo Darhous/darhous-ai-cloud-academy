@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "أتمتة مهمة",
     "prompt_text": "أقوم يومياً بـ [وصف المهمة الروتينية]. كيف يمكنني أتمتة هذه العملية باستخدام أدوات مثل Zapier أو Make؟ وما هي الخطوات لإنشاء هذا الربط؟",
     "instructions": "يساعدك في توفير الوقت عن طريق تفويض الذكاء الاصطناعي بتصميم سير عمل مؤتمت لك."
   },
   "id": "tools-hub-prompt-automate-task",
   "content_type": "prompt",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "أتمتة مهمة",
   "title_en": "Automate Task",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "prompt"
   ],
-  "sort_order": 10,
-  "manual_review_required": true
+  "sort_order": 10
 }

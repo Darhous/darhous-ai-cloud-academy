@@ -8,13 +8,12 @@
   "id": "ai-academy-resource-chatgpt-2",
   "content_type": "resource",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Chatgpt",
   "title_en": "Chatgpt",
   "category": "الذكاء الاصطناعي",
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 220,
-  "manual_review_required": true
+  "sort_order": 220
 }

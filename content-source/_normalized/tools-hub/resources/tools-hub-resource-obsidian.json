@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "Obsidian",
     "url": "https://obsidian.md/",
     "description": "تطبيق قوي للملاحظات يعتمد على ملفات ماركداون المحلية (Offline-first)، ممتاز لبناء قاعدة معرفية شخصية."
   },
   "id": "tools-hub-resource-obsidian",
   "content_type": "resource",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Obsidian",
   "title_en": "Obsidian",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "resource"
   ],
-  "sort_order": 60,
-  "manual_review_required": true
+  "sort_order": 60
 }

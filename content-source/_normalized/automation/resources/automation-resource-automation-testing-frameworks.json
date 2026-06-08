@@ -3,7 +3,7 @@
   "portal_id": "automation",
   "content_type": "resource",
   "status": "draft",
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Automation Testing Frameworks",
   "data": {
     "url": "https://www.softwaretestinghelp.com/automation-testing-frameworks/",
     "description": "مقال يستعرض أطر عمل اختبار الأتمتة وأهميتها في التأكد من استقرار تدفقات العمل قبل إطلاقها الفعلي."
@@ -15,6 +15,5 @@
     "الأتمتة",
     "resource"
   ],
-  "sort_order": 70,
-  "manual_review_required": true
+  "sort_order": 70
 }

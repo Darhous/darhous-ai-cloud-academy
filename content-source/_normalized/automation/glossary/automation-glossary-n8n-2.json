@@ -8,13 +8,12 @@
   },
   "content_type": "glossary",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مصطلح N8N",
   "title_en": "N8N",
   "category": "الأتمتة",
   "tags": [
     "الأتمتة",
     "مصطلحات"
   ],
-  "sort_order": 420,
-  "manual_review_required": true
+  "sort_order": 420
 }

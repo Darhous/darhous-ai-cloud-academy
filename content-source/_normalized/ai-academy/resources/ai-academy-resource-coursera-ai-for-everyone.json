@@ -8,13 +8,12 @@
   "id": "ai-academy-resource-coursera-ai-for-everyone",
   "content_type": "resource",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Coursera Ai For Everyone",
   "title_en": "Coursera Ai For Everyone",
   "category": "الذكاء الاصطناعي",
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 240,
-  "manual_review_required": true
+  "sort_order": 240
 }

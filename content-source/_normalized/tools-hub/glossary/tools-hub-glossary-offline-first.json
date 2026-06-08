@@ -2,20 +2,18 @@
   "portal_id": "tools-hub",
   "status": "draft",
   "data": {
-    "title": "أولوية عدم الاتصال (Offline-First)",
     "definition": "تطبيقات مصممة للعمل بكامل ميزاتها حتى بدون اتصال بالإنترنت، وتقوم بالمزامنة لاحقاً.",
     "example": "كتابة الملاحظات في تطبيق يعمل محلياً أثناء السفر بدون إنترنت."
   },
   "id": "tools-hub-glossary-offline-first",
   "content_type": "glossary",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "أولوية عدم الاتصال (Offline-First)",
   "title_en": "Offline First",
   "category": "منصة الأدوات",
   "tags": [
     "منصة الأدوات",
     "مصطلحات"
   ],
-  "sort_order": 90,
-  "manual_review_required": true
+  "sort_order": 90
 }

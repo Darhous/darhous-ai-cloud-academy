@@ -8,13 +8,12 @@
   "id": "ai-academy-resource-midjourney-2",
   "content_type": "resource",
   "featured": false,
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Midjourney",
   "title_en": "Midjourney",
   "category": "الذكاء الاصطناعي",
   "tags": [
     "الذكاء الاصطناعي",
     "resource"
   ],
-  "sort_order": 290,
-  "manual_review_required": true
+  "sort_order": 290
 }

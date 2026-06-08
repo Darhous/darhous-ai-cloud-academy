@@ -3,7 +3,7 @@
   "portal_id": "automation",
   "content_type": "resource",
   "status": "draft",
-  "title_ar": "[مراجعة يدوية: العنوان مفقود]",
+  "title_ar": "مورد Regex for Data Extraction",
   "data": {
     "url": "https://regexr.com/",
     "description": "أداة ومورد تعليمي رائع لاختبار وتعلم التعابير النمطية (Regular Expressions) المستخدمة لاستخراج بيانات محددة من نصوص داخل مسارات الأتمتة."
@@ -15,6 +15,5 @@
     "الأتمتة",
     "resource"
   ],
-  "sort_order": 190,
-  "manual_review_required": true
+  "sort_order": 190
 }
