@@ -1,0 +1,50 @@
+{
+  "total_records_scanned": 500,
+  "expected_total_records": 600,
+  "records_by_table": {
+    "ai_lessons": 0,
+    "ai_resources": 30,
+    "automation_lessons": 0,
+    "automation_resources": 30,
+    "career_glossary": 50,
+    "career_lessons": 0,
+    "career_prompts": 30,
+    "career_resources": 30,
+    "digital_exams_glossary": 50,
+    "digital_exams_lessons": 0,
+    "digital_exams_prompts": 30,
+    "digital_exams_resources": 30,
+    "iot_glossary": 50,
+    "iot_prompts": 30,
+    "iot_resources": 30,
+    "language_glossary": 50,
+    "language_lessons": 0,
+    "language_prompts": 30,
+    "language_resources": 30
+  },
+  "issues_by_severity": {
+    "BLOCKER": 800,
+    "HIGH": 594,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "issues_by_type": {
+    "missing_slug": 500,
+    "mismatch": 300,
+    "missing": 554,
+    "placeholder": 40
+  },
+  "readiness_counts": {
+    "READY_FOR_REVIEW": 0,
+    "NEEDS_METADATA_REPAIR": 0,
+    "NEEDS_CONTENT_REPAIR": 0,
+    "NEEDS_TRANSLATION_REPAIR": 0,
+    "NEEDS_SCHEMA_REVIEW": 0,
+    "BLOCKED": 500
+  },
+  "blocker_count": 800,
+  "high_count": 594,
+  "medium_count": 0,
+  "low_count": 0,
+  "generated_at": "2026-06-08T21:27:16.923839Z"
+}
