@@ -70,7 +70,7 @@ ai_resources,ai-academy,resource,ai-academy-resource-prompt-library-repo,,مست
 ai_resources,ai-academy,resource,ai-academy-resource-research-assistant-ai,,مساعد البحث العلمي الذكي,,slug,missing_slug,BLOCKER,,Add slug
 ai_resources,ai-academy,resource,ai-academy-resource-research-assistant-ai,,مساعد البحث العلمي الذكي,,title_en,missing,HIGH,,Generate English title from Arabic source
 automation_lessons,automation,lesson,automation-lesson-ai-automation-intro,,الأتمتة المدعومة بالذكاء الاصطناعي,Ai Automation Intro,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
-automation_lessons,automation,lessons,automation-lesson-ai-in-automation.md,,,,file,parse_error,BLOCKER,"while parsing a block mapping   in ""<unicode string>"", line 2, column 1:     id: ""automation-lesson-",Fix file syntax
+automation_lessons,automation,lesson,automation-lesson-ai-in-automation,,دمج الذكاء الاصطناعي لتطوير الأتمتة,Integrating AI in Automation,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 automation_lessons,automation,lesson,automation-lesson-api-basics-automation,,أساسيات واجهات برمجة التطبيقات للأتمتة,API Basics for Automation,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 automation_lessons,automation,lesson,automation-lesson-automation-documentation-testing,,توثيق واختبار عمليات الأتمتة,Documentation and Testing Automation,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 automation_lessons,automation,lesson,automation-lesson-automation-security-data-privacy,,أمان الأتمتة وحماية البيانات,Automation Security and Data Privacy,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
@@ -86,7 +86,7 @@ automation_lessons,automation,lesson,automation-lesson-make-zapier-n8n-compariso
 automation_lessons,automation,lesson,automation-lesson-retries-and-fallbacks,,استراتيجيات إعادة المحاولة والخطط البديلة,Retries and Fallbacks,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 automation_lessons,automation,lesson,automation-lesson-triggers-actions,,فهم المحفزات والإجراءات,Triggers Actions,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 automation_lessons,automation,lesson,automation-lesson-understanding-triggers-actions,,فهم المحفزات والإجراءات,Understanding Triggers and Actions,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
-automation_lessons,automation,lessons,automation-lesson-webhooks-explained.md,,,,file,parse_error,BLOCKER,"while parsing a block mapping   in ""<unicode string>"", line 2, column 1:     id: ""automation-lesson-",Fix file syntax
+automation_lessons,automation,lesson,automation-lesson-webhooks-explained,,ما هو الويب هوك وكيف يعمل؟,What is a Webhook and How it Works?,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 automation_lessons,automation,lesson,automation-lesson-webhooks-integration,,ربط التطبيقات باستخدام خطافات الويب,Webhooks Integration,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 automation_lessons,automation,lesson,automation-lesson-zapier-vs-make,,مقدمة إلى Zapier و Make,Zapier Vs Make,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 automation_resources,automation,resource,automation-resource-ai-automation-trends,,مورد AI in Automation Trends,AI in Automation Trends,slug,missing_slug,BLOCKER,,Add slug
@@ -249,20 +249,20 @@ career_glossary,career,glossary,career-glossary-work-life-balance,,التواز�
 career_glossary,career,glossary,career-glossary-work-life-balance,,التوازن بين العمل والحياة,,data.definition_ar,missing,HIGH,,Add definition
 career_lessons,career,lesson,career-lesson-ace-the-interview,,النجاح في المقابلة الشخصية,Ace The Interview,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-ai-in-job-search,,استخدام الذكاء الاصطناعي في البحث عن وظيفة,Ai In Job Search,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
-career_lessons,career,lessons,career-lesson-building-proof-of-work.md,,,,file,parse_error,BLOCKER,"while parsing a block mapping   in ""<unicode string>"", line 2, column 1:     id: ""career-lesson-buil",Fix file syntax
+career_lessons,career,lesson,career-lesson-building-proof-of-work,,أهمية بناء إثبات العمل في مسيرتك,The Importance of Building Proof of Work,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-career-change-strategies,,استراتيجيات للتحول المهني الناجح,Strategies for a Successful Career Change,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-career-transition,,الانتقال السلس لمسار مهني جديد,Career Transition,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
-career_lessons,career,lessons,career-lesson-cover-letters-that-stand-out.md,,,,file,parse_error,BLOCKER,"while parsing a block mapping   in ""<unicode string>"", line 2, column 1:     id: ""career-lesson-cove",Fix file syntax
+career_lessons,career,lesson,career-lesson-cover-letters-that-stand-out,,كتابة خطاب مقدمة متميز,Writing a Standout Cover Letter,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-cv-improvement,,تحسين السيرة الذاتية لنتائج أفضل,CV Improvement for Better Results,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-effective-job-search-systems,,أنظمة فعالة للبحث عن عمل,Effective Job Search Systems,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-ethical-ai-job-search,,الاستخدام الأخلاقي للذكاء الاصطناعي في البحث عن عمل,Ethical Use of AI in Job Searching,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-interview-preparation-guide,,الدليل الشامل للتحضير للمقابلات,Comprehensive Interview Preparation Guide,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-linkedin-mastery,,احتراف استخدام لينكد إن,Linkedin Mastery,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-linkedin-profile-optimization,,بناء ملف شخصي احترافي على لينكد إن,Building a Professional LinkedIn Profile,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
-career_lessons,career,lessons,career-lesson-mastering-star-stories.md,,,,file,parse_error,BLOCKER,"while parsing a block mapping   in ""<unicode string>"", line 2, column 1:     id: ""career-lesson-mast",Fix file syntax
+career_lessons,career,lesson,career-lesson-mastering-star-stories,,إتقان قصص طريقة ستار (STAR),Mastering STAR Stories,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-networking-messaging,,فن كتابة رسائل التواصل المهني,The Art of Networking Messaging,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-perfect-cv,,كتابة السيرة الذاتية المثالية,Perfect Cv,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
-career_lessons,career,lessons,career-lesson-portfolio-evidence.md,,,,file,parse_error,BLOCKER,"while parsing a block mapping   in ""<unicode string>"", line 2, column 1:     id: ""career-lesson-port",Fix file syntax
+career_lessons,career,lesson,career-lesson-portfolio-evidence,,بناء معرض أعمال كدليل إثبات,Building Portfolio Evidence,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-remote-work-readiness,,الاستعداد والنجاح في العمل عن بعد,Readiness and Success in Remote Work,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-salary-negotiation-basics,,أساسيات التفاوض على الراتب بثقة,Basics of Confident Salary Negotiation,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body
 career_lessons,career,lesson,career-lesson-skill-gap-planning,,التخطيط لسد الفجوة في المهارات,Skill Gap Planning,excerpt_en,missing,MEDIUM,,Generate from Arabic excerpt/body

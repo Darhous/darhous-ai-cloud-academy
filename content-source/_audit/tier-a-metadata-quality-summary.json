@@ -1,6 +1,6 @@
 {
   "expected_total_records": 600,
-  "total_records_scanned": 594,
+  "total_records_scanned": 600,
   "source_file_type_counts": {
     "json": 500,
     "md": 100
@@ -8,10 +8,10 @@
   "records_by_table": {
     "ai_lessons": 20,
     "ai_resources": 30,
-    "automation_lessons": 18,
+    "automation_lessons": 20,
     "automation_resources": 30,
     "career_glossary": 50,
-    "career_lessons": 16,
+    "career_lessons": 20,
     "career_prompts": 30,
     "career_resources": 30,
     "digital_exams_glossary": 50,
@@ -26,33 +26,29 @@
     "language_prompts": 30,
     "language_resources": 30
   },
-  "missing_records_by_table": {
-    "automation_lessons": 2,
-    "career_lessons": 4
-  },
+  "missing_records_by_table": {},
   "issues_by_severity": {
-    "BLOCKER": 506,
+    "BLOCKER": 500,
     "HIGH": 600,
-    "MEDIUM": 94,
+    "MEDIUM": 100,
     "LOW": 0
   },
   "issues_by_type": {
-    "missing": 648,
+    "missing": 654,
     "missing_slug": 500,
-    "parse_error": 6,
     "placeholder": 46
   },
   "readiness_counts": {
     "READY_FOR_REVIEW": 0,
     "NEEDS_METADATA_REPAIR": 6,
     "NEEDS_CONTENT_REPAIR": 0,
-    "NEEDS_TRANSLATION_REPAIR": 88,
+    "NEEDS_TRANSLATION_REPAIR": 94,
     "NEEDS_SCHEMA_REVIEW": 0,
     "BLOCKED": 500
   },
-  "blocker_count": 506,
+  "blocker_count": 500,
   "high_count": 600,
-  "medium_count": 94,
+  "medium_count": 100,
   "low_count": 0,
-  "generated_at": "2026-06-08T21:40:50.958870+00:00"
+  "generated_at": "2026-06-08T21:50:47.203659+00:00"
 }

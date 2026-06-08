@@ -21,9 +21,20 @@ The audit checks for:
 ## Audit Coverage Reconciliation
 The audit successfully accounts for all 600 Tier-A records:
 - **500 records** were parsed successfully from `.json` files.
-- **94 records** were parsed successfully from `.md` files (lessons).
-- **6 records** were tracked as `parse_error` BLOCKERs due to invalid syntax in their `.md` files (2 in `automation_lessons`, 4 in `career_lessons`).
+- **100 records** were parsed successfully from `.md` files (lessons).
+- **0 records** with parse errors.
 - **Total accounted**: 600 expected records.
+
+## Parse Error Repair
+In a subsequent station, 6 Markdown lesson files that had syntax errors in their YAML frontmatter (unescaped quotes) were repaired:
+1. `automation-lesson-ai-in-automation.md`
+2. `automation-lesson-webhooks-explained.md`
+3. `career-lesson-building-proof-of-work.md`
+4. `career-lesson-cover-letters-that-stand-out.md`
+5. `career-lesson-mastering-star-stories.md`
+6. `career-lesson-portfolio-evidence.md`
+
+These repairs were purely syntax-related (replacing double quotes with single quotes inside excerpt strings) to allow the parser to read them. No other metadata quality repairs were applied yet.
 
 ## What Remains Unrepaired
 **NO REPAIRS WERE APPLIED IN THIS STATION.** 

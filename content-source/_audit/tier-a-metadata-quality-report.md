@@ -4,7 +4,7 @@
 This report details the metadata quality gaps in the imported Tier-A draft records. No DB writes, public publishing, or data mutations were performed. This is a read-only audit.
 
 ## 2. Scope
-- **Total Records Scanned**: 594 / 600
+- **Total Records Scanned**: 600 / 600
 - **Source File Types**: JSON (500), Markdown (100)
 - **Total Issues Found**: 1200
 - **Excluded**: tools_hub, nano_banana, live-wired records, deferred records.
@@ -12,12 +12,10 @@ This report details the metadata quality gaps in the imported Tier-A draft recor
 ## 3. Counts by Portal/Table
 - `ai_lessons`: 20 (Expected: 20)
 - `ai_resources`: 30 (Expected: 30)
-- `automation_lessons`: 18 (Expected: 20)
-  - **Missing**: 2
+- `automation_lessons`: 20 (Expected: 20)
 - `automation_resources`: 30 (Expected: 30)
 - `career_glossary`: 50 (Expected: 50)
-- `career_lessons`: 16 (Expected: 20)
-  - **Missing**: 4
+- `career_lessons`: 20 (Expected: 20)
 - `career_prompts`: 30 (Expected: 30)
 - `career_resources`: 30 (Expected: 30)
 - `digital_exams_glossary`: 50 (Expected: 50)
@@ -33,16 +31,16 @@ This report details the metadata quality gaps in the imported Tier-A draft recor
 - `language_resources`: 30 (Expected: 30)
 
 ## 4. Total Issues by Severity
-- **BLOCKER**: 506
+- **BLOCKER**: 500
 - **HIGH**: 600
-- **MEDIUM**: 94
+- **MEDIUM**: 100
 - **LOW**: 0
 
 ## 5. Public Readiness Summary
 - **READY_FOR_REVIEW**: 0
 - **NEEDS_METADATA_REPAIR**: 6
 - **NEEDS_CONTENT_REPAIR**: 0
-- **NEEDS_TRANSLATION_REPAIR**: 88
+- **NEEDS_TRANSLATION_REPAIR**: 94
 - **NEEDS_SCHEMA_REVIEW**: 0
 - **BLOCKED**: 500
 
