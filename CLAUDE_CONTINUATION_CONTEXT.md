@@ -3,6 +3,12 @@
 > ⚠️ READ THIS FIRST before making any changes to this project.
 > This document gives Claude (or any AI) full context to continue work without losing direction.
 
+> 🗂️ **Parallel track — Content-Source → Supabase Import:** tracked separately in
+> [`docs/handoffs/content-supabase-import-handoff.md`](docs/handoffs/content-supabase-import-handoff.md).
+> As of 2026-06-08: 600 Tier-A records imported into 19 new core content tables as `draft` (0 published);
+> tools_hub/nano_banana/210 live-wired records untouched. Next station: **Admin Dashboard and Draft Content
+> Preview Readiness Audit** (read-only/planning only — admin CRUD buttons were found missing post-import).
+
 ---
 
 ## 📊 Current State
