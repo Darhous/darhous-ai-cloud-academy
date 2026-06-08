@@ -1,0 +1,27 @@
+table_name,status,source_template
+nano_banana_lessons,Generated SQL Artifact,_template_content_table.sql
+language_resources,Generated SQL Artifact,_template_content_table.sql
+career_lessons,Generated SQL Artifact,_template_content_table.sql
+digital_exams_resources,Generated SQL Artifact,_template_content_table.sql
+digital_exams_prompts,Generated SQL Artifact,_template_content_table.sql
+ai_resources,Generated SQL Artifact,_template_content_table.sql
+career_resources,Generated SQL Artifact,_template_content_table.sql
+career_prompts,Generated SQL Artifact,_template_content_table.sql
+language_lessons,Generated SQL Artifact,_template_content_table.sql
+ai_lessons,Generated SQL Artifact,_template_content_table.sql
+tools_hub_glossary,Generated SQL Artifact,_template_content_table.sql
+language_prompts,Generated SQL Artifact,_template_content_table.sql
+automation_resources,Generated SQL Artifact,_template_content_table.sql
+iot_glossary,Generated SQL Artifact,_template_content_table.sql
+nano_banana_glossary,Generated SQL Artifact,_template_content_table.sql
+iot_resources,Generated SQL Artifact,_template_content_table.sql
+nano_banana_resources,Generated SQL Artifact,_template_content_table.sql
+tools_hub_resources,Generated SQL Artifact,_template_content_table.sql
+tools_hub_lessons,Generated SQL Artifact,_template_content_table.sql
+tools_hub_prompts,Generated SQL Artifact,_template_content_table.sql
+digital_exams_glossary,Generated SQL Artifact,_template_content_table.sql
+digital_exams_lessons,Generated SQL Artifact,_template_content_table.sql
+iot_prompts,Generated SQL Artifact,_template_content_table.sql
+language_glossary,Generated SQL Artifact,_template_content_table.sql
+career_glossary,Generated SQL Artifact,_template_content_table.sql
+automation_lessons,Generated SQL Artifact,_template_content_table.sql

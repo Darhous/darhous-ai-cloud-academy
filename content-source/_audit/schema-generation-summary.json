@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-08T11:58:41.352591+00:00",
+  "total_tables_generated": 26,
+  "tables_by_portal": {
+    "career": 4,
+    "language": 4,
+    "digital_exams": 4,
+    "tools_hub": 4,
+    "nano_banana": 4,
+    "remaining_gaps": 6
+  },
+  "template_used": "supabase/_template_content_table.sql",
+  "destructive_statements": 0,
+  "active_migrations_touched": 0
+}

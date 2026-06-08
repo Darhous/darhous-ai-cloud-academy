@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-08T11:58:41.360275+00:00",
+  "total_normalized_files": 1040,
+  "existing_only_readiness": {
+    "importable_count": 440,
+    "skipped_due_to_missing_tables": 600
+  },
+  "existing_plus_generated_readiness": {
+    "importable_count": 1040,
+    "skipped_due_to_missing_tables": 0
+  },
+  "product_app_risks": [
+    "tools-hub: Portal does not exist in live app. Route registration required.",
+    "nano-banana: Current app schema uses 'nano_banana_custom_prompts'. The generated tables ('nano_banana_prompts', etc.) require route/app alignment before production."
+  ]
+}
