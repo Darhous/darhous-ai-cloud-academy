@@ -1,0 +1,29 @@
+{
+  "execution_method": "One-shot SQL transaction executed manually in Supabase SQL Editor",
+  "target_table": "career_glossary",
+  "selected_ids": [
+    "career-glossary-ai-tools",
+    "career-glossary-ats-2",
+    "career-glossary-ats",
+    "career-glossary-burnout",
+    "career-glossary-career-shift-2",
+    "career-glossary-career-shift",
+    "career-glossary-cover-letter-2",
+    "career-glossary-cover-letter",
+    "career-glossary-culture-fit",
+    "career-glossary-cv-optimization"
+  ],
+  "transaction_behavior": "Inserted 10 draft records, verified inside transaction, ended with ROLLBACK",
+  "verification_results": {
+    "sql_error_occurred": false,
+    "rollback_success": true,
+    "final_row_count": 0
+  },
+  "safety_constraints_respected": {
+    "no_persistent_data_import": true,
+    "tools_hub_untouched": true,
+    "nano_banana_untouched": true,
+    "app_code_unchanged": true
+  },
+  "recommended_next_station": "Read-Only Database-Connected Dry-Run (without Service Role Key)"
+}
