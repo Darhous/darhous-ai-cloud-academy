@@ -1,0 +1,7 @@
+file_name,status,deferral_reason
+20260608120701_career_content_tables.sql,ACTIVE_CORE,
+20260608120702_language_content_tables.sql,ACTIVE_CORE,
+20260608120703_digital_exams_content_tables.sql,ACTIVE_CORE,
+20260608120706_remaining_content_tables.sql,ACTIVE_CORE,
+20260608120704_tools_hub_content_tables.sql,DEFERRED,"Blocked by product decision. Tools Hub is not live app-wired yet, so creating the tables risks unused DB overhead without immediate utility."
+20260608120705_nano_banana_content_tables.sql,DEFERRED,Blocked by app route/naming decision. App currently uses nano_banana_custom_prompts. Schema mismatch risk.

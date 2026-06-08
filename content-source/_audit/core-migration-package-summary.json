@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-06-08T12:16:22.152464+00:00",
+  "active_core_migration_files": [
+    "20260608120701_career_content_tables.sql",
+    "20260608120702_language_content_tables.sql",
+    "20260608120703_digital_exams_content_tables.sql",
+    "20260608120706_remaining_content_tables.sql"
+  ],
+  "deferred_migration_files": [
+    "20260608120704_tools_hub_content_tables.sql",
+    "20260608120705_nano_banana_content_tables.sql"
+  ],
+  "deferral_reasons": {
+    "tools_hub": "Blocked by product decision. Tools Hub is not live app-wired yet, so creating the tables risks unused DB overhead without immediate utility.",
+    "nano_banana": "Blocked by app route/naming decision. App currently uses nano_banana_custom_prompts. Schema mismatch risk."
+  },
+  "safety_scan": {
+    "destructive_sql_found": false,
+    "data_inserted": false,
+    "app_code_changed": false,
+    "migrations_executed": false
+  }
+}
