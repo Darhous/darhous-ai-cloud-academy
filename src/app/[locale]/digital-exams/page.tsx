@@ -3,8 +3,27 @@ import Link from "next/link";
 import { ArrowRight, ArrowLeft, CheckCircle, Monitor } from "lucide-react";
 import CommunitySignup from "@/components/community/CommunitySignup";
 import { examSubjects } from "@/data/digital-exam-subjects";
+import type { ExamSubject, ExamQuestion } from "@/data/digital-exam-subjects";
 import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
 import PortalIdentityIntro from "@/components/portal/PortalIdentityIntro";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+
+interface ExamSubjectRow extends Record<string, unknown> {
+  id: string; label: string; label_ar: string; icon: string; color: string;
+  description: string; description_ar: string; questions: ExamQuestion[];
+}
+function mapExamSubjectRow(row: ExamSubjectRow): ExamSubject {
+  return {
+    id: row.id, label: row.label, labelAr: row.label_ar, icon: row.icon, color: row.color,
+    description: row.description, descriptionAr: row.description_ar, questions: row.questions ?? [],
+  };
+}
+async function fetchExamSubjects(): Promise<ExamSubject[]> {
+  const dbSubjects = await fetchPublishedList<ExamSubjectRow, ExamSubject>({
+    table: "exam_subjects", mapRow: mapExamSubjectRow, match: { portal_id: "digital-exams" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbSubjects, examSubjects);
+}
 
 export async function generateMetadata({
   params,
@@ -40,6 +59,7 @@ export default async function DigitalExamsPage({
   const { locale } = await params;
   const isAr = locale === "ar";
   const Arrow = isAr ? ArrowLeft : ArrowRight;
+  const subjects = await fetchExamSubjects();
 
   return (
     <PortalPageWrapper>
@@ -109,7 +129,7 @@ export default async function DigitalExamsPage({
             {isAr ? "فئات الاختبارات" : "Exam Categories"}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {examSubjects.map((subject) => (
+            {subjects.map((subject) => (
               <Link
                 key={subject.id}
                 href={`/${locale}/digital-exams/${subject.id}`}
