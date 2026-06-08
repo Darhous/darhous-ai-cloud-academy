@@ -4,15 +4,31 @@ import { useState, useEffect } from "react";
 import { DRAFT_PREVIEW_TABLES, DraftPreviewTableConfig } from "@/lib/admin/draft-content-preview-config";
 import { RefreshCw, Search, ChevronRight, ChevronLeft, Eye, AlertTriangle } from "lucide-react";
 
+export type JsonValue = string | number | boolean | null | { [key: string]: JsonValue } | JsonValue[];
+
+export interface DraftPreviewRow {
+  id: string | number;
+  status: string;
+  created_at?: string;
+  updated_at?: string;
+  portal_id?: string;
+  content_type?: string;
+  title_ar?: string;
+  title_en?: string;
+  category?: string;
+  [key: string]: unknown;
+}
+
 export function DraftContentReviewPanel({ isAr }: { isAr: boolean }) {
   const [activeTable, setActiveTable] = useState<DraftPreviewTableConfig>(DRAFT_PREVIEW_TABLES[0]);
-  const [rows, setRows] = useState<any[]>([]);
+  const [rows, setRows] = useState<DraftPreviewRow[]>([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
   const [search, setSearch] = useState("");
-  const [selectedRow, setSelectedRow] = useState<any | null>(null);
+  const [selectedRow, setSelectedRow] = useState<DraftPreviewRow | null>(null);
+
 
   const fetchRows = async (p = 1, s = search) => {
     setLoading(true);
@@ -44,14 +60,14 @@ export function DraftContentReviewPanel({ isAr }: { isAr: boolean }) {
     fetchRows(1, search);
   };
 
-  const getTitle = (row: any) => {
+  const getTitle = (row: DraftPreviewRow) => {
     for (const f of activeTable.titleFields) {
       if (row[f]) return String(row[f]);
     }
-    return row.id;
+    return String(row.id);
   };
 
-  const getExcerpt = (row: any) => {
+  const getExcerpt = (row: DraftPreviewRow) => {
     for (const f of activeTable.excerptFields) {
       if (row[f]) return String(row[f]);
     }
