@@ -2,6 +2,53 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock, Star, Layers, FlaskConical } from "lucide-react";
 import { automationLearningPaths } from "@/data/automation/automationLearningPaths";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+import type { LearningPath } from "@/data/automation/types";
+
+interface AutomationPathRow extends Record<string, unknown> {
+  id: string;
+  title: string;
+  subtitle: string;
+  english_label: string;
+  level: LearningPath["level"];
+  duration: string;
+  target_audience: string[];
+  outcome: string;
+  modules: string[];
+  practical_projects: string[];
+  recommended_tools: string[];
+  final_capstone_project: string;
+  category: string;
+  estimated_lessons: number;
+}
+
+function mapAutomationPathRow(row: AutomationPathRow): LearningPath {
+  return {
+    id: row.id,
+    title: row.title,
+    subtitle: row.subtitle,
+    englishLabel: row.english_label,
+    level: row.level,
+    duration: row.duration,
+    targetAudience: row.target_audience ?? [],
+    outcome: row.outcome,
+    modules: row.modules ?? [],
+    practicalProjects: row.practical_projects ?? [],
+    recommendedTools: row.recommended_tools ?? [],
+    finalCapstoneProject: row.final_capstone_project,
+    category: row.category,
+    estimatedLessons: row.estimated_lessons,
+  };
+}
+
+async function fetchDbAutomationPaths(): Promise<LearningPath[]> {
+  return fetchPublishedList<AutomationPathRow, LearningPath>({
+    table: "automation_paths",
+    mapRow: mapAutomationPathRow,
+    match: { portal_id: "automation" },
+    orderBy: { column: "sort_order", ascending: true },
+  });
+}
 
 export async function generateMetadata({
   params,
@@ -34,6 +81,9 @@ export default async function AutomationPathsPage({
 }) {
   const { locale } = await params;
 
+  const dbPaths = await fetchDbAutomationPaths();
+  const allPaths = mergeById(dbPaths, automationLearningPaths);
+
   return (
     <div className="container-xl py-12" dir="rtl">
       <div className="mb-8">
@@ -41,11 +91,11 @@ export default async function AutomationPathsPage({
           <ArrowRight size={14} />العودة لأكاديمية الأتمتة
         </Link>
         <h1 className="font-display font-bold text-3xl mb-2" style={{ color: "var(--color-on-surface)" }}>مسارات تعلم الأتمتة</h1>
-        <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{automationLearningPaths.length} مسار منظم — من لا خبرة إلى بناء automations معقدة للأعمال.</p>
+        <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{allPaths.length} مسار منظم — من لا خبرة إلى بناء automations معقدة للأعمال.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {automationLearningPaths.map((path) => {
+        {allPaths.map((path) => {
           const color = DIFF_COLORS[path.level] ?? "#8ed5ff";
           return (
             <div key={path.id} className="glass-card rounded-2xl p-6 flex flex-col gap-4" style={{ border: `1px solid ${color}18` }}>

@@ -3,6 +3,40 @@ import Link from "next/link";
 import { ArrowRight, Sparkles, Layers, Wrench, BookOpen, Briefcase, FlaskConical, Bot, TrendingUp, CheckCircle2 } from "lucide-react";
 import { automationCaseStudies } from "@/data/automation/automationCaseStudies";
 import { automationUseCases } from "@/data/automation/automationUseCases";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+import type { CaseStudy, AutomationUseCase } from "@/data/automation/types";
+
+interface CaseStudyRow extends Record<string, unknown> {
+  id: string; title: string; business_problem: string;
+  before_automation: string[]; after_automation: string[]; workflow_map: string[]; tools_used: string[];
+  expected_impact: string; kpi_improvements: string[]; implementation_roadmap: string[];
+}
+function mapCaseStudyRow(row: CaseStudyRow): CaseStudy {
+  return {
+    id: row.id, title: row.title, businessProblem: row.business_problem,
+    beforeAutomation: row.before_automation ?? [], afterAutomation: row.after_automation ?? [],
+    workflowMap: row.workflow_map ?? [], toolsUsed: row.tools_used ?? [], expectedImpact: row.expected_impact,
+    kpiImprovements: row.kpi_improvements ?? [], implementationRoadmap: row.implementation_roadmap ?? [],
+  };
+}
+
+interface UseCaseRow extends Record<string, unknown> {
+  id: string; title: string; examples: string[]; operational_wins: string[];
+}
+function mapUseCaseRow(row: UseCaseRow): AutomationUseCase {
+  return { id: row.id, title: row.title, examples: row.examples ?? [], operationalWins: row.operational_wins ?? [] };
+}
+
+async function fetchAutomationHomeData() {
+  const [dbCaseStudies, dbUseCases] = await Promise.all([
+    fetchPublishedList<CaseStudyRow, CaseStudy>({ table: "automation_case_studies", mapRow: mapCaseStudyRow, match: { portal_id: "automation" }, orderBy: { column: "sort_order", ascending: true } }),
+    fetchPublishedList<UseCaseRow, AutomationUseCase>({ table: "automation_use_cases", mapRow: mapUseCaseRow, match: { portal_id: "automation" }, orderBy: { column: "sort_order", ascending: true } }),
+  ]);
+  return {
+    caseStudies: mergeById(dbCaseStudies, automationCaseStudies),
+    useCases: mergeById(dbUseCases, automationUseCases),
+  };
+}
 import PortalPageWrapper from "@/components/ui/PortalPageWrapper";
 import PortalIdentityIntro from "@/components/portal/PortalIdentityIntro";
 
@@ -88,6 +122,7 @@ export default async function AutomationPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const { caseStudies, useCases } = await fetchAutomationHomeData();
 
   return (
     <PortalPageWrapper>
@@ -176,10 +211,10 @@ export default async function AutomationPage({
         <section className="mb-16">
           <h2 className="font-display font-bold text-2xl mb-2 text-center" style={{ color: "var(--color-on-surface)" }}>الأتمتة لكل قطاع</h2>
           <p className="text-sm text-center mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
-            {automationUseCases.length} قطاعات تستفيد من الأتمتة — من التعليم إلى العيادات.
+            {useCases.length} قطاعات تستفيد من الأتمتة — من التعليم إلى العيادات.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {automationUseCases.map((uc) => (
+            {useCases.map((uc) => (
               <div key={uc.id} className="glass-card rounded-2xl p-4 flex flex-col gap-3" style={{ border: "1px solid var(--portal-color-border)" }}>
                 <h3 className="font-bold text-sm" style={{ color: "var(--portal-color)" }}>{uc.title}</h3>
                 <div className="space-y-1">
@@ -203,10 +238,10 @@ export default async function AutomationPage({
         <section className="mb-16">
           <h2 className="font-display font-bold text-2xl mb-2 text-center" style={{ color: "var(--color-on-surface)" }}>قصص نجاح حقيقية</h2>
           <p className="text-sm text-center mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
-            {automationCaseStudies.length} حالات استخدام موثقة من قطاعات مختلفة.
+            {caseStudies.length} حالات استخدام موثقة من قطاعات مختلفة.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {automationCaseStudies.map((cs, idx) => {
+            {caseStudies.map((cs, idx) => {
               const colors = ["#4ade80", "#8ed5ff", "#d0bcff", "#f59e0b", "#3ce0fb", "#f97316", "#4ade80", "#8ed5ff", "#d0bcff", "#f59e0b"];
               const color = colors[idx % colors.length];
               return (

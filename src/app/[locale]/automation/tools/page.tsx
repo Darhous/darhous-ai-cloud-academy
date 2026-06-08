@@ -6,6 +6,53 @@ import { automationToolsDirectory } from "@/data/automation/automationTools";
 import { automationComparisons } from "@/data/automation/automationComparisons";
 import { integrationApps } from "@/data/automation/integrations";
 import { automationGlossary } from "@/data/automation/automationGlossary";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+import type { AutomationTool, ToolComparison, GlossaryTerm, Difficulty, PricingCategory } from "@/data/automation/types";
+
+interface AutomationToolRow extends Record<string, unknown> {
+  id: string; name: string; category: string; what_it_is: string;
+  best_use_cases: string[]; difficulty: Difficulty; pricing_category: PricingCategory;
+  pros: string[]; cons: string[]; when_to_use: string[]; when_not_to_use: string[];
+  example_automations: string[]; related_learning_paths: string[]; arabic_support: string;
+}
+function mapToolRow(row: AutomationToolRow): AutomationTool {
+  return {
+    id: row.id, name: row.name, category: row.category, whatItIs: row.what_it_is,
+    bestUseCases: row.best_use_cases ?? [], difficulty: row.difficulty, pricingCategory: row.pricing_category,
+    pros: row.pros ?? [], cons: row.cons ?? [], whenToUse: row.when_to_use ?? [], whenNotToUse: row.when_not_to_use ?? [],
+    exampleAutomations: row.example_automations ?? [], relatedLearningPaths: row.related_learning_paths ?? [],
+    arabicSupport: row.arabic_support,
+  };
+}
+
+interface ComparisonRow extends Record<string, unknown> {
+  id: string; title: string; focus: string;
+  options: Array<{ name: string; bestFor: string; caution: string }>;
+  verdict: string;
+}
+function mapComparisonRow(row: ComparisonRow): ToolComparison {
+  return { id: row.id, title: row.title, focus: row.focus, options: row.options ?? [], verdict: row.verdict };
+}
+
+interface GlossaryRow extends Record<string, unknown> {
+  id: string; term: string; arabic_definition: string; simple_example: string; related_terms: string[];
+}
+function mapGlossaryRow(row: GlossaryRow): GlossaryTerm {
+  return { id: row.id, term: row.term, arabicDefinition: row.arabic_definition, simpleExample: row.simple_example, relatedTerms: row.related_terms ?? [] };
+}
+
+async function fetchAutomationToolsData() {
+  const [dbTools, dbComparisons, dbGlossary] = await Promise.all([
+    fetchPublishedList<AutomationToolRow, AutomationTool>({ table: "automation_tools", mapRow: mapToolRow, match: { portal_id: "automation" }, orderBy: { column: "sort_order", ascending: true } }),
+    fetchPublishedList<ComparisonRow, ToolComparison>({ table: "automation_comparisons", mapRow: mapComparisonRow, match: { portal_id: "automation" }, orderBy: { column: "sort_order", ascending: true } }),
+    fetchPublishedList<GlossaryRow, GlossaryTerm>({ table: "automation_glossary", mapRow: mapGlossaryRow, match: { portal_id: "automation" }, orderBy: { column: "sort_order", ascending: true } }),
+  ]);
+  return {
+    tools: mergeById(dbTools, automationToolsDirectory),
+    comparisons: mergeById(dbComparisons, automationComparisons),
+    glossary: mergeById(dbGlossary, automationGlossary),
+  };
+}
 
 export async function generateMetadata({
   params,
@@ -37,6 +84,7 @@ export default async function AutomationToolsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const { tools, comparisons, glossary } = await fetchAutomationToolsData();
 
   return (
     <div className="container-xl py-12" dir="rtl">
@@ -46,17 +94,17 @@ export default async function AutomationToolsPage({
         </Link>
         <h1 className="font-display font-bold text-3xl mb-2" style={{ color: "var(--color-on-surface)" }}>مستكشف أدوات الأتمتة</h1>
         <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-          {automationToolsDirectory.length} أداة موثقة — المزايا، العيوب، أفضل حالات الاستخدام، ودعم العربية.
+          {tools.length} أداة موثقة — المزايا، العيوب، أفضل حالات الاستخدام، ودعم العربية.
         </p>
       </div>
-      <ToolsExplorerClient tools={automationToolsDirectory} />
+      <ToolsExplorerClient tools={tools} />
 
       {/* ─── مقارنة الأدوات ─── */}
       <section className="mt-16">
         <h2 className="font-display font-bold text-2xl mb-2" style={{ color: "var(--color-on-surface)" }}>مقارنة الأدوات</h2>
-        <p className="text-sm mb-6" style={{ color: "var(--color-on-surface-variant)" }}>متى تختار أي أداة؟ — {automationComparisons.length} مقارنات عملية.</p>
+        <p className="text-sm mb-6" style={{ color: "var(--color-on-surface-variant)" }}>متى تختار أي أداة؟ — {comparisons.length} مقارنات عملية.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {automationComparisons.map((c) => (
+          {comparisons.map((c) => (
             <div key={c.id} className="glass-card rounded-2xl p-5 flex flex-col gap-3" style={{ border: "1px solid rgba(208,188,255,0.12)" }}>
               <div>
                 <h3 className="font-bold text-sm mb-0.5" style={{ color: "var(--color-on-surface)" }}>{c.title}</h3>
@@ -103,9 +151,9 @@ export default async function AutomationToolsPage({
       {/* ─── مصطلحات الأتمتة ─── */}
       <section className="mt-16 mb-4">
         <h2 className="font-display font-bold text-2xl mb-2" style={{ color: "var(--color-on-surface)" }}>مصطلحات الأتمتة</h2>
-        <p className="text-sm mb-6" style={{ color: "var(--color-on-surface-variant)" }}>{automationGlossary.length} مصطلحًا أساسيًا — تعريف + مثال عملي.</p>
+        <p className="text-sm mb-6" style={{ color: "var(--color-on-surface-variant)" }}>{glossary.length} مصطلحًا أساسيًا — تعريف + مثال عملي.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {automationGlossary.map((g) => (
+          {glossary.map((g) => (
             <div key={g.id} className="glass-card rounded-xl p-4 flex flex-col gap-2" style={{ border: "1px solid rgba(142,213,255,0.08)" }}>
               <div className="flex items-center gap-2">
                 <span className="font-mono font-bold text-sm" style={{ color: "#8ed5ff" }}>{g.term}</span>

@@ -3,6 +3,47 @@ import Link from "next/link";
 import { ArrowRight, Clock, CheckCircle2, FlaskConical, ClipboardList, Layers } from "lucide-react";
 import { automationLabsV2 } from "@/data/automation/automationLabsV2";
 import { automationChecklists } from "@/data/automation/automationChecklists";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+import type { AutomationLab, AutomationChecklist, Difficulty } from "@/data/automation/types";
+
+interface AutomationLabRow extends Record<string, unknown> {
+  id: string; title: string; objective: string; scenario: string; tools: string[]; steps: string[];
+  expected_output: string; common_mistakes: string[]; challenge_task: string; completion_checklist: string[];
+  level: Difficulty; duration: string;
+}
+function mapLabRow(row: AutomationLabRow): AutomationLab {
+  return {
+    id: row.id, title: row.title, objective: row.objective, scenario: row.scenario,
+    tools: row.tools ?? [], steps: row.steps ?? [], expectedOutput: row.expected_output,
+    commonMistakes: row.common_mistakes ?? [], challengeTask: row.challenge_task,
+    completionChecklist: row.completion_checklist ?? [], level: row.level, duration: row.duration,
+  };
+}
+
+interface AutomationChecklistRow extends Record<string, unknown> {
+  id: string; title: string; project_type: string; tools: string[]; sensitivity: string;
+  discovery_checklist: string[]; build_checklist: string[]; qa_checklist: string[];
+  launch_checklist: string[]; maintenance_checklist: string[];
+}
+function mapChecklistRow(row: AutomationChecklistRow): AutomationChecklist {
+  return {
+    id: row.id, title: row.title, projectType: row.project_type, tools: row.tools ?? [],
+    sensitivity: row.sensitivity, discoveryChecklist: row.discovery_checklist ?? [],
+    buildChecklist: row.build_checklist ?? [], qaChecklist: row.qa_checklist ?? [],
+    launchChecklist: row.launch_checklist ?? [], maintenanceChecklist: row.maintenance_checklist ?? [],
+  };
+}
+
+async function fetchAutomationLabsData() {
+  const [dbLabs, dbChecklists] = await Promise.all([
+    fetchPublishedList<AutomationLabRow, AutomationLab>({ table: "automation_labs", mapRow: mapLabRow, match: { portal_id: "automation" }, orderBy: { column: "sort_order", ascending: true } }),
+    fetchPublishedList<AutomationChecklistRow, AutomationChecklist>({ table: "automation_checklists", mapRow: mapChecklistRow, match: { portal_id: "automation" }, orderBy: { column: "sort_order", ascending: true } }),
+  ]);
+  return {
+    labs: mergeById(dbLabs, automationLabsV2),
+    checklists: mergeById(dbChecklists, automationChecklists),
+  };
+}
 
 export async function generateMetadata({
   params,
@@ -34,6 +75,7 @@ export default async function AutomationLabsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const { labs, checklists } = await fetchAutomationLabsData();
 
   return (
     <div className="container-xl py-12" dir="rtl">
@@ -43,7 +85,7 @@ export default async function AutomationLabsPage({
         </Link>
         <h1 className="font-display font-bold text-3xl mb-2" style={{ color: "var(--color-on-surface)" }}>المعامل التطبيقية</h1>
         <p className="text-sm mb-4" style={{ color: "var(--color-on-surface-variant)" }}>
-          {automationLabsV2.length} معمل تطبيقي — كل معمل يتضمن سيناريو حقيقي، خطوات مفصلة، وقائمة تحقق من الإنجاز.
+          {labs.length} معمل تطبيقي — كل معمل يتضمن سيناريو حقيقي، خطوات مفصلة، وقائمة تحقق من الإنجاز.
         </p>
         {/* Cross-link → templates */}
         <Link
@@ -56,7 +98,7 @@ export default async function AutomationLabsPage({
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {automationLabsV2.map((lab) => {
+        {labs.map((lab) => {
           const color = DIFF_COLOR[lab.level] ?? "#8ed5ff";
           return (
             <div key={lab.id} className="glass-card rounded-2xl p-6 flex flex-col gap-4" style={{ border: `1px solid ${color}18` }}>
@@ -130,10 +172,10 @@ export default async function AutomationLabsPage({
           <h2 className="font-display font-bold text-2xl" style={{ color: "var(--color-on-surface)" }}>Checklists الإطلاق</h2>
         </div>
         <p className="text-sm mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
-          {automationChecklists.length} checklists جاهزة لأكثر مشاريع الأتمتة شيوعًا — من الاكتشاف إلى الصيانة.
+          {checklists.length} checklists جاهزة لأكثر مشاريع الأتمتة شيوعًا — من الاكتشاف إلى الصيانة.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {automationChecklists.map((cl, idx) => {
+          {checklists.map((cl, idx) => {
             const colors = ["#3ce0fb", "#4ade80", "#d0bcff", "#f59e0b"];
             const color = colors[idx % colors.length];
             const phases = [

@@ -2,6 +2,26 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock, CheckCircle2, Bot, Users } from "lucide-react";
 import { automationServicePackages } from "@/data/automation/automationServices";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+import type { ServicePackage } from "@/data/automation/types";
+
+interface ServicePackageRow extends Record<string, unknown> {
+  id: string; title: string; who_its_for: string; deliverables: string[]; timeline: string;
+  starting_scope: string; required_client_inputs: string[]; final_outputs: string[]; cta: string;
+}
+function mapServiceRow(row: ServicePackageRow): ServicePackage {
+  return {
+    id: row.id, title: row.title, whoItsFor: row.who_its_for, deliverables: row.deliverables ?? [],
+    timeline: row.timeline, startingScope: row.starting_scope,
+    requiredClientInputs: row.required_client_inputs ?? [], finalOutputs: row.final_outputs ?? [], cta: row.cta,
+  };
+}
+async function fetchAutomationServices(): Promise<ServicePackage[]> {
+  const dbServices = await fetchPublishedList<ServicePackageRow, ServicePackage>({
+    table: "automation_services", mapRow: mapServiceRow, match: { portal_id: "automation" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbServices, automationServicePackages);
+}
 
 export async function generateMetadata({
   params,
@@ -33,6 +53,7 @@ export default async function AutomationServicesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const services = await fetchAutomationServices();
 
   return (
     <div className="container-xl py-12" dir="rtl">
@@ -42,12 +63,12 @@ export default async function AutomationServicesPage({
         </Link>
         <h1 className="font-display font-bold text-3xl mb-2" style={{ color: "var(--color-on-surface)" }}>خدمات الأتمتة الاحترافية</h1>
         <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-          {automationServicePackages.length} باقة خدمة — من مراجعة العمليات إلى تنفيذ حلول n8n و Python المخصصة.
+          {services.length} باقة خدمة — من مراجعة العمليات إلى تنفيذ حلول n8n و Python المخصصة.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        {automationServicePackages.map((svc, idx) => {
+        {services.map((svc, idx) => {
           const color = COLORS[idx % COLORS.length];
           return (
             <div key={svc.id} className="glass-card rounded-2xl p-6 flex flex-col gap-4" style={{ border: `1px solid ${color}18` }}>

@@ -3,6 +3,21 @@ import Link from "next/link";
 import { ArrowRight, Bot, Sparkles, BookOpen } from "lucide-react";
 import AutomationAgentClient from "@/components/automation/AutomationAgentClient";
 import { automationPrompts } from "@/data/automation/automationPrompts";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+import type { AutomationPrompt } from "@/data/automation/types";
+
+interface AutomationPromptRow extends Record<string, unknown> {
+  id: string; title: string; goal: string; prompt: string; output: string; recommended_for: string[];
+}
+function mapPromptRow(row: AutomationPromptRow): AutomationPrompt {
+  return { id: row.id, title: row.title, goal: row.goal, prompt: row.prompt, output: row.output, recommendedFor: row.recommended_for ?? [] };
+}
+async function fetchAutomationPrompts(): Promise<AutomationPrompt[]> {
+  const dbPrompts = await fetchPublishedList<AutomationPromptRow, AutomationPrompt>({
+    table: "automation_prompts", mapRow: mapPromptRow, match: { portal_id: "automation" }, orderBy: { column: "sort_order", ascending: true },
+  });
+  return mergeById(dbPrompts, automationPrompts);
+}
 
 export async function generateMetadata({
   params,
@@ -34,6 +49,7 @@ export default async function AutomationAgentPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const prompts = await fetchAutomationPrompts();
 
   return (
     <div className="container-xl py-12" dir="rtl">
@@ -142,10 +158,10 @@ export default async function AutomationAgentPage({
           <h2 className="font-display font-bold text-xl" style={{ color: "var(--color-on-surface)" }}>مرجع الـ Prompts</h2>
         </div>
         <p className="text-sm mb-6" style={{ color: "var(--color-on-surface-variant)" }}>
-          {automationPrompts.length} prompt جاهز لأكثر مهام الأتمتة شيوعًا — استخدمها مع أي نموذج AI.
+          {prompts.length} prompt جاهز لأكثر مهام الأتمتة شيوعًا — استخدمها مع أي نموذج AI.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {automationPrompts.map((p) => (
+          {prompts.map((p) => (
             <div key={p.id} className="glass-card rounded-xl p-4 flex flex-col gap-2" style={{ border: "1px solid rgba(249,115,22,0.1)" }}>
               <div>
                 <h3 className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{p.title}</h3>

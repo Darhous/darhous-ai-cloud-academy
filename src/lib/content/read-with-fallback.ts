@@ -55,6 +55,25 @@ interface FetchPublishedOneOptions<TRow extends Record<string, unknown>, TItem> 
   select?: string;
 }
 
+/**
+ * Merge DB rows with static fallback items, deduplicated by `id` — DB wins.
+ * Generalizes the merge loop already proven in src/app/[locale]/paths/page.tsx
+ * (and now reused across the 22 Automation/IoT-Lab/Digital-Exams CMS types):
+ * spread DB items first so they "win" the dedupe, then fill in any static
+ * items whose id isn't already covered by the DB.
+ */
+export function mergeById<T extends { id: string }>(dbItems: T[], staticItems: T[]): T[] {
+  const seen = new Set<string>();
+  const merged: T[] = [];
+  for (const item of [...dbItems, ...staticItems]) {
+    if (!seen.has(item.id)) {
+      seen.add(item.id);
+      merged.push(item);
+    }
+  }
+  return merged;
+}
+
 /** Fetch a single published row by slug/id, mapped to the render shape. */
 export async function fetchPublishedOne<TRow extends Record<string, unknown>, TItem>(
   opts: FetchPublishedOneOptions<TRow, TItem>,
