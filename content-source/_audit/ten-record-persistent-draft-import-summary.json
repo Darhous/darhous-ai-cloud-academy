@@ -1,0 +1,39 @@
+{
+  "selected_files": [
+    "career-glossary-ai-tools.json",
+    "career-glossary-ats-2.json",
+    "career-glossary-ats.json",
+    "career-glossary-burnout.json",
+    "career-glossary-career-shift-2.json",
+    "career-glossary-career-shift.json",
+    "career-glossary-cover-letter-2.json",
+    "career-glossary-cover-letter.json",
+    "career-glossary-culture-fit.json",
+    "career-glossary-cv-optimization.json"
+  ],
+  "selected_ids": [
+    "career-glossary-ai-tools",
+    "career-glossary-ats-2",
+    "career-glossary-ats",
+    "career-glossary-burnout",
+    "career-glossary-career-shift-2",
+    "career-glossary-career-shift",
+    "career-glossary-cover-letter-2",
+    "career-glossary-cover-letter",
+    "career-glossary-culture-fit",
+    "career-glossary-cv-optimization"
+  ],
+  "target_table": "career_glossary",
+  "status_to_insert": "draft",
+  "records_count": 10,
+  "execution_style": "Simple manual SQL blocks",
+  "persistent_import": true,
+  "contains_rollback": false,
+  "contains_emergency_delete": true,
+  "expected_final_row_count": 10,
+  "touches_tables": [
+    "career_glossary"
+  ],
+  "forbidden_tables_touched": [],
+  "safe_for_manual_execution": true
+}

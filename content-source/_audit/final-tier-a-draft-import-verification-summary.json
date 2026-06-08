@@ -1,0 +1,51 @@
+{
+  "tier_a_total_records": 600,
+  "imported_core_content_rows": 600,
+  "total_draft_rows": 600,
+  "total_published_rows": 0,
+  "tables_imported": [
+    "ai_lessons", "ai_resources", "automation_lessons", "automation_resources",
+    "career_glossary", "career_lessons", "career_prompts", "career_resources",
+    "digital_exams_glossary", "digital_exams_lessons", "digital_exams_prompts", "digital_exams_resources",
+    "iot_glossary", "iot_prompts", "iot_resources",
+    "language_glossary", "language_lessons", "language_prompts", "language_resources"
+  ],
+  "row_counts_by_table": {
+    "ai_lessons": 20,
+    "ai_resources": 30,
+    "automation_lessons": 20,
+    "automation_resources": 30,
+    "career_glossary": 50,
+    "career_lessons": 20,
+    "career_prompts": 30,
+    "career_resources": 30,
+    "digital_exams_glossary": 50,
+    "digital_exams_lessons": 20,
+    "digital_exams_prompts": 30,
+    "digital_exams_resources": 30,
+    "iot_glossary": 50,
+    "iot_prompts": 30,
+    "iot_resources": 30,
+    "language_glossary": 50,
+    "language_lessons": 20,
+    "language_prompts": 30,
+    "language_resources": 30
+  },
+  "excluded_groups": [
+    "live-wired 210 records",
+    "deferred 230 records",
+    "tools_hub records",
+    "nano_banana records"
+  ],
+  "tools_hub_touched": false,
+  "nano_banana_touched": false,
+  "live_wired_210_touched": false,
+  "deferred_230_touched": false,
+  "emergency_rollback_used": false,
+  "app_code_changed": false,
+  "routes_changed": false,
+  "ui_wiring_done": false,
+  "publishing_done": false,
+  "manual_execution_method": "User manually executed final-tier-a-draft-import-master.sql in Supabase SQL Editor",
+  "recommended_next_station": "Post-Import Review and Next-Phase Planning"
+}
