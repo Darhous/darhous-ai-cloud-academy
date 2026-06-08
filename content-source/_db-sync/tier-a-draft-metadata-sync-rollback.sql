@@ -1,3 +1,3 @@
 -- Rollback Documentation
--- WARNING: Safe deterministic rollback SQL cannot be generated because prior exact texts (like missing title_en) are not known from the normalized source alone.
--- Please perform rollback by reverting the GitHub repository to the previous commit (e.g., prior to normalization repair) and re-running an import script, or by restoring a Supabase Point-in-Time Recovery (PITR) backup.
+-- WARNING: Safe deterministic rollback SQL cannot be generated because prior exact texts are not known from the normalized source alone.
+-- Please perform rollback by reverting the GitHub repository to the previous commit and re-running an import script, or by restoring a Supabase Point-in-Time Recovery (PITR) backup.

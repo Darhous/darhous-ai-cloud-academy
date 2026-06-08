@@ -96,6 +96,6 @@ FROM language_resources
 GROUP BY status;
 
 -- Sample records inspection
-SELECT id, slug, title_en, excerpt_ar, data 
+SELECT id, title_en, body_ar, data 
 FROM ai_lessons 
 LIMIT 5;

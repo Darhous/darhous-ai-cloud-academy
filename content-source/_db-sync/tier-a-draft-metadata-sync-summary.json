@@ -1,4 +1,10 @@
 {
+  "schema_compatible": true,
+  "missing_db_columns_detected": [
+    "slug",
+    "excerpt_ar",
+    "excerpt_en"
+  ],
   "expected_total_records": 600,
   "generated_update_count": 600,
   "generated_update_count_by_table": {
@@ -32,5 +38,6 @@
   "dry_run_default": true,
   "requires_manual_execution": true,
   "supabase_executed": false,
-  "generated_at": "2026-06-08T23:11:15.872929+00:00"
+  "previous_sql_failed_reason": "slug column does not exist",
+  "generated_at": "2026-06-08T23:30:49.542751+00:00"
 }
