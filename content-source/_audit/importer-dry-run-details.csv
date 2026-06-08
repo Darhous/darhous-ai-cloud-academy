@@ -1,0 +1,1041 @@
+file,candidate_table,status,reason
+ai-academy/glossary/ai-academy-glossary-ai-ethics.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-ai-safety.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-ai-verification.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-algorithm.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-alignment.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-api.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-artificial-intelligence.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-automation.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-bias-in-ai-2.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-bias-in-ai.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-chain-of-thought.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-chatbot.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-computer-vision.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-context-window.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-data-mining.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-deep-learning.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-embedding.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-emergent-abilities.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-ethics-in-ai.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-fact-checking.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-few-shot-prompting.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-fine-tuning-2.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-fine-tuning.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-generative-ai-2.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-generative-ai.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-hallucination-2.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-hallucination.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-inference.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-large-language-model.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-llm.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-machine-learning.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-multimodal-ai.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-natural-language-processing.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-neural-network.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-output-formatting.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-over-reliance.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-persona-pattern.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-prompt-engineering-2.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-prompt-engineering.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-prompt-evaluation.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-prompt-library.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-prompt.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-rag.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-semantic-search.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-system-prompt.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-temperature.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-tokenization-2.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-tokenization.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-turing-test.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/glossary/ai-academy-glossary-zero-shot-prompting.json,ai_glossary,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-analyze-tone.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-brainstorm-ideas-2.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-brainstorm-ideas.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-code-review.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-compare-options.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-debug-code.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-draft-email.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-explain-concept-2.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-explain-concept.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-extract-keywords.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-fact-check.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-fix-code.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-generate-quiz.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-generate-scenarios.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-improve-prompt.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-job-interview.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-meal-plan.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-plan-project.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-problem-solving.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-rewrite-clarity.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-rewrite-formal.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-roleplay-interview.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-study-plan.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-study-schedule.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-summarize-article.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-summarize-document.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-translate-text-2.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-translate-text.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-write-email.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/prompts/ai-academy-prompt-write-outline.json,ai_prompts,SIMULATED_IMPORT,Existing target table found
+ai-academy/resources/ai-academy-resource-ai-ethics-guidelines.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-ai-safety-fundamentals.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-ai-study-planner.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-ai-tools-directory.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-anthropic-alignment.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-ar-ai-community.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-canva-magic-studio.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-chatgpt-2.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-chatgpt.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-claude-ai.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-claude.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-code-assistant.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-coursera-ai-for-everyone.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-deepl.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-deeplearning-ai.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-fact-checking-tool.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-gemini.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-github-copilot.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-google-gemini.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-hallucination-checker.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-hugging-face-course.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-hugging-face.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-midjourney-2.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-midjourney.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-openai-docs.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-perplexity-2.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-perplexity.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-prompt-engineering-guide.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-prompt-library-repo.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/resources/ai-academy-resource-research-assistant-ai.json,ai_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-advanced-prompting.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-ai-ethics.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-ai-for-study-2.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-ai-for-study.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-ai-for-work-2.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-ai-for-work.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-ai-hallucination.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-detecting-hallucinations.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-evaluating-models.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-future-of-ai.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-how-to-prompt.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-independent-learning.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-intro-to-ai-2.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-intro-to-ai.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-prompt-engineering-basics.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-prompt-libraries.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-rag-basics.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-safe-ai.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-safety-and-security.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+ai-academy/lessons/ai-academy-lesson-workflow-automation.md,ai_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/glossary/automation-glossary-action-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-action.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-aggregator.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-ai-assisted-automation-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-ai-assisted-automation.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-api-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-api.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-approval-workflow.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-automation-safety.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-automation-testing.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-business-process-automation-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-business-process-automation.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-conditional-logic.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-conditions.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-data-mapping-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-data-mapping.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-error-handling-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-error-handling.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-execution-log.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-fallback.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-google-apps-script-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-google-apps-script.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-integration.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-iterator.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-json.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-looping.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-make-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-make.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-n8n-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-n8n.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-node.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-payload.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-polling-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-polling.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-power-automate-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-power-automate.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-process-documentation.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-rate-limit.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-rate-limiting.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-retry-mechanism.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-trigger-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-trigger.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-variable.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-webhook-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-webhook.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-workflow-automation-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-workflow-automation.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-workflow-documentation.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-zapier-2.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/glossary/automation-glossary-zapier.json,automation_glossary,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-ai-integration-automation.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-api-data-structuring.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-array-iteration-logic.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-automated-periodic-report.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-automation-documentation-strategy.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-automation-for-beginners.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-automation-tools-comparison.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-crm-billing-integration.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-customer-support-automation.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-data-cleaning-automation.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-debug-n8n.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-error-handling-best.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-explain-webhooks.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-gas-email-script.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-gas-sort-emails.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-ideas-marketing.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-internal-approval-workflow.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-json-schema.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-make-alternatives.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-n8n-workflow-review.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-onboarding.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-python-api-error-handling.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-regex-data.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-routine-tasks-ideas.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-sales-automation-design.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-slack-teams-alert.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-social-media-automation.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-webhook-error-handling.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-zapier-crm.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/prompts/automation-prompt-zapier-to-make-migration.json,automation_prompts,SIMULATED_IMPORT,Existing target table found
+automation/resources/automation-resource-ai-automation-trends.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-ai-automation.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-api-security-best-practices.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-apis-beginners.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-automate-io-alt.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-automating-business-processes.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-automation-safety.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-automation-testing-frameworks.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-cloud-computing-intro.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-cron-job-syntax.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-data-mapping-basics.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-error-handling-best-practices.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-gas-guide-2.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-gas-guide.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-http-status-codes.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-json-guide.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-make-academy-2.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-make-academy.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-n8n-docs.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-n8n-documentation.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-oauth2-simplified.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-power-automate-docs.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-power-automate-learn.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-regex-data-extraction.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-rest-api-tutorial.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-retry-policies-guide.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-webhooks-explained-2.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-webhooks-explained.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-zapier-blog.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/resources/automation-resource-zapier-university.json,automation_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-ai-automation-intro.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-ai-in-automation.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-api-basics-automation.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-automation-documentation-testing.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-automation-security-data-privacy.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-bpa-case-study.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-building-approval-workflow.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-data-mapping-between-apps.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-error-handling-automation.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-error-handling.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-intro-automation-thinking.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-intro-automation.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-intro-google-apps-script.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-make-zapier-n8n-comparison.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-retries-and-fallbacks.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-triggers-actions.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-understanding-triggers-actions.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-webhooks-explained.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-webhooks-integration.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+automation/lessons/automation-lesson-zapier-vs-make.md,automation_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-ai-tools.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-ats-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-ats.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-burnout.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-career-shift-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-career-shift.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-cover-letter-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-cover-letter.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-culture-fit.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-cv-optimization.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-cv.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-elevator-pitch-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-elevator-pitch.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-freelance.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-gig-economy.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-hard-skills-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-hard-skills.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-imposter-syndrome.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-informational-interview.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-internship.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-interview.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-job-description-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-job-description.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-job-search-strategy.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-linkedin-optimization.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-linkedin.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-mentorship-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-mentorship.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-mock-interview.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-negotiation.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-networking-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-networking.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-onboarding.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-personal-branding-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-personal-branding.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-portfolio-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-portfolio.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-proof-of-work.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-remote-work-skills.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-remote-work.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-reskilling.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-salary-negotiation.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-skill-gap-analysis.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-soft-skills-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-soft-skills.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-star-method-2.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-star-method.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-transferable-skills.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-upskilling.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/glossary/career-glossary-work-life-balance.json,career_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-achievements-bullet-points.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-career-growth-discussion.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-career-shift-plan-2.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-career-shift-plan.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-cover-letter-gen.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-cover-letter-generation.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-cv-review.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-cv-tailoring.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-elevator-pitch-creation.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-ethical-ai-application.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-follow-up-after-interview.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-freelance-proposal.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-handling-rejection.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-interview-prep-star.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-interview-prep.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-job-search-keywords.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-linkedin-summary-2.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-linkedin-summary.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-mock-interview-simulation.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-networking-message.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-networking-msg.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-portfolio-ideas-2.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-portfolio-ideas.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-remote-work-readiness.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-resignation-letter.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-salary-negotiation-script.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-salary-negotiation.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-skill-gap-analysis.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-skills-gap.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/prompts/career-prompt-star-answer.json,career_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-behance.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-career-advice.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-coursera.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-cover-letter-examples.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-cv-templates.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-edx.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-github.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-glassdoor.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-harvard-career-services.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-hunter-io.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-indeed.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-interview-query.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-interview-questions.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-job-boards.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-jobscan.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-linkedin-guide.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-linkedin-learning.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-meetup.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-my-interview-practice.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-novoresume.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-payscale.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-portfolio-builder.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-pramp.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-remote-jobs.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-remote-ok.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-salary-calculator.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-skills-courses.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-the-muse.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-upwork.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/resources/career-resource-zety.json,career_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-ace-the-interview.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-ai-in-job-search.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-building-proof-of-work.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-career-change-strategies.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-career-transition.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-cover-letters-that-stand-out.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-cv-improvement.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-effective-job-search-systems.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-ethical-ai-job-search.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-interview-preparation-guide.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-linkedin-mastery.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-linkedin-profile-optimization.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-mastering-star-stories.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-networking-messaging.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-perfect-cv.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-portfolio-evidence.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-remote-work-readiness.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-salary-negotiation-basics.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-skill-gap-planning.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+career/lessons/career-lesson-star-method-guide.md,career_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-adaptive-generation.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-certainty-assessment.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-cognitive-reframing.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-confidence-calibration.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-deep-breathing.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-distractors.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-double-checking.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-educated-guess.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-elimination-strategy.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-environmental-readiness.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-exam-simulation.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-gap-analysis.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-instant-feedback.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-interleaving.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-01.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-02.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-03.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-04.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-05.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-06.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-07.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-08.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-09.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-10.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-11.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-12.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-13.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-14.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-15.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-16.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-17.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-18.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-19.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-item-20.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-keywords.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-last-days-plan.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-learning-from-slips.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-mistake-log.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-mock-exams.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-negative-tools.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-performance-dashboard.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-post-exam-eval.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-progress-analytics.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-random-practice.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-root-question-analysis.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-rushing-errors.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-spaced-revision.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-tech-check.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-time-allocation.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/glossary/digital-exams-glossary-two-minute-rule.json,digital_exams_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-analyze-mistake.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-brainstorm-study-methods.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-compare-concepts.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-create-study-plan.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-decode-trick-questions.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-evaluate-essay-answer.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-explain-concept-simply.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-focus-improvement.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-generate-mcq.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-identify-keywords.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-item-01.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-item-02.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-item-03.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-item-04.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-item-05.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-item-06.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-item-07.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-item-08.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-item-09.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-item-10.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-math-shortcuts.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-memorization-techniques.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-overcome-exam-anxiety.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-plan-last-week.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-post-exam-reflection.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-reading-comprehension.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-review-exam-results.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-simulate-exam-scenario.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-summarize-notes.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/prompts/digital-exams-prompt-time-management-strategy.json,digital_exams_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-anki-flashcards.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-deep-work-summary.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-digital-readiness-checklist.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-digital-sat-practice.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-exam-diet-tips.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-eye-care-software.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-focus-music-playlist.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-habit-tracker.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-item-01.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-item-02.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-item-03.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-item-04.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-item-05.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-item-06.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-item-07.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-item-08.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-item-09.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-item-10.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-khan-academy-math.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-math-way.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-mindmeister.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-mock-test-analysis-sheet.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-notion-templates.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-online-whiteboard.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-pomodoro-tracker.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-qiyas-official.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-sleep-cycle-app.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-speed-reading-tool.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-test-anxiety-guide.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/resources/digital-exams-resource-time-blocking-guide.json,digital_exams_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-ai-study-assistant.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-analyzing-mistakes.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-confidence-rating.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-digital-time-management.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-exam-night-routine.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-final-week-strategy.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-handling-distractors.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-interleaved-practice.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-item-01.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-item-02.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-item-03.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-item-04.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-item-05.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-item-06.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-keyword-spotting.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-mcq-elimination.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-overcoming-mind-blanks.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-post-exam-review.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-reading-comprehension-tricks.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+digital-exams/lessons/digital-exams-lesson-tech-preparedness.md,digital_exams_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-actuator.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-adc.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-analog-signal.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-arduino.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-baud-rate.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-bootloader.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-breadboard.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-capacitor.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-circuit-schematic.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-current.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-dac.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-data-logging.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-debounce.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-debugging.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-digital-signal.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-esp32.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-gpio.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-ground.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-i2c-2.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-i2c.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-interrupt.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-iot.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-jumper-wires.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-led.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-logic-level.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-microcontroller.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-mqtt.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-multimeter.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-ohm-law.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-pcb.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-pull-down.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-pull-up.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-pwm-2.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-pwm.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-raspberry-pi.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-relay-2.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-relay.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-resistance.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-resistor.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-schematic.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-sensor.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-serial-monitor.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-soldering.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-spi-2.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-spi.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-transistor.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-uart-2.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-uart.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-voltage.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/glossary/iot-lab-glossary-wifi-module.json,iot_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-analog-circuit.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-arduino-blink.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-battery-monitor.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-button-debounce.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-calibrate-sensor.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-dht11-sensor.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-esp32-vs-arduino.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-esp32-webserver.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-esp32-wifi.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-explain-pwm.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-fix-arduino-code.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-i2c-lcd.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-interrupt-usage.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-mqtt-publish.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-pid-controller.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-pwm-led.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-python-script-rpi.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-raspberry-pi-gpio.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-relay-module.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-sd-card-log.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-sensor-read.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-serial-communication.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-servo-motor.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-setup-raspberry-pi.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-stepper-motor.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-suggest-iot-project.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-troubleshoot-mqtt.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-troubleshooting-guide.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-ultrasonic-distance.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/prompts/iot-lab-prompt-wire-sensor.json,iot_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-adafruit-learn.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-adafruit-tutorials.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-arduino-docs.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-arduino-json.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-arduino-reference.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-blynk.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-circuit-basics.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-circuitpython.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-datasheet-catalog.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-esp32-datasheet.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-esp32-idf-docs.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-esphome.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-fritzing-software.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-fritzing.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-home-assistant.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-instructables-circuits.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-micropython-guide.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-micropython.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-mosquitto.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-mqtt-org.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-mqtt-spec.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-pinout-xyz.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-random-nerd-tutorials.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-raspberry-pi-docs.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-rpi-guide.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-sparkfun-tutorials.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-thingspeak.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-tinkercad-circuits-2.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-tinkercad-circuits.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/resources/iot-lab-resource-wokwi.json,iot_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+iot-lab/lessons/iot-lab-lesson-actuators-intro.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-breadboard-safety.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-breadboard-wiring.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-connecting-wifi.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-debugging-projects.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-digital-vs-analog.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-documenting-circuits.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-electricity-basics.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-first-circuit-led.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-getting-started-esp32.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-intro-to-arduino.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-intro-to-esp32.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-mqtt-intro.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-raspberry-pi-basics.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-reading-schematics.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-sensors-intro.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-soldering-basics.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-using-multimeter.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-what-is-mqtt.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+iot-lab/lessons/iot-lab-lesson-wiring-safety.md,iot_lessons,SIMULATED_IMPORT,Existing target table found
+language/glossary/language-glossary-accuracy.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-active-listening.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-ai-language-coach.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-cefr-a1.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-cefr-a2.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-cefr-b1.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-cefr-b2.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-cefr-c1.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-cefr-c2.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-chunking.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-collocation.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-comprehensible-input.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-fluency.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-1.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-10.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-11.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-12.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-13.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-14.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-15.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-16.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-17.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-18.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-19.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-2.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-20.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-3.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-4.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-5.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-6.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-7.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-8.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-glossary-9.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-grammar-in-context.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-idiom.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-immersion.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-intonation.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-language-acquisition.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-language-exchange.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-language-learning.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-minimal-pairs.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-mother-tongue-interference.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-passive-listening.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-phrasal-verb.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-pronunciation.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-self-correction.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-shadowing.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-spaced-repetition.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-stress.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/glossary/language-glossary-vocabulary-in-context.json,language_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-accent-coach.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-cultural-context.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-daily-journal.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-debate-opponent.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-email-drafter.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-grammar-checker.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-idiom-explainer.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-listening-comprehension.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-paragraph-improver.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-phrasal-verb-story.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-presentation-prep.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-prompt-1.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-prompt-10.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-prompt-2.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-prompt-3.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-prompt-4.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-prompt-5.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-prompt-6.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-prompt-7.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-prompt-8.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-prompt-9.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-pronunciation-guide.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-reading-summary.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-roleplay-interview.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-slang-translator.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-small-talk.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-speaking-partner.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-story-generator.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-translation-corrector.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/prompts/language-prompt-vocabulary-expander.json,language_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-anki.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-bbc-learning-english.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-breaking-news-english.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-british-council.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-cambridge-dictionary.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-coursera-english.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-duolingo.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-elllo.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-english-club.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-engvid.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-esl-lab.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-grammarly.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-memrise.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-oxford-learners-dictionaries.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-quizlet.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-rachel-english.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-resource-1.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-resource-10.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-resource-2.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-resource-3.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-resource-4.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-resource-5.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-resource-6.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-resource-7.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-resource-8.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-resource-9.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-talk-english.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-ted-talks.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-voa-learning-english.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/resources/language-resource-youglish.json,language_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-active-vs-passive-listening.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-conversation-practice.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-grammar-in-context-2.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-how-to-start-speaking.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-interview-english.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-introduction-to-cefr.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-lesson-1.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-lesson-2.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-lesson-3.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-lesson-4.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-lesson-5.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-lesson-6.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-mastering-shadowing.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-perfecting-pronunciation.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-self-correction-techniques.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-stop-translating.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-using-ai-coaches.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-vocabulary-systems.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-weekly-progress-tracking.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+language/lessons/language-lesson-writing-clear-paragraphs.md,language_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-aspect-ratio.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-brand-consistency.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-camera-angle.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-character-design.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-color-palette.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-composition.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-concept-art.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-depth-of-field.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-educational-infographics.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-environmental-design.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-focal-point.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-illustration.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-image-comparison.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-image-prompt.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-1.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-10.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-11.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-12.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-13.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-14.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-15.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-16.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-17.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-18.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-19.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-2.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-20.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-3.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-4.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-5.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-6.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-7.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-8.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-item-9.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-lighting-setup.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-misleading-visuals.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-negative-prompt.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-photorealism.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-product-visuals.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-prompt-iteration.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-prompt-library.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-resolution.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-responsible-generation.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-review-checklist.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-seed.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-style-control.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-surrealism.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-texture.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-upscaling.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/glossary/nano-banana-glossary-visual-reference.json,nano_banana_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/prompts/nano-banana-prompt-abstract-concept.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-animal-wildlife.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-architectural-sketch.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-character-concept.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-cinematic-portrait.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-corporate-flat-art.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-data-visualization.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-educational-infographic.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-fantasy-creature.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-food-photography.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-historical-scene.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-isometric-room.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-item-1.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-item-10.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-item-2.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-item-3.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-item-4.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-item-5.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-item-6.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-item-7.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-item-8.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-item-9.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-macro-texture.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-minimalist-logo.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-nature-landscape.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-pop-art.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-realistic-product.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-sci-fi-environment.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-vintage-poster.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/prompts/nano-banana-prompt-watercolor-illustration.json,nano_banana_custom_prompts,SIMULATED_IMPORT,Existing target table found
+nano-banana/resources/nano-banana-resource-adobe-firefly.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-ai-ethics-guidelines.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-artstation.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-camera-lenses-guide.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-character-consistency.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-civitai.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-color-hunt.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-composition-rules.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-dalle-3-best-practices.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-image-upscalers.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-item-1.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-item-10.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-item-2.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-item-3.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-item-4.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-item-5.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-item-6.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-item-7.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-item-8.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-item-9.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-lexica-art.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-lighting-reference.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-midjourney-guide.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-negative-prompting-tips.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-prompt-engineering-course.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-promptbase.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-stable-diffusion-prompt-book.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-style-reference-guide.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-visual-dictionary.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/resources/nano-banana-resource-watermark-remover.json,nano_banana_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-building-prompt-library.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-comparing-image-versions.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-composition-techniques.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-creating-infographics.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-generating-product-visuals.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-image-review-checklist.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-intro-to-image-prompts.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-lesson-1.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-lesson-2.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-lesson-3.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-lesson-4.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-lesson-5.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-lesson-6.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-lighting-and-mood.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-maintaining-brand-consistency.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-mastering-style-control.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-negative-prompting.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-prompt-iteration-process.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-responsible-generation.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+nano-banana/lessons/nano-banana-lesson-using-visual-references.md,nano_banana_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-ai-tools-2.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-ai-tools.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-api.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-automation-tools.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-automation.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-cloud-storage.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-cloud-tools.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-comparing-tools.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-customer-support.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-data-breach.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-data-export-2.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-data-export.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-data-safety.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-encryption.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-end-to-end-encryption.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-freemium-2.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-freemium.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-integration-2.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-integration.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-keyboard-shortcuts.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-markdown-2.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-markdown.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-offline-first.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-onboarding-2.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-onboarding.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-open-source-2.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-open-source.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-personal-stack.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-privacy-check.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-privacy-policy.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-productivity-hub.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-roi-tools.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-saas.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-safe-testing.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-sandbox-testing.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-single-sign-on.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-subscription-fatigue.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-tech-stack.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-tool-evaluation.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-tool-overload-2.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-tool-overload.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-tool-selection.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-two-factor-authentication.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-ui-ux.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-user-interface.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-vendor-lock-in-2.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-vendor-lock-in.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-version-control.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-webhook.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/glossary/tools-hub-glossary-workflow.json,tools_hub_glossary,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-ai-tool-testing.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-ai-writing-assistant.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-api-integration.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-automate-task.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-automation-ideas.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-compare-tools.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-compare-two-tools.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-data-export-guide.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-documentation-tools.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-evaluate-ui-ux.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-finding-alternatives.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-free-alternatives.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-free-vs-paid.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-learn-tool.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-markdown-conversion.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-markdown-learning.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-onboarding-plan.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-privacy-analysis.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-privacy-policy-summary.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-prompt-engineering.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-sandbox-setup.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-security-checklist.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-simplify-workflow.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-subscription-audit.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-tech-stack-audit.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-tool-discovery.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-tool-migration.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-tool-overload-cure.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-tool-recommendation.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/prompts/tools-hub-prompt-troubleshoot-tool.json,tools_hub_prompts,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-airtable.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-alternative-to.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-alternativeto.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-bitwarden.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-chatgpt-2.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-chatgpt.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-claude.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-figma.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-github-2.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-github.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-google-workspace.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-ifttt.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-make-2.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-make.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-markdown-guide.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-notion-2.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-notion.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-obsidian-2.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-obsidian.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-perplexity.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-privacy-tools.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-privacytools.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-product-hunt.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-raycast.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-standard-notes.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-todoist-2.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-todoist.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-trello.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-zapier-2.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/resources/tools-hub-resource-zapier.json,tools_hub_resources,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-ai-tools-integration.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-automation-basics.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-avoiding-tool-overload-2.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-avoiding-tool-overload.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-building-personal-stack.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-choosing-right-tools.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-comparing-tools-fairly.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-data-safety-and-export.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-documenting-your-toolkit.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-free-vs-paid-decision.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-how-to-choose-tools.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-introduction-to-automation.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-markdown-basics.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-markdown-mastery.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-personal-tool-stack.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-privacy-and-security.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-privacy-checks.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-security-basics.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-subscription-audit-guide.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema
+tools-hub/lessons/tools-hub-lesson-tool-testing-workflow.md,tools_hub_lessons,SKIPPED_DUE_TO_MISSING_TABLE,Target table does not exist in schema

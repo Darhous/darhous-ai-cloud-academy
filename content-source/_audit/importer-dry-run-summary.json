@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-06-08T11:47:57.430321+00:00",
+  "total_files_analyzed": 1040,
+  "importable_count": 210,
+  "skipped_count_due_to_missing_tables": 830,
+  "missing_tables": [
+    "nano_banana_lessons",
+    "language_resources",
+    "career_lessons",
+    "digital_exams_resources",
+    "digital_exams_prompts",
+    "ai_resources",
+    "career_resources",
+    "career_prompts",
+    "language_lessons",
+    "ai_lessons",
+    "tools_hub_glossary",
+    "language_prompts",
+    "automation_resources",
+    "iot_glossary",
+    "nano_banana_glossary",
+    "iot_resources",
+    "nano_banana_resources",
+    "tools_hub_resources",
+    "tools_hub_lessons",
+    "tools_hub_prompts",
+    "digital_exams_glossary",
+    "digital_exams_lessons",
+    "iot_prompts",
+    "language_glossary",
+    "career_glossary",
+    "automation_lessons"
+  ],
+  "primary_dry_run_strategy": "Upsert into existing portal-specific tables",
+  "hypothetical_template_based_simulation": {
+    "description": "If all missing tables were created using _template_content_table.sql, then 100% of files would be importable using identical logic, since they all share the exact same JSON schema requirements.",
+    "hypothetical_importable_count": 1040,
+    "hypothetical_skipped": 0
+  }
+}

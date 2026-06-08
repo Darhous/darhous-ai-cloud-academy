@@ -1,0 +1,33 @@
+portal,content_type,file_count,candidate_table,table_exists,compatibility,recommended_action
+ai-academy,glossary,50,ai_glossary,yes,compatible,Proceed with Dry Run
+ai-academy,prompt,30,ai_prompts,yes,compatible,Proceed with Dry Run
+ai-academy,resource,30,ai_resources,no,no table,Schema Review / Table Creation Required
+ai-academy,lesson,20,ai_lessons,no,no table,Schema Review / Table Creation Required
+automation,glossary,50,automation_glossary,yes,compatible,Proceed with Dry Run
+automation,prompt,30,automation_prompts,yes,compatible,Proceed with Dry Run
+automation,resource,30,automation_resources,no,no table,Schema Review / Table Creation Required
+automation,lesson,20,automation_lessons,no,no table,Schema Review / Table Creation Required
+career,glossary,50,career_glossary,no,no table,Schema Review / Table Creation Required
+career,prompt,30,career_prompts,no,no table,Schema Review / Table Creation Required
+career,resource,30,career_resources,no,no table,Schema Review / Table Creation Required
+career,lesson,20,career_lessons,no,no table,Schema Review / Table Creation Required
+digital-exams,glossary,50,digital_exams_glossary,no,no table,Schema Review / Table Creation Required
+digital-exams,prompt,30,digital_exams_prompts,no,no table,Schema Review / Table Creation Required
+digital-exams,resource,30,digital_exams_resources,no,no table,Schema Review / Table Creation Required
+digital-exams,lesson,20,digital_exams_lessons,no,no table,Schema Review / Table Creation Required
+iot-lab,glossary,50,iot_glossary,no,no table,Schema Review / Table Creation Required
+iot-lab,prompt,30,iot_prompts,no,no table,Schema Review / Table Creation Required
+iot-lab,resource,30,iot_resources,no,no table,Schema Review / Table Creation Required
+iot-lab,lesson,20,iot_lessons,yes,compatible,Proceed with Dry Run
+language,glossary,50,language_glossary,no,no table,Schema Review / Table Creation Required
+language,prompt,30,language_prompts,no,no table,Schema Review / Table Creation Required
+language,resource,30,language_resources,no,no table,Schema Review / Table Creation Required
+language,lesson,20,language_lessons,no,no table,Schema Review / Table Creation Required
+nano-banana,glossary,50,nano_banana_glossary,no,no table,Schema Review / Table Creation Required
+nano-banana,prompt,30,nano_banana_custom_prompts,yes,compatible,Proceed with Dry Run
+nano-banana,resource,30,nano_banana_resources,no,no table,Schema Review / Table Creation Required
+nano-banana,lesson,20,nano_banana_lessons,no,no table,Schema Review / Table Creation Required
+tools-hub,glossary,50,tools_hub_glossary,no,no table,Schema Review / Table Creation Required
+tools-hub,prompt,30,tools_hub_prompts,no,no table,Schema Review / Table Creation Required
+tools-hub,resource,30,tools_hub_resources,no,no table,Schema Review / Table Creation Required
+tools-hub,lesson,20,tools_hub_lessons,no,no table,Schema Review / Table Creation Required
