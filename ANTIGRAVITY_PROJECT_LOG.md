@@ -9395,3 +9395,26 @@ Do not forget log, commit, tag, release, validation, explicit staging, and prote
 33. **Forbidden Commands Status**: Strict adherence; absolutely none used.
 34. **Launch Candidate Status**: This is now a safe launch candidate closure.
 35. **Recommended Next Step**: Wait for the new CI pass, then proceed to Live Vercel QA.
+
+
+---
+
+الساعة 1:53 ص
+
+## تصحيح توثيقي لإغلاق Phase 5G
+
+This is an append-only correction for the previous Phase 5G log entry.
+
+The prior log entry had placeholder lines removed after commit-value placeholders were detected. This correction records the final real values without rewriting history.
+
+## القيم النهائية المؤكدة
+
+- Final HEAD: _d30fc394d12c0ffdb7f6da92ab50c5ef90f91- Commit: _d30f- Tag: \checkpoint/phase-5g-integrity-launch-candidate-closure-v1- Release: \https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/phase-5g-integrity-launch-candidate-closure-v1- Push status: pushed successfully to \origin/main\ and exact tag.
+- CI run: º40570151- CI status: completed success.
+- Validation: typecheck, lint, build, diff check, and JSON validation passed.
+- Source code changed in closure: none.
+- Database/Supabase/SQL/package changes: none.
+- Protected files: untouched.
+- Temporary files: none.
+- Forbidden commands: avoided.
+- Launch candidate status: safe after this micro-closure.
