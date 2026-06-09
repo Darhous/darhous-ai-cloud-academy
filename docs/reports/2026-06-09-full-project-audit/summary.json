@@ -1,0 +1,72 @@
+{
+  "audit_date": "2026-06-09",
+  "project": "Darhous AI Cloud Academy / NexaLearn",
+  "audit_mode": "read-only",
+  "verdict": "Substantial working platform, not yet ready for unified CMS-backed launch",
+  "inventory": {
+    "page_routes": 87,
+    "api_route_handlers": 63,
+    "admin_top_level_tabs": 29,
+    "admin_client_lines": 5277,
+    "automated_test_files_found": 0,
+    "route_loading_error_not_found_files_found": 0
+  },
+  "content_state": {
+    "total_normalized_records": 1040,
+    "tier_a_draft_records": 600,
+    "tier_a_tables": 19,
+    "tier_a_published_records": 0,
+    "live_wired_existing_records": 210,
+    "deferred_schema_risk_records": 230,
+    "authoritative_note": "210/230 follows the latest production verification and current checkpoint; older closure artifacts report 180/260"
+  },
+  "validation": {
+    "typecheck": {
+      "status": "pass",
+      "command": "npm run typecheck"
+    },
+    "lint": {
+      "status": "pass_with_warnings",
+      "errors": 0,
+      "warnings": 51,
+      "command": "npm run lint"
+    },
+    "build": {
+      "status": "needs_live_or_ci_verification",
+      "attempt_1": "compiled successfully, then spawn EPERM during post-compile TypeScript phase",
+      "attempt_2": "escalated command timed out after approximately 244 seconds"
+    },
+    "tests": {
+      "status": "not_available",
+      "reason": "No test files or test script found"
+    }
+  },
+  "top_findings": [
+    "600 Tier-A rows are draft-only and have no confirmed publishing workflow",
+    "The 19 Tier-A tables are not meaningfully wired to public pages",
+    "The admin dashboard uses 29 horizontally scrolling top-level tabs",
+    "AdminDashboardClient.tsx is 5277 lines",
+    "No route-level loading, error, or not-found files were found",
+    "A project-detail Build This Project CTA has no action",
+    "Some blog detail pages render Full content coming soon",
+    "Static fallback can mask database integration failures",
+    "Several existing CMS create APIs default to published",
+    "Older closure documentation conflicts with the latest 210/230 classification"
+  ],
+  "recommended_next_station": "Admin CMS Information Architecture and Tier-A Publishing Workflow Foundation",
+  "safety": {
+    "supabase_sql_executed": false,
+    "database_writes": false,
+    "migrations_run": false,
+    "imports_or_seeds": false,
+    "content_published": false,
+    "crud_implemented": false,
+    "app_behavior_changed": false,
+    "public_ui_wiring_implemented": false,
+    "tools_hub_implementation_changed": false,
+    "nano_banana_implementation_changed": false,
+    "live_wired_records_changed": false,
+    "deferred_records_changed": false,
+    "forbidden_untracked_files_touched": false
+  }
+}
