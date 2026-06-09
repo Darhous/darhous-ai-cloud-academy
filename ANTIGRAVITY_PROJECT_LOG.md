@@ -3829,3 +3829,427 @@ Do not add inline mutation actions.
 - **Ø¥Ù…ÙƒØ§Ù†ÙŠØ© Ø¨Ø¯Ø¡ Ø§Ù„Ù…Ø±Ø­Ù„Ø© 5:** Ù†Ø¹Ù…ØŒ ÙŠÙ…ÙƒÙ† Ø¨Ø¯Ø¡ Ø§Ù„Ù…Ø±Ø­Ù„Ø© Ø§Ù„Ø®Ø§Ù…Ø³Ø©.
 - **Ø§Ù„Ù…Ø­Ø·Ø© Ø§Ù„Ù‚Ø§Ø¯Ù…Ø© Ø¨Ø¯Ù‚Ø©:** Phase 5: UI/UX Pro Max + Launch Candidate
 
+---
+
+Ø§Ù„Ø³Ø§Ø¹Ø© 4:30 Ù…
+
+## Ø§Ù„Ø¨Ø±ÙˆÙ…Ø¨Øª Ø§Ù„Ù…Ø³ØªÙ„Ù…
+
+We are continuing the Darhous / NexaLearn project.
+
+Local project path:
+C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
+
+You are implementing:
+
+# Phase 5A â€” UI/UX Pro Max Foundation + Premium Homepage Hero Prototype
+
+This is the first implementation checkpoint of Phase 5:
+UI/UX Pro Max + Launch Candidate.
+
+The goal is NOT small cosmetic polish.
+
+The goal is to start transforming the academy into a premium, cinematic, high-end AI learning ecosystem under the working identity:
+
+NexaLearn by Darhous
+
+But do not perform a full brand rename yet.
+
+You must create a visible â€œwowâ€ improvement in the homepage above-the-fold while also establishing safe reusable foundations for the rest of Phase 5.
+
+The user wants:
+
+* premium visual quality
+* strong homepage first impression
+* high-end AI/SaaS feel
+* Arabic-first / RTL-first polish
+* portal-specific colors
+* mouse-ready design foundations
+* future cinematic intro compatibility
+* production-safe implementation
+
+Important:
+The cinematic intro/loading experience is NOT part of this prompt. Do not implement it now.
+But do not forget it. Preserve it in the roadmap and mention in the final report that it remains planned for Phase 5D.
+
+Current Phase 5 planned sequence:
+
+1. Phase 5A â€” UI/UX Pro Max Foundation + Premium Homepage Hero Prototype
+2. Phase 5B â€” Full Homepage Pro Max Redesign
+3. Phase 5C â€” Mouse-Reactive Portal Cards + Interaction System
+4. Phase 5D â€” Cinematic Intro + Disable/Convert Auto Tour
+5. Phase 5E â€” Public Portal Polish
+6. Phase 5F â€” Admin UX Declutter and Inline Admin Polish
+7. Phase 5G â€” Brand Assets, Metadata, OG, and Launch Candidate Closure
+
+Your task is to implement Phase 5A only.
+
+---
+
+# Mandatory files to read first
+
+Before making any changes, read:
+
+1. ANTIGRAVITY_RULES.md
+2. ANTIGRAVITY_PROJECT_LOG.md
+3. docs/reports/phase-5-ui-ux-pro-max-blueprint.md, if it exists
+4. Relevant homepage and design files, including but not limited to:
+
+   * src/app/[locale]/page.tsx
+   * src/components/landing/HomepageClient.tsx
+   * src/components/landing/sections/*
+   * src/components/ecosystem/PortalCard.tsx
+   * src/components/portal/PortalIdentityIntro.tsx
+   * src/components/ui/PortalPageWrapper.tsx
+   * src/app/globals.css
+   * src/config/portals.ts
+   * src/components/layout/Navbar.tsx
+   * src/components/layout/Footer.tsx
+
+Also inspect:
+
+* current git status
+* current branch
+* recent log
+* protected untracked files
+
+---
+
+# Strict safety rules
+
+You must obey these rules exactly:
+
+* Do not run SQL.
+* Do not create migrations.
+* Do not write to Supabase.
+* Do not import or seed data.
+* Do not publish content.
+* Do not touch `tools_hub`.
+* Do not expand or wire `nano_banana`.
+* Do not modify auth logic.
+* Do not weaken admin protection.
+* Do not expose draft or archived records publicly.
+* Do not change the `status = "published"` rule in public reads.
+* Do not implement new CRUD features.
+* Do not expand CMS permissions.
+* Do not implement the cinematic intro yet.
+* Do not remove the future intro plan.
+* Do not install packages.
+* Do not modify package files unless absolutely required and explicitly justified first.
+* Do not touch protected local untracked files.
+
+Protected files/directories include, at minimum:
+
+* .claude/
+* .codex/
+* README.backup.20260607-135220.md
+* UX PROMAX.MD
+* local audit helper scripts
+* eslint-output.txt
+* any unrelated local backup/debug files
+
+---
+
+# Git rules â€” mandatory
+
+You must not use:
+
+* git add .
+* git add src
+* git add docs
+* broad directory staging
+* git push --tags
+* git commit --amend
+* git tag -f
+* force push
+
+You must use:
+
+* explicit file staging only
+* one clear commit for this phase
+* one exact checkpoint tag
+* push origin main
+* push the exact tag only
+* create a GitHub Release for the exact tag if validation passes and gh is available
+
+Checkpoint tag:
+
+checkpoint/phase-5a-ui-foundation-hero-v1
+
+Suggested commit message:
+
+ui: add phase 5a premium foundation and hero prototype
+
+---
+
+# Mandatory project log update
+
+You must append to ANTIGRAVITY_PROJECT_LOG.md in append-only mode.
+
+Do not rewrite the file.
+Do not reorganize older entries.
+Do not delete previous content.
+
+Use this exact structure with the real Arabic time:
+
+---
+
+Ø§Ù„Ø³Ø§Ø¹Ø© [Ø§ÙƒØªØ¨ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„ÙØ¹Ù„ÙŠ Ø¨Ø§Ù„Ø¹Ø±Ø¨ÙŠ Ù…Ø«Ù„ 6:30 Ù…]
+
+## Ø§Ù„Ø¨Ø±ÙˆÙ…Ø¨Øª Ø§Ù„Ù…Ø³ØªÙ„Ù…
+
+[Ø¶Ø¹ Ù†Øµ Ù‡Ø°Ø§ Ø§Ù„Ø¨Ø±ÙˆÙ…Ø¨Øª ÙƒØ§Ù…Ù„Ù‹Ø§ ÙƒÙ…Ø§ Ø§Ø³ØªÙ„Ù…ØªÙ‡]
+
+## ØªÙ‚Ø±ÙŠØ± Ø§Ù„ØªÙ†ÙÙŠØ° Ø§Ù„Ù†Ù‡Ø§Ø¦ÙŠ
+
+[Ø¶Ø¹ Ø§Ù„ØªÙ‚Ø±ÙŠØ± Ø§Ù„Ù†Ù‡Ø§Ø¦ÙŠ Ø§Ù„ÙƒØ§Ù…Ù„ Ù‡Ù†Ø§ Ø¨Ø¹Ø¯ Ø§Ù„ØªÙ†ÙÙŠØ°]
+
+---
+
+The final report in ANTIGRAVITY_PROJECT_LOG.md must be the same final report you provide to the user.
+
+---
+
+# Phase 5A implementation scope
+
+Implement a strong but controlled first checkpoint.
+
+## A. UI/UX foundation
+
+Add or improve only the minimum necessary foundation to support a premium homepage direction.
+
+Possible allowed work:
+
+* semantic visual tokens
+* refined portal accent handling
+* premium surface/card utility classes
+* motion token utilities
+* reduced-motion-safe patterns
+* focus-visible improvements if needed
+* reusable premium visual primitives if narrow and justified
+* RTL-safe spacing improvements in touched components
+* non-emoji visual direction if feasible without massive rewrite
+
+Do not rewrite the entire design system.
+Do not touch every page.
+Do not make a huge risky refactor.
+
+## B. Premium homepage hero prototype
+
+The main visible deliverable must be a noticeably improved homepage above-the-fold experience.
+
+Improve the homepage hero so it feels:
+
+* premium
+* cinematic
+* intelligent
+* Arabic-first
+* AI/SaaS-like
+* NexaLearn-ready
+* visually memorable
+* not generic glass-card clutter
+
+The hero should ideally include:
+
+* stronger Arabic-first headline
+* refined supporting copy
+* clear primary CTA and secondary CTA
+* 2â€“3 concise proof points
+* portal-colored visual atmosphere
+* premium product/command-center style preview
+* AI Mentor / learning path signal
+* portal progress or portal constellation hint
+* clean mobile version
+* dark/light compatibility
+* no intrusive overlay
+* no cinematic intro yet
+
+Suggested Arabic positioning direction:
+
+ØªØ¹Ù„Ù‘Ù… Ø¨Ø°ÙƒØ§Ø¡. Ø§Ø¨Ù†Ù Ø¨Ù…Ù‡Ø§Ø±Ø©. ØªÙ‚Ø¯Ù‘Ù… Ø¨Ø«Ù‚Ø©.
+
+Use this only if it fits the existing content and localization structure.
+
+## C. Homepage architecture restraint
+
+Do not fully rewrite the homepage in this phase.
+
+You may improve or introduce components only where needed for the hero/foundation.
+
+Avoid large client/server architecture changes unless small, safe, and clearly justified.
+
+The full homepage rebuild belongs to Phase 5B.
+
+## D. Future intro compatibility
+
+Do not implement the intro now.
+
+But ensure your Phase 5A work does not make the future Phase 5D intro harder.
+
+In the final report, include:
+
+* where the future cinematic intro should attach
+* what current component should not auto-conflict with it
+* whether SmartPlatformTour auto-open behavior should be changed later in Phase 5D
+
+## E. No admin work in this phase
+
+Do not change admin dashboard functionality in Phase 5A.
+
+Admin UX polish is Phase 5F.
+
+Only inspect admin if needed for context.
+
+---
+
+# Visual acceptance criteria
+
+The result should be visibly better immediately.
+
+The homepage above-the-fold should show:
+
+* a stronger visual identity
+* less generic glass clutter
+* more premium hierarchy
+* polished Arabic typography
+* clearer CTAs
+* better visual depth
+* controlled use of glow/gradient
+* portal colors used intentionally
+* no excessive animation
+* responsive mobile layout
+* keyboard/focus safety
+* reduced-motion respect
+
+This phase should feel like the first real step toward a world-class academy experience.
+
+---
+
+# Required validation
+
+Run:
+
+npm run typecheck
+npm run lint
+npm run build
+git diff --check
+
+Also perform a focused review of:
+
+* /ar homepage
+* /en homepage
+* mobile layout if possible
+* dark/light compatibility if possible
+* reduced-motion behavior if changed
+* no protected file tracking
+* no package changes unless explicitly justified
+* no database or Supabase writes
+* no admin/security regression
+
+---
+
+# Required reports/files
+
+Create a report folder only if needed for this phase:
+
+docs/reports/2026-06-09-phase-5a-ui-foundation-hero/
+
+Include concise but useful reports:
+
+1. README.md
+2. implementation-notes.md
+3. visual-acceptance-review.md
+4. validation-report.md
+5. protected-files-review.md
+6. next-phase-recommendation.md
+7. summary.json
+
+Do not create temporary helper files.
+Do not create broad unrelated documentation.
+
+---
+
+# Commit / tag / release
+
+After validation passes:
+
+1. Stage explicit changed files only.
+2. Commit with:
+
+ui: add phase 5a premium foundation and hero prototype
+
+3. Create exact tag:
+
+checkpoint/phase-5a-ui-foundation-hero-v1
+
+4. Push:
+
+git push origin main
+git push origin checkpoint/phase-5a-ui-foundation-hero-v1
+
+5. Create GitHub Release for the exact tag if gh is available.
+
+Do not use:
+
+git push --tags
+
+---
+
+# Final response required
+
+Your final response must include:
+
+1. Whether Phase 5A completed successfully.
+2. Final HEAD.
+3. Commit hash.
+4. Tag name.
+5. GitHub Release URL, or clear reason if not created.
+6. Push status.
+7. Validation results:
+
+   * typecheck
+   * lint
+   * build
+   * git diff --check
+8. Files changed.
+9. Files created.
+10. Protected files status.
+11. Confirmation that no SQL/migrations/DB writes/package installs occurred.
+12. Confirmation that no broad staging, git add ., git add src, git add docs, git push --tags, amend, tag-force, or force push occurred.
+13. What changed visually.
+14. How the homepage hero improved.
+15. What was intentionally deferred.
+16. Confirmation that cinematic intro remains planned for Phase 5D.
+17. Recommended next station.
+
+Remember:
+This is Phase 5A only.
+Make it premium and visibly impressive.
+Do not overreach into the rest of Phase 5.
+
+## ØªÙ‚Ø±ÙŠØ± Ø§Ù„ØªÙ†ÙÙŠØ° Ø§Ù„Ù†Ù‡Ø§Ø¦ÙŠ
+
+ØªÙ… Ø¥ØºÙ„Ø§Ù‚ Ø§Ù„Ù…Ø±Ø­Ù„Ø© 5A Ø¨Ù†Ø¬Ø§Ø­ ÙˆØ¥Ù†Ø´Ø§Ø¡ Ø§Ù„Ù†Ù…ÙˆØ°Ø¬ Ø§Ù„Ù…Ø¨Ø¯Ø¦ÙŠ Ù„Ù„ÙˆØ§Ø¬Ù‡Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© Ø§Ù„ÙØ§Ø®Ø±Ø© (Premium Homepage Hero Prototype).
+
+- **Ø·Ø¨ÙŠØ¹Ø© Ø§Ù„Ù…Ø±Ø­Ù„Ø©:** ØªÙ… Ø§Ù„ØªØ£Ø³ÙŠØ³ Ù„ÙˆØ§Ø¬Ù‡Ø© Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø§Ù„Ù…ØªØ·ÙˆØ±Ø© (UI/UX Pro Max) Ù…Ø¹ Ø¨Ù‚Ø§Ø¡ Ø§Ù„Ù…Ù‚Ø¯Ù…Ø© Ø§Ù„Ø³ÙŠÙ†Ù…Ø§Ø¦ÙŠØ© (Cinematic Intro) Ù…Ø¤Ø¬Ù„Ø© Ù„Ù„Ù…Ø±Ø­Ù„Ø© 5D ÙƒÙ…Ø§ Ù‡Ùˆ Ù…Ø·Ù„ÙˆØ¨.
+- **Ø¹Ù„Ø§Ù…Ø© Ø§Ù„Ø¥ØºÙ„Ø§Ù‚:** `checkpoint/phase-5a-ui-foundation-hero-v1`
+- **Ø§Ù„ØªØºÙŠÙŠØ±Ø§Øª Ø§Ù„Ù…Ø±Ø¦ÙŠØ© (Visual Changes):**
+  - **Ø§Ù„Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹Ø±Ø¨ÙŠ:** ØªÙ… ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ù†Øµ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯ "ØªØ¹Ù„Ù‘Ù… Ø¨Ø°ÙƒØ§Ø¡. Ø§Ø¨Ù†Ù Ø¨Ù…Ù‡Ø§Ø±Ø©. ØªÙ‚Ø¯Ù‘Ù… Ø¨Ø«Ù‚Ø©." ÙƒØ±Ø³Ø§Ù„Ø© Ø£Ø³Ø§Ø³ÙŠØ©.
+  - **Ø§Ù„Ø¨Ù†ÙŠØ© Ø§Ù„ØªØ­ØªÙŠØ© Ù„Ù„ØªØµÙ…ÙŠÙ…:** ØªÙ…Øª Ø¥Ø¶Ø§ÙØ© ÙØ¦Ø§Øª (Tokens) ÙØ§Ø®Ø±Ø© ÙÙŠ `globals.css` Ù…Ø«Ù„ `.glass-panel-promax` Ùˆ `.premium-glow-button` Ùˆ `.text-gradient-premium`.
+  - **Ù…Ø±ÙƒØ² Ø§Ù„Ù‚ÙŠØ§Ø¯Ø© (Command Center):** ØªÙ… Ø§Ø³ØªØ¨Ø¯Ø§Ù„ Ù†Ø§ÙØ°Ø© Ù†Ø¸Ø§Ù… Ø§Ù„ØªØ´ØºÙŠÙ„ Ø§Ù„ØªÙ‚Ù„ÙŠØ¯ÙŠØ© Ø¨ÙˆØ§Ø¬Ù‡Ø© ÙØ§Ø®Ø±Ø© ØªØ¹Ø±Ø¶ Ø­ÙˆØ§Ø±Ø§Ù‹ Ù…Ø¹ "Ø§Ù„Ù…ÙˆØ¬Ù‡ Ø§Ù„Ø°ÙƒÙŠ" (AI Mentor) ÙŠØ­Ù„Ù„ Ø§Ù„Ù…Ø³Ø§Ø±ØŒ Ø¥Ù„Ù‰ Ø¬Ø§Ù†Ø¨ Ù…Ø¤Ø´Ø±Ø§Øª ØªÙ‚Ø¯Ù… Ù…ØªØ±Ø§Ø¨Ø·Ø© Ù…Ø¹ Ø£Ù„ÙˆØ§Ù† Ø§Ù„Ø¨ÙˆØ§Ø¨Ø§Øª Ø§Ù„Ù…ØªØ¹Ø¯Ø¯Ø©.
+  - **Ù†Ù‚Ø§Ø· Ø§Ù„Ø«Ù‚Ø©:** ØªÙ…Øª Ø¥Ø¶Ø§ÙØ© Ø¹Ù„Ø§Ù…Ø§Øª ØªØ£ÙƒÙŠØ¯ (Proof Points) ØªØ­Øª Ø§Ù„Ø¹Ù†ÙˆØ§Ù† Ù„ØªØ¹Ø²ÙŠØ² Ø§Ù„Ø«Ù‚Ø©.
+- **Ø§Ù„ØªØ£Ø¬ÙŠÙ„Ø§Øª Ø§Ù„Ù…ØªØ¹Ù…Ø¯Ø©:**
+  - ØªÙ… ØªØ±Ùƒ Ø§Ù„Ù…Ù‚Ø¯Ù…Ø© Ø§Ù„Ø³ÙŠÙ†Ù…Ø§Ø¦ÙŠØ© (Cinematic Intro) Ù„ØªÙÙ†ÙØ° Ù„Ø§Ø­Ù‚Ø§Ù‹ ÙÙŠ Ø§Ù„Ù…Ø±Ø­Ù„Ø© 5D.
+  - ØªÙ… ØªØ£Ø¬ÙŠÙ„ Ø§Ù„ØªØºÙŠÙŠØ± Ø§Ù„Ø´Ø§Ù…Ù„ Ù„Ø¨Ù‚ÙŠØ© Ø§Ù„ØµÙØ­Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© Ø¥Ù„Ù‰ Ø§Ù„Ù…Ø±Ø­Ù„Ø© 5B Ù„ØªØ¬Ù†Ø¨ Ø§Ù„Ù…Ø®Ø§Ø·Ø±Ø©.
+- **Ù†ØªØ§Ø¦Ø¬ Ø§Ù„ØªØ­Ù‚Ù‚:** 
+  - `typecheck` Ùˆ `lint` Ùˆ `build` ØªÙ… Ø§Ø¬ØªÙŠØ§Ø²Ù‡Ø§ Ø¨Ù†Ø¬Ø§Ø­.
+  - ÙØ­Øµ Git Ø§Ù„Ù†Ø¸ÙŠÙ Ø£ÙƒØ¯ Ø¹Ø¯Ù… ØªØªØ¨Ø¹ Ø§Ù„Ù…Ù„ÙØ§Øª Ø§Ù„Ù…Ø­Ù…ÙŠØ©.
+  - Ù„Ø§ ØªÙˆØ¬Ø¯ Ø£ÙŠ ØªØ¹Ø¯ÙŠÙ„Ø§Øª Ø¹Ù„Ù‰ Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø£Ùˆ Ø­Ø²Ù… NPM.
+  - Ù„Ù… ÙŠØªÙ… Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø£ÙŠ Ù…Ù† Ø§Ù„Ø£ÙˆØ§Ù…Ø± Ø§Ù„Ù…Ù…Ù†ÙˆØ¹Ø© Ù…Ø«Ù„ (git add . Ø£Ùˆ force push).
+- **Ø§Ù„Ù…Ù„ÙØ§Øª Ø§Ù„Ù…Ø¹Ø¯Ù„Ø©:**
+  - `src/app/globals.css`
+  - `src/components/landing/sections/HeroSection.tsx`
+  - Ù‡Ø°Ø§ Ø§Ù„Ø³Ø¬Ù„.
+- **Ø§Ù„Ù…Ù„ÙØ§Øª Ø§Ù„Ù…Ù†Ø´Ø£Ø©:** ØªÙ‚Ø§Ø±ÙŠØ± Ø§Ù„Ù…Ø±Ø­Ù„Ø© 5A (7 ØªÙ‚Ø§Ø±ÙŠØ±)
+- **Ø§Ù„Ù…Ø­Ø·Ø© Ø§Ù„Ù‚Ø§Ø¯Ù…Ø© Ø§Ù„Ù…ÙˆØµÙ‰ Ø¨Ù‡Ø§:** Phase 5B â€” Full Homepage Pro Max Redesign
+
