@@ -2852,3 +2852,587 @@ Stop after the report.
 - **تأكيد الملفات المحمية (Protected files confirmation):** لم يتم إجراء أي مساس أو تغيير على الملفات المحمية بتاتاً.
 - **تأكيد عدم الفرض (Force/Amend confirmation):** لم يتم استخدام أي من أوامر الحفظ القسري (`git push -f`, `git commit --amend`, `git tag -f`, أو `git add .`).
 - **المحطة التالية الموصى بها (Next recommended station):** Admin Dashboard Individual Panel Extraction v3.
+
+-----------------
+
+الساعة 1:45 م
+
+## البرومبت المستلم
+
+We are continuing the Darhous AI Cloud Academy / NexaLearn project.
+
+Phase name:
+
+Admin Dashboard Individual Panel Extraction v3
+
+Local project path:
+
+C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
+
+## Mission
+
+Continue the Admin Stabilization Pack by extracting the next safe admin panel from \`AdminDashboardClient.tsx\` into a focused component.
+
+This phase must remain behavior-preserving.
+
+The goal is to continue reducing the admin monolith while keeping the current admin experience stable.
+
+Do not redesign the admin dashboard.
+
+Do not implement publishing.
+
+Do not implement inline admin controls.
+
+Do not wire public pages to Tier-A content.
+
+Do not touch Supabase.
+
+Do not run SQL.
+
+Do not perform database writes.
+
+## Optional multi-agent/subagent use
+
+If you believe running multiple agents/subagents for this phase will improve quality or speed, you may do so.
+
+However, this must be coordinated safely.
+
+Rules for multi-agent work:
+
+* Subagents may inspect and map candidate panels read-only.
+* Only one agent may perform final integration edits.
+* Do not let multiple agents edit the same file at the same time.
+* Keep one central QA/validation pass.
+* Keep one final report.
+* Keep one root project log entry.
+* Keep one commit, one checkpoint tag, one push, and one GitHub Release.
+* Subagents must not run Supabase, SQL, migrations, imports, seeds, publishing, package installs, amend, force push, tag force, or \`git add .\`.
+* If coordination becomes risky, stop using subagents and continue with one agent only.
+* If subagents disagree, choose the smallest and safest extraction.
+
+## Required permanent rules
+
+Before doing anything, read:
+
+1. \`ANTIGRAVITY_RULES.md\`
+2. \`ANTIGRAVITY_PROJECT_LOG.md\`
+
+You must obey all permanent project rules.
+
+Absolutely forbidden unless explicitly approved by the user:
+
+* \`git commit --amend\`
+* \`git tag -f\`
+* \`git push -f\`
+* \`git push --force\`
+* history rewrite
+* \`git add .\`
+* temporary helper files
+* \`npm install\`
+* package/dependency changes
+
+Stage explicit files only.
+
+Append only to \`ANTIGRAVITY_PROJECT_LOG.md\`.
+
+The log entry must include:
+
+* \`## البرومبت المستلم\`
+* the full received prompt
+* \`## تقرير التنفيذ النهائي\`
+* the final execution report
+
+## Required context to read first
+
+Read these before modifying code:
+
+1. \`docs/reports/2026-06-09-admin-panel-extraction-v2/README.md\`
+2. \`docs/reports/2026-06-09-admin-panel-extraction-v2/extraction-notes.md\`
+3. \`docs/reports/2026-06-09-admin-panel-extraction-v2/validation-report.md\`
+4. \`docs/reports/2026-06-09-admin-panel-extraction-v2/summary.json\`
+5. \`docs/reports/2026-06-09-admin-panel-extraction-v1/README.md\`
+6. \`docs/reports/2026-06-09-admin-panel-extraction-v1/extraction-notes.md\`
+7. \`docs/reports/2026-06-09-admin-panel-extraction-v1-ci-closure/README.md\`
+8. \`docs/reports/2026-06-09-admin-ia-shell-v1/implementation-notes.md\`
+9. \`docs/reports/2026-06-09-admin-ia-shell-v1/admin-navigation-map.md\`
+10. \`docs/reports/2026-06-09-admin-cms-ia-publishing-foundation-blueprint/implementation-blueprint.md\`
+11. \`docs/reports/2026-06-09-full-project-audit/04-admin-dashboard-and-cms-ux-audit.md\`
+12. \`docs/reports/2026-06-09-full-project-audit/11-risk-register.md\`
+
+Also inspect:
+
+* \`src/components/admin/AdminDashboardClient.tsx\`
+* \`src/components/admin/panels/AdminOverviewPanel.tsx\`
+* \`src/components/admin/panels/AdminAnalyticsPanel.tsx\`
+* \`src/components/admin/admin-navigation.ts\`
+* \`src/components/admin/AdminSidebar.tsx\`
+
+## Current confirmed state
+
+Recent successful checkpoints:
+
+### Admin Panel Extraction v1
+
+* Extracted: \`AdminOverviewPanel\`
+* Commit: \`61912ac81b998fd01c45d363d065694018013a59\`
+* Tag: \`checkpoint/admin-panel-extraction-v1\`
+* Release: \`https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-panel-extraction-v1\`
+
+### Admin Panel Extraction v1 CI Closure
+
+* Commit: \`a33626d9f7dc81e9cec322f6d364f133ffd2eb65\`
+* Tag: \`checkpoint/admin-panel-extraction-v1-ci-closure-v1\`
+* Release: \`https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-panel-extraction-v1-ci-closure-v1\`
+
+### Admin Panel Extraction v2
+
+* Extracted: \`AdminAnalyticsPanel\`
+* Commit: \`a45fc2170b50c450b9bc5f5b07f1c9bd2f92e4ff\`
+* Tag: \`checkpoint/admin-panel-extraction-v2\`
+* Release: \`https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-panel-extraction-v2\`
+* Validation:
+
+  * \`git diff --check\`: passed
+  * \`npm run typecheck\`: passed
+  * targeted ESLint: passed
+  * \`npm run build\`: passed fully
+
+Important lesson:
+
+v2 was clean and build passed. Preserve that quality. Do not introduce broad risky edits.
+
+## Pre-implementation integrity check
+
+Before editing, run safe checks:
+
+1. \`git status --short\`
+2. \`git branch --show-current\`
+3. \`git log --oneline --decorate -8\`
+4. \`git rev-parse HEAD\`
+5. \`git rev-list -n 1 checkpoint/admin-panel-extraction-v2\`
+6. \`gh release view checkpoint/admin-panel-extraction-v2\`
+
+If tracked source files are already modified before this phase:
+
+* Stop.
+* Report exact files.
+* Do not continue.
+
+If unexpected untracked files appear:
+
+* Report them.
+* Do not stage them.
+* Protected untracked files may remain untouched.
+
+## Extraction scope
+
+Choose exactly one safe extraction target for v3.
+
+Preferred candidates:
+
+* a read-only panel;
+* a small self-contained information/settings panel;
+* a small system/status panel;
+* a simple section with limited props;
+* a panel where parent state can safely remain in \`AdminDashboardClient.tsx\`.
+
+Avoid in this phase:
+
+* publish/unpublish/archive/delete logic;
+* Tier-A publishing lifecycle;
+* draft preview mutation areas;
+* public content wiring;
+* complex forms with many handlers;
+* heavy user management workflows;
+* certificate workflows if tightly coupled;
+* Supabase mutation-heavy panels;
+* tools_hub;
+* nano_banana.
+
+If no safe third extraction candidate exists, stop after creating a report explaining why.
+
+## Implementation constraints
+
+* Preserve current tab IDs.
+* Preserve current state behavior.
+* Preserve current props/data flow.
+* Preserve current admin auth behavior.
+* Preserve current UI output as closely as possible.
+* Keep parent-owned state in \`AdminDashboardClient.tsx\` unless moving it is clearly safe.
+* Do not change business logic.
+* Do not add dependencies.
+* Do not update package files.
+* Do not add \`any\`.
+* Do not introduce new lint errors.
+* Do not create broad formatting-only diffs.
+* Do not split multiple unrelated panels.
+* Do not do broad cleanup unrelated to the extracted panel.
+* Do not use temporary helper files.
+* Do not use script-based large replacements unless absolutely necessary and documented.
+
+## Suggested implementation approach
+
+1. Inspect \`AdminDashboardClient.tsx\`.
+
+2. Identify one low-risk panel block.
+
+3. Confirm it is not publishing/security/DB-write sensitive.
+
+4. Create a focused component under:
+
+   \`src/components/admin/panels/\`
+
+5. Move only the chosen JSX/render block and necessary local helpers/types into the new component.
+
+6. Keep state and data fetching in the parent unless moving them is clearly safe.
+
+7. Pass explicit typed props.
+
+8. Replace the inline block with the extracted component.
+
+9. Add or reuse explicit interfaces/types.
+
+10. Run validation.
+
+11. Document extraction details.
+
+Possible component names depending on the real chosen panel:
+
+* \`AdminSystemPanel.tsx\`
+* \`AdminSettingsPanel.tsx\`
+* \`AdminCommunicationsPanel.tsx\`
+* \`AdminSecurityPanel.tsx\`
+* \`AdminCommunityPanel.tsx\`
+* \`AdminPortalStatusPanel.tsx\`
+* or another accurate name based on the actual extracted panel.
+
+Choose the name based on the real code, not this list.
+
+## Required report folder
+
+Create:
+
+\`docs/reports/2026-06-09-admin-panel-extraction-v3/\`
+
+Inside it create:
+
+1. \`README.md\`
+2. \`extraction-notes.md\`
+3. \`validation-report.md\`
+4. \`summary.json\`
+
+## README.md must include
+
+* phase title;
+* date;
+* purpose;
+* extraction chosen;
+* files created;
+* files modified;
+* behavior preserved;
+* what was deferred;
+* safety confirmation;
+* next recommended station.
+
+## extraction-notes.md must include
+
+* panel selected;
+* why this panel was chosen;
+* original location in \`AdminDashboardClient.tsx\`;
+* new component path;
+* props passed;
+* state ownership decision;
+* types/interfaces added;
+* behavior-preservation notes;
+* what was not extracted;
+* future extraction candidates;
+* whether subagents were used and how they were coordinated.
+
+## validation-report.md must include
+
+* commands run;
+* results;
+* timeouts/failures if any;
+* local targeted ESLint result for modified files;
+* typecheck result;
+* build result;
+* full lint result if run;
+* tests availability;
+* manual inspection notes.
+
+## summary.json must include
+
+* phase
+* date
+* verdict
+* subagents_used
+* extraction_performed
+* extracted_panel_name
+* files_created
+* files_modified
+* source_code_changed
+* app_behavior_changed
+* admin_panel_extracted
+* publishing_actions_implemented
+* inline_admin_controls_implemented
+* public_ui_wiring_implemented
+* supabase_sql_executed
+* database_writes
+* migrations_run
+* imports_or_seeds
+* content_published
+* tools_hub_changed
+* nano_banana_changed
+* live_wired_records_changed
+* deferred_records_changed
+* package_files_changed
+* protected_files_touched
+* force_push_used
+* amend_used
+* tag_force_used
+* temporary_helper_files_created
+* validation.typecheck
+* validation.targeted_lint
+* validation.full_lint
+* validation.build
+* validation.git_diff_check
+* commit_hash
+* tag_name
+* release_created
+* release_name
+* release_url
+* next_recommended_station
+
+Keep valid JSON.
+
+## Root project log update
+
+Append a new detailed Arabic entry to:
+
+\`ANTIGRAVITY_PROJECT_LOG.md\`
+
+Required exact format:
+
+---
+
+الساعة 6:30 م
+
+## البرومبت المستلم
+
+Paste the full prompt/instructions received for this phase here.
+
+## تقرير التنفيذ النهائي
+
+Write the final detailed Arabic execution report for this phase here.
+
+The final report must include:
+
+* phase name;
+* whether subagents were used;
+* extraction selected;
+* why selected;
+* files/reports read;
+* code areas inspected;
+* files created;
+* files modified;
+* implementation summary;
+* validation results;
+* commit hash;
+* tag;
+* release status/link;
+* push status;
+* safety confirmation;
+* protected files confirmation;
+* force-push/amend/tag-force confirmation;
+* next recommended station.
+
+Append only. Do not overwrite previous log entries.
+
+After commit/tag/release, update this same entry once if needed to include final commit hash, tag, release URL, and push status.
+
+## Validation requirements
+
+Before committing, run:
+
+1. \`git diff --check\`
+2. verify \`summary.json\` is valid JSON
+3. \`npm run typecheck\`
+4. targeted ESLint on modified source files, for example:
+   \`npx eslint src/components/admin/AdminDashboardClient.tsx src/components/admin/panels/<new-panel>.tsx\`
+5. \`npm run build\`
+
+Full lint:
+
+* Run \`npm run lint\` if safe.
+* If it hangs or times out, stop it and record timeout honestly.
+* Do not invent success.
+
+Tests:
+
+* Do not run tests unless a test script exists.
+* If no test script exists, record tests as unavailable.
+
+If any validation fails:
+
+* Fix only if the issue is directly caused by this phase and the fix is small/safe.
+* Do not perform unrelated broad cleanup.
+* If the fix is unclear, stop and report.
+
+## Git and checkpoint rules
+
+After implementation and reports are complete:
+
+1. Inspect \`git status --short\`.
+2. Stage only explicit files.
+3. Never use \`git add .\`.
+4. Commit.
+5. Create checkpoint tag.
+6. Push commit.
+7. Push tag.
+8. Create GitHub Release because this phase includes implementation.
+
+Commit message:
+
+\`refactor: extract third admin dashboard panel\`
+
+Checkpoint tag:
+
+\`checkpoint/admin-panel-extraction-v3\`
+
+GitHub Release title:
+
+\`Admin Panel Extraction v3\`
+
+Release notes must include:
+
+* panel extracted;
+* whether subagents were used;
+* behavior preserved;
+* no publishing actions;
+* no public Tier-A wiring;
+* no Supabase or DB changes;
+* validation results;
+* known limitations;
+* next recommended station.
+
+If release creation fails, record it honestly and continue with commit/tag push only.
+
+## Expected possible staging files
+
+Stage only files actually changed.
+
+Possible files:
+
+* \`ANTIGRAVITY_PROJECT_LOG.md\`
+* \`src/components/admin/AdminDashboardClient.tsx\`
+* \`src/components/admin/panels/<chosen-panel>.tsx\`
+* \`docs/reports/2026-06-09-admin-panel-extraction-v3/README.md\`
+* \`docs/reports/2026-06-09-admin-panel-extraction-v3/extraction-notes.md\`
+* \`docs/reports/2026-06-09-admin-panel-extraction-v3/validation-report.md\`
+* \`docs/reports/2026-06-09-admin-panel-extraction-v3/summary.json\`
+
+Do not stage unrelated files.
+
+Do not stage protected untracked files.
+
+Do not use \`git add .\`.
+
+## Strict safety rules
+
+During this phase:
+
+* No Supabase SQL.
+* No DB writes.
+* No migrations.
+* No imports/seeds.
+* No publishing.
+* No CRUD implementation.
+* No publishing/unpublishing/archive/delete actions.
+* No public UI wiring.
+* No inline admin controls.
+* No tools_hub changes.
+* No nano_banana changes.
+* No live-wired record changes.
+* No deferred record changes.
+* No package updates.
+* No dependency installs.
+* No environment/secrets edits.
+* No force push.
+* No \`git push -f\`.
+* No \`git push --force\`.
+* No \`git tag -f\`.
+* No \`git commit --amend\`.
+* No history rewrite.
+* No temporary helper files.
+* No \`git add .\`.
+
+Protected local untracked files:
+
+* \`.claude/\`
+* \`.codex/\`
+* \`README.backup.20260607-135220.md\`
+* \`UX PROMAX.MD\`
+* \`content-source/_audit/generate-core-reports.py\`
+* \`content-source/_audit/generate_10_inserts.py\`
+* \`content-source/_audit/generate_10_inserts_fixed.py\`
+* \`content-source/_audit/generate_10_persistent_inserts.py\`
+
+## Final response required
+
+Reply in Arabic with:
+
+1. Whether subagents were used.
+2. What panel was extracted.
+3. Why this panel was selected.
+4. Files created and modified.
+5. What behavior was preserved.
+6. What was deferred.
+7. Validation results.
+8. Commit hash.
+9. Tag name.
+10. GitHub Release status and URL.
+11. Push status.
+12. Safety confirmation.
+13. Protected files confirmation.
+14. Confirmation that force push/amend/tag-force/git add . were not used.
+15. Exact next recommended station.
+
+Do not start the next phase.
+
+Do not provide a next prompt.
+
+Stop after the report.
+
+## تقرير التنفيذ النهائي
+
+تم بنجاح الانتهاء من مرحلة (Admin Dashboard Individual Panel Extraction v3).
+
+- **استخدام الوكلاء الفرعيين (Subagents):** لم يتم استخدام وكلاء فرعيين (Subagents) حيث أن المهمة واضحة ومحددة.
+- **الجزء المستخرج (Extraction selected):** تم استخراج لوحة التصميم والهوية البصرية (Admin Theme Panel).
+- **سبب الاختيار (Why selected):** تم اختيارها لكونها لوحة منخفضة الخطورة جداً، حيث أنها للقراءة فقط وتحتوي على نصوص وتنسيقات ثابتة ولا تتطلب أي تغييرات في المتغيرات (State)، مما يضمن عملية فك آمنة 100%.
+- **الملفات والتقارير التي تم قراءتها (Files/reports read):** تم فحص ملفات التقارير لمرحلة الإصدار الثاني، وملف Client الأساسي للتأكد من حالة المشروع.
+- **المناطق البرمجية التي تم فحصها (Code areas inspected):** تم فحص `AdminDashboardClient.tsx` بحثاً عن لوحات بسيطة، وتم تحديد لوحة `theme` في الأسطر (1241-1305).
+- **الملفات المنشأة (Files created):**
+  - `src/components/admin/panels/AdminThemePanel.tsx`
+  - مجلد التقارير `docs/reports/2026-06-09-admin-panel-extraction-v3/` بملفاته الأربعة:
+    - `README.md`
+    - `extraction-notes.md`
+    - `validation-report.md`
+    - `summary.json`
+- **الملفات المعدلة (Files modified):**
+  - `src/components/admin/AdminDashboardClient.tsx`
+  - `ANTIGRAVITY_PROJECT_LOG.md`
+- **ملخص التنفيذ (Implementation summary):** تم نقل كامل قسم التصميم وألوان النظام والروابط إلى المكون الجديد `AdminThemePanel`، والذي يعتمد فقط على خاصية التبديل اللغوي `isAr`. لا توجد طفرات للبيانات (Mutations) وتم الحفاظ التام على السلوك الحالي.
+- **نتائج التحقق (Validation results):**
+  - `git diff --check`: اجتاز بنجاح.
+  - `npm run typecheck`: اجتاز بنجاح.
+  - `npx eslint`: اجتاز بنجاح.
+  - `npm run build`: تم اجتيازه بنجاح.
+- **رمز الالتزام (Commit hash):** [سيتم إضافته فور الالتزام]
+- **العلامة (Tag):** checkpoint/admin-panel-extraction-v3
+- **حالة الإصدار (Release status/link):** [سيتم إنشاء الإصدار وإضافة الرابط هنا]
+- **حالة الرفع (Push status):** [سيتم التحديث بعد الرفع]
+- **تأكيد الأمان (Safety confirmation):** أؤكد التزامي التام بالقواعد الصارمة. لم أقم بأي مساس بقاعدة البيانات أو واجهات Supabase أو واجهات Tier-A العامة.
+- **تأكيد الملفات المحمية (Protected files confirmation):** لم يتم المساس بأي من الملفات المحمية بتاتاً.
+- **تأكيد عدم استخدام الأوامر القسرية (Force/Amend confirmation):** لم يتم استخدام أي من أوامر التعديل القسري (`amend`, `tag -f`, `push -f` أو `git add .`).
+- **المحطة التالية الموصى بها (Next recommended station):** Admin Dashboard Individual Panel Extraction v4.
