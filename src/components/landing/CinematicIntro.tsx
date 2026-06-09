@@ -12,7 +12,7 @@ interface Props {
 export default function CinematicIntro({ locale }: Props) {
   const isAr = locale === "ar";
   const shouldReduce = useReducedMotion();
-  
+
   const [show, setShow] = useState(true);
   const [mounted, setMounted] = useState(false);
 
@@ -60,7 +60,7 @@ export default function CinematicIntro({ locale }: Props) {
   }, [show]);
 
   if (!mounted) return null; // Avoid hydration mismatch
-  
+
   return (
     <AnimatePresence>
       {show && !shouldReduce && (
@@ -119,7 +119,7 @@ export default function CinematicIntro({ locale }: Props) {
                 NexaLearn
               </motion.h1>
             </div>
-            
+
             <div className="overflow-hidden">
               <motion.p
                 className="font-mono text-xs md:text-sm tracking-[0.3em] uppercase opacity-80"
@@ -131,6 +131,27 @@ export default function CinematicIntro({ locale }: Props) {
                 by Darhous
               </motion.p>
             </div>
+
+            {/* Subtle Progress Bar */}
+            <motion.div
+              className="mt-6 h-[2px] w-full max-w-[220px] rounded-full overflow-hidden"
+              style={{ background: "rgba(255, 255, 255, 0.05)" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <motion.div
+                className="h-full w-full rounded-full"
+                style={{
+                  background: "linear-gradient(90deg, transparent, var(--color-primary), #fff)",
+                  boxShadow: "0 0 10px var(--color-primary)",
+                  transformOrigin: isAr ? "right" : "left"
+                }}
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 2.2, delay: 0.3, ease: "easeInOut" }}
+              />
+            </motion.div>
           </div>
         </motion.div>
       )}

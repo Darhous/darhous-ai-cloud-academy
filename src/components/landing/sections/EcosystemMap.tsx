@@ -73,11 +73,18 @@ export default function EcosystemMap({ locale, portals }: Props) {
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110" style={{ background: `${portal.color}15`, color: portal.color }}>
                   {portal.icon}
                 </div>
-                {portal.status === "available" && (
-                  <span className="text-[10px] font-mono px-3 py-1 rounded-full" style={{ background: "rgba(74,222,128,0.12)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.3)" }}>
-                    {isAr ? "متاح" : "Live"}
-                  </span>
-                )}
+                {(() => {
+                  const s = portal.status === "available"
+                    ? { bg: "rgba(74,222,128,0.12)", border: "rgba(74,222,128,0.3)", text: "#4ade80", labelAr: "متاح", labelEn: "Live" }
+                    : portal.status === "beta"
+                    ? { bg: "rgba(251,191,36,0.12)", border: "rgba(251,191,36,0.3)", text: "#fbbf24", labelAr: "بيتا", labelEn: "Beta" }
+                    : { bg: "rgba(148,163,184,0.08)", border: "rgba(148,163,184,0.2)", text: "#94a3b8", labelAr: portal.badgeAr ?? "قريبًا", labelEn: portal.badgeEn ?? "Soon" };
+                  return (
+                    <span className="text-[10px] font-mono px-3 py-1 rounded-full whitespace-nowrap" style={{ background: s.bg, color: s.text, border: `1px solid ${s.border}` }}>
+                      {isAr ? s.labelAr : s.labelEn}
+                    </span>
+                  );
+                })()}
               </div>
               <div>
                 <p className="font-bold text-lg leading-tight mb-2" style={{ color: "var(--color-on-surface)" }}>
@@ -105,9 +112,18 @@ export default function EcosystemMap({ locale, portals }: Props) {
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110" style={{ background: `${portals[3].color}15`, color: portals[3].color }}>
                   {portals[3].icon}
                 </div>
-                <span className="text-[10px] font-mono px-3 py-1 rounded-full" style={{ background: "rgba(74,222,128,0.12)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.3)" }}>
-                  {isAr ? "متاح" : "Live"}
-                </span>
+                {(() => {
+                  const s = portals[3].status === "available"
+                    ? { bg: "rgba(74,222,128,0.12)", border: "rgba(74,222,128,0.3)", text: "#4ade80", labelAr: "متاح", labelEn: "Live" }
+                    : portals[3].status === "beta"
+                    ? { bg: "rgba(251,191,36,0.12)", border: "rgba(251,191,36,0.3)", text: "#fbbf24", labelAr: "بيتا", labelEn: "Beta" }
+                    : { bg: "rgba(148,163,184,0.08)", border: "rgba(148,163,184,0.2)", text: "#94a3b8", labelAr: portals[3].badgeAr ?? "قريبًا", labelEn: portals[3].badgeEn ?? "Soon" };
+                  return (
+                    <span className="text-[10px] font-mono px-3 py-1 rounded-full whitespace-nowrap" style={{ background: s.bg, color: s.text, border: `1px solid ${s.border}` }}>
+                      {isAr ? s.labelAr : s.labelEn}
+                    </span>
+                  );
+                })()}
               </div>
               <div>
                 <p className="font-bold text-lg leading-tight mb-2" style={{ color: "var(--color-on-surface)" }}>
@@ -192,9 +208,18 @@ export default function EcosystemMap({ locale, portals }: Props) {
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110" style={{ background: `${portals[4].color}15`, color: portals[4].color }}>
                   {portals[4].icon}
                 </div>
-                <span className="text-[10px] font-mono px-3 py-1 rounded-full" style={{ background: "rgba(74,222,128,0.12)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.3)" }}>
-                  {isAr ? "متاح" : "Live"}
-                </span>
+                {(() => {
+                  const s = portals[4].status === "available"
+                    ? { bg: "rgba(74,222,128,0.12)", border: "rgba(74,222,128,0.3)", text: "#4ade80", labelAr: "متاح", labelEn: "Live" }
+                    : portals[4].status === "beta"
+                    ? { bg: "rgba(251,191,36,0.12)", border: "rgba(251,191,36,0.3)", text: "#fbbf24", labelAr: "بيتا", labelEn: "Beta" }
+                    : { bg: "rgba(148,163,184,0.08)", border: "rgba(148,163,184,0.2)", text: "#94a3b8", labelAr: portals[4].badgeAr ?? "قريبًا", labelEn: portals[4].badgeEn ?? "Soon" };
+                  return (
+                    <span className="text-[10px] font-mono px-3 py-1 rounded-full whitespace-nowrap" style={{ background: s.bg, color: s.text, border: `1px solid ${s.border}` }}>
+                      {isAr ? s.labelAr : s.labelEn}
+                    </span>
+                  );
+                })()}
               </div>
               <div>
                 <p className="font-bold text-lg leading-tight mb-2" style={{ color: "var(--color-on-surface)" }}>
@@ -223,9 +248,18 @@ export default function EcosystemMap({ locale, portals }: Props) {
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110" style={{ background: `${portals[5].color}15`, color: portals[5].color }}>
                   {portals[5].icon}
                 </div>
-                <span className="text-[10px] font-mono px-3 py-1 rounded-full" style={{ background: "rgba(74,222,128,0.12)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.3)" }}>
-                  {isAr ? "متاح" : "Live"}
-                </span>
+                {(() => {
+                  const s = portals[5].status === "available"
+                    ? { bg: "rgba(74,222,128,0.12)", border: "rgba(74,222,128,0.3)", text: "#4ade80", labelAr: "متاح", labelEn: "Live" }
+                    : portals[5].status === "beta"
+                    ? { bg: "rgba(251,191,36,0.12)", border: "rgba(251,191,36,0.3)", text: "#fbbf24", labelAr: "بيتا", labelEn: "Beta" }
+                    : { bg: "rgba(148,163,184,0.08)", border: "rgba(148,163,184,0.2)", text: "#94a3b8", labelAr: portals[5].badgeAr ?? "قريبًا", labelEn: portals[5].badgeEn ?? "Soon" };
+                  return (
+                    <span className="text-[10px] font-mono px-3 py-1 rounded-full whitespace-nowrap" style={{ background: s.bg, color: s.text, border: `1px solid ${s.border}` }}>
+                      {isAr ? s.labelAr : s.labelEn}
+                    </span>
+                  );
+                })()}
               </div>
               <div>
                 <p className="font-bold text-lg leading-tight mb-2" style={{ color: "var(--color-on-surface)" }}>
