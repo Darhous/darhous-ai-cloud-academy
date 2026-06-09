@@ -11,11 +11,13 @@ export type AdminTab =
   | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms" | "ai-projects-cms" | "ai-paths-cms"
   | "automation-cms" | "iot-cms" | "exams-cms" | "draft-preview";
 
+import React from "react";
+
 export interface NavItem {
   id: AdminTab;
   labelAr: string;
   labelEn: string;
-  icon: any;
+  icon: React.ElementType;
 }
 
 export interface NavGroup {

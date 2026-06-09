@@ -6,14 +6,15 @@ import { tools } from "@/data/tools";
 import { prompts } from "@/data/prompts";
 import { portals as allPortals } from "@/config/portals";
 
-interface UserRow { role: string; [key: string]: any }
-interface MessageRow { status: string; [key: string]: any }
+interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
+interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
+interface MessageRow { id: string; name: string | null; email: string | null; subject: string | null; message: string | null; status: string; created_at: string }
 interface HealthStatus { supabase: boolean; gemini: boolean; resend: boolean; portalsOk: boolean; portalsCount: number }
 
 interface AdminOverviewPanelProps {
   isAr: boolean;
   users: UserRow[];
-  subscribers: any[];
+  subscribers: SubscriberRow[];
   messages: MessageRow[];
   health: HealthStatus | null;
   healthLoading: boolean;
