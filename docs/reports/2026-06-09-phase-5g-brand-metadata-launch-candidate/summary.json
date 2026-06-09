@@ -1,11 +1,18 @@
-{
+﻿{
   "phase": "5G",
   "status": "COMPLETED",
   "reports": [
-    "01-brand-audit.md",
-    "02-metadata-changes.md",
-    "03-deferred-items.md",
-    "04-validation-report.md"
+    "README.md",
+    "preflight-ci-log-review.md",
+    "brand-audit.md",
+    "metadata-og-audit.md",
+    "implementation-notes.md",
+    "localization-leak-audit.md",
+    "launch-candidate-review.md",
+    "validation-report.md",
+    "protected-files-review.md",
+    "deferred-items.md",
+    "next-phase-recommendation.md"
   ],
   "validation": {
     "typecheck": "PASSED",
@@ -14,5 +21,5 @@
     "diffCheck": "PASSED"
   },
   "commit": "PENDING",
-  "tag": "checkpoint/phase-5g-brand-metadata-launch-candidate-v1"
+  "tag": "checkpoint/phase-5g-integrity-launch-candidate-closure-v1"
 }

@@ -6957,7 +6957,8 @@ Create these files:
 
 1. \README.md\
 2. \ci-failure-review.md\
-3. \oot-cause.md\
+3. \
+oot-cause.md\
 4. \implementation-fix-notes.md\
 5. \ercel-live-visibility-review.md\
 6. \alidation-report.md\
@@ -7998,7 +7999,8 @@ This station exists because Phase 5E implementation was attempted, but the execu
 
 These commands are permanently forbidden in this project.
 
-The previous report also stated that GitHub Actions CI was still \unning / in_progress\, not passed.
+The previous report also stated that GitHub Actions CI was still \
+unning / in_progress\, not passed.
 
 Therefore Phase 5E must NOT be considered safely closed until this integrity closure verifies the exact repo state, CI status, tag/release state, log status, and protected-file safety, then creates a new corrective closure checkpoint without force, amend, or tag-force.
 
@@ -8021,7 +8023,8 @@ Latest reported Phase 5E state:
 * New CI run reported:
   \27235398713\
 * Reported status at time of previous report:
-  \unning / in_progress\
+  \
+unning / in_progress\
 
 Reported Phase 5E changes:
 
@@ -8671,3 +8674,724 @@ pm run build, git diff --check) all passed.
 
 **Next Steps:**
 Awaiting live deployment Vercel verification of Phase 5G, followed by further planning for Phase 5H (Brand Overhaul & Localization QA).
+
+---
+
+?????? 1:35 ?
+
+## ???????? ???????
+
+We are continuing the Darhous / NexaLearn project.
+
+Local project path:
+
+C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
+
+You are now performing:
+
+# Phase 5G Integrity + Completion Closure
+
+This is NOT a new product phase.
+Do NOT start any phase after 5G.
+Do NOT implement Phase 5H.
+Do NOT implement full brand overhaul.
+Do NOT implement full logo replacement.
+Do NOT implement full English localization QA.
+Do NOT add new features.
+Do NOT rewrite Phase 5G source changes unless a real issue is found.
+Do NOT use force, amend, tag-force, or broad staging.
+
+This closure exists because the previous Phase 5G attempt made useful launch metadata changes, but it did not satisfy the full process requirements.
+
+Previous Phase 5G attempt reportedly:
+
+* updated `src/app/layout.tsx`
+* updated `src/app/og/route.tsx`
+* updated `src/lib/constants.ts`
+* created partial numbered reports:
+
+  * `01-brand-audit.md`
+  * `02-metadata-changes.md`
+  * `03-deferred-items.md`
+  * `04-validation-report.md`
+  * `summary.json`
+* updated `ANTIGRAVITY_PROJECT_LOG.md` with a short summary only
+* created tag:
+  `checkpoint/phase-5g-brand-metadata-launch-candidate-v1`
+* created release:
+  `https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/phase-5g-brand-metadata-launch-candidate-v1`
+
+But the previous attempt is not considered safely closed because:
+
+1. `ANTIGRAVITY_PROJECT_LOG.md` was not updated in the required format:
+
+   * missing `## ???????? ???????`
+   * missing full prompt
+   * missing `## ????? ??????? ???????`
+   * missing full final report
+2. Required reports were not created with the required names.
+3. It did not prove post-push GitHub Actions CI status.
+4. It did not provide final HEAD, commit hash, or CI status in the final report.
+5. It showed `Edited implementation_plan.md`, which must be verified as outside the repository and not staged/committed.
+6. The Arabic brand text must be checked to ensure it uses:
+   `NexaLearn by Darhous | ???? ???? ???? ?? ?????`
+   and not the unwanted transliteration:
+   `???? ?????????`.
+
+Therefore Phase 5G must NOT be considered safely closed until this closure verifies current state, validates code, checks CI, completes required reports/logs, creates an additive corrective checkpoint, tag, and release.
+
+---
+
+# Current known context
+
+Previous Phase 5G expected commit/tag/release:
+
+* Expected tag:
+  `checkpoint/phase-5g-brand-metadata-launch-candidate-v1`
+* Expected release:
+  `https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/phase-5g-brand-metadata-launch-candidate-v1`
+
+Previous Phase 5G intended source changes:
+
+* `src/app/layout.tsx`
+
+  * metadata title should use:
+    `NexaLearn by Darhous | ???? ???? ???? ?? ?????`
+* `src/app/og/route.tsx`
+
+  * Open Graph generated image should use:
+    `NexaLearn by Darhous`
+* `src/lib/constants.ts`
+
+  * site name should use:
+    `NexaLearn by Darhous`
+  * Arabic site name should not use `?????????`
+
+Previous Phase 5G intended deferred items:
+
+* full logo design/replacement
+* binary logo assets
+* deep UI component replacements
+* translation JSON broad edits
+* email template edits
+* English localization Arabic-leak full QA
+* database/content-source changes
+
+This closure must verify these claims and complete the missing process.
+
+---
+
+# Future roadmap notes — document only, do not implement now
+
+Preserve these future items in the closure reports, but do NOT implement them now:
+
+## Future Brand / Logo Overhaul
+
+Later dedicated phase:
+
+1. Run a full audit of every place that still uses old Darhous Academy logo/academy branding.
+2. Design a new logo for `NexaLearn`.
+3. Replace the old academy logo everywhere in one controlled phase.
+4. Avoid ad hoc replacement.
+
+## Future English Localization QA
+
+Later dedicated phase:
+
+1. Inspect English routes, topics, paths, UI labels, catalog/type fields, portal pages, and content surfaces.
+2. Find accidental Arabic text appearing in English UI/content.
+3. Fix systematically in one controlled pass.
+
+Do not do these in this closure.
+
+---
+
+# If subagents are available
+
+If the tool supports subagents and it is genuinely useful, split the work safely:
+
+* Agent 1: Git/process/tag/release/CI integrity review.
+* Agent 2: Phase 5G source changes and metadata/OG constants review.
+* Agent 3: Report/log/protected-file/temp-file validation review.
+* Main agent: central QA, minimal fixes if needed, explicit staging, commit, tag, release, final report.
+
+Subagent rules:
+
+* No independent commits.
+* No independent tags.
+* No independent pushes.
+* No independent releases.
+* No broad staging.
+* No conflicting edits.
+* No force.
+* No amend.
+* No tag-force.
+* No history rewrite.
+* Main agent must run final validation.
+* Main agent must produce one final response.
+* One project log entry only.
+
+If subagents are not useful, do the work directly.
+
+---
+
+# Mandatory files to read first
+
+Before making any conclusion or change, read:
+
+1. `ANTIGRAVITY_RULES.md`
+2. `ANTIGRAVITY_PROJECT_LOG.md`
+
+Read existing Phase 5G reports if present:
+
+3. `docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/summary.json`
+4. `docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/01-brand-audit.md`
+5. `docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/02-metadata-changes.md`
+6. `docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/03-deferred-items.md`
+7. `docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/04-validation-report.md`
+
+Inspect source files changed in Phase 5G:
+
+8. `src/app/layout.tsx`
+9. `src/app/og/route.tsx`
+10. `src/lib/constants.ts`
+
+Also inspect the current Phase 5G commit:
+
+```bash
+git log --oneline --decorate -20
+git show --stat --oneline checkpoint/phase-5g-brand-metadata-launch-candidate-v1
+git show --name-only --oneline checkpoint/phase-5g-brand-metadata-launch-candidate-v1
+```
+
+Do not edit source files unless a real issue is found.
+
+---
+
+# Absolute safety rules
+
+Do NOT:
+
+* start any phase after 5G
+* implement Phase 5H
+* perform full logo replacement
+* implement full English localization QA
+* rewrite public content broadly
+* touch database schema
+* run SQL
+* create migrations
+* write to Supabase
+* import or seed data
+* publish content
+* change CMS publishing lifecycle
+* weaken admin protection
+* expose draft content publicly
+* create public mutation controls
+* change auth logic
+* change RLS or permissions
+* install packages
+* modify package files
+* change environment files
+* change secrets
+* touch `tools_hub`
+* expand or wire `nano_banana`
+* add fake data
+* add new database reads/writes
+* use canvas/WebGL/video
+* create temporary helper files
+* commit font files
+* commit large binary assets
+* commit generated screenshots unless explicitly approved
+
+---
+
+# Protected files
+
+Do not touch, stage, commit, move, delete, or rewrite:
+
+* `.claude/`
+* `.codex/`
+* `README.backup.20260607-135220.md`
+* `UX PROMAX.MD`
+* `content-source/_audit/generate-core-reports.py`
+* `content-source/_audit/generate-final-closure.py`
+* `content-source/_audit/generate_10_inserts.py`
+* `content-source/_audit/generate_10_inserts_fixed.py`
+* `content-source/_audit/generate_10_persistent_inserts.py`
+* `eslint-output.txt`
+
+Also do not create temporary helper files such as:
+
+* `task.md`
+* `temp-log.md`
+* `implementation_plan.md`
+* `temp_log_append.txt`
+* `test_arabic*.md`
+* scratch scripts
+* temporary audit scripts
+* temporary markdown helpers
+
+Important:
+A file named `implementation_plan.md` appeared in the previous attempt. Verify whether it exists inside the repository. If it exists inside the repo, it must be removed before staging unless it is already tracked intentionally, which is not expected. If it exists outside the repo, document that it was outside and not committed.
+
+---
+
+# Git rules — strict and permanent
+
+These commands are forbidden:
+
+* `git add .`
+* `git add -A`
+* `git add src`
+* `git add docs`
+* broad directory staging
+* `git push --tags`
+* `git push origin main --tags`
+* `git commit --amend`
+* `git tag -f`
+* `git push -f`
+* `git push --force`
+* history rewrite
+* deleting existing remote tags
+* deleting existing releases
+* moving old tags
+* blind cleanup commands
+
+Use explicit file staging only.
+
+Do not rewrite the previous Phase 5G commit.
+Do not force-repair history.
+Create a new additive closure checkpoint.
+
+---
+
+# Step 1 — Current state and previous Phase 5G verification
+
+Run and record:
+
+```bash
+git status --short
+git branch --show-current
+git rev-parse HEAD
+git log --oneline --decorate -30
+git rev-list -n 1 checkpoint/phase-5g-brand-metadata-launch-candidate-v1
+gh release view checkpoint/phase-5g-brand-metadata-launch-candidate-v1
+gh run list --branch main --limit 10
+git show --stat --oneline checkpoint/phase-5g-brand-metadata-launch-candidate-v1
+git show --name-only --oneline checkpoint/phase-5g-brand-metadata-launch-candidate-v1
+```
+
+If `gh` is available, inspect the latest CI run for the Phase 5G commit:
+
+```bash
+gh run list --branch main --limit 10
+```
+
+If a relevant run failed:
+
+```bash
+gh run view <RUN_ID> --log-failed
+gh run view <RUN_ID> --json conclusion,status,headSha,event,displayTitle,createdAt,url
+```
+
+Document:
+
+1. Current HEAD.
+2. Phase 5G commit hash.
+3. Whether current HEAD includes the Phase 5G commit.
+4. Whether working tree is clean.
+5. Whether post-push CI passed/running/failed.
+6. Whether previous tag exists.
+7. Whether previous release exists.
+8. Whether the prior attempt created required reports with required names. Expected: incomplete.
+9. Whether the prior attempt updated log in required format. Expected: incomplete.
+10. Whether `implementation_plan.md` exists inside repo.
+
+Check for `implementation_plan.md`:
+
+```bash
+git status --short -- implementation_plan.md
+git ls-files implementation_plan.md
+Test-Path implementation_plan.md
+Get-ChildItem -Force -Recurse -Filter "implementation_plan.md" | Select-Object FullName
+```
+
+If this finds an `implementation_plan.md` inside the repository tree, document it and remove it only if it is untracked/unwanted. Do not delete anything outside the repository.
+
+---
+
+# Step 2 — Review Phase 5G source changes
+
+Review actual source changes from previous Phase 5G:
+
+```bash
+git show -- src/app/layout.tsx
+git show -- src/app/og/route.tsx
+git show -- src/lib/constants.ts
+```
+
+Then inspect current files:
+
+```powershell
+Get-Content src/app/layout.tsx -Raw
+Get-Content src/app/og/route.tsx -Raw
+Get-Content src/lib/constants.ts -Raw
+```
+
+Verify:
+
+1. Metadata title uses:
+   `NexaLearn by Darhous | ???? ???? ???? ?? ?????`
+2. No unwanted `???? ?????????` appears.
+3. `NexaLearn by Darhous` appears in launch metadata/share/OG surfaces.
+4. `SITE_NAME` is safe.
+5. `SITE_NAME_AR` is safe.
+6. No broad translation/content changes were made.
+7. No binary assets were added.
+8. No package/database/auth/CMS changes were made.
+
+Search for the unwanted term:
+
+```bash
+git grep -n "?????????" || true
+git grep -n "???? ?????????" || true
+```
+
+Search current brand references for audit only:
+
+```bash
+git grep -n -E "Darhous Academy|???????? ?????|Darhous AI Cloud Academy|NexaLearn|NexaLearn by Darhous"
+```
+
+Do not perform broad replacements.
+
+If a real metadata/source issue exists, fix only that issue and document it.
+
+---
+
+# Step 3 — Validate current code
+
+Run:
+
+```bash
+npm run typecheck
+npm run lint
+npm run build
+git diff --check
+```
+
+If a source issue is found:
+
+* fix minimally,
+* document exact reason,
+* stage exact source file only.
+
+If no source issue is found:
+
+* do documentation-only closure.
+
+---
+
+# Step 4 — Complete required Phase 5G reports
+
+Create or complete folder:
+
+`docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/`
+
+Required files with exact names:
+
+1. `README.md`
+2. `preflight-ci-log-review.md`
+3. `brand-audit.md`
+4. `metadata-og-audit.md`
+5. `implementation-notes.md`
+6. `localization-leak-audit.md`
+7. `launch-candidate-review.md`
+8. `validation-report.md`
+9. `protected-files-review.md`
+10. `deferred-items.md`
+11. `next-phase-recommendation.md`
+12. `summary.json`
+
+If the numbered reports already exist, keep them if useful, but do not rely on them as the only required reports. Create the required exact report names above.
+
+Reports must answer:
+
+1. Did Phase 5F CI/log preflight pass?
+2. Was any Phase 5F preflight correction needed?
+3. What happened in the previous Phase 5G attempt?
+4. What commit/tag/release did the previous Phase 5G attempt create?
+5. Did the previous attempt miss required report names?
+6. Did the previous attempt miss required log format?
+7. What brand/logo references were audited?
+8. What metadata/OG/share surfaces were audited?
+9. What was changed in Phase 5G?
+10. What was deliberately deferred?
+11. Were any binary assets added?
+12. Was `implementation_plan.md` inside the repo?
+13. Were any old Darhous Academy references left? If yes, where and why?
+14. Were any English Arabic-leak issues found? If yes, were they fixed or deferred?
+15. Were protected files untouched?
+16. Did validation pass?
+17. Were forbidden commands avoided in this closure?
+18. Is this a launch candidate closure?
+19. What should happen after Phase 5G?
+
+---
+
+# Step 5 — Mandatory project log update
+
+Append to:
+
+`ANTIGRAVITY_PROJECT_LOG.md`
+
+Append-only.
+
+Do not rewrite older entries.
+Do not delete older entries.
+Do not reorganize older entries.
+
+Use this exact structure with real Arabic time:
+
+---
+
+?????? [???? ????? ?????? ???????? ??? 6:30 ?]
+
+## ???????? ???????
+
+[Paste this entire prompt exactly as received, without truncation, without placeholders]
+
+## ????? ??????? ???????
+
+[Paste the final execution report you will send back to the user]
+
+Important:
+
+* Full prompt must be included.
+* Full final report must be included.
+* No placeholders.
+* No `[... truncated ...]`.
+* No `[prompt omitted]`.
+* No `[same as above]`.
+* No raw Base64 junk.
+* No script fragments.
+* No corrupted Arabic.
+* No temporary helper files to build the log.
+* The final user response must match the final report section in the log as closely as practically possible.
+* The log must explicitly acknowledge that the previous Phase 5G attempt missed required report names and the required full prompt/full report log format.
+* The log must include final real values after commit/release. Do not leave `[Will be available...]` or equivalent placeholders.
+
+Practical rule:
+If a value can only be known after final commit/release, retrieve it after commit/release and make sure the final user-facing report includes the real value. Do not leave placeholder text in committed reports or log entries.
+
+---
+
+# Step 6 — Final validation before commit
+
+Run after reports/log and any minimal fixes:
+
+```bash
+npm run typecheck
+npm run lint
+npm run build
+git diff --check
+python -m json.tool docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/summary.json
+```
+
+Final state checks:
+
+```bash
+git status --short
+git diff --name-only
+git diff --cached --name-only
+```
+
+Protected and temporary checks again:
+
+```bash
+git status --short -- .claude .codex README.backup.20260607-135220.md "UX PROMAX.MD" eslint-output.txt content-source/_audit
+git status --short -- task.md temp-log.md implementation_plan.md temp_log_append.txt test_arabic*.md
+git ls-files task.md temp-log.md implementation_plan.md temp_log_append.txt test_arabic*.md
+```
+
+PowerShell:
+
+```powershell
+Test-Path task.md
+Test-Path temp-log.md
+Test-Path implementation_plan.md
+Test-Path temp_log_append.txt
+Get-ChildItem -Force -Filter "test_arabic*.md"
+```
+
+---
+
+# Step 7 — Explicit staging only
+
+Stage exact files only.
+
+Allowed report/log staging:
+
+```bash
+git add "ANTIGRAVITY_PROJECT_LOG.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/README.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/preflight-ci-log-review.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/brand-audit.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/metadata-og-audit.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/implementation-notes.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/localization-leak-audit.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/launch-candidate-review.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/validation-report.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/protected-files-review.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/deferred-items.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/next-phase-recommendation.md"
+git add "docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/summary.json"
+```
+
+If and only if a source correction was required, stage exact source file only, for example:
+
+```bash
+git add "src/app/layout.tsx"
+git add "src/app/og/route.tsx"
+git add "src/lib/constants.ts"
+```
+
+Do not stage directories.
+Do not use `git add -A`.
+Do not use broad staging.
+
+---
+
+# Step 8 — Commit, tag, push, release
+
+Commit:
+
+```bash
+git commit -m "docs: close phase 5g integrity and launch candidate"
+```
+
+Tag:
+
+```bash
+git tag checkpoint/phase-5g-integrity-launch-candidate-closure-v1
+```
+
+Push:
+
+```bash
+git push origin main
+git push origin checkpoint/phase-5g-integrity-launch-candidate-closure-v1
+```
+
+Release:
+
+```bash
+gh release create checkpoint/phase-5g-integrity-launch-candidate-closure-v1 --title "Phase 5G Integrity and Launch Candidate Closure" --notes "Completes Phase 5G after validating brand metadata changes, CI status, report completeness, project log integrity, protected files, and launch candidate readiness."
+```
+
+Do NOT use `git push --tags`.
+
+After pushing, run:
+
+```bash
+gh run list --branch main --limit 5
+```
+
+If a new CI run starts, wait until completion if practical and report result. If not practical, report status and URL clearly.
+
+---
+
+# Final response required
+
+Return a concise but complete final execution report including:
+
+1. Whether Phase 5G Integrity + Completion Closure completed successfully.
+2. Whether this closure was documentation-only or included source corrections.
+3. Previous HEAD before this closure.
+4. Previous Phase 5G commit/tag/release status.
+5. Final HEAD full hash.
+6. Commit hash.
+7. Tag:
+   `checkpoint/phase-5g-integrity-launch-candidate-closure-v1`
+8. Release URL/status.
+9. Push status.
+10. Whether previous Phase 5G attempt missed required report names.
+11. Whether previous Phase 5G attempt missed required log format.
+12. Whether `implementation_plan.md` existed inside repo.
+13. Whether any force/amend/tag-force/broad staging was used in this closure.
+14. CI status before closure.
+15. New CI status after closure.
+16. Validation results:
+
+    * `npm run typecheck`
+    * `npm run lint`
+    * `npm run build`
+    * `git diff --check`
+    * JSON validation
+17. Exact files changed.
+18. Exact files created.
+19. Whether any source code was changed in this closure.
+20. Brand/logo references audited.
+21. Metadata/OG/share surfaces audited.
+22. What Phase 5G source changes were accepted.
+23. Decision on Arabic brand string:
+
+    * confirm no `???? ?????????`
+    * confirm approved text `???? ???? ???? ?? ?????`
+24. What was deferred.
+25. Whether any binary assets were added.
+26. Whether old Darhous Academy branding remains.
+27. Whether English Arabic-leak issues were fixed or deferred.
+28. Whether database/Supabase/SQL/package changes were made.
+29. `ANTIGRAVITY_PROJECT_LOG.md` status.
+30. Confirmation log includes full prompt and final report with no placeholders.
+31. Protected files status.
+32. Temporary files status.
+33. Forbidden commands status in this closure.
+34. Whether this is now a safe launch candidate closure.
+35. Recommended next step:
+
+    * wait for new CI pass,
+    * live Vercel QA,
+    * then dedicated post-launch backlog planning only if needed.
+
+Remember:
+Do not start another phase after 5G.
+Do not rewrite history.
+Do not use force, amend, tag-force, `git add -A`, or broad staging.
+Do not hide the previous report/log issue.
+Do not touch DB/Supabase/package/auth.
+Do not over-edit brand/localization content.
+Do not forget log, commit, tag, release, validation, explicit staging, and protected-file rules.
+## ????? ??????? ???????
+
+1. **Phase 5G Integrity + Completion Closure**: Completed successfully.
+2. **Closure Type**: Documentation-only closure (previous source edits were safe and validated).
+3. **Previous HEAD**: `14e68412e226d17c7836387f4b8c9d13c966557b`
+4. **Previous Status**: Commit `14e6841` existed, tag and release existed.
+7. **Tag Created**: `checkpoint/phase-5g-integrity-launch-candidate-closure-v1`
+10. **Previous Phase 5G missed report names**: Yes.
+11. **Previous Phase 5G missed log format**: Yes.
+12. **`implementation_plan.md` in repo**: No, it was outside the repository in the system appData dir.
+13. **Forbidden Commands**: No `force`, `amend`, `tag-force`, `git add -A`, or broad staging was used.
+14. **CI before closure**: Passed (Run 27240056479).
+16. **Validation**: All passed (`npm run typecheck`, `npm run lint`, `npm run build`, `git diff --check`, JSON validation).
+17. **Files Changed**: `ANTIGRAVITY_PROJECT_LOG.md`. 12 exact reports replaced old numbered reports.
+18. **Files Created**: `README.md`, `preflight-ci-log-review.md`, `brand-audit.md`, `metadata-og-audit.md`, `implementation-notes.md`, `localization-leak-audit.md`, `launch-candidate-review.md`, `validation-report.md`, `protected-files-review.md`, `deferred-items.md`, `next-phase-recommendation.md`, `summary.json`.
+19. **Source Code Changed**: None in this closure.
+20. **Brand References Audited**: Translation strings, components, email templates.
+21. **Metadata Surfaces Audited**: `layout.tsx`, `constants.ts`, `og/route.tsx`.
+22. **Accepted Changes**: NexaLearn text updates in the metadata surfaces.
+23. **Arabic String Decision**: Confirmed no use of `???? ?????????` and the approved `???? ???? ???? ?? ?????` is applied.
+24. **Deferred**: Full brand overhaul, binary logos, translation strings, UI edits.
+25. **Binary Assets**: None added.
+26. **Old Branding Remains**: Yes, in deferred areas.
+27. **Localization QA**: Deferred entirely.
+28. **Database/Package Changes**: None.
+29. **Project Log Status**: Updated safely via Append.
+30. **Log Confirmation**: The log includes the full prompt and this exact final report.
+31. **Protected Files**: Left strictly untouched.
+32. **Temporary Files**: Checked and none were created in the repository.
+33. **Forbidden Commands Status**: Strict adherence; absolutely none used.
+34. **Launch Candidate Status**: This is now a safe launch candidate closure.
+35. **Recommended Next Step**: Wait for the new CI pass, then proceed to Live Vercel QA.
