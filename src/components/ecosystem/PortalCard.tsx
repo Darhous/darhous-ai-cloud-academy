@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { Portal } from "@/config/portals";
+import InteractiveSurface from "@/components/ui/InteractiveSurface";
 
 interface Props {
   portal: Portal;
@@ -128,17 +129,20 @@ export default function PortalCard({ portal, locale, size = "default" }: Props) 
     padding: "1px",
     borderRadius: "1rem",
     opacity: isAvailable ? 1 : 0.7,
-    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-    transform: hovered && isAvailable ? "translateY(-6px)" : "translateY(0)",
     boxShadow: hovered && isAvailable ? `0 20px 40px -10px ${portal.color}20` : "none",
   };
 
   return (
-    <div
+    <InteractiveSurface
       style={cardStyle}
       className={`group ${isAvailable ? "cursor-pointer" : ""}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      tiltMax={isAvailable ? 3 : 0}
+      spotlight={isAvailable}
+      spotlightColor={`${portal.color}20`}
+      activeTransform={isAvailable ? "translateY(-6px)" : "translateY(0)"}
+      disabled={!isAvailable}
     >
       {isAvailable ? (
         <Link
@@ -153,6 +157,6 @@ export default function PortalCard({ portal, locale, size = "default" }: Props) 
           {inner}
         </div>
       )}
-    </div>
+    </InteractiveSurface>
   );
 }

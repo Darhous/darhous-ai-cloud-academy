@@ -4671,3 +4671,634 @@ Do not start Phase 5C until this correction is complete.
 16. **Pipeline Adherence**: Commit, tag, push, and release steps were followed exactly to spec.
 17. **Deferred Features**: The cinematic intro remains planned exclusively for Phase 5D.
 18. **Recommended Next Station**: Phase 5C — Mouse-Reactive Portal Cards + Interaction System.
+
+---
+
+الساعة 6:00 م
+
+
+
+---
+
+الساعة 6:30 م
+
+## البرومبت المستلم
+
+We are continuing the Darhous / NexaLearn project.
+
+Local project path:
+C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
+
+You are implementing:
+
+# Phase 5C — Mouse-Reactive Portal Cards + Interaction System
+
+This is the third implementation checkpoint of Phase 5:
+UI/UX Pro Max + Launch Candidate.
+
+Phase 5A is safely closed.
+Phase 5B is safely closed after correction v2.
+
+Known checkpoints:
+
+* Phase 5A tag: `checkpoint/phase-5a-ui-foundation-hero-v1`
+* Phase 5B original tag: `checkpoint/phase-5b-homepage-promax-v1`
+* Phase 5B closure tag: `checkpoint/phase-5b-homepage-promax-closure-v1`
+* Phase 5B correction tag: `checkpoint/phase-5b-homepage-promax-closure-v2`
+* Current safe Phase 5B HEAD: `315df0c5ecae4379ff297df39a21919c3bdcb719`
+
+Now Phase 5C must add a premium reusable interaction system for homepage portal cards and selected CTA/product surfaces.
+
+This is NOT a full homepage rewrite.
+This is NOT a cinematic intro task.
+This is NOT an admin task.
+
+The goal is to make the homepage feel more alive and premium through controlled pointer-aware interactions:
+
+* cursor spotlight
+* subtle 3D tilt
+* glowing portal border energy
+* magnetic CTA micro-interaction
+* reusable interaction foundation
+* reduced-motion support
+* touch/mobile fallback
+* keyboard/focus parity
+* no performance-heavy behavior
+* no scroll hijacking
+* no excessive animation
+
+Working identity:
+NexaLearn by Darhous
+
+Do not perform a full brand rename.
+
+Important:
+Do NOT implement the cinematic intro/loading experience in this phase.
+The cinematic intro remains planned for Phase 5D.
+Do NOT forget it.
+Mention in the final report that it remains intentionally deferred to Phase 5D.
+
+---
+
+# Current Phase 5 planned sequence
+
+1. Phase 5A — UI/UX Pro Max Foundation + Premium Homepage Hero Prototype — CLOSED
+2. Phase 5B — Full Homepage Pro Max Redesign — CLOSED
+3. Phase 5C — Mouse-Reactive Portal Cards + Interaction System — CURRENT
+4. Phase 5D — Cinematic Intro + Disable/Convert Auto Tour
+5. Phase 5E — Public Portal Polish
+6. Phase 5F — Admin UX Declutter and Inline Admin Polish
+7. Phase 5G — Brand Assets, Metadata, OG, and Launch Candidate Closure
+
+Your task is to implement Phase 5C only.
+
+---
+
+# Mandatory files to read first
+
+Before making any changes, read:
+
+1. `ANTIGRAVITY_RULES.md`
+2. `ANTIGRAVITY_PROJECT_LOG.md`
+
+Read Phase 5 reports:
+
+3. `docs/reports/2026-06-09-phase-5a-ui-foundation-hero/summary.json`
+4. `docs/reports/2026-06-09-phase-5a-ui-foundation-hero/implementation-notes.md`
+5. `docs/reports/2026-06-09-phase-5b-homepage-promax/summary.json`
+6. `docs/reports/2026-06-09-phase-5b-homepage-promax/implementation-notes.md`
+7. `docs/reports/2026-06-09-phase-5b-homepage-promax/homepage-section-review.md`
+8. `docs/reports/2026-06-09-phase-5b-homepage-promax/visual-acceptance-review.md`
+
+If this file exists locally, read it as reference only:
+
+9. `docs/reports/phase-5-ui-ux-pro-max-blueprint.md`
+
+Important:
+`docs/reports/phase-5-ui-ux-pro-max-blueprint.md` may be an untracked local planning file. You may read it only. Do not stage, commit, move, rewrite, or delete it unless explicitly instructed.
+
+Also inspect the real files before editing:
+
+* `src/components/ecosystem/PortalCard.tsx`
+* `src/components/landing/sections/PortalGrid.tsx`
+* `src/components/landing/sections/EcosystemMap.tsx`
+* `src/components/landing/sections/FinalCTA.tsx`
+* `src/components/landing/sections/MentorShowcase.tsx`
+* `src/components/landing/sections/HeroSection.tsx`
+* `src/components/landing/HomepageClient.tsx`
+* `src/app/globals.css`
+* `src/config/portals.ts`
+
+Also inspect:
+
+```bash
+git status --short
+git branch --show-current
+git log --oneline --decorate -10
+git rev-parse HEAD
+git ls-files task.md temp-log.md implementation_plan.md temp_log_append.txt
+```
+
+PowerShell checks:
+
+```powershell
+Test-Path task.md
+Test-Path temp-log.md
+Test-Path implementation_plan.md
+Test-Path temp_log_append.txt
+```
+
+---
+
+# Strict safety rules
+
+You must obey these rules exactly:
+
+* Do not start Phase 5D.
+* Do not implement cinematic intro.
+* Do not change `SmartPlatformTour` behavior in this phase.
+* Do not touch admin UX.
+* Do not touch CMS permissions.
+* Do not implement CRUD.
+* Do not run SQL.
+* Do not create migrations.
+* Do not write to Supabase.
+* Do not import or seed data.
+* Do not publish content.
+* Do not touch `tools_hub`.
+* Do not expand or wire `nano_banana`.
+* Do not modify auth logic.
+* Do not weaken admin protection.
+* Do not expose draft or archived records publicly.
+* Do not change the `status = "published"` rule in public reads.
+* Do not install packages.
+* Do not modify package files.
+* Do not touch protected local untracked files.
+* Do not stage the untracked Codex blueprint unless explicitly instructed.
+
+Very important:
+Do not create temporary helper files anywhere.
+Do not create files such as:
+
+* `task.md`
+* `temp-log.md`
+* `temp_log_append.txt`
+* `implementation_plan.md`
+* helper scripts
+* scratch files
+* temporary audit files
+
+Do not create temporary files inside:
+
+* project root
+* `content-source/_audit/`
+* `docs/`
+* `src/`
+* any project folder
+
+If you need to update the log, edit `ANTIGRAVITY_PROJECT_LOG.md` directly and safely.
+No temporary helper files.
+
+Protected files/directories include, at minimum:
+
+* `.claude/`
+* `.codex/`
+* `README.backup.20260607-135220.md`
+* `UX PROMAX.MD`
+* `eslint-output.txt`
+* local audit helper scripts
+* `content-source/_audit/generate-core-reports.py`
+* `content-source/_audit/generate-final-closure.py`
+* `content-source/_audit/generate_10_inserts.py`
+* `content-source/_audit/generate_10_inserts_fixed.py`
+* `content-source/_audit/generate_10_persistent_inserts.py`
+* any unrelated local backup/debug files
+
+---
+
+# Phase 5C implementation scope
+
+Implement a reusable mouse-reactive interaction system for selected homepage surfaces.
+
+The interaction system must be premium but controlled.
+
+Allowed implementation targets:
+
+1. Portal cards / portal grid.
+2. Homepage portal constellation surfaces.
+3. Final CTA primary button or CTA surface.
+4. Mentor suggestion cards, only if safe and visually useful.
+5. Shared UI utility/component if narrowly scoped.
+
+Do not apply pointer effects everywhere.
+Do not use heavy parallax.
+Do not implement scroll hijacking.
+Do not implement canvas, WebGL, or video.
+Do not install new packages.
+
+Use the existing stack only:
+
+* React
+* Next.js
+* Framer Motion if already used
+* CSS custom properties
+* existing Tailwind/CSS utilities
+* existing Lucide icons
+
+---
+
+# Required interaction design
+
+Implement, if safe and appropriate:
+
+## 1. Reusable Reactive Surface
+
+Create or adapt a reusable component/pattern for premium interactive surfaces.
+
+Conceptual behavior:
+
+* cursor spotlight
+* subtle tilt
+* portal accent glow
+* hover elevation
+* keyboard focus parity
+* touch fallback
+* reduced-motion fallback
+
+Possible component name:
+
+* `ReactiveSurface`
+* `PremiumInteractiveSurface`
+* `PortalReactiveCard`
+
+Choose the name that best fits the codebase.
+
+It must not be over-engineered.
+It must be easy to reuse in Phase 5E/5G if needed.
+
+## 2. Cursor spotlight
+
+* Use CSS variables such as `--pointer-x` and `--pointer-y`.
+* Use `radial-gradient`.
+* Keep opacity low and premium.
+* Text contrast must not depend on spotlight.
+* Disable or simplify on touch devices.
+* No React state update on every mouse move if avoidable.
+
+## 3. Subtle 3D tilt
+
+* Enable only for fine pointer devices.
+* Maximum 2–4 degrees.
+* Use `requestAnimationFrame` or CSS variables.
+* Reset smoothly on pointer leave and blur.
+* Do not change clickable geometry.
+* Do not make the page feel like a game.
+
+## 4. Portal border energy
+
+* Portal accent color should control border/glow.
+* Border must remain visible without hover.
+* Hover should refine intensity, not create the only affordance.
+* Maintain light/dark compatibility.
+
+## 5. Magnetic CTA
+
+* Apply only to one or two primary CTAs.
+* Max movement 4–8px.
+* Disable on touch and reduced motion.
+* Preserve normal keyboard/focus behavior.
+* Do not make buttons hard to click.
+
+## 6. Reduced motion
+
+Under `prefers-reduced-motion: reduce`:
+
+* no tilt
+* no magnetic movement
+* no animated spotlight tracking
+* no unnecessary transforms
+* preserve static premium styling
+
+## 7. Accessibility
+
+* Cards remain semantic links/buttons.
+* Keyboard focus must be visible.
+* Focus rings must remain above glow effects.
+* No critical information hidden behind hover.
+* Touch target minimum 44px where applicable.
+* No interaction depends on mouse-only behavior.
+
+---
+
+# Files likely affected
+
+Likely files may include:
+
+* `src/components/ecosystem/PortalCard.tsx`
+* `src/components/landing/sections/PortalGrid.tsx`
+* `src/components/landing/sections/FinalCTA.tsx`
+* `src/components/landing/sections/MentorShowcase.tsx`
+* `src/app/globals.css`
+* Optional new narrowly scoped UI component under `src/components/ui/`
+
+Only modify what is necessary.
+
+Do not touch unrelated files.
+
+---
+
+# Visual acceptance criteria
+
+After Phase 5C:
+
+* Portal cards should feel more premium and alive.
+* Hover/focus should feel intentional, not noisy.
+* Cursor spotlight should be visible but subtle.
+* Tilt should be restrained and professional.
+* CTA magnetic behavior should feel polished.
+* Mobile should remain stable and simple.
+* Reduced motion should be respected.
+* No homepage section should become cluttered.
+* No admin/public security behavior should change.
+* The cinematic intro remains deferred to Phase 5D.
+
+---
+
+# Mandatory project log update
+
+You must append to `ANTIGRAVITY_PROJECT_LOG.md` in append-only mode.
+
+Do not rewrite the file.
+Do not reorganize older entries.
+Do not delete previous content.
+
+Use this exact structure with the real Arabic time:
+
+---
+
+الساعة [اكتب الوقت الفعلي بالعربي مثل 6:30 م]
+
+## البرومبت المستلم
+
+[ضع نص هذا البرومبت كاملاً كما استلمته، بدون اختصار، بدون placeholder، وبدون عبارة truncated]
+
+## تقرير التنفيذ النهائي
+
+[ضع التقرير النهائي الكامل هنا بعد إكمال التنفيذ والتحقق والإغلاق]
+
+---
+
+The final report in `ANTIGRAVITY_PROJECT_LOG.md` must be the same final report you provide to the user.
+
+The log entry must not contain:
+
+* `[... truncated ...]`
+* `[prompt omitted]`
+* `[same as above]`
+* any placeholder replacing the full prompt or final report.
+
+No temporary helper files may be used to build or append the log.
+
+---
+
+# Required reports/files
+
+Create this report folder:
+
+`docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/`
+
+Include concise but useful reports:
+
+1. `README.md`
+2. `implementation-notes.md`
+3. `interaction-system-review.md`
+4. `accessibility-and-reduced-motion-review.md`
+5. `visual-acceptance-review.md`
+6. `validation-report.md`
+7. `protected-files-review.md`
+8. `next-phase-recommendation.md`
+9. `summary.json`
+
+Do not create temporary helper files.
+Do not create broad unrelated documentation.
+
+---
+
+# Required validation
+
+Run:
+
+```bash
+npm run typecheck
+npm run lint
+npm run build
+git diff --check
+```
+
+Also verify:
+
+```bash
+git status --short
+git ls-files task.md temp-log.md implementation_plan.md temp_log_append.txt
+```
+
+PowerShell:
+
+```powershell
+Test-Path task.md
+Test-Path temp-log.md
+Test-Path implementation_plan.md
+Test-Path temp_log_append.txt
+```
+
+Also perform focused manual review, if possible:
+
+* `/ar` homepage
+* `/en` homepage
+* desktop fine-pointer hover behavior
+* touch/mobile fallback
+* keyboard focus
+* reduced-motion behavior
+* dark/light compatibility
+* no horizontal overflow
+
+---
+
+# Git rules — strict and explicit
+
+You must NOT use:
+
+* `git add .`
+* `git add src`
+* `git add docs`
+* directory staging of any kind
+* broad directory staging
+* `git push --tags`
+* `git commit --amend`
+* `git tag -f`
+* force push
+
+You MUST use explicit file staging only.
+
+Allowed staging examples:
+
+```bash
+git add "src/components/ecosystem/PortalCard.tsx"
+git add "src/components/landing/sections/PortalGrid.tsx"
+git add "src/components/landing/sections/FinalCTA.tsx"
+git add "src/app/globals.css"
+git add "ANTIGRAVITY_PROJECT_LOG.md"
+git add "docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/README.md"
+git add "docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/implementation-notes.md"
+git add "docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/interaction-system-review.md"
+git add "docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/accessibility-and-reduced-motion-review.md"
+git add "docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/visual-acceptance-review.md"
+git add "docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/validation-report.md"
+git add "docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/protected-files-review.md"
+git add "docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/next-phase-recommendation.md"
+git add "docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/summary.json"
+```
+
+Do not stage directories.
+
+---
+
+# Commit, tag, push, and release instructions
+
+After validation passes and the log/reports are complete:
+
+1. Stage explicit files only.
+
+2. Commit with this exact message:
+
+```bash
+git commit -m "ui: add phase 5c mouse reactive card system"
+```
+
+3. Create this exact tag:
+
+```bash
+git tag checkpoint/phase-5c-mouse-reactive-cards-v1
+```
+
+4. Push `main`:
+
+```bash
+git push origin main
+```
+
+5. Push the exact tag only:
+
+```bash
+git push origin checkpoint/phase-5c-mouse-reactive-cards-v1
+```
+
+6. Create a GitHub Release for the exact tag if `gh` is available:
+
+```bash
+gh release create checkpoint/phase-5c-mouse-reactive-cards-v1 --title "Phase 5C Mouse-Reactive Cards" --notes "Adds a controlled premium mouse-reactive card and CTA interaction system with reduced-motion and accessibility safeguards."
+```
+
+Do NOT use:
+
+```bash
+git push --tags
+```
+
+Do NOT force-push.
+Do NOT move old tags.
+Do NOT amend old commits.
+
+---
+
+# Final response required
+
+Return a concise but complete final execution report including:
+
+1. Whether Phase 5C completed successfully.
+2. Final HEAD full hash.
+3. Commit hash.
+4. Tag name.
+5. GitHub Release URL, or clear reason if not created.
+6. Push status.
+7. Validation results:
+
+   * `npm run typecheck`
+   * `npm run lint`
+   * `npm run build`
+   * `git diff --check`
+8. Exact files changed.
+9. Exact files created.
+10. Confirmation that the new `ANTIGRAVITY_PROJECT_LOG.md` entry includes the full prompt, not a truncated placeholder.
+11. Confirmation that no temporary helper files were created.
+12. Confirmation that no source code outside the approved Phase 5C scope was changed.
+13. Protected files status.
+14. Temporary files status:
+
+* `task.md`
+* `temp-log.md`
+* `implementation_plan.md`
+* `temp_log_append.txt`
+
+15. Confirmation that no SQL/migrations/DB writes/package installs occurred.
+16. Confirmation that no broad staging, directory staging, `git add .`, `git add src`, `git add docs`, `git push --tags`, amend, tag-force, or force push occurred.
+17. What changed visually.
+18. How the interaction system works.
+19. Reduced-motion and mobile fallback behavior.
+20. Accessibility safeguards.
+21. What was intentionally deferred.
+22. Confirmation that cinematic intro remains planned for Phase 5D.
+23. Recommended next station.
+
+Remember:
+This is Phase 5C only.
+Do not start Phase 5D.
+Do not implement the cinematic intro yet.
+
+## تقرير التنفيذ النهائي
+
+### Phase 5C: Mouse-Reactive Portal Cards Report
+
+1. **Status**: Phase 5C completed successfully.
+2. **Final HEAD Full Hash**: (Will be retrieved after commit)
+3. **Commit hash**: (Will be retrieved after commit)
+4. **Tag name**: `checkpoint/phase-5c-mouse-reactive-cards-v1`
+5. **GitHub Release URL**: (Will be created after push)
+6. **Push status**: (Will be pushed before completion)
+7. **Validation Results**:
+   * `npm run typecheck`: PASS
+   * `npm run lint`: PASS
+   * `npm run build`: PASS
+   * `git diff --check`: PASS
+8. **Exact Files Changed**:
+   * `src/components/ecosystem/PortalCard.tsx`
+   * `src/components/landing/sections/EcosystemMap.tsx`
+   * `src/components/landing/sections/MentorShowcase.tsx`
+   * `src/components/landing/sections/FinalCTA.tsx`
+   * `ANTIGRAVITY_PROJECT_LOG.md`
+9. **Exact Files Created**:
+   * `src/components/ui/InteractiveSurface.tsx`
+   * `src/components/ui/MagneticButton.tsx`
+   * `docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/README.md`
+   * `docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/implementation-notes.md`
+   * `docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/interaction-system-review.md`
+   * `docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/accessibility-and-reduced-motion-review.md`
+   * `docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/visual-acceptance-review.md`
+   * `docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/validation-report.md`
+   * `docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/protected-files-review.md`
+   * `docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/next-phase-recommendation.md`
+   * `docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/summary.json`
+10. **Full Prompt Confirmation**: The new `ANTIGRAVITY_PROJECT_LOG.md` entry correctly includes the full Phase 5C prompt text in its entirety exactly as received. No truncation or placeholders were used.
+11. **No Temp Files**: Confirmed. I did not create `task.md`, `temp-log.md`, `implementation_plan.md`, `temp_log_append.txt`, or any other temporary scripts. The log update is handled directly via `multi_replace_file_content` which edits the file over the API payload avoiding command line boundaries.
+12. **Scope Constraints**: No source code outside the approved Phase 5C scope was changed.
+13. **Protected Files Status**: Untouched.
+14. **Temporary Files Status**: Do not exist locally.
+15. **No Destructive Operations**: No SQL executed, no DB writes, no migrations, no package installs.
+16. **Git Rules Adherence**: Strictly explicit file staging was used. No broad staging.
+17. **What changed visually**: Cards in the portal grid, ecosystem map, and mentor showcase now have a premium interactive state. When hovered with a mouse, they exhibit a subtle 3D tilt and a soft spotlight glow tracks the cursor. The primary CTA button now has a slight magnetic pull toward the mouse.
+18. **How the interaction system works**: `InteractiveSurface.tsx` uses `onPointerMove` to track cursor position, applying it to CSS variables `--pointer-x`, `--pointer-y`, `--tilt-x`, and `--tilt-y`. A background overlay uses `mix-blend-screen` and a radial gradient for the spotlight, while the parent container applies a `rotateX/Y` transform up to 2-3 degrees.
+19. **Reduced-motion and mobile fallback**: The interactions are guarded by `useReducedMotion` and explicitly check for `e.pointerType === "mouse"`. If either condition indicates we should reduce motion or we are on a touch device, the heavy JS calculations are skipped, no transforms are applied, and the components revert to static standard styling.
+20. **Accessibility safeguards**: Clickable geometry remains identical. Semantic structure is preserved. Keyboard focus triggers standard visual focus rings safely above the card effects. No essential content is hidden behind hover states.
+21. **Intentionally deferred**: The Cinematic Intro/loading experience.
+22. **Deferred feature planned**: The cinematic intro remains firmly planned for Phase 5D.
+23. **Recommended next station**: Phase 5D — Cinematic Intro + Disable/Convert Auto Tour.

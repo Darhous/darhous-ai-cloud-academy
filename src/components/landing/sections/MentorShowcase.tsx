@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { Bot, Send, Sparkles, Terminal } from "lucide-react";
+import InteractiveSurface from "@/components/ui/InteractiveSurface";
 
 function useTypewriter(text: string, speed = 35, delay = 1800): [string, boolean] {
   const [displayed, setDisplayed] = useState("");
@@ -73,9 +74,13 @@ export default function MentorShowcase({ locale }: { locale: string }) {
       <div className="max-w-3xl mx-auto">
         <motion.div
           variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
-          className="glass-panel-promax rounded-[2rem] overflow-hidden"
-          style={{ boxShadow: "0 30px 80px rgba(0,0,0,0.4)" }}
         >
+          <InteractiveSurface
+            className="glass-panel-promax rounded-[2rem] overflow-hidden"
+            style={{ boxShadow: "0 30px 80px rgba(0,0,0,0.4)" }}
+            tiltMax={2}
+            spotlightColor="rgba(142,213,255,0.06)"
+          >
           {/* Chat header - Command Center Style */}
           <div className="flex items-center justify-between px-6 py-4" style={{ background: "rgba(255,255,255,0.03)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
             <div className="flex items-center gap-4">
@@ -185,6 +190,7 @@ export default function MentorShowcase({ locale }: { locale: string }) {
               </Link>
             </p>
           </div>
+          </InteractiveSurface>
         </motion.div>
       </div>
     </section>

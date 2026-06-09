@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { Sparkles, ArrowRight, ArrowLeft, Zap } from "lucide-react";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 export default function FinalCTA({ locale }: { locale: string }) {
   const isAr = locale === "ar";
@@ -48,7 +49,7 @@ export default function FinalCTA({ locale }: { locale: string }) {
           </p>
           <div className="flex flex-wrap gap-5 justify-center">
             {/* Primary CTA with outward ripple ring */}
-            <div className="relative inline-flex rounded-2xl group">
+            <MagneticButton className="relative group">
               <span className="absolute inset-0 rounded-2xl cta-ripple-ring" aria-hidden="true" />
               <Link
                 href={`/${locale}/register`}
@@ -58,7 +59,7 @@ export default function FinalCTA({ locale }: { locale: string }) {
                 {isAr ? "ابدأ مجانًا الآن" : "Start Free Now"}
                 <Arrow size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
-            </div>
+            </MagneticButton>
             <Link
               href={`/${locale}/mentor`}
               className="glow-button-secondary font-mono px-8 py-4 rounded-2xl inline-flex items-center gap-3 text-base font-semibold transition-colors hover:bg-secondary/10"

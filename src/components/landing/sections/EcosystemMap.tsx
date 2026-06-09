@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { Bot, Globe, ChevronRight } from "lucide-react";
 import type { Portal } from "@/config/portals";
+import InteractiveSurface from "@/components/ui/InteractiveSurface";
 
 interface Props {
   locale: string;
@@ -61,12 +62,13 @@ export default function EcosystemMap({ locale, portals }: Props) {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 relative z-10">
         {/* Row 1: Portals 0–2 */}
         {portals.slice(0, 3).map((portal) => (
-          <motion.div key={portal.id} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portal.color)}>
-            <Link
-              href={`/${locale}${portal.href}`}
-              className="glass-panel-promax rounded-2xl p-6 flex flex-col gap-4 h-full transition-all duration-300 hover:-translate-y-2 group block"
-              style={{ border: `1px solid ${portal.color}25`, textDecoration: "none" }}
-            >
+          <motion.div key={portal.id} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portal.color)} className="h-full">
+            <InteractiveSurface className="h-full rounded-2xl" tiltMax={2} spotlightColor={`${portal.color}15`} activeTransform="translateY(-8px)">
+              <Link
+                href={`/${locale}${portal.href}`}
+                className="glass-panel-promax rounded-2xl p-6 flex flex-col gap-4 h-full group block"
+                style={{ border: `1px solid ${portal.color}25`, textDecoration: "none" }}
+              >
               <div className="flex items-center justify-between">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110" style={{ background: `${portal.color}15`, color: portal.color }}>
                   {portal.icon}
@@ -86,15 +88,17 @@ export default function EcosystemMap({ locale, portals }: Props) {
                 </p>
               </div>
             </Link>
+            </InteractiveSurface>
           </motion.div>
         ))}
 
         {/* Row 2: Portal 3, AI Mentor center, Portal 4 */}
         {portals[3] && (
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portals[3].color)}>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portals[3].color)} className="h-full">
+            <InteractiveSurface className="h-full rounded-2xl" tiltMax={2} spotlightColor={`${portals[3].color}15`} activeTransform="translateY(-8px)">
             <Link
               href={`/${locale}${portals[3].href}`}
-              className="glass-panel-promax rounded-2xl p-6 flex flex-col gap-4 h-full transition-all duration-300 hover:-translate-y-2 group block"
+              className="glass-panel-promax rounded-2xl p-6 flex flex-col gap-4 h-full group block"
               style={{ border: `1px solid ${portals[3].color}25`, textDecoration: "none" }}
             >
               <div className="flex items-center justify-between">
@@ -114,14 +118,16 @@ export default function EcosystemMap({ locale, portals }: Props) {
                 </p>
               </div>
             </Link>
+            </InteractiveSurface>
           </motion.div>
         )}
 
         {/* AI Mentor — center card */}
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="h-full">
+          <InteractiveSurface className="h-full rounded-[2rem]" tiltMax={2} activeTransform="scale(1.02)">
           <Link
             href={`/${locale}/mentor`}
-            className="relative overflow-hidden rounded-[2rem] p-8 flex flex-col items-center justify-center gap-5 text-center h-full transition-all duration-500 hover:scale-[1.02] block"
+            className="relative overflow-hidden rounded-[2rem] p-8 flex flex-col items-center justify-center gap-5 text-center h-full block"
             style={{
               background: linkColor
                 ? `linear-gradient(135deg, ${linkColor}1f 0%, rgba(87,27,193,0.15) 50%, ${linkColor}14 100%)`
@@ -131,6 +137,7 @@ export default function EcosystemMap({ locale, portals }: Props) {
                 ? `0 0 60px ${linkColor}33, inset 0 0 30px ${linkColor}1a`
                 : "0 0 50px rgba(142,213,255,0.1), inset 0 0 20px rgba(142,213,255,0.05)",
               textDecoration: "none",
+              transition: "background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease",
             }}
           >
             {/* Ambient radar pulse rings */}
@@ -170,13 +177,15 @@ export default function EcosystemMap({ locale, portals }: Props) {
               {isAr ? "المركز الرئيسي" : "Central Hub"} <ChevronRight size={14} />
             </div>
           </Link>
+          </InteractiveSurface>
         </motion.div>
 
         {portals[4] && (
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portals[4].color)}>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portals[4].color)} className="h-full">
+            <InteractiveSurface className="h-full rounded-2xl" tiltMax={2} spotlightColor={`${portals[4].color}15`} activeTransform="translateY(-8px)">
             <Link
               href={`/${locale}${portals[4].href}`}
-              className="glass-panel-promax rounded-2xl p-6 flex flex-col gap-4 h-full transition-all duration-300 hover:-translate-y-2 group block"
+              className="glass-panel-promax rounded-2xl p-6 flex flex-col gap-4 h-full group block"
               style={{ border: `1px solid ${portals[4].color}25`, textDecoration: "none" }}
             >
               <div className="flex items-center justify-between">
@@ -196,16 +205,18 @@ export default function EcosystemMap({ locale, portals }: Props) {
                 </p>
               </div>
             </Link>
+            </InteractiveSurface>
           </motion.div>
         )}
 
         {/* Row 3: center-aligned last portal */}
         <div className="hidden sm:block" />
         {portals[5] && (
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portals[5].color)}>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} {...hoverProps(portals[5].color)} className="h-full">
+            <InteractiveSurface className="h-full rounded-2xl" tiltMax={2} spotlightColor={`${portals[5].color}15`} activeTransform="translateY(-8px)">
             <Link
               href={`/${locale}${portals[5].href}`}
-              className="glass-panel-promax rounded-2xl p-6 flex flex-col gap-4 h-full transition-all duration-300 hover:-translate-y-2 group block"
+              className="glass-panel-promax rounded-2xl p-6 flex flex-col gap-4 h-full group block"
               style={{ border: `1px solid ${portals[5].color}25`, textDecoration: "none" }}
             >
               <div className="flex items-center justify-between">
@@ -225,6 +236,7 @@ export default function EcosystemMap({ locale, portals }: Props) {
                 </p>
               </div>
             </Link>
+            </InteractiveSurface>
           </motion.div>
         )}
         <div className="hidden sm:block" />
