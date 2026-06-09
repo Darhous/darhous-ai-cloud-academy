@@ -1,0 +1,15 @@
+{
+    "phase": "5D-CI-Vercel-Fix",
+    "status": "success",
+    "fix_details": {
+        "issue": "GitHub Actions CI failed on npm run lint",
+        "root_cause": "ESLint no-use-before-define error for dismiss function in CinematicIntro.tsx",
+        "resolution": "Moved dismiss above useEffect, wrapped in useCallback, and added to dependency array"
+    },
+    "vercel_visibility": "Blocked by CI build failure; will resolve with this fix",
+    "validation": {
+        "typecheck": "pass",
+        "lint": "pass",
+        "build": "pass"
+    }
+}

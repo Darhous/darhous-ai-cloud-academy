@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 const STORAGE_KEY = "darhous-cinematic-intro-seen-v1";
@@ -15,6 +15,15 @@ export default function CinematicIntro({ locale }: Props) {
   
   const [show, setShow] = useState(true);
   const [mounted, setMounted] = useState(false);
+
+  const dismiss = useCallback(() => {
+    setShow(false);
+    try {
+      window.sessionStorage.setItem(STORAGE_KEY, "1");
+    } catch (e) {
+      // ignore
+    }
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -36,14 +45,7 @@ export default function CinematicIntro({ locale }: Props) {
     }, 2800);
 
     return () => clearTimeout(timer);
-  }, [shouldReduce]);
-
-  const dismiss = () => {
-    setShow(false);
-    try {
-      window.sessionStorage.setItem(STORAGE_KEY, "1");
-    } catch (e) {}
-  };
+  }, [shouldReduce, dismiss]);
 
   // Keyboard accessibility to skip
   useEffect(() => {
