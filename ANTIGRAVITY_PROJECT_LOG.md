@@ -97,5 +97,29 @@
 **الالتزام / العلامة / الإصدار المخطط له:**
 - العلامة: `checkpoint/admin-cms-ia-publishing-foundation-blueprint-v1`
 - الإصدار: `Admin CMS IA and Publishing Foundation Blueprint`
-- الرمز (Commit): [يتم التحديث لاحقاً]
+- الرمز (Commit): `9906a925e191829406cfbba0a75d319fdd3021b3`
 **المحطة التالية الموصى بها:** Admin IA Shell Implementation.
+
+---
+
+الساعة 12:20 م
+
+**اسم المرحلة:** Admin CMS IA Blueprint Closure Correction
+**الهدف:** تصحيح إغلاق مرحلة التخطيط السابقة وتدارك النقص في توثيق رمز الالتزام (Commit Hash) وإنشاء إصدار GitHub (GitHub Release) الذي تم نسيانه، دون المساس بأي من قواعد التطبيق أو قاعدة البيانات.
+**سبب التصحيح:** المرحلة السابقة لم تتضمن توثيق رمز الالتزام الفعلي وتم تخطي إنشاء GitHub Release الذي كان مطلوباً لكونها خطة تأسيسية مهمة. تم الحفاظ على العلامة الأصلية وإضافة الإصدار المفقود.
+**رمز الالتزام للمرحلة السابقة الذي تم العثور عليه:** `9906a925e191829406cfbba0a75d319fdd3021b3`
+**العلامة (Tag) السابقة:** `checkpoint/admin-cms-ia-publishing-foundation-blueprint-v1`
+**حالة إصدار GitHub (Release):** تم إنشاؤه بنجاح على الرابط `https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-cms-ia-publishing-foundation-blueprint-v1`
+**الملفات التي تم تحديثها:**
+- `docs/reports/2026-06-09-admin-cms-ia-publishing-foundation-blueprint/README.md` (إضافة ملاحظات الإغلاق).
+- `docs/reports/2026-06-09-admin-cms-ia-publishing-foundation-blueprint/summary.json` (تحديث التجزئة ومعلومات الإصدار).
+- `ANTIGRAVITY_PROJECT_LOG.md` (إضافة هذا المدخل).
+**الأوامر التي تم تشغيلها:** `git rev-list`, `gh release view`, `gh release create`. تم الالتزام بالأوامر المسموحة فقط.
+**نتائج التحقق:** سيتم تشغيل `git diff --check` قبل الالتزام للتأكد من نظافة التغييرات.
+**تأكيدات الأمان:**
+- لا تغيير في الكود (No app code changed).
+- لا تغييرات في قاعدة البيانات (No Supabase/DB writes).
+- لم يتم استخدام `git add .` وتم عمل Stage فقط للملفات الثلاثة الصريحة.
+**رمز الالتزام لهذه المرحلة (Correction Commit):** 2a7e88e
+**العلامة لهذه المرحلة (Correction Tag):** `checkpoint/admin-cms-ia-blueprint-closure-v1`
+**المحطة القادمة الموصى بها:** Admin IA Shell Implementation.

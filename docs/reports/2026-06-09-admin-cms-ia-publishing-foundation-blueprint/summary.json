@@ -19,8 +19,9 @@
   "deferred_records_changed": false,
   "protected_files_touched": false,
   "release_created": true,
-  "commit_hash": "[PENDING]",
+  "commit_hash": "9906a925e191829406cfbba0a75d319fdd3021b3",
   "tag_name": "checkpoint/admin-cms-ia-publishing-foundation-blueprint-v1",
   "release_name": "Admin CMS IA and Publishing Foundation Blueprint",
+  "release_url": "https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-cms-ia-publishing-foundation-blueprint-v1",
   "next_recommended_station": "Admin IA Shell Implementation"
 }
