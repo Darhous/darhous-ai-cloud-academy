@@ -72,7 +72,7 @@ export async function GET() {
             direction: "rtl",
           }}
         >
-          أكاديمية درهوس للذكاء الاصطناعي والكلاود
+          منصة تعلم ذكية من درهوس
         </div>
 
         {/* English title */}
@@ -86,7 +86,7 @@ export async function GET() {
             textAlign: "center",
           }}
         >
-          Darhous AI Cloud Academy
+          NexaLearn by Darhous
         </div>
 
         {/* Subtitle */}

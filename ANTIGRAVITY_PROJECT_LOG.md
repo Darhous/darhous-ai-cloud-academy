@@ -8643,3 +8643,31 @@ pm run build\: PASS
 6. **Forbidden Commands**: STRICTLY AVOIDED.
 7. **Phase 5F Safety**: Safely Closed.
 8. **Recommended Next**: Phase 5G — Brand Assets, Metadata, OG, and Launch Candidate Closure.
+
+---
+
+## 2026-06-10 - Phase 5G — Brand Assets, Metadata, OG, and Launch Candidate Closure
+
+**Context:** The project requested Phase 5G implementation to update launch candidate branding and metadata from "Darhous Academy" to "NexaLearn by Darhous". 
+
+**Prompt/Task received:**
+- Preflight verify Phase 5F CI run (27238615118) and log integrity.
+- Safely update metadata title/description, Open Graph/Twitter metadata, manifest/app-name, and public brand text consistency updates.
+- Only safe textual "NexaLearn by Darhous" changes. 
+- Strict corrections from User: Use NexaLearn by Darhous | ???? ???? ???? ?? ????? for metadata. Defer any deep UI, translation strings, binary assets, and localization QA.
+
+**Execution & Findings:**
+1. Preflight completed successfully. CI run 27238615118 was green. No log placeholders found.
+2. Audited brand references. Deep components and translation files were documented and explicitly deferred to a dedicated Phase 5H.
+3. Updated src/app/layout.tsx metadata with NexaLearn string.
+4. Updated src/lib/constants.ts with SITE_NAME changes.
+5. Updated src/app/og/route.tsx titles with NexaLearn strings.
+6. Validation checks (
+pm run typecheck, 
+pm run lint, 
+pm run build, git diff --check) all passed.
+7. Created documentation reports in docs/reports/2026-06-09-phase-5g-brand-metadata-launch-candidate/.
+8. Checkpoint checkpoint/phase-5g-brand-metadata-launch-candidate-v1 created safely via explicit staging.
+
+**Next Steps:**
+Awaiting live deployment Vercel verification of Phase 5G, followed by further planning for Phase 5H (Brand Overhaul & Localization QA).

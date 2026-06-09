@@ -4,8 +4,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://darhous-ai-cloud-academy.vercel.app"),
   title: {
-    default: "Darhous AI Cloud Academy | أكاديمية درهوس",
-    template: "%s | Darhous AI",
+    default: "NexaLearn by Darhous | منصة تعلم ذكية من درهوس",
+    template: "%s | NexaLearn",
   },
   description: "A practical AI and Cloud learning platform. منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود.",
   openGraph: {
