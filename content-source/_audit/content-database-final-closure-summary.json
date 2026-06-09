@@ -1,0 +1,47 @@
+{
+  "total_records": 1040,
+  "tier_a_imported_count": 600,
+  "live_wired_count": 180,
+  "deferred_count": 260,
+  "inventory": {
+    "tier_a_imported": {
+      "ai-academy/lessons": 20,
+      "ai-academy/resources": 30,
+      "automation/lessons": 20,
+      "automation/resources": 30,
+      "career/glossary": 50,
+      "career/lessons": 20,
+      "career/prompts": 30,
+      "career/resources": 30,
+      "digital-exams/glossary": 50,
+      "digital-exams/lessons": 20,
+      "digital-exams/prompts": 30,
+      "digital-exams/resources": 30,
+      "iot-lab/glossary": 50,
+      "iot-lab/prompts": 30,
+      "iot-lab/resources": 30,
+      "language/glossary": 50,
+      "language/lessons": 20,
+      "language/prompts": 30,
+      "language/resources": 30
+    },
+    "live_wired": {
+      "ai-academy/glossary": 50,
+      "ai-academy/prompts": 30,
+      "automation/glossary": 50,
+      "automation/prompts": 30,
+      "iot-lab/lessons": 20
+    },
+    "deferred": {
+      "nano-banana/glossary": 50,
+      "nano-banana/lessons": 20,
+      "nano-banana/prompts": 30,
+      "nano-banana/resources": 30,
+      "tools-hub/glossary": 50,
+      "tools-hub/lessons": 20,
+      "tools-hub/prompts": 30,
+      "tools-hub/resources": 30
+    }
+  },
+  "status": "Tier-A database conversion complete; full content estate reconciled; remaining non-Tier-A content formally deferred or already live-wired."
+}
