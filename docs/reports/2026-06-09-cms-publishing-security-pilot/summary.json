@@ -1,0 +1,23 @@
+{
+  "phase": "Phase 3: CMS Publishing + Security Pilot",
+  "status": "completed",
+  "pilot_table": "automation_glossary",
+  "actions_supported": [
+    "publish",
+    "return_to_draft",
+    "archive"
+  ],
+  "reason_for_pilot_table_choice": "The prompt suggested `career_glossary`, but inspection revealed that it is not natively supported by the generic `cms-registry.ts` / generic API architecture (it is only mapped in the read-only DraftPreview configuration). To strictly adhere to the prompt's instruction to 'Prefer extending existing generic admin CMS mechanisms instead of building a separate duplicated system', `automation_glossary` was selected. It provides the exact same low-risk structural safety (simple glossary content) while already fully utilizing the generic UI and generic API, making the lifecycle integration seamless, secure, and future-proof.",
+  "security_measures_implemented": [
+    "Strict POST route validation enforcing 'draft' on creation for non-allowlisted tables.",
+    "Strict PATCH route 403 authorization locking status transitions for non-allowlisted tables.",
+    "Conditional rendering of 'Archive' buttons in `GenericCmsTypePanel.tsx` restricted to allowlisted tables.",
+    "Disabling of `AdminStatusField` dropdowns for non-allowlisted tables."
+  ],
+  "files_modified": [
+    "src/app/api/admin/cms/[table]/route.ts",
+    "src/app/api/admin/cms/[table]/[id]/route.ts",
+    "src/components/admin/cms/GenericCmsTypePanel.tsx",
+    "src/components/admin/content-form/fields.tsx"
+  ]
+}

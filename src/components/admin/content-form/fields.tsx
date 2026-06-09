@@ -88,13 +88,14 @@ interface SelectFieldProps {
   value: string;
   onChange: (value: string) => void;
   options: SelectOption[];
+  disabled?: boolean;
 }
 
-export function AdminSelectField({ label, value, onChange, options }: SelectFieldProps) {
+export function AdminSelectField({ label, value, onChange, options, disabled }: SelectFieldProps) {
   return (
     <div>
       <FieldLabel>{label}</FieldLabel>
-      <select value={value} onChange={(e) => onChange(e.target.value)} className={`${fieldClass} w-full`} style={selectStyle}>
+      <select value={value} onChange={(e) => onChange(e.target.value)} disabled={disabled} className={`${fieldClass} w-full disabled:opacity-50`} style={selectStyle}>
         {options.map((opt) => (
           <option key={opt.value} value={opt.value}>{opt.label}</option>
         ))}
@@ -113,16 +114,18 @@ interface StatusFieldProps {
   value: "published" | "draft" | "archived";
   onChange: (value: "published" | "draft" | "archived") => void;
   label?: string;
+  disabled?: boolean;
 }
 
 /** Status select — published/draft/archived (matches the convention used by blog_posts and nano_banana_custom_prompts). */
-export function AdminStatusField({ value, onChange, label = "Status" }: StatusFieldProps) {
+export function AdminStatusField({ value, onChange, label = "Status", disabled }: StatusFieldProps) {
   return (
     <AdminSelectField
       label={label}
       value={value}
       onChange={(v) => onChange(v as "published" | "draft" | "archived")}
       options={STATUS_OPTIONS}
+      disabled={disabled}
     />
   );
 }

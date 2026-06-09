@@ -67,7 +67,12 @@ export async function POST(req: NextRequest, { params }: Ctx) {
   const coerced = coerceCmsFields(config.fields, body, { forCreate: true });
   if ("error" in coerced) return NextResponse.json({ error: coerced.error }, { status: 400 });
 
-  const status = ["published", "draft", "archived"].includes(String(body.status)) ? String(body.status) : "draft";
+  const PUBLISHING_ALLOWLIST = ["automation_glossary"];
+  let status = "draft";
+  
+  if (PUBLISHING_ALLOWLIST.includes(config.table)) {
+    status = ["published", "draft", "archived"].includes(String(body.status)) ? String(body.status) : "draft";
+  }
 
   const insert: Record<string, unknown> = {
     id,

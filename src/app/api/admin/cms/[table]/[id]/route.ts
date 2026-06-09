@@ -60,7 +60,11 @@ export async function PATCH(req: NextRequest, { params }: Ctx) {
   const updates: Record<string, unknown> = { ...coerced.values };
   if ("sort_order" in body) updates.sort_order = Number(body.sort_order) || 0;
   if ("featured" in body) updates.featured = Boolean(body.featured);
+  const PUBLISHING_ALLOWLIST = ["automation_glossary"];
   if ("status" in body) {
+    if (!PUBLISHING_ALLOWLIST.includes(config.table)) {
+      return NextResponse.json({ error: "Publishing lifecycle is currently locked for this content type (Pilot Phase)" }, { status: 403 });
+    }
     const status = String(body.status);
     if (!["published", "draft", "archived"].includes(status)) {
       return NextResponse.json({ error: "Invalid status value" }, { status: 400 });

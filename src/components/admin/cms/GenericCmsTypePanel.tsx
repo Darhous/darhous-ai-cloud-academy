@@ -346,7 +346,7 @@ export function GenericCmsTypePanel({ config, isAr }: Props) {
                     <button onClick={() => openEdit(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
                       {isAr ? "تعديل" : "Edit"}
                     </button>
-                    {row.status !== "archived" && (
+                    {row.status !== "archived" && ["automation_glossary"].includes(config.table) && (
                       <button onClick={() => handleArchive(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(250,204,21,0.08)", color: "#fbbf24", border: "1px solid rgba(250,204,21,0.2)" }}>
                         {isAr ? "أرشفة" : "Archive"}
                       </button>
@@ -392,6 +392,7 @@ export function GenericCmsTypePanel({ config, isAr }: Props) {
                 label={isAr ? "الحالة" : "Status"}
                 value={(form.status as "published" | "draft" | "archived") ?? "draft"}
                 onChange={(v) => setForm((p) => ({ ...p, status: v }))}
+                disabled={!["automation_glossary"].includes(config.table)}
               />
               <AdminTextField
                 label={isAr ? "ترتيب العرض" : "Sort order"}
