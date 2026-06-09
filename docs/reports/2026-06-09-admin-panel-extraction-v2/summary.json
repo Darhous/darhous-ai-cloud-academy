@@ -44,10 +44,10 @@
     "build": "pass",
     "git_diff_check": "pass"
   },
-  "commit_hash": "PENDING",
+  "commit_hash": "a45fc2170b50c450b9bc5f5b07f1c9bd2f92e4ff",
   "tag_name": "checkpoint/admin-panel-extraction-v2",
   "release_created": true,
   "release_name": "Admin Panel Extraction v2",
-  "release_url": "PENDING",
+  "release_url": "https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-panel-extraction-v2",
   "next_recommended_station": "Admin Dashboard Individual Panel Extraction v3"
 }

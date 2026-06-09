@@ -2844,10 +2844,10 @@ Stop after the report.
   - `npm run typecheck`: اجتاز بنجاح.
   - `npx eslint`: اجتاز بنجاح بدون أخطاء.
   - `npm run build`: تم اجتيازه بنجاح.
-- **رمز الالتزام (Commit hash):** [سيتم إضافته فور الالتزام]
+- **رمز الالتزام (Commit hash):** a45fc2170b50c450b9bc5f5b07f1c9bd2f92e4ff
 - **العلامة (Tag):** checkpoint/admin-panel-extraction-v2
-- **حالة الإصدار (Release status/link):** [سيتم إنشاء الإصدار وإضافة الرابط هنا]
-- **حالة الرفع (Push status):** [سيتم التحديث بعد الرفع]
+- **حالة الإصدار (Release status/link):** https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-panel-extraction-v2
+- **حالة الرفع (Push status):** تم بنجاح.
 - **تأكيد الأمان (Safety confirmation):** أؤكد التزامي التام بالقواعد الصارمة. لم أقم بأي تعديل في قاعدة البيانات، ولا أي استعلامات Supabase، ولا تعديلات في الروابط العامة.
 - **تأكيد الملفات المحمية (Protected files confirmation):** لم يتم إجراء أي مساس أو تغيير على الملفات المحمية بتاتاً.
 - **تأكيد عدم الفرض (Force/Amend confirmation):** لم يتم استخدام أي من أوامر الحفظ القسري (`git push -f`, `git commit --amend`, `git tag -f`, أو `git add .`).
