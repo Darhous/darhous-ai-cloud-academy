@@ -45,10 +45,10 @@
     "lint": "pass (targeted)",
     "build": "skipped"
   },
-  "commit_hash": "PENDING",
+  "commit_hash": "a33626d9f7dc81e9cec322f6d364f133ffd2eb65",
   "tag_name": "checkpoint/admin-panel-extraction-v1-ci-closure-v1",
   "release_created": true,
   "release_name": "Admin Panel Extraction v1 CI Closure v1",
-  "release_url": "PENDING",
+  "release_url": "https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-panel-extraction-v1-ci-closure-v1",
   "next_recommended_station": "Admin Dashboard Individual Panel Extraction v2"
 }
