@@ -144,3 +144,16 @@ At the end of every phase, final response to the user must be in Arabic and incl
 * next recommended station
 
 Do not include a new implementation plan unless asked.
+
+## 9. Critical Git Correction Rules
+
+* Do not use git commit --amend after a commit/tag has been created unless explicitly approved by the user.
+* Do not use git tag -f unless explicitly approved by the user.
+* Do not use git push -f or git push --force unless explicitly approved by the user.
+* Do not rewrite history.
+* Do not move existing checkpoint tags.
+* Do not delete/recreate existing tags.
+* If a correction is needed, create a new correction commit and a new correction checkpoint tag.
+* Do not create temporary helper files such as fix_log.py or fix_hash.py unless explicitly approved. Prefer direct editing or safe built-in tooling.
+* Never use git add .
+* Always stage explicit files only.
