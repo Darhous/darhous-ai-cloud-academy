@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import { Bot, Send } from "lucide-react";
+import { Bot, Send, Sparkles, Terminal } from "lucide-react";
 
 function useTypewriter(text: string, speed = 35, delay = 1800): [string, boolean] {
   const [displayed, setDisplayed] = useState("");
@@ -48,10 +48,10 @@ export default function MentorShowcase({ locale }: { locale: string }) {
   const effectiveMentorDone  = shouldReduce ? true : mentorDone;
 
   return (
-    <section id="mentor-showcase" className="container-xl">
+    <section id="mentor-showcase" className="container-xl relative z-10">
       <motion.div
         variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}
-        className="text-center mb-10"
+        className="text-center mb-14"
       >
         <div
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-mono mb-5"
@@ -60,42 +60,50 @@ export default function MentorShowcase({ locale }: { locale: string }) {
           <Bot size={12} />
           {isAr ? "المرشد الذكي" : "AI Mentor"}
         </div>
-        <h2 className="font-display font-bold text-3xl md:text-4xl mb-4" style={{ color: "var(--color-on-surface)" }}>
+        <h2 className="font-display font-bold text-3xl md:text-5xl mb-4 text-gradient-premium">
           {isAr ? "شوف المرشد بيشتغل" : "See the Mentor in Action"}
         </h2>
-        <p className="text-base max-w-xl mx-auto" style={{ color: "var(--color-on-surface-variant)" }}>
+        <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: "var(--color-on-surface-variant)" }}>
           {isAr
-            ? "المرشد الذكي يفهم مستواك ويبني لك خطة تعلم مخصصة — جربه دلوقتي"
-            : "The AI Mentor understands your level and builds a custom learning plan — try it now"}
+            ? "المرشد الذكي يفهم مستواك ويبني لك خطة تعلم مخصصة لحظة بلحظة"
+            : "The AI Mentor understands your level and builds a custom learning plan, moment by moment"}
         </p>
       </motion.div>
 
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <motion.div
           variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
-          className="glass-card rounded-3xl overflow-hidden"
-          style={{ border: "1px solid rgba(142,213,255,0.12)", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}
+          className="glass-panel-promax rounded-[2rem] overflow-hidden"
+          style={{ boxShadow: "0 30px 80px rgba(0,0,0,0.4)" }}
         >
-          {/* Chat header */}
-          <div className="flex items-center gap-3 px-5 py-4" style={{ background: "rgba(255,255,255,0.03)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "rgba(142,213,255,0.12)", border: "1px solid rgba(142,213,255,0.2)" }}>
-              <Bot size={18} style={{ color: "var(--color-primary)" }} />
-            </div>
-            <div>
-              <p className="text-sm font-bold" style={{ color: "var(--color-on-surface)" }}>
-                {isAr ? "مرشد درهوس الذكي" : "Darhous AI Mentor"}
-              </p>
-              <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
-                  {isAr ? "متصل الآن" : "Online now"}
-                </p>
+          {/* Chat header - Command Center Style */}
+          <div className="flex items-center justify-between px-6 py-4" style={{ background: "rgba(255,255,255,0.03)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(142,213,255,0.1)", border: "1px solid rgba(142,213,255,0.2)" }}>
+                <Bot size={20} style={{ color: "var(--color-primary)" }} />
               </div>
+              <div>
+                <p className="text-sm font-bold" style={{ color: "var(--color-on-surface)" }}>
+                  {isAr ? "مرشد درهوس الذكي" : "Darhous AI Mentor"}
+                </p>
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                  <p className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                    {isAr ? "متصل ومستعد" : "Online and ready"}
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="hidden md:flex gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/30" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/30" />
+              <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/30" />
             </div>
           </div>
 
           {/* Chat body */}
-          <div className="p-5 flex flex-col gap-4 min-h-48">
+          <div className="p-6 flex flex-col gap-6 min-h-64" style={{ background: "rgba(0,0,0,0.2)" }}>
             {/* User message */}
             <motion.div
               initial={{ opacity: 0, x: shouldReduce ? 0 : (isAr ? -20 : 20) }}
@@ -104,17 +112,17 @@ export default function MentorShowcase({ locale }: { locale: string }) {
               className={`flex ${isAr ? "justify-start" : "justify-end"}`}
             >
               <div
-                className="max-w-xs px-4 py-3 rounded-2xl text-sm leading-relaxed"
+                className="max-w-md px-5 py-3.5 rounded-2xl text-sm leading-relaxed"
                 style={{
                   background: "rgba(208,188,255,0.12)",
                   border: "1px solid rgba(208,188,255,0.2)",
                   color: "var(--color-on-surface)",
-                  borderRadius: isAr ? "4px 16px 16px 16px" : "16px 4px 16px 16px",
+                  borderRadius: isAr ? "4px 20px 20px 20px" : "20px 4px 20px 20px",
                 }}
               >
                 {isAr
-                  ? "أنا مبتدئ وعايز أتعلم AI بس مش عارف أبدأ منين 😅"
-                  : "I'm a beginner who wants to learn AI but I don't know where to start 😅"}
+                  ? "أنا مبتدئ وعايز أتعلم الذكاء الاصطناعي بس مش عارف أبدأ منين، ممكن تساعدني؟"
+                  : "I'm a beginner who wants to learn AI but I don't know where to start, can you help?"}
               </div>
             </motion.div>
 
@@ -123,55 +131,56 @@ export default function MentorShowcase({ locale }: { locale: string }) {
               initial={{ opacity: 0, x: shouldReduce ? 0 : (isAr ? 20 : -20) }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: shouldReduce ? 0 : 0.9 }}
-              className={`flex items-start gap-3 ${isAr ? "flex-row-reverse" : ""}`}
+              className={`flex items-start gap-4 ${isAr ? "flex-row-reverse" : ""}`}
             >
               <div
-                className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mt-1"
-                style={{ background: "rgba(142,213,255,0.12)", border: "1px solid rgba(142,213,255,0.15)" }}
+                className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-1"
+                style={{ background: "rgba(142,213,255,0.1)", border: "1px solid rgba(142,213,255,0.2)" }}
               >
-                <Bot size={15} style={{ color: "var(--color-primary)" }} />
+                <Sparkles size={18} style={{ color: "var(--color-primary)" }} />
               </div>
               <div
-                className="max-w-sm px-4 py-3 rounded-2xl text-sm leading-relaxed"
+                className="max-w-lg px-5 py-4 rounded-2xl text-sm leading-relaxed"
                 style={{
-                  background: "rgba(142,213,255,0.07)",
+                  background: "rgba(142,213,255,0.06)",
                   border: "1px solid rgba(142,213,255,0.15)",
                   color: "var(--color-on-surface)",
-                  borderRadius: isAr ? "16px 4px 16px 16px" : "4px 16px 16px 16px",
-                  minHeight: "60px",
+                  borderRadius: isAr ? "20px 4px 20px 20px" : "4px 20px 20px 20px",
+                  minHeight: "72px",
                 }}
               >
                 {effectiveMentorTyped || (
-                  <span className="flex gap-1 items-center pt-1">
-                    <span className="w-2 h-2 rounded-full bg-current opacity-60 animate-bounce" style={{ animationDelay: "0ms" }} />
-                    <span className="w-2 h-2 rounded-full bg-current opacity-60 animate-bounce" style={{ animationDelay: "150ms" }} />
-                    <span className="w-2 h-2 rounded-full bg-current opacity-60 animate-bounce" style={{ animationDelay: "300ms" }} />
+                  <span className="flex gap-1.5 items-center pt-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-current opacity-60 animate-bounce" style={{ animationDelay: "0ms" }} />
+                    <span className="w-2.5 h-2.5 rounded-full bg-current opacity-60 animate-bounce" style={{ animationDelay: "150ms" }} />
+                    <span className="w-2.5 h-2.5 rounded-full bg-current opacity-60 animate-bounce" style={{ animationDelay: "300ms" }} />
                   </span>
                 )}
-                {!effectiveMentorDone && effectiveMentorTyped && <span className="animate-pulse">|</span>}
+                {!effectiveMentorDone && effectiveMentorTyped && <span className="animate-pulse inline-block w-1.5 h-4 ml-1 bg-primary/60 align-middle" />}
               </div>
             </motion.div>
           </div>
 
           {/* Input area */}
-          <div className="px-5 py-4" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+          <div className="px-6 py-5" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
             <div className="flex items-center gap-3">
               <div
-                className="flex-1 rounded-xl px-4 py-2.5 text-sm font-mono opacity-40"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "var(--color-on-surface-variant)" }}
+                className="flex-1 rounded-xl px-5 py-3.5 text-sm font-mono opacity-50 flex items-center gap-3"
+                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", color: "var(--color-on-surface-variant)" }}
               >
-                {isAr ? "اكتب سؤالك هنا…" : "Type your question here…"}
+                <Terminal size={16} />
+                {isAr ? "اكتب سؤالك للمرشد هنا…" : "Type your question here…"}
               </div>
               <Link
                 href={`/${locale}/mentor`}
-                className="w-10 h-10 rounded-xl flex items-center justify-center transition-all hover:scale-105"
+                className="w-12 h-12 rounded-xl flex items-center justify-center transition-all hover:scale-105"
                 style={{ background: "rgba(142,213,255,0.12)", border: "1px solid rgba(142,213,255,0.2)", color: "var(--color-primary)" }}
               >
-                <Send size={16} />
+                <Send size={18} />
               </Link>
             </div>
-            <p className="text-center text-xs font-mono mt-3 opacity-50" style={{ color: "var(--color-on-surface-variant)" }}>
-              <Link href={`/${locale}/mentor`} style={{ color: "var(--color-primary)", textDecoration: "none" }}>
+            <p className="text-center text-xs font-mono mt-4 opacity-60" style={{ color: "var(--color-on-surface-variant)" }}>
+              <Link href={`/${locale}/mentor`} className="hover:text-primary transition-colors" style={{ color: "var(--color-primary)", textDecoration: "none" }}>
                 {isAr ? "افتح المرشد الكامل ←" : "Open Full Mentor →"}
               </Link>
             </p>

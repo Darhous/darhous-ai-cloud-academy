@@ -28,7 +28,7 @@ export default function PortalGrid({ locale }: { locale: string }) {
     <section id="portals" className="container-xl">
       <motion.div
         variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}
-        className="text-center mb-12"
+        className="text-center mb-14"
       >
         <div
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-mono mb-4"
@@ -37,10 +37,10 @@ export default function PortalGrid({ locale }: { locale: string }) {
           <Globe size={11} />
           {isAr ? "بوابات المنصة" : "Platform Portals"}
         </div>
-        <h2 className="font-display font-bold text-3xl md:text-4xl mb-4" style={{ color: "var(--color-on-surface)" }}>
+        <h2 className="font-display font-bold text-3xl md:text-5xl mb-4 text-gradient-premium">
           {isAr ? "بوابات درهوس الذكية" : "Darhous Smart Portals"}
         </h2>
-        <p className="text-base" style={{ color: "var(--color-on-surface-variant)", maxWidth: "560px", margin: "0 auto" }}>
+        <p className="text-base md:text-lg" style={{ color: "var(--color-on-surface-variant)", maxWidth: "560px", margin: "0 auto" }}>
           {isAr
             ? "منظومة متكاملة مصممة لتلبية كل احتياجاتك التعليمية والمهنية عبر بوابات متخصصة"
             : "An integrated ecosystem designed to cover all your learning and career needs through specialized portals"}
@@ -48,7 +48,7 @@ export default function PortalGrid({ locale }: { locale: string }) {
       </motion.div>
       {/* Staggered portal card grid */}
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         variants={gridContainer}
         initial="hidden"
         whileInView="show"

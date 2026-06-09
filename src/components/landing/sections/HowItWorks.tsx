@@ -32,50 +32,71 @@ export default function HowItWorks({ locale }: { locale: string }) {
       ];
 
   return (
-    <section id="journey" className="container-xl">
+    <section id="journey" className="container-xl relative z-10">
       <motion.div
         variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}
-        className="text-center mb-12"
+        className="text-center mb-16"
       >
-        <h2 className="font-display font-bold text-3xl md:text-4xl mb-4" style={{ color: "var(--color-on-surface)" }}>
+        <h2 className="font-display font-bold text-3xl md:text-5xl mb-4 text-gradient-premium">
           {isAr ? "رحلتك في 4 خطوات" : "Your Journey in 4 Steps"}
         </h2>
-        <p className="text-base" style={{ color: "var(--color-on-surface-variant)" }}>
-          {isAr ? "من الصفر إلى الاحتراف — خطوة بخطوة مع مرشدك الذكي" : "From zero to mastery — step by step with your AI mentor"}
+        <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: "var(--color-on-surface-variant)" }}>
+          {isAr ? "من الصفر إلى الاحتراف — خطوة بخطوة مع مرشدك الذكي الذي يرافقك في كل مرحلة" : "From zero to mastery — step by step with your AI mentor guiding you at every stage"}
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-        {/* Connecting line (desktop) */}
-        <div
-          className="absolute top-10 start-[12.5%] end-[12.5%] h-px hidden lg:block"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(142,213,255,0.2), rgba(208,188,255,0.2), rgba(60,224,251,0.2), transparent)" }}
-        />
+      <div className="relative">
+        {/* Animated Connecting Line (desktop) */}
+        <div className="absolute top-12 start-[12.5%] end-[12.5%] h-0.5 hidden lg:block overflow-hidden" style={{ background: "rgba(255,255,255,0.05)" }}>
+          <motion.div
+            className="absolute top-0 bottom-0 start-0 w-full"
+            style={{
+              background: "linear-gradient(90deg, transparent, var(--color-primary), var(--color-secondary), var(--color-tertiary), #4ade80, transparent)",
+            }}
+            initial={{ x: isAr ? "100%" : "-100%" }}
+            whileInView={{ x: "0%" }}
+            viewport={{ once: true }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          />
+        </div>
 
-        {steps.map((step, i) => {
-          const Icon = STEP_ICONS[i];
-          return (
-            <motion.div
-              key={step.num}
-              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
-              transition={{ delay: shouldReduce ? 0 : i * 0.1 }}
-              className="glass-card rounded-2xl p-7 flex flex-col items-center text-center gap-4 relative"
-              style={{ border: "1px solid rgba(255,255,255,0.07)" }}
-            >
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center relative z-10"
-                style={{ background: STEP_BGS[i], border: `1px solid ${STEP_BORDERS[i]}` }}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+          {steps.map((step, i) => {
+            const Icon = STEP_ICONS[i];
+            return (
+              <motion.div
+                key={step.num}
+                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
+                transition={{ delay: shouldReduce ? 0 : i * 0.15 }}
+                className="relative"
               >
-                <Icon size={24} style={{ color: STEP_COLORS[i] }} />
-              </div>
-              <div>
-                <p className="text-xs font-mono mb-1" style={{ color: STEP_COLORS[i] }}>{step.num}</p>
-                <h3 className="font-bold text-base mb-2" style={{ color: "var(--color-on-surface)" }}>{step.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{step.desc}</p>
-              </div>
-            </motion.div>
-          );
-        })}
+                {/* Connector Dot */}
+                <div className="hidden lg:flex absolute top-12 start-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full z-10" style={{ background: "var(--color-surface)", border: `2px solid ${STEP_COLORS[i]}` }}>
+                  <div className="w-full h-full rounded-full animate-ping opacity-50" style={{ background: STEP_COLORS[i] }} />
+                </div>
+
+                <div
+                  className="glass-panel-promax rounded-[2rem] p-8 flex flex-col items-center text-center gap-5 mt-0 lg:mt-20 h-full transition-transform hover:-translate-y-2 duration-300"
+                  style={{ border: `1px solid ${STEP_BORDERS[i]}` }}
+                >
+                  <div
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center relative z-10 mb-2 shadow-lg"
+                    style={{ background: STEP_BGS[i], border: `1px solid ${STEP_BORDERS[i]}`, color: STEP_COLORS[i] }}
+                  >
+                    <Icon size={28} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono mb-2 tracking-widest" style={{ color: STEP_COLORS[i] }}>
+                      {isAr ? `خطوة ${step.num}` : `STEP ${step.num}`}
+                    </p>
+                    <h3 className="font-bold text-xl mb-3" style={{ color: "var(--color-on-surface)" }}>{step.title}</h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{step.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

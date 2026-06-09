@@ -45,34 +45,44 @@ export default function WhyDarhous({ locale }: { locale: string }) {
       ];
 
   return (
-    <section className="container-xl">
+    <section className="container-xl relative">
+      {/* Background ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none opacity-[0.15]"
+           style={{ background: "radial-gradient(circle, var(--color-secondary) 0%, transparent 70%)", filter: "blur(60px)" }} />
+
       <motion.div
         variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}
-        className="text-center mb-14"
+        className="text-center mb-16 relative z-10"
       >
-        <h2 className="font-display font-bold text-3xl md:text-4xl mb-4" style={{ color: "var(--color-on-surface)" }}>
-          {isAr ? "لماذا درهوس؟" : "Why Darhous?"}
+        <div
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-mono mb-5"
+          style={{ background: "rgba(208,188,255,0.06)", borderColor: "rgba(208,188,255,0.2)", color: "var(--color-secondary)" }}
+        >
+          <Sparkles size={12} />
+          {isAr ? "مميزات المنصة" : "Platform Features"}
+        </div>
+        <h2 className="font-display font-bold text-3xl md:text-5xl mb-4 text-gradient-premium">
+          {isAr ? "لماذا تختار درهوس؟" : "Why Choose Darhous?"}
         </h2>
-        <p className="text-base" style={{ color: "var(--color-on-surface-variant)" }}>
-          {isAr ? "ما يميّزنا عن كل منصة أخرى" : "What sets us apart from every other platform"}
+        <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: "var(--color-on-surface-variant)" }}>
+          {isAr ? "ما يميّزنا عن كل منصة تعليمية أخرى في الشرق الأوسط" : "What sets us apart from every other educational platform in the Middle East"}
         </p>
       </motion.div>
 
-      {/* 2-column editorial list — less cluttered than the original 4-col card grid */}
       <motion.div
         variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
       >
         {features.map((item, i) => (
-          <motion.div key={i} variants={fadeUp} className="flex items-start gap-4">
+          <motion.div key={i} variants={fadeUp} className="glass-panel-promax rounded-2xl p-6 transition-transform hover:-translate-y-1 duration-300">
             <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
+              className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+              style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
             >
-              <item.Icon size={18} style={{ color: "var(--color-primary)" }} />
+              <item.Icon size={20} style={{ color: "var(--color-primary)" }} />
             </div>
             <div>
-              <h3 className="font-semibold text-sm mb-1" style={{ color: "var(--color-on-surface)" }}>{item.t}</h3>
+              <h3 className="font-bold text-lg mb-2" style={{ color: "var(--color-on-surface)" }}>{item.t}</h3>
               <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>{item.d}</p>
             </div>
           </motion.div>

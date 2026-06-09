@@ -25,14 +25,16 @@ export default function HomepageClient({ locale }: { locale: string }) {
       <SmartPlatformTour locale={locale} />
       <HeroSection locale={locale} scrollToPath={scrollToPath} />
       <PathSelector locale={locale} />
-      <div className="container-xl">
-        <Stats locale={locale} />
-      </div>
       <EcosystemMap locale={locale} portals={realPortals} />
       <PortalGrid locale={locale} />
-      <HowItWorks locale={locale} />
       <MentorShowcase locale={locale} />
-      <WhyDarhous locale={locale} />
+      <HowItWorks locale={locale} />
+      <div className="flex flex-col gap-16 md:gap-20 relative">
+        <WhyDarhous locale={locale} />
+        <div className="container-xl">
+          <Stats locale={locale} />
+        </div>
+      </div>
       <FinalCTA locale={locale} />
       <div className="container-xl">
         <CommunitySignup locale={locale} variant="hero" source="ecosystem-home" />
