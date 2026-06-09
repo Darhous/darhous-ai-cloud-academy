@@ -71,32 +71,53 @@
 
 ## 6. Root log rule
 
-Every phase must append to: `ANTIGRAVITY_PROJECT_LOG.md`
-Never overwrite previous entries.
+Every future phase entry in ANTIGRAVITY_PROJECT_LOG.md must include:
 
-Each entry must use this format:
+1. A separator line.
+2. The exact current local time in Arabic format.
+3. A section titled: `## البرومبت المستلم`
+4. The full prompt/instructions received from the user for that phase.
+5. A section titled: `## تقرير التنفيذ النهائي`
+6. The final execution report/response written at the end of the phase.
+
+Required format:
 
 ---
 
 الساعة [exact time]
 
-[تقرير عربي وافي جدًا عن المرحلة]
+## البرومبت المستلم
 
-The entry must include:
-* phase name
-* date and exact time
-* goal
-* files read
-* files created/modified
-* commands run
-* validation results
-* safety confirmations
-* commit hash
-* tag name
-* release name if created
-* push status
-* what was intentionally not touched
-* next recommended station
+[Paste the full prompt/instructions received for this phase]
+
+## تقرير التنفيذ النهائي
+
+[Write the final detailed Arabic execution report for this phase]
+
+The final execution report must include:
+
+* phase name;
+* goal;
+* files/reports read;
+* code areas inspected;
+* files created;
+* files modified;
+* implementation summary;
+* validation results;
+* safety confirmation;
+* commit hash;
+* tag name;
+* GitHub Release status/link if created;
+* push status;
+* protected files confirmation;
+* next recommended station.
+
+Important:
+
+* Never overwrite previous log entries.
+* Append only.
+* If the prompt is very long, still include it fully under `## البرومبت المستلم`.
+* After commit/tag/release, update the same log entry once if needed to include the final commit hash, tag, release URL, and push status.
 
 ## 7. Commit, tag, checkpoint, and release rules
 

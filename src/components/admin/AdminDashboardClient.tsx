@@ -39,13 +39,8 @@ import { AutomationCMSPanel } from "@/components/admin/cms/AutomationCMSPanel";
 import { IoTCMSPanel } from "@/components/admin/cms/IoTCMSPanel";
 import { ExamsCMSPanel } from "@/components/admin/cms/ExamsCMSPanel";
 import { DraftContentReviewPanel } from "@/components/admin/cms/DraftContentReviewPanel";
-
-type AdminTab =
-  | "overview" | "site-builder" | "portals" | "users"
-  | "certificates" | "mentor-control" | "content" | "email"
-  | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
-  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms" | "ai-projects-cms" | "ai-paths-cms"
-  | "automation-cms" | "iot-cms" | "exams-cms" | "draft-preview";
+import { AdminSidebar } from "./AdminSidebar";
+import { AdminTab } from "./admin-navigation";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -481,98 +476,54 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
 
   // Auth is enforced server-side in page.tsx — no client-side gate needed.
 
-  /* ── Tabs config ──────────────────────────────────────────────────────── */
-  const tabs: { id: AdminTab; labelAr: string; labelEn: string; icon: React.ReactNode }[] = [
-    { id: "overview",       labelAr: "النظرة العامة",      labelEn: "Overview",          icon: <Activity size={15} /> },
-    { id: "site-builder",   labelAr: "بناء الموقع",        labelEn: "Site Builder",       icon: <Edit3 size={15} /> },
-    { id: "portals",        labelAr: "إدارة البوابات",      labelEn: "Portal Manager",     icon: <Globe size={15} /> },
-    { id: "users",          labelAr: "المستخدمون",          labelEn: "Users",              icon: <Users size={15} /> },
-    { id: "certificates",   labelAr: "الشهادات",            labelEn: "Certificates",       icon: <Award size={15} /> },
-    { id: "mentor-control", labelAr: "إعدادات المرشد",     labelEn: "AI Mentor Control",  icon: <Bot size={15} /> },
-    { id: "content",        labelAr: "المحتوى",             labelEn: "Content Studio",     icon: <Database size={15} /> },
-    { id: "email",          labelAr: "الإيميلات",           labelEn: "Email & Notify",     icon: <Bell size={15} /> },
-    { id: "analytics",      labelAr: "التحليلات",           labelEn: "Analytics",          icon: <TrendingUp size={15} /> },
-    { id: "theme",          labelAr: "الهوية والتصميم",    labelEn: "Theme & Branding",   icon: <Palette size={15} /> },
-    { id: "audit",          labelAr: "سجل الأمان",         labelEn: "Security & Audit",   icon: <Shield size={15} /> },
-    { id: "language",       labelAr: "بوابة اللغة",         labelEn: "Language Portal",    icon: <Globe size={15} /> },
-    { id: "automation",     labelAr: "بوابة الأتمتة",       labelEn: "Automation Portal",  icon: <Zap size={15} /> },
-    { id: "digital-exams",  labelAr: "الاختبارات الرقمية",  labelEn: "Digital Exams",      icon: <BarChart2 size={15} /> },
-    { id: "career",         labelAr: "بوابة المهنة",         labelEn: "Career Hub",         icon: <Award size={15} /> },
-    { id: "iot-lab",        labelAr: "مختبر IoT",            labelEn: "IoT Lab",            icon: <Wrench size={15} /> },
-    { id: "ai-academy",     labelAr: "أكاديمية AI",          labelEn: "AI Academy",         icon: <Bot size={15} /> },
-    { id: "nano-banana",    labelAr: "🍌 Nano Banana",        labelEn: "🍌 Nano Banana",     icon: <Sparkles size={15} /> },
-    { id: "blog",           labelAr: "📰 المدونة",            labelEn: "📰 Blog CMS",         icon: <FileText size={15} /> },
-    { id: "ai-glossary",    labelAr: "📖 المسرد",             labelEn: "📖 Glossary CMS",     icon: <BookOpen size={15} /> },
-    { id: "ai-tools-cms",   labelAr: "🛠️ أدوات AI",          labelEn: "🛠️ AI Tools CMS",    icon: <Wrench size={15} /> },
-    { id: "ai-prompts-cms", labelAr: "💬 المطالبات",          labelEn: "💬 Prompts CMS",      icon: <MessageSquare size={15} /> },
-    { id: "ai-courses-cms", labelAr: "🎓 الدورات",            labelEn: "🎓 Courses CMS",      icon: <GraduationCap size={15} /> },
-    { id: "ai-projects-cms", labelAr: "🚀 المشاريع",          labelEn: "🚀 Projects CMS",     icon: <Rocket size={15} /> },
-    { id: "ai-paths-cms",    labelAr: "🗺️ المسارات",          labelEn: "🗺️ Paths CMS",        icon: <Map size={15} /> },
-    { id: "automation-cms",  labelAr: "⚡ محتوى الأتمتة",      labelEn: "⚡ Automation CMS",   icon: <Zap size={15} /> },
-    { id: "iot-cms",         labelAr: "🔌 محتوى IoT",          labelEn: "🔌 IoT Lab CMS",      icon: <Wrench size={15} /> },
-    { id: "exams-cms",       labelAr: "📝 محتوى الاختبارات",   labelEn: "📝 Exams CMS",        icon: <BarChart2 size={15} /> },
-    { id: "draft-preview",   labelAr: "مراجعة المسودات",     labelEn: "Draft Preview",      icon: <Eye size={15} /> },
-  ];
+
 
   const filteredUsers = users.filter((u) =>
     !search || u.email?.toLowerCase().includes(search.toLowerCase()) || u.full_name?.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
-    <div className="container-xl py-8 flex flex-col gap-6">
+    <div className="flex min-h-screen relative w-full">
+      <AdminSidebar currentTab={tab} onTabChange={setTab} isAr={isAr} />
+      <div className="flex-1 flex flex-col min-w-0" style={{ background: "var(--color-background)" }}>
+        <div className="container-xl py-8 flex flex-col gap-6 px-6">
 
-      {/* ── Header ─ */}
-      <div className="flex items-center justify-between">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <p className="text-xs font-mono" style={{ color: "var(--color-tertiary)" }}>DARHOUS ADMIN STUDIO v6.0</p>
-            <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full" style={{ background: "rgba(239,68,68,0.08)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.2)" }}>
-              <Shield size={9} />
-              ADMIN
-            </span>
+          {/* ── Header ─ */}
+          <div className="flex items-center justify-between border-b pb-4" style={{ borderColor: "var(--color-surface-container-high)" }}>
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <p className="text-xs font-mono" style={{ color: "var(--color-tertiary)" }}>DARHOUS ADMIN STUDIO v6.0</p>
+                <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full" style={{ background: "rgba(239,68,68,0.08)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.2)" }}>
+                  <Shield size={9} />
+                  ADMIN
+                </span>
+              </div>
+              <h1 className="font-display font-bold text-2xl" style={{ color: "var(--color-on-surface)" }}>
+                {isAr ? "استوديو الإدارة" : "Darhous Admin Studio"}
+              </h1>
+              <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                {(profile as UserProfile & { email?: string })?.email ?? user?.email}
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <button onClick={fetchData} disabled={dataLoading}
+                className="p-2.5 rounded-xl transition-opacity hover:opacity-70"
+                style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}
+                title={isAr ? "تحديث" : "Refresh"}>
+                <RefreshCw size={15} className={dataLoading ? "animate-spin" : ""} />
+              </button>
+              <button onClick={signOut}
+                className="flex items-center gap-2 text-sm font-mono px-3 py-2 rounded-xl transition-opacity hover:opacity-70"
+                style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}>
+                <LogOut size={14} />
+                {isAr ? "خروج" : "Sign out"}
+              </button>
+            </div>
           </div>
-          <h1 className="font-display font-bold text-2xl" style={{ color: "var(--color-on-surface)" }}>
-            {isAr ? "استوديو الإدارة" : "Darhous Admin Studio"}
-          </h1>
-          <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>
-            {(profile as UserProfile & { email?: string })?.email ?? user?.email}
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <button onClick={fetchData} disabled={dataLoading}
-            className="p-2.5 rounded-xl transition-opacity hover:opacity-70"
-            style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}
-            title={isAr ? "تحديث" : "Refresh"}>
-            <RefreshCw size={15} className={dataLoading ? "animate-spin" : ""} />
-          </button>
-          <button onClick={signOut}
-            className="flex items-center gap-2 text-sm font-mono px-3 py-2 rounded-xl transition-opacity hover:opacity-70"
-            style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}>
-            <LogOut size={14} />
-            {isAr ? "خروج" : "Sign out"}
-          </button>
-        </div>
-      </div>
 
-      {/* ── Tab bar ─ */}
-      <div className="flex items-center gap-1 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
-        {tabs.map((t) => (
-          <button key={t.id} onClick={() => setTab(t.id)}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all"
-            style={{
-              background: tab === t.id ? "rgba(60,224,251,0.12)" : "transparent",
-              border: `1px solid ${tab === t.id ? "rgba(60,224,251,0.3)" : "transparent"}`,
-              color: tab === t.id ? "var(--color-tertiary)" : "var(--color-on-surface-variant)",
-            }}>
-            {t.icon}
-            {isAr ? t.labelAr : t.labelEn}
-          </button>
-        ))}
-      </div>
-
-      {/* ══════════════════════════════════════════════════════════
-          TAB CONTENT
-      ══════════════════════════════════════════════════════════ */}
+          {/* ══════════════════════════════════════════════════════════
+              TAB CONTENT
+          ══════════════════════════════════════════════════════════ */}
 
       {/* 1 ── OVERVIEW ─────────────────────────────────────────── */}
       {tab === "overview" && (
@@ -5576,6 +5527,8 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
       {tab === "exams-cms" && <ExamsCMSPanel isAr={isAr} />}
       {tab === "draft-preview" && <DraftContentReviewPanel isAr={isAr} />}
 
+        </div>
+      </div>
     </div>
   );
 }
