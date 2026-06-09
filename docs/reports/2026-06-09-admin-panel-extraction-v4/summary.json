@@ -46,10 +46,10 @@
     "build": "pass",
     "git_diff_check": "pass"
   },
-  "commit_hash": "PENDING",
+  "commit_hash": "bd223878ad1be61b52481e56835295c96e94fda8",
   "tag_name": "checkpoint/admin-panel-extraction-v4",
   "release_created": true,
   "release_name": "Admin Panel Extraction v4",
-  "release_url": "PENDING",
+  "release_url": "https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-panel-extraction-v4",
   "next_recommended_station": "Admin Stabilization Pack Closure / QA & Polish"
 }

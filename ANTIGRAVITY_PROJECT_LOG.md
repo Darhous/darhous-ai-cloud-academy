@@ -3528,10 +3528,11 @@ Phase 1 of 5 — Admin Stabilization Pack
    - **Typecheck**: اجتاز بنجاح تام (`npm run typecheck`).
    - **Targeted ESLint**: اجتاز بنجاح (فقط التنبيهات المعتادة لحالة النظام في `useEffect`).
    - **Build**: اجتاز بنجاح.
-9. **رمز الالتزام (Commit hash):** [سيتم إضافته فور الالتزام]
+9. **رمز الالتزام (Commit hash):** bd223878ad1be61b52481e56835295c96e94fda8 (fix commit)
+ملاحظة: العلامة checkpoint/admin-panel-extraction-v4 تشير للالتزام السابق 28df17f بسبب نسيان تتبع الملفات، وتم رفع الملفات في الالتزام اللاحق بدون استخدام force push امتثالاً للقواعد.
 10. **العلامة (Tag):** checkpoint/admin-panel-extraction-v4
-11. **حالة الإصدار (Release status/link):** [سيتم إنشاء الإصدار وإضافة الرابط هنا]
-12. **حالة الرفع (Push status):** [سيتم التحديث بعد الرفع]
+11. **حالة الإصدار (Release status/link):** https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-panel-extraction-v4
+12. **حالة الرفع (Push status):** تم رفع الكود والإصدار بنجاح.
 13. **تأكيد الأمان (Safety confirmation):** أؤكد التزامي التام بالقواعد الصارمة. لم أقم بأي مساس بقاعدة البيانات، أو واجهات `Supabase`، أو أزرار النشر.
 14. **تأكيد الملفات المحمية (Protected files confirmation):** لم يتم المساس بأي من الملفات المحمية بتاتاً.
 15. **تأكيد عدم استخدام الأوامر القسرية (Force/Amend confirmation):** لم يتم استخدام أي من الأوامر الممنوعة (مثل `amend` أو `force push`).
