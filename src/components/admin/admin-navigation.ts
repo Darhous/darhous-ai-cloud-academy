@@ -1,7 +1,7 @@
 import {
   Activity, BookOpen, Globe, Users, Award, TrendingUp, Palette,
   Shield, Zap, BarChart2, Wrench, Bot, Sparkles, FileText,
-  MessageSquare, GraduationCap, Rocket, Map, Bell, Edit3, Database, Eye, Mail
+  MessageSquare, GraduationCap, Rocket, Map, Bell, Edit3, Database, Eye
 } from "lucide-react";
 
 export type AdminTab =
