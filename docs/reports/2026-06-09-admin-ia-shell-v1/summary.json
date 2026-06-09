@@ -24,10 +24,10 @@
   "validation.lint": "timed_out",
   "validation.build": "timed_out",
   "validation.git_diff_check": "passed",
-  "commit_hash": "[PENDING]",
+  "commit_hash": "79dc5d5d247011fdb32e68584cdca2634c30c7de",
   "tag_name": "checkpoint/admin-ia-shell-v1",
   "release_created": true,
   "release_name": "Admin IA Shell v1",
-  "release_url": "[PENDING]",
+  "release_url": "https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-ia-shell-v1",
   "next_recommended_station": "Admin Dashboard Individual Panel Extraction"
 }
