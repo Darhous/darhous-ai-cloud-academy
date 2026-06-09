@@ -97,17 +97,18 @@ export default function SmartPlatformTour({ locale }: Props) {
   const [direction, setDirection] = useState(1); // 1 = forward, -1 = back
 
   // Auto-open once per browser, after the page has had a moment to settle
+  // DISABLED IN PHASE 5D: To prevent intrusive auto-start behavior.
   useEffect(() => {
-    let seen = true;
-    try {
-      seen = window.localStorage.getItem(STORAGE_KEY) === "1";
-    } catch {
-      seen = true;
-    }
-    if (seen) return;
-
-    const t = setTimeout(() => setOpen(true), OPEN_DELAY_MS);
-    return () => clearTimeout(t);
+    // let seen = true;
+    // try {
+    //   seen = window.localStorage.getItem(STORAGE_KEY) === "1";
+    // } catch {
+    //   seen = true;
+    // }
+    // if (seen) return;
+    //
+    // const t = setTimeout(() => setOpen(true), OPEN_DELAY_MS);
+    // return () => clearTimeout(t);
   }, []);
 
   const close = useCallback(() => {
