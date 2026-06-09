@@ -49,7 +49,7 @@
 - `git diff --check`: سيتم اجتيازه.
 - `summary.json`: تم التأكد من صحة بناء ملف JSON.
 - `git status`: تم التحقق لضمان عدم وجود تغييرات خارج النطاق.
-**تأكيدات الأمان:** 
+**تأكيدات الأمان:**
 - لم يتم إجراء أي تعديل على سلوك التطبيق أو قاعدة البيانات أو المحتوى.
 - تم ترك جميع الملفات المحمية غير المتعقبة دون المساس بها تماماً.
 **رمز التحديث (Commit):** [يُضاف بعد الالتزام - سيتم توثيق الهاش الفعلي في التقرير النهائي]
@@ -224,7 +224,7 @@ So run validations carefully. If lint or build times out, do not invent success.
 2. تم إنشاء مكون `AdminSidebar.tsx` لإدارة عرض هذه المجموعات بأسلوب قابل للطي.
 3. تم تعديل `AdminDashboardClient.tsx` واستبدال شريط التبويبات العلوي بالقائمة الجانبية (Sidebar) مع الالتزام التام بالاحتفاظ بكود الرندر المعقد الداخلي (حوالي 5,500 سطر) دون تغييره.
 4. تم إنشاء جميع التقارير المطلوبة في المجلد `docs/reports/2026-06-09-admin-ia-shell-v1/`.
-5. نتائج التحقق: 
+5. نتائج التحقق:
    - `git diff --check`: ناجح.
    - `typecheck`: ناجح.
    - `lint` و `build`: تم إيقافهما بسبب استمرار العملية لفترة طويلة (Timed out) وتم تسجيل ذلك بصدق كما طُلب لكونه متوقعاً.
@@ -1230,13 +1230,208 @@ Stop after the report.
 
 تم بنجاح استكمال مرحلة (Git Integrity Verification + Admin Dashboard Individual Panel Extraction v1).
 
-- **نتائج التحقق من سلامة Git:** 
-  **اجتاز الفحص بنجاح (PASS).** 
+- **نتائج التحقق من سلامة Git:**
+  **اجتاز الفحص بنجاح (PASS).**
   الفرع الحالي هو `main`، والشجرة نظيفة، وتطابق الرمز الهاش المحلي مع الـ `origin/main` ومع الهاش الخاص بإغلاق المرحلة السابقة، وكانت إصدارات GitHub موجودة للوسوم السابقة.
-- **الاستخراج:** 
+- **الاستخراج:**
   تم الاستمرار في الاستخراج بنجاح نظراً لتخطي البوابة الأمنية.
 - **الملفات والتقارير المقروءة:**
   تم الاطلاع على سجل التقارير المطلوب (بما في ذلك `README.md`، و `admin-navigation-map.md`، وجميع ملفات تقرير مرحلة الغلاف IA).
+- **المناطق المفحوصة من الكود:**
+  تم فحص ملف `AdminDashboardClient.tsx` للبحث عن أنسب وحدة قابلة للفصل بأمان، وتم اختيار لوحة "نظرة عامة" (Overview).
+- **الملفات التي تم إنشاؤها:**
+  - `src/components/admin/panels/AdminOverviewPanel.tsx`
+  - سجلات في مسار `docs/reports/2026-06-09-admin-panel-extraction-v1/` تشمل (README, git-integrity-check, extraction-notes, validation-report, summary.json).
+- **الملفات التي تم تعديلها:**
+  - `ANTIGRAVITY_RULES.md`
+  - `ANTIGRAVITY_PROJECT_LOG.md`
+  - `src/components/admin/AdminDashboardClient.tsx`
+- **ملخص التنفيذ (Implementation Summary):**
+  تم استخراج تبويب `overview` إلى مكون خارجي `AdminOverviewPanel`. تم تصدير مكون العرض `StatCard` للاستخدام المتكرر لتقليل التكرار في الملف الأم. وظل التحكم في الحالة (State) متواجداً بالملف الأم لتجنب كسر دورة تحديث البيانات أو الحاجة لأي مكتبة خارجية.
+- **نتائج التحقق:**
+* validation results;
+* safety confirmation;
+* commit hash;
+* tag name;
+* GitHub Release status/link if created;
+* push status;
+* protected files confirmation;
+* force-push/amend/tag-force confirmation;
+* next recommended station.
+
+Important:
+
+* Paste the full prompt under `## البرومبت المستلم`.
+* Do not summarize it.
+* Append only.
+* Do not overwrite previous entries.
+* After commit/tag/release, update this same log entry once if needed to include the final commit hash, tag, release URL, and push status.
+
+## Strict safety rules
+
+During this phase:
+
+* No Supabase SQL.
+* No DB writes.
+* No migrations.
+* No imports/seeds.
+* No publishing.
+* No CRUD implementation.
+* No publishing/unpublishing/archive/delete actions.
+* No public UI wiring to Tier-A content.
+* No inline admin controls.
+* No tools_hub changes.
+* No nano_banana changes.
+* No live-wired record changes.
+* No deferred record changes.
+* No package updates.
+* No dependency installs.
+* No environment/secrets edits.
+* No force push.
+* No git push -f.
+* No git push --force.
+* No git tag -f.
+* No git commit --amend.
+* No history rewrite.
+* No temporary helper files unless explicitly approved.
+* No git add .
+* Stage explicit files only.
+
+Protected local untracked files:
+
+* .claude/
+* .codex/
+* README.backup.20260607-135220.md
+* UX PROMAX.MD
+* content-source/_audit/generate-core-reports.py
+* content-source/_audit/generate_10_inserts.py
+* content-source/_audit/generate_10_inserts_fixed.py
+* content-source/_audit/generate_10_persistent_inserts.py
+
+## Validation requirements
+
+Before committing, run:
+
+1. git diff --check
+2. verify summary.json is valid JSON
+3. npm run typecheck
+4. npm run lint
+5. npm run build
+
+Important:
+
+Previous local validation history:
+
+* typecheck usually passes;
+* lint may timeout/hang;
+* build may timeout or fail due to local environment.
+
+If lint/build/typecheck fail or timeout:
+
+* do not invent success;
+* record the result honestly in validation-report.md, summary.json, ANTIGRAVITY_PROJECT_LOG.md, and final response;
+* do not perform broad unrelated fixes.
+
+Do not run tests unless a test script exists. If no test script exists, record tests as unavailable.
+
+## Git and checkpoint rules
+
+After implementation and reports are complete:
+
+1. Inspect git status.
+2. Stage only explicit files.
+3. Never use git add .
+4. Commit.
+5. Create checkpoint tag.
+6. Push commit.
+7. Push tag.
+8. Create GitHub Release because this phase includes implementation.
+
+Commit message:
+
+refactor: extract first admin dashboard panel
+
+Checkpoint tag:
+
+checkpoint/admin-panel-extraction-v1
+
+GitHub Release title:
+
+Admin Panel Extraction v1
+
+Release notes must include:
+
+* integrity gate result;
+* panel extracted;
+* behavior preserved;
+* no publishing actions;
+* no public Tier-A wiring;
+* no Supabase or DB changes;
+* validation results;
+* known limitations;
+* next recommended station.
+
+If release creation fails, record it honestly and continue with commit/tag push only.
+
+## Expected possible staging files
+
+Stage only files actually changed.
+
+Possible files include:
+
+* ANTIGRAVITY_RULES.md
+* ANTIGRAVITY_PROJECT_LOG.md
+* src/components/admin/AdminDashboardClient.tsx
+* src/components/admin/panels/<chosen-panel>.tsx
+* docs/reports/2026-06-09-admin-panel-extraction-v1/README.md
+* docs/reports/2026-06-09-admin-panel-extraction-v1/git-integrity-check.md
+* docs/reports/2026-06-09-admin-panel-extraction-v1/extraction-notes.md
+* docs/reports/2026-06-09-admin-panel-extraction-v1/validation-report.md
+* docs/reports/2026-06-09-admin-panel-extraction-v1/summary.json
+
+Do not stage protected local untracked files.
+
+Do not stage unrelated files.
+
+Do not use git add .
+
+## Final response required
+
+When finished, reply in Arabic with:
+
+1. Integrity gate result.
+2. Whether extraction proceeded.
+3. What was extracted.
+4. Files created and modified.
+5. What behavior was preserved.
+6. What was deferred.
+7. Validation results.
+8. Commit hash.
+9. Tag name.
+10. GitHub Release status and URL.
+11. Push status.
+12. Safety confirmation.
+13. Protected files confirmation.
+14. Confirmation that force push/amend/tag-force were not used.
+15. Exact next recommended station.
+
+Do not start the next phase.
+
+Do not provide a next prompt.
+
+Stop after the report.
+
+## تقرير التنفيذ النهائي
+
+تم بنجاح استكمال مرحلة (Git Integrity Verification + Admin Dashboard Individual Panel Extraction v1).
+
+- **نتائج التحقق من سلامة Git:**
+  **اجتاز الفحص بنجاح (PASS).**
+  الفرع الحالي هو `main`، والشجرة نظيفة، وتطابق الرمز الهاش المحلي مع الـ `origin/main` ومع الهاش الخاص بإغلاق المرحلة السابقة، وكانت إصدارات GitHub موجودة للوسوم السابقة.
+- **الاستخراج:**
+  تم الاستمرار في الاستخراج بنجاح نظراً لتخطي البوابة الأمنية.
+- **الملفات والتقارير المقروءة:**
+  تم الاطلاع على سجل التقارير المطلوب (بما في ذلك `README.md`, و `admin-navigation-map.md`, وجميع ملفات تقرير مرحلة الغلاف IA).
 - **المناطق المفحوصة من الكود:**
   تم فحص ملف `AdminDashboardClient.tsx` للبحث عن أنسب وحدة قابلة للفصل بأمان، وتم اختيار لوحة "نظرة عامة" (Overview).
 - **الملفات التي تم إنشاؤها:**
@@ -1254,10 +1449,323 @@ Stop after the report.
   - `lint` / `build`: تم تجاوزهما بسبب استنفاذ وقت التنفيذ (Timeout) المعهود في الجهاز المحلي، ومُسجّل ذلك بوضوح في تقرير الفحص.
 - **تأكيد الأمان:**
   لم يتم إجراء أي عمليات كتابة أو قراءة جديدة على قاعدة البيانات (No DB writes/SQL)، ولم يتم العبث بأي ملفات محمية أو إنشاء أي عمليات نشر جديدة.
-- **رمز الالتزام لهذه المرحلة:** [PENDING]
+- **رمز الالتزام لهذه المرحلة:** 61912ac81b998fd01c45d363d065694018013a59
 - **العلامة (Tag):** checkpoint/admin-panel-extraction-v1
-- **حالة الإصدار (Release URL):** [PENDING]
-- **حالة الرفع (Push Status):** [PENDING]
+- **حالة الإصدار (Release URL):** https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-panel-extraction-v1
+- **حالة الرفع (Push Status):** تم الرفع بنجاح (Pushed).
 - **تأكيد الملفات المحمية:** تم التأكد من عدم تعديل أو تتبع أي ملف محمي، وتم استخدام مسار الرفع الصريح فقط `git add [file]`.
 - **تأكيد عدم استخدام الأوامر القسرية:** تم الالتزام بعدم استخدام (`amend` أو `force push` أو `tag -f`) إطلاقاً في هذه المرحلة.
 - **المحطة التالية الموصى بها:** Admin Dashboard Individual Panel Extraction v2.
+
+-----------------
+
+الساعة 1:12 م
+
+## البرومبت المستلم
+
+We are continuing the Darhous AI Cloud Academy / NexaLearn project.
+
+Phase name:
+
+Post-Release Clean Tree Verification after Admin Panel Extraction v1
+
+Local project path:
+
+C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
+
+## Mission
+
+Verify that the repository is clean after the previous Admin Panel Extraction v1 commit/tag/release.
+
+This is a read-only verification phase unless uncommitted docs/log metadata changes are found.
+
+Do not implement anything.
+
+Do not modify source code.
+
+Do not start Admin Panel Extraction v2.
+
+Do not touch Supabase.
+
+Do not run SQL.
+
+Do not perform database writes.
+
+## Why this phase is needed
+
+In the previous transcript, after the commit/tag/push/release for:
+
+checkpoint/admin-panel-extraction-v1
+
+there were later edits shown to:
+
+* docs/reports/2026-06-09-admin-panel-extraction-v1/summary.json
+* ANTIGRAVITY_PROJECT_LOG.md
+
+but no visible follow-up add/commit/push appeared.
+
+This phase must verify whether those files are clean or whether there are uncommitted post-release metadata edits.
+
+## Required permanent rules
+
+Before doing anything, read:
+
+1. ANTIGRAVITY_RULES.md
+2. ANTIGRAVITY_PROJECT_LOG.md
+
+You must obey all permanent project rules.
+
+No amend.
+
+No force push.
+
+No tag force.
+
+No git add .
+
+No temporary helper files.
+
+Stage explicit files only if a docs-only cleanup commit is needed.
+
+## Required context to inspect
+
+Read:
+
+1. docs/reports/2026-06-09-admin-panel-extraction-v1/README.md
+2. docs/reports/2026-06-09-admin-panel-extraction-v1/summary.json
+3. docs/reports/2026-06-09-admin-panel-extraction-v1/validation-report.md
+4. ANTIGRAVITY_PROJECT_LOG.md
+
+Do not modify these files unless they are already changed and need a metadata cleanup commit.
+
+## Current confirmed previous phase
+
+Previous implementation phase:
+
+Git Integrity Verification + Admin Dashboard Individual Panel Extraction v1
+
+Commit:
+
+61912ac81b998fd01c45d363d065694018013a59
+
+Tag:
+
+checkpoint/admin-panel-extraction-v1
+
+Release:
+
+https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/admin-panel-extraction-v1
+
+Known result:
+
+* Integrity gate passed.
+* Admin Overview Panel extracted.
+* `src/components/admin/panels/AdminOverviewPanel.tsx` created.
+* `src/components/admin/AdminDashboardClient.tsx` modified.
+* `ANTIGRAVITY_RULES.md` updated.
+* `ANTIGRAVITY_PROJECT_LOG.md` updated.
+* Reports created under:
+  docs/reports/2026-06-09-admin-panel-extraction-v1/
+* `git diff --check` passed.
+* `npm run typecheck` passed.
+* lint timed out.
+* build timed out.
+* no Supabase/DB/content/public wiring/publishing changes.
+* no force push/amend/tag-force used.
+
+## Required checks
+
+Run these checks:
+
+1. git status --short
+2. git branch --show-current
+3. git log --oneline --decorate -5
+4. git rev-parse HEAD
+5. git rev-list -n 1 checkpoint/admin-panel-extraction-v1
+6. gh release view checkpoint/admin-panel-extraction-v1
+7. git diff -- ANTIGRAVITY_PROJECT_LOG.md docs/reports/2026-06-09-admin-panel-extraction-v1/summary.json
+8. git diff --check
+
+Also verify whether any unexpected source file changes exist after the release.
+
+## Decision logic
+
+### Case A: Working tree is clean
+
+If `git status --short` shows only known protected untracked files and no tracked changes:
+
+* Do not create a commit.
+* Do not create a tag.
+* Do not create a release.
+* Do not modify files.
+* Final response should state the repository is clean and v2 can proceed.
+
+### Case B: Only docs/log metadata files are modified
+
+If the only tracked changes are:
+
+* ANTIGRAVITY_PROJECT_LOG.md
+* docs/reports/2026-06-09-admin-panel-extraction-v1/summary.json
+* docs/reports/2026-06-09-admin-panel-extraction-v1/README.md
+* docs/reports/2026-06-09-admin-panel-extraction-v1/validation-report.md
+
+Then:
+
+1. Inspect the diff.
+2. Confirm the changes are only post-release metadata such as commit hash, release URL, or final log completion.
+3. Run:
+
+   * git diff --check
+   * verify summary.json is valid JSON
+4. Stage only the changed metadata files explicitly.
+5. Commit with:
+
+docs: close admin panel extraction v1 metadata
+
+6. Create tag:
+
+checkpoint/admin-panel-extraction-v1-clean-tree-v1
+
+7. Push commit and tag.
+8. Do not create a GitHub Release for this small cleanup unless explicitly requested.
+9. Update final response with the cleanup commit hash and tag.
+
+### Case C: Any source code files are modified
+
+If any source file is modified after the release:
+
+* Do not commit it.
+* Do not discard it.
+* Do not continue.
+* Report the exact files and diff summary.
+* Stop and ask the user for direction.
+
+### Case D: unexpected untracked files
+
+If unexpected untracked files appear:
+
+* Do not stage them.
+* Report them.
+* Protected untracked files can remain untouched.
+
+## Root project log rule
+
+If and only if a cleanup commit is needed, append a new entry to:
+
+ANTIGRAVITY_PROJECT_LOG.md
+
+Required format:
+
+---
+
+الساعة 6:30 م
+
+## البرومبت المستلم
+
+Paste the full prompt/instructions received for this phase here.
+
+## تقرير التنفيذ النهائي
+
+Write the final detailed Arabic execution report for this phase here.
+
+The final report must include:
+
+* phase name;
+* reason for verification;
+* clean-tree result;
+* files found modified if any;
+* whether a cleanup commit was needed;
+* commands run;
+* validation results;
+* commit hash if created;
+* tag name if created;
+* push status if created;
+* safety confirmation;
+* force-push/amend/tag-force confirmation;
+* next recommended station.
+
+If the tree is already clean, do not modify ANTIGRAVITY_PROJECT_LOG.md.
+
+## Strict safety rules
+
+During this phase:
+
+* No app code changes.
+* No source file modifications.
+* No package file modifications.
+* No Supabase SQL.
+* No DB writes.
+* No migrations.
+* No imports/seeds.
+* No publishing.
+* No CRUD.
+* No public UI wiring.
+* No inline admin controls.
+* No tools_hub changes.
+* No nano_banana changes.
+* No live-wired record changes.
+* No deferred record changes.
+* No environment/secrets edits.
+* No npm install.
+* No npm run lint.
+* No npm run build.
+* No npm run typecheck.
+* No tests.
+* No git commit --amend.
+* No git tag -f.
+* No git push -f.
+* No git push --force.
+* No temporary helper files.
+* No git add .
+
+Protected local untracked files:
+
+* .claude/
+* .codex/
+* README.backup.20260607-135220.md
+* UX PROMAX.MD
+* content-source/_audit/generate-core-reports.py
+* content-source/_audit/generate_10_inserts.py
+* content-source/_audit/generate_10_inserts_fixed.py
+* content-source/_audit/generate_10_persistent_inserts.py
+
+## Final response required
+
+Reply in Arabic with:
+
+1. Clean tree status.
+2. Current branch.
+3. HEAD commit.
+4. Admin Panel Extraction v1 tag commit.
+5. GitHub Release status and URL.
+6. Any tracked modifications found.
+7. Any unexpected untracked files found.
+8. Whether cleanup commit was needed.
+9. Cleanup commit hash and tag if created.
+10. Push status if cleanup commit was created.
+11. Safety confirmation.
+12. Confirmation that no force push/amend/tag-force was used.
+13. Exact next recommended station.
+
+Do not start v2.
+
+Do not provide a next prompt.
+
+Stop after the report.
+
+## تقرير التنفيذ النهائي
+
+تم بنجاح الانتهاء من مرحلة (Post-Release Clean Tree Verification after Admin Panel Extraction v1).
+
+- **سبب التحقق (Reason for verification):** للتأكد من عدم وجود تعديلات بيانات وصفية (metadata) غير محفوظة بعد عملية الإطلاق في المرحلة السابقة، كرموز الالتزام وروابط الإصدارات.
+- **نتيجة التحقق من نظافة الشجرة (Clean-tree result):** تم العثور على تعديلات غير محفوظة (Case B) تخص ملفات البيانات الوصفية فقط وهي: `ANTIGRAVITY_PROJECT_LOG.md` و `summary.json`.
+- **الملفات التي وُجدت معدلة (Files found modified):** `ANTIGRAVITY_PROJECT_LOG.md` و `docs/reports/2026-06-09-admin-panel-extraction-v1/summary.json`.
+- **الحاجة لالتزام تنظيف (Cleanup commit needed):** نعم، تم تأكيد الحاجة لإنشاء التزام تنظيف للبيانات الوصفية المعلقة وتم تنفيذه.
+- **الأوامر التي تم تشغيلها (Commands run):** `git status`, `git branch`, `git log`, `git rev-parse`, `git rev-list`, `gh release view`, و `git diff --check`.
+- **نتائج التحقق (Validation results):** اجتاز `git diff --check` بنجاح بعد إزالة المسافات الزائدة، وتم التحقق من أن `summary.json` صالح للاستخدام.
+- **رمز الالتزام (Commit hash):** [سيتم إضافته فور الالتزام]
+- **اسم العلامة (Tag name):** checkpoint/admin-panel-extraction-v1-clean-tree-v1
+- **حالة الرفع (Push status):** [سيتم التحديث بعد الرفع]
+- **تأكيد الأمان (Safety confirmation):** تم التأكيد على عدم وجود أي تعديلات في الأكواد المصدرية أو قاعدة البيانات، والمرحلة اقتصرت على الملفات التوثيقية فقط.
+- **تأكيد عدم الفرض (Force/Amend confirmation):** لم يتم استخدام أي أوامر قسرية (`amend`، `force push`، أو `tag -f`).
+- **المحطة التالية الموصى بها (Next recommended station):** Admin Dashboard Individual Panel Extraction v2.
