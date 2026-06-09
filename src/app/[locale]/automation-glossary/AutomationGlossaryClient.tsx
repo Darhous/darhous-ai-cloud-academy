@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, ShieldAlert } from "lucide-react";
+import { Search, ShieldAlert, Shield } from "lucide-react";
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
 import type { AutomationGlossaryTerm } from "./page";
@@ -72,8 +72,8 @@ export default function AutomationGlossaryClient({ locale, terms, isAdmin }: Pro
           <div key={term.id} className="glass-card rounded-2xl p-6 flex flex-col gap-3 relative glow-hover transition-all duration-300">
             {isAdmin && (
               <div className="absolute top-4 right-4 flex items-center gap-2">
-                 <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-green-500/10 text-green-500 border border-green-500/20">
-                   Published
+                 <span className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono bg-green-500/10 text-green-500 border border-green-500/20">
+                   <Shield size={10} /> Published
                  </span>
               </div>
             )}

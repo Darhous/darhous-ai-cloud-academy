@@ -31,13 +31,13 @@ export const adminNavGroups: NavGroup[] = [
   {
     id: "overview", labelAr: "نظرة عامة", labelEn: "Overview",
     items: [
-      { id: "overview", labelAr: "النظرة العامة", labelEn: "Overview", icon: Activity }
+      { id: "overview", labelAr: "النظرة العامة", labelEn: "Overview", icon: Activity },
+      { id: "analytics", labelAr: "التحليلات", labelEn: "Analytics", icon: TrendingUp }
     ]
   },
   {
-    id: "content", labelAr: "المحتوى", labelEn: "Content",
+    id: "content", labelAr: "المحتوى", labelEn: "Content / CMS",
     items: [
-      { id: "draft-preview", labelAr: "مراجعة المسودات", labelEn: "Draft Preview", icon: Eye },
       { id: "blog", labelAr: "المدونة", labelEn: "Blog", icon: FileText },
       { id: "ai-courses-cms", labelAr: "الدورات", labelEn: "Courses", icon: GraduationCap },
       { id: "ai-projects-cms", labelAr: "المشاريع", labelEn: "Projects", icon: Rocket },
@@ -52,7 +52,21 @@ export const adminNavGroups: NavGroup[] = [
     ]
   },
   {
-    id: "portals", labelAr: "البوابات", labelEn: "Portals",
+    id: "review", labelAr: "المراجعة", labelEn: "Review / Drafts",
+    items: [
+      { id: "draft-preview", labelAr: "مراجعة المسودات", labelEn: "Draft Preview", icon: Eye }
+    ]
+  },
+  {
+    id: "users", labelAr: "المستخدمون والطلاب", labelEn: "Users / Students",
+    items: [
+      { id: "users", labelAr: "المستخدمون", labelEn: "Users", icon: Users },
+      { id: "certificates", labelAr: "الشهادات", labelEn: "Certificates", icon: Award },
+      { id: "email", labelAr: "الإيميلات", labelEn: "Email & Notify", icon: Bell }
+    ]
+  },
+  {
+    id: "portals", labelAr: "التعلم والبوابات", labelEn: "Learning / Portals",
     items: [
       { id: "portals", labelAr: "إدارة البوابات", labelEn: "Portal Manager", icon: Globe },
       { id: "ai-academy", labelAr: "أكاديمية AI", labelEn: "AI Academy", icon: Bot },
@@ -60,50 +74,16 @@ export const adminNavGroups: NavGroup[] = [
       { id: "career", labelAr: "بوابة المهنة", labelEn: "Career Hub", icon: Award },
       { id: "automation", labelAr: "بوابة الأتمتة", labelEn: "Automation Portal", icon: Zap },
       { id: "language", labelAr: "بوابة اللغة", labelEn: "Language Portal", icon: Globe },
-      { id: "nano-banana", labelAr: "🍌 Nano Banana", labelEn: "Nano Banana", icon: Sparkles }
-    ]
-  },
-  {
-    id: "learning", labelAr: "التعلم والاختبارات", labelEn: "Learning & Exams",
-    items: [
+      { id: "nano-banana", labelAr: "🍌 Nano Banana", labelEn: "Nano Banana", icon: Sparkles },
       { id: "digital-exams", labelAr: "الاختبارات الرقمية", labelEn: "Digital Exams", icon: BarChart2 }
     ]
   },
   {
-    id: "users", labelAr: "المستخدمون والمجتمع", labelEn: "Users & Community",
-    items: [
-      { id: "users", labelAr: "المستخدمون", labelEn: "Users", icon: Users }
-    ]
-  },
-  {
-    id: "certificates", labelAr: "الشهادات", labelEn: "Certificates",
-    items: [
-      { id: "certificates", labelAr: "الشهادات", labelEn: "Certificates", icon: Award }
-    ]
-  },
-  {
-    id: "analytics", labelAr: "التحليلات", labelEn: "Analytics",
-    items: [
-      { id: "analytics", labelAr: "التحليلات", labelEn: "Analytics", icon: TrendingUp }
-    ]
-  },
-  {
-    id: "communications", labelAr: "التواصل", labelEn: "Communications",
-    items: [
-      { id: "email", labelAr: "الإيميلات", labelEn: "Email & Notify", icon: Bell }
-    ]
-  },
-  {
-    id: "settings", labelAr: "الإعدادات", labelEn: "Settings",
+    id: "system", labelAr: "النظام والعمليات", labelEn: "Operations / System",
     items: [
       { id: "site-builder", labelAr: "بناء الموقع", labelEn: "Site Builder", icon: Edit3 },
       { id: "theme", labelAr: "الهوية والتصميم", labelEn: "Theme & Branding", icon: Palette },
-      { id: "mentor-control", labelAr: "إعدادات المرشد", labelEn: "AI Mentor Control", icon: Bot }
-    ]
-  },
-  {
-    id: "security", labelAr: "الأمان والنظام", labelEn: "Security & System",
-    items: [
+      { id: "mentor-control", labelAr: "إعدادات المرشد", labelEn: "AI Mentor Control", icon: Bot },
       { id: "audit", labelAr: "سجل الأمان", labelEn: "Security & Audit", icon: Shield }
     ]
   }

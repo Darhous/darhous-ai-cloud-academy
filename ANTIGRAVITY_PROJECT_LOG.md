@@ -8632,3 +8632,14 @@ pm run build\: PASS
 28. **Phase 5F Readiness**: Phase 5F is ready to start.
 29. **Recommended Next**: \Phase 5F — Admin UX Declutter and Inline Admin Polish\
 
+
+## 2026-06-09 - Phase 5F Admin UX and Inline Polish Closure
+
+1. **Station**: Phase 5F — Admin UX Declutter and Inline Admin Polish.
+2. **Commit Focus**: Refactored admin navigation grouping and polished inline admin controls.
+3. **Admin Navigation**: \dmin-navigation.ts\ groups reduced from 10 to 6 cohesive sections (Overview, Content / CMS, Review / Drafts, Users / Students, Learning / Portals, Operations / System).
+4. **Inline Controls**: \NanaBananaClient.tsx\ and \AutomationGlossaryClient.tsx\ updated with \Shield\ badges to clarify admin-only interfaces.
+5. **Security**: Server-side checks unchanged. Inline controls gracefully degrade for non-admins via \isAdmin\ hook.
+6. **Forbidden Commands**: STRICTLY AVOIDED.
+7. **Phase 5F Safety**: Safely Closed.
+8. **Recommended Next**: Phase 5G — Brand Assets, Metadata, OG, and Launch Candidate Closure.

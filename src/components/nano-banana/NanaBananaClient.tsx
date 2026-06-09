@@ -240,9 +240,10 @@ function PromptCard({
         {/* Admin action bar — custom prompts only, admins only */}
         {isAdmin && item.id.startsWith("custom-") && (
           <div
-            className="flex gap-1.5 pt-2 mt-1 flex-wrap"
+            className="flex gap-1.5 pt-2 mt-1 flex-wrap items-center"
             style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
           >
+            <Shield size={11} style={{ color: "var(--color-primary)" }} />
             <button
               onClick={() => onAdminEdit?.(item)}
               className="flex items-center gap-1 text-[10px] px-2 py-1 rounded-lg hover:opacity-80 transition-opacity"
@@ -254,7 +255,7 @@ function PromptCard({
             <button
               onClick={() => onAdminArchive?.(item.id)}
               className="flex items-center gap-1 text-[10px] px-2 py-1 rounded-lg hover:opacity-80 transition-opacity"
-              style={{ background: "rgba(192,132,252,0.1)", color: "#c084fc", border: "1px solid rgba(192,132,252,0.2)" }}
+              style={{ background: "rgba(245,158,11,0.1)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.2)" }}
               title={isAr ? "أرشفة" : "Archive"}
             >
               <Archive size={10} />{isAr ? "أرشفة" : "Archive"}
@@ -262,7 +263,7 @@ function PromptCard({
             <button
               onClick={() => onAdminDelete?.(item.id)}
               className="flex items-center gap-1 text-[10px] px-2 py-1 rounded-lg hover:opacity-80 transition-opacity"
-              style={{ background: "rgba(248,113,113,0.1)", color: "#f87171", border: "1px solid rgba(248,113,113,0.2)" }}
+              style={{ background: "rgba(248,113,113,0.05)", color: "#f87171", border: "1px solid rgba(248,113,113,0.15)" }}
               title={isAr ? "حذف" : "Delete"}
             >
               <Trash2 size={10} />{isAr ? "حذف" : "Delete"}
@@ -271,7 +272,8 @@ function PromptCard({
         )}
         {/* Static prompt badge for admins */}
         {isAdmin && !item.id.startsWith("custom-") && (
-          <div className="mt-1 pt-2" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="mt-1 pt-2 flex items-center gap-1.5" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            <Shield size={11} style={{ color: "var(--color-primary)" }} />
             <span className="text-[9px] font-mono px-2 py-0.5 rounded" style={{ background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.3)" }}>
               static — edit via code
             </span>
@@ -755,17 +757,18 @@ export default function NanaBananaClient({ locale }: { locale: string }) {
       {isAdmin && (
         <div className="fixed bottom-6 end-6 z-50 flex flex-col gap-2 items-end">
           <Link
-            href={`/${locale}/admin`}
+            href={`/${locale}/dashboard`}
             className="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-bold shadow-xl transition-all hover:scale-105"
             style={{
-              background: "linear-gradient(135deg, #f59e0b, #d97706)",
+              background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-variant))",
               color: "#000",
               textDecoration: "none",
-              boxShadow: "0 8px 32px rgba(245,158,11,0.35)",
+              boxShadow: "0 8px 32px rgba(60,224,251,0.35)",
             }}
           >
+            <Shield size={16} />
+            {isAr ? "إضافة برومبت (للمشرف)" : "Add Prompt (Admin)"}
             <Plus size={16} />
-            {isAr ? "إضافة برومبت" : "Add Prompt"}
           </Link>
         </div>
       )}
