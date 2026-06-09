@@ -97,7 +97,7 @@ export default function PublicProfileClient({ username, profile, notConfigured }
                   <p className="text-sm font-semibold truncate" style={{ color: "var(--color-on-surface)" }}>{c.course_title}</p>
                   <p className="text-xs font-mono" style={{ color: "#fbbf24" }}>{c.certificate_code}</p>
                 </div>
-                <Link href={`/certificates/verify/${c.certificate_code}`} target="_blank" className="text-xs font-mono" style={{ color: "var(--color-primary)" }}>
+                <Link href={`/certificates/verify/${c.certificate_code}`} target="_blank" rel="noopener noreferrer" className="text-xs font-mono" style={{ color: "var(--color-primary)" }}>
                   Verify
                 </Link>
               </div>

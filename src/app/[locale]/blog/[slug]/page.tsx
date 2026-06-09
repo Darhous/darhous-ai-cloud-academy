@@ -222,11 +222,15 @@ export default async function BlogPostPage({ params }: { params: Params }) {
               {renderMarkdown(content)}
             </div>
           ) : (
-            <div className="text-center py-12">
+            <div className="text-center py-12 flex flex-col items-center">
               <p className="text-4xl mb-4">📝</p>
-              <p style={{ color: "var(--color-on-surface-variant)" }}>
+              <p className="mb-6" style={{ color: "var(--color-on-surface-variant)" }}>
                 {isAr ? "المحتوى الكامل قيد الكتابة..." : "Full content coming soon..."}
               </p>
+              <Link href={`/${locale}/blog`} className="px-6 py-2.5 rounded-xl font-mono text-sm transition-all hover:opacity-80"
+                style={{ background: "var(--color-primary)", color: "black" }}>
+                {isAr ? "استكشف مقالات أخرى" : "Explore other articles"}
+              </Link>
             </div>
           )}
         </article>

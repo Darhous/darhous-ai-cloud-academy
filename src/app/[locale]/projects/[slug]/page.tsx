@@ -94,9 +94,9 @@ export default async function ProjectDetailPage({ params }: { params: Params }) 
               ))}
             </div>
             <div className="flex flex-wrap gap-3">
-              <button className="glow-button-primary text-white font-mono text-sm px-6 py-3 rounded-xl">
+              <a href="#build-steps" className="glow-button-primary text-white font-mono text-sm px-6 py-3 rounded-xl inline-block text-center decoration-transparent">
                 {isAr ? "ابنِ هذا المشروع" : "Build This Project"}
-              </button>
+              </a>
               <AskThisPageButton
                 locale={locale}
                 contextTitle={isAr ? project.titleAr : project.titleEn}
@@ -114,7 +114,7 @@ export default async function ProjectDetailPage({ params }: { params: Params }) 
         <div className="lg:col-span-2 flex flex-col gap-6">
           {/* Step-by-step build plan */}
           {project.buildSteps && project.buildSteps.length > 0 && (
-            <div className="glass-card rounded-2xl p-6">
+            <div id="build-steps" className="glass-card rounded-2xl p-6 scroll-mt-24">
               <h2 className="font-display font-bold text-xl mb-6" style={{ color: "var(--color-on-surface)" }}>
                 🔨 {isAr ? "خطوات البناء" : "Build Steps"}
               </h2>
