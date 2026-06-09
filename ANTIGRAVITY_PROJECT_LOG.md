@@ -5302,3 +5302,486 @@ Do not implement the cinematic intro yet.
 21. **Intentionally deferred**: The Cinematic Intro/loading experience.
 22. **Deferred feature planned**: The cinematic intro remains firmly planned for Phase 5D.
 23. **Recommended next station**: Phase 5D — Cinematic Intro + Disable/Convert Auto Tour.
+
+---
+
+الساعة 10:38 م
+
+## البرومبت المستلم
+
+We are continuing the Darhous / NexaLearn project.
+
+Local project path:
+
+C:\Users\ahmed\Desktop\ai cources\darhous-ai-cloud-academy
+
+You are now performing:
+
+# Phase 5C Pre-5D Final Review and Cleanup Gate
+
+This is a final quality gate before Phase 5D.
+
+Do NOT start Phase 5D.
+Do NOT implement the cinematic intro.
+Do NOT add new UI features.
+Do NOT redesign anything.
+Do NOT change Phase 5C behavior unless you find a real bug that must be fixed before Phase 5D.
+Do NOT touch admin, CMS, auth, database, Supabase, SQL, migrations, package files, tools_hub, or nano_banana.
+
+The goal is simple:
+
+Verify that Phase 5C is truly safe, clean, and ready before Phase 5D starts.
+
+Known state from the latest reconciliation audit:
+
+* Current branch: \main\
+* Current HEAD: \805885c6d207af4059cb8bebe324e68ce3279b56\
+* Latest commit: \805885c ui: add phase 5c mouse reactive card system\
+* Phase 4: CLOSED SAFELY
+* Phase 5A: CLOSED SAFELY
+* Phase 5B: CLOSED SAFELY after correction v2
+* Phase 5C: reported CLOSED SAFELY
+* Phase 5C tag: \checkpoint/phase-5c-mouse-reactive-cards-v1\
+* Phase 5C release:
+  \https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/phase-5c-mouse-reactive-cards-v1\
+* One harmless 0-byte temporary file was reported:
+  \	est_arabic7.md\
+* Exact next planned phase after this review:
+  \Phase 5D — Cinematic Intro + Disable/Convert Auto Tour\
+
+This station must verify 5C and clean only what is necessary.
+
+---
+
+# If subagents are available
+
+If the tool supports subagents and it is useful, split the review safely:
+
+* Agent 1: Git/status/tag/release/protected-file review.
+* Agent 2: Phase 5C code/accessibility/reduced-motion review.
+* Agent 3: reports/log/temp-file review.
+* Main agent: central QA, final decision, exact staging if needed, one final report.
+
+Subagents must not commit, tag, push, or edit independently.
+Main agent owns final decision and any permitted cleanup.
+
+---
+
+# Mandatory files to read first
+
+Read:
+
+1. \ANTIGRAVITY_RULES.md\
+2. \ANTIGRAVITY_PROJECT_LOG.md\
+
+Read Phase 5C reports:
+
+3. \docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/README.md\
+4. \docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/implementation-notes.md\
+5. \docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/interaction-system-review.md\
+6. \docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/accessibility-and-reduced-motion-review.md\
+7. \docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/visual-acceptance-review.md\
+8. \docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/validation-report.md\
+9. \docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/protected-files-review.md\
+10. \docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/next-phase-recommendation.md\
+11. \docs/reports/2026-06-09-phase-5c-mouse-reactive-cards/summary.json\
+
+Inspect Phase 5C source files:
+
+12. \src/components/ui/InteractiveSurface.tsx\
+13. \src/components/ui/MagneticButton.tsx\
+14. \src/components/ecosystem/PortalCard.tsx\
+15. \src/components/landing/sections/EcosystemMap.tsx\
+16. \src/components/landing/sections/MentorShowcase.tsx\
+17. \src/components/landing/sections/FinalCTA.tsx\
+
+---
+
+# Required checks
+
+Run and record:
+
+\\\ash
+git status --short
+git branch --show-current
+git rev-parse HEAD
+git log --oneline --decorate -15
+git rev-list -n 1 checkpoint/phase-5c-mouse-reactive-cards-v1
+gh release view checkpoint/phase-5c-mouse-reactive-cards-v1
+\\\
+
+If \gh\ is unavailable, say so clearly.
+
+Check protected files:
+
+\\\ash
+git status --short -- .claude .codex README.backup.20260607-135220.md "UX PROMAX.MD" eslint-output.txt content-source/_audit
+git ls-files ".claude/*" ".codex/*" "README.backup.20260607-135220.md" "UX PROMAX.MD" "eslint-output.txt" "content-source/_audit/generate-core-reports.py" "content-source/_audit/generate-final-closure.py" "content-source/_audit/generate_10_inserts.py" "content-source/_audit/generate_10_inserts_fixed.py" "content-source/_audit/generate_10_persistent_inserts.py"
+\\\
+
+Check temporary files:
+
+\\\ash
+git status --short -- task.md temp-log.md implementation_plan.md temp_log_append.txt test_arabic*.md
+git ls-files task.md temp-log.md implementation_plan.md temp_log_append.txt test_arabic*.md
+\\\
+
+PowerShell:
+
+\\\powershell
+Test-Path task.md
+Test-Path temp-log.md
+Test-Path implementation_plan.md
+Test-Path temp_log_append.txt
+Get-ChildItem -Force -Filter "test_arabic*.md"
+\\\
+
+If \	est_arabic7.md\ still exists and is 0 bytes, delete it only.
+Do not delete anything else.
+
+Use:
+
+\\\powershell
+Remove-Item -Force "test_arabic7.md"
+\\\
+
+Only run that if the file exists and is confirmed temporary/untracked.
+
+Then re-check:
+
+\\\powershell
+Get-ChildItem -Force -Filter "test_arabic*.md"
+\\\
+
+---
+
+# Phase 5C code review requirements
+
+Verify:
+
+1. \InteractiveSurface.tsx\ is narrowly scoped.
+2. \MagneticButton.tsx\ is narrowly scoped.
+3. Pointer effects are only for fine pointer/mouse devices.
+4. Touch/mobile fallback is safe.
+5. Reduced-motion behavior is respected.
+6. Keyboard focus remains visible.
+7. No essential content depends on hover only.
+8. No link/button geometry is broken.
+9. No scroll hijacking.
+10. No canvas/WebGL/video.
+11. No heavy parallax.
+12. No new packages.
+13. No package file changes.
+14. No admin/CMS/auth changes.
+15. No SQL/DB/migration/Supabase work.
+16. No tools_hub work.
+17. No nano_banana work.
+18. Phase 5D cinematic intro was not implemented early.
+
+If everything is okay, do not change source code.
+
+If a small real bug is found inside Phase 5C scope, fix it minimally and document it clearly.
+
+---
+
+# ANTIGRAVITY_PROJECT_LOG.md review
+
+Verify the Phase 5C entry:
+
+1. Exists.
+2. Includes Arabic time.
+3. Includes \## البرومبت المستلم\.
+4. Includes the full prompt, not placeholder.
+5. Includes \## تقرير التنفيذ النهائي\.
+6. Includes the full final report.
+7. Does not contain \[... truncated ...]\.
+8. Does not contain \[prompt omitted]\.
+9. Does not contain \[same as above]\.
+10. Does not contain raw Base64 junk.
+11. Does not contain broken Python script fragments.
+12. Does not contain corrupted Arabic in the latest Phase 5C entry.
+13. Does not contain duplicated failed append attempts after the valid entry.
+
+Do not rewrite old log entries.
+
+---
+
+# Required reports
+
+Create this folder:
+
+\docs/reports/2026-06-09-phase-5c-pre-5d-final-review/\
+
+Create:
+
+1. \README.md\
+2. \git-status-review.md\
+3. \code-review.md\
+4. \ccessibility-reduced-motion-review.md\
+5. \log-review.md\
+6. \	emporary-files-cleanup.md\
+7. \protected-files-review.md\
+8. \alidation-report.md\
+9. \inal-decision.md\
+10. \summary.json\
+
+These reports must be concise and clear.
+
+They must answer:
+
+* Was Phase 5C already closed?
+* Was any cleanup needed?
+* Was \	est_arabic7.md\ found?
+* Was it deleted?
+* Were protected files safe?
+* Was the working tree clean before/after?
+* Was the Phase 5C tag valid?
+* Was the Phase 5C release valid?
+* Is the Phase 5C code safe?
+* Is Phase 5D allowed to start next?
+
+---
+
+# Mandatory project log update
+
+Append to:
+
+\ANTIGRAVITY_PROJECT_LOG.md\
+
+Append-only.
+
+Use this exact structure with real Arabic time:
+
+---
+
+الساعة [اكتب الوقت الفعلي بالعربية مثل 6:30 م]
+
+## البرومبت المستلم
+
+[Paste this entire prompt exactly as received, without truncation, without placeholders]
+
+## تقرير التنفيذ النهائي
+
+[Paste the final execution report you will send back to the user]
+
+The log entry must include the full prompt and full final report.
+
+Do not use:
+
+* \[... truncated ...]\
+* \[prompt omitted]\
+* \[same as above]\
+* any placeholder replacing full content.
+
+Do not use temporary helper files to build the log.
+
+---
+
+# Validation required
+
+Run:
+
+\\\ash
+npm run typecheck
+npm run lint
+npm run build
+git diff --check
+python -m json.tool docs/reports/2026-06-09-phase-5c-pre-5d-final-review/summary.json
+git status --short
+\\\
+
+---
+
+# Strict forbidden commands
+
+Do NOT use:
+
+* \git add .\
+* \git add src\
+* \git add docs\
+* broad directory staging
+* \git push --tags\
+* \git push origin main --tags\
+* \git commit --amend\
+* \git tag -f\
+* \git push -f\
+* \git push --force\
+* history rewrite
+* package installs
+* dependency changes
+* SQL commands
+* migrations
+* Supabase writes
+* imports/seeds
+
+Do NOT create temporary helper files.
+
+---
+
+# Protected files
+
+Do not touch, stage, or commit:
+
+* \.claude/\
+* \.codex/\
+* \README.backup.20260607-135220.md\
+* \UX PROMAX.MD\
+* \content-source/_audit/generate-core-reports.py\
+* \content-source/_audit/generate-final-closure.py\
+* \content-source/_audit/generate_10_inserts.py\
+* \content-source/_audit/generate_10_inserts_fixed.py\
+* \content-source/_audit/generate_10_persistent_inserts.py\
+* \eslint-output.txt\
+
+---
+
+# Staging rules
+
+Use explicit file staging only.
+
+Allowed staging:
+
+\\\ash
+git add "ANTIGRAVITY_PROJECT_LOG.md"
+git add "docs/reports/2026-06-09-phase-5c-pre-5d-final-review/README.md"
+git add "docs/reports/2026-06-09-phase-5c-pre-5d-final-review/git-status-review.md"
+git add "docs/reports/2026-06-09-phase-5c-pre-5d-final-review/code-review.md"
+git add "docs/reports/2026-06-09-phase-5c-pre-5d-final-review/accessibility-reduced-motion-review.md"
+git add "docs/reports/2026-06-09-phase-5c-pre-5d-final-review/log-review.md"
+git add "docs/reports/2026-06-09-phase-5c-pre-5d-final-review/temporary-files-cleanup.md"
+git add "docs/reports/2026-06-09-phase-5c-pre-5d-final-review/protected-files-review.md"
+git add "docs/reports/2026-06-09-phase-5c-pre-5d-final-review/validation-report.md"
+git add "docs/reports/2026-06-09-phase-5c-pre-5d-final-review/final-decision.md"
+git add "docs/reports/2026-06-09-phase-5c-pre-5d-final-review/summary.json"
+\\\
+
+If and only if a real Phase 5C source bug is fixed, stage that exact file explicitly.
+
+Do not stage directories.
+
+---
+
+# Commit, tag, push, release
+
+If only reports/log cleanup are changed, commit with:
+
+\\\ash
+git commit -m "docs: add phase 5c pre-5d final review"
+\\\
+
+If a real code fix is required, commit with:
+
+\\\ash
+git commit -m "fix: finalize phase 5c pre-5d review"
+\\\
+
+Create exact tag:
+
+\\\ash
+git tag checkpoint/phase-5c-pre-5d-final-review-v1
+\\\
+
+Push main:
+
+\\\ash
+git push origin main
+\\\
+
+Push exact tag only:
+
+\\\ash
+git push origin checkpoint/phase-5c-pre-5d-final-review-v1
+\\\
+
+Create GitHub release if \gh\ is available:
+
+\\\ash
+gh release create checkpoint/phase-5c-pre-5d-final-review-v1 --title "Phase 5C Pre-5D Final Review" --notes "Final review and cleanup gate for Phase 5C before starting Phase 5D. Verifies Phase 5C code, logs, reports, protected files, temporary files, validation, and readiness for the cinematic intro phase."
+\\\
+
+Do NOT use \git push --tags\.
+
+---
+
+# Final response required
+
+Return a concise final report including:
+
+1. Whether Phase 5C Pre-5D Final Review completed successfully.
+2. Whether this review was documentation-only, cleanup-only, or included code changes.
+3. Previous HEAD.
+4. Final HEAD full hash.
+5. Commit hash.
+6. Tag.
+7. Release URL or release status.
+8. Push status.
+9. Whether \	est_arabic7.md\ existed and whether it was deleted.
+10. Validation results:
+
+    * \
+pm run typecheck\
+    * \
+pm run lint\
+    * \
+pm run build\
+    * \git diff --check\
+    * JSON validation
+11. Exact files changed.
+12. Exact files created.
+13. Log entry status.
+14. Protected files status.
+15. Forbidden commands status.
+16. SQL/DB/package status.
+17. Phase 5C final decision:
+
+    * CLOSED SAFELY / NEEDS REPAIR
+18. Whether Phase 5D can start next.
+19. Exact next station:
+    \Phase 5D — Cinematic Intro + Disable/Convert Auto Tour\
+
+Remember:
+This is only a final review of Phase 5C before Phase 5D.
+Do not start Phase 5D.
+
+## تقرير التنفيذ النهائي
+
+### Phase 5C Pre-5D Final Review Report
+
+1. **Status**: Phase 5C Pre-5D Final Review completed successfully.
+2. **Review Type**: Cleanup-only & Documentation (no code changes).
+3. **Previous HEAD**: \805885c6d207af4059cb8bebe324e68ce3279b56\
+4. **Final HEAD Full Hash**: (Will be retrieved after commit)
+5. **Commit Hash**: (Will be retrieved after commit)
+6. **Tag**: \checkpoint/phase-5c-pre-5d-final-review-v1\
+7. **Release URL**: (Will be created during push step)
+8. **Push Status**: (Will be pushed at the end)
+9. **Temporary File Cleanup**: The file \	est_arabic7.md\ existed (0 bytes) and was successfully deleted using \Remove-Item -Force\.
+10. **Validation Results**:
+    * \
+pm run typecheck\: PASS
+    * \
+pm run lint\: PASS
+    * \
+pm run build\: PASS
+    * \git diff --check\: PASS
+    * JSON validation (\summary.json\): PASS
+11. **Exact Files Changed**:
+    * \ANTIGRAVITY_PROJECT_LOG.md\
+12. **Exact Files Created**:
+    * \docs/reports/2026-06-09-phase-5c-pre-5d-final-review/README.md\
+    * \docs/reports/2026-06-09-phase-5c-pre-5d-final-review/git-status-review.md\
+    * \docs/reports/2026-06-09-phase-5c-pre-5d-final-review/code-review.md\
+    * \docs/reports/2026-06-09-phase-5c-pre-5d-final-review/accessibility-reduced-motion-review.md\
+    * \docs/reports/2026-06-09-phase-5c-pre-5d-final-review/log-review.md\
+    * \docs/reports/2026-06-09-phase-5c-pre-5d-final-review/temporary-files-cleanup.md\
+    * \docs/reports/2026-06-09-phase-5c-pre-5d-final-review/protected-files-review.md\
+    * \docs/reports/2026-06-09-phase-5c-pre-5d-final-review/validation-report.md\
+    * \docs/reports/2026-06-09-phase-5c-pre-5d-final-review/final-decision.md\
+    * \docs/reports/2026-06-09-phase-5c-pre-5d-final-review/summary.json\
+13. **Log Entry Status**: Full prompt and report appended successfully.
+14. **Protected Files Status**: Untouched.
+15. **Forbidden Commands Status**: Fully respected (no broad staging, no tag force).
+16. **SQL/DB/package Status**: No databases, Supabase, or packages were modified.
+17. **Phase 5C Final Decision**: CLOSED SAFELY
+18. **Phase 5D Start**: Phase 5D can start next.
+19. **Exact Next Station**: Phase 5D — Cinematic Intro + Disable/Convert Auto Tour
