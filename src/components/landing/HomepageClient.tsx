@@ -6,7 +6,7 @@ import CommunitySignup from "@/components/community/CommunitySignup";
 import HeroSection from "./sections/HeroSection";
 import PathSelector from "./sections/PathSelector";
 import EcosystemMap from "./sections/EcosystemMap";
-import PortalGrid from "./sections/PortalGrid";
+import ScrollStackSection from "./sections/ScrollStackSection";
 import HowItWorks from "./sections/HowItWorks";
 import MentorShowcase from "./sections/MentorShowcase";
 import WhyDarhous from "./sections/WhyDarhous";
@@ -28,7 +28,7 @@ export default function HomepageClient({ locale }: { locale: string }) {
       <HeroSection locale={locale} scrollToPath={scrollToPath} />
       <PathSelector locale={locale} />
       <EcosystemMap locale={locale} portals={realPortals} />
-      <PortalGrid locale={locale} />
+      <ScrollStackSection locale={locale} />
       <MentorShowcase locale={locale} />
       <HowItWorks locale={locale} />
       <div className="flex flex-col gap-16 md:gap-20 relative">

@@ -10232,3 +10232,57 @@ CinematicIntro (يبقى) → Hero + عنوان حركي [جديد] → Skills M
 - **الدفع:** إلى origin/main + الوسم بالاسم الصريح.
 
 **المحطة التالية الموصى بها:** `landing-scroll-stack-cards-v1` (أول محطة تنفيذ فعلي — الكروت المتراكبة).
+
+---
+
+الساعة 02:50 ظهرًا
+
+## البرومبت المستلم
+
+(محطة تنفيذ فعلي L1-V1 — نُفِّذت على Antigravity كوكيل، والمايسترو (هذه الجلسة) راجع الكود وأجرى التحقق وعمليات git.)
+
+البرومبت الذي أرسله المايسترو إلى Antigravity:
+
+PHASE L1-V1 — Scroll-Stack Portal Cards (NexaLearn landing). الهدف: استبدال شبكة البوابات المسطّحة في الصفحة الرئيسية بكروت متراكبة sticky scroll-stack لنفس البطاقات (مطلب المالك "الكروت المتراكبة") مع تراجع تدريجي في الحجم والشفافية أثناء التمرير، **بدون حذف أي بوابة أو قسم أو نص**. القيود الصارمة: ممنوع commit/tag/push، ممنوع لمس ANTIGRAVITY_PROJECT_LOG.md، ممنوع لمس SQL/migrations/Supabase/api/admin/auth/env/secrets/package/tools_hub/nano_banana/الملفات المحمية، ممنوع تثبيت حزم (framer-motion موجود)، ممنوع تعديل portals.ts. المواصفات: إنشاء `src/components/landing/sections/ScrollStackSection.tsx` ("use client"، props {locale}، يستورد portals + PortalCard size="large"، نفس عنوان PortalGrid، id="portals"، useScroll على الحاوية بـ offset ["start start","end start"]، كل كرت sticky top:96+index*16 مع scale 1→0.90 و opacity 1→0.55 عبر مكوّن ابن StackedCard، الكرت الأخير لا يتراجع، fallback شبكة كاملة على الموبايل <md و reduced-motion)؛ تعديل `HomepageClient.tsx` لاستبدال PortalGrid بـ ScrollStackSection دون حذف ملف PortalGrid؛ تشغيل typecheck/lint/build؛ إنشاء مجلد تقرير ذاتي؛ ترك التغييرات غير معتمدة للمايسترو؛ تقرير نهائي بالعربية.
+
+## تقرير التنفيذ النهائي
+
+**اسم المحطة:** L1-V1 — Scroll-Stack Portal Cards (أول محطة تنفيذ كود فعلي)
+**التاريخ:** 2026-06-10
+**الفرع:** main — **HEAD قبل المحطة:** `4ff9c11c7a3a94ad1bd0502c7cffd400daa41338`
+**منفّذ الكود:** Antigravity — **المراجعة و git:** المايسترو (هذه الجلسة).
+
+### ما تم تنفيذه
+حُوّلت شبكة البوابات المسطّحة إلى قسم كروت متراكبة sticky scroll-stack على سطح المكتب، مع تراجع تدريجي للكروت السفلية في الحجم (1→0.90) والشفافية (1→0.55)، والكرت الأخير يبقى كاملًا. على الموبايل (<md) ولمستخدمي reduced-motion ترجع شبكة كاملة بكل الكروت ظاهرة. نفس الـ8 بوابات، نفس العنوان، نفس مرساة id="portals"، نفس روابط البوابات.
+
+### الملفات المنشأة
+- `src/components/landing/sections/ScrollStackSection.tsx`
+- `docs/reports/2026-06-10-landing-scroll-stack-cards-v1/` (README، implementation-notes، before-after-sections، validation-results، acceptance-checklist، summary.json)
+
+### الملفات المعدّلة
+- `src/components/landing/HomepageClient.tsx` (استبدال PortalGrid بـ ScrollStackSection)
+- تنظيف المايسترو: حذف استيراد PortalGrid الميت من HomepageClient (ملف PortalGrid.tsx نفسه محفوظ).
+
+### مراجعة المايسترو (تحقق مستقل على الكود الفعلي)
+- النطاق نظيف: فقط HomepageClient.tsx معدّل + ScrollStackSection.tsx + مجلد التقرير. لا ملفات خارج النطاق، لا protected، لا package، لا SQL/DB/env.
+- PortalGrid.tsx لم يُحذف (محفوظ للرجوع). id="portals" محفوظ. كل البوابات تُعرض. قاعدة الـhooks محترمة (useTransform داخل مكوّن ابن).
+- قائمة الأقسام محفوظة بالضبط (PortalGrid → ScrollStackSection فقط).
+
+### نتائج التحقق (شغّلها المايسترو بنفسه)
+- `npm run typecheck`: PASS (0 أخطاء).
+- `npm run lint`: PASS (0 أخطاء، 69 تحذيرًا — نفس الأساس، لا تحذيرات جديدة).
+- `npm run build`: PASS (exit 0، كل الصفحات SSG).
+
+### تأكيدات السلامة
+- لم يُحذف أي محتوى/بوابة/قسم.
+- لا SQL، لا migrations، لا Supabase، لا env، لا أسرار، لا package، لا اعتماديات، لا tools_hub/nano_banana، لا ملفات محمية.
+- السجل append-only، أُضيف بأداة التحرير المباشرة (لا PowerShell).
+- Antigravity لم يلمس السجل ولم يُجرِ أي git (كما وُجّه).
+
+### Git
+- **الكوميت:** يُملأ بعد التنفيذ أدناه.
+- **الوسم:** `checkpoint/landing-scroll-stack-cards-v1`
+- **الإصدار:** نعم (مكوّن مرئي كبير — مطلب المالك الأساسي).
+- **الدفع:** origin/main + الوسم بالاسم الصريح.
+
+**المحطة التالية الموصى بها:** `landing-marquee-strips-v1` (L1-V2 — شرائط الماركيه بإعادة استخدام CSS الموجود).

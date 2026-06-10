@@ -1,0 +1,21 @@
+{
+  "station": "L1-V1",
+  "files_created": [
+    "src/components/landing/sections/ScrollStackSection.tsx",
+    "docs/reports/2026-06-10-landing-scroll-stack-cards-v1/README.md",
+    "docs/reports/2026-06-10-landing-scroll-stack-cards-v1/implementation-notes.md",
+    "docs/reports/2026-06-10-landing-scroll-stack-cards-v1/before-after-sections.md",
+    "docs/reports/2026-06-10-landing-scroll-stack-cards-v1/validation-results.md",
+    "docs/reports/2026-06-10-landing-scroll-stack-cards-v1/acceptance-checklist.md",
+    "docs/reports/2026-06-10-landing-scroll-stack-cards-v1/summary.json"
+  ],
+  "files_modified": [
+    "src/components/landing/HomepageClient.tsx"
+  ],
+  "validation_results": {
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "build": "PASS"
+  },
+  "no_content_removed": true
+}
