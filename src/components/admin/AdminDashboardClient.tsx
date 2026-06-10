@@ -13,7 +13,6 @@ import {
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { curatedWorkflows } from "@/data/automation/workflowLibrary";
-import { examSubjects } from "@/data/digital-exam-subjects";
 import { courses, courseCategories } from "@/data/courses";
 import { tools, toolCategories } from "@/data/tools";
 import { lessonsData } from "@/data/iot/lessons";
@@ -44,6 +43,11 @@ import { AdminOverviewPanel } from "./panels/AdminOverviewPanel";
 import { AdminAnalyticsPanel } from "./panels/AdminAnalyticsPanel";
 import { AdminThemePanel } from "./panels/AdminThemePanel";
 import { AdminPortalsPanel } from "./panels/AdminPortalsPanel";
+import { AdminEmailPanel } from "./panels/AdminEmailPanel";
+import { AdminAuditPanel } from "./panels/AdminAuditPanel";
+import { AdminLanguagePanel } from "./panels/AdminLanguagePanel";
+import { AdminDigitalExamsPanel } from "./panels/AdminDigitalExamsPanel";
+import { AdminContentPanel } from "./panels/AdminContentPanel";
 
 interface UserRow { id: string; email: string | null; full_name: string | null; role: string; provider: string | null; created_at: string }
 interface SubscriberRow { id: string; email: string; level: string | null; interest: string | null; source: string | null; locale: string | null; created_at: string }
@@ -1060,121 +1064,17 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
 
       {/* 7 ── CONTENT STUDIO ────────────────────────────────────── */}
       {tab === "content" && (
-        <div className="flex flex-col gap-5">
-          <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
-            {isAr ? "استوديو المحتوى" : "Content Studio"}
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[
-              { icon: <BookOpen size={22} />, count: courses.length, labelAr: "الدورات", labelEn: "Courses", href: `/${locale}/courses`, color: "var(--color-primary)" },
-              { icon: <Wrench size={22} />, count: tools.length, labelAr: "الأدوات", labelEn: "AI Tools", href: `/${locale}/tools`, color: "var(--color-tertiary)" },
-              { icon: <Activity size={22} />, count: projects.length, labelAr: "المشاريع", labelEn: "Projects", href: `/${locale}/projects`, color: "#4ade80" },
-              { icon: <FileText size={22} />, count: blogPosts.length, labelAr: "المقالات", labelEn: "Blog Posts", href: `/${locale}/blog`, color: "#f59e0b" },
-              { icon: <FileText size={22} />, count: prompts.length, labelAr: "البرومبتات", labelEn: "Prompts", href: `/${locale}/prompts`, color: "var(--color-secondary)" },
-              { icon: <Database size={22} />, count: nanaBananaPrompts.length, labelAr: "Nano Banana", labelEn: "Nano Banana", href: `/${locale}/nano-banana-prompts`, color: "#f59e0b" },
-            ].map((item) => (
-              <Link key={item.href} href={item.href}
-                className="glass-card rounded-2xl p-5 flex flex-col gap-3 transition-all hover:scale-[1.02]"
-                style={{ border: `1px solid ${item.color}15`, textDecoration: "none" }}>
-                <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${item.color}12`, color: item.color }}>
-                    {item.icon}
-                  </div>
-                  <span className="font-bold text-2xl font-mono" style={{ color: item.color }}>{item.count}</span>
-                </div>
-                <p className="text-sm font-semibold" style={{ color: "var(--color-on-surface)" }}>
-                  {isAr ? item.labelAr : item.labelEn}
-                </p>
-              </Link>
-            ))}
-          </div>
-
-          {/* Messages */}
-          <div className="mt-2">
-            <div className="flex items-center gap-3 mb-3 flex-wrap">
-              <h3 className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>
-                {isAr ? `رسائل التواصل (${messages.filter((m) => m.status === "new").length} جديد)` : `Contact Messages (${messages.filter((m) => m.status === "new").length} new)`}
-              </h3>
-              {messages.filter((m) => m.status === "new").length > 0 && (
-                <div className="flex items-center gap-1.5 text-xs px-3 py-1 rounded-lg" style={{ background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.2)", color: "#fbbf24" }}>
-                  <AlertCircle size={12} /> {isAr ? "لديك رسائل جديدة" : "You have new messages"}
-                </div>
-              )}
-            </div>
-            {dataLoading ? <LoadingSkeleton /> : (
-              <div className="flex flex-col gap-2 max-h-80 overflow-y-auto">
-                {messages.map((m) => (
-                  <div key={m.id} className="glass-card rounded-xl p-4 flex flex-col gap-2"
-                    style={{ border: m.status === "new" ? "1px solid rgba(142,213,255,0.2)" : "1px solid rgba(255,255,255,0.04)" }}>
-                    <div className="flex items-center justify-between flex-wrap gap-2">
-                      <div>
-                        <span className="font-semibold text-sm" style={{ color: "var(--color-on-surface)" }}>{m.name ?? "—"}</span>
-                        <span className="text-xs font-mono ms-2" style={{ color: "var(--color-on-surface-variant)" }}>{m.email}</span>
-                      </div>
-                      {m.status === "new" && (
-                        <button onClick={() => markMessageRead(m.id)}
-                          className="text-[11px] font-mono px-2 py-0.5 rounded-lg transition-opacity hover:opacity-70"
-                          style={{ background: "var(--color-surface-container)", color: "var(--color-on-surface-variant)" }}>
-                          {isAr ? "تعليم مقروء" : "Mark read"}
-                        </button>
-                      )}
-                    </div>
-                    {m.message && <p className="text-sm leading-relaxed line-clamp-2" style={{ color: "var(--color-on-surface-variant)" }}>{m.message}</p>}
-                  </div>
-                ))}
-                {messages.length === 0 && (
-                  <p className="text-center py-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                    {isAr ? "لا توجد رسائل بعد." : "No messages yet."}
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
+        <AdminContentPanel
+          isAr={isAr}
+          locale={locale}
+          messages={messages}
+          dataLoading={dataLoading}
+          markMessageRead={markMessageRead}
+        />
       )}
 
       {/* 8 ── EMAIL & NOTIFICATIONS ─────────────────────────────── */}
-      {tab === "email" && (
-        <div className="flex flex-col gap-5">
-          <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
-            {isAr ? "الإيميلات والإشعارات" : "Email & Notifications"}
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { icon: "👋", t: isAr ? "ترحيب جديد" : "Welcome Email", d: isAr ? "يُرسل تلقائيًا عند تسجيل مستخدم جديد" : "Sent automatically on new user signup", status: "active", endpoint: "/api/email/welcome" },
-              { icon: "🔁", t: isAr ? "إعادة التفاعل (Day-3)" : "Re-engagement (Day-3)", d: isAr ? "Cron يومي 08:00 UTC — للمستخدمين غير النشطين" : "Daily cron 08:00 UTC — for inactive users", status: "active", endpoint: "/api/email/reengagement" },
-              { icon: "🎓", t: isAr ? "إشعار الشهادة" : "Certificate Email", d: isAr ? "عند إصدار شهادة جديدة" : "When a new certificate is issued", status: "planned", endpoint: "" },
-              { icon: "📊", t: isAr ? "ملخص الأسبوعي" : "Weekly Summary", d: isAr ? "ملخص التقدم الأسبوعي" : "Weekly progress digest", status: "planned", endpoint: "" },
-            ].map((email) => (
-              <div key={email.t} className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(255,255,255,0.07)" }}>
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl">{email.icon}</span>
-                    <div>
-                      <p className="font-bold text-sm" style={{ color: "var(--color-on-surface)" }}>{email.t}</p>
-                      <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>{email.d}</p>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full flex-shrink-0"
-                    style={{ background: email.status === "active" ? "rgba(74,222,128,0.12)" : "rgba(148,163,184,0.1)", color: email.status === "active" ? "#4ade80" : "#94a3b8" }}>
-                    {email.status}
-                  </span>
-                </div>
-                {email.endpoint && (
-                  <p className="text-[10px] font-mono mt-3" style={{ color: "var(--color-on-surface-variant)" }}>
-                    POST {email.endpoint}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(142,213,255,0.1)" }}>
-            <p className="text-xs font-mono" style={{ color: "var(--color-primary)" }}>
-              ✅ {isAr ? "Resend API مفعّل — RESEND_API_KEY موجود في Vercel" : "Resend API active — RESEND_API_KEY set in Vercel"}
-            </p>
-          </div>
-        </div>
-      )}
+      {tab === "email" && <AdminEmailPanel isAr={isAr} />}
 
       {/* 9 ── ANALYTICS ─────────────────────────────────────────── */}
       {tab === "analytics" && (
@@ -1197,308 +1097,15 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
 
       {/* 11 ── SECURITY & AUDIT ──────────────────────────────────── */}
       {tab === "audit" && (
-        <div className="flex flex-col gap-5">
-          <h2 className="font-bold text-lg" style={{ color: "var(--color-on-surface)" }}>
-            {isAr ? "سجل الأمان والتدقيق" : "Security & Audit Log"}
-          </h2>
-          {dataLoading ? <LoadingSkeleton /> : (
-            <div className="flex flex-col gap-2">
-              {auditLogs.length === 0 && (
-                <p className="text-center py-8 text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
-                  {isAr ? "لا يوجد سجل تدقيق بعد." : "No audit log entries yet."}
-                </p>
-              )}
-              {auditLogs.map((log) => (
-                <div key={log.id} className="glass-card rounded-xl px-4 py-3 flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: "rgba(239,68,68,0.08)", color: "#ef4444" }}>
-                    <Shield size={14} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-mono truncate" style={{ color: "var(--color-on-surface)" }}>{log.action}</p>
-                    {log.target_type && <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{log.target_type}</p>}
-                  </div>
-                  <p className="text-xs font-mono flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>
-                    {new Date(log.created_at).toLocaleString(isAr ? "ar" : "en", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Security status */}
-          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(74,222,128,0.12)" }}>
-            <h3 className="font-bold text-sm mb-3 flex items-center gap-2" style={{ color: "#4ade80" }}>
-              <CheckCircle size={15} />
-              {isAr ? "حالة الأمان" : "Security Status"}
-            </h3>
-            <div className="flex flex-col gap-2">
-              {[
-                { check: isAr ? "GEMINI_API_KEY محمي في الخادم" : "GEMINI_API_KEY server-only", ok: true },
-                { check: isAr ? "SUPABASE_SERVICE_ROLE_KEY لا يظهر للعميل" : "SUPABASE_SERVICE_ROLE_KEY never exposed to client", ok: true },
-                { check: isAr ? "RLS مفعّل على كل الجداول" : "RLS enabled on all tables", ok: true },
-                { check: isAr ? "API routes تتحقق من صلاحيات المشرف" : "Admin API routes verify role server-side", ok: true },
-                { check: isAr ? "لا توجد routes مؤقتة في الكود" : "No temp admin routes in codebase", ok: true },
-              ].map((s) => (
-                <div key={s.check} className="flex items-center gap-2 text-xs" style={{ color: "var(--color-on-surface-variant)" }}>
-                  <CheckCircle size={13} style={{ color: "#4ade80", flexShrink: 0 }} />
-                  {s.check}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <AdminAuditPanel isAr={isAr} dataLoading={dataLoading} auditLogs={auditLogs} />
       )}
 
       {/* ─────────────────── LANGUAGE PORTAL ─────────────────── */}
       {tab === "language" && (
-        <div className="flex flex-col gap-6">
-
-          {/* Analytics summary */}
-          {!langLoading && langResults.length > 0 && (() => {
-            const avgScore = langResults.reduce((s, r) => s + (r.score as number), 0) / langResults.length;
-            const flagged = langResults.filter((r) => ((r.flags_count as number) ?? 0) > 0).length;
-            const withCerts = langResults.filter((r) => r.certificate_id).length;
-            return (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {[
-                  { label: isAr ? "إجمالي الاختبارات" : "Total Attempts", value: langResults.length, color: "#d0bcff" },
-                  { label: isAr ? "متوسط النتيجة" : "Avg Score", value: `${avgScore.toFixed(1)}%`, color: "#4ade80" },
-                  { label: isAr ? "مع تنبيهات" : "Flagged", value: flagged, color: "#ef4444" },
-                  { label: isAr ? "الشهادات" : "Certificates", value: withCerts, color: "#fbbf24" },
-                ].map((s) => (
-                  <div key={s.label} className="glass-card rounded-2xl p-5 flex flex-col gap-1" style={{ border: `1px solid ${s.color}20` }}>
-                    <p className="font-mono font-bold text-2xl" style={{ color: s.color }}>{s.value}</p>
-                    <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</p>
-                  </div>
-                ))}
-              </div>
-            );
-          })()}
-
-          {/* Level distribution */}
-          {!langLoading && langResults.length > 0 && (() => {
-            const levels = langResults.reduce<Record<string, number>>((acc, r) => {
-              const l = r.level as string;
-              acc[l] = (acc[l] ?? 0) + 1;
-              return acc;
-            }, {});
-            const sorted = Object.entries(levels).sort(([a], [b]) => a.localeCompare(b));
-            const max = Math.max(...sorted.map(([, n]) => n));
-            return (
-              <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(208,188,255,0.1)" }}>
-                <h3 className="font-bold text-sm mb-4" style={{ color: "var(--color-on-surface)" }}>
-                  {isAr ? "توزيع المستويات" : "Level Distribution"}
-                </h3>
-                <div className="flex flex-col gap-2">
-                  {sorted.map(([level, count]) => (
-                    <div key={level} className="flex items-center gap-3 text-sm">
-                      <span className="font-mono w-10 flex-shrink-0 font-bold" style={{ color: "#d0bcff" }}>{level}</span>
-                      <div className="flex-1 h-2 rounded-full" style={{ background: "var(--color-outline-variant)" }}>
-                        <div className="h-full rounded-full" style={{ width: `${(count / max) * 100}%`, background: "#d0bcff" }} />
-                      </div>
-                      <span className="font-mono w-6 text-end flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>{count}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })()}
-
-          {/* Results table */}
-          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
-            <h3 className="font-bold text-sm mb-4 flex items-center justify-between" style={{ color: "var(--color-on-surface)" }}>
-              <span>{isAr ? "نتائج الاختبارات" : "Assessment Results"}</span>
-              {langResults.length > 0 && (
-                <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
-                    {langResults.length} {isAr ? "نتيجة" : "results"}
-                  </span>
-                  <button
-                    onClick={() => {
-                      const headers = ["User ID", "Level", "Score %", "Stages", "Flags", "Certificate", "Date"];
-                      const rows = langResults.map((r) => [
-                        (r.user_id as string).slice(0, 8),
-                        r.level as string,
-                        (r.score as number).toFixed(1),
-                        `${r.stages_completed as number}/10`,
-                        String((r.flags_count as number) ?? 0),
-                        r.certificate_id ? "Yes" : "No",
-                        new Date(r.created_at as string).toLocaleDateString(),
-                      ]);
-                      const csv = [headers, ...rows].map((row) => row.map((c) => `"${c}"`).join(",")).join("\n");
-                      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-                      const url = URL.createObjectURL(blob);
-                      const a = document.createElement("a");
-                      a.href = url;
-                      a.download = `language-results-${new Date().toISOString().slice(0, 10)}.csv`;
-                      a.click();
-                      URL.revokeObjectURL(url);
-                    }}
-                    className="flex items-center gap-1 text-xs font-mono px-2.5 py-1 rounded-lg transition-opacity hover:opacity-70"
-                    style={{ background: "rgba(74,222,128,0.08)", border: "1px solid rgba(74,222,128,0.2)", color: "#4ade80" }}>
-                    <Download size={11} />
-                    {isAr ? "CSV" : "CSV"}
-                  </button>
-                </div>
-              )}
-            </h3>
-            {langLoading
-              ? <div className="h-8 rounded animate-pulse" style={{ background: "rgba(255,255,255,0.04)" }} />
-              : langResults.length === 0
-                ? <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "لا توجد نتائج" : "No results yet"}</p>
-                : (
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-xs font-mono border-collapse">
-                      <thead>
-                        <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                          {["User ID", "Level", "Score", "Stages", "Flags", "Cert", "Date"].map((h) => (
-                            <th key={h} className="text-start pb-2 pr-4 font-bold" style={{ color: "var(--color-on-surface-variant)" }}>{h}</th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {langResults.map((r) => (
-                          <tr key={r.id as string} style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
-                            <td className="py-2 pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{(r.user_id as string).slice(0, 8)}…</td>
-                            <td className="py-2 pr-4 font-bold" style={{ color: "#d0bcff" }}>{r.level as string}</td>
-                            <td className="py-2 pr-4" style={{ color: "var(--color-on-surface)" }}>{(r.score as number).toFixed(1)}%</td>
-                            <td className="py-2 pr-4" style={{ color: "var(--color-on-surface-variant)" }}>{r.stages_completed as number}/10</td>
-                            <td className="py-2 pr-4" style={{ color: ((r.flags_count as number) ?? 0) > 0 ? "#ef4444" : "var(--color-on-surface-variant)" }}>
-                              {(r.flags_count as number) ?? 0}
-                            </td>
-                            <td className="py-2 pr-4" style={{ color: r.certificate_id ? "#4ade80" : "var(--color-on-surface-variant)" }}>
-                              {r.certificate_id ? "✓" : "—"}
-                            </td>
-                            <td className="py-2" style={{ color: "var(--color-on-surface-variant)" }}>
-                              {new Date(r.created_at as string).toLocaleDateString()}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )
-            }
-          </div>
-
-          {/* Anti-cheat flags */}
-          {!langLoading && langResults.filter((r) => ((r.flags_count as number) ?? 0) > 0).length > 0 && (
-            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(239,68,68,0.15)" }}>
-              <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#ef4444" }}>
-                <AlertTriangle size={15} />
-                {isAr ? "تقارير التنبيه (Anti-cheat)" : "Anti-Cheat Flags"}
-              </h3>
-              <div className="flex flex-col gap-2">
-                {langResults.filter((r) => ((r.flags_count as number) ?? 0) > 0).map((r) => (
-                  <div key={r.id as string} className="flex items-center gap-3 text-xs"
-                    style={{ background: "rgba(239,68,68,0.04)", border: "1px solid rgba(239,68,68,0.1)", borderRadius: 8, padding: "8px 12px" }}>
-                    <span className="font-mono" style={{ color: "var(--color-on-surface-variant)" }}>{(r.user_id as string).slice(0, 8)}…</span>
-                    <span className="font-bold" style={{ color: "#d0bcff" }}>{r.level as string}</span>
-                    <span style={{ color: "var(--color-on-surface-variant)" }}>{(r.score as number).toFixed(1)}%</span>
-                    <span className="font-bold" style={{ color: "#ef4444" }}>
-                      {r.flags_count as number} flag{(r.flags_count as number) !== 1 ? "s" : ""}
-                    </span>
-                    <span className="ml-auto" style={{ color: "var(--color-on-surface-variant)" }}>
-                      {new Date(r.created_at as string).toLocaleDateString()}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-        </div>
+        <AdminLanguagePanel isAr={isAr} langResults={langResults} langLoading={langLoading} />
       )}
 
-      {tab === "digital-exams" && (() => {
-        const totalQ = examSubjects.reduce((s, sub) => s + sub.questions.length, 0);
-        const tfCount = examSubjects.reduce((s, sub) => s + sub.questions.filter((q) => q.type === "truefalse").length, 0);
-        const mcqCount = totalQ - tfCount;
-
-        return (
-          <div className="flex flex-col gap-6">
-            {/* Summary cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {[
-                { label: isAr ? "المواد" : "Subjects", value: examSubjects.length, color: "#3ce0fb" },
-                { label: isAr ? "إجمالي الأسئلة" : "Total Questions", value: totalQ, color: "#4ade80" },
-                { label: isAr ? "اختيار من متعدد" : "MCQ", value: mcqCount, color: "#f59e0b" },
-                { label: isAr ? "صح / خطأ" : "True / False", value: tfCount, color: "#8ed5ff" },
-              ].map((s) => (
-                <div key={s.label} className="glass-card rounded-2xl p-5 flex flex-col gap-1" style={{ border: `1px solid ${s.color}20` }}>
-                  <p className="font-mono font-bold text-2xl" style={{ color: s.color }}>{s.value}</p>
-                  <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Per-subject breakdown */}
-            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(60,224,251,0.1)" }}>
-              <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#3ce0fb" }}>
-                <Database size={14} />{isAr ? "بنك الأسئلة حسب المادة" : "Question Bank by Subject"}
-              </h3>
-              <div className="flex flex-col gap-2">
-                {examSubjects.map((s) => {
-                  const tf = s.questions.filter((q) => q.type === "truefalse").length;
-                  const mcq = s.questions.length - tf;
-                  const pct = (s.questions.length / totalQ) * 100;
-                  return (
-                    <div key={s.id} className="flex items-center gap-3 text-sm">
-                      <span className="flex-shrink-0" style={{ fontSize: "16px" }}>{s.icon}</span>
-                      <span className="w-36 flex-shrink-0 text-xs font-mono truncate" style={{ color: s.color }}>
-                        {isAr ? s.labelAr : s.label}
-                      </span>
-                      <div className="flex-1 h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
-                        <div className="h-full rounded-full" style={{ width: `${pct}%`, background: s.color }} />
-                      </div>
-                      <span className="font-mono text-xs w-8 text-end flex-shrink-0" style={{ color: "var(--color-on-surface)" }}>{s.questions.length}</span>
-                      <span className="text-[10px] flex-shrink-0" style={{ color: "var(--color-on-surface-variant)" }}>
-                        ({mcq} MCQ / {tf} T/F)
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Quick stats info */}
-            <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(74,222,128,0.1)" }}>
-              <h3 className="font-bold text-sm mb-3" style={{ color: "#4ade80" }}>
-                {isAr ? "ميزات الاختبارات الرقمية" : "Digital Exams Features"}
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {[
-                  isAr ? "✅ أسئلة عشوائية من بنك 902+ سؤال" : "✅ Random questions from 902+ bank",
-                  isAr ? "✅ دعم أسئلة صح/خطأ واختيار متعدد" : "✅ True/False + MCQ support",
-                  isAr ? "✅ Anti-cheat: 3 تحذيرات → إنهاء تلقائي" : "✅ Anti-cheat: 3 warnings → auto-terminate",
-                  isAr ? "✅ شهادة PDF عند 80%+" : "✅ PDF Certificate at 80%+",
-                  isAr ? "✅ شرح الإجابات بالذكاء الاصطناعي" : "✅ AI-powered answer explanations",
-                  isAr ? "✅ امتحان مجمع من كل المواد" : "✅ Mixed exam from all subjects",
-                  isAr ? "✅ سجل أداء مع رسوم بيانية" : "✅ Performance history with charts",
-                  isAr ? "✅ مكتبة رقمية للكتب والمذكرات" : "✅ Digital library for books & notes",
-                ].map((f, i) => (
-                  <p key={i} className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{f}</p>
-                ))}
-              </div>
-            </div>
-
-            {/* Links */}
-            <div className="flex flex-wrap gap-3">
-              {[
-                { href: `/${locale}/digital-exams`, label: isAr ? "بوابة الاختبارات" : "Exams Portal", color: "#3ce0fb" },
-                { href: `/${locale}/digital-exams/mixed`, label: isAr ? "الامتحان المجمع" : "Mixed Exam", color: "#f59e0b" },
-                { href: `/${locale}/digital-exams/library`, label: isAr ? "المكتبة الرقمية" : "Digital Library", color: "#4ade80" },
-                { href: `/${locale}/digital-exams/history`, label: isAr ? "سجل الأداء" : "Performance History", color: "#8ed5ff" },
-              ].map((l) => (
-                <Link key={l.href} href={l.href} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold" style={{ background: `${l.color}10`, color: l.color, border: `1px solid ${l.color}25` }}>
-                  <ExternalLink size={13} />{l.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        );
-      })()}
+      {tab === "digital-exams" && <AdminDigitalExamsPanel isAr={isAr} locale={locale} />}
 
       {tab === "automation" && (() => {
         const visible = curatedWorkflows.filter((w) => w.visible !== false);
