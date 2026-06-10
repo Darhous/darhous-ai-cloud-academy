@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { type ReactNode } from "react";
 
 interface AnimateInProps {
@@ -11,10 +11,12 @@ interface AnimateInProps {
 }
 
 export default function AnimateIn({ children, delay = 0, direction = "up", className }: AnimateInProps) {
+  const shouldReduce = useReducedMotion();
+
   const initial = {
     opacity: 0,
-    y: direction === "up" ? 24 : 0,
-    x: direction === "left" ? -24 : direction === "right" ? 24 : 0,
+    y: shouldReduce ? 0 : direction === "up" ? 24 : 0,
+    x: shouldReduce ? 0 : direction === "left" ? -24 : direction === "right" ? 24 : 0,
   };
 
   return (
@@ -22,7 +24,7 @@ export default function AnimateIn({ children, delay = 0, direction = "up", class
       initial={initial}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: shouldReduce ? 0.12 : 0.5, delay: shouldReduce ? 0 : delay, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
     >
       {children}

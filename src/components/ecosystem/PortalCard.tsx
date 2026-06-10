@@ -80,32 +80,39 @@ export default function PortalCard({ portal, locale, size = "default" }: Props) 
         {isAr ? portal.descriptionAr : portal.descriptionEn}
       </p>
 
-      {/* Feature pills */}
+      {/* Feature pills — locale-aware */}
       <div className="flex flex-wrap gap-1.5 mt-2">
-        {portal.features.slice(0, 3).map((f) => (
-          <span
-            key={f}
-            className="text-[10px] px-2.5 py-1 rounded-md"
-            style={{
-              background: `${portal.color}10`,
-              color: portal.color,
-              border: `1px solid ${portal.color}20`,
-            }}
-          >
-            {f}
-          </span>
-        ))}
-        {portal.features.length > 3 && (
-          <span
-            className="text-[10px] px-2.5 py-1 rounded-md"
-            style={{
-              background: "rgba(255,255,255,0.04)",
-              color: "var(--color-on-surface-variant)",
-            }}
-          >
-            +{portal.features.length - 3}
-          </span>
-        )}
+        {(() => {
+          const pills = !isAr && portal.featuresEn ? portal.featuresEn : portal.features;
+          return (
+            <>
+              {pills.slice(0, 3).map((f) => (
+                <span
+                  key={f}
+                  className="text-[10px] px-2.5 py-1 rounded-md"
+                  style={{
+                    background: `${portal.color}10`,
+                    color: portal.color,
+                    border: `1px solid ${portal.color}20`,
+                  }}
+                >
+                  {f}
+                </span>
+              ))}
+              {pills.length > 3 && (
+                <span
+                  className="text-[10px] px-2.5 py-1 rounded-md"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    color: "var(--color-on-surface-variant)",
+                  }}
+                >
+                  +{pills.length - 3}
+                </span>
+              )}
+            </>
+          );
+        })()}
       </div>
 
       {/* CTA Line */}
