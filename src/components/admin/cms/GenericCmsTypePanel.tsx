@@ -160,7 +160,6 @@ export function GenericCmsTypePanel({ config, isAr }: Props) {
 
       const payload: Record<string, unknown> = {
         id: form.id,
-        status: form.status,
         featured: form.featured,
         sort_order: Number(form.sort_order) || 0,
       };

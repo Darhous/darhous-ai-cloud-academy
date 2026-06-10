@@ -104,10 +104,18 @@ export async function DELETE(_req: NextRequest, { params }: Ctx) {
   const config = resolveConfig(table);
   if (!config) return NextResponse.json({ error: "Unknown content type" }, { status: 404 });
 
+  // In the generic registry, all tables natively support id/status/featured/sort_order.
+  // If a table literally had no status field in the registry, we would return 405.
+  // But here all 22 tables have it.
+  
   const admin = createAdminClient();
   if (!admin) return NextResponse.json({ error: "DB not configured" }, { status: 503 });
 
-  const { error } = await admin.from(config.table).delete().eq("id", id);
+  const { error } = await admin
+    .from(config.table)
+    .update({ status: "archived", archived_at: new Date().toISOString() })
+    .eq("id", id);
+    
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json({ deleted: true });
+  return NextResponse.json({ deleted: true, archived: true });
 }
