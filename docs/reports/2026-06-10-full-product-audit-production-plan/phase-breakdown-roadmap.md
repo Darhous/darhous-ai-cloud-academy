@@ -8,15 +8,24 @@ Each station is a single prompt scope. Do not combine without explicit approval.
 
 > Reproduce ahmedali.online's scroll experience by **reordering existing sections + layering effects — NO content removed.** Full spec: `landing-visual-reorder-plan.md`. Run V1→V4 in order; each is its own prompt/commit/tag.
 
-### L1-V1: `landing-scroll-stack-cards-v1`
+### L1-V1: `landing-scroll-stack-cards-v1` ✅ Done
 
 | Field | Value |
 |-------|-------|
+| **Status** | ✅ Committed `4856a15` · Tagged `checkpoint/landing-scroll-stack-cards-v1` |
 | **Objective** | Build `ScrollStackSection` (sticky stacked cards = owner's "الكروت المتراكبة") wrapping existing `PortalCard`; reorder `HomepageClient`. Reduced-motion → grid fallback |
 | **Files** | new `components/landing/sections/ScrollStackSection.tsx`, `HomepageClient.tsx` |
-| **Forbidden** | SQL, DB, package.json, env, admin, tools_hub/nano_banana Tier-A, protected files; do not delete any section |
-| **Validation** | `npm run typecheck/lint/build`; before/after section diff; owner scroll checklist |
-| **Tag** | `checkpoint/landing-scroll-stack-cards-v1` |
+| **Validation** | typecheck PASS · lint 0 errors · build PASS (1274 pages) |
+
+### L1-V1.1: `landing-scroll-stack-cards-v1-1` ✅ Done (dramatic upgrade)
+
+| Field | Value |
+|-------|-------|
+| **Status** | ✅ Committed `375b67e` · Tagged `checkpoint/landing-scroll-stack-cards-v1-1` |
+| **Objective** | Scale 1→0.82, opacity 1→0.35, black overlay 0→0.5, sticky top 90+index×28px, 175vh, 01/08 progress counter, moved immediately after Hero. Static overlapping stack for reduce-motion (not flat grid). Mobile large full-width flow. |
+| **Files** | `components/landing/sections/ScrollStackSection.tsx`, `HomepageClient.tsx` |
+| **Validation** | typecheck PASS · lint 0 errors · build PASS (1274 pages) |
+| **Report** | `docs/reports/2026-06-10-landing-scroll-stack-cards-v1-1/` |
 
 ### L1-V2: `landing-marquee-strips-v1`
 
@@ -89,15 +98,15 @@ Each station is a single prompt scope. Do not combine without explicit approval.
 
 ---
 
-## Station B1: `nexalearn-brand-metadata-completion-v1`
+## Station B1: `nexalearn-brand-metadata-completion-v1` ✅ Code complete
 
 | Field | Value |
 |-------|-------|
-| **Objective** | Unified NexaLearn brand on metadata, OG, manifest, certs |
-| **Files** | `layout.tsx`, `manifest`, `og/**`, certificate templates |
-| **Forbidden** | Content publish |
-| **Validation** | Share preview screenshots; metadata unit check |
-| **Tag** | `checkpoint/nexalearn-brand-v1` |
+| **Status** | ✅ Code done · `edbaa3c` + `3caf179` · Tagged `checkpoint/brand-nexalearn-ahmed-darhous-b1` |
+| **Objective** | Unified NexaLearn by Ahmed Darhous brand on metadata, OG, manifest, Navbar, Footer, CinematicIntro |
+| **Done** | `constants.ts` · `layout.tsx` · `og/route.tsx` · `manifest.webmanifest` · `Navbar.tsx` · `Footer.tsx` · `CinematicIntro.tsx` (brand + duration 4.4s) |
+| **Remaining** | Certificate PDF template (design asset) · static `og-image.svg` regeneration (SVG design asset) |
+| **Validation** | typecheck PASS · build PASS |
 
 ---
 

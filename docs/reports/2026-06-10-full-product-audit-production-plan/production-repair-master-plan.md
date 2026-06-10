@@ -1,38 +1,49 @@
 # Production Repair Master Plan
 
 **From:** Audit state at `94348be` (main, CI green, 0 Tier-A published)  
-**To:** Shippable NexaLearn by Darhous product with owner-visible landing UX, safe admin, controlled content, consistent brand
+**To:** Shippable NexaLearn by Ahmed Darhous product with owner-visible landing UX, safe admin, controlled content, consistent brand
+
+**Last updated:** 2026-06-10 — reflects completed stations L1-V1, L1-V1.1, B1 (partial)
 
 ---
 
 ## Executive repair order
 
 ```
-L1 Landing visual repair (owner blocker) — reference-derived, NO content removed
-   L1-V1 scroll-stack cards → L1-V2 marquee strips → L1-V3 mount 3D showcase + tour trigger → L1-V4 motion polish + page transitions
+✅ L1-V1  scroll-stack cards          checkpoint/landing-scroll-stack-cards-v1     commit 4856a15
+✅ L1-V1.1 dramatic stack upgrade     checkpoint/landing-scroll-stack-cards-v1-1   commit 375b67e
+   (scale 0.82, overlay 0.5, 175vh, 01/08 counter, moved after Hero, static reduce-motion stack)
+
+✅ B1 (code complete — see note)      checkpoint/brand-nexalearn-ahmed-darhous-b1  commit edbaa3c + 3caf179
+   constants · layout · OG route · manifest · Navbar · Footer · CinematicIntro + duration 4.4s
+   ⚠ B1 remaining: certificate PDF template (design asset), static og-image.svg regeneration
+
+❌ L1-V2  marquee strips              NEXT UP
+❌ L1-V3  mount 3D showcase + tour trigger
+❌ L1-V4  motion polish + page transitions
   ↓
-A1 Admin CMS safety + PATCH fix (production blocker)
+❌ A1 Admin CMS safety + PATCH fix (production blocker)
   ↓
-S1 Certificate security + URL canon (production blocker)
+❌ S1 Certificate security + URL canon (production blocker)
   ↓
-N1 Navigation & orphan cleanup (quick wins)
+❌ N1 Navigation & orphan cleanup (quick wins)
   ↓
-B1 NexaLearn brand/metadata (launch perception)
+❌ L2 English localization leaks (launch blocker EN market)
   ↓
-L2 English localization leaks (launch blocker EN market)
+❌ C1 Tier-A pilot publish — 1 portal, 1 type (user-approved)
   ↓
-C1 Tier-A pilot publish — 1 portal, 1 type (user-approved)
+❌ C2 Tier-A route template + scale publish batches
   ↓
-C2 Tier-A route template + scale publish batches
+❌ R1 UI design-system foundation (scalability)
   ↓
-R1 UI design-system foundation (scalability)
+❌ A2 Admin monolith extraction + publish UI
   ↓
-A2 Admin monolith extraction + publish UI
+❌ P1 Performance pass
   ↓
-P1 Performance pass
-  ↓
-QA-GATE Final launch candidate
+❌ QA-GATE Final launch candidate
 ```
+
+> **Note on B1 ordering:** B1 was executed before completing L1-V2/V3/V4 because the owner confirmed the CinematicIntro appeared and requested the brand fix immediately. No regression; the visual L1 sub-stations are unblocked.
 
 ---
 
@@ -80,12 +91,13 @@ QA-GATE Final launch candidate
 
 ### Sub-stations (execute in order)
 
-| Sub-station | Scope |
-|---|---|
-| **L1-V1** `landing-scroll-stack-cards-v1` | Build `ScrollStackSection` (owner's "الكروت المتراكبة") wrapping existing `PortalCard`; reorder `HomepageClient`. Reduced-motion → grid fallback. |
-| **L1-V2** `landing-marquee-strips-v1` | `MarqueeStrip` for skills + brand strips, **reusing existing CSS marquee** (zero new CSS). |
-| **L1-V3** `landing-showcase-mount-and-tour-trigger-v1` | Mount orphan `Premium3DShowcaseCarousel`; re-wire `SmartPlatformTour` to a hero "Take a tour" button (no auto-open). |
-| **L1-V4** `landing-motion-polish-and-page-transitions-v1` | `ScrollColorReveal` on one heading; tilt 3°→~6° + touch fallback; localize `portals.features`→`featuresAr/En`; `[locale]/template.tsx` page transitions; light-mode `glass-panel-promax` contrast. |
+| Sub-station | Status | Scope |
+|---|---|---|
+| **L1-V1** `landing-scroll-stack-cards-v1` | ✅ Done `4856a15` | Build `ScrollStackSection`; reorder `HomepageClient`. |
+| **L1-V1.1** `landing-scroll-stack-cards-v1-1` | ✅ Done `375b67e` | Dramatic upgrade: scale 0.82, overlay 0.5, 175vh, 01/08 counter, moved after Hero, static reduce-motion stack. |
+| **L1-V2** `landing-marquee-strips-v1` | ❌ Pending | `MarqueeStrip` for skills + brand strips, **reusing existing CSS marquee** (zero new CSS). |
+| **L1-V3** `landing-showcase-mount-and-tour-trigger-v1` | ❌ Pending | Mount orphan `Premium3DShowcaseCarousel`; re-wire `SmartPlatformTour` to a hero "Take a tour" button (no auto-open). |
+| **L1-V4** `landing-motion-polish-and-page-transitions-v1` | ❌ Pending | `ScrollColorReveal` on one heading; tilt 3°→~6° + touch fallback; localize `portals.features`→`featuresAr/En`; `[locale]/template.tsx` page transitions; light-mode `glass-panel-promax` contrast. |
 
 ### Files likely affected (across V1–V4)
 
@@ -177,15 +189,20 @@ One tag per sub-station: `checkpoint/landing-scroll-stack-cards-v1`, `…-marque
 
 ---
 
-## Phase B1 — Brand & Metadata Completion
+## Phase B1 — Brand & Metadata Completion ✅ Code complete (2026-06-10)
+
+**Commits:** `edbaa3c` (brand core) · `3caf179` (Navbar/Footer)  
+**Tag:** `checkpoint/brand-nexalearn-ahmed-darhous-b1`
 
 ### Tasks
 
-1. Homepage + layout metadata → NexaLearn by Darhous
-2. Regenerate `og-image.svg` / dynamic OG
-3. PWA manifest name/icons
-4. Certificate PDF template
-5. Navbar wordmark consistency
+1. ✅ Homepage + layout metadata → NexaLearn by Ahmed Darhous (`layout.tsx`, `constants.ts`)
+2. ✅ Dynamic OG route → NexaLearn by Ahmed Darhous (`og/route.tsx`)
+3. ✅ PWA manifest name/short_name → NexaLearn / NexaLearn by Ahmed Darhous
+4. ❌ Certificate PDF template (design asset — pending)
+5. ✅ Navbar wordmark → NexaLearn; Footer logo → NexaLearn
+6. ✅ CinematicIntro: "by Ahmed Darhous" + progress bar 3.6s + dismiss 4.4s
+7. ❌ Static `og-image.svg` regeneration (SVG design asset — pending)
 
 ---
 

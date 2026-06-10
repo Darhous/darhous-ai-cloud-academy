@@ -6,16 +6,27 @@
 
 **Audit-only station:** No fixes were implemented in this commit.
 
-## Starting state
+## Starting state (audit baseline)
 
 | Item | Value |
 |------|-------|
 | Branch | `main` |
-| HEAD | `94348be86157f4d7b634069234ec89fb7ed5bc4b` |
+| HEAD at audit | `94348be86157f4d7b634069234ec89fb7ed5bc4b` |
 | Latest CI | Success — run `27241835196` on Phase 5G log finalization |
 | Typecheck | Passed locally |
 | Lint | Passed locally — 0 errors, 69 warnings (re-validated in continuation session) |
 | Build | Passed locally (exit 0, 1274 SSG pages); CI build also passed at same HEAD |
+
+## Current state (post-implementation 2026-06-10)
+
+| Item | Value |
+|------|-------|
+| HEAD | `3caf179` |
+| Completed stations | L1-V1 · L1-V1.1 · B1 (code complete) |
+| Typecheck | PASS (0 errors) |
+| Lint | PASS (0 errors, 69 warnings — baseline unchanged) |
+| Build | PASS (exit 0, 1274 pages) |
+| Tags | `checkpoint/landing-scroll-stack-cards-v1` · `checkpoint/landing-scroll-stack-cards-v1-1` · `checkpoint/brand-nexalearn-ahmed-darhous-b1` |
 
 ## Finding counts
 
@@ -36,11 +47,15 @@
 | Orphan routes (exist, not in nav/footer/landing) | 18 |
 | Disconnected showcase components (unmounted) | 2 |
 
-## Owner cards / scroll effect — confirmed gap
+## Owner cards / scroll effect — ✅ Resolved (L1-V1.1)
 
-**Root cause (summary):** Portal cards and mouse-reactive tilt exist in `PortalGrid` and `EcosystemMap`, but the **3D layered showcase carousel** (`Premium3DShowcaseCarousel.tsx`) and **featured carousel** are **never imported** on the homepage. There is **no scroll-stacked / sticky-over-card** implementation on the live homepage. `SmartPlatformTour` auto-open was **disabled in Phase 5D**. Cards sit **below the fold** after intro, hero, and path selector; `glass-panel-promax` styling is subtle especially in light mode.
+**Original gap:** No scroll-stacked card implementation; `Premium3DShowcaseCarousel.tsx` unmounted; cards below fold.
 
-See `cards-scroll-effects-visibility-review.md` for proof and repair steps.
+**Implemented (2026-06-10):** `ScrollStackSection.tsx` — sticky stacked portal cards with scale 1→0.82, opacity 1→0.35, black overlay 0→0.5, sticky top `90+index×28px`, 175vh section travel, `01/08` progress counter, RTL-safe logical props. Moved immediately after `HeroSection` (was 5th section, now 2nd). Static overlapping stack for `prefers-reduced-motion` (no flat grid fallback). Mobile: large full-width single-column flow.
+
+**Still pending:** `Premium3DShowcaseCarousel.tsx` mount (L1-V3); `SmartPlatformTour` trigger button (L1-V3).
+
+See `cards-scroll-effects-visibility-review.md` for original proof and `docs/reports/2026-06-10-landing-scroll-stack-cards-v1-1/` for implementation report.
 
 ## Content state
 
@@ -83,19 +98,24 @@ High risk in certificate PDF/verify APIs (service-role, GET mutations, weak owne
 
 ## Recommended repair order (abbreviated)
 
-1. **L1** Landing visual repair — mount showcase / implement scroll-stack, fix tour trigger
-2. **A1** Admin CMS hardening — fix PATCH/status, disable DELETE, extract panels
-3. **S1** Certificate security + URL canonicalization
-4. **C1** Controlled Tier-A pilot publish (1 portal, 1 type) with QA gates
-5. **N1** Navigation orphan cleanup (`/cloud`, glossary, cert URLs)
-6. **B1** NexaLearn brand/metadata completion
-7. **L2** English localization leak fixes
-8. **R1** Design-system foundation for portals
+| # | Station | Status |
+|---|---------|--------|
+| 1 | **L1-V1/V1.1** Landing scroll-stack cards | ✅ Done |
+| 2 | **B1** NexaLearn brand/metadata (code complete) | ✅ Done (design assets pending) |
+| 3 | **L1-V2** Marquee strips | ❌ Next up |
+| 4 | **L1-V3** 3D showcase mount + tour trigger | ❌ Pending |
+| 5 | **L1-V4** Motion polish + page transitions | ❌ Pending |
+| 6 | **A1** Admin CMS hardening — fix PATCH/status, disable DELETE | ❌ Production blocker |
+| 7 | **S1** Certificate security + URL canonicalization | ❌ Production blocker |
+| 8 | **N1** Navigation orphan cleanup | ❌ Quick wins |
+| 9 | **L2** English localization leak fixes | ❌ EN market blocker |
+| 10 | **C1** Controlled Tier-A pilot publish | ❌ Needs A1 first |
+| 11 | **C2/R1/A2/P1** Scale + design system + performance | ❌ Later |
 
 Full detail: `production-repair-master-plan.md`
 
 ## Next recommended station
 
-**`landing-visual-repair-and-showcase-integration-v1`**
+**`landing-marquee-strips-v1` (L1-V2)**
 
-Mount or replace the unmounted 3D showcase, implement scroll-stacked portal section per approved design, re-enable tour with explicit user trigger, and add owner acceptance checklist.
+New `MarqueeStrip` component reusing existing `.marquee-track` / `.marquee-track-rtl` CSS from `globals.css`. Zero new CSS. Skills strip + brand strip below the hero.
