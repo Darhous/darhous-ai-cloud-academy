@@ -10554,3 +10554,36 @@ PHASE L1-V1 — Scroll-Stack Portal Cards (NexaLearn landing). الهدف: اس�
 - **كوميت P1:** `a82f354` — وسم: `checkpoint/performance-v1`
 
 **المحطة التالية:** P2 — Security Hardening (S1+S2).
+
+---
+
+## C1+C2 — Content Publishing: Pilot + Scale (Automation)
+**التاريخ:** 2026-06-11
+**الهدف:** نشر محتوى الأتمتة — مصطلحات تجريبية (C1)، وفتح النشر لجميع 11 جدول أتمتة مع صفحات عامة للأنواع الغائبة (C2).
+
+### C1 — Pilot (automation_glossary)
+**`src/app/[locale]/automation-glossary/page.tsx`**: إضافة `mergeById` مع `automationGlossary` كـ static fallback — قبلها كانت الصفحة تعرض فقط بيانات DB (فارغة إذا لا يوجد منشور)، الآن تعرض 27 مصطلحًا ثابتًا حتى يتم النشر.
+
+**`src/app/api/admin/seed/automation-glossary/route.ts`** (ملف جديد): نقطة نهاية POST حصرية للمشرف (service role client يتجاوز RLS). تُدخل أول 5 مصطلحات من البيانات الثابتة بـ `status: "published"`. آمنة للاستدعاء المتكرر (upsert مع `ignoreDuplicates`).
+
+**`GenericCmsTypePanel.tsx`**: إضافة `seeding` state + `handleSeedPilot()`. زر "🚀 نشر 5 مصطلحات تجريبية" يظهر فقط عندما `config.table === "automation_glossary"` والقائمة فارغة.
+
+### C2 — Scale (all 11 automation tables)
+**`/api/admin/cms/[table]/route.ts` + `[id]/route.ts`**: توسيع `PUBLISHING_ALLOWLIST` ليشمل جميع جداول الأتمتة الـ 11 (كانت فقط: `automation_glossary`).
+
+**`GenericCmsTypePanel.tsx`**: زر الأرشفة وحقل الحالة مفعّلان الآن لجميع `automation_*` tables (كانا مقيّدَين بـ `automation_glossary` فقط).
+
+**4 صفحات عامة جديدة** (جميعها تستخدم `fetchPublishedList + mergeById + static fallback`):
+- `src/app/[locale]/automation/case-studies/page.tsx` — 10 دراسات حالة
+- `src/app/[locale]/automation/checklists/page.tsx` — قوائم تحقق بـ 5 مراحل
+- `src/app/[locale]/automation/use-cases/page.tsx` — 8 قطاعات
+- `src/app/[locale]/automation/prompts/page.tsx` — 11 برومبت جاهز
+
+### التحقق والنشر
+- **typecheck:** نجح (0 أخطاء)
+- **build:** نجح (9 ملفات، 506 إضافة، بناء نظيف)
+- **الكوميت:** `4233534`
+- **الوسم:** `checkpoint/content-publish-c1-c2-v1`
+- **Push:** تم بنجاح
+
+**الحالة:** جميع المحطات المعلقة (C1+C2) مكتملة. `summary.json` محدَّث — `pending_stations: []`.

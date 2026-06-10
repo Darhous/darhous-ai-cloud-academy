@@ -19,12 +19,10 @@
     "L2 IoT+career EN localization (checkpoint/en-localization-fix-v1, 27e02f4) — P3",
     "R1 motionPresets+AnimateIn a11y+PortalCard featuresEn (checkpoint/design-system-v1, 40e0a81) — P5",
     "A2 admin-monolith-extraction-v2 5panels (checkpoint/admin-extraction-v2, 42d05b0) — P6",
-    "P1 lazy-load homepage+admin-cms (checkpoint/performance-v1, a82f354) — P6"
+    "P1 lazy-load homepage+admin-cms (checkpoint/performance-v1, a82f354) — P6",
+    "C1+C2 content-publish automation pilot+scale (checkpoint/content-publish-c1-c2-v1, 4233534) — C1+C2"
   ],
-  "pending_stations": [
-    "C1 tier-a-pilot-publish-v1 — BLOCKED (needs DB write approval)",
-    "C2 tier-a-content-routes-template-v1 — BLOCKED (same)"
-  ],
+  "pending_stations": [],
   "issues_resolved": 4,
   "issues_partial": 5,
   "issues_open": 56,
