@@ -1,9 +1,15 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, MotionValue, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  MotionValue,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { Globe } from "lucide-react";
-import { portals, Portal } from "@/config/portals";
+import { Portal, portals } from "@/config/portals";
 import PortalCard from "@/components/ecosystem/PortalCard";
 
 interface StackedCardProps {
@@ -15,28 +21,47 @@ interface StackedCardProps {
 }
 
 function StackedCard({ portal, index, total, scrollYProgress, locale }: StackedCardProps) {
-  const start = index / total;
-  const end = (index + 1) / total;
-
-  const scale = useTransform(scrollYProgress, [start, end], [1, 0.90]);
-  const opacity = useTransform(scrollYProgress, [start, end], [1, 0.55]);
-
   const isLast = index === total - 1;
+  const intervalCount = total - 1;
+  const recedeStart = (index + 0.35) / intervalCount;
+  const recedeEnd = (index + 1) / intervalCount;
+  const scale = useTransform(
+    scrollYProgress,
+    [recedeStart, recedeEnd, 1],
+    [1, 0.82, 0.82],
+  );
+  const opacity = useTransform(
+    scrollYProgress,
+    [recedeStart, recedeEnd, 1],
+    [1, 0.35, 0.35],
+  );
+  const overlayOpacity = useTransform(
+    scrollYProgress,
+    [recedeStart, recedeEnd, 1],
+    [0, 0.5, 0.5],
+  );
 
   return (
     <motion.div
       style={{
         position: "sticky",
-        top: 96 + index * 16,
+        top: 90 + index * 28,
         scale: isLast ? 1 : scale,
         opacity: isLast ? 1 : opacity,
         transformOrigin: "top center",
-        zIndex: index,
-        marginBottom: isLast ? 0 : "12vh",
+        zIndex: index + 1,
+        marginBlockStart: index === 0 ? 0 : "calc(-22rem + 15vh)",
       }}
-      className="w-full max-w-4xl mx-auto"
+      className="relative mx-auto min-h-[22rem] w-full max-w-3xl overflow-hidden rounded-2xl shadow-[0_28px_80px_rgba(0,0,0,0.48)]"
     >
       <PortalCard portal={portal} locale={locale} size="large" />
+      {!isLast && (
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-20 rounded-2xl bg-black"
+          style={{ opacity: overlayOpacity }}
+        />
+      )}
     </motion.div>
   );
 }
@@ -48,12 +73,23 @@ export default function ScrollStackSection({ locale }: { locale: string }) {
 
   const fadeUp = {
     hidden: { opacity: 0, y: shouldReduce ? 0 : 28 },
-    show: { opacity: 1, y: 0, transition: { duration: shouldReduce ? 0.15 : 0.6, ease: [0.0, 0.0, 0.2, 1] as const } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: shouldReduce ? 0.15 : 0.6,
+        ease: [0.0, 0.0, 0.2, 1] as const,
+      },
+    },
   };
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end end"],
+  });
+  const progressLabel = useTransform(scrollYProgress, (latest) => {
+    const current = Math.min(portals.length, Math.floor(latest * portals.length) + 1);
+    return `${String(current).padStart(2, "0")} / ${String(portals.length).padStart(2, "0")}`;
   });
 
   return (
@@ -67,7 +103,11 @@ export default function ScrollStackSection({ locale }: { locale: string }) {
       >
         <div
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-mono mb-4"
-          style={{ background: "rgba(208,188,255,0.06)", borderColor: "rgba(208,188,255,0.2)", color: "var(--color-secondary)" }}
+          style={{
+            background: "rgba(208,188,255,0.06)",
+            borderColor: "rgba(208,188,255,0.2)",
+            color: "var(--color-secondary)",
+          }}
         >
           <Globe size={11} />
           {isAr ? "بوابات المنصة" : "Platform Portals"}
@@ -75,7 +115,14 @@ export default function ScrollStackSection({ locale }: { locale: string }) {
         <h2 className="font-display font-bold text-3xl md:text-5xl mb-4 text-gradient-premium">
           {isAr ? "بوابات درهوس الذكية" : "Darhous Smart Portals"}
         </h2>
-        <p className="text-base md:text-lg" style={{ color: "var(--color-on-surface-variant)", maxWidth: "560px", margin: "0 auto" }}>
+        <p
+          className="text-base md:text-lg"
+          style={{
+            color: "var(--color-on-surface-variant)",
+            maxWidth: "560px",
+            margin: "0 auto",
+          }}
+        >
           {isAr
             ? "منظومة متكاملة مصممة لتلبية كل احتياجاتك التعليمية والمهنية عبر بوابات متخصصة"
             : "An integrated ecosystem designed to cover all your learning and career needs through specialized portals"}
@@ -83,29 +130,47 @@ export default function ScrollStackSection({ locale }: { locale: string }) {
       </motion.div>
 
       {shouldReduce === true ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {portals.map((portal) => (
-            <div key={portal.id}>
-              <PortalCard portal={portal} locale={locale} />
+        <div className="mx-auto w-full max-w-3xl pb-8 pt-4">
+          {portals.map((portal, index) => (
+            <div
+              key={portal.id}
+              className={`relative w-full ${index === 0 ? "" : "-mt-4 md:-mt-8"}`}
+              style={{
+                zIndex: index + 1,
+                filter: "drop-shadow(0 24px 32px rgba(0,0,0,0.28))",
+              }}
+            >
+              <PortalCard portal={portal} locale={locale} size="large" />
             </div>
           ))}
         </div>
       ) : (
         <>
-          {/* Mobile Fallback Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:hidden">
+          <div className="flex w-full flex-col gap-8 md:hidden">
             {portals.map((portal) => (
-              <div key={portal.id}>
-                <PortalCard portal={portal} locale={locale} />
+              <div key={portal.id} className="w-full">
+                <PortalCard portal={portal} locale={locale} size="large" />
               </div>
             ))}
           </div>
 
-          {/* Desktop Scroll Stack */}
           <div
             ref={containerRef}
-            className="hidden md:block relative w-full pb-[10vh]"
+            className="relative hidden min-h-[175vh] w-full pb-[18vh] md:block"
           >
+            <div className="pointer-events-none sticky top-24 z-50 flex h-0 w-full">
+              <div
+                className="ms-auto rounded-full border px-3 py-1.5 font-mono text-xs backdrop-blur-xl"
+                style={{
+                  background: "rgba(12,14,18,0.72)",
+                  borderColor: "rgba(208,188,255,0.24)",
+                  color: "var(--color-secondary)",
+                }}
+              >
+                <motion.span>{progressLabel}</motion.span>
+              </div>
+            </div>
+
             {portals.map((portal, index) => (
               <StackedCard
                 key={portal.id}

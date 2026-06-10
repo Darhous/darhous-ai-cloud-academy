@@ -26,9 +26,9 @@ export default function HomepageClient({ locale }: { locale: string }) {
       <CinematicIntro locale={locale} />
       <SmartPlatformTour locale={locale} />
       <HeroSection locale={locale} scrollToPath={scrollToPath} />
+      <ScrollStackSection locale={locale} />
       <PathSelector locale={locale} />
       <EcosystemMap locale={locale} portals={realPortals} />
-      <ScrollStackSection locale={locale} />
       <MentorShowcase locale={locale} />
       <HowItWorks locale={locale} />
       <div className="flex flex-col gap-16 md:gap-20 relative">

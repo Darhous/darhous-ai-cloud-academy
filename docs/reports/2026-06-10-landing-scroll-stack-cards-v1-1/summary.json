@@ -1,0 +1,25 @@
+{
+  "task": "L1-V1.1",
+  "date": "2026-06-10",
+  "status": "implemented",
+  "homepage_only": true,
+  "portals_rendered": 8,
+  "portal_links_changed": false,
+  "section_order_change": "ScrollStackSection moved immediately after HeroSection",
+  "desktop_stack_height_vh": 175,
+  "desktop_sticky_top_px": {
+    "base": 90,
+    "per_card_offset": 28
+  },
+  "recede": {
+    "scale": 0.82,
+    "opacity": 0.35,
+    "overlay_opacity": 0.5
+  },
+  "reduced_motion_static_stack": true,
+  "mobile_single_column": true,
+  "rtl_ltr_logical_positioning": true,
+  "no_content_removed": true,
+  "git_operations_run": false,
+  "main_log_modified": false
+}
