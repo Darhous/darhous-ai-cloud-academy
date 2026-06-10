@@ -10,11 +10,13 @@
   "completed_stations": [
     "L1-V1 (checkpoint/landing-scroll-stack-cards-v1, 4856a15)",
     "L1-V1.1 (checkpoint/landing-scroll-stack-cards-v1-1, 375b67e)",
-    "B1-code (checkpoint/brand-nexalearn-ahmed-darhous-b1, edbaa3c+3caf179)"
+    "B1-code (checkpoint/brand-nexalearn-ahmed-darhous-b1, edbaa3c+3caf179)",
+    "L1-V2 (checkpoint/landing-marquee-strips-v1, 2bac87e)",
+    "A1 (checkpoint/admin-cms-hardening-v1, ba1d98e)",
+    "N1 (checkpoint/navigation-cleanup-v1, 3a664b7)"
   ],
   "pending_stations": [
-    "L1-V2 landing-marquee-strips-v1 — NEXT",
-    "L1-V3 landing-showcase-mount-and-tour-trigger-v1",
+    "L1-V3 landing-showcase-mount-and-tour-trigger-v1 — NEXT",
     "L1-V4 landing-motion-polish-and-page-transitions-v1",
     "A1 admin-cms-patch-and-delete-hardening-v1",
     "S1 certificate-security-and-url-canonicalization-v1",

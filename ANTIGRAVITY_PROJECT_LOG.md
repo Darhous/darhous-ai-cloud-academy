@@ -10285,4 +10285,145 @@ PHASE L1-V1 — Scroll-Stack Portal Cards (NexaLearn landing). الهدف: اس�
 - **الإصدار:** نعم (مكوّن مرئي كبير — مطلب المالك الأساسي).
 - **الدفع:** origin/main + الوسم بالاسم الصريح.
 
-**المحطة التالية الموصى بها:** `landing-marquee-strips-v1` (L1-V2 — شرائط الماركيه بإعادة استخدام CSS الموجود).
+---
+
+## محطة L1-V1.1 — Dramatic Scroll-Stack Portal Cards (V1.1)
+
+**التاريخ:** 2026-06-10
+**الفرع:** main — **HEAD قبل المحطة:** `4856a15`
+**المنفّذ:** Codex (L1-V1.1) — راجعه المايسترو.
+
+### ما تم تنفيذه
+- تراجع الحجم: 1 → **0.82** (من 0.90)، الشفافية: 1 → **0.35** (من 0.55)
+- طبقة تعتيم سوداء: 0 → **0.5 opacity** على كل كرت متراجع
+- الـsticky offset: `90 + index × 28px` (من 96 + index × 16px) — حواف مرئية لكل الكروت
+- حركة التمرير: `["start start", "end end"]` لتقليص المسافة إلى ~175vh
+- مؤشر تقدم `01 / 08` ثابت في أعلى القسم (RTL/LTR بـ logical props)
+- **نُقل القسم مباشرةً بعد HeroSection** (كان في المرتبة الخامسة، صار ثانياً بعد Hero)
+- Reduced-motion: تكديس ثابت متداخل (`-mt-8` + z-index) بدلاً من شبكة مسطّحة
+- Mobile: بطاقات كبيرة full-width بتدفق رأسي واحد
+
+### الملفات المعدّلة
+- `src/components/landing/sections/ScrollStackSection.tsx`
+- `src/components/landing/HomepageClient.tsx`
+- `docs/reports/2026-06-10-landing-scroll-stack-cards-v1-1/`
+
+### مراجعة المايسترو (تحقق مستقل)
+- scale 0.82 ✓، opacity 0.35 ✓، overlayOpacity 0→0.5 ✓، sticky top 90+index×28 ✓، hooks في مكوّن ابن StackedCard ✓، reduced-motion → static stack ✓، progress counter ✓
+- HomepageClient: ScrollStackSection مباشرةً بعد HeroSection ✓
+
+### نتائج التحقق
+- `npm run typecheck`: PASS. `npm run lint`: PASS (69 تحذيراً). `npm run build`: PASS (1274 صفحة).
+
+### Git
+- **الكوميت:** `375b67e` — feat(landing): dramatic scroll-stack portal cards (L1-V1.1)
+- **الوسم:** `checkpoint/landing-scroll-stack-cards-v1-1`
+
+---
+
+## محطة B1 — Brand Rename NexaLearn by Ahmed Darhous + Intro Duration
+
+**التاريخ:** 2026-06-10
+**الفرع:** main — **HEAD قبل المحطة:** `375b67e`
+**المنفّذ:** المايسترو (Claude — مباشر، لا وكيل).
+
+### ما تم تنفيذه
+1. **إعادة تسمية البراند الكاملة:** constants.ts · layout.tsx · og/route.tsx · manifest.webmanifest · Navbar.tsx · Footer.tsx
+2. **CinematicIntro:** "by Ahmed Darhous"، شريط تحميل 3.6s، auto-dismiss 4400ms
+
+### الملفات المعدّلة
+- `src/lib/constants.ts` · `src/app/[locale]/layout.tsx` · `src/app/og/route.tsx`
+- `public/manifest.webmanifest` · `src/components/landing/CinematicIntro.tsx`
+- `src/components/layout/Navbar.tsx` · `src/components/layout/Footer.tsx`
+
+### نتائج التحقق
+- `npm run typecheck`: PASS. `npm run build`: PASS (1274 صفحة).
+
+### Git
+- **الكوميت:** `edbaa3c` + `3caf179` — feat(brand): NexaLearn by Ahmed Darhous (B1)
+- **الوسم:** `checkpoint/brand-nexalearn-ahmed-darhous-b1`
+
+---
+
+## محطة L1-V2 — Landing Marquee Strips
+
+**التاريخ:** 2026-06-10
+**الفرع:** main — **HEAD قبل المحطة:** `3caf179`
+**المنفّذ:** Codex (L1-V2) — راجعه المايسترو.
+
+### ما تم تنفيذه
+- `MarqueeStrip.tsx` (جديد): يُعيد استخدام `.marquee-track` / `.marquee-track-rtl` — لا CSS جديد
+- `HomepageClient.tsx`: شريطان بعد HeroSection — skills + portal titles من `portals.ts`
+- Reduced-motion: grid ملفوف بدلاً من الحركة
+
+### الملفات المعدّلة
+- `src/components/ui/MarqueeStrip.tsx` (جديد)
+- `src/components/landing/HomepageClient.tsx`
+- `docs/reports/2026-06-10-landing-marquee-strips-v1/`
+
+### مراجعة المايسترو (تحقق مستقل)
+- يُعيد استخدام CSS ✓، `useReducedMotion` ✓، RTL/LTR ✓، aria-hidden على النسخة المكررة ✓
+- شريطان مركبان بعد HeroSection ✓، بيانات الـportals من `portals.ts` ✓
+
+### نتائج التحقق
+- `npm run build`: PASS
+
+### Git
+- **الوسم:** `checkpoint/landing-marquee-strips-v1`
+
+---
+
+## محطة A1 — Admin CMS PATCH + DELETE Hardening
+
+**التاريخ:** 2026-06-10
+**الفرع:** main — **HEAD قبل المحطة:** `3caf179`
+**المنفّذ:** Antigravity (A1) — راجعه المايسترو.
+
+### ما تم تنفيذه
+**BUG 1 — إصلاح PATCH 403:** GenericCmsTypePanel.tsx handleSave لا يُرسل `status` في الـpayload. PATCH route: `PUBLISHING_ALLOWLIST = ["automation_glossary"]`.
+
+**BUG 2 — أرشفة ناعمة:** DELETE route: من `delete()` إلى `update({ status: "archived", archived_at: ... })`.
+
+### الملفات المعدّلة
+- `src/app/api/admin/cms/[table]/[id]/route.ts`
+- `src/components/admin/cms/GenericCmsTypePanel.tsx`
+- `docs/reports/2026-06-10-admin-cms-patch-delete-fix-a1/`
+
+### مراجعة المايسترو (تحقق مستقل)
+- DELETE soft-archive ✓، PATCH PUBLISHING_ALLOWLIST ✓، handleSave payload بدون status ✓، handleArchive PATCH منفصل ✓
+
+### نتائج التحقق
+- `npm run build`: PASS
+
+### Git
+- **الوسم:** `checkpoint/admin-cms-hardening-v1`
+
+---
+
+## محطة N1 — Navigation Orphan Cleanup
+
+**التاريخ:** 2026-06-10
+**الفرع:** main — **HEAD قبل المحطة:** `3caf179`
+**المنفّذ:** Claude CLI (N1) — راجعه المايسترو.
+
+### ما تم تنفيذه
+1. **Footer.tsx:** `/prompts` في AI Studio + `/automation-glossary` في روابط — ثنائي اللغة
+2. **sitemap.ts:** حذف `/language/history` (noindex)
+3. **portals.ts:** توثيق بوابة `/cloud` كـ TODO comment
+4. **AutomationGlossaryClient.tsx:** Admin CTA من `/dashboard` → `/admin`
+
+### الملفات المعدّلة
+- `src/components/layout/Footer.tsx` · `src/app/sitemap.ts`
+- `src/config/portals.ts` · `src/app/[locale]/automation-glossary/AutomationGlossaryClient.tsx`
+- `docs/reports/2026-06-10-navigation-orphan-cleanup-n1/`
+
+### مراجعة المايسترو (تحقق مستقل)
+- Footer `/prompts` + `/automation-glossary` ثنائي اللغة ✓، sitemap `/language/history` محذوف ✓، portals.ts TODO comment ✓، AutomationGlossaryClient `/{locale}/admin` ✓
+
+### نتائج التحقق
+- `npm run build`: PASS
+
+### Git
+- **الوسم:** `checkpoint/navigation-cleanup-v1`
+
+**المحطة التالية الموصى بها:** `landing-showcase-mount-and-tour-trigger-v1` (L1-V3).

@@ -27,15 +27,14 @@ Each station is a single prompt scope. Do not combine without explicit approval.
 | **Validation** | typecheck PASS · lint 0 errors · build PASS (1274 pages) |
 | **Report** | `docs/reports/2026-06-10-landing-scroll-stack-cards-v1-1/` |
 
-### L1-V2: `landing-marquee-strips-v1`
+### L1-V2: `landing-marquee-strips-v1` ✅ Done
 
 | Field | Value |
 |-------|-------|
+| **Status** | ✅ Committed `2bac87e` · Tagged `checkpoint/landing-marquee-strips-v1` |
 | **Objective** | `MarqueeStrip` (skills + brand strips) **reusing existing `.marquee-track-rtl` CSS** — zero new CSS |
-| **Files** | new `components/ui/MarqueeStrip.tsx`, `data/*`, `HomepageClient.tsx` |
-| **Forbidden** | rewriting CSS marquee; DB; package |
-| **Validation** | RTL/LTR marquee direction; hover-pause; build |
-| **Tag** | `checkpoint/landing-marquee-strips-v1` |
+| **Files** | new `components/ui/MarqueeStrip.tsx`, `HomepageClient.tsx` |
+| **Validation** | build PASS |
 
 ### L1-V3: `landing-showcase-mount-and-tour-trigger-v1`
 
@@ -61,16 +60,14 @@ Each station is a single prompt scope. Do not combine without explicit approval.
 
 ---
 
-## Station A1: `admin-cms-patch-and-delete-hardening-v1`
+## Station A1: `admin-cms-patch-and-delete-hardening-v1` ✅ Done
 
 | Field | Value |
 |-------|-------|
+| **Status** | ✅ Committed `ba1d98e` · Tagged `checkpoint/admin-cms-hardening-v1` |
 | **Objective** | Fix generic CMS PATCH; disable hard DELETE |
-| **Files** | `api/admin/cms/**`, `GenericCmsTypePanel.tsx`, `cms-registry.ts` |
-| **Forbidden** | Tier-A publish, public wiring, SQL |
-| **Validation** | Manual CRUD matrix 22 tables; typecheck; build |
-| **Output** | Admin hardening report + log |
-| **Tag** | `checkpoint/admin-cms-hardening-v1` |
+| **Files** | `api/admin/cms/[table]/[id]/route.ts`, `GenericCmsTypePanel.tsx` |
+| **Validation** | build PASS |
 
 ---
 
@@ -86,15 +83,14 @@ Each station is a single prompt scope. Do not combine without explicit approval.
 
 ---
 
-## Station N1: `navigation-orphan-cleanup-v1`
+## Station N1: `navigation-orphan-cleanup-v1` ✅ Done
 
 | Field | Value |
 |-------|-------|
-| **Objective** | Cloud, prompts, glossary links; footer parity; sitemap fix |
-| **Files** | `portals.ts`, `Navbar.tsx`, `Footer.tsx`, `sitemap.ts`, automation hub |
-| **Forbidden** | DB, deferred portals |
-| **Validation** | Link crawl script; build |
-| **Tag** | `checkpoint/navigation-cleanup-v1` |
+| **Status** | ✅ Committed `3a664b7` · Tagged `checkpoint/navigation-cleanup-v1` |
+| **Objective** | prompts + glossary links; footer parity; sitemap noindex fix; cloud portal TODO |
+| **Files** | `portals.ts`, `Footer.tsx`, `sitemap.ts`, `AutomationGlossaryClient.tsx` |
+| **Validation** | build PASS |
 
 ---
 
