@@ -55,3 +55,25 @@ Explicit files only:
 - No `src/**` modifications
 - No SQL/migrations/package/env changes
 - `implementation_started: false`
+
+## Continuation-session re-validation (same date, second run)
+
+The station was resumed after an interruption. All validation commands were re-run
+from the working tree at commit `1545507` (first audit commit):
+
+| Command | Result |
+|---------|--------|
+| `npm run typecheck` | **passed** |
+| `npm run lint` | **passed** — 0 errors, 69 warnings |
+| `npm run build` | **passed** — exit 0 |
+| `git diff --check` | **passed** (exit 0) |
+| `gh run list --branch main --limit 10` | Latest 9 runs success; CI green at `94348be` |
+
+### Log-corruption correction
+
+The first audit commit (`1545507`) accidentally re-encoded `ANTIGRAVITY_PROJECT_LOG.md`,
+replacing all Arabic characters in prior entries with `?` mojibake (7,295 corrupted
+sequences). Per the Critical Git Correction Rules (no amend, no history rewrite), this
+continuation session restored the intact log content from `94348be` and re-appended the
+station entry with correct UTF-8 Arabic in a **new correction commit**. No old entries
+were lost — the restored base is byte-identical to the pre-corruption version.

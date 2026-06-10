@@ -14,8 +14,8 @@
 | HEAD | `94348be86157f4d7b634069234ec89fb7ed5bc4b` |
 | Latest CI | Success — run `27241835196` on Phase 5G log finalization |
 | Typecheck | Passed locally |
-| Lint | Hung/timed out locally (>5 min); prior audit: 0 errors, 69 warnings |
-| Build | In progress at audit time; CI build passed at same HEAD |
+| Lint | Passed locally — 0 errors, 69 warnings (re-validated in continuation session) |
+| Build | Passed locally (exit 0, 1274 SSG pages); CI build also passed at same HEAD |
 
 ## Finding counts
 
