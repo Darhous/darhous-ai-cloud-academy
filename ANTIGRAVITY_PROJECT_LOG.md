@@ -10427,3 +10427,43 @@ PHASE L1-V1 — Scroll-Stack Portal Cards (NexaLearn landing). الهدف: اس�
 - **الوسم:** `checkpoint/navigation-cleanup-v1`
 
 **المحطة التالية الموصى بها:** `landing-showcase-mount-and-tour-trigger-v1` (L1-V3).
+
+---
+
+## محطة P1 — Visual Landing Complete (L1-V3 + L1-V4 + portals.featuresEn + Brand)
+
+**التاريخ:** 2026-06-11
+**الفرع:** main — **HEAD قبل المحطة:** `17c3766` → **HEAD بعدها:** `b0825c8`
+**المنفّذ:** Maestro (Claude Sonnet 4.6) — مباشر بدون sub-agents.
+
+### ما تم تنفيذه
+
+**L1-V3 — Showcase + Tour Trigger**
+- ربط `Premium3DShowcaseCarousel` في `HomepageClient` بعد `ScrollStackSection` مباشرة.
+- تحديث `SmartPlatformTour`: أضفت props `isOpen?: boolean` و`onClose?: () => void` للتحكم الخارجي مع إبقاء الوضع الداخلي.
+- `HeroSection`: أضفت `onStartTour?: () => void` + زر "جولة سريعة / Quick Tour" ظاهر فقط لو وُجد الـ prop.
+- `HomepageClient`: أضفت `useState<tourOpen>` وربطت زر الهيرو بفتح الجولة.
+
+**L1-V4 — Motion Polish + Page Transitions**
+- `WhyDarhous`: h2 يحصل على `useScroll + useTransform` — opacity 0.25→1 + y 10→0 مع تمرير الصفحة.
+- جديد `src/app/[locale]/template.tsx`: Framer Motion page fade-slide (opacity 0→1, y 8→0, 320ms ease-out) — reduced-motion آمن.
+- `InteractiveSurface`: رفعت `tiltMax` الافتراضية 3°→6°.
+- `globals.css` light-mode `glass-panel-promax`: background 60%→78%، border أقوى، shadow أعمق.
+
+**portals.featuresEn**
+- أضفت `featuresEn?: string[]` للـ Portal interface.
+- ملأت الـ featuresEn لجميع البوابات الثماني.
+
+**Brand — NexaLearn by Ahmed Darhous**
+- `Premium3DShowcaseCarousel`: "منصة درهوس الذكية" / "Darhous AI Mentor" → NexaLearn.
+- `WhyDarhous` h2: "لماذا تختار درهوس؟" → NexaLearn.
+- `HeroSection` badge: "NexaLearn by Darhous" → "NexaLearn by Ahmed Darhous".
+- `SmartPlatformTour` step-1: "أهلاً بك في درهوس" → NexaLearn.
+- `portals.ts` عناوين: career / automation / iot-lab → NexaLearn.
+
+### Git
+- **الكوميت:** `b0825c8`
+- **الوسم:** `checkpoint/visual-complete-v1`
+- **الإصدار:** GitHub Release `v0.8 — Visual Landing Complete`
+
+**المحطة التالية:** P2 — Security Hardening (S1+S2).
