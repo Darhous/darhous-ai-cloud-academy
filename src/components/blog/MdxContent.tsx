@@ -1,5 +1,26 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 
+// Inline rehype plugin — strips elements that can execute scripts or load external resources.
+// Blog posts are admin-created, but this ensures a compromised admin session or
+// content-injection bug cannot deliver XSS to readers.
+const BLOCKED_TAGS = new Set(["script", "iframe", "object", "embed", "form", "input", "textarea", "noscript", "link", "meta"]);
+
+function rehypeStripDangerousElements() {
+  function strip(nodes: unknown[]): unknown[] {
+    return nodes.flatMap((node) => {
+      if (typeof node !== "object" || node === null) return [node];
+      const n = node as Record<string, unknown>;
+      if (n.type === "element" && BLOCKED_TAGS.has(n.tagName as string)) return [];
+      if (Array.isArray(n.children)) return [{ ...n, children: strip(n.children as unknown[]) }];
+      return [n];
+    });
+  }
+  return (tree: unknown) => {
+    const root = tree as Record<string, unknown>;
+    if (Array.isArray(root.children)) root.children = strip(root.children);
+  };
+}
+
 const components = {
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1 className="font-display font-bold text-3xl mt-8 mb-4 leading-tight" style={{ color: "var(--color-on-surface)" }} {...props} />
@@ -66,7 +87,11 @@ interface Props {
 export default function MdxContent({ source }: Props) {
   return (
     <div className="mdx-content">
-      <MDXRemote source={source} components={components} />
+      <MDXRemote
+        source={source}
+        components={components}
+        options={{ mdxOptions: { rehypePlugins: [rehypeStripDangerousElements] } }}
+      />
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { createServerClient } from "@supabase/ssr";
+import { cookies } from "next/headers";
 import { renderToBuffer } from "@react-pdf/renderer";
 import React from "react";
 import { v4 as uuid } from "uuid";
@@ -12,6 +14,17 @@ export async function GET(
 ) {
   const { id } = await params;
 
+  // Session verification — must be authenticated
+  const cookieStore = await cookies();
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!supabaseUrl || !supabaseKey) return NextResponse.json({ error: "Not configured" }, { status: 503 });
+  const supabase = createServerClient(supabaseUrl, supabaseKey, {
+    cookies: { getAll: () => cookieStore.getAll(), setAll: () => {} },
+  });
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
   const adminSupabase = createAdminClient();
   if (!adminSupabase) return NextResponse.json({ error: "Not configured" }, { status: 503 });
 
@@ -22,6 +35,12 @@ export async function GET(
     .single();
 
   if (!result) return NextResponse.json({ error: "Result not found" }, { status: 404 });
+
+  // Ownership check — only the result owner may download their certificate
+  if ((result.user_id as string) !== user.id) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
   if (!(result.passed as boolean)) {
     return NextResponse.json(
       { error: "Certificate only issued for passing results (80%+)" },

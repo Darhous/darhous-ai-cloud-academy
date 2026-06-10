@@ -87,8 +87,7 @@ function SupabaseNotConfigured({ isAr }: { isAr: boolean }) {
         style={{ background: "rgba(0,0,0,0.2)", color: "var(--color-on-surface-variant)" }}
       >
         NEXT_PUBLIC_SUPABASE_URL<br />
-        NEXT_PUBLIC_SUPABASE_ANON_KEY<br />
-        SUPABASE_SERVICE_ROLE_KEY
+        NEXT_PUBLIC_SUPABASE_ANON_KEY
       </div>
     </div>
   );
