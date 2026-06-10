@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { portals } from "@/config/portals";
 import Stats from "@/components/sections/Stats";
 import CommunitySignup from "@/components/community/CommunitySignup";
@@ -14,6 +15,7 @@ import WhyDarhous from "./sections/WhyDarhous";
 import FinalCTA from "./sections/FinalCTA";
 import SmartPlatformTour from "./SmartPlatformTour";
 import CinematicIntro from "./CinematicIntro";
+import Premium3DShowcaseCarousel from "@/components/layout/Premium3DShowcaseCarousel";
 
 const skillsByLocale = {
   ar: [
@@ -48,6 +50,7 @@ const skillsByLocale = {
 
 export default function HomepageClient({ locale }: { locale: string }) {
   const isAr = locale === "ar";
+  const [tourOpen, setTourOpen] = useState(false);
   const realPortals = portals.filter((p) => p.id !== "coming-soon");
   const skillItems = [...skillsByLocale[isAr ? "ar" : "en"]];
   const portalItems = portals.map((portal) =>
@@ -61,8 +64,8 @@ export default function HomepageClient({ locale }: { locale: string }) {
   return (
     <div className="flex flex-col gap-16 md:gap-20 pb-16 md:pb-20 overflow-x-hidden">
       <CinematicIntro locale={locale} />
-      <SmartPlatformTour locale={locale} />
-      <HeroSection locale={locale} scrollToPath={scrollToPath} />
+      <SmartPlatformTour locale={locale} isOpen={tourOpen} onClose={() => setTourOpen(false)} />
+      <HeroSection locale={locale} scrollToPath={scrollToPath} onStartTour={() => setTourOpen(true)} />
       <div className="flex flex-col gap-0">
         <MarqueeStrip items={skillItems} locale={locale} speed="normal" />
         <MarqueeStrip
@@ -72,6 +75,7 @@ export default function HomepageClient({ locale }: { locale: string }) {
         />
       </div>
       <ScrollStackSection locale={locale} />
+      <Premium3DShowcaseCarousel locale={locale} />
       <PathSelector locale={locale} />
       <EcosystemMap locale={locale} portals={realPortals} />
       <MentorShowcase locale={locale} />

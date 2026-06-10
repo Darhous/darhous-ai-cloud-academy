@@ -10,13 +10,13 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   spotlight?: boolean;
   spotlightColor?: string;
   disabled?: boolean;
-  activeTransform?: string; // extra transform to apply when hovered
+  activeTransform?: string;
 }
 
 export default function InteractiveSurface({
   children,
   className = "",
-  tiltMax = 3,
+  tiltMax = 6,
   spotlight = true,
   spotlightColor = "rgba(255,255,255,0.05)",
   disabled = false,

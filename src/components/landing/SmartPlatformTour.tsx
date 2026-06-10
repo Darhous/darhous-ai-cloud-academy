@@ -45,8 +45,8 @@ const STEPS: TourStep[] = [
   {
     icon: <Sparkles size={22} />,
     color: "#8ed5ff",
-    titleAr: "أهلاً بك في درهوس",
-    titleEn: "Welcome to Darhous",
+    titleAr: "أهلاً بك في NexaLearn",
+    titleEn: "Welcome to NexaLearn",
     descAr: "نظام تعلم ذكي يبني مسارك التعليمي والمهني من الصفر — خطوة بخطوة.",
     descEn: "A smart learning OS that builds your educational & career path from zero — one step at a time.",
   },
@@ -86,39 +86,38 @@ const STEPS: TourStep[] = [
 
 interface Props {
   locale: string;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
-export default function SmartPlatformTour({ locale }: Props) {
+export default function SmartPlatformTour({ locale, isOpen: controlledOpen, onClose: controlledClose }: Props) {
   const isAr = locale === "ar";
   const shouldReduce = useReducedMotion();
 
-  const [open, setOpen] = useState(false);
-  const [step, setStep] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 = forward, -1 = back
+  const [internalOpen, setInternalOpen] = useState(false);
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
 
-  // Auto-open once per browser, after the page has had a moment to settle
-  // DISABLED IN PHASE 5D: To prevent intrusive auto-start behavior.
+  const [step, setStep] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  // Reset step when tour opens
   useEffect(() => {
-    // let seen = true;
-    // try {
-    //   seen = window.localStorage.getItem(STORAGE_KEY) === "1";
-    // } catch {
-    //   seen = true;
-    // }
-    // if (seen) return;
-    //
-    // const t = setTimeout(() => setOpen(true), OPEN_DELAY_MS);
-    // return () => clearTimeout(t);
-  }, []);
+    if (open) setStep(0);
+  }, [open]);
 
   const close = useCallback(() => {
-    setOpen(false);
+    if (isControlled) {
+      controlledClose?.();
+    } else {
+      setInternalOpen(false);
+    }
     try {
       window.localStorage.setItem(STORAGE_KEY, "1");
     } catch {
-      /* ignore — tour just won't persist dismissal */
+      /* ignore */
     }
-  }, []);
+  }, [isControlled, controlledClose]);
 
   const goTo = useCallback(
     (next: number) => {

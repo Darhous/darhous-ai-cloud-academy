@@ -18,6 +18,7 @@ export interface Portal {
   gradient: string;
   category: PortalCategory;
   features: string[];
+  featuresEn?: string[];
   integrationType: IntegrationType;
   externalRepo?: string;
   ctaAr: string;
@@ -40,6 +41,7 @@ export const portals: Portal[] = [
     gradient: "linear-gradient(135deg, rgba(0,102,138,0.35) 0%, rgba(56,189,248,0.15) 100%)",
     category: "ai",
     features: ["18 دورة", "62 أداة AI", "27 برومبت", "مرشد AI", "تحديات", "شهادات"],
+    featuresEn: ["18 Courses", "62 AI Tools", "27 Prompts", "AI Mentor", "Challenges", "Certificates"],
     integrationType: "internal",
     ctaAr: "دخول البوابة",
     ctaEn: "Enter Portal",
@@ -57,6 +59,7 @@ export const portals: Portal[] = [
     gradient: "linear-gradient(135deg, rgba(87,27,193,0.35) 0%, rgba(139,92,246,0.15) 100%)",
     category: "language",
     features: ["اختبار المستوى", "تقييم المهارات", "مسارات تعلم", "نتائج فورية"],
+    featuresEn: ["Level Test", "Skills Assessment", "Learning Paths", "Instant Results"],
     integrationType: "shell",
     externalRepo: "https://github.com/Darhous/darhous-assessment",
     ctaAr: "اختبر مستواك",
@@ -75,6 +78,7 @@ export const portals: Portal[] = [
     gradient: "linear-gradient(135deg, rgba(0,173,181,0.35) 0%, rgba(60,224,251,0.15) 100%)",
     category: "digital",
     features: ["9 مواد", "902+ سؤال", "حزمة Office", "أمن سيبراني", "نتائج معتمدة", "شهادات"],
+    featuresEn: ["9 Subjects", "902+ Questions", "Office Suite", "Cybersecurity", "Verified Results", "Certificates"],
     integrationType: "shell",
     externalRepo: "https://github.com/Darhous/Exams_Platform",
     ctaAr: "ابدأ الاختبار",
@@ -82,8 +86,8 @@ export const portals: Portal[] = [
   },
   {
     id: "career",
-    titleAr: "بوابة درهوس المهنية",
-    titleEn: "Darhous Career Hub",
+    titleAr: "بوابة NexaLearn المهنية",
+    titleEn: "NexaLearn Career Hub",
     descriptionAr: "حلل سيرتك الذاتية بالذكاء الاصطناعي، اكتشف فجواتك، واحصل على وظيفتك القادمة بثقة.",
     descriptionEn: "AI-powered CV analysis, ATS scoring, job matching, interview prep, and career roadmap.",
     href: "/career",
@@ -93,6 +97,7 @@ export const portals: Portal[] = [
     gradient: "linear-gradient(135deg, rgba(245,158,11,0.25) 0%, rgba(251,191,36,0.1) 100%)",
     category: "career",
     features: ["محلل ATS ذكي", "صانع السيرة الذاتية", "مطابقة الوظائف", "تحضير المقابلات", "قوالب جاهزة"],
+    featuresEn: ["Smart ATS Analyzer", "CV Builder", "Job Matching", "Interview Prep", "Ready Templates"],
     integrationType: "internal",
     ctaAr: "دخول البوابة",
     ctaEn: "Enter Portal",
@@ -101,8 +106,8 @@ export const portals: Portal[] = [
   },
   {
     id: "automation",
-    titleAr: "أكاديمية درهوس للأتمتة",
-    titleEn: "Darhous Automation Academy",
+    titleAr: "أكاديمية NexaLearn للأتمتة",
+    titleEn: "NexaLearn Automation Academy",
     descriptionAr: "تعلم الأتمتة التجارية، استكشف 30 وصفة منتقاة، وابنِ workflows ذكية لأعمالك.",
     descriptionEn: "Learn business automation with 30 curated workflows, tools explorer, and workflow builder.",
     href: "/automation",
@@ -112,6 +117,7 @@ export const portals: Portal[] = [
     gradient: "linear-gradient(135deg, rgba(74,222,128,0.25) 0%, rgba(34,197,94,0.1) 100%)",
     category: "tech",
     features: ["30 وصفة أتمتة", "مستكشف الأدوات", "مسارات التعلم", "خدمات احترافية", "15 معمل تطبيقي"],
+    featuresEn: ["30 Automation Recipes", "Tools Explorer", "Learning Paths", "Pro Services", "15 Labs"],
     integrationType: "internal",
     ctaAr: "دخول البوابة",
     ctaEn: "Enter Portal",
@@ -120,8 +126,8 @@ export const portals: Portal[] = [
   },
   {
     id: "iot-lab",
-    titleAr: "مختبر درهوس لإنترنت الأشياء والأردوينو",
-    titleEn: "Darhous IoT Lab / Arduinoverse",
+    titleAr: "مختبر NexaLearn لإنترنت الأشياء",
+    titleEn: "NexaLearn IoT Lab / Arduinoverse",
     descriptionAr: "59 درس، 72 مشروع، 40 تحدي أردوينو، ومكتبة المكونات الإلكترونية الشاملة.",
     descriptionEn: "59 lessons, 72 projects, 40 Arduino challenges, and comprehensive component library.",
     href: "/iot-lab",
@@ -131,6 +137,7 @@ export const portals: Portal[] = [
     gradient: "linear-gradient(135deg, rgba(249,115,22,0.25) 0%, rgba(234,88,12,0.1) 100%)",
     category: "tech",
     features: ["59 درس Arduino", "72 مشروع تطبيقي", "40 تحدي برمجي", "مكتبة المكونات", "محاكي تفاعلي"],
+    featuresEn: ["59 Arduino Lessons", "72 Applied Projects", "40 Code Challenges", "Component Library", "Interactive Simulator"],
     integrationType: "internal",
     ctaAr: "دخول المختبر",
     ctaEn: "Enter Lab",
@@ -150,6 +157,7 @@ export const portals: Portal[] = [
     gradient: "linear-gradient(135deg, rgba(245,158,11,0.25) 0%, rgba(251,191,36,0.1) 100%)",
     category: "ai",
     features: ["100+ برومبت", "6 فئات", "3 مستويات", "محسّن AI", "صور تريندية"],
+    featuresEn: ["100+ Prompts", "6 Categories", "3 Levels", "AI Enhanced", "Trending Styles"],
     integrationType: "internal",
     ctaAr: "دخول المختبر",
     ctaEn: "Enter Lab",
@@ -169,6 +177,7 @@ export const portals: Portal[] = [
     gradient: "linear-gradient(135deg, rgba(192,132,252,0.25) 0%, rgba(168,85,247,0.1) 100%)",
     category: "future",
     features: ["أمن سيبراني", "روبوتات", "فريلانس", "أدوات أعمال"],
+    featuresEn: ["Cybersecurity", "Robotics", "Freelance", "Business Tools"],
     integrationType: "shell",
     ctaAr: "استكشف ما قادم",
     ctaEn: "See What's Coming",

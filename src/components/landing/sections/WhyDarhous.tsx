@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import {
   Globe, KeyRound, HardHat, BarChart3,
   Briefcase, Bot, LayoutDashboard, Sparkles,
@@ -12,6 +13,13 @@ interface FeatureItem { Icon: LucideIcon; t: string; d: string }
 export default function WhyDarhous({ locale }: { locale: string }) {
   const isAr = locale === "ar";
   const shouldReduce = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.9", "start 0.35"],
+  });
+  const headingOpacity = useTransform(scrollYProgress, [0, 1], shouldReduce ? [1, 1] : [0.25, 1]);
+  const headingY = useTransform(scrollYProgress, [0, 1], shouldReduce ? [0, 0] : [10, 0]);
 
   const fadeUp = {
     hidden: { opacity: 0, y: shouldReduce ? 0 : 20 },
@@ -45,7 +53,7 @@ export default function WhyDarhous({ locale }: { locale: string }) {
       ];
 
   return (
-    <section className="container-xl relative">
+    <section ref={sectionRef} className="container-xl relative">
       {/* Background ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none opacity-[0.15]"
            style={{ background: "radial-gradient(circle, var(--color-secondary) 0%, transparent 70%)", filter: "blur(60px)" }} />
@@ -61,9 +69,12 @@ export default function WhyDarhous({ locale }: { locale: string }) {
           <Sparkles size={12} />
           {isAr ? "مميزات المنصة" : "Platform Features"}
         </div>
-        <h2 className="font-display font-bold text-3xl md:text-5xl mb-4 text-gradient-premium">
-          {isAr ? "لماذا تختار درهوس؟" : "Why Choose Darhous?"}
-        </h2>
+        <motion.h2
+          style={{ opacity: headingOpacity, y: headingY }}
+          className="font-display font-bold text-3xl md:text-5xl mb-4 text-gradient-premium"
+        >
+          {isAr ? "لماذا تختار NexaLearn؟" : "Why Choose NexaLearn?"}
+        </motion.h2>
         <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: "var(--color-on-surface-variant)" }}>
           {isAr ? "ما يميّزنا عن كل منصة تعليمية أخرى في الشرق الأوسط" : "What sets us apart from every other educational platform in the Middle East"}
         </p>

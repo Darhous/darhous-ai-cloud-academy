@@ -25,8 +25,8 @@ const showcaseItems: ShowcaseItem[] = [
   {
     id: "mentor",
     icon: "✨",
-    titleAr: "مساعد درهوس الذكي",
-    titleEn: "Darhous AI Mentor",
+    titleAr: "مساعد NexaLearn الذكي",
+    titleEn: "NexaLearn AI Mentor",
     descriptionAr: "اسأل، حسّن البرومبتات، وابنِ خطط تعلم ومشاريع بمساعدة الذكاء الاصطناعي.",
     descriptionEn: "Ask, optimize prompts, build learning paths, and create AI project plans.",
     categoryAr: "AI Mentor",
@@ -336,10 +336,10 @@ export default function Premium3DShowcaseCarousel({ locale }: { locale: string }
                 color: "var(--color-primary)",
               }}
             >
-              ✦ {isAr ? "منصة درهوس الذكية" : "The Darhous AI Experience"}
+              ✦ {isAr ? "منصة NexaLearn الذكية" : "The NexaLearn Experience"}
             </div>
             <h2 className="font-display font-bold text-2xl md:text-3xl" style={{ color: "var(--color-on-surface)" }}>
-              {isAr ? "استكشف منصة درهوس الذكية" : "Explore the Darhous AI Experience"}
+              {isAr ? "استكشف منصة NexaLearn الذكية" : "Explore the NexaLearn Experience"}
             </h2>
             <p className="text-sm mt-1" style={{ color: "var(--color-on-surface-variant)" }}>
               {isAr

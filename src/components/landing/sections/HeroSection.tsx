@@ -3,12 +3,13 @@
 import { motion, useReducedMotion } from "framer-motion";
 import {
   Sparkles, ArrowRight, ArrowLeft, Target, ChevronDown,
-  Bot, Globe, Monitor, Briefcase, Settings2, Cpu, CheckCircle2
+  Bot, Globe, Monitor, Briefcase, Settings2, Cpu, CheckCircle2, Play
 } from "lucide-react";
 
 interface Props {
   locale: string;
   scrollToPath: () => void;
+  onStartTour?: () => void;
 }
 
 const OS_ITEMS = (isAr: boolean) => [
@@ -20,7 +21,7 @@ const OS_ITEMS = (isAr: boolean) => [
   { label: isAr ? "IoT Lab"        : "IoT Lab",        color: "#f97316", pct: 5,   Icon: Cpu,       badge: undefined },
 ];
 
-export default function HeroSection({ locale, scrollToPath }: Props) {
+export default function HeroSection({ locale, scrollToPath, onStartTour }: Props) {
   const isAr = locale === "ar";
   const Arrow = isAr ? ArrowLeft : ArrowRight;
   const shouldReduce = useReducedMotion();
@@ -53,7 +54,7 @@ export default function HeroSection({ locale, scrollToPath }: Props) {
             style={{ color: "var(--color-primary)" }}
           >
             <Sparkles size={14} />
-            {isAr ? "NexaLearn by Darhous — الجيل القادم للتعلم" : "NexaLearn by Darhous — Next Gen Learning"}
+            {isAr ? "NexaLearn by Ahmed Darhous — الجيل القادم للتعلم" : "NexaLearn by Ahmed Darhous — Next Gen Learning"}
           </div>
         </motion.div>
 
@@ -133,6 +134,17 @@ export default function HeroSection({ locale, scrollToPath }: Props) {
             <Target size={18} />
             {isAr ? "تصفح المسارات" : "Explore Paths"}
           </button>
+          {onStartTour && (
+            <button
+              onClick={onStartTour}
+              className="px-6 py-4 rounded-xl inline-flex items-center justify-center gap-2 text-base font-semibold transition-all hover:bg-white/5 tap-press opacity-70 hover:opacity-100"
+              style={{ color: "var(--color-on-surface-variant)" }}
+              aria-label={isAr ? "جولة سريعة في المنصة" : "Take a quick tour"}
+            >
+              <Play size={16} />
+              {isAr ? "جولة سريعة" : "Quick Tour"}
+            </button>
+          )}
         </motion.div>
 
         {/* Scroll hint */}
