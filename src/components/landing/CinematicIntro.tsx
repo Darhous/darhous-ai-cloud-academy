@@ -39,10 +39,10 @@ export default function CinematicIntro({ locale }: Props) {
       return;
     }
 
-    // Auto-dismiss after a short, premium delay
+    // Auto-dismiss after the progress bar fills completely (3.6s) + brief pause
     const timer = setTimeout(() => {
       dismiss();
-    }, 2800);
+    }, 4400);
 
     return () => clearTimeout(timer);
   }, [shouldReduce, dismiss]);
@@ -128,7 +128,7 @@ export default function CinematicIntro({ locale }: Props) {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               >
-                by Darhous
+                by Ahmed Darhous
               </motion.p>
             </div>
 
@@ -149,7 +149,7 @@ export default function CinematicIntro({ locale }: Props) {
                 }}
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: 2.2, delay: 0.3, ease: "easeInOut" }}
+                transition={{ duration: 3.6, delay: 0.3, ease: "easeInOut" }}
               />
             </motion.div>
           </div>

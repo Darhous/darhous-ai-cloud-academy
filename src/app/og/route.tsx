@@ -86,7 +86,7 @@ export async function GET() {
             textAlign: "center",
           }}
         >
-          NexaLearn by Darhous
+          NexaLearn by Ahmed Darhous
         </div>
 
         {/* Subtitle */}

@@ -1,5 +1,5 @@
-export const SITE_NAME = "NexaLearn by Darhous";
-export const SITE_NAME_AR = "نكسا ليرن | منصة تعلم ذكية من درهوس";
+export const SITE_NAME = "NexaLearn by Ahmed Darhous";
+export const SITE_NAME_AR = "NexaLearn by Ahmed Darhous";
 export const SITE_URL = "https://darhous-ai-cloud-academy.vercel.app";
 export const SITE_DESCRIPTION_EN = "A practical AI and Cloud learning platform from zero to real-world projects.";
 export const SITE_DESCRIPTION_AR = "منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود من الصفر حتى بناء مشاريع حقيقية";

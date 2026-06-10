@@ -23,12 +23,8 @@ export async function generateMetadata({
   const isAr = locale === "ar";
   return {
     title: {
-      default: isAr
-        ? "أكاديمية درهوس للذكاء الاصطناعي والكلاود"
-        : "Darhous AI Cloud Academy",
-      template: isAr
-        ? "%s | أكاديمية درهوس"
-        : "%s | Darhous AI Academy",
+      default: "NexaLearn by Ahmed Darhous",
+      template: "%s | NexaLearn",
     },
     description: isAr
       ? "منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود من الصفر حتى بناء مشاريع حقيقية"
@@ -40,8 +36,8 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       locale: isAr ? "ar_AR" : "en_US",
-      siteName: isAr ? "أكاديمية درهوس للذكاء الاصطناعي" : "Darhous AI Cloud Academy",
-      title: isAr ? "أكاديمية درهوس للذكاء الاصطناعي والكلاود" : "Darhous AI Cloud Academy",
+      siteName: "NexaLearn by Ahmed Darhous",
+      title: "NexaLearn by Ahmed Darhous",
       description: isAr
         ? "منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود"
         : "A practical AI and Cloud learning platform",
@@ -50,13 +46,13 @@ export async function generateMetadata({
           url: `${BASE_URL}/og-image.svg`,
           width: 1200,
           height: 630,
-          alt: isAr ? "أكاديمية درهوس للذكاء الاصطناعي والكلاود" : "Darhous AI Cloud Academy",
+          alt: "NexaLearn by Ahmed Darhous",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: isAr ? "أكاديمية درهوس للذكاء الاصطناعي" : "Darhous AI Cloud Academy",
+      title: "NexaLearn by Ahmed Darhous",
       images: [`${BASE_URL}/og-image.svg`],
     },
     robots: { index: true, follow: true },
@@ -86,7 +82,7 @@ export default async function LocaleLayout({
         "@type": "WebSite",
         "@id": `${BASE_URL}/#website`,
         url: BASE_URL,
-        name: isAr ? "أكاديمية درهوس للذكاء الاصطناعي والكلاود" : "Darhous AI Cloud Academy",
+        name: "NexaLearn by Ahmed Darhous",
         description: isAr
           ? "منصة عربية عملية لتعلم الذكاء الاصطناعي والكلاود"
           : "A practical AI and Cloud learning platform",
@@ -103,7 +99,7 @@ export default async function LocaleLayout({
       {
         "@type": "EducationalOrganization",
         "@id": `${BASE_URL}/#organization`,
-        name: isAr ? "أكاديمية درهوس للذكاء الاصطناعي والكلاود" : "Darhous AI Cloud Academy",
+        name: "NexaLearn by Ahmed Darhous",
         url: BASE_URL,
         logo: `${BASE_URL}/og-image.svg`,
         contactPoint: {
