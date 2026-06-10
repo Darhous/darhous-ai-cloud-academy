@@ -1,0 +1,21 @@
+# Acceptance Checklist
+
+- [x] `src/components/ui/MarqueeStrip.tsx` created.
+- [x] Two strips render between `HeroSection` and `ScrollStackSection`.
+- [x] Skills strip contains all 12 requested localized items.
+- [x] Portal strip maps all eight portals.
+- [x] Arabic skills use `marquee-track-rtl`.
+- [x] English skills use `marquee-track`.
+- [x] Portal strip uses the counter-direction track.
+- [x] Items are duplicated once in the animated track.
+- [x] Reduced motion renders one static wrapping row with no animated track.
+- [x] Existing marquee CSS is reused.
+- [x] No global CSS was added or modified.
+- [x] All existing homepage sections remain present and in relative order.
+- [x] Typecheck passes.
+- [x] Modified source files have no lint warnings or errors.
+- [x] Production build passes.
+- [x] No content was removed.
+- [x] No dependency or package metadata was changed.
+- [x] No Git operation was run.
+- [x] `ANTIGRAVITY_PROJECT_LOG.md` was not modified.

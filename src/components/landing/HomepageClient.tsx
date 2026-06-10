@@ -3,6 +3,7 @@
 import { portals } from "@/config/portals";
 import Stats from "@/components/sections/Stats";
 import CommunitySignup from "@/components/community/CommunitySignup";
+import MarqueeStrip from "@/components/ui/MarqueeStrip";
 import HeroSection from "./sections/HeroSection";
 import PathSelector from "./sections/PathSelector";
 import EcosystemMap from "./sections/EcosystemMap";
@@ -14,8 +15,44 @@ import FinalCTA from "./sections/FinalCTA";
 import SmartPlatformTour from "./SmartPlatformTour";
 import CinematicIntro from "./CinematicIntro";
 
+const skillsByLocale = {
+  ar: [
+    "كلود AI",
+    "نكست.جي إس",
+    "رياكت",
+    "سوبابيس",
+    "تيلويند",
+    "فيرسيل",
+    "تايب سكريبت",
+    "فريمر موشن",
+    "بايثون",
+    "أتمتة",
+    "إنترنت الأشياء",
+    "كلاود",
+  ],
+  en: [
+    "Claude AI",
+    "Next.js 16",
+    "React 19",
+    "Supabase",
+    "Tailwind CSS",
+    "Vercel",
+    "TypeScript",
+    "Framer Motion",
+    "Python",
+    "Automation",
+    "IoT",
+    "Cloud Computing",
+  ],
+} as const;
+
 export default function HomepageClient({ locale }: { locale: string }) {
+  const isAr = locale === "ar";
   const realPortals = portals.filter((p) => p.id !== "coming-soon");
+  const skillItems = [...skillsByLocale[isAr ? "ar" : "en"]];
+  const portalItems = portals.map((portal) =>
+    isAr ? portal.titleAr : portal.titleEn,
+  );
 
   function scrollToPath() {
     document.getElementById("beginner-path")?.scrollIntoView({ behavior: "smooth" });
@@ -26,6 +63,14 @@ export default function HomepageClient({ locale }: { locale: string }) {
       <CinematicIntro locale={locale} />
       <SmartPlatformTour locale={locale} />
       <HeroSection locale={locale} scrollToPath={scrollToPath} />
+      <div className="flex flex-col gap-0">
+        <MarqueeStrip items={skillItems} locale={locale} speed="normal" />
+        <MarqueeStrip
+          items={portalItems}
+          locale={isAr ? "en" : "ar"}
+          speed="slow"
+        />
+      </div>
       <ScrollStackSection locale={locale} />
       <PathSelector locale={locale} />
       <EcosystemMap locale={locale} portals={realPortals} />
