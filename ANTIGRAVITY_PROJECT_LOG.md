@@ -10466,4 +10466,91 @@ PHASE L1-V1 — Scroll-Stack Portal Cards (NexaLearn landing). الهدف: اس�
 - **الوسم:** `checkpoint/visual-complete-v1`
 - **الإصدار:** GitHub Release `v0.8 — Visual Landing Complete`
 
+---
+
+## P2 — Security Hardening (S1)
+**التاريخ:** 2026-06-11
+**الهدف:** إصلاح ثغرة IDOR في شهادات PDF، إخفاء SERVICE_ROLE_KEY من صفحة تسجيل الدخول، تعقيم MDX من العلامات الخطيرة.
+
+### التغييرات
+**شهادات IDOR — ملكية الجلسة**
+- `src/app/api/certificates/exams/[id]/route.tsx`: أضفت `createServerClient` (anon key) للتحقق من الجلسة. بعد جلب النتيجة: `if (result.user_id !== user.id) return 403`.
+- `src/app/api/certificates/language/[id]/route.tsx`: نفس نمط ownership guard.
+
+**تسريب معلومات تسجيل الدخول**
+- `src/app/[locale]/login/page.tsx`: أزلت عرض `SUPABASE_SERVICE_ROLE_KEY` من مكوّن `SupabaseNotConfigured` — يُظهر الآن فقط المتغيرات العامة.
+
+**MDX XSS**
+- `src/components/blog/MdxContent.tsx`: أضفت `rehypeStripDangerousElements` inline — يحذف script, iframe, object, embed, form, input, textarea, noscript, link, meta من شجرة hast قبل التصيير.
+
+### Git
+- **الكوميت:** `67c98b3`
+- **الوسم:** `checkpoint/certificate-security-v1`
+
+---
+
+## P3 — EN Localization Fix (L2)
+**التاريخ:** 2026-06-11
+**الهدف:** إصلاح تسرّب النص العربي في واجهات بوابتي IoT ومحلل السيرة الذاتية عند تبديل اللغة إلى الإنجليزية.
+
+### التغييرات
+**بوابة IoT**
+- `src/components/iot/IotExamsClient.tsx`: إضافة `locale: string` + `const isAr = locale === "ar"` — جميع النصوص (أسئلة، ابدأ، تسليم، تغذية راجعة) ثنائية اللغة.
+- `src/components/iot/IotChallengesClient.tsx`: أضفت `LEVEL_EN` mapping + `levelLabel()` helper — الفلترة والشارات ثنائية اللغة. RTL-safe: `end-3`/`start-3` بدلاً من `right-3`/`left-3`.
+- `src/components/iot/IotProjectsClient.tsx`: نفس النمط مع `DIFF_EN` mapping.
+- `src/app/[locale]/iot-lab/exams/page.tsx`: تمرير `locale={locale}` + `dir` attribute.
+
+**بوابة Career — محلل ATS**
+- `src/components/career/CVAnalyzerClient.tsx`: إضافة `locale: string` + كائن `t{}` كامل (25+ مدخل). استبدال جميع `alert()` بـ `setErrorMsg` state + عرض خطأ inline.
+- `src/app/[locale]/career/cv-analyzer/page.tsx`: تمرير `locale={locale}` + `dir` attribute.
+
+### Git
+- **الكوميت:** `27e02f4`
+- **الوسم:** `checkpoint/en-localization-fix-v1`
+
+---
+
+## P5 — Design System + UX (R1)
+**التاريخ:** 2026-06-11
+**الهدف:** مكتبة motion presets مشتركة، a11y لـ AnimateIn، دعم featuresEn في PortalCard.
+
+### التغييرات
+**مكتبة Motion Presets**
+- `src/lib/motionPresets.ts` (ملف جديد): `fadeUpVariants`, `fadeInVariants`, `slideInVariants`, `staggerContainerVariants` — جميعها تقبل `shouldReduce` لدعم reduce-motion.
+
+**AnimateIn — إمكانية الوصول**
+- `src/components/ui/AnimateIn.tsx`: أضفت `useReducedMotion()` — y/x = 0 عند تفضيل تقليل الحركة، duration 0.12 بدلاً من 0.5.
+
+**PortalCard — featuresEn**
+- `src/components/ecosystem/PortalCard.tsx`: حبوب الميزات تستخدم `portal.featuresEn` عند `!isAr` إن وُجدت، وإلا `portal.features`.
+
+### Git
+- **الكوميت:** `40e0a81`
+- **الوسم:** `checkpoint/design-system-v1`
+
+---
+
+## P6 — Admin Panel Extraction + Performance (A2 + P1)
+**التاريخ:** 2026-06-11
+**الهدف:** استخراج 5 panels من monolith المشرف (5333 سطر → 4940)، وتحميل lazy للمكونات الثقيلة.
+
+### التغييرات — A2 (Admin Extraction)
+5 ملفات panels جديدة في `src/components/admin/panels/`:
+- `AdminEmailPanel.tsx` — props: `{ isAr }` — بيانات ثابتة فقط
+- `AdminAuditPanel.tsx` — props: `{ isAr, dataLoading, auditLogs }` — سجل الأمان والتدقيق
+- `AdminLanguagePanel.tsx` — props: `{ isAr, langResults, langLoading }` — تحليلات بوابة اللغة
+- `AdminDigitalExamsPanel.tsx` — props: `{ isAr, locale }` — بنك الأسئلة + روابط البوابة
+- `AdminContentPanel.tsx` — props: `{ isAr, locale, messages, dataLoading, markMessageRead }` — إحصاء المحتوى + الرسائل
+
+**AdminDashboardClient.tsx**: إزالة `examSubjects` import (انتقل للـ panel). الـ 5 tabs السابقة استُبدلت باستدعاءات panels نظيفة.
+
+### التغييرات — P1 (Performance)
+**HomepageClient.tsx**: `CinematicIntro`, `SmartPlatformTour`, `Premium3DShowcaseCarousel`, `MentorShowcase` → `next/dynamic` مع `ssr: false` (تستخدم browser APIs أو غير مرئية بالتحميل الأولي).
+
+**AdminDashboardClient.tsx**: `AutomationCMSPanel`, `IoTCMSPanel`, `ExamsCMSPanel`, `DraftContentReviewPanel` → `next/dynamic` مع `ssr: false` (تُحمَّل فقط عند تفعيل التبويب).
+
+### Git
+- **كوميت A2:** `42d05b0` — وسم: `checkpoint/admin-extraction-v2`
+- **كوميت P1:** `a82f354` — وسم: `checkpoint/performance-v1`
+
 **المحطة التالية:** P2 — Security Hardening (S1+S2).
