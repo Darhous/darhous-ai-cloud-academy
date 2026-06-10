@@ -7,6 +7,7 @@ import type { Project } from "@/data/iot/projects";
 
 const DIFF_COLOR: Record<string, string> = { سهل: "#4ade80", متوسط: "#f59e0b", صعب: "#f87171", تخرج: "#d0bcff" };
 const ORDER = ["سهل", "متوسط", "صعب", "تخرج"];
+const DIFF_EN: Record<string, string> = { سهل: "Easy", متوسط: "Intermediate", صعب: "Hard", تخرج: "Graduation" };
 
 interface Props {
   projects: Project[];
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export default function IotProjectsClient({ projects, locale }: Props) {
+  const isAr = locale === "ar";
   const [search, setSearch] = useState("");
   const [activeDiff, setActiveDiff] = useState<string>("all");
 
@@ -42,22 +44,23 @@ export default function IotProjectsClient({ projects, locale }: Props) {
   );
 
   const sortedEntries = Object.entries(grouped).sort(([a], [b]) => ORDER.indexOf(a) - ORDER.indexOf(b));
+  const diffLabel = (key: string) => isAr ? key : (DIFF_EN[key] ?? key);
 
   return (
     <div>
       {/* Search + difficulty filter */}
       <div className="flex flex-col sm:flex-row gap-3 mb-8">
         <div className="relative flex-1">
-          <Search size={14} className="absolute right-3 top-1/2 -translate-y-1/2" style={{ color: "var(--color-on-surface-variant)" }} />
+          <Search size={14} className="absolute end-3 top-1/2 -translate-y-1/2" style={{ color: "var(--color-on-surface-variant)" }} />
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="ابحث في المشاريع..."
-            className="w-full pr-9 pl-9 py-2.5 rounded-xl text-sm outline-none"
+            placeholder={isAr ? "ابحث في المشاريع..." : "Search projects..."}
+            className="w-full pe-9 ps-9 py-2.5 rounded-xl text-sm outline-none"
             style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }}
           />
           {search && (
-            <button onClick={() => setSearch("")} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "var(--color-on-surface-variant)" }}>
+            <button onClick={() => setSearch("")} className="absolute start-3 top-1/2 -translate-y-1/2" style={{ color: "var(--color-on-surface-variant)" }}>
               <X size={13} />
             </button>
           )}
@@ -77,7 +80,9 @@ export default function IotProjectsClient({ projects, locale }: Props) {
                   border: activeDiff === diff ? `1px solid ${color}30` : "1px solid var(--color-outline-variant)",
                 }}
               >
-                {diff === "all" ? `الكل (${projects.length})` : diff}
+                {diff === "all"
+                  ? `${isAr ? "الكل" : "All"} (${projects.length})`
+                  : diffLabel(diff)}
               </button>
             );
           })}
@@ -86,7 +91,7 @@ export default function IotProjectsClient({ projects, locale }: Props) {
 
       {filtered.length === 0 ? (
         <p className="text-sm text-center py-12" style={{ color: "var(--color-on-surface-variant)" }}>
-          لا توجد نتائج مطابقة
+          {isAr ? "لا توجد نتائج مطابقة" : "No results found"}
         </p>
       ) : (
         <div className="space-y-10">
@@ -96,8 +101,10 @@ export default function IotProjectsClient({ projects, locale }: Props) {
               <div key={difficulty}>
                 <h2 className="font-bold text-lg mb-4 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
                   <span className="w-2 h-6 rounded-full" style={{ background: color }} />
-                  مستوى {difficulty}
-                  <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>({items.length} مشروع)</span>
+                  {isAr ? `مستوى ${difficulty}` : `${diffLabel(difficulty)} Level`}
+                  <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                    ({items.length} {isAr ? "مشروع" : "projects"})
+                  </span>
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {items.map((proj) => (

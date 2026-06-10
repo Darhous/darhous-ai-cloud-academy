@@ -26,7 +26,7 @@ export default async function CVAnalyzerPage({
   const { locale } = await params;
 
   return (
-    <div className="container-xl py-12" dir="rtl">
+    <div className="container-xl py-12" dir={locale === "ar" ? "rtl" : "ltr"}>
       <div className="mb-8">
         <Link
           href={`/${locale}/career`}
@@ -43,7 +43,7 @@ export default async function CVAnalyzerPage({
           ارفع سيرتك الذاتية (PDF أو TXT) أو الصق محتواها — سيقيّمها الذكاء الاصطناعي ويكشف فجواتها فوراً.
         </p>
       </div>
-      <CVAnalyzerClient />
+      <CVAnalyzerClient locale={locale} />
     </div>
   );
 }

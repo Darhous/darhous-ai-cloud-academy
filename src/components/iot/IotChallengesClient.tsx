@@ -7,6 +7,7 @@ import type { Challenge } from "@/data/iot/challenges";
 
 const LEVEL_COLOR: Record<string, string> = { مبتدئ: "#4ade80", متوسط: "#f59e0b", صعب: "#f87171" };
 const LEVELS = ["مبتدئ", "متوسط", "صعب"] as const;
+const LEVEL_EN: Record<string, string> = { مبتدئ: "Beginner", متوسط: "Intermediate", صعب: "Hard" };
 
 interface Props {
   challenges: Challenge[];
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export default function IotChallengesClient({ challenges, locale }: Props) {
+  const isAr = locale === "ar";
   const [search, setSearch] = useState("");
   const [activeLevel, setActiveLevel] = useState<string>("all");
 
@@ -36,21 +38,23 @@ export default function IotChallengesClient({ challenges, locale }: Props) {
     [filtered]
   );
 
+  const levelLabel = (key: string) => isAr ? key : (LEVEL_EN[key] ?? key);
+
   return (
     <div>
       {/* Search + level filter */}
       <div className="flex flex-col sm:flex-row gap-3 mb-8">
         <div className="relative flex-1">
-          <Search size={14} className="absolute right-3 top-1/2 -translate-y-1/2" style={{ color: "var(--color-on-surface-variant)" }} />
+          <Search size={14} className="absolute end-3 top-1/2 -translate-y-1/2" style={{ color: "var(--color-on-surface-variant)" }} />
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="ابحث في التحديات..."
-            className="w-full pr-9 pl-9 py-2.5 rounded-xl text-sm outline-none"
+            placeholder={isAr ? "ابحث في التحديات..." : "Search challenges..."}
+            className="w-full pe-9 ps-9 py-2.5 rounded-xl text-sm outline-none"
             style={{ background: "var(--color-surface-container)", border: "1px solid var(--color-outline-variant)", color: "var(--color-on-surface)" }}
           />
           {search && (
-            <button onClick={() => setSearch("")} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "var(--color-on-surface-variant)" }}>
+            <button onClick={() => setSearch("")} className="absolute start-3 top-1/2 -translate-y-1/2" style={{ color: "var(--color-on-surface-variant)" }}>
               <X size={13} />
             </button>
           )}
@@ -66,7 +70,7 @@ export default function IotChallengesClient({ challenges, locale }: Props) {
               border: activeLevel === "all" ? "1px solid rgba(142,213,255,0.3)" : "1px solid var(--color-outline-variant)",
             }}
           >
-            الكل ({challenges.length})
+            {isAr ? "الكل" : "All"} ({challenges.length})
           </button>
           {LEVELS.map((level) => {
             const color = LEVEL_COLOR[level];
@@ -81,7 +85,7 @@ export default function IotChallengesClient({ challenges, locale }: Props) {
                   border: activeLevel === level ? `1px solid ${color}30` : "1px solid var(--color-outline-variant)",
                 }}
               >
-                {level}
+                {levelLabel(level)}
               </button>
             );
           })}
@@ -90,7 +94,7 @@ export default function IotChallengesClient({ challenges, locale }: Props) {
 
       {filtered.length === 0 ? (
         <p className="text-sm text-center py-12" style={{ color: "var(--color-on-surface-variant)" }}>
-          لا توجد نتائج مطابقة
+          {isAr ? "لا توجد نتائج مطابقة" : "No results found"}
         </p>
       ) : (
         <div className="space-y-10">
@@ -101,8 +105,10 @@ export default function IotChallengesClient({ challenges, locale }: Props) {
               <div key={level}>
                 <h2 className="font-bold text-lg mb-4 flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
                   <span className="w-2 h-6 rounded-full" style={{ background: color }} />
-                  مستوى {level}
-                  <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>({items.length} تحدي)</span>
+                  {isAr ? `مستوى ${level}` : `${levelLabel(level)} Level`}
+                  <span className="text-xs font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+                    ({items.length} {isAr ? "تحدي" : "challenges"})
+                  </span>
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {items.map((ch) => (
@@ -113,7 +119,9 @@ export default function IotChallengesClient({ challenges, locale }: Props) {
                       style={{ border: `1px solid ${color}15`, textDecoration: "none" }}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full" style={{ background: `${color}12`, color, border: `1px solid ${color}20` }}>{ch.level}</span>
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full" style={{ background: `${color}12`, color, border: `1px solid ${color}20` }}>
+                          {levelLabel(ch.level)}
+                        </span>
                         <span className="flex items-center gap-1 text-xs font-mono font-bold" style={{ color }}>
                           <Star size={11} />{ch.xpReward} XP
                         </span>
@@ -122,7 +130,7 @@ export default function IotChallengesClient({ challenges, locale }: Props) {
                       <p className="text-xs leading-relaxed flex-1" style={{ color: "var(--color-on-surface-variant)" }}>{ch.description}</p>
                       {ch.badgeId && (
                         <div className="flex items-center gap-1.5 text-[10px] font-mono" style={{ color: "#fbbf24" }}>
-                          <Trophy size={10} /> شارة: {ch.badgeId}
+                          <Trophy size={10} /> {isAr ? "شارة:" : "Badge:"} {ch.badgeId}
                         </div>
                       )}
                     </Link>

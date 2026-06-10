@@ -41,13 +41,13 @@ export default async function IotExamsPage({
   const allExams = await fetchAllExams();
 
   return (
-    <div className="container-xl py-12" dir="rtl">
+    <div className="container-xl py-12" dir={locale === "ar" ? "rtl" : "ltr"}>
       <Link href={`/${locale}/iot-lab`} className="inline-flex items-center gap-2 text-sm font-mono mb-8 transition-opacity hover:opacity-70" style={{ color: "var(--color-on-surface-variant)" }}>
         <ArrowRight size={14} />العودة للمختبر
       </Link>
       <h1 className="font-display font-bold text-3xl mb-2" style={{ color: "var(--color-on-surface)" }}>اختبارات الأردوينو والإلكترونيات</h1>
       <p className="text-sm mb-10" style={{ color: "var(--color-on-surface-variant)" }}>{allExams.length} اختبار تفاعلي — اختبر فهمك وقيّم مستواك.</p>
-      <IotExamsClient exams={allExams} />
+      <IotExamsClient exams={allExams} locale={locale} />
     </div>
   );
 }
