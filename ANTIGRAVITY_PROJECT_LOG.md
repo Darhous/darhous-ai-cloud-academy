@@ -9418,3 +9418,121 @@ The prior log entry had placeholder lines removed after commit-value placeholder
 - Temporary files: none.
 - Forbidden commands: avoided.
 - Launch candidate status: safe after this micro-closure.
+
+
+---
+
+## محطة: Full Product Audit + Production Plan
+**التاريخ:** 2026-06-10
+**الفرع:** `claude/darhous-full-audit-production-hunrq0`
+**HEAD قبل المحطة:** `94348be86157f4d7b634069234ec89fb7ed5bc4b`
+
+---
+
+### الطلب الأصلي (النص الكامل)
+
+محطة تدقيق كاملة شاملة تغطي:
+- FULL PRODUCT AUDIT + DEAD LINKS / DEAD PAGES / CONTENT INVENTORY
+- ADMIN / PORTALS / UI ARCHITECTURE REVIEW
+- MASTER PRODUCTION PLAN
+
+**تعليمات السلامة المطلقة:**
+- لا SQL، لا migrations، لا Supabase، لا package files، لا env files
+- لا auth، لا secrets، لا tools_hub، لا nano_banana
+- لا git add .، لا git add src، لا git add docs (broad)
+- لا git push --tags، لا git push origin main --tags
+- لا git commit --amend، لا git tag -f، لا git push -f
+- الملفات المحمية: .claude/، .codex/، README.backup.20260607-135220.md، UX PROMAX.MD، eslint-output.txt، جميع ملفات content-source/_audit/
+- Staging صريح فقط للملفات المطلوبة بالاسم
+
+**الحزمة المطلوبة:** 21 ملف تقرير في `docs/reports/2026-06-10-full-product-audit-production-plan/`
+
+**ملاحظة خاصة من المالك:** المالك لا يرى تأثير البطاقات المكدسة (stacked-card scroll effect) المتوقع — يجب التدقيق وشرح السبب.
+
+---
+
+### التقرير النهائي الكامل
+
+#### ملخص النتائج
+
+المنصة مكتملة بنسبة 65-70%. الواجهة العامة تعمل بصريًا وثنائية اللغة إلى حد كبير. لكن عدة عوائق تمنع اعتبارها جاهزة للإنتاج.
+
+#### المشكلة الجوهرية: تأثير البطاقات المكدسة
+
+**لا يوجد تأثير stacked-card في الكود إطلاقًا.** البحث عن `stacked-card`، `card-stack`، `scroll-card`، `layered-card`، `parallax` أعطى 0 نتائج. ما يوجد فعلاً هو فقط `InteractiveSurface.tsx` الذي يقدم إمالة ثلاثية الأبعاد طفيفة (2-3 درجات) عند حركة المؤشر — ليس تأثير تمرير مرئي.
+
+#### النتائج الحرجة (4 مشاكل)
+
+1. **ISS-001:** تأثير البطاقات المكدسة لم يُنفَّذ قط
+2. **ISS-002:** SmartPlatformTour معطّل دائمًا (الكود المسؤول عن الفتح التلقائي مُعلَّق)
+3. **ISS-004:** 600 سجل في قاعدة البيانات، جميعها في حالة "draft" — لا محتوى منشور
+4. **ISS-005:** بوابة Cloud منفصلة تمامًا — غير موجودة في portals.tsx أو navbar أو footer
+
+#### النتائج العالية (14 مشكلة)
+
+- ISS-006: automation-glossary غير مرتبط من أي تنقل
+- ISS-007: `dir="rtl"` مُضمَّن في automation/page.tsx بغض النظر عن اللغة
+- ISS-008: نفس المشكلة في career/page.tsx
+- ISS-009: انقسام العلامة التجارية بين "NexaLearn by Darhous" و"Darhous AI Cloud Academy"
+- ISS-010: صورة OG بصيغة SVG — غير مدعومة من Twitter/LinkedIn/WhatsApp
+- ISS-011: AdminDashboardClient.tsx ملف وحيد 327KB+ يدير 32 تبويبًا
+- ISS-012: لا واجهة لرفع الصور في الإدارة
+- ISS-013: لا نشر جماعي bulk publish في الإدارة
+- ISS-015: EcosystemMap يكرر JSX يدويًا بدلاً من .map()
+- ISS-016: لا نظام تصميم مشترك، كل بطاقة من الصفر
+- ISS-018: نصوص عربية مُضمَّنة في صفحات اللغة الإنجليزية
+- ISS-019: لا Content Security Policy header
+- ISS-021: Google Fonts عبر @import بدلاً من next/font
+- ISS-029: صفحة Cloud تحتوي على محتوى placeholder مُضمَّن
+
+#### الإجراءات المُنجزة
+
+تم إنشاء حزمة التقارير الكاملة المكونة من 21 ملفًا:
+
+1. README.md — دليل حزمة التقارير
+2. executive-summary.md — ملخص تنفيذي
+3. landing-homepage-visual-audit.md — تدقيق الصفحة الرئيسية
+4. cards-scroll-effects-visibility-review.md — مراجعة تأثيرات البطاقات
+5. dead-pages-and-dead-links-audit.md — الصفحات والروابط الميتة
+6. route-map-and-navigation-inventory.md — خريطة المسارات
+7. content-inventory-and-publishing-status.md — مخزون المحتوى
+8. admin-complete-audit.md — تدقيق لوحة الإدارة
+9. portal-by-portal-audit.md — تدقيق البوابات
+10. ui-architecture-scalability-audit.md — هندسة الواجهة
+11. security-audit.md — تدقيق الأمان
+12. performance-audit.md — تدقيق الأداء
+13. accessibility-audit.md — تدقيق إمكانية الوصول
+14. seo-metadata-sharing-audit.md — تدقيق SEO
+15. build-ci-vercel-audit.md — تدقيق البناء والـ CI
+16. issues-register.md — سجل المشاكل (35 مشكلة)
+17. production-repair-master-plan.md — خطة الإصلاح الرئيسية (6 مراحل)
+18. phase-breakdown-roadmap.md — خارطة طريق المحطات
+19. validation-report.md — تقرير التحقق
+20. protected-files-review.md — مراجعة الملفات المحمية
+21. summary.json — ملخص JSON
+
+#### نتائج التحقق
+
+- **npm run build:** لا يمكن التشغيل (node_modules غير مثبتة في بيئة السحابة)
+- **npm run typecheck:** لا يمكن التشغيل (نفس السبب)
+- **npm run lint:** لا يمكن التشغيل (نفس السبب)
+- **git diff --check:** نظيف — لا مشاكل
+- **آخر CI ناجح:** `d045c51` (Phase 5D)
+- **الكود المصدري:** لم يتغير — محطة تدقيق فقط
+- **الملفات المحمية:** لم تُلمَس جميعها
+
+#### الوضع بعد المحطة
+
+- **التزامن Git:** commit + tag `checkpoint/full-product-audit-production-plan-v1` + push
+- **المحطة التالية الموصى بها:** `repair-phase-r1-critical-bugs`
+
+---
+
+### تفاصيل Git
+
+- **Commit:** `docs: audit product readiness and production plan`
+- **Tag:** `checkpoint/full-product-audit-production-plan-v1`
+- **الملفات المُضافة:** 21 ملف تقرير + ANTIGRAVITY_PROJECT_LOG.md
+- **الأوامر المحظورة المستخدمة:** لا شيء
+- **الملفات المحمية:** لم تُلمَس
+
