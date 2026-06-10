@@ -75,6 +75,7 @@ export function GenericCmsTypePanel({ config, isAr }: Props) {
   const [rows, setRows] = useState<DbRow[]>([]);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [seeding, setSeeding] = useState(false);
   const [msg, setMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
   const [editId, setEditId] = useState<string | null>(null);
   const [form, setForm] = useState<FormState>(() => buildDefaultForm(config));
@@ -133,6 +134,23 @@ export function GenericCmsTypePanel({ config, isAr }: Props) {
     if (!confirm(isAr ? `أرشفة "${title}"؟` : `Archive "${title}"?`)) return;
     const res = await fetch(`${apiBase}/${row.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: "archived" }) });
     if (res.ok) setRows((p) => p.map((x) => (x.id === row.id ? { ...x, status: "archived" } : x)));
+  }
+
+  async function handleSeedPilot() {
+    if (!confirm(isAr ? "نشر 5 مصطلحات تجريبية في قاعدة البيانات؟" : "Seed 5 pilot glossary terms to the database?")) return;
+    setSeeding(true);
+    setMsg(null);
+    try {
+      const res = await fetch("/api/admin/seed/automation-glossary", { method: "POST" });
+      const j = await res.json();
+      if (!res.ok) { setMsg({ type: "err", text: j.error ?? `Error ${res.status}` }); return; }
+      setMsg({ type: "ok", text: isAr ? `✅ تم نشر ${j.inserted} مصطلح (تخطي ${j.skipped} موجود)` : `✅ Inserted ${j.inserted} term(s), skipped ${j.skipped} existing` });
+      await loadRows();
+    } catch (err) {
+      setMsg({ type: "err", text: err instanceof Error ? err.message : "Error" });
+    } finally {
+      setSeeding(false);
+    }
   }
 
   async function handleDelete(row: DbRow) {
@@ -320,11 +338,21 @@ export function GenericCmsTypePanel({ config, isAr }: Props) {
           {loading ? (
             <p className="text-xs font-mono text-center py-6" style={{ color: "var(--color-on-surface-variant)" }}>{isAr ? "جارٍ التحميل…" : "Loading…"}</p>
           ) : rows.length === 0 ? (
-            <div className="glass-card rounded-2xl p-8 text-center">
-              <p className="text-3xl mb-3">🧩</p>
+            <div className="glass-card rounded-2xl p-8 text-center flex flex-col items-center gap-4">
+              <p className="text-3xl">🧩</p>
               <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                 {isAr ? `لا توجد عناصر في قاعدة البيانات بعد لـ «${config.labelAr}». اضغط «تحديث» أو «عنصر جديد».` : `No items in DB yet for «${config.labelEn}». Click «Refresh» or «New item».`}
               </p>
+              {config.table === "automation_glossary" && (
+                <button
+                  onClick={handleSeedPilot}
+                  disabled={seeding}
+                  className="text-xs font-mono px-4 py-2 rounded-lg cursor-pointer disabled:opacity-50"
+                  style={{ background: "rgba(74,222,128,0.1)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.25)" }}
+                >
+                  {seeding ? (isAr ? "جارٍ النشر…" : "Seeding…") : (isAr ? "🚀 نشر 5 مصطلحات تجريبية" : "🚀 Seed 5 Pilot Terms")}
+                </button>
+              )}
             </div>
           ) : (
             rows.map((row) => {
@@ -345,7 +373,7 @@ export function GenericCmsTypePanel({ config, isAr }: Props) {
                     <button onClick={() => openEdit(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(255,255,255,0.05)", color: "var(--color-on-surface-variant)", border: "1px solid rgba(255,255,255,0.1)" }}>
                       {isAr ? "تعديل" : "Edit"}
                     </button>
-                    {row.status !== "archived" && ["automation_glossary"].includes(config.table) && (
+                    {row.status !== "archived" && config.table.startsWith("automation_") && (
                       <button onClick={() => handleArchive(row)} className="text-xs font-mono px-2.5 py-1.5 rounded-lg cursor-pointer" style={{ background: "rgba(250,204,21,0.08)", color: "#fbbf24", border: "1px solid rgba(250,204,21,0.2)" }}>
                         {isAr ? "أرشفة" : "Archive"}
                       </button>
@@ -391,7 +419,7 @@ export function GenericCmsTypePanel({ config, isAr }: Props) {
                 label={isAr ? "الحالة" : "Status"}
                 value={(form.status as "published" | "draft" | "archived") ?? "draft"}
                 onChange={(v) => setForm((p) => ({ ...p, status: v }))}
-                disabled={!["automation_glossary"].includes(config.table)}
+                disabled={!config.table.startsWith("automation_")}
               />
               <AdminTextField
                 label={isAr ? "ترتيب العرض" : "Sort order"}

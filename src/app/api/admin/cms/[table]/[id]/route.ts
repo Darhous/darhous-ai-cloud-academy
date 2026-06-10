@@ -60,7 +60,11 @@ export async function PATCH(req: NextRequest, { params }: Ctx) {
   const updates: Record<string, unknown> = { ...coerced.values };
   if ("sort_order" in body) updates.sort_order = Number(body.sort_order) || 0;
   if ("featured" in body) updates.featured = Boolean(body.featured);
-  const PUBLISHING_ALLOWLIST = ["automation_glossary"];
+  const PUBLISHING_ALLOWLIST = [
+    "automation_glossary", "automation_paths", "automation_tools", "automation_case_studies",
+    "automation_checklists", "automation_comparisons", "automation_labs", "automation_services",
+    "automation_use_cases", "automation_prompts", "automation_workflows",
+  ];
   if ("status" in body) {
     if (!PUBLISHING_ALLOWLIST.includes(config.table)) {
       return NextResponse.json({ error: "Publishing lifecycle is currently locked for this content type (Pilot Phase)" }, { status: 403 });

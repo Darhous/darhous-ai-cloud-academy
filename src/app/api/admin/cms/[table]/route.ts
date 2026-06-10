@@ -67,7 +67,11 @@ export async function POST(req: NextRequest, { params }: Ctx) {
   const coerced = coerceCmsFields(config.fields, body, { forCreate: true });
   if ("error" in coerced) return NextResponse.json({ error: coerced.error }, { status: 400 });
 
-  const PUBLISHING_ALLOWLIST = ["automation_glossary"];
+  const PUBLISHING_ALLOWLIST = [
+    "automation_glossary", "automation_paths", "automation_tools", "automation_case_studies",
+    "automation_checklists", "automation_comparisons", "automation_labs", "automation_services",
+    "automation_use_cases", "automation_prompts", "automation_workflows",
+  ];
   let status = "draft";
   
   if (PUBLISHING_ALLOWLIST.includes(config.table)) {

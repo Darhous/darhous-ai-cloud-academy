@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { fetchPublishedList } from "@/lib/content/read-with-fallback";
+import { fetchPublishedList, mergeById } from "@/lib/content/read-with-fallback";
+import { automationGlossary } from "@/data/automation/automationGlossary";
 import { verifyAdminRequest } from "@/lib/auth/admin";
 import AutomationGlossaryClient from "./AutomationGlossaryClient";
 
@@ -59,12 +60,13 @@ export default async function AutomationGlossaryPage({
 }) {
   const { locale } = await params;
   const dbTerms = await fetchDbTerms();
-  
+  const terms = mergeById(dbTerms, automationGlossary);
+
   // Safe server-side role check for the inline admin pilot.
   // Because this checks cookies natively, Next.js treats this route as dynamic.
   // This physically prevents draft or admin data from leaking into a static cache.
   const { user } = await verifyAdminRequest();
   const isAdmin = !!user;
 
-  return <AutomationGlossaryClient locale={locale} terms={dbTerms} isAdmin={isAdmin} />;
+  return <AutomationGlossaryClient locale={locale} terms={terms} isAdmin={isAdmin} />;
 }
