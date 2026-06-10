@@ -33,10 +33,24 @@ import { defaultFeatureFlags } from "@/types/feature_flags";
 import { defaultSiteSettings } from "@/types/site_settings";
 import type { UserProfile } from "@/lib/auth/roles";
 import { PORTAL_SMART_CONFIG } from "@/lib/certificates/portalConfig";
-import { AutomationCMSPanel } from "@/components/admin/cms/AutomationCMSPanel";
-import { IoTCMSPanel } from "@/components/admin/cms/IoTCMSPanel";
-import { ExamsCMSPanel } from "@/components/admin/cms/ExamsCMSPanel";
-import { DraftContentReviewPanel } from "@/components/admin/cms/DraftContentReviewPanel";
+import dynamic from "next/dynamic";
+// Heavy CMS panels — lazy-loaded to split them from the initial admin bundle
+const AutomationCMSPanel = dynamic(
+  () => import("@/components/admin/cms/AutomationCMSPanel").then((m) => ({ default: m.AutomationCMSPanel })),
+  { ssr: false }
+);
+const IoTCMSPanel = dynamic(
+  () => import("@/components/admin/cms/IoTCMSPanel").then((m) => ({ default: m.IoTCMSPanel })),
+  { ssr: false }
+);
+const ExamsCMSPanel = dynamic(
+  () => import("@/components/admin/cms/ExamsCMSPanel").then((m) => ({ default: m.ExamsCMSPanel })),
+  { ssr: false }
+);
+const DraftContentReviewPanel = dynamic(
+  () => import("@/components/admin/cms/DraftContentReviewPanel").then((m) => ({ default: m.DraftContentReviewPanel })),
+  { ssr: false }
+);
 import { AdminSidebar } from "./AdminSidebar";
 import { AdminTab } from "./admin-navigation";
 import { AdminOverviewPanel } from "./panels/AdminOverviewPanel";

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { portals } from "@/config/portals";
 import Stats from "@/components/sections/Stats";
 import CommunitySignup from "@/components/community/CommunitySignup";
@@ -10,12 +11,15 @@ import PathSelector from "./sections/PathSelector";
 import EcosystemMap from "./sections/EcosystemMap";
 import ScrollStackSection from "./sections/ScrollStackSection";
 import HowItWorks from "./sections/HowItWorks";
-import MentorShowcase from "./sections/MentorShowcase";
 import WhyDarhous from "./sections/WhyDarhous";
 import FinalCTA from "./sections/FinalCTA";
-import SmartPlatformTour from "./SmartPlatformTour";
-import CinematicIntro from "./CinematicIntro";
-import Premium3DShowcaseCarousel from "@/components/layout/Premium3DShowcaseCarousel";
+
+// Lazy-loaded: dialog (never visible on initial load), uses browser APIs
+const CinematicIntro = dynamic(() => import("./CinematicIntro"), { ssr: false });
+const SmartPlatformTour = dynamic(() => import("./SmartPlatformTour"), { ssr: false });
+// Lazy-loaded: below-fold, uses window in render path
+const Premium3DShowcaseCarousel = dynamic(() => import("@/components/layout/Premium3DShowcaseCarousel"), { ssr: false });
+const MentorShowcase = dynamic(() => import("./sections/MentorShowcase"), { ssr: false });
 
 const skillsByLocale = {
   ar: [
