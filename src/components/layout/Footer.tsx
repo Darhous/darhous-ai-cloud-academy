@@ -59,7 +59,7 @@ export default function Footer({ locale }: FooterProps) {
               style={{ color: "var(--color-primary)" }}
             >
               <Bot size={24} style={{ color: "var(--color-tertiary)" }} />
-              {isAr ? "منصة درهوس" : "Darhous"}
+              NexaLearn
             </Link>
             <p
               className="text-xs leading-relaxed mb-1 font-mono"
