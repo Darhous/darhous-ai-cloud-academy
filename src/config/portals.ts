@@ -177,6 +177,29 @@ export const portals: Portal[] = [
   },
 ];
 
+// TODO(N1): /cloud portal exists as src/app/[locale]/cloud/page.tsx ("Cloud Academy")
+// but has NO entry here, so it is invisible to the footer portals list, the landing
+// ScrollStack section, and any code that iterates `portals`.
+// Pending design approval for icon / color / gradient before adding a full entry.
+// Suggested skeleton when ready:
+//   {
+//     id: "cloud",
+//     titleAr: "أكاديمية الكلاود",
+//     titleEn: "Cloud Academy",
+//     descriptionAr: "ابنِ ونشر الذكاء الاصطناعي على AWS وAzure وGoogle Cloud مع مختبرات عملية مجانية",
+//     descriptionEn: "Build and deploy AI on AWS, Azure, and Google Cloud with free hands-on labs.",
+//     href: "/cloud",
+//     status: "available",
+//     icon: "☁️",
+//     color: "#60a5fa",
+//     gradient: "linear-gradient(135deg, rgba(37,99,235,0.35) 0%, rgba(96,165,250,0.15) 100%)",
+//     category: "tech",
+//     features: ["AWS", "Azure", "Google Cloud", "Docker", "MLOps"],
+//     integrationType: "internal",
+//     ctaAr: "دخول البوابة",
+//     ctaEn: "Enter Portal",
+//   }
+
 export const availablePortals = portals.filter((p) => p.status === "available");
 export const comingSoonPortals = portals.filter((p) => p.status === "coming-soon");
 

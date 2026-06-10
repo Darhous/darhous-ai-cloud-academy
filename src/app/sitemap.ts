@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/prompt-battle", "/prompt-score", "/compare-tools",
     "/project-generator",
     // v4 ecosystem portals (landing pages only — /assessment and /results are noindex, excluded from sitemap)
-    "/ai-academy", "/language", "/language/history",
+    "/ai-academy", "/language",
     "/digital-exams", "/digital-exams/mixed", "/digital-exams/library",
     // v5 full native portals
     "/career", "/career/cv-analyzer", "/career/builder", "/career/jobs", "/career/interview", "/career/templates",

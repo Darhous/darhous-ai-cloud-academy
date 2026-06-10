@@ -1,0 +1,44 @@
+{
+  "task": "N1",
+  "date": "2026-06-10",
+  "title": "Navigation & Orphan Cleanup",
+  "no_content_removed": true,
+  "files_changed": [
+    "src/config/portals.ts",
+    "src/app/sitemap.ts",
+    "src/components/layout/Footer.tsx",
+    "src/app/[locale]/automation-glossary/AutomationGlossaryClient.tsx"
+  ],
+  "items": [
+    {
+      "id": 1,
+      "file": "src/config/portals.ts",
+      "description": "/cloud portal gap documented with TODO comment block",
+      "status": "done"
+    },
+    {
+      "id": 2,
+      "file": "src/app/sitemap.ts",
+      "description": "/language/history removed from staticPages (noindex route)",
+      "status": "done"
+    },
+    {
+      "id": 3,
+      "file": "src/components/layout/Footer.tsx",
+      "description": "/prompts (AI Studio column) and /automation-glossary (Links column) added — bilingual",
+      "status": "done"
+    },
+    {
+      "id": 4,
+      "file": "src/app/[locale]/automation-glossary/AutomationGlossaryClient.tsx",
+      "description": "Admin CTA href corrected from /dashboard to /admin",
+      "status": "done"
+    }
+  ],
+  "validation": {
+    "typecheck": "pass",
+    "lint": "pass",
+    "build": "pass"
+  },
+  "git_status": "uncommitted"
+}

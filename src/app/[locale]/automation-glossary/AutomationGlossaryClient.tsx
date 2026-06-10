@@ -36,7 +36,7 @@ export default function AutomationGlossaryClient({ locale, terms, isAdmin }: Pro
           <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono" style={{ background: "rgba(250,204,21,0.1)", color: "#fbbf24", border: "1px solid rgba(250,204,21,0.2)" }}>
             <ShieldAlert size={14} />
             <span>{isAr ? "وضع المشرف مفعل (Pilot)" : "Admin Mode Active (Pilot)"}</span>
-            <Link href={`/${locale}/dashboard`} className="underline ml-2 hover:opacity-80">
+            <Link href={`/${locale}/admin`} className="underline ml-2 hover:opacity-80">
               {isAr ? "إدارة المحتوى" : "Manage in Admin"}
             </Link>
           </div>

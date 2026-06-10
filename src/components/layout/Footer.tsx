@@ -19,6 +19,7 @@ const aiStudioLinks = (isAr: boolean, locale: string) =>
     { href: `/${locale}/project-generator`,     label: isAr ? "🚀 مولّد المشاريع"        : "🚀 Project Generator"     },
     { href: `/${locale}/challenges`,            label: isAr ? "🏆 التحديات"               : "🏆 Challenges"            },
     { href: `/${locale}/leaderboard`,           label: isAr ? "🥇 المتصدرون"              : "🥇 Leaderboard"           },
+    { href: `/${locale}/prompts`,               label: isAr ? "🔬 مختبر البرومبتات"       : "🔬 Prompt Lab"             },
   ];
 
 const moreLinks = (isAr: boolean, locale: string) =>
@@ -27,6 +28,7 @@ const moreLinks = (isAr: boolean, locale: string) =>
     { href: `/${locale}/tools`,     label: isAr ? "أدوات AI"            : "AI Tools"        },
     { href: `/${locale}/blog`,      label: isAr ? "المدونة"             : "Blog"            },
     { href: `/${locale}/glossary`,  label: isAr ? "المسرد"              : "Glossary"        },
+    { href: `/${locale}/automation-glossary`, label: isAr ? "مسرد الأتمتة" : "Automation Glossary" },
     { href: `/${locale}/about`,     label: isAr ? "عن المنصة"           : "About"           },
     { href: `/${locale}/contact`,   label: isAr ? "تواصل معنا"          : "Contact"         },
     { href: `/${locale}/privacy`,   label: isAr ? "سياسة الخصوصية"     : "Privacy Policy"  },
