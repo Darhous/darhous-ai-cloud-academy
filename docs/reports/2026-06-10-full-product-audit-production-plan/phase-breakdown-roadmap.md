@@ -4,16 +4,51 @@ Each station is a single prompt scope. Do not combine without explicit approval.
 
 ---
 
-## Station L1: `landing-visual-repair-and-showcase-integration-v1`
+## Station L1 — Landing Visual Repair (reference-derived, split into 4 sub-stations)
+
+> Reproduce ahmedali.online's scroll experience by **reordering existing sections + layering effects — NO content removed.** Full spec: `landing-visual-reorder-plan.md`. Run V1→V4 in order; each is its own prompt/commit/tag.
+
+### L1-V1: `landing-scroll-stack-cards-v1`
 
 | Field | Value |
 |-------|-------|
-| **Objective** | Owner-visible 3D/stacked cards; tour trigger; portal feature i18n |
-| **Files likely affected** | `HomepageClient.tsx`, `Premium3DShowcaseCarousel.tsx` or new scroll component, `SmartPlatformTour.tsx`, `HeroSection.tsx`, `portals.ts`, `globals.css` |
-| **Forbidden** | SQL, DB, package.json, env, tools_hub, nano_banana Tier-A, protected files |
-| **Validation** | `npm run typecheck`, `npm run lint`, `npm run build`, owner visual checklist |
-| **Output** | `docs/reports/YYYY-MM-DD-landing-visual-repair/` + log append |
-| **Commit/tag** | `feat: landing showcase and scroll cards` / `checkpoint/landing-visual-repair-v1` |
+| **Objective** | Build `ScrollStackSection` (sticky stacked cards = owner's "الكروت المتراكبة") wrapping existing `PortalCard`; reorder `HomepageClient`. Reduced-motion → grid fallback |
+| **Files** | new `components/landing/sections/ScrollStackSection.tsx`, `HomepageClient.tsx` |
+| **Forbidden** | SQL, DB, package.json, env, admin, tools_hub/nano_banana Tier-A, protected files; do not delete any section |
+| **Validation** | `npm run typecheck/lint/build`; before/after section diff; owner scroll checklist |
+| **Tag** | `checkpoint/landing-scroll-stack-cards-v1` |
+
+### L1-V2: `landing-marquee-strips-v1`
+
+| Field | Value |
+|-------|-------|
+| **Objective** | `MarqueeStrip` (skills + brand strips) **reusing existing `.marquee-track-rtl` CSS** — zero new CSS |
+| **Files** | new `components/ui/MarqueeStrip.tsx`, `data/*`, `HomepageClient.tsx` |
+| **Forbidden** | rewriting CSS marquee; DB; package |
+| **Validation** | RTL/LTR marquee direction; hover-pause; build |
+| **Tag** | `checkpoint/landing-marquee-strips-v1` |
+
+### L1-V3: `landing-showcase-mount-and-tour-trigger-v1`
+
+| Field | Value |
+|-------|-------|
+| **Objective** | Mount orphan `Premium3DShowcaseCarousel`; re-wire `SmartPlatformTour` to hero "Take a tour" button (no auto-open) |
+| **Files** | `HomepageClient.tsx`, `SmartPlatformTour.tsx`, `HeroSection.tsx`, `data/showcase.ts` |
+| **Forbidden** | tour core-logic redesign; DB |
+| **Validation** | carousel renders both locales; tour opens on click only; build |
+| **Tag** | `checkpoint/landing-showcase-tour-v1` |
+
+### L1-V4: `landing-motion-polish-and-page-transitions-v1`
+
+| Field | Value |
+|-------|-------|
+| **Objective** | `ScrollColorReveal` on one heading; tilt 3°→~6° + touch fallback; localize `portals.features`→`featuresAr/En`; `[locale]/template.tsx` page transitions; light-mode glass contrast |
+| **Files** | `WhyDarhous.tsx`, `InteractiveSurface.tsx`, `config/portals.ts`, new `app/[locale]/template.tsx`, `globals.css` |
+| **Forbidden** | DB; package; content removal |
+| **Validation** | reduced-motion keeps all content; `/en` pills English; build |
+| **Tag** | `checkpoint/landing-motion-polish-v1` |
+
+**Shared output:** `docs/reports/YYYY-MM-DD-landing-visual-*/` + log append per sub-station. Optional A/B flag `NEXT_PUBLIC_LANDING_SHOWCASE=stack|carousel|grid` keeps all paths alive.
 
 ---
 

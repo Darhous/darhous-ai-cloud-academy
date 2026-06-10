@@ -8,7 +8,8 @@
 ## Executive repair order
 
 ```
-L1 Landing visual repair (owner blocker)
+L1 Landing visual repair (owner blocker) — reference-derived, NO content removed
+   L1-V1 scroll-stack cards → L1-V2 marquee strips → L1-V3 mount 3D showcase + tour trigger → L1-V4 motion polish + page transitions
   ↓
 A1 Admin CMS safety + PATCH fix (production blocker)
   ↓
@@ -37,7 +38,7 @@ QA-GATE Final launch candidate
 
 ## What to fix FIRST (week 1)
 
-1. **Mount or replace 3D/stacked card experience** — owner-confirmed gap (FPA-001, FPA-002)
+1. **Build scroll-stack cards (L1-V1)** — owner-confirmed gap (FPA-001, FPA-002); reorder only, no content removed
 2. **Fix generic CMS PATCH** — admins blocked (FPA-005)
 3. **Disable CMS hard DELETE** (FPA-006)
 4. **Certificate API authorization** (FPA-004)
@@ -59,41 +60,55 @@ QA-GATE Final launch candidate
 
 ---
 
-## Phase L1 — Landing Visual Repair
+## Phase L1 — Landing Visual Repair (reference-derived: ahmedali.online)
 
-**Objective:** Owner sees premium cards and scroll/layer effect on first screenful.
+**Objective:** Reproduce the reference site's scroll experience (stacked cards, marquees, scroll-color reveal, kinetic hero, numbered process, mouse-move, page transitions) on the NexaLearn homepage — **by reordering existing sections and layering effects, with NO content removed.**
 
-### Tasks
+> Full analysis, reuse inventory, and proposed 13-section flow: see **`landing-visual-reorder-plan.md`**.
 
-1. **Decision gate:** Mount `Premium3DShowcaseCarousel` below hero OR build new `ScrollStackPortalSection` per UX PROMAX intent
-2. Insert chosen component in `HomepageClient.tsx` **before** or **replacing** redundant portal section (avoid duplicate grids)
-3. Add "Take a tour" button in hero opening `SmartPlatformTour` (do not auto-open)
-4. Localize `portals.features` → `featuresAr` / `featuresEn`
-5. Increase `glass-panel-promax` border contrast in light mode
-6. Optional: `sessionStorage` clear link in footer for QA ("Replay intro")
+### Key finding — most primitives already exist
 
-### Files likely affected
+| Reference need | Already in repo | State |
+|---|---|---|
+| Marquee strips | `globals.css` `.marquee-track`/`.marquee-track-rtl` (RTL-aware, hover-pause) | ✅ unused on landing |
+| 3D / layered cards | `Premium3DShowcaseCarousel.tsx` + `FeaturedShowcaseCarousel.tsx` + `data/showcase.ts` | ⚠ mounted nowhere |
+| Numbered 01→04 + line | `HowItWorks.tsx` | ✅ live |
+| Mouse-move tilt/glow | `InteractiveSurface.tsx` | ✅ live (3°, mouse-only) |
+| Kinetic hero | `HeroSection.tsx` | ✅ live |
+
+**Only genuinely new primitives: 3** → `ScrollStackSection`, `MarqueeStrip`, `ScrollColorReveal`. Everything else is reuse, mount, or reorder.
+
+### Sub-stations (execute in order)
+
+| Sub-station | Scope |
+|---|---|
+| **L1-V1** `landing-scroll-stack-cards-v1` | Build `ScrollStackSection` (owner's "الكروت المتراكبة") wrapping existing `PortalCard`; reorder `HomepageClient`. Reduced-motion → grid fallback. |
+| **L1-V2** `landing-marquee-strips-v1` | `MarqueeStrip` for skills + brand strips, **reusing existing CSS marquee** (zero new CSS). |
+| **L1-V3** `landing-showcase-mount-and-tour-trigger-v1` | Mount orphan `Premium3DShowcaseCarousel`; re-wire `SmartPlatformTour` to a hero "Take a tour" button (no auto-open). |
+| **L1-V4** `landing-motion-polish-and-page-transitions-v1` | `ScrollColorReveal` on one heading; tilt 3°→~6° + touch fallback; localize `portals.features`→`featuresAr/En`; `[locale]/template.tsx` page transitions; light-mode `glass-panel-promax` contrast. |
+
+### Files likely affected (across V1–V4)
 
 - `src/components/landing/HomepageClient.tsx`
-- `src/components/layout/Premium3DShowcaseCarousel.tsx` OR new `ScrollStackPortalSection.tsx`
-- `src/components/landing/SmartPlatformTour.tsx`
-- `src/components/landing/sections/HeroSection.tsx`
-- `src/config/portals.ts`
-- `src/app/globals.css`
+- new `src/components/landing/sections/ScrollStackSection.tsx`, `src/components/ui/MarqueeStrip.tsx`, `src/components/ui/ScrollColorReveal.tsx`
+- `src/components/layout/Premium3DShowcaseCarousel.tsx` (mount only), `src/data/showcase.ts`
+- `src/components/landing/SmartPlatformTour.tsx`, `src/components/landing/sections/HeroSection.tsx`, `src/components/landing/sections/WhyDarhous.tsx`
+- `src/components/ui/InteractiveSurface.tsx`, `src/config/portals.ts`, `src/app/globals.css`, new `src/app/[locale]/template.tsx`
 
 ### Acceptance criteria
 
-- [ ] Owner confirms 3D or scroll-stack visible without scrolling on 1440×900 desktop
-- [ ] Portal cards still reachable on mobile without hover-only info
-- [ ] Tour opens on button click
+- [ ] **No existing section/text disappears** (before/after rendered-section diff)
+- [ ] Owner confirms stacked cards pile up within first ~2 viewport heights on `/ar` incognito
+- [ ] Portal cards reachable on mobile without hover-only info
+- [ ] Tour opens on button click (no auto-open)
 - [ ] `/en` portal feature pills in English
-- [ ] Reduced motion shows static cards (no motion required for visibility)
-- [ ] `npm run typecheck && npm run build` pass
-- [ ] No regression to portal links
+- [ ] Reduced motion keeps ALL cards/content visible (no motion required for visibility)
+- [ ] `npm run typecheck && npm run lint && npm run build` pass
+- [ ] No regression to portal links / CTAs
 
 ### Rollback
 
-Tag: `checkpoint/landing-visual-repair-v1` — revert HomepageClient composition only.
+One tag per sub-station: `checkpoint/landing-scroll-stack-cards-v1`, `…-marquee-strips-v1`, `…-showcase-mount-and-tour-trigger-v1`, `…-motion-polish-and-page-transitions-v1`. Revert is composition-only in `HomepageClient.tsx`. Optional A/B flag `NEXT_PUBLIC_LANDING_SHOWCASE=stack|carousel|grid` keeps all paths alive during L1.
 
 ---
 

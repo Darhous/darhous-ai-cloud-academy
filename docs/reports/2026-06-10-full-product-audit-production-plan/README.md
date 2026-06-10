@@ -16,7 +16,8 @@ The owner does **not** see the expected landing cards / stacked scroll / layered
 
 - `landing-homepage-visual-audit.md`
 - `cards-scroll-effects-visibility-review.md`
-- `production-repair-master-plan.md` (Phase L1 — Landing Visual Repair)
+- `landing-visual-reorder-plan.md` (reference-derived ahmedali.online → NexaLearn reorder plan, merged into Phase L1)
+- `production-repair-master-plan.md` (Phase L1 — Landing Visual Repair, split into sub-stations L1-V1…V4)
 
 ## Report index
 
@@ -37,11 +38,12 @@ The owner does **not** see the expected landing cards / stacked scroll / layered
 | 13 | `seo-metadata-sharing-audit.md` | Metadata, OG, brand consistency |
 | 14 | `build-ci-vercel-audit.md` | typecheck, lint, build, CI, Vercel |
 | 15 | `issues-register.md` | Master issue table |
-| 16 | `production-repair-master-plan.md` | **Primary deliverable** — phased repair order |
-| 17 | `phase-breakdown-roadmap.md` | Executable station prompts |
-| 18 | `validation-report.md` | Commands run and results |
-| 19 | `protected-files-review.md` | Protected file compliance |
-| 20 | `summary.json` | Machine-readable audit summary |
+| 16 | `production-repair-master-plan.md` | **Primary deliverable** — phased repair order (L1 = landing, split V1–V4) |
+| 17 | `phase-breakdown-roadmap.md` | Executable station prompts (L1 expanded into L1-V1…V4) |
+| 18 | `landing-visual-reorder-plan.md` | Reference-derived landing reorder plan (ahmedali.online → NexaLearn), merged into L1 |
+| 19 | `validation-report.md` | Commands run and results |
+| 20 | `protected-files-review.md` | Protected file compliance |
+| 21 | `summary.json` | Machine-readable audit summary |
 
 ## How to use
 

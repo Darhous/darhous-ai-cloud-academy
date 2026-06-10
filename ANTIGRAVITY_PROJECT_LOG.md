@@ -10152,3 +10152,83 @@ L1 إصلاح بصري للهبوط (تركيب العرض/بناء scroll-stack
 - السجل: append-only — المدخلات القديمة مستعادة كما كانت قبل الإفساد بايتًا ببايت.
 
 **المحطة التالية الموصى بها:** `landing-visual-repair-and-showcase-integration-v1`
+
+---
+
+الساعة 02:16 ظهرًا
+
+## البرومبت المستلم
+
+(محطة تخطيط فقط — مراجعة موقع مرجعي ودمج خطة اللاندنج في الخطة الرئيسية. لم يُطلب تنفيذ كود.)
+
+البرومبت الأول (طلب المراجعة):
+
+https://www.ahmedali.online/
+راجع الموقع ده كويس جدا
+راجع التجربة البصرية
+نظام السكرولينج
+الكروت المتراكبة
+تأثير تحريك الماوس
+هتلاقي في الاول خالص فوق كلمة i craft digital بعدها كلام متحرك
+هتلاقي شريط فيه: SEO & SEM ✳ Web Development ✳ AI Integration ✳ Google Ads ✳ Flutter Apps ✳ Data Analytics ✳ Performance Marketing ✳ Next.js ✳ React ✳ Brand Strategy ✳ Meta Ads ✳ WordPress ✳ Growth Hacking ✳ Product Design (شريط ماركيه لانهائي يكرر نفسه)
+بعدها Built Different في تأثير لون مع السكرولينج، وتحتها روابط كأنها لعبة.
+تحتها Services — What I Do Best — وتحتها الكروت اللي بقولك عليها (الكروت المتراكبة).
+تحتها الخطوط والمسارات Approach — How I Work — خطوات مرقّمة 01 Research First / 02 Think in Systems / 03 Ship & Iterate / 04 Measure Everything.
+بعدين محطات Career Path — Where I've Made Impact — خط زمني للخبرات (Elite Marketing, Omnis Media Group, Ezz Al-Afaq, Finance & Business, Binghatti, Freelance) مع شارات مهارات لكل خبرة وزر Let's Talk.
+بعدها شريط متحرك Key Client Highlights فيه لوجوهات/أسماء العملاء (Ooredoo, QNB, Amazon Egypt, Saudia, BinGhatti, Chelsea FC, Elite Marketing, Omnis Media, RM Clinic, Finance & Business, MDW, Maasob Al-Sultan, CarTech, Advert on Click, Omnes Influencers, Kadana).
+غير كدة تأثيرات الانتقالات.
+المطلوب منك مراجعة كاملة للموقع، ضع خطة باستخدام مهارة ui-ux-pro-max-skill لتطبيق ده على الصفحة الرئيسية بس في الموقع بتاعي. عاوز استخدم كل الحاجات الموجودة في الموقع، بدون أي اخفاء في المحتوى أو تأثير عليه — يعني لا تمسح أي شيء فقط اعادة ترتيب. لا تنفذ شيء فقط اعطيني تقرير بفحص الموقع جيدا وخطة التنفيذ على اللاندنج بتاعتي (الصفحة الرئيسية).
+
+البرومبت الثاني (التأكيد):
+
+اه اعمل كدة، اعمله دمج في الخطة الرئيسية.
+
+## تقرير التنفيذ النهائي
+
+**اسم المحطة:** Landing Visual Reorder Plan — دمج خطة اللاندنج المستوحاة من ahmedali.online في الخطة الرئيسية (تخطيط/توثيق فقط)
+**التاريخ:** 2026-06-10
+**الفرع:** main — **HEAD قبل هذه المحطة:** `a87126297bd845af45406702c4bc40ee22ef4cff`
+
+### الهدف
+مراجعة موقع المرجع ahmedali.online بصريًا، واستخلاص أنماط الحركة الستة (هيرو حركي، شريط ماركيه لانهائي، كشف لون بالسكرول، كروت متراكبة sticky، خطوات مرقّمة، خط زمني + ماركيه لوجوهات، تأثير ماوس، انتقالات صفحات)، ثم دمج خطة تطبيقها على لاندنج NexaLearn داخل الخطة الرئيسية — بشرط **عدم حذف أي محتوى، إعادة ترتيب وإضافة تأثيرات فقط**.
+
+### ما تم عمله
+1. استدعيت مهارة `ui-ux-pro-max` وأكّدت أن نمط الموقع هو "Motion-Driven" (خلفية محايدة، خط Inter، التميّز من الحركة المرتبطة بالسكرول).
+2. فحصت موقع المرجع قسمًا قسمًا (WebFetch) وفحصت كود اللاندنج الحالي بالكامل.
+3. **اكتشاف رئيسي:** معظم القطع موجودة بالفعل في الكود — نظام marquee كامل في `globals.css` (`.marquee-track-rtl` يدعم RTL ويقف عند hover)، وكاروسيل ثلاثي الأبعاد `Premium3DShowcaseCarousel.tsx` مهجور (غير مركّب)، وخطوات 01→04 في `HowItWorks.tsx`، وتأثير ماوس في `InteractiveSurface.tsx`. القطعة الجديدة الوحيدة فعلًا = الكروت المتراكبة بالسكرول.
+4. أنشأت ملفًا مخصّصًا للخطة: `landing-visual-reorder-plan.md` (تحليل المرجع، جرد إعادة الاستخدام، تدفّق 13 قسمًا، 3 primitives جديدة، المراحل الفرعية V1–V4، معايير القبول، استراتيجية التراجع).
+5. **دمجت الخطة في الخطة الرئيسية:** وسّعت المرحلة L1 في `production-repair-master-plan.md` إلى 4 محطات فرعية (L1-V1 كروت متراكبة → L1-V2 ماركيهات → L1-V3 تركيب الكاروسيل + زر الجولة → L1-V4 صقل الحركة + انتقالات الصفحات)، وحدّثت مخطط ترتيب التنفيذ و"ما يُصلَح أولًا".
+6. وسّعت محطة L1 في `phase-breakdown-roadmap.md` إلى المحطات الفرعية L1-V1…V4 بوسوم منفصلة.
+7. حدّثت `README.md` (الفهرس) و`summary.json` لإضافة الملف الجديد (صار العدد 22 ملفًا).
+
+### الملفات المنشأة
+- `docs/reports/2026-06-10-full-product-audit-production-plan/landing-visual-reorder-plan.md`
+
+### الملفات المعدّلة
+- `docs/reports/2026-06-10-full-product-audit-production-plan/production-repair-master-plan.md`
+- `docs/reports/2026-06-10-full-product-audit-production-plan/phase-breakdown-roadmap.md`
+- `docs/reports/2026-06-10-full-product-audit-production-plan/README.md`
+- `docs/reports/2026-06-10-full-product-audit-production-plan/summary.json`
+- `ANTIGRAVITY_PROJECT_LOG.md`
+
+### التدفّق المقترح للاندنج (إعادة ترتيب — لا حذف)
+CinematicIntro (يبقى) → Hero + عنوان حركي [جديد] → Skills Marquee [جديد بإعادة استخدام CSS] → Portal ScrollStack [primitive جديد] → EcosystemMap (يبقى) → 3D Showcase [تركيب مكوّن مهجور] → PathSelector (يبقى) → HowItWorks 01–04 (يبقى) → MentorShowcase (يبقى) → Color Reveal band [جديد] → WhyDarhous + Stats (يبقى) → Brand Marquee [جديد بإعادة استخدام CSS] → FinalCTA + Signup (يبقى). والجولة SmartPlatformTour تتحوّل إلى زر في الهيرو بدل قسم. النتيجة: 10 من 13 قسمًا مُعاد استخدامها كما هي، 3 تركيب أصول موجودة، و3 primitives جديدة صغيرة فقط.
+
+### نتائج التحقق
+- `python -m json.tool summary.json`: صالح (exit 0).
+- لم يُشغّل typecheck/lint/build لأن هذه المحطة وثائقية بحتة (لا تغيير في الكود المصدري).
+
+### تأكيدات الأمان
+- محطة تخطيط/توثيق فقط — صفر تعديل على `src/**` (تحقق بالـdiff).
+- لا SQL، لا migrations، لا Supabase، لا env، لا أسرار، لا package files، لا تغيير اعتماديات.
+- tools_hub وnano_banana لم تُمسّا.
+- الملفات المحمية لم تُمسّ.
+- السجل: append-only — تمت الإضافة بأداة التحرير المباشرة (لا PowerShell) حفاظًا على ترميز العربية.
+
+### Git
+- **الكوميت:** يُملأ بعد التنفيذ أدناه.
+- **الوسم:** `checkpoint/landing-visual-reorder-plan-merge-v1`
+- **الإصدار:** لا يوجد (محطة وثائقية، لا تتطلب Release).
+- **الدفع:** إلى origin/main + الوسم بالاسم الصريح.
+
+**المحطة التالية الموصى بها:** `landing-scroll-stack-cards-v1` (أول محطة تنفيذ فعلي — الكروت المتراكبة).
