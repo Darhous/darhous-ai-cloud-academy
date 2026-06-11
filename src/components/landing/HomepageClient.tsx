@@ -17,6 +17,7 @@ import FinalCTA from "./sections/FinalCTA";
 // Lazy-loaded: dialog (never visible on initial load), uses browser APIs
 const CinematicIntro = dynamic(() => import("./CinematicIntro"), { ssr: false });
 const SmartPlatformTour = dynamic(() => import("./SmartPlatformTour"), { ssr: false });
+const ScrollIndicator = dynamic(() => import("./ScrollIndicator"), { ssr: false });
 // Lazy-loaded: below-fold, uses window in render path
 const Premium3DShowcaseCarousel = dynamic(() => import("@/components/layout/Premium3DShowcaseCarousel"), { ssr: false });
 const MentorShowcase = dynamic(() => import("./sections/MentorShowcase"), { ssr: false });
@@ -68,6 +69,7 @@ export default function HomepageClient({ locale }: { locale: string }) {
   return (
     <div className="flex flex-col gap-16 md:gap-20 pb-16 md:pb-20 overflow-x-hidden">
       <CinematicIntro locale={locale} />
+      <ScrollIndicator locale={locale} />
       <SmartPlatformTour locale={locale} isOpen={tourOpen} onClose={() => setTourOpen(false)} />
       <HeroSection locale={locale} scrollToPath={scrollToPath} onStartTour={() => setTourOpen(true)} />
       <div className="flex flex-col gap-0">

@@ -34,7 +34,7 @@ const navItems = {
 
 const aiStudioItems = {
   ar: [
-    { href: "/mentor",                icon: "✨", label: "مساعد درهوس الذكي" },
+    { href: "/mentor",                icon: "✨", label: "مساعد NexaLearn الذكي" },
     { href: "/prompt-studio",         icon: "⚡", label: "استوديو البرومبتات" },
     { href: "/prompt-score",          icon: "🎯", label: "تقييم البرومبت"    },
     { href: "/prompt-battle",         icon: "⚔️", label: "معركة البرومبتات"  },
