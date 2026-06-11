@@ -20,14 +20,37 @@
   },
   "launch_readiness": "soft_launch_only",
   "blockers_count": 0,
-  "important_issues_count": 5,
+  "important_issues_count": 2,
   "important_issues": [
-    "Blog articles may show 'coming soon' if MDX content incomplete",
-    "Career CV Builder AI-assist button disabled (feature not built)",
-    "Career Jobs apply button disabled (feature not built)",
-    "Some lessons show 'Content Coming Soon' placeholder",
-    "/cloud page exists but not linked from portals/nav/footer"
+    "Career Jobs apply button now properly disabled (was interactive with no action)",
+    "Some lessons show 'Content Coming Soon' — expected progressive content state"
   ],
+  "resolved_issues": [
+    "Blog: all 9 static posts + 3 MDX files have full content — 'coming soon' fallback not triggered",
+    "Career CV Builder AI badge: was already a non-interactive div with opacity-50",
+    "/cloud page: documented as hidden/internal — no linking needed at this launch stage",
+    "1040 content records: 600 draft not visible to public (RLS), 210 live-wired working"
+  ],
+  "content_records_total": 1040,
+  "content_records_imported_draft": 600,
+  "content_records_live_wired": 210,
+  "content_records_deferred": 230,
+  "content_draft_visible_to_public": false,
+  "live_deployment_verified": true,
+  "live_deployment_url": "https://darhous-ai-cloud-academy.vercel.app",
+  "live_pages_verified": [
+    "/",
+    "/en/login",
+    "/en/ai-academy",
+    "/en/career",
+    "/en/blog",
+    "/en/cloud"
+  ],
+  "cloud_route_decision": "hidden_internal — page loads but has no lesson links; not added to portals registry; accessible via direct URL",
+  "career_apply_button_fix": "disabled=true + cursor-not-allowed + opacity-40 + title tooltip",
+  "final_launch_gate_decision": "soft_launch_only",
+  "addendum_date": "2026-06-12",
+  "addendum_commit": "TBD",
   "files_changed": [
     "README.md",
     "docs/archive/CLAUDE_CONTINUATION_CONTEXT.md",
@@ -46,6 +69,9 @@
   "files_deleted": [
     "eslint-output.txt",
     "lint_output.txt"
+  ],
+  "reports_created_addendum": [
+    "docs/reports/pre-launch-cleanup-readiness/09-launch-gate-addendum.md"
   ],
   "reports_created": [
     "docs/reports/pre-launch-cleanup-readiness/00-current-state-inventory.md",

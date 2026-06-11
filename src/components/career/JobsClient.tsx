@@ -213,8 +213,10 @@ export default function JobsClient() {
                   </p>
                 )}
                 <button
-                  className="w-full py-3 rounded-xl text-sm font-semibold transition-all"
+                  disabled
+                  className="w-full py-3 rounded-xl text-sm font-semibold cursor-not-allowed opacity-40"
                   style={{ background: "var(--portal-color-subtle)", color: "var(--portal-color)", border: "1px solid var(--portal-color-glow)" }}
+                  title="ميزة التقديم المباشر قادمة قريبًا"
                 >
                   التقديم على الوظيفة (قريباً)
                 </button>
