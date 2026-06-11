@@ -1,0 +1,84 @@
+{
+  "setup_date": "2026-06-11",
+  "project_name": "NexaLearn by Darhous / Darhous AI Cloud Academy",
+  "local_path": "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy",
+  "repo_url": "https://github.com/Darhous/darhous-ai-cloud-academy",
+  "live_url": "https://darhous-ai-cloud-academy.vercel.app",
+  "ui_ux_promax_skill_found": true,
+  "ui_ux_promax_skill_path": "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy\\.codex\\skills\\ui-ux-pro-max\\SKILL.md",
+  "libraries": {
+    "heroui": {
+      "installed": true,
+      "version": "3.1.0",
+      "provider_required": false,
+      "role": "production app components"
+    },
+    "shadcn_ui": {
+      "initialized": true,
+      "style": "radix-nova",
+      "rtl": true,
+      "role": "editable local design-system primitives"
+    },
+    "magic_ui": {
+      "configured": true,
+      "sample_components_added": [
+        "animated-gradient-text",
+        "word-rotate",
+        "shimmer-button",
+        "animated-grid-pattern"
+      ],
+      "role": "landing page marketing motion"
+    },
+    "aceternity_ui": {
+      "configured": true,
+      "sample_components_added": [
+        "bento-grid",
+        "background-beams",
+        "card-hover-effect"
+      ],
+      "role": "cinematic cards, backgrounds, scroll effects"
+    }
+  },
+  "commands_run": [
+    "git status --short",
+    "git branch --show-current",
+    "git log --oneline --decorate -10",
+    "npm install @heroui/react framer-motion",
+    "npx shadcn@latest init --preset nova --base radix --css-variables --rtl --pointer",
+    "npx shadcn@latest add button card dialog tabs accordion sheet input label textarea select separator badge -y",
+    "npx shadcn@latest add @magicui/animated-gradient-text @magicui/word-rotate @magicui/shimmer-button @magicui/animated-grid-pattern -y",
+    "npm install motion @tabler/icons-react",
+    "npx shadcn@latest add @aceternity/bento-grid -y",
+    "npx shadcn@latest add @aceternity/background-beams -y",
+    "npx shadcn@latest add @aceternity/card-hover-effect -y",
+    "npm run typecheck",
+    "npm run lint",
+    "npm run build",
+    "npm audit --json",
+    "git diff --check",
+    "git status --short"
+  ],
+  "files_changed": [
+    "package.json",
+    "package-lock.json",
+    "components.json",
+    "src/app/globals.css",
+    "src/app/[locale]/ui-lab/page.tsx",
+    "src/components/shadcn/ui/*",
+    "src/components/aceternity/*",
+    "docs/reports/2026-06-11-ui-library-foundation-setup/*"
+  ],
+  "checks": {
+    "typecheck": "PASS",
+    "lint": "PASS with 0 errors and 76 warnings",
+    "build": "PASS",
+    "git_diff_check": "PASS",
+    "http_ar_ui_lab": "HTTP 200",
+    "http_en_ui_lab": "HTTP 200",
+    "visual_browser": "Not completed: in-app Browser backend iab unavailable",
+    "npm_audit": "PASS: 0 vulnerabilities"
+  },
+  "ui_lab_created": true,
+  "git_note": "External concurrent commit e1245cd captured package integration and ef393b3 captured global CSS integration on origin/main; remaining phase files are committed separately.",
+  "status": "Stable and ready for the next controlled implementation phase"
+}
