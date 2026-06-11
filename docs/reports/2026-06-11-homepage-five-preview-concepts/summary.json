@@ -1,0 +1,40 @@
+{
+  "report_date": "2026-06-11",
+  "project_name": "NexaLearn by Darhous / Darhous AI Cloud Academy",
+  "phase": "Homepage Five Cinematic Preview Concepts",
+  "branch": "main",
+  "start_head": "56eb6d5",
+  "end_head": "pending",
+  "production_homepage_changed": false,
+  "navbar_changed": false,
+  "footer_changed": false,
+  "preview_index_route": "src/app/[locale]/design-lab/page.tsx",
+  "preview_routes": [
+    "src/app/[locale]/design-lab/homepage-concept-1/page.tsx",
+    "src/app/[locale]/design-lab/homepage-concept-2/page.tsx",
+    "src/app/[locale]/design-lab/homepage-concept-3/page.tsx",
+    "src/app/[locale]/design-lab/homepage-concept-4/page.tsx",
+    "src/app/[locale]/design-lab/homepage-concept-5/page.tsx"
+  ],
+  "concepts": [
+    "AI Command Center",
+    "The Learning Journey",
+    "Silent Authority",
+    "Portal Constellation",
+    "Goal Gateway"
+  ],
+  "five_sources_verified": {
+    "UI_UX_Pro_Max": true,
+    "HeroUI": true,
+    "shadcn": true,
+    "MagicUI": true,
+    "Aceternity": true
+  },
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "git_diff_check": "passed"
+  },
+  "ready_for_owner_review": true
+}
