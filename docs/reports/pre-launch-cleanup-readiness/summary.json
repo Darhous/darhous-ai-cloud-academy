@@ -1,0 +1,78 @@
+{
+  "project": "NexaLearn by Ahmed Darhous",
+  "former_name": "Darhous AI Cloud Academy",
+  "audit_type": "pre_launch_cleanup_readiness",
+  "date": "2026-06-12",
+  "git_branch": "main",
+  "git_commit_before": "e78573e02abd71e7c17c00dfd99e3ab268b57225",
+  "git_commit_after": "TBD_after_commit",
+  "readme_updated": true,
+  "docs_organized": true,
+  "external_repos_checked": true,
+  "routes_checked": true,
+  "dead_links_checked": true,
+  "placeholder_content_checked": true,
+  "technical_validation": {
+    "typecheck": "pass",
+    "lint": "pass_with_97_warnings",
+    "build": "pass",
+    "tests": "not_available"
+  },
+  "launch_readiness": "soft_launch_only",
+  "blockers_count": 0,
+  "important_issues_count": 5,
+  "important_issues": [
+    "Blog articles may show 'coming soon' if MDX content incomplete",
+    "Career CV Builder AI-assist button disabled (feature not built)",
+    "Career Jobs apply button disabled (feature not built)",
+    "Some lessons show 'Content Coming Soon' placeholder",
+    "/cloud page exists but not linked from portals/nav/footer"
+  ],
+  "files_changed": [
+    "README.md",
+    "docs/archive/CLAUDE_CONTINUATION_CONTEXT.md",
+    "docs/archive/PLATFORM_BLUEPRINT.md",
+    "docs/archive/FUTURE_ROADMAP.md",
+    "docs/archive/RAG_MENTOR_PLAN.md",
+    "docs/archive/V3_FEATURES.md",
+    "docs/archive/DESIGN_IMPLEMENTATION_AUDIT.md",
+    "docs/archive/SECURITY_INCIDENT_NOTE.md",
+    "docs/archive/README.backup.20260607-135220.md",
+    "docs/archive/UX PROMAX.MD",
+    "docs/archive/تقرير-الشهادات.md",
+    "docs/archive/خطة-التنفيذ.md",
+    "docs/plans/GITHUB_RELEASE_GUIDE.md"
+  ],
+  "files_deleted": [
+    "eslint-output.txt",
+    "lint_output.txt"
+  ],
+  "reports_created": [
+    "docs/reports/pre-launch-cleanup-readiness/00-current-state-inventory.md",
+    "docs/reports/pre-launch-cleanup-readiness/01-file-organization-report.md",
+    "docs/reports/pre-launch-cleanup-readiness/02-external-repos-and-folders-audit.md",
+    "docs/reports/pre-launch-cleanup-readiness/03-routes-links-navigation-audit.md",
+    "docs/reports/pre-launch-cleanup-readiness/04-placeholder-coming-soon-content-audit.md",
+    "docs/reports/pre-launch-cleanup-readiness/05-readme-update-report.md",
+    "docs/reports/pre-launch-cleanup-readiness/06-technical-validation-report.md",
+    "docs/reports/pre-launch-cleanup-readiness/07-safe-fixes-applied.md",
+    "docs/reports/pre-launch-cleanup-readiness/08-final-launch-readiness-report.md",
+    "docs/reports/pre-launch-cleanup-readiness/summary.json"
+  ],
+  "portals_status": {
+    "ai-academy": "available",
+    "language": "available",
+    "digital-exams": "available",
+    "career": "available",
+    "automation": "available",
+    "iot-lab": "available",
+    "nano-banana-prompts": "available",
+    "cloud": "unregistered_page_exists",
+    "coming-soon": "placeholder_page"
+  },
+  "sibling_directories": {
+    "landing": "historical_docs",
+    "stitch_darhous_ai_cloud_academy_ui": "ui_mockups",
+    "تقارير": "arabic_planning_docs"
+  }
+}

@@ -10713,3 +10713,28 @@ CinematicIntro → Hero → Marquee (أيقونات) → ScrollStack → 3DCarou
 - **git diff --check:** اجتاز
 - **lint:** إصلاح خطأين react/no-unescaped-entities في Concept4 + إصلاح Math.random → قيمة ثابتة، 0 أخطاء بعد الإصلاح
 - **تأكيد TypeScript:** اجتاز (بناء نجح بالكامل)
+
+---
+
+## 2026-06-12 — حملة تنظيف ما قبل الإطلاق (Pre-Launch Cleanup & Readiness Audit v1)
+
+**commit قبل الحملة:** `e78573e02abd71e7c17c00dfd99e3ab268b57225`
+
+### ما تم
+- **فحص شامل** لهيكل المشروع، الصفحات، الروابط، المحتوى، والمجلدات الخارجية
+- **تحديث README.md:** تغيير العلامة التجارية من "Darhous AI Cloud Academy" إلى "NexaLearn by Ahmed Darhous" في العناوين والأوصاف وتحديث جدول التوثيق
+- **تنظيف docs:** نقل 11 ملف تاريخي إلى `docs/archive/`، نقل `GITHUB_RELEASE_GUIDE.md` إلى `docs/plans/`
+- **حذف artifacts:** `eslint-output.txt` و `lint_output.txt`
+- **فحص الروابط:** جميع روابط Footer وNavbar وPortals — لا روابط ميتة
+- **فحص المحتوى:** رُصد محتوى "قريباً" مقصود وغير مقصود
+- **فحص المجلدات الخارجية:** `landing/`, `stitch_*`, `تقارير/` — موثقة
+- **فحص تقني:** TypeScript PASS، Lint PASS (97 warnings, 0 errors)، Build PASS
+- **9 تقارير تفصيلية** في `docs/reports/pre-launch-cleanup-readiness/`
+
+### نتيجة الجاهزية
+**FINAL LAUNCH DECISION: Soft Launch Only**
+- 0 blockers تقنية
+- 5 مسائل مهمة: محتوى Blog/Lessons ناقص في بعضه، زران Career غير مبنيان، `/cloud` غير مرتبطة
+- البوابات السبع الرئيسية تعمل بالكامل
+
+**tag:** `checkpoint/pre-launch-cleanup-readiness-v1`

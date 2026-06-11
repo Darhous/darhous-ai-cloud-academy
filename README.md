@@ -2,14 +2,14 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=210&color=0:020617,35:0F766E,70:571BC1,100:00668A&text=Darhous%20AI%20Cloud%20Academy&fontColor=ffffff&fontSize=42&fontAlignY=38&desc=Arabic-first%20AI%20%2B%20Cloud%20Learning%20Ecosystem&descSize=16&descAlignY=60&animation=fadeIn" alt="Darhous AI Cloud Academy" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=210&color=0:020617,35:0F766E,70:571BC1,100:00668A&text=NexaLearn%20by%20Ahmed%20Darhous&fontColor=ffffff&fontSize=42&fontAlignY=38&desc=Arabic-first%20AI%20%2B%20Cloud%20Learning%20Ecosystem&descSize=16&descAlignY=60&animation=fadeIn" alt="NexaLearn by Ahmed Darhous" width="100%" />
 
 <img src="./public/og-image.svg" alt="Darhous AI Cloud Academy Preview" width="100%" />
 
 <br />
 
-<h1>Darhous AI Cloud Academy</h1>
-<h3>أكاديمية درهوس للذكاء الاصطناعي والكلاود</h3>
+<h1>NexaLearn by Ahmed Darhous</h1>
+<h3>منصة NexaLearn التعليمية الذكية</h3>
 
 <p>
   <strong>Arabic-first bilingual learning ecosystem for AI, cloud, automation, digital skills, career development, language assessment, IoT, tools, projects, and certificates.</strong>
@@ -87,7 +87,7 @@
 
 ## منصة واحدة. عدة بوابات تعليمية.
 
-**أكاديمية درهوس للذكاء الاصطناعي والكلاود** هي منصة تعليمية رقمية عربية أولًا وثنائية اللغة، تجمع بين التعلم المنظم، المعامل العملية، أدوات الذكاء الاصطناعي، الاختبارات، المشاريع التطبيقية، تتبع التقدم، الشهادات، ولوحات الإدارة داخل تجربة واحدة مترابطة.
+**NexaLearn by Ahmed Darhous** هي منصة تعليمية رقمية عربية أولًا وثنائية اللغة، تجمع بين التعلم المنظم، المعامل العملية، أدوات الذكاء الاصطناعي، الاختبارات، المشاريع التطبيقية، تتبع التقدم، الشهادات، ولوحات الإدارة داخل تجربة واحدة مترابطة.
 
 الهدف من المنصة هو مساعدة المتعلم على الانتقال من **فهم المفاهيم** إلى **بناء مهارات عملية قابلة للتطبيق** في مجالات الذكاء الاصطناعي، الكلاود، الأتمتة، التحول الرقمي، إنترنت الأشياء، وتطوير المسار المهني.
 
@@ -408,14 +408,11 @@ npm run build
 | ------------------------------------------------------ | --------------------------------- |
 | [`DEVELOPMENT_GUIDE.md`](./DEVELOPMENT_GUIDE.md)       | إعداد بيئة التطوير وسير العمل     |
 | [`CONTENT_ARCHITECTURE.md`](./CONTENT_ARCHITECTURE.md) | نماذج المحتوى ومعمارية البيانات   |
-| [`PLATFORM_BLUEPRINT.md`](./PLATFORM_BLUEPRINT.md)     | هيكل المنتج واتجاه المنصة         |
 | [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md)         | النشر والإعدادات الإنتاجية        |
 | [`SUPABASE_SETUP.md`](./SUPABASE_SETUP.md)             | إعداد Supabase                    |
 | [`ADMIN_GUIDE.md`](./ADMIN_GUIDE.md)                   | خصائص الإدارة وسير العمل          |
-| [`FUTURE_ROADMAP.md`](./FUTURE_ROADMAP.md)             | خطة التطوير المستقبلية            |
-| [`GITHUB_RELEASE_GUIDE.md`](./GITHUB_RELEASE_GUIDE.md) | releases و checkpoints على GitHub |
-| [`RAG_MENTOR_PLAN.md`](./RAG_MENTOR_PLAN.md)           | خطة مستقبلية لمعرفة المرشد الذكي  |
 | [`SECURITY.md`](./SECURITY.md)                         | سياسة الأمان والإبلاغ             |
+| [`docs/plans/GITHUB_RELEASE_GUIDE.md`](./docs/plans/GITHUB_RELEASE_GUIDE.md) | releases و checkpoints على GitHub |
 
 ---
 
@@ -456,7 +453,7 @@ npm run build
 
 ## One Ecosystem. Multiple Learning Portals.
 
-**Darhous AI Cloud Academy** is an Arabic-first bilingual digital learning platform that brings structured education, practical labs, AI tools, assessments, applied projects, learner progress, certificates, and admin-managed content into one connected experience.
+**NexaLearn by Ahmed Darhous** is an Arabic-first bilingual digital learning platform that brings structured education, practical labs, AI tools, assessments, applied projects, learner progress, certificates, and admin-managed content into one connected experience.
 
 The platform helps learners move from **understanding concepts** to **building practical skills** across AI, cloud, automation, digital transformation, IoT, and career development.
 
