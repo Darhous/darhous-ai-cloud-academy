@@ -60,20 +60,19 @@ export function ConceptHero({ locale }: { locale: string }) {
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
-              color="primary"
+              variant="primary"
               size="lg"
-              className="w-full sm:w-auto"
-              endContent={isRtl ? <ArrowRight className="h-5 w-5 rotate-180" /> : <ArrowRight className="h-5 w-5" />}
+              className="w-full sm:w-auto flex items-center gap-2"
             >
               {isRtl ? "ابدأ رحلتك الآن" : "Start Your Journey"}
+              <ArrowRight className={`h-5 w-5 ${isRtl ? "rotate-180" : ""}`} />
             </Button>
             <Button
-              color="default"
-              variant="flat"
+              variant="ghost"
               size="lg"
-              className="w-full sm:w-auto"
-              startContent={<Bot className="h-5 w-5" />}
+              className="w-full sm:w-auto flex items-center gap-2"
             >
+              <Bot className="h-5 w-5" />
               {isRtl ? "دليلك الذكي" : "Your AI Guide"}
             </Button>
           </div>

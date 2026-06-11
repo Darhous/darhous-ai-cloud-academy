@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useReducedMotion, motion, AnimatePresence } from "framer-motion";
-import { Tabs, Tab } from "@heroui/react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/shadcn/ui/card";
 import { ShimmerButton } from "@/components/shadcn/ui/shimmer-button";
 import { BentoGrid, BentoGridItem } from "@/components/aceternity/bento-grid";
@@ -85,25 +84,26 @@ export default function GoalGatewayHero({ locale, scrollToPath }: { locale: stri
             <h2 className="text-xl font-semibold">
               {isAr ? "1. حدد مجال اهتمامك" : "1. Select your focus area"}
             </h2>
-            <Tabs 
-              aria-label="Goal Categories" 
-              selectedKey={selectedCategory} 
-              onSelectionChange={(k) => {
-                setSelectedCategory(k.toString());
-                setSelectedGoalId(GOALS[k as keyof typeof GOALS][0].id);
-              }}
-              color="primary"
-              variant="bordered"
-              classNames={{
-                tabList: "w-full rounded-xl bg-background/50 backdrop-blur-md border border-border/50 p-1",
-                cursor: "w-full bg-primary/10 rounded-lg",
-                tab: "h-12",
-              }}
-            >
+            <div className="flex gap-2 w-full rounded-xl border border-border/50 bg-background/50 backdrop-blur-md p-1" role="tablist" aria-label="Goal Categories">
               {GOAL_CATEGORIES.map((cat) => (
-                <Tab key={cat.id} title={isAr ? cat.labelAr : cat.labelEn} />
+                <button
+                  key={cat.id}
+                  role="tab"
+                  aria-selected={selectedCategory === cat.id}
+                  onClick={() => {
+                    setSelectedCategory(cat.id);
+                    setSelectedGoalId(GOALS[cat.id as keyof typeof GOALS][0].id);
+                  }}
+                  className={`flex-1 h-10 rounded-lg text-sm font-medium transition-all ${
+                    selectedCategory === cat.id
+                      ? "bg-primary/10 text-primary shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {isAr ? cat.labelAr : cat.labelEn}
+                </button>
               ))}
-            </Tabs>
+            </div>
           </div>
 
           <div className="flex flex-col gap-4 mt-4">

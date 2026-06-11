@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button as HeroButton } from "@heroui/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ShimmerButton } from "@/components/shadcn/ui/shimmer-button";
 
@@ -28,13 +27,12 @@ export function PreviewCTA({
           </span>
         </ShimmerButton>
       </Link>
-      <HeroButton
+      <Link
         href={`/${locale}/mentor`}
-        className="min-h-12 border border-white/15 bg-white/5 px-6 text-white"
-        variant="outline"
+        className="inline-flex items-center min-h-12 border border-white/15 bg-white/5 px-6 text-white rounded-lg hover:bg-white/10 transition-colors"
       >
         {isAr ? "اسأل المرشد الذكي" : "Ask the AI mentor"}
-      </HeroButton>
+      </Link>
     </div>
   );
 }

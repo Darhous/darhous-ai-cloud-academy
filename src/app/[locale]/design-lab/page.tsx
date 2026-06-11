@@ -40,7 +40,7 @@ const concepts = [
   {
     id: 4,
     name: 'Portal Constellation',
-    bestFor: 'Visual 'wow' factor, exploration',
+    bestFor: 'Visual "wow" factor, exploration',
     motionLevel: 'Very High (3D, background transitions)',
     risk: 'Very High (GPU performance)',
     mainLibraries: 'Aceternity, Magic UI',
@@ -57,7 +57,8 @@ const concepts = [
   },
 ];
 
-export default function DesignLabIndex({ params: { locale } }: { params: { locale: string } }) {
+export default async function DesignLabIndex({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const isRTL = locale === 'ar';
 
   return (

@@ -1,0 +1,160 @@
+{
+  "report_date": "2026-06-11",
+  "project_name": "NexaLearn by Darhous / Darhous AI Cloud Academy",
+  "phase": "Homepage Total Redesign Discovery Report",
+  "branch": "main",
+  "current_head": "56eb6d5da67981e07e14d868ad2660603a651320",
+  "production_code_changed": false,
+  "ui_library_foundation_reports_found": true,
+  "ui_library_foundation_report_paths": [
+    "docs/reports/2026-06-11-ui-library-foundation-setup/",
+    "docs/reports/2026-06-11-ui-ux-promax-visual-audit/"
+  ],
+  "five_sources_available": {
+    "ui_ux_promax_skill": {
+      "found": true,
+      "path": ".codex/skills/ui-ux-pro-max/SKILL.md",
+      "key_content": "67 design styles, 96 palettes, 99 UX guidelines across 13 stacks. Must be invoked via --design-system flag.",
+      "helps_redesign": "Yes — governs all design decisions, acceptance criteria, and rejection rules for every imported component"
+    },
+    "ux_promax_md": {
+      "found": true,
+      "path": "UX PROMAX.MD",
+      "key_content": "Prior proposal doc with 7 homepage failure signature diagnosis. Section 2 is high-value reference.",
+      "helps_redesign": "Partial — useful as reference, not canonical spec"
+    },
+    "heroui": {
+      "found": true,
+      "version": "^3.1.0",
+      "path_or_package": "@heroui/react in package.json",
+      "provider_in_layout": false,
+      "provider_note": "HeroUIProvider is NOT in any layout file — must be added before HeroUI components work outside ui-lab",
+      "helps_redesign": "Yes — for interactive controls: forms, modals, dropdowns, tabs, auth UI. Not for marketing sections."
+    },
+    "shadcn_ui": {
+      "found": true,
+      "component_path": "src/components/shadcn/ui/",
+      "components_json_path": "components.json",
+      "style": "radix-nova",
+      "rtl_enabled": true,
+      "component_count": 16,
+      "components": [
+        "accordion", "alert", "badge", "button", "card", "dialog",
+        "dropdown-menu", "input", "label", "progress", "select",
+        "separator", "sheet", "skeleton", "tabs", "tooltip",
+        "animated-gradient-text", "word-rotate", "shimmer-button", "animated-grid-pattern"
+      ],
+      "helps_redesign": "Yes — local editable primitives, cards, sheets, custom layout shells"
+    },
+    "magic_ui": {
+      "found": true,
+      "component_path": "src/components/shadcn/ui/",
+      "note": "Co-located in shadcn/ui folder by CLI design — no separate magicui/ folder",
+      "components": [
+        "animated-gradient-text",
+        "word-rotate",
+        "shimmer-button",
+        "animated-grid-pattern"
+      ],
+      "helps_redesign": "Yes — limited to 2 restrained marketing effects max. NumberTicker is best fit for Stats section."
+    },
+    "aceternity_ui": {
+      "found": true,
+      "component_path": "src/components/aceternity/",
+      "components": [
+        "bento-grid.tsx",
+        "background-beams.tsx",
+        "card-hover-effect.tsx"
+      ],
+      "known_risk": "bento-grid.tsx uses hardcoded dark-mode Tailwind classes — must be replaced with project CSS variables before use",
+      "helps_redesign": "Yes — cinematic storytelling sections, bento grid, scroll concepts. Capped at 3 cinematic moments."
+    }
+  },
+  "homepage_files_reviewed": [
+    "src/app/[locale]/page.tsx",
+    "src/components/landing/HomepageClient.tsx",
+    "src/components/landing/CinematicIntro.tsx",
+    "src/components/landing/SmartPlatformTour.tsx",
+    "src/components/landing/sections/HeroSection.tsx",
+    "src/components/landing/sections/ScrollStackSection.tsx",
+    "src/components/landing/sections/Premium3DShowcaseCarousel.tsx",
+    "src/components/landing/sections/PathSelector.tsx",
+    "src/components/landing/sections/EcosystemMap.tsx",
+    "src/components/landing/sections/MentorShowcase.tsx",
+    "src/components/landing/sections/HowItWorks.tsx",
+    "src/components/landing/sections/WhyNexaLearn.tsx",
+    "src/components/landing/sections/Stats.tsx",
+    "src/components/landing/sections/FinalCTA.tsx",
+    "src/components/landing/sections/CommunitySignup.tsx",
+    "src/components/landing/MarqueeStrip.tsx",
+    "src/components/ui/RotatingWord.tsx",
+    "src/components/ui/TechMarquee.tsx",
+    "src/components/layout/Navbar.tsx",
+    "src/config/portals.ts",
+    "src/lib/constants.ts",
+    "src/app/globals.css",
+    "src/messages/ar.json",
+    "src/messages/en.json"
+  ],
+  "homepage_section_count": 15,
+  "homepage_cta_count": 22,
+  "portal_display_count": 4,
+  "estimated_page_height_px": "9000-11000",
+  "animation_effects_catalogued": 24,
+  "top_homepage_problems": [
+    "AIDA funnel inverted — portals appear before trust/value established; HowItWorks is section 10 instead of section 3",
+    "Two consecutive blocking overlays on first visit (CinematicIntro 4.4s + SmartPlatformTour auto-open 2.4s later)",
+    "35+ total CTAs with no hierarchy; all hero CTAs point to same scroll destination; /register CTA gated behind 4-quiz PathSelector",
+    "Portals shown 4 separate times (MarqueeStrip + ScrollStackSection + 3D Carousel + EcosystemMap) with no escalating depth",
+    "TechMarquee creates 320 simultaneously animating DOM nodes — single highest GPU cost on page",
+    "MotionProvider reducedMotion='never' globally overrides OS prefers-reduced-motion — WCAG 2.3.3 violation",
+    "Stats and social proof at section 11; zero real testimonials; one stat ('∞ Arabic Platform') damages credibility",
+    "ScrollStackSection (~2,200px tall) is flagged broken in June 2026 audit but still rendered",
+    "Old brand name 'أكاديمية درهوس' remains in ar.json footer copyright",
+    "PortalGrid.tsx exists but is never imported — dead code"
+  ],
+  "content_preservation_required": true,
+  "content_preservation_map": "See current-homepage-content-inventory.md — all 15 sections classified",
+  "wcag_violations_found": [
+    "MotionProvider reducedMotion='never' overrides OS prefers-reduced-motion (WCAG 2.3.3)",
+    "ScrollIndicator dots 6x6px — below WCAG touch target minimum (44x44px)",
+    "SmartPlatformTour overlay missing focus trap"
+  ],
+  "proposed_design_directions": [
+    "Concept 1 — AI Command Center (OS Dashboard feel, portals as mission-critical widgets)",
+    "Concept 2 — The Learning Journey (narrative scroll, outcome-first, personalized path revelation)",
+    "Concept 3 — Silent Authority (minimal trust-first SaaS landing, no animation above fold)",
+    "Concept 4 — Portal Constellation (interactive map, each portal has its visual world)",
+    "Concept 5 — Goal Gateway (first question: 'What is your goal?' — everything adapts)"
+  ],
+  "recommended_build_order": [
+    "Concept 3 first (lowest complexity, validates shared foundation)",
+    "Concept 1 second (leverages existing dashboard mockup in HeroSection)",
+    "Concept 2 third (requires scroll storytelling mechanics)",
+    "Concept 5 fourth (interactive branching, moderate complexity)",
+    "Concept 4 last (highest GPU cost, portal constellation map)"
+  ],
+  "preview_routes": [
+    "/[locale]/design-lab/homepage-concept-1",
+    "/[locale]/design-lab/homepage-concept-2",
+    "/[locale]/design-lab/homepage-concept-3",
+    "/[locale]/design-lab/homepage-concept-4",
+    "/[locale]/design-lab/homepage-concept-5"
+  ],
+  "ui_lab_linked_in_navbar": false,
+  "untracked_temp_files": [
+    "ui-lab-server.stdout.log",
+    "ui-lab-server.stderr.log"
+  ],
+  "recommended_next_action": "Build preview routes under /design-lab/ starting with Concept 3 (Silent Authority). Use 6-agent split defined in agent-work-allocation.md. No production homepage change until owner approves a preview.",
+  "ready_for_preview_phase": true,
+  "conversion_score_current": "61/100",
+  "agents_used": 5,
+  "agent_assignments": {
+    "agent_1": "Foundation & Library Verification → foundation-and-library-verification.md",
+    "agent_2": "Homepage Content Inventory → current-homepage-content-inventory.md",
+    "agent_3": "UX/IA/Conversion Problems → homepage-ux-problems.md",
+    "agent_4": "Visual/Motion Audit + Five-Source Strategy → visual-and-motion-audit.md + five-source-redesign-strategy.md",
+    "agent_5": "Redesign Directions + Plans → redesign-opportunity-map.md + redesign-directions-brief.md + preview-phase-plan.md + agent-work-allocation.md"
+  }
+}

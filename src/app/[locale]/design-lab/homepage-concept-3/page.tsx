@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { use } from 'react';
 import { motion } from 'framer-motion';
 
-export default function Concept3Page({ params: { locale } }: { params: { locale: string } }) {
+export default function Concept3Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = use(params);
   const isRTL = locale === 'ar';
 
   const portals = [

@@ -28,7 +28,7 @@ export default function HomePageConcept({ locale }: { locale: string }) {
 
   const fadeUp = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
   };
 
   const tourContentAr = [
@@ -142,11 +142,11 @@ export default function HomePageConcept({ locale }: { locale: string }) {
               {isAr ? "ابدأ رحلتك الآن" : "Start Your Journey"}
             </ShimmerButton>
             {/* CTA 2 */}
-            <Button size="lg" variant="bordered" className="border-white/20 text-white hover:bg-white/10 px-8 h-[56px]">
+            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 h-[56px]">
               {isAr ? "تصفح المسارات" : "Explore Paths"}
             </Button>
             {/* CTA 3 */}
-            <Button size="lg" variant="flat" className="bg-white/5 border-white/10 text-white hover:bg-white/10 px-8 h-[56px]">
+            <Button size="lg" variant="ghost" className="bg-white/5 border-white/10 text-white hover:bg-white/10 px-8 h-[56px]">
               {isAr ? "جولة سريعة" : "Quick Tour"}
             </Button>
           </div>
@@ -363,7 +363,7 @@ export default function HomePageConcept({ locale }: { locale: string }) {
                {/* CTA 11 */}
                <Button className="bg-blue-600 text-white px-8">{isAr ? "ابدأ خطتي الآن" : "Start My Plan Now"}</Button>
                {/* CTA 12 */}
-               <Button variant="flat" className="bg-white/5 text-gray-300">{isAr ? "اسأل المرشد الذكي بدلًا من ذلك" : "Ask the AI Mentor instead"}</Button>
+               <Button variant="ghost" className="bg-white/5 text-gray-300">{isAr ? "اسأل المرشد الذكي بدلًا من ذلك" : "Ask the AI Mentor instead"}</Button>
             </div>
          </div>
       </section>
@@ -480,7 +480,7 @@ export default function HomePageConcept({ locale }: { locale: string }) {
                     {isAr ? "ابدأ مجانًا الآن" : "Start Free Now"}
                   </ShimmerButton>
                   {/* CTA 20 */}
-                  <Button size="lg" variant="bordered" className="border-white/20 text-white hover:bg-white/10 h-[64px] px-8 text-lg">
+                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 h-[64px] px-8 text-lg">
                     {isAr ? "جرب المرشد الذكي" : "Try AI Mentor"}
                   </Button>
                </div>

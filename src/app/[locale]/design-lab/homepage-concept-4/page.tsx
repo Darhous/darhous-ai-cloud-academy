@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, use } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
-export default function Concept4Page({ params: { locale } }: { params: { locale: string } }) {
+export default function Concept4Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = use(params);
   const isRTL = locale === 'ar';
   const shouldReduceMotion = useReducedMotion();
   const [activePortal, setActivePortal] = useState<number | null>(null);

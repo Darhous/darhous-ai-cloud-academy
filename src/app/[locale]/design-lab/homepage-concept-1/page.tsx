@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Concept1Page({ params }: { params: { locale: string } }) {
-  return <HomePageConcept locale={params.locale} />;
+export default async function Concept1Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return <HomePageConcept locale={locale} />;
 }
