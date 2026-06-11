@@ -45,7 +45,7 @@ export default function CinematicIntro({ locale }: Props) {
 
   return (
     <AnimatePresence>
-      {show && !shouldReduce && (
+      {show && (
         <motion.div
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#08090c]"
           initial={{ opacity: 1 }}
