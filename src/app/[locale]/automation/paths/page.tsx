@@ -58,7 +58,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "مسارات تعلم الأتمتة | درهوس" : "Automation Learning Paths | Darhous",
+    title: isAr ? "مسارات تعلم الأتمتة" : "Automation Learning Paths",
     description: isAr ? "مسارات تعلم منظمة من المبتدئ للمحترف في مجال الأتمتة." : "Structured learning paths from beginner to advanced automation professional.",
     openGraph: {
       title: isAr ? "مسارات تعلم الأتمتة" : "Automation Learning Paths",

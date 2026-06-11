@@ -11,7 +11,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "بوابة الوظائف الذكية | درهوس" : "Smart Jobs Portal | Darhous",
+    title: isAr ? "بوابة الوظائف الذكية" : "Smart Jobs Portal",
     description: isAr
       ? "استعرض الوظائف المطابقة لمهاراتك مع نسبة التطابق والمهارات الناقصة."
       : "Browse jobs matched to your skills with match score and skill gap analysis.",

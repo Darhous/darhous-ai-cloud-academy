@@ -9,7 +9,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "سجل الاختبارات | درهوس" : "Exam History | Darhous",
+    title: isAr ? "سجل الاختبارات" : "Exam History",
     description: isAr
       ? "استعرض سجل اختباراتك وتحليل أدائك في كل مادة"
       : "View your exam history and performance analysis per subject",

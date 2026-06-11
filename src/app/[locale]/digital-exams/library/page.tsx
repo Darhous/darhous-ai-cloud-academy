@@ -9,13 +9,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "المكتبة الرقمية | درهوس" : "Digital Library | Darhous",
+    title: isAr ? "المكتبة الرقمية" : "Digital Library",
     description: isAr
       ? "تصفح الكتب والمذكرات الدراسية حسب المادة"
       : "Browse study books and notes by subject",
     robots: { index: true },
     openGraph: {
-      title: isAr ? "المكتبة الرقمية — درهوس" : "Digital Library — Darhous",
+      title: isAr ? "المكتبة الرقمية" : "Digital Library",
       description: isAr
         ? "مكتبة رقمية شاملة: كتب ومذكرات لكل مواد التحول الرقمي"
         : "Comprehensive digital library: books and notes for all digital transformation subjects",

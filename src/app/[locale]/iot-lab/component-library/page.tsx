@@ -27,7 +27,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "مكتبة المكونات الإلكترونية | مختبر درهوس" : "Electronic Components Library | Darhous IoT Lab",
+    title: isAr ? "مكتبة المكونات الإلكترونية | مختبر NexaLearn" : "Electronic Components Library | NexaLearn IoT Lab",
     description: isAr ? `${componentsData.length}+ مكوّن إلكتروني موثق مع الوصف والاستخدام.` : `${componentsData.length}+ documented electronic components.`,
   };
 }

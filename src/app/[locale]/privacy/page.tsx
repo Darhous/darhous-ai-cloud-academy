@@ -7,8 +7,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: isAr ? "سياسة الخصوصية" : "Privacy Policy",
     description: isAr
-      ? "سياسة خصوصية أكاديمية درهوس للذكاء الاصطناعي — كيف نتعامل مع بياناتك"
-      : "Darhous AI Cloud Academy privacy policy — how we handle your data",
+      ? "سياسة خصوصية NexaLearn — كيف نتعامل مع بياناتك"
+      : "NexaLearn privacy policy — how we handle your data",
     robots: { index: true, follow: true },
   };
 }
@@ -23,7 +23,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           icon: <Shield size={20} />,
           title: "نظرة عامة",
           content: [
-            "أكاديمية درهوس للذكاء الاصطناعي والكلاود هي منصة تعليمية تُركّز على تعليم الذكاء الاصطناعي والكلاود باللغة العربية.",
+            "NexaLearn هي منصة تعليمية تُركّز على تعليم الذكاء الاصطناعي والكلاود باللغة العربية.",
             "نحرص على خصوصيتك ونسعى إلى الشفافية الكاملة في كيفية تعاملنا مع بياناتك.",
             "آخر تحديث لهذه السياسة: يونيو 2026.",
           ],
@@ -55,7 +55,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           icon: <Cpu size={20} />,
           title: "ميزات الذكاء الاصطناعي",
           content: [
-            "بعض ميزات المنصة — مثل مساعد درهوس الذكي واستوديو البرومبتات ومولّد خطط التعلم — تستخدم Gemini API من Google.",
+            "بعض ميزات المنصة — مثل مساعد NexaLearn الذكي واستوديو البرومبتات ومولّد خطط التعلم — تستخدم Gemini API من Google.",
             "جميع طلبات الذكاء الاصطناعي تُعالَج عبر خادمنا فقط (server-side) — مفتاح API لا يصل إلى متصفحك أبداً.",
             "لا تُخزَّن محادثاتك مع المساعد الذكي في قاعدة البيانات. تنتهي المحادثة عند إغلاق الصفحة أو مسحها.",
             "مدخلاتك في نماذج الذكاء الاصطناعي تُرسَل إلى Google Gemini API لمعالجتها — راجع سياسة خصوصية Google للمزيد.",
@@ -109,7 +109,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           icon: <Shield size={20} />,
           title: "Overview",
           content: [
-            "Darhous AI Cloud Academy is an educational platform focused on teaching AI and Cloud in Arabic.",
+            "NexaLearn is an educational platform focused on teaching AI and Cloud in Arabic.",
             "We are committed to your privacy and full transparency about how we handle your data.",
             "Last updated: June 2026.",
           ],

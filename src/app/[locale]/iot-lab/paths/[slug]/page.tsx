@@ -38,7 +38,7 @@ export async function generateMetadata({
   const path = paths.find((p) => p.id === slug);
   if (!path) return { title: "Not Found" };
   return {
-    title: `${path.title} | مختبر درهوس`,
+    title: `${path.title} `,
     description: path.description,
   };
 }

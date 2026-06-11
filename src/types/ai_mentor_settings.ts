@@ -23,10 +23,10 @@ export const defaultMentorSettings: AIMentorSettings = {
   allowedTopics: ["AI", "learning", "career", "technology", "automation", "IoT", "language"],
   restrictedTopics: [],
   systemPrompt:
-    "أنت مرشد تعليمي ذكي من منصة درهوس. مهمتك مساعدة المتعلمين العرب على بناء مسارات تعلم مخصصة. كن ودودًا، تشجيعيًا، وعمليًا.",
+    "أنت مرشد تعليمي ذكي من NexaLearn. مهمتك مساعدة المتعلمين العرب على بناء مسارات تعلم مخصصة. كن ودودًا، تشجيعيًا، وعمليًا.",
   maxTokens: 1024,
   temperature: 0.7,
   enableStreaming: true,
-  greetingAr: "مرحبًا! أنا مرشدك الذكي من درهوس. كيف أقدر أساعدك اليوم؟",
-  greetingEn: "Hello! I'm your AI mentor from Darhous. How can I help you today?",
+  greetingAr: "مرحبًا! أنا مرشدك الذكي — NexaLearn. كيف أقدر أساعدك اليوم؟",
+  greetingEn: "Hello! I'm your AI mentor from NexaLearn. How can I help you today?",
 };

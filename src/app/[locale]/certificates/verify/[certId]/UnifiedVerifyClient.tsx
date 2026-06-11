@@ -94,8 +94,8 @@ export default function UnifiedVerifyClient({
                 </h1>
                 <p className="text-sm text-center" style={{ color: "#6e6e8a" }}>
                   {isAr
-                    ? "هذه شهادة أصلية صادرة من أكاديمية درهوس"
-                    : "This is an authentic certificate issued by Darhous Academy"}
+                    ? "هذه شهادة أصلية صادرة من NexaLearn"
+                    : "This is an authentic certificate issued by NexaLearn"}
                 </p>
               </div>
 
@@ -121,7 +121,7 @@ export default function UnifiedVerifyClient({
                     }),
                     color: "#8888aa",
                   },
-                  { label: isAr ? "الجهة المانحة" : "Issued By", value: "Darhous AI Cloud Academy", color: typeMeta.color },
+                  { label: isAr ? "الجهة المانحة" : "Issued By", value: "NexaLearn", color: typeMeta.color },
                 ].map((row) => (
                   <div
                     key={row.label}
@@ -202,7 +202,7 @@ export default function UnifiedVerifyClient({
             className="text-xs font-mono hover:opacity-80 transition-opacity"
             style={{ color: "#6e6e8a" }}
           >
-            ← {isAr ? "العودة إلى الأكاديمية" : "Return to Darhous Academy"}
+            ← {isAr ? "العودة إلى الأكاديمية" : "Return to NexaLearn"}
           </Link>
         </div>
       </div>

@@ -31,7 +31,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "خدمات الأتمتة الاحترافية | درهوس" : "Professional Automation Services | Darhous",
+    title: isAr ? "خدمات الأتمتة الاحترافية" : "Professional Automation Services",
     description: isAr ? "باقات خدمات احترافية لتنفيذ حلول الأتمتة لعملك." : "Professional automation service packages for your business.",
     openGraph: {
       title: isAr ? "خدمات الأتمتة الاحترافية" : "Professional Automation Services",

@@ -82,7 +82,7 @@ export async function GET(
       holderName={displayName}
       certTypeLabel="CERTIFICATE OF ACHIEVEMENT"
       academySubtitle="D I G I T A L   T R A N S F O R M A T I O N   E X A M S"
-      bodyLine1="has successfully completed the Darhous Digital Transformation Examination"
+      bodyLine1="has successfully completed the NexaLearn Digital Transformation Examination"
       bodyLine2={subjectLabel}
       box1Label="SCORE"
       box1Value={`${percentage.toFixed(0)}%`}

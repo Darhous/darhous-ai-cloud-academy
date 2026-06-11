@@ -11,7 +11,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "صانع السيرة الذاتية | بوابة درهوس المهنية" : "CV Builder | Darhous Career Hub",
+    title: isAr ? "صانع السيرة الذاتية | بوابة NexaLearn المهنية" : "CV Builder | NexaLearn Career Hub",
     description: isAr
       ? "أنشئ سيرة ذاتية احترافية متوافقة مع ATS خطوة بخطوة مع معاينة حية."
       : "Build a professional ATS-friendly CV step by step with live preview.",

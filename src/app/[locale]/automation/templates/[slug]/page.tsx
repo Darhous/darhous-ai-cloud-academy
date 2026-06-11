@@ -58,10 +58,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const workflows = await fetchAllWorkflows();
   const workflow = workflows.find((t) => t.id === slug);
-  if (!workflow) return { title: "قالب غير موجود | درهوس" };
+  if (!workflow) return { title: "قالب غير موجود" };
   const desc = workflow.shortDescription ?? workflow.businessProblem;
   return {
-    title: `${workflow.title} | مكتبة وصفات الأتمتة n8n | درهوس`,
+    title: `${workflow.title} | مكتبة وصفات الأتمتة n8n `,
     description: desc,
     keywords: workflow.seoHashtags?.join(", "),
     openGraph: {

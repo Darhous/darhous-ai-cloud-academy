@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: isAr ? "تواصل معنا" : "Contact",
     description: isAr
-      ? "تواصل مع فريق أكاديمية درهوس — للاستفسارات والتعاون والشراكات"
-      : "Contact the Darhous AI Academy team — for inquiries, collaboration, and partnerships",
+      ? "تواصل مع فريق NexaLearn — للاستفسارات والتعاون والشراكات"
+      : "Contact the NexaLearn AI Academy team — for inquiries, collaboration, and partnerships",
   };
 }
 
@@ -64,8 +64,8 @@ export default async function ContactPage({
           </h2>
           <p className="text-sm mb-7 max-w-lg" style={{ color: "var(--color-on-surface-variant)" }}>
             {isAr
-              ? "تابع آخر تحديثات أكاديمية درهوس وتواصل معنا مباشرة عبر المنصات الرسمية."
-              : "Follow Darhous Academy updates and connect directly through the official channels."}
+              ? "تابع آخر تحديثات NexaLearn وتواصل معنا مباشرة عبر المنصات الرسمية."
+              : "Follow NexaLearn updates and connect directly through the official channels."}
           </p>
           <SocialLinksBar locale={locale} variant="page" />
         </div>

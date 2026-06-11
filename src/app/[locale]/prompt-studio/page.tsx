@@ -9,15 +9,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "استوديو البرومبتات — درهوس AI" : "Prompt Studio — Darhous AI",
+    title: isAr ? "استوديو البرومبتات — NexaLearn" : "Prompt Studio — NexaLearn",
     description: isAr
       ? "حوّل أي برومبت ضعيف إلى برومبت احترافي جاهز للنسخ بمساعدة الذكاء الاصطناعي"
       : "Transform any weak prompt into a professional, copy-ready prompt with AI assistance",
     openGraph: {
       title: isAr ? "استوديو البرومبتات" : "Prompt Studio",
       description: isAr
-        ? "أداة تحسين البرومبتات بالذكاء الاصطناعي من أكاديمية درهوس"
-        : "AI-powered prompt improvement tool from Darhous Academy",
+        ? "أداة تحسين البرومبتات بالذكاء الاصطناعي من NexaLearn"
+        : "AI-powered prompt improvement tool from NexaLearn",
     },
   };
 }

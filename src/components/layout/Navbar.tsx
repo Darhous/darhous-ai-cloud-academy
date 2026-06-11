@@ -310,7 +310,7 @@ export default function Navbar({ locale }: NavbarProps) {
               >
                 <div className="p-1.5">
                   <div className="px-3 py-2 text-[10px] font-mono tracking-widest uppercase" style={{ color: "var(--color-secondary)", opacity: 0.7 }}>
-                    {isAr ? "بوابات درهوس" : "Darhous Portals"}
+                    {isAr ? "بوابات NexaLearn" : "NexaLearn Portals"}
                   </div>
                   {portals.map((portal) => {
                     const active = pathname.startsWith(`/${locale}${portal.href}`);

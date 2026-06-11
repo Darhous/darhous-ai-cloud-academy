@@ -33,13 +33,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "اختبارات التحول الرقمي | درهوس" : "Digital Transformation Exams | Darhous",
+    title: isAr ? "اختبارات التحول الرقمي" : "Digital Transformation Exams",
     description: isAr
       ? "اختبارات IT وOffice والأمن السيبراني ومهارات التحول الرقمي"
       : "IT, Office suite, Cybersecurity, and digital transformation skills exams",
     robots: { index: true },
     openGraph: {
-      title: isAr ? "اختبارات التحول الرقمي — درهوس" : "Digital Transformation Exams — Darhous",
+      title: isAr ? "اختبارات التحول الرقمي" : "Digital Transformation Exams",
       description: isAr
         ? "9 اختبارات معتمدة: IT، Word، Excel، PowerPoint، Access، تطبيقات الموبايل، الويب، الأمن السيبراني، البحث — 902+ سؤال — ابدأ مجاناً."
         : "9 certified exams: IT, Word, Excel, PowerPoint, Access, Mobile, WebApps, Cybersecurity, Internet Search — 902+ questions — free to start.",
@@ -71,7 +71,7 @@ export default async function DigitalExamsPage({
         {/* Back */}
         <Link href={`/${locale}`} className="inline-flex items-center gap-2 text-sm font-mono mb-10 transition-opacity hover:opacity-80" style={{ color: "var(--color-on-surface-variant)" }}>
           {isAr ? <ArrowRight size={14} /> : <ArrowLeft size={14} />}
-          {isAr ? "منصة درهوس" : "Darhous Platform"}
+          {isAr ? "NexaLearn" : "NexaLearn"}
         </Link>
 
         {/* Header */}
@@ -161,7 +161,7 @@ export default async function DigitalExamsPage({
           <CheckCircle size={20} className="flex-shrink-0 mt-0.5" style={{ color: "#4ade80" }} />
           <div className="flex-1">
             <p className="font-bold text-sm mb-1" style={{ color: "var(--color-on-surface)" }}>
-              {isAr ? "✅ مدمج بالكامل مع منصة درهوس" : "✅ Fully Integrated with Darhous Platform"}
+              {isAr ? "✅ مدمج بالكامل مع NexaLearn" : "✅ Fully Integrated with NexaLearn"}
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
               {isAr

@@ -288,7 +288,7 @@ export const lessonsDataPart1: Lesson[] = [
     componentsNeeded: ["Arduino Uno", "شاشة LCD 16x2 مع موديول I2C"],
     wiringNotes: "VCC بـ 5V، GND بـ GND. سلك SDA يُوصل بدبوس A4 في الأونو، و SCL بدبوس A5.",
     wiringNotesEn: "VCC to 5V, GND to GND. SDA wire connects to pin A4 on the Uno, and SCL to pin A5.",
-    codeExample: "#include <Wire.h>\n#include <LiquidCrystal_I2C.h>\nLiquidCrystal_I2C lcd(0x27, 16, 2); // العنوان غالباً 0x27 أو 0x3F\n\nvoid setup() {\n  lcd.init();\n  lcd.backlight();\n  lcd.setCursor(0, 0); // العمود 0، الصف 0\n  lcd.print(\"Darhous IoT Lab\");\n}\nvoid loop() {\n  lcd.setCursor(0, 1);\n  lcd.print(millis() / 1000);\n  delay(1000);\n}",
+    codeExample: "#include <Wire.h>\n#include <LiquidCrystal_I2C.h>\nLiquidCrystal_I2C lcd(0x27, 16, 2); // العنوان غالباً 0x27 أو 0x3F\n\nvoid setup() {\n  lcd.init();\n  lcd.backlight();\n  lcd.setCursor(0, 0); // العمود 0، الصف 0\n  lcd.print(\"NexaLearn IoT Lab\");\n}\nvoid loop() {\n  lcd.setCursor(0, 1);\n  lcd.print(millis() / 1000);\n  delay(1000);\n}",
     commonMistakes: "شاشة مضيئة كلياً أو أزرار مربعات سوداء ولكن لا نص؟ جرب تدوير المسمار النحاسي الصغير (Potentiometer) خلف الموديول لضبط التباين (Contrast) بمفك.",
     commonMistakesEn: "Screen is fully lit or shows black squares but no text? Try turning the small brass screw (Potentiometer) on the back of the module with a screwdriver to adjust the contrast.",
     nextLessonId: "relay-safety"

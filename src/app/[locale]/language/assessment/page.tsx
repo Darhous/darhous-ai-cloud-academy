@@ -5,7 +5,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "اختبار تحديد المستوى الإنجليزي | درهوس" : "English Level Assessment | Darhous",
+    title: isAr ? "اختبار تحديد المستوى الإنجليزي" : "English Level Assessment",
     robots: { index: false },
   };
 }

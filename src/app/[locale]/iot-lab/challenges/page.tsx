@@ -29,7 +29,7 @@ export async function generateMetadata({
   const isAr = locale === "ar";
   const allChallenges = await fetchAllChallenges();
   return {
-    title: isAr ? "تحديات الأردوينو | مختبر درهوس" : "Arduino Challenges | Darhous IoT Lab",
+    title: isAr ? "تحديات الأردوينو | مختبر NexaLearn" : "Arduino Challenges | NexaLearn IoT Lab",
     description: isAr ? `${allChallenges.length}+ تحدي برمجي لاختبار مهاراتك مع نقاط XP وشارات.` : `${allChallenges.length}+ coding challenges with XP rewards and badges.`,
   };
 }

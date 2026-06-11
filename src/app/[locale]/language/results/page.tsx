@@ -6,7 +6,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "نتيجة تقييم اللغة الإنجليزية | درهوس" : "English Assessment Result | Darhous",
+    title: isAr ? "نتيجة تقييم اللغة الإنجليزية" : "English Assessment Result",
     robots: { index: false },
   };
 }

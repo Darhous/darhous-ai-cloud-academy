@@ -40,8 +40,8 @@ export async function generateMetadata({
   if (!subject) return { title: "Exam Not Found" };
   const isAr = locale === "ar";
   const title = isAr
-    ? `اختبار ${subject.labelAr} | درهوس`
-    : `${subject.label} Practice Exam | Darhous`;
+    ? `اختبار ${subject.labelAr} `
+    : `${subject.label} Practice Exam `;
   const description = isAr
     ? `اختبر معرفتك في ${subject.labelAr} — ${subject.descriptionAr}. أسئلة MCQ وصح/خطأ مع شرح فوري.`
     : `Test your ${subject.label} knowledge — ${subject.description}. MCQ and True/False with instant explanations.`;

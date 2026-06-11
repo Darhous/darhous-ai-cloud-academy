@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
   const html = `
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<head><meta charset="UTF-8" /><title>Your Darhous English Assessment Results</title></head>
+<head><meta charset="UTF-8" /><title>Your NexaLearn English Assessment Results</title></head>
 <body style="margin:0;padding:0;background:#0f0a1e;font-family:'Segoe UI',Arial,sans-serif;color:#e2e8f0">
   <div style="max-width:600px;margin:0 auto;padding:32px 24px">
 
@@ -116,7 +116,7 @@ export async function POST(req: NextRequest) {
 
     <!-- Footer -->
     <div style="text-align:center;margin-top:32px;font-size:11px;color:#4a4a6a;border-top:1px solid #2d2060;padding-top:16px">
-      Darhous Academy · Smart Learning Ecosystem<br/>
+      NexaLearn · Smart Learning Ecosystem<br/>
       <a href="mailto:ahmeddarhous@gmail.com" style="color:#4a4a6a">ahmeddarhous@gmail.com</a>
     </div>
 
@@ -126,9 +126,9 @@ export async function POST(req: NextRequest) {
 
   try {
     await resend.emails.send({
-      from: "Darhous Academy <noreply@darhous.com>",
+      from: "NexaLearn <noreply@darhous.com>",
       to: user.email!,
-      subject: `Your English Level: ${result.level} — ${result.score.toFixed(1)}% | Darhous Academy`,
+      subject: `Your English Level: ${result.level} — ${result.score.toFixed(1)}% | NexaLearn`,
       html,
     });
     return NextResponse.json({ sent: true });

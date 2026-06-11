@@ -34,7 +34,7 @@ export async function generateMetadata({
   const projects = await fetchAllProjects();
   const project = projects.find((p) => p.id === slug);
   if (!project) return { title: "Not Found" };
-  return { title: `${project.title} | مختبر درهوس`, description: project.description };
+  return { title: `${project.title} `, description: project.description };
 }
 
 export async function generateStaticParams() {

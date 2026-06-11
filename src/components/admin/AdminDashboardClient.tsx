@@ -475,7 +475,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
       <div className="container-xl py-20 text-center">
         <div className="text-5xl mb-4">⚙️</div>
         <h1 className="font-display font-bold text-2xl mb-3" style={{ color: "var(--color-on-surface)" }}>
-          {isAr ? "Darhous Admin Studio" : "Darhous Admin Studio"}
+          {isAr ? "NexaLearn Admin" : "NexaLearn Admin"}
         </h1>
         <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
           {isAr ? "يجب إعداد Supabase أولاً." : "Supabase must be configured first."}
@@ -517,7 +517,7 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
                 </span>
               </div>
               <h1 className="font-display font-bold text-2xl" style={{ color: "var(--color-on-surface)" }}>
-                {isAr ? "استوديو الإدارة" : "Darhous Admin Studio"}
+                {isAr ? "استوديو الإدارة" : "NexaLearn Admin"}
               </h1>
               <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>
                 {(profile as UserProfile & { email?: string })?.email ?? user?.email}

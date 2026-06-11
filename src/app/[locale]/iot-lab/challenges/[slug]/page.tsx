@@ -29,7 +29,7 @@ export async function generateMetadata({
   const challenges = await fetchAllChallenges();
   const ch = challenges.find((c) => c.id === slug);
   if (!ch) return { title: "Not Found" };
-  return { title: `${ch.title} | مختبر درهوس`, description: ch.description };
+  return { title: `${ch.title} `, description: ch.description };
 }
 
 export async function generateStaticParams() {

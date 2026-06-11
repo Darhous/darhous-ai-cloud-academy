@@ -11,7 +11,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "تحضير المقابلات | بوابة درهوس المهنية" : "Interview Prep | Darhous Career Hub",
+    title: isAr ? "تحضير المقابلات | بوابة NexaLearn المهنية" : "Interview Prep | NexaLearn Career Hub",
     description: isAr
       ? "بنك أسئلة سلوكية وتقنية مع مقيّم STAR الذكي لتحضير مقابلات العمل."
       : "Behavioral and technical question bank with AI STAR evaluator for interview preparation.",

@@ -32,8 +32,8 @@ export default function SocialLinksBar({ locale, variant = "footer" }: Props) {
           style={{ color: "var(--color-on-surface-variant)" }}
         >
           {isAr
-            ? "تابع آخر تحديثات أكاديمية درهوس وتواصل معنا عبر المنصات الرسمية."
-            : "Follow Darhous Academy updates and connect through the official channels."}
+            ? "تابع آخر تحديثات NexaLearn وتواصل معنا عبر المنصات الرسمية."
+            : "Follow NexaLearn updates and connect through the official channels."}
         </p>
         <div className="flex flex-wrap gap-3">
           {socialLinks.map((link) => {

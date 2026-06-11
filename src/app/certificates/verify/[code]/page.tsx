@@ -7,8 +7,8 @@ export async function generateMetadata({
   const { code } = await params;
   void code;
   return {
-    title: "Certificate Verification | Darhous Academy",
-    description: "Verify the authenticity of a Darhous AI Academy certificate",
+    title: "Certificate Verification | NexaLearn",
+    description: "Verify the authenticity of a NexaLearn AI Academy certificate",
     robots: { index: false, follow: false, noarchive: true },
   };
 }

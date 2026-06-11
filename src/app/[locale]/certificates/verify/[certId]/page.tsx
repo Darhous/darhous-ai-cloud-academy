@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import UnifiedVerifyClient from "./UnifiedVerifyClient";
 
 export const metadata: Metadata = {
-  title: "Certificate Verification — Darhous Academy",
-  description: "Verify the authenticity of a Darhous Academy certificate.",
+  title: "Certificate Verification — NexaLearn",
+  description: "Verify the authenticity of a NexaLearn certificate.",
   robots: { index: false, noarchive: true },
 };
 

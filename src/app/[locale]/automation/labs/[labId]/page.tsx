@@ -39,9 +39,9 @@ export async function generateMetadata({
   const { labId } = await params;
   const labs = await fetchAllLabs();
   const lab = labs.find((l) => l.id === labId);
-  if (!lab) return { title: "معمل غير موجود | درهوس" };
+  if (!lab) return { title: "معمل غير موجود" };
   return {
-    title: `${lab.title} | معامل الأتمتة | درهوس`,
+    title: `${lab.title} | معامل الأتمتة `,
     description: lab.objective,
   };
 }

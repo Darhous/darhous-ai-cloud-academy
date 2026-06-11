@@ -98,7 +98,7 @@ export default function RoadmapGeneratorClient({ locale }: Props) {
 المدة الزمنية: ${durationLabel?.labelAr ?? duration}
 التركيز: ${focusLabels || "عام"}
 
-أعطني خطة تعلم منظمة ومفصلة وقابلة للتنفيذ بمراحل واضحة وموارد من أكاديمية درهوس ومشاريع تطبيقية.`
+أعطني خطة تعلم منظمة ومفصلة وقابلة للتنفيذ بمراحل واضحة وموارد من NexaLearn ومشاريع تطبيقية.`
       : `Create a personalized learning roadmap based on:
 
 Current Level: ${levelLabel?.labelEn ?? currentLevel}
@@ -107,7 +107,7 @@ Available Time: ${timeLabel?.labelEn ?? timePerWeek}
 Duration: ${durationLabel?.labelEn ?? duration}
 Focus Areas: ${focusLabels || "General"}
 
-Provide a structured, detailed, executable learning plan with clear phases, Darhous Academy resources, and practical projects.`;
+Provide a structured, detailed, executable learning plan with clear phases, NexaLearn resources, and practical projects.`;
 
     try {
       const res = await fetch("/api/mentor", {

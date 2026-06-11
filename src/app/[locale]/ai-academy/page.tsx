@@ -20,13 +20,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "أكاديمية الذكاء الاصطناعي | درهوس" : "AI Academy | Darhous",
+    title: isAr ? "أكاديمية الذكاء الاصطناعي" : "AI Academy",
     description: isAr
       ? "تعلم الذكاء الاصطناعي، أدوات AI، البرومبتات، والمشاريع العملية — بوابة AI الكاملة"
       : "Learn AI, AI tools, prompts, and hands-on projects — the complete AI portal",
     robots: { index: true },
     openGraph: {
-      title: isAr ? "أكاديمية الذكاء الاصطناعي — درهوس" : "AI Academy — Darhous",
+      title: isAr ? "أكاديمية الذكاء الاصطناعي" : "AI Academy",
       description: isAr
         ? "دورات AI، أدوات مُختبرة، مشاريع تطبيقية، ومرشد ذكاء اصطناعي — كل ما تحتاجه لإتقان AI."
         : "AI courses, tested tools, hands-on projects, and an AI mentor — everything you need to master AI.",
@@ -98,7 +98,7 @@ export default async function AIAcademyPage({
             style={{ color: "var(--color-on-surface-variant)" }}
           >
             {isAr ? <ArrowRight size={14} /> : <ArrowLeft size={14} />}
-            {isAr ? "منصة درهوس" : "Darhous Platform"}
+            {isAr ? "NexaLearn" : "NexaLearn"}
           </Link>
 
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">

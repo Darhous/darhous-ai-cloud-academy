@@ -34,7 +34,7 @@ export async function generateMetadata({
   const isAr = locale === "ar";
   const allProjects = await fetchAllProjects();
   return {
-    title: isAr ? "مشاريع الأردوينو | مختبر درهوس" : "Arduino Projects | Darhous IoT Lab",
+    title: isAr ? "مشاريع الأردوينو " : "Arduino Projects | NexaLearn IoT Lab",
     description: isAr ? `${allProjects.length} مشروع أردوينو من السهل للتخرج مع كود جاهز ومخطط توصيل.` : `${allProjects.length} Arduino projects from easy to capstone with ready code and wiring diagrams.`,
   };
 }

@@ -11,7 +11,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "محلل ATS الذكي | بوابة درهوس المهنية" : "AI ATS Analyzer | Darhous Career Hub",
+    title: isAr ? "محلل ATS الذكي | بوابة NexaLearn المهنية" : "AI ATS Analyzer | NexaLearn Career Hub",
     description: isAr
       ? "حلّل سيرتك الذاتية بالذكاء الاصطناعي واحصل على درجة ATS والكلمات المفتاحية الناقصة."
       : "Analyze your CV with AI and get ATS score, missing keywords, and improvement recommendations.",

@@ -26,7 +26,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "محاكي الأردوينو التفاعلي | مختبر درهوس" : "Interactive Arduino Simulator | Darhous IoT Lab",
+    title: isAr ? "محاكي الأردوينو التفاعلي " : "Interactive Arduino Simulator | NexaLearn IoT Lab",
     description: isAr ? "جرّب مشاريع الأردوينو مباشرة في المتصفح عبر Wokwi بدون أي أجهزة." : "Try Arduino projects directly in the browser via Wokwi without any hardware.",
   };
 }

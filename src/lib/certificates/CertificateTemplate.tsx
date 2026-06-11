@@ -411,7 +411,7 @@ export function CertificateTemplate(props: CertTemplateProps) {
           }
           <View style={S.sigBar} />
           <Text style={S.sigRole}>Founder &amp; CEO</Text>
-          <Text style={S.sigAcad}>Darhous Academy</Text>
+          <Text style={S.sigAcad}>NexaLearn</Text>
         </View>
 
         {/* ── Seal — 3 concentric rings (bottom-center) ─── */}
@@ -444,7 +444,7 @@ export function CertificateTemplate(props: CertTemplateProps) {
 
         {/* ── Footer ───────────────────────────────────── */}
         <Text style={S.footer}>
-          {`© ${year} Darhous Academy · All Rights Reserved · darhous-ai-cloud-academy.vercel.app`}
+          {`© ${year} NexaLearn · All Rights Reserved · darhous-ai-cloud-academy.vercel.app`}
         </Text>
 
       </Page>

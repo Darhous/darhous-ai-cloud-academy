@@ -27,7 +27,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "وكيل الأتمتة الذكي | درهوس" : "Automation Agent | Darhous",
+    title: isAr ? "وكيل الأتمتة الذكي" : "Automation Agent",
     description: isAr
       ? "صف عمليتك التجارية واحصل على blueprint أتمتة مخصص مع خارطة أدوات واقتراحات تنفيذ."
       : "Get a custom automation blueprint for your business process with AI.",

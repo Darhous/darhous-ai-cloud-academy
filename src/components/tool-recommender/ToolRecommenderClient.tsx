@@ -126,8 +126,8 @@ export default function ToolRecommenderClient({ locale }: Props) {
         </h1>
         <p className="text-base max-w-xl mx-auto" style={{ color: "var(--color-on-surface-variant)" }}>
           {isAr
-            ? "حدّد هدفك واكتشف الأدوات المثلى من مركز أدوات أكاديمية درهوس"
-            : "Define your goal and discover the best tools from Darhous Academy's AI Tools Hub"}
+            ? "حدّد هدفك واكتشف الأدوات المثلى من مركز أدوات NexaLearn"
+            : "Define your goal and discover the best tools from NexaLearn's AI Tools Hub"}
         </p>
       </div>
 

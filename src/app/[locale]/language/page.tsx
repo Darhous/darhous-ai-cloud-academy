@@ -13,13 +13,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "بوابة اللغة | درهوس" : "Language Portal | Darhous",
+    title: isAr ? "بوابة اللغة" : "Language Portal",
     description: isAr
       ? "اختبارات تحديد مستوى اللغة الإنجليزية وتقييم المهارات"
       : "English language level assessment and skills evaluation",
     robots: { index: true },
     openGraph: {
-      title: isAr ? "بوابة اللغة — درهوس" : "Language Portal — Darhous",
+      title: isAr ? "بوابة اللغة" : "Language Portal",
       description: isAr
         ? "قيّم مستواك الإنجليزي عبر 150+ سؤال تكيفي، واحصل على شهادة CEFR وخطة دراسية مخصصة."
         : "Assess your English level with 150+ adaptive questions, get a CEFR certificate and personalized study plan.",
@@ -70,7 +70,7 @@ export default async function LanguagePortalPage({
         {/* Back */}
         <Link href={`/${locale}`} className="inline-flex items-center gap-2 text-sm font-mono mb-10 transition-opacity hover:opacity-80" style={{ color: "var(--color-on-surface-variant)" }}>
           {isAr ? <ArrowRight size={14} /> : <ArrowLeft size={14} />}
-          {isAr ? "منصة درهوس" : "Darhous Platform"}
+          {isAr ? "NexaLearn" : "NexaLearn"}
         </Link>
 
         {/* Header */}
@@ -145,7 +145,7 @@ export default async function LanguagePortalPage({
           <CheckCircle size={20} className="flex-shrink-0 mt-0.5" style={{ color: "#4ade80" }} />
           <div className="flex-1">
             <p className="font-bold text-sm mb-1" style={{ color: "var(--color-on-surface)" }}>
-              {isAr ? "✅ مدمج بالكامل مع منصة درهوس" : "✅ Fully Integrated with Darhous Platform"}
+              {isAr ? "✅ مدمج بالكامل مع NexaLearn" : "✅ Fully Integrated with NexaLearn"}
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
               {isAr

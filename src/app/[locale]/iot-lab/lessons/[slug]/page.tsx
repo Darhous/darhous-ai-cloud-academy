@@ -41,7 +41,7 @@ export async function generateMetadata({
   if (!lesson) return { title: "Not Found" };
   const title = isAr ? lesson.title : (lesson.titleEn ?? lesson.title);
   const description = isAr ? lesson.description : (lesson.descriptionEn ?? lesson.description);
-  return { title: `${title} | Darhous IoT Lab`, description };
+  return { title: `${title} | NexaLearn IoT Lab`, description };
 }
 
 export async function generateStaticParams() {

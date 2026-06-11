@@ -9,10 +9,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "مرشّح أدوات الذكاء الاصطناعي — درهوس AI" : "AI Tool Recommender — Darhous AI",
+    title: isAr ? "مرشّح أدوات الذكاء الاصطناعي — NexaLearn" : "AI Tool Recommender — NexaLearn",
     description: isAr
-      ? "اختر هدفك واكتشف الأدوات المثلى من مركز أدوات أكاديمية درهوس"
-      : "Choose your goal and discover the best tools from Darhous Academy's AI Tools Hub",
+      ? "اختر هدفك واكتشف الأدوات المثلى من مركز أدوات NexaLearn"
+      : "Choose your goal and discover the best tools from NexaLearn's AI Tools Hub",
     openGraph: {
       title: isAr ? "مرشّح أدوات AI" : "AI Tool Recommender",
       description: isAr

@@ -7,8 +7,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: isAr ? "شهاداتي" : "My Certificates",
     description: isAr
-      ? "استعرض شهاداتك المكتسبة من دورات أكاديمية درهوس واطبعها أو شاركها"
-      : "View your earned certificates from Darhous Academy courses, print or share them",
+      ? "استعرض شهاداتك المكتسبة من دورات NexaLearn واطبعها أو شاركها"
+      : "View your earned certificates from NexaLearn courses, print or share them",
     robots: { index: false, follow: false },
   };
 }

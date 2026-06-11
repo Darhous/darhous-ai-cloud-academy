@@ -48,13 +48,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "أكاديمية درهوس للأتمتة | درهوس" : "Darhous Automation Academy | Darhous",
+    title: isAr ? "NexaLearn للأتمتة" : "NexaLearn Automation",
     description: isAr
       ? "تعلم الأتمتة التجارية، استكشف 30 وصفة منتقاة، وابنِ workflows ذكية لأعمالك."
       : "Learn business automation with 30 curated recipes, tools explorer, and workflow builder.",
     robots: { index: true },
     openGraph: {
-      title: isAr ? "أكاديمية درهوس للأتمتة" : "Darhous Automation Academy",
+      title: isAr ? "NexaLearn للأتمتة" : "NexaLearn Automation",
       description: isAr
         ? "30 وصفة أتمتة منتقاة، أدوات موثقة، ومسارات تعلم — كل ما تحتاجه لأتمتة عملياتك."
         : "25 curated automation recipes, documented tools, and learning paths for business automation.",
@@ -151,7 +151,7 @@ export default async function AutomationPage({
             ⚙️
           </div>
           <h1 className="font-display font-bold text-4xl md:text-5xl mb-4 leading-tight" style={{ color: "var(--color-on-surface)" }}>
-            أكاديمية درهوس{" "}
+            NexaLearn{" "}
             <span className="bg-clip-text" style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundImage: "linear-gradient(135deg, #4ade80, #22c55e)" }}>
               للأتمتة
             </span>

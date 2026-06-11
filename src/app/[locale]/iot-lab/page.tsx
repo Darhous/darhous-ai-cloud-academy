@@ -115,13 +115,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "مختبر درهوس لإنترنت الأشياء والأردوينو | درهوس" : "Darhous IoT Lab | Darhous",
+    title: isAr ? "مختبر NexaLearn للـ IoT" : "NexaLearn IoT Lab",
     description: isAr
       ? "59 درس أردوينو، 72 مشروع، 40 تحدي برمجي، ومكتبة المكونات الإلكترونية الشاملة."
       : "59 Arduino lessons, 72 projects, 40 coding challenges, and comprehensive component library.",
     robots: { index: true },
     openGraph: {
-      title: isAr ? "مختبر درهوس للـ IoT والأردوينو" : "Darhous IoT Lab",
+      title: isAr ? "مختبر NexaLearn للـ IoT" : "NexaLearn IoT Lab",
       description: isAr
         ? "59 درس أردوينو، 72 مشروع عملي، 40 تحدي، ومحاكي تفاعلي — ابدأ رحلتك في إنترنت الأشياء."
         : "59 Arduino lessons, 72 hands-on projects, 40 challenges, and interactive simulator — start your IoT journey.",
@@ -233,7 +233,7 @@ export default async function IotLabPage({
             🔌
           </div>
           <h1 className="font-display font-bold text-4xl md:text-5xl mb-4 leading-tight" style={{ color: "var(--color-on-surface)" }}>
-            مختبر درهوس{" "}
+            مختبر NexaLearn{" "}
             <span className="bg-clip-text" style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundImage: "linear-gradient(135deg, #f97316, #fb923c)" }}>
               للأردوينو وإنترنت الأشياء
             </span>

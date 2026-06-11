@@ -54,7 +54,7 @@ export default function CertificateVerifyClient({ code }: { code: string }) {
             <CheckCircle size={48} className="mx-auto mb-4" style={{ color: "#4ade80" }} />
             <GraduationCap size={40} className="mx-auto mb-3" style={{ color: "#fbbf24" }} />
             <h1 className="font-bold text-xl mb-1" style={{ color: "#fbbf24" }}>Certificate Verified ✓</h1>
-            <p className="text-sm mb-6" style={{ color: "#64748b" }}>This is an authentic Darhous AI Academy certificate</p>
+            <p className="text-sm mb-6" style={{ color: "#64748b" }}>This is an authentic NexaLearn AI Academy certificate</p>
 
             <div className="flex flex-col gap-3 text-start">
               <div className="p-3 rounded-xl" style={{ background: "rgba(255,255,255,0.05)" }}>
@@ -77,7 +77,7 @@ export default function CertificateVerifyClient({ code }: { code: string }) {
               </div>
               <div className="p-3 rounded-xl" style={{ background: "rgba(255,255,255,0.05)" }}>
                 <p className="text-xs font-mono" style={{ color: "#64748b" }}>Academy</p>
-                <p className="font-bold text-sm" style={{ color: "#8ed5ff" }}>Darhous AI Cloud Academy</p>
+                <p className="font-bold text-sm" style={{ color: "#8ed5ff" }}>NexaLearn</p>
               </div>
             </div>
 
@@ -101,7 +101,7 @@ export default function CertificateVerifyClient({ code }: { code: string }) {
         )}
 
         <Link href="https://darhous-ai-cloud-academy.vercel.app" className="text-xs font-mono" style={{ color: "#64748b" }}>
-          ← Return to Darhous AI Academy
+          ← Return to NexaLearn AI Academy
         </Link>
       </div>
     </div>

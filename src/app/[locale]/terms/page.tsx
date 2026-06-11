@@ -7,8 +7,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: isAr ? "شروط الخدمة" : "Terms of Service",
     description: isAr
-      ? "شروط استخدام أكاديمية درهوس للذكاء الاصطناعي"
-      : "Darhous AI Cloud Academy terms of service",
+      ? "شروط استخدام NexaLearn"
+      : "NexaLearn terms of service",
     robots: { index: true, follow: true },
   };
 }
@@ -23,7 +23,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
           icon: <Info size={20} />,
           title: "الغرض من المنصة",
           content: [
-            "أكاديمية درهوس للذكاء الاصطناعي والكلاود منصة تعليمية مجانية تهدف إلى تعليم الذكاء الاصطناعي والكلاود باللغة العربية.",
+            "NexaLearn منصة تعليمية مجانية تهدف إلى تعليم الذكاء الاصطناعي والكلاود باللغة العربية.",
             "المحتوى المقدَّم للأغراض التعليمية فقط وليس استشارة مهنية أو تقنية رسمية.",
           ],
         },
@@ -31,7 +31,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
           icon: <Bot size={20} />,
           title: "استخدام ميزات الذكاء الاصطناعي",
           content: [
-            "ميزات الذكاء الاصطناعي — مساعد درهوس، استوديو البرومبتات، مولّد خطط التعلم — مُقدَّمة كأدوات مساعدة في التعلم.",
+            "ميزات الذكاء الاصطناعي — مساعد NexaLearn، استوديو البرومبتات، مولّد خطط التعلم — مُقدَّمة كأدوات مساعدة في التعلم.",
             "مخرجات الذكاء الاصطناعي قابلة للخطأ — تحقق دائمًا من المعلومات قبل الاعتماد عليها.",
             "أنت مسؤول مسؤولية كاملة عن كيفية استخدام مخرجات الذكاء الاصطناعي.",
             "لا تُدخل كلمات مرور أو مفاتيح API أو بيانات شخصية حساسة في نماذج الذكاء الاصطناعي.",
@@ -83,7 +83,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
           icon: <Info size={20} />,
           title: "Platform Purpose",
           content: [
-            "Darhous AI Cloud Academy is a free educational platform focused on teaching AI and Cloud in Arabic.",
+            "NexaLearn is a free educational platform focused on teaching AI and Cloud in Arabic.",
             "All content is provided for educational purposes only and does not constitute professional or technical advice.",
           ],
         },
@@ -91,7 +91,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
           icon: <Bot size={20} />,
           title: "AI Features Usage",
           content: [
-            "AI features — Darhous Mentor, Prompt Studio, Roadmap Generator — are provided as learning assistance tools.",
+            "AI features — NexaLearn Mentor, Prompt Studio, Roadmap Generator — are provided as learning assistance tools.",
             "AI outputs can be inaccurate — always verify information before relying on it.",
             "You are solely responsible for how you use AI-generated outputs.",
             "Do not enter passwords, API keys, or sensitive personal data into AI forms.",
@@ -159,8 +159,8 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
         </h1>
         <p className="text-lg max-w-xl mx-auto" style={{ color: "var(--color-on-surface-variant)" }}>
           {isAr
-            ? "شروط بسيطة وواضحة لاستخدام أكاديمية درهوس للذكاء الاصطناعي."
-            : "Simple and clear terms for using Darhous AI Cloud Academy."}
+            ? "شروط بسيطة وواضحة لاستخدام NexaLearn."
+            : "Simple and clear terms for using NexaLearn."}
         </p>
       </div>
 

@@ -26,8 +26,8 @@ export const defaultSiteSettings: SiteSettings = {
     en: "Start from Zero — Let AI Build Your Learning & Career Path",
   },
   heroSubtitle: {
-    ar: "منصة درهوس الذكية تفهمك وتضع لك خطة واضحة خطوة بخطوة — حتى لو لا تعرف من أين تبدأ",
-    en: "Darhous Smart Platform understands you and builds a clear plan step by step — even if you don't know where to start",
+    ar: "NexaLearn الذكية تفهمك وتضع لك خطة واضحة خطوة بخطوة — حتى لو لا تعرف من أين تبدأ",
+    en: "NexaLearn understands you and builds a clear plan step by step — even if you don't know where to start",
   },
   heroCta1: { ar: "أنا مبتدئ وعايز أبدأ", en: "I'm a beginner and want to start" },
   heroCta2: { ar: "عايز أتعلم مهارة محددة", en: "I want to learn a specific skill" },

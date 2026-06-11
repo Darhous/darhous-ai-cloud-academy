@@ -695,7 +695,7 @@ export default function StudentDashboardClient({ locale }: Props) {
             </div>
             <div>
               <p className="text-xs font-mono mb-0.5" style={{ color: "var(--color-primary)" }}>
-                {isAr ? "My Darhous Hub 🌐" : "My Darhous Hub 🌐"}
+                {isAr ? "My NexaLearn Hub 🌐" : "My NexaLearn Hub 🌐"}
               </p>
               <h1 className="font-display font-bold text-2xl md:text-3xl" style={{ color: "var(--color-on-surface)" }}>
                 {displayName}
@@ -917,7 +917,7 @@ export default function StudentDashboardClient({ locale }: Props) {
           <div className="flex items-center justify-between">
             <h2 className="font-display font-bold text-xl flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
               <Grid3X3 size={18} style={{ color: "var(--color-secondary)" }} />
-              {isAr ? "بواباتي — كل بوابات درهوس" : "My Portals — All Darhous Portals"}
+              {isAr ? "بواباتي — كل بوابات NexaLearn" : "My Portals — All NexaLearn Portals"}
             </h2>
             <Link href={`/${locale}`} className="flex items-center gap-1 text-sm" style={{ color: "var(--color-secondary)" }}>
               {isAr ? "استكشف الكل" : "Explore All"} <Arrow size={14} />
@@ -1345,12 +1345,12 @@ function LoginGate({ isAr, locale }: { isAr: boolean; locale: string }) {
       style={{ background: "linear-gradient(135deg, rgba(0,102,138,0.15) 0%, rgba(87,27,193,0.12) 100%)", border: "1px solid rgba(142,213,255,0.1)" }}>
       <div className="text-5xl mb-5">🎓</div>
       <h1 className="font-display font-bold text-3xl md:text-4xl mb-3" style={{ color: "var(--color-on-surface)" }}>
-        {isAr ? "My Darhous Hub" : "My Darhous Hub"}
+        {isAr ? "My NexaLearn Hub" : "My NexaLearn Hub"}
       </h1>
       <p className="text-base max-w-md mx-auto mb-8" style={{ color: "var(--color-on-surface-variant)" }}>
         {isAr
-          ? "سجّل دخولك لتتبع تقدمك، وخطتك الذكية، وشهاداتك عبر كل بوابات درهوس."
-          : "Sign in to track your progress, smart plan, and certificates across all Darhous portals."}
+          ? "سجّل دخولك لتتبع تقدمك، وخطتك الذكية، وشهاداتك عبر كل بوابات NexaLearn."
+          : "Sign in to track your progress, smart plan, and certificates across all NexaLearn portals."}
       </p>
       <div className="flex flex-wrap gap-3 justify-center">
         <Link href={`/${locale}/login`} className="glow-button-primary text-white font-mono px-8 py-3 rounded-xl">
@@ -1373,7 +1373,7 @@ function LocalModeHeader({ isAr, locale }: { isAr: boolean; locale: string }) {
         <div>
           <p className="text-sm font-mono mb-1" style={{ color: "var(--color-primary)" }}>{isAr ? "مرحبًا 👋" : "Hello there 👋"}</p>
           <h1 className="font-display font-bold text-3xl md:text-4xl mb-2" style={{ color: "var(--color-on-surface)" }}>
-            {isAr ? "My Darhous Hub" : "My Darhous Hub"}
+            {isAr ? "My NexaLearn Hub" : "My NexaLearn Hub"}
           </h1>
           <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
             {isAr ? "تصفح موادك المحفوظة وأدوات الذكاء الاصطناعي" : "Browse your saved items and AI tools"}

@@ -14,8 +14,8 @@ export async function generateMetadata({
   return {
     title: isAr ? "نسيت كلمة المرور" : "Forgot Password",
     description: isAr
-      ? "إعادة تعيين كلمة مرور أكاديمية درهوس للذكاء الاصطناعي"
-      : "Reset your Darhous AI Cloud Academy password",
+      ? "إعادة تعيين كلمة مرور NexaLearn"
+      : "Reset your NexaLearn password",
     robots: { index: false },
   };
 }
@@ -41,7 +41,7 @@ export default async function ForgotPasswordPage({
             style={{ color: "var(--color-primary)" }}
           >
             <Bot size={26} style={{ color: "var(--color-tertiary)" }} />
-            {isAr ? "أكاديمية درهوس" : "Darhous AI"}
+            {isAr ? "NexaLearn" : "NexaLearn"}
           </Link>
           <h1
             className="font-display font-bold text-2xl mt-4 mb-1"

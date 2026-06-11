@@ -38,7 +38,7 @@ export async function generateMetadata({
   const isAr = locale === "ar";
   const allLessons = await fetchAllLessons();
   return {
-    title: isAr ? "دروس الأردوينو | مختبر درهوس" : "Arduino Lessons | Darhous IoT Lab",
+    title: isAr ? "دروس الأردوينو " : "Arduino Lessons | NexaLearn IoT Lab",
     description: isAr ? `${allLessons.length}+ درس بالعربية لتعلم برمجة الأردوينو من الصفر.` : `${allLessons.length}+ Arabic lessons to learn Arduino from scratch.`,
   };
 }

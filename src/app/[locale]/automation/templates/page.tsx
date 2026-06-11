@@ -51,8 +51,8 @@ export async function generateMetadata({
   const isAr = locale === "ar";
   return {
     title: isAr
-      ? "مكتبة قوالب الأتمتة — 30 وصفة أتمتة | درهوس"
-      : "Automation Recipe Library — 30 Curated Workflows | Darhous",
+      ? "مكتبة قوالب الأتمتة — 30 وصفة أتمتة"
+      : "Automation Recipe Library — 30 Curated Workflows",
     description: isAr
       ? "30 وصفة أتمتة منتقاة لأعمالك: مبيعات، تسويق، HR، تعليم، دعم عملاء، وأكثر."
       : "30 curated automation workflows for sales, marketing, HR, education, customer support and more.",
@@ -81,7 +81,7 @@ export default async function AutomationTemplatesPage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "مكتبة وصفات الأتمتة — درهوس",
+    name: "مكتبة وصفات الأتمتة",
     description: "30 وصفة أتمتة منتقاة لأعمالك",
     numberOfItems: visible.length,
     itemListElement: visible.map((w, i) => ({

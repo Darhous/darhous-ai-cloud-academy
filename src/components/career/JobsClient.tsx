@@ -48,7 +48,7 @@ const MOCK_JOBS: JobTarget[] = [
   {
     id: "4",
     title: "AI Product Manager",
-    company: "Darhous Digital",
+    company: "NexaLearn",
     location: "عن بعد (عالمي)",
     type: "دوام كامل",
     matchScore: 70,

@@ -8,8 +8,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: isAr ? "عن المنصة" : "About",
     description: isAr
-      ? "أكاديمية درهوس للذكاء الاصطناعي — منصة عربية تعليمية تجمع بين الجودة والعملية والمجتمع"
-      : "Darhous AI Cloud Academy — Arabic learning platform combining quality, practicality, and community",
+      ? "NexaLearn — منصة عربية تعليمية تجمع بين الجودة والعملية والمجتمع"
+      : "NexaLearn — Arabic learning platform combining quality, practicality, and community",
   };
 }
 
@@ -41,7 +41,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <div className="text-center">
         <SectionHeader
           badge={isAr ? "عن المنصة" : "About"}
-          title={isAr ? "عن أكاديمية درهوس" : "About Darhous AI Cloud Academy"}
+          title={isAr ? "عن NexaLearn" : "About NexaLearn"}
           subtitle={isAr
             ? "مبنية للمتعلمين العرب الذين يريدون إتقان الذكاء الاصطناعي بدون عوائق"
             : "Built for Arab learners who want to master AI without barriers"}
@@ -60,8 +60,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <div className="space-y-4 text-base leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
             <p>
               {isAr
-                ? "أكاديمية درهوس للذكاء الاصطناعي والكلاود وُلدت من حاجة حقيقية: المتعلم العربي يريد تعلم AI بلغته، بمحتوى عملي، وبطريقة منظمة تأخذه من الصفر إلى بناء مشاريع حقيقية."
-                : "Darhous AI Cloud Academy was born from a real need: Arab learners want to learn AI in their language, with practical content, and an organized way that takes them from zero to building real projects."}
+                ? "NexaLearn وُلدت من حاجة حقيقية: المتعلم العربي يريد تعلم AI بلغته، بمحتوى عملي، وبطريقة منظمة تأخذه من الصفر إلى بناء مشاريع حقيقية."
+                : "NexaLearn was born from a real need: Arab learners want to learn AI in their language, with practical content, and an organized way that takes them from zero to building real projects."}
             </p>
             <p>
               {isAr

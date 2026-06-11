@@ -62,7 +62,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "مستكشف أدوات الأتمتة | درهوس" : "Automation Tools Explorer | Darhous",
+    title: isAr ? "مستكشف أدوات الأتمتة" : "Automation Tools Explorer",
     description: isAr
       ? "دليل شامل لأدوات الأتمتة: n8n, Make, Zapier, Python — متى تستخدم كل أداة."
       : "Comprehensive guide to automation tools: n8n, Make, Zapier, Python — when to use each.",

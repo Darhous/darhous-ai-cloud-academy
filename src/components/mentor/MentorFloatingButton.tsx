@@ -137,7 +137,7 @@ export default function MentorFloatingButton({ locale }: Props) {
           WebkitBackdropFilter: "blur(12px)",
           boxShadow: "0 4px 24px rgba(142,213,255,0.12), 0 0 0 1px rgba(255,255,255,0.04)",
         }}
-        title={isAr ? "مرشد درهوس للذكاء الاصطناعي" : "Darhous AI Mentor"}
+        title={isAr ? "مرشد NexaLearn الذكي" : "NexaLearn AI Mentor"}
         onClick={() => {
           if (showHint) dismissHint();
         }}

@@ -21,7 +21,7 @@ export default function MentorHero({ isAr }: Props) {
 
       <h1 className="text-3xl md:text-4xl font-bold mb-3">
         <span className="gradient-text">
-          {isAr ? "مرشد درهوس للذكاء الاصطناعي" : "Darhous AI Mentor"}
+          {isAr ? "مرشد NexaLearn الذكي" : "NexaLearn AI Mentor"}
         </span>
       </h1>
 

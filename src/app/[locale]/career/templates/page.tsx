@@ -10,7 +10,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "قوالب السيرة الذاتية | درهوس" : "CV Templates | Darhous",
+    title: isAr ? "قوالب السيرة الذاتية" : "CV Templates",
     description: isAr
       ? "3 قوالب سيرة ذاتية احترافية جاهزة للتحميل — مصممة خصيصاً لسوق العمل العربي."
       : "3 professional CV templates ready to download — designed for the Arab job market.",

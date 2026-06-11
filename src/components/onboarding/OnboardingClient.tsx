@@ -123,7 +123,7 @@ export default function OnboardingClient({ locale }: Props) {
               <div className="flex flex-col items-center gap-5 text-center">
                 <div className="text-6xl">🎓</div>
                 <h1 className="font-display font-bold text-3xl" style={{ color: "var(--color-on-surface)" }}>
-                  {isAr ? "أهلاً بك في Darhous Academy!" : "Welcome to Darhous Academy!"}
+                  {isAr ? "أهلاً بك في NexaLearn!" : "Welcome to NexaLearn!"}
                 </h1>
                 <p className="text-base" style={{ color: "var(--color-on-surface-variant)" }}>
                   {isAr

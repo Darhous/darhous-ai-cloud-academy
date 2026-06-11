@@ -4604,7 +4604,7 @@ echo "✅ Claude Code v$(claude --version) مثبّت"
 
 # 2. إنشاء CLAUDE.md
 cat > CLAUDE.md << 'EOF'
-# مشروع Darhous AI Academy
+# مشروع NexaLearn AI Academy
 
 ## Stack التقني
 - Next.js 15 (App Router) + TypeScript strict

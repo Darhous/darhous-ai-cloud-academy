@@ -264,8 +264,8 @@ export default function DigitalExamClient({
   async function handleCopyResult() {
     if (!resultData) return;
     const text = isAr
-      ? `نتيجتي في اختبار ${subject.labelAr}:\n${resultData.percentage}% — ${resultData.score}/${activeQuestions.length} إجابة صحيحة\n${resultData.passed ? "✅ ناجح" : "❌ راسب"}\nمنصة درهوس التعليمية`
-      : `My result in ${subject.label} exam:\n${resultData.percentage}% — ${resultData.score}/${activeQuestions.length} correct\n${resultData.passed ? "✅ Passed" : "❌ Failed"}\nDarhous Academy`;
+      ? `نتيجتي في اختبار ${subject.labelAr}:\n${resultData.percentage}% — ${resultData.score}/${activeQuestions.length} إجابة صحيحة\n${resultData.passed ? "✅ ناجح" : "❌ راسب"}\nNexaLearn التعليمية`
+      : `My result in ${subject.label} exam:\n${resultData.percentage}% — ${resultData.score}/${activeQuestions.length} correct\n${resultData.passed ? "✅ Passed" : "❌ Failed"}\nNexaLearn`;
     await navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -275,8 +275,8 @@ export default function DigitalExamClient({
     if (!resultData) return;
     const text = encodeURIComponent(
       isAr
-        ? `حصلت على ${resultData.percentage}% في اختبار ${subject.labelAr} على منصة درهوس التعليمية! ${resultData.passed ? "✅ ناجح" : "📊 مستمر في التعلم"}`
-        : `I scored ${resultData.percentage}% in ${subject.label} exam on Darhous Academy! ${resultData.passed ? "✅ Passed" : "📊 Keep learning"}`
+        ? `حصلت على ${resultData.percentage}% في اختبار ${subject.labelAr} على NexaLearn التعليمية! ${resultData.passed ? "✅ ناجح" : "📊 مستمر في التعلم"}`
+        : `I scored ${resultData.percentage}% in ${subject.label} exam on NexaLearn! ${resultData.passed ? "✅ Passed" : "📊 Keep learning"}`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank");
   }

@@ -9,13 +9,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "الامتحان المجمع | درهوس" : "Mixed Comprehensive Exam | Darhous",
+    title: isAr ? "الامتحان المجمع" : "Mixed Comprehensive Exam",
     description: isAr
       ? "اختبار شامل من كل المواد — أثبت مهاراتك الكاملة في التحول الرقمي"
       : "Comprehensive exam from all subjects — prove your full digital transformation skills",
     robots: { index: true },
     openGraph: {
-      title: isAr ? "الامتحان المجمع — درهوس" : "Mixed Comprehensive Exam — Darhous",
+      title: isAr ? "الامتحان المجمع" : "Mixed Comprehensive Exam",
       description: isAr
         ? "30+ سؤال من 9 مواد — اختبر نفسك شاملاً واحصل على شهادة عند 80%+"
         : "30+ questions from 9 subjects — comprehensive self-test with certificate at 80%+",

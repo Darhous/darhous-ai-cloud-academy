@@ -14,8 +14,8 @@ export async function generateMetadata({
   return {
     title: isAr ? "تسجيل الدخول" : "Sign In",
     description: isAr
-      ? "تسجيل الدخول إلى أكاديمية درهوس للذكاء الاصطناعي"
-      : "Sign in to Darhous AI Cloud Academy",
+      ? "تسجيل الدخول إلى NexaLearn"
+      : "Sign in to NexaLearn",
     robots: { index: false },
   };
 }
@@ -38,10 +38,10 @@ export default async function LoginPage({
         <div className="text-center mb-8">
           <Link href={`/${locale}`} className="inline-flex items-center gap-2 font-display font-bold text-xl mb-2" style={{ color: "var(--color-primary)" }}>
             <Bot size={26} style={{ color: "var(--color-tertiary)" }} />
-            {isAr ? "أكاديمية درهوس" : "Darhous AI"}
+            {isAr ? "NexaLearn" : "NexaLearn"}
           </Link>
           <h1 className="font-display font-bold text-2xl mt-4 mb-1" style={{ color: "var(--color-on-surface)" }}>
-            {isAr ? "تسجيل الدخول إلى أكاديمية درهوس" : "Sign in to Darhous AI"}
+            {isAr ? "تسجيل الدخول إلى NexaLearn" : "Sign in to NexaLearn"}
           </h1>
           <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
             {isAr

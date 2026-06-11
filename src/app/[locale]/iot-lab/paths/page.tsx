@@ -35,7 +35,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "مسارات تعلم الأردوينو | مختبر درهوس" : "Arduino Learning Paths | Darhous IoT Lab",
+    title: isAr ? "مسارات تعلم الأردوينو " : "Arduino Learning Paths | NexaLearn IoT Lab",
     description: isAr ? "مسارات تعلم منظمة من الصفر للأردوينو وإنترنت الأشياء." : "Structured learning paths from zero for Arduino and IoT.",
   };
 }

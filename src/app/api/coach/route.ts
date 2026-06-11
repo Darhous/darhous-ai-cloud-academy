@@ -114,7 +114,7 @@ Latest course: ${courseProgress[0]?.course_slug ?? "none"}
 
       const aiText = await callGemini(
         [{ role: "user", content: `Based on this learner's profile, give a personalized daily AI learning coach message in JSON format:\n${contextSummary}\n\nReturn ONLY valid JSON with these keys: dailyTip (ar, en strings), nextLesson (ar, en strings, href string), suggestedProject (ar, en strings, href string), promptToTry (ar, en strings), streakMessage (ar, en strings).` }],
-        "You are a friendly, concise AI learning coach for the Darhous AI Academy. Always respond with valid JSON only, no markdown, no extra text. Href values should be relative paths like /courses, /prompts, /projects.",
+        "You are a friendly, concise AI learning coach for the NexaLearn AI Academy. Always respond with valid JSON only, no markdown, no extra text. Href values should be relative paths like /courses, /prompts, /projects.",
       );
 
       // Strip markdown code fences if present

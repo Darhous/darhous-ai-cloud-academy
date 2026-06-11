@@ -11,8 +11,8 @@ export async function generateMetadata({
 }: { params: Promise<{ username: string }> }): Promise<Metadata> {
   const { username } = await params;
   return {
-    title: `@${username} | Darhous AI Academy`,
-    description: `Public profile of ${username} on Darhous AI Cloud Academy`,
+    title: `@${username} | NexaLearn AI Academy`,
+    description: `Public profile of ${username} on NexaLearn`,
     robots: { index: true, follow: true },
   };
 }

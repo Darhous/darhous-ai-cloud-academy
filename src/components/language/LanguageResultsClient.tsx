@@ -206,12 +206,12 @@ export default function LanguageResultsClient({ locale }: { locale: string }) {
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "";
   const verifyUrl = result.certificate_id ? `${siteUrl}/${locale}/language/verify/${result.certificate_id}` : null;
-  const shareText = `🎓 I just completed the Darhous English Assessment!\n\n📊 Level: ${result.level}\n⭐ Score: ${Math.round(result.score)}%\n\nTake the free test: ${siteUrl}/${locale}/language${verifyUrl ? `\n\nVerify my certificate: ${verifyUrl}` : ""}`;
+  const shareText = `🎓 I just completed the NexaLearn English Assessment!\n\n📊 Level: ${result.level}\n⭐ Score: ${Math.round(result.score)}%\n\nTake the free test: ${siteUrl}/${locale}/language${verifyUrl ? `\n\nVerify my certificate: ${verifyUrl}` : ""}`;
 
   const linkedInUrl = result.certificate_id && result.created_at
     ? `https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME` +
-      `&name=${encodeURIComponent("Darhous English Placement Assessment")}` +
-      `&organizationName=${encodeURIComponent("Darhous Academy")}` +
+      `&name=${encodeURIComponent("NexaLearn English Placement")}` +
+      `&organizationName=${encodeURIComponent("NexaLearn")}` +
       `&issueYear=${new Date(result.created_at).getFullYear()}` +
       `&issueMonth=${new Date(result.created_at).getMonth() + 1}` +
       (verifyUrl ? `&certUrl=${encodeURIComponent(verifyUrl)}&certId=${encodeURIComponent(result.certificate_id ?? "")}` : "")

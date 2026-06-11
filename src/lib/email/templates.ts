@@ -1,4 +1,4 @@
-// Email templates for Darhous AI Cloud Academy
+// Email templates for NexaLearn
 // Used by src/lib/email/send.ts via Resend API
 
 export interface EmailTemplate {

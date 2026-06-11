@@ -29,8 +29,8 @@ export async function sendEmail({ to, template, from }: SendEmailOptions): Promi
     const resend = new Resend(apiKey);
 
     const fromAddress = from ?? (process.env.CONTACT_TO_EMAIL
-      ? `Darhous AI Academy <noreply@${process.env.CONTACT_TO_EMAIL.split("@")[1] ?? "darhous.ai"}>`
-      : "Darhous AI Academy <noreply@darhous.ai>");
+      ? `NexaLearn AI Academy <noreply@${process.env.CONTACT_TO_EMAIL.split("@")[1] ?? "darhous.ai"}>`
+      : "NexaLearn AI Academy <noreply@darhous.ai>");
 
     const { data, error } = await resend.emails.send({
       from: fromAddress,

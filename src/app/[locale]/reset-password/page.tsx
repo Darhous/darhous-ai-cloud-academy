@@ -38,7 +38,7 @@ export default async function ResetPasswordPage({
             style={{ color: "var(--color-primary)" }}
           >
             <Bot size={26} style={{ color: "var(--color-tertiary)" }} />
-            {isAr ? "أكاديمية درهوس" : "Darhous AI"}
+            {isAr ? "NexaLearn" : "NexaLearn"}
           </Link>
           <h1
             className="font-display font-bold text-2xl mt-4 mb-1"

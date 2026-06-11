@@ -54,12 +54,12 @@ export async function POST(req: NextRequest) {
         const { Resend } = await import("resend");
         const resend = new Resend(resendKey);
         await resend.emails.send({
-          from: "Darhous Academy <noreply@darhous.com>",
+          from: "NexaLearn <noreply@darhous.com>",
           to: toEmail,
           subject: `New contact message: ${safeSubject ?? "(no subject)"} — from ${safeName}`,
           html: `
             <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
-              <h2 style="color:#0c4a6e">New Contact Message — Darhous AI Academy</h2>
+              <h2 style="color:#0c4a6e">New Contact Message — NexaLearn AI Academy</h2>
               <table style="width:100%;border-collapse:collapse">
                 <tr><td style="padding:8px;font-weight:bold;color:#475569">Name</td><td style="padding:8px">${safeName}</td></tr>
                 <tr><td style="padding:8px;font-weight:bold;color:#475569">Email</td><td style="padding:8px"><a href="mailto:${safeEmail}">${safeEmail}</a></td></tr>

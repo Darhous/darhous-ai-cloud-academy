@@ -17,7 +17,7 @@ interface CarouselItem {
 }
 
 const items: CarouselItem[] = [
-  { id: "mentor",       icon: "✨", titleAr: "مساعد درهوس الذكي",         titleEn: "Darhous AI Mentor",      categoryAr: "AI Mentor",  categoryEn: "AI Mentor",  href: "/mentor",                accent: "#8ed5ff", bg: "rgba(56,189,248,0.08)" },
+  { id: "mentor",       icon: "✨", titleAr: "مرشد NexaLearn الذكي",         titleEn: "NexaLearn AI Mentor",      categoryAr: "AI Mentor",  categoryEn: "AI Mentor",  href: "/mentor",                accent: "#8ed5ff", bg: "rgba(56,189,248,0.08)" },
   { id: "studio",       icon: "⚡", titleAr: "استوديو البرومبتات",         titleEn: "Prompt Studio",          categoryAr: "AI Studio",  categoryEn: "AI Studio",  href: "/prompt-studio",         accent: "#d0bcff", bg: "rgba(208,188,255,0.08)" },
   { id: "claude-code",  icon: "🛠️", titleAr: "مولّد Claude Code",          titleEn: "Claude Code Generator",  categoryAr: "Claude Code", categoryEn: "Claude Code", href: "/claude-code-generator", accent: "#3ce0fb", bg: "rgba(60,224,251,0.08)" },
   { id: "tools-ai",     icon: "🔎", titleAr: "مرشّح الأدوات",               titleEn: "AI Tool Recommender",    categoryAr: "أدوات AI",   categoryEn: "AI Tools",   href: "/tool-recommender",      accent: "#86efac", bg: "rgba(74,222,128,0.08)" },

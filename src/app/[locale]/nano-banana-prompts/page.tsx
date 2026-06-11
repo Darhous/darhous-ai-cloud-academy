@@ -22,7 +22,7 @@ export async function generateMetadata({
       ? ["Gemini Nano Banana", "برومبتات صور", "تريند صور AI", "Gemini image prompts", "تحويل الصور"]
       : ["Gemini Nano Banana", "image prompts", "AI photo trends", "Gemini prompts", "photo transformation"],
     openGraph: {
-      title: isAr ? "مختبر برومبتات Gemini Nano Banana | أكاديمية درهوس" : "Gemini Nano Banana Prompt Lab | Darhous AI",
+      title: isAr ? "مختبر برومبتات Gemini Nano Banana | NexaLearn" : "Gemini Nano Banana Prompt Lab | NexaLearn",
       description: isAr
         ? "برومبتات جاهزة للنسخ لتحويل صورك إلى ستايلات تريندية احترافية."
         : "Copy-ready prompts to transform your photos into trending professional styles.",

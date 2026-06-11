@@ -89,8 +89,8 @@ export async function GET(
       academySubtitle="E N G L I S H   L A N G U A G E   P R O F I C I E N C Y"
       bodyLine1={
         isIncomplete
-          ? `has completed Stage ${stagesDone} of 10 of the Darhous English Language Assessment`
-          : "has successfully completed the Darhous English Language Placement Assessment"
+          ? `has completed Stage ${stagesDone} of 10 of the NexaLearn English Language Assessment`
+          : "has successfully completed the NexaLearn English Language Placement Assessment"
       }
       bodyLine2="and has been awarded the following CEFR proficiency level"
       box1Label="CEFR LEVEL"

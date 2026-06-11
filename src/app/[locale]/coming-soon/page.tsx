@@ -10,8 +10,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "بوابات قادمة | درهوس" : "Future Portals | Darhous",
-    description: isAr ? "استكشف ما تخطط له منصة درهوس في المستقبل" : "Explore what Darhous is planning for the future",
+    title: isAr ? "بوابات قادمة" : "Future Portals",
+    description: isAr ? "استكشف ما تخطط له NexaLearn في المستقبل" : "Explore what NexaLearn is planning for the future",
     robots: { index: false },
   };
 }

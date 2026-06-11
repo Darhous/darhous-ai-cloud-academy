@@ -72,7 +72,7 @@ export async function GET() {
             direction: "rtl",
           }}
         >
-          منصة تعلم ذكية من درهوس
+          منصة تعلم ذكية — NexaLearn
         </div>
 
         {/* English title */}
