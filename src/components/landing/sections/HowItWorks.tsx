@@ -4,21 +4,24 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const STEP_COLORS = [
-  "var(--color-primary)",    /* #8ed5ff - blue  */
-  "var(--color-secondary)",  /* #d0bcff - purple */
-  "var(--color-tertiary)",   /* #3ce0fb - teal  */
-  "#4ade80",                 /* green           */
+  "var(--color-primary)",    /* blue   */
+  "var(--color-secondary)",  /* purple */
+  "var(--color-tertiary)",   /* teal   */
+  "#4ade80",                 /* green  */
 ] as const;
+
+/* Width reserved for the timeline gutter (line + dot) on the end side */
+const GUTTER = "3rem";
 
 export default function HowItWorks({ locale }: { locale: string }) {
   const isAr = locale === "ar";
 
   const steps = isAr
     ? [
-        { num: "01", label: "اختر هدفك",                desc: "حدد مستواك واهتمامك والوقت المتاح لك يوميًا — بيبنيلك المرشد خطة بناءً عليها." },
-        { num: "02", label: "المرشد يبني لك خطة",        desc: "الذكاء الاصطناعي يصمم مسارًا أسبوعيًا مخصصًا بالكامل لك ولظروفك." },
-        { num: "03", label: "اتعلم وطبّق",               desc: "ادخل البوابات، اتعلم المحتوى، واعمل مشاريع حقيقية خطوة بخطوة." },
-        { num: "04", label: "احصل على شهادة وطوّر مسارك", desc: "شهادات معتمدة وتوصيات ذكية للخطوة القادمة بناءً على أداءك." },
+        { num: "01", label: "اختر هدفك",                 desc: "حدد مستواك واهتمامك والوقت المتاح لك يوميًا — بيبنيلك المرشد خطة بناءً عليها." },
+        { num: "02", label: "المرشد يبني لك خطة",         desc: "الذكاء الاصطناعي يصمم مسارًا أسبوعيًا مخصصًا بالكامل لك ولظروفك." },
+        { num: "03", label: "اتعلم وطبّق",                desc: "ادخل البوابات، اتعلم المحتوى، واعمل مشاريع حقيقية خطوة بخطوة." },
+        { num: "04", label: "احصل على شهادة وطوّر مسارك",  desc: "شهادات معتمدة وتوصيات ذكية للخطوة القادمة بناءً على أداءك." },
       ]
     : [
         { num: "01", label: "Choose Your Goal",           desc: "Set your level, interest, and daily time — the mentor builds on top of that." },
@@ -30,42 +33,38 @@ export default function HowItWorks({ locale }: { locale: string }) {
   return (
     <section id="journey" className="container-xl relative z-10">
       {/* Header */}
-      <StepHeader isAr={isAr} />
+      <SectionHeader isAr={isAr} />
 
-      {/* Timeline */}
-      <div className="relative mt-16 max-w-2xl mx-auto">
+      {/* Timeline body */}
+      <div className="relative mt-16 max-w-xl mx-auto">
 
-        {/* Vertical line */}
-        <VerticalLine total={steps.length} />
+        {/* Vertical line — positioned in the gutter at inline-end */}
+        <LineColumn total={steps.length} />
 
-        {/* Steps */}
-        <div className="flex flex-col gap-0">
-          {steps.map((step, i) => (
-            <TimelineStep
-              key={step.num}
-              num={step.num}
-              label={step.label}
-              desc={step.desc}
-              color={STEP_COLORS[i]}
-              index={i}
-              isAr={isAr}
-            />
-          ))}
-        </div>
+        {steps.map((step, i) => (
+          <TimelineStep
+            key={step.num}
+            num={step.num}
+            label={step.label}
+            desc={step.desc}
+            color={STEP_COLORS[i]}
+            index={i}
+            isAr={isAr}
+          />
+        ))}
       </div>
     </section>
   );
 }
 
 /* ─── Header ─────────────────────────────────────────────────── */
-function StepHeader({ isAr }: { isAr: boolean }) {
-  const ref  = useRef<HTMLDivElement>(null);
+function SectionHeader({ isAr }: { isAr: boolean }) {
+  const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
       className="text-center"
@@ -82,25 +81,24 @@ function StepHeader({ isAr }: { isAr: boolean }) {
   );
 }
 
-/* ─── Animated vertical line ────────────────────────────────── */
-function VerticalLine({ total }: { total: number }) {
+/* ─── Vertical line ──────────────────────────────────────────── */
+function LineColumn({ total }: { total: number }) {
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-
   return (
     <div
       ref={ref}
-      className="absolute start-6 md:start-1/2 top-0 w-px overflow-hidden"
+      className="absolute top-0 w-px overflow-hidden pointer-events-none"
       style={{
-        height: `${total * 140 - 40}px`,
+        insetInlineEnd: "calc(" + GUTTER + " - 1px)",
+        height: `${total * 148}px`,
         background: "rgba(255,255,255,0.06)",
       }}
     >
       <motion.div
-        className="w-full"
+        className="w-full h-full"
         style={{
           background: "linear-gradient(180deg, var(--color-primary), var(--color-secondary), var(--color-tertiary), #4ade80)",
-          height: "100%",
           transformOrigin: "top",
         }}
         initial={{ scaleY: 0 }}
@@ -111,7 +109,7 @@ function VerticalLine({ total }: { total: number }) {
   );
 }
 
-/* ─── Single step row ────────────────────────────────────────── */
+/* ─── Single step ────────────────────────────────────────────── */
 interface StepProps {
   num: string;
   label: string;
@@ -123,90 +121,72 @@ interface StepProps {
 
 function TimelineStep({ num, label, desc, color, index, isAr }: StepProps) {
   const ref    = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: isAr ? 32 : -32 }}
+      initial={{ opacity: 0, x: 24 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.55, delay: index * 0.12, ease: [0, 0, 0.2, 1] }}
-      className="relative flex items-start gap-6 md:gap-10 pb-16"
+      transition={{ duration: 0.5, delay: index * 0.1, ease: [0, 0, 0.2, 1] }}
+      className="relative pb-14"
+      style={{ paddingInlineEnd: `calc(${GUTTER} + 1rem)` }}
     >
-      {/* Dot on the line */}
+      {/* Dot — on the line */}
       <div
-        className="relative flex-shrink-0 flex items-center justify-center mt-1"
-        style={{ width: "3rem", height: "3rem" }}
+        className="absolute top-1 flex items-center justify-center"
+        style={{
+          insetInlineEnd: `calc(${GUTTER} - 1rem)`,
+          width: "2rem", height: "2rem",
+        }}
       >
-        {/* Outer pulse ring */}
+        {/* Outer ring */}
         <motion.div
           className="absolute rounded-full"
-          animate={inView ? { scale: [1, 1.5, 1], opacity: [0.4, 0, 0.4] } : {}}
-          transition={{ duration: 2.4, repeat: Infinity, delay: index * 0.4 }}
-          style={{
-            width: "2.5rem", height: "2.5rem",
-            background: color,
-            borderRadius: "50%",
-          }}
+          animate={inView ? { scale: [1, 1.6, 1], opacity: [0.35, 0, 0.35] } : {}}
+          transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.3 }}
+          style={{ width: "2.2rem", height: "2.2rem", background: color }}
         />
-        {/* Dot */}
+        {/* Inner dot */}
         <div
           className="relative z-10 rounded-full flex items-center justify-center"
           style={{
-            width: "2rem", height: "2rem",
+            width: "1.5rem", height: "1.5rem",
             background: "var(--color-surface)",
             border: `2px solid ${color}`,
-            boxShadow: `0 0 14px ${color}55`,
+            boxShadow: `0 0 10px ${color}55`,
           }}
         >
-          <div className="w-2.5 h-2.5 rounded-full" style={{ background: color }} />
+          <div className="rounded-full" style={{ width: "0.55rem", height: "0.55rem", background: color }} />
         </div>
       </div>
 
-      {/* Content */}
-      <div className="flex-1 pb-2">
-        {/* Step number */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: index * 0.12 + 0.1 }}
-          className="font-mono text-xs tracking-[0.25em] uppercase mb-2"
-          style={{ color }}
-        >
+      {/* Text content */}
+      <div>
+        <p className="font-mono text-xs tracking-[0.22em] uppercase mb-2" style={{ color }}>
           {isAr ? `خطوة ${num}` : `STEP ${num}`}
-        </motion.p>
+        </p>
 
-        {/* Title — big */}
-        <motion.h3
-          initial={{ opacity: 0, y: 12 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: index * 0.12 + 0.15, ease: [0, 0, 0.2, 1] }}
-          className="font-display font-black text-2xl md:text-3xl mb-3"
+        <h3
+          className="font-display font-black text-2xl md:text-3xl mb-2 leading-tight"
           style={{ color: "var(--color-on-surface)", letterSpacing: "-0.02em" }}
         >
           {label}
-        </motion.h3>
+        </h3>
 
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: index * 0.12 + 0.22, ease: [0, 0, 0.2, 1] }}
-          className="text-base leading-relaxed"
-          style={{ color: "var(--color-on-surface-variant)", maxWidth: "36rem" }}
-        >
+        <p className="text-base leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>
           {desc}
-        </motion.p>
+        </p>
 
-        {/* Accent line under title */}
+        {/* Accent line */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={inView ? { scaleX: 1 } : {}}
-          transition={{ duration: 0.6, delay: index * 0.12 + 0.28, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.55, delay: index * 0.1 + 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-4 h-px rounded-full"
           style={{
             background: `linear-gradient(${isAr ? "to left" : "to right"}, ${color}55, transparent)`,
-            maxWidth: "14rem",
+            maxWidth: "12rem",
             transformOrigin: isAr ? "right" : "left",
           }}
         />

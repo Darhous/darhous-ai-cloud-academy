@@ -34,19 +34,11 @@ export default function RotatingWord({
       <AnimatePresence mode="wait">
         <motion.span
           key={index}
-          initial={{ rotateX: -90, opacity: 0 }}
-          animate={{ rotateX: 0,   opacity: 1 }}
-          exit={{   rotateX:  90,  opacity: 0 }}
-          transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
-          style={{
-            display: "inline-block",
-            color,
-            textShadow: `0 0 32px ${color}88`,
-            perspective: "800px",
-            perspectiveOrigin: "50% 50%",
-            transformStyle: "preserve-3d",
-            originY: "50%",
-          }}
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0,   opacity: 1 }}
+          exit={{   y:  20,  opacity: 0 }}
+          transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
+          style={{ display: "inline-block", color }}
         >
           {words[index]}
         </motion.span>

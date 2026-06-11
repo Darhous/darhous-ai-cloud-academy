@@ -48,7 +48,7 @@ function BigPortalCard({
         position: "sticky",
         top: 80 + index * 22,
         zIndex: index + 1,
-        marginTop: index === 0 ? 0 : "calc(-56vh + 24px)",
+        marginTop: index === 0 ? 0 : "-110px",
         transformOrigin: "top center",
       }
     : { marginBottom: "1.25rem" };

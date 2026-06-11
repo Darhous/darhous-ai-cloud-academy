@@ -67,7 +67,7 @@ export default function HomepageClient({ locale }: { locale: string }) {
   }
 
   return (
-    <div className="flex flex-col gap-16 md:gap-20 pb-16 md:pb-20 overflow-x-hidden">
+    <div className="flex flex-col gap-16 md:gap-20 pb-16 md:pb-20" style={{ overflowX: "clip" }}>
       <CinematicIntro locale={locale} />
       <ScrollIndicator locale={locale} />
       <SmartPlatformTour locale={locale} isOpen={tourOpen} onClose={() => setTourOpen(false)} />
