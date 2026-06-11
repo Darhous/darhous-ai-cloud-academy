@@ -80,5 +80,14 @@
   },
   "ui_lab_created": true,
   "git_note": "External concurrent commit e1245cd captured package integration and ef393b3 captured global CSS integration on origin/main; remaining phase files are committed separately.",
+  "git": {
+    "setup_commit": "42f8001",
+    "commit_created": true,
+    "push_completed": true,
+    "tag": "checkpoint/ui-library-foundation-setup-v1",
+    "tag_pushed": true,
+    "release_created": true,
+    "release_url": "https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/ui-library-foundation-setup-v1"
+  },
   "status": "Stable and ready for the next controlled implementation phase"
 }
