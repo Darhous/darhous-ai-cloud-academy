@@ -37,12 +37,12 @@
   },
   "sections_per_concept": 14,
   "validations": {
-    "typecheck": "pending",
-    "lint": "pending",
-    "build": "pending",
-    "git_diff_check": "pending"
+    "typecheck": "passed (build exit code 0)",
+    "lint": "passed (0 errors, 96 warnings — all pre-existing)",
+    "build": "passed (12 new design-lab routes generated)",
+    "git_diff_check": "passed"
   },
-  "commit_hash": "pending",
-  "tag": "pending",
-  "release_url": "pending"
+  "commit_hash": "e90481c",
+  "tag": "checkpoint/reference-homepage-redesign-concepts-v1",
+  "release_url": "https://github.com/Darhous/darhous-ai-cloud-academy/releases/tag/checkpoint/reference-homepage-redesign-concepts-v1"
 }
