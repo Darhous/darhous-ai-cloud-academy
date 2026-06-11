@@ -50,7 +50,7 @@
   "career_apply_button_fix": "disabled=true + cursor-not-allowed + opacity-40 + title tooltip",
   "final_launch_gate_decision": "soft_launch_only",
   "addendum_date": "2026-06-12",
-  "addendum_commit": "TBD",
+  "addendum_commit": "9082e5078bd30358403dba9c67c2087c12253f12",
   "files_changed": [
     "README.md",
     "docs/archive/CLAUDE_CONTINUATION_CONTEXT.md",
