@@ -6,43 +6,68 @@ interface MarqueeStripProps {
   items: string[];
   locale: string;
   speed?: "slow" | "normal" | "fast";
+  /** Color accent for pills. Defaults to primary. */
+  accent?: string;
 }
 
 const speedDuration = {
-  slow: "50s",
-  normal: "35s",
-  fast: "22s",
+  slow:   "55s",
+  normal: "36s",
+  fast:   "22s",
 } as const;
 
 export default function MarqueeStrip({
   items,
   locale,
   speed = "normal",
+  accent,
 }: MarqueeStripProps) {
   const shouldReduceMotion = useReducedMotion();
   const trackClass = locale === "ar" ? "marquee-track-rtl" : "marquee-track";
+
+  const pillStyle: React.CSSProperties = accent
+    ? {
+        background: `${accent}14`,
+        border: `1px solid ${accent}28`,
+        color: accent,
+      }
+    : {
+        background: "rgba(142,213,255,0.08)",
+        border: "1px solid rgba(142,213,255,0.18)",
+        color: "var(--color-primary)",
+      };
 
   const renderItems = (set: "primary" | "duplicate") =>
     items.map((item, index) => (
       <span
         key={`${set}-${index}-${item}`}
-        className="marquee-item inline-block shrink-0"
+        className="inline-flex items-center gap-3 shrink-0"
         aria-hidden={set === "duplicate" ? true : undefined}
       >
-        {item} ·{" "}
+        {/* Pill badge */}
+        <span
+          className="inline-block px-3.5 py-1.5 rounded-full font-mono text-[11px] tracking-wide whitespace-nowrap"
+          style={pillStyle}
+        >
+          {item}
+        </span>
+        {/* Separator */}
+        <span
+          className="text-[10px] opacity-30"
+          style={{ color: pillStyle.color as string }}
+        >
+          ✦
+        </span>
       </span>
     ));
 
   return (
     <div
-      className="w-full border-y py-3 font-mono text-xs"
-      style={{
-        borderColor: "rgba(255,255,255,0.06)",
-        color: "var(--color-on-surface-variant)",
-      }}
+      className="w-full border-y py-2.5"
+      style={{ borderColor: "rgba(255,255,255,0.06)" }}
     >
       {shouldReduceMotion ? (
-        <div className="container-xl flex flex-wrap items-center justify-center gap-x-3 gap-y-2 whitespace-normal">
+        <div className="container-xl flex flex-wrap items-center justify-center gap-2">
           {renderItems("primary")}
         </div>
       ) : (

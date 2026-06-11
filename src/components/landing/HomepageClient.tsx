@@ -78,6 +78,7 @@ export default function HomepageClient({ locale }: { locale: string }) {
           items={portalItems}
           locale={isAr ? "en" : "ar"}
           speed="slow"
+          accent="#d0bcff"
         />
       </div>
       <ScrollStackSection locale={locale} />

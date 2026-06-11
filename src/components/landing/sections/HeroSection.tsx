@@ -5,6 +5,7 @@ import {
   Sparkles, ArrowRight, ArrowLeft, Target, ChevronDown,
   Bot, Globe, Monitor, Briefcase, Settings2, Cpu, CheckCircle2, Play
 } from "lucide-react";
+import RotatingWord from "@/components/ui/RotatingWord";
 
 interface Props {
   locale: string;
@@ -67,13 +68,25 @@ export default function HeroSection({ locale, scrollToPath, onStartTour }: Props
         >
           {isAr ? (
             <>
-              <span className="text-gradient-premium">تعلّم بذكاء.</span> <br className="hidden md:block"/>
-              ابنِ بمهارة. تقدّم بثقة.
+              تعلّم{" "}
+              <RotatingWord
+                words={["بذكاء.", "بمهارة.", "بثقة.", "بسرعة."]}
+                interval={2400}
+                color="#8ed5ff"
+                className="text-gradient-premium"
+              />
+              <br className="hidden md:block"/>
+              ابنِ مستقبلك مع NexaLearn.
             </>
           ) : (
             <>
-              <span className="text-gradient-premium">Learn Intelligently.</span> <br className="hidden md:block"/>
-              Build Skillfully. Advance Confidently.
+              <RotatingWord
+                words={["Learn.", "Build.", "Grow.", "Lead."]}
+                interval={2400}
+                color="#8ed5ff"
+                className="text-gradient-premium"
+              />
+              {" "}Intelligently with NexaLearn.
             </>
           )}
         </motion.h1>
