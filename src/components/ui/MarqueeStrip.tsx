@@ -1,6 +1,5 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 
 /* ─── Types ─────────────────────────────────────────────────────── */
@@ -32,7 +31,6 @@ export default function MarqueeStrip({
   speed = "normal",
   accent,
 }: MarqueeStripProps) {
-  const shouldReduceMotion = useReducedMotion();
   const isRtl = locale === "ar";
   const trackClass = isRtl ? "marquee-track-rtl" : "marquee-track";
 
@@ -99,21 +97,15 @@ export default function MarqueeStrip({
       className="w-full border-y py-2.5"
       style={{ borderColor: "rgba(255,255,255,0.06)" }}
     >
-      {shouldReduceMotion ? (
-        <div className="container-xl flex flex-wrap items-center justify-center gap-2">
+      <div className="marquee-container w-full" aria-label={allLabels}>
+        <div
+          className={trackClass}
+          style={{ animationDuration: speedDuration[speed] }}
+        >
           {useRich ? renderRichItems("primary") : renderTextItems("primary")}
+          {useRich ? renderRichItems("duplicate") : renderTextItems("duplicate")}
         </div>
-      ) : (
-        <div className="marquee-container w-full" aria-label={allLabels}>
-          <div
-            className={trackClass}
-            style={{ animationDuration: speedDuration[speed] }}
-          >
-            {useRich ? renderRichItems("primary") : renderTextItems("primary")}
-            {useRich ? renderRichItems("duplicate") : renderTextItems("duplicate")}
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   );
 }
