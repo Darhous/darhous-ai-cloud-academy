@@ -20,7 +20,10 @@ interface CourseProgress {
   status: string;
 }
 
-const BASE_URL = "https://darhous-ai-cloud-academy.vercel.app";
+const BASE_URL =
+  typeof window !== "undefined"
+    ? window.location.origin
+    : "https://darhous-ai-cloud-academy.vercel.app";
 
 function CertificateCard({ cert, isAr, locale: _locale }: { cert: Certificate; isAr: boolean; locale: string }) {
   const verifyUrl = `${BASE_URL}/certificates/verify/${cert.certificate_code}`;
@@ -28,42 +31,168 @@ function CertificateCard({ cert, isAr, locale: _locale }: { cert: Certificate; i
   function handlePrint() {
     const printWindow = window.open("", "_blank");
     if (!printWindow) return;
-    printWindow.document.write(`
-<!DOCTYPE html>
+    const issuedDate = new Date(cert.issued_at).toLocaleDateString(isAr ? "ar-EG" : "en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    printWindow.document.write(`<!DOCTYPE html>
 <html lang="${isAr ? "ar" : "en"}" dir="${isAr ? "rtl" : "ltr"}">
 <head>
 <meta charset="utf-8">
-<title>Certificate | ${cert.certificate_code}</title>
+<title>${isAr ? "شهادة إتمام" : "Certificate"} | ${cert.certificate_code}</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0a0f1e; color: #fff; font-family: system-ui, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 40px; }
-  .cert { border: 3px solid #fbbf24; border-radius: 16px; padding: 60px; max-width: 800px; width: 100%; text-align: center; background: linear-gradient(135deg, #0a0f1e, #1a2236); }
-  h1 { color: #fbbf24; font-size: 14px; letter-spacing: 4px; margin-bottom: 20px; text-transform: uppercase; }
-  h2 { color: #fff; font-size: 36px; margin: 16px 0; }
-  p { color: #8ed5ff; font-size: 18px; margin: 8px 0; }
-  .course { font-size: 22px; font-weight: bold; color: #fff; margin: 20px 0; }
-  .code { font-family: monospace; color: #fbbf24; font-size: 14px; margin-top: 30px; padding: 10px 20px; border: 1px solid #fbbf24; border-radius: 8px; display: inline-block; }
-  .date { color: #64748b; font-size: 12px; margin-top: 20px; }
-  @media print { body { background: white; } .cert { border-color: #333; background: white; } h1, h2, p, .code { color: #000; } }
+  html, body { width: 100%; height: 100%; }
+  body {
+    background: #080c14;
+    font-family: 'Inter', system-ui, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 24px;
+  }
+  .cert-wrap {
+    position: relative;
+    max-width: 860px; width: 100%;
+    background: linear-gradient(155deg, #0d1321 0%, #111827 50%, #0a0f1e 100%);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+  }
+  /* Gold border frame */
+  .cert-wrap::before {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: 24px;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg,#fbbf24,#f59e0b,#fbbf24,#d97706) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  /* Top gradient bar */
+  .cert-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #00668a, #571bc1, #fbbf24, #571bc1, #00668a);
+  }
+  .cert-body { padding: 52px 64px 44px; text-align: center; }
+  /* Corner ornaments */
+  .ornament {
+    position: absolute; font-size: 28px; opacity: 0.18; pointer-events: none;
+    color: #fbbf24;
+  }
+  .ornament.tl { top: 22px; left: 28px; }
+  .ornament.tr { top: 22px; right: 28px; }
+  .ornament.bl { bottom: 22px; left: 28px; }
+  .ornament.br { bottom: 22px; right: 28px; }
+
+  .logo-line {
+    font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.35); margin-bottom: 28px; font-weight: 600;
+  }
+  .cert-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px; letter-spacing: 6px; text-transform: uppercase;
+    color: #fbbf24; margin-bottom: 32px; font-weight: 700;
+  }
+  .trophy { font-size: 64px; margin-bottom: 20px; display: block; }
+  .certifies-text { font-size: 15px; color: #94a3b8; margin-bottom: 10px; }
+  .learner-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px; font-weight: 800;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 12px; line-height: 1.2;
+  }
+  .completed-text { font-size: 15px; color: #94a3b8; margin-bottom: 16px; }
+  .course-name {
+    font-size: 22px; font-weight: 700;
+    color: #e2e8f0; margin-bottom: 14px; line-height: 1.3;
+  }
+  .platform-name { font-size: 14px; color: #64748b; margin-bottom: 36px; }
+  .divider {
+    width: 200px; height: 1px; margin: 0 auto 32px;
+    background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+  }
+  .meta-row { display: flex; justify-content: center; gap: 40px; margin-bottom: 28px; flex-wrap: wrap; }
+  .meta-item { text-align: center; }
+  .meta-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #475569; margin-bottom: 4px; }
+  .meta-value { font-size: 13px; font-weight: 600; color: #cbd5e1; }
+  .cert-code-box {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(251,191,36,0.07); border: 1px solid rgba(251,191,36,0.25);
+    border-radius: 10px; padding: 10px 20px; margin-bottom: 24px;
+  }
+  .cert-code {
+    font-family: monospace; font-size: 14px; font-weight: 700;
+    color: #fbbf24; letter-spacing: 1px;
+  }
+  .verify-url { font-size: 11px; color: #475569; margin-top: 4px; }
+  .verify-url a { color: #64748b; text-decoration: none; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .cert-wrap {
+      background: #fff;
+      box-shadow: none;
+      max-width: 100%; border-radius: 0;
+    }
+    .cert-wrap::before { display: none; }
+    .cert-bar { background: #f59e0b; }
+    .logo-line, .certifies-text, .completed-text, .platform-name { color: #6b7280; }
+    .learner-name { -webkit-text-fill-color: #92400e; }
+    .course-name { color: #111; }
+    .cert-title { color: #92400e; }
+    .cert-code { color: #92400e; }
+    .meta-value { color: #374151; }
+    .ornament { color: #92400e; opacity: 0.12; }
+    .divider { background: #92400e; }
+  }
 </style>
 </head>
 <body>
-<div class="cert">
-  <h1>${isAr ? "شهادة إتمام" : "Certificate of Completion"}</h1>
-  <div style="font-size:64px;margin:20px 0;">🎓</div>
-  <p>${isAr ? "تُمنح هذه الشهادة لـ" : "This certifies that"}</p>
-  <h2 style="color:#fbbf24;">${isAr ? "المتعلم المتميز" : "Distinguished Learner"}</h2>
-  <p>${isAr ? "أتمّ دورة" : "has successfully completed"}</p>
-  <div class="course">${cert.course_title}</div>
-  <p>${isAr ? "في أكاديمية درهوس للذكاء الاصطناعي والكلاود" : "at Darhous AI Cloud Academy"}</p>
-  <div class="code">🔐 ${cert.certificate_code}</div>
-  <div class="date">${isAr ? "تاريخ الإصدار:" : "Issued:"} ${new Date(cert.issued_at).toLocaleDateString(isAr ? "ar" : "en")}</div>
-  <div class="date" style="margin-top:8px;">✅ ${isAr ? "تحقق:" : "Verify:"} ${verifyUrl}</div>
+<div class="cert-wrap">
+  <div class="cert-bar"></div>
+  <div class="ornament tl">✦</div>
+  <div class="ornament tr">✦</div>
+  <div class="ornament bl">✦</div>
+  <div class="ornament br">✦</div>
+
+  <div class="cert-body">
+    <p class="logo-line">NexaLearn by Ahmed Darhous</p>
+    <p class="cert-title">${isAr ? "شـهـادة إتـمـام" : "Certificate of Completion"}</p>
+    <span class="trophy">🏆</span>
+    <p class="certifies-text">${isAr ? "تُمنح هذه الشهادة إلى" : "This certificate is proudly awarded to"}</p>
+    <p class="learner-name">${isAr ? "المتعلم المتميز" : "Distinguished Learner"}</p>
+    <p class="completed-text">${isAr ? "لإتمامه بنجاح دورة" : "for successfully completing"}</p>
+    <p class="course-name">${cert.course_title}</p>
+    <p class="platform-name">${isAr ? "منصة NexaLearn للذكاء الاصطناعي" : "NexaLearn AI Learning Platform"}</p>
+
+    <div class="divider"></div>
+
+    <div class="meta-row">
+      <div class="meta-item">
+        <p class="meta-label">${isAr ? "تاريخ الإصدار" : "Issue Date"}</p>
+        <p class="meta-value">${issuedDate}</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">${isAr ? "الحالة" : "Status"}</p>
+        <p class="meta-value" style="color:#4ade80;">✓ ${isAr ? "مُكتملة" : "Completed"}</p>
+      </div>
+    </div>
+
+    <div class="cert-code-box">
+      <span style="color:#fbbf24;font-size:14px;">🔐</span>
+      <span class="cert-code">${cert.certificate_code}</span>
+    </div>
+    <p class="verify-url">${isAr ? "تحقق عبر:" : "Verify at:"} <a href="${verifyUrl}">${verifyUrl}</a></p>
+  </div>
 </div>
+<script>window.onload=function(){window.print();};</script>
 </body>
 </html>`);
     printWindow.document.close();
-    setTimeout(() => printWindow.print(), 500);
   }
 
   return (

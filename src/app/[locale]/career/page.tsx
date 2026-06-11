@@ -12,13 +12,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "بوابة درهوس المهنية | درهوس" : "Darhous Career Hub | Darhous",
+    title: isAr ? "بوابة NexaLearn المهنية" : "NexaLearn Career Hub",
     description: isAr
       ? "حلل سيرتك الذاتية بالذكاء الاصطناعي، اكتشف فجوات مهاراتك، وتحضّر للمقابلات بثقة."
       : "AI-powered CV analysis, ATS scoring, job matching and interview preparation.",
     robots: { index: true },
     openGraph: {
-      title: isAr ? "بوابة درهوس المهنية" : "Darhous Career Hub",
+      title: isAr ? "بوابة NexaLearn المهنية" : "NexaLearn Career Hub",
       description: isAr
         ? "حلل سيرتك الذاتية بالذكاء الاصطناعي، درجة ATS، بناء السيرة الذاتية، تحضير المقابلات وقوالب جاهزة."
         : "AI CV analysis, ATS score, CV builder, interview prep and ready-to-use templates.",
@@ -150,7 +150,7 @@ export default async function CareerHubPage({
             className="font-display font-bold text-4xl md:text-5xl mb-4 leading-tight"
             style={{ color: "var(--color-on-surface)" }}
           >
-            بوابة درهوس{" "}
+            {isAr ? "بوابة " : ""}
             <span
               className="bg-clip-text"
               style={{
@@ -159,7 +159,7 @@ export default async function CareerHubPage({
                 backgroundImage: "linear-gradient(135deg, #f59e0b, #fbbf24)",
               }}
             >
-              المهنية
+              {isAr ? "NexaLearn المهنية" : "NexaLearn Career Hub"}
             </span>
           </h1>
           <p

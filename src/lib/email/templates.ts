@@ -13,8 +13,8 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://darhous-ai-cloud-a
 export function welcomeTemplate(name: string, locale: string = "ar"): EmailTemplate {
   const isAr = locale === "ar";
   const subject = isAr
-    ? "مرحباً بك في أكاديمية درهوس! 🎓"
-    : "Welcome to Darhous AI Academy! 🎓";
+    ? `مرحباً بك في NexaLearn يا ${name}! 🎓`
+    : `Welcome to NexaLearn, ${name}! 🎓`;
 
   const html = `
 <!DOCTYPE html>
@@ -31,8 +31,8 @@ export function welcomeTemplate(name: string, locale: string = "ar"): EmailTempl
       </div>
       <p style="color:#b0c4d8;line-height:1.7;font-size:16px;">
         ${isAr
-          ? "نحن سعداء بانضمامك إلى أكاديمية درهوس للذكاء الاصطناعي والكلاود. رحلتك في عالم AI تبدأ الآن!"
-          : "We're thrilled to have you join Darhous AI Cloud Academy. Your AI journey starts now!"}
+          ? "نحن سعداء بانضمامك إلى NexaLearn — المنصة العربية الأولى للذكاء الاصطناعي. رحلتك تبدأ الآن!"
+          : "We're thrilled to have you join NexaLearn by Ahmed Darhous. Your AI journey starts now!"}
       </p>
       <div style="margin:24px 0;">
         ${isAr ? `
@@ -60,7 +60,7 @@ export function welcomeTemplate(name: string, locale: string = "ar"): EmailTempl
       </div>
     </div>
     <p style="text-align:center;color:#4a5568;font-size:12px;margin-top:24px;">
-      ${isAr ? "أكاديمية درهوس للذكاء الاصطناعي والكلاود" : "Darhous AI Cloud Academy"} •
+      NexaLearn by Ahmed Darhous •
       <a href="${BASE_URL}/${locale}/privacy" style="color:#4a5568;">
         ${isAr ? "الخصوصية" : "Privacy"}
       </a>
@@ -70,8 +70,8 @@ export function welcomeTemplate(name: string, locale: string = "ar"): EmailTempl
 </html>`;
 
   const text = isAr
-    ? `مرحباً يا ${name}!\n\nمرحباً بك في أكاديمية درهوس للذكاء الاصطناعي.\nابدأ التعلم على: ${BASE_URL}/${locale}/dashboard`
-    : `Welcome, ${name}!\n\nWelcome to Darhous AI Cloud Academy.\nStart learning at: ${BASE_URL}/${locale}/dashboard`;
+    ? `مرحباً يا ${name}!\n\nمرحباً بك في NexaLearn by Ahmed Darhous.\nابدأ التعلم على: ${BASE_URL}/${locale}/dashboard`
+    : `Welcome, ${name}!\n\nWelcome to NexaLearn by Ahmed Darhous.\nStart learning at: ${BASE_URL}/${locale}/dashboard`;
 
   return { subject, html, text };
 }
@@ -119,7 +119,7 @@ export function day3ReminderTemplate(name: string, locale: string = "ar"): Email
 export function weeklyDigestTemplate(name: string, locale: string = "ar"): EmailTemplate {
   const isAr = locale === "ar";
   return {
-    subject: isAr ? "ملخصك الأسبوعي من درهوس 📊" : "Your weekly digest from Darhous 📊",
+    subject: isAr ? "ملخصك الأسبوعي من NexaLearn 📊" : "Your weekly digest from NexaLearn 📊",
     html: `<p>${isAr ? `مرحباً ${name}` : `Hello ${name}`}</p><p>${isAr ? "ملخص الأسبوع قادم قريباً!" : "Weekly digest coming soon!"}</p>`,
     text: isAr ? `مرحباً ${name} — ملخص الأسبوع` : `Hello ${name} — weekly digest`,
   };

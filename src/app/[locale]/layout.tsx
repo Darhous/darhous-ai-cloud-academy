@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import CommandPaletteProvider from "@/components/features/CommandPaletteProvider";
 import MentorFloatingButton from "@/components/mentor/MentorFloatingButton";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import MotionProvider from "@/components/providers/MotionProvider";
 import { locales } from "@/lib/i18n";
 import { getDir } from "@/lib/utils";
 
@@ -137,40 +138,42 @@ export default async function LocaleLayout({
         />
       </head>
       <body dir={dir} className="bg-grid-overlay min-h-screen flex flex-col" suppressHydrationWarning>
-        {/* Skip to main content — keyboard / screen-reader a11y */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:z-[200] focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium"
-          style={{
-            background: "var(--color-primary)",
-            color: "#0c0e12",
-            insetInlineStart: "1rem",
-          }}
-        >
-          {isAr ? "تخطى إلى المحتوى الرئيسي" : "Skip to main content"}
-        </a>
-
-        {/* Single ambient orb — reduced from 3 for visual calm + performance */}
-        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-          <div
-            className="absolute top-[-10%] right-[-5%] rounded-full"
+        <MotionProvider>
+          {/* Skip to main content — keyboard / screen-reader a11y */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:z-[200] focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium"
             style={{
-              width: "50vw",
-              height: "50vw",
-              background: "radial-gradient(circle, rgba(56,189,248,0.06) 0%, transparent 70%)",
-              filter: "blur(80px)",
+              background: "var(--color-primary)",
+              color: "#0c0e12",
+              insetInlineStart: "1rem",
             }}
-          />
-        </div>
+          >
+            {isAr ? "تخطى إلى المحتوى الرئيسي" : "Skip to main content"}
+          </a>
 
-        <Navbar locale={locale} />
-        <CommandPaletteProvider locale={locale} />
-        <MentorFloatingButton locale={locale} />
-        <ScrollToTop />
-        <main id="main-content" className="flex-1 relative z-10" style={{ paddingTop: "64px" }}>
-          {children}
-        </main>
-        <Footer locale={locale} />
+          {/* Single ambient orb — reduced from 3 for visual calm + performance */}
+          <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+            <div
+              className="absolute top-[-10%] right-[-5%] rounded-full"
+              style={{
+                width: "50vw",
+                height: "50vw",
+                background: "radial-gradient(circle, rgba(56,189,248,0.06) 0%, transparent 70%)",
+                filter: "blur(80px)",
+              }}
+            />
+          </div>
+
+          <Navbar locale={locale} />
+          <CommandPaletteProvider locale={locale} />
+          <MentorFloatingButton locale={locale} />
+          <ScrollToTop />
+          <main id="main-content" className="flex-1 relative z-10" style={{ paddingTop: "64px" }}>
+            {children}
+          </main>
+          <Footer locale={locale} />
+        </MotionProvider>
       </body>
     </html>
   );

@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isAr = locale === "ar";
   return {
-    title: isAr ? "مرشد درهوس للذكاء الاصطناعي" : "Darhous AI Mentor",
+    title: isAr ? "مرشد NexaLearn الذكي" : "NexaLearn AI Mentor",
     description: isAr
       ? "مساعدك الذكي الشخصي لتعلم الذكاء الاصطناعي — اسأل، تعلم، راجع كودك، وخطط مسيرتك المهنية"
       : "Your personal AI mentor — ask questions, learn AI concepts, review code, and plan your career",

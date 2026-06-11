@@ -76,9 +76,9 @@ async function runReengagement(req: NextRequest): Promise<NextResponse> {
 
     try {
       await resend.emails.send({
-        from: "Darhous Academy <noreply@darhous.com>",
+        from: "NexaLearn <noreply@darhous.com>",
         to: email,
-        subject: "نشتاق إليك في درهوس 🌐 | We Miss You at Darhous 🌐",
+        subject: "نشتاق إليك في NexaLearn 🌐 | We Miss You at NexaLearn 🌐",
         html: buildEmail(name, siteUrl),
       });
 
@@ -129,7 +129,7 @@ function buildEmail(name: string, siteUrl: string): string {
       <tr>
         <td style="background:linear-gradient(135deg,#00668a,#571bc1);padding:40px 32px;text-align:center">
           <p style="margin:0;font-size:32px">🌐</p>
-          <h1 style="margin:8px 0 0;font-size:26px;color:#fff;font-weight:700">درهوس</h1>
+          <h1 style="margin:8px 0 0;font-size:26px;color:#fff;font-weight:700">NexaLearn</h1>
           <p style="margin:6px 0 0;color:rgba(255,255,255,0.7);font-size:13px">منظومة التعلم الذكي | Smart Learning Ecosystem</p>
         </td>
       </tr>
@@ -137,7 +137,7 @@ function buildEmail(name: string, siteUrl: string): string {
       <tr>
         <td style="padding:36px 32px 24px;border-bottom:1px solid rgba(255,255,255,0.04)">
           <h2 style="color:#8ed5ff;font-size:20px;margin:0 0 12px">أهلاً ${displayNameAr}! 👋</h2>
-          <p style="color:#94a3b8;line-height:1.8;margin:0 0 20px;font-size:14px">لاحظنا أنك لم تزر منصة درهوس منذ بضعة أيام — رحلتك التعليمية في انتظارك!</p>
+          <p style="color:#94a3b8;line-height:1.8;margin:0 0 20px;font-size:14px">لاحظنا أنك لم تزر منصة NexaLearn منذ بضعة أيام — رحلتك التعليمية في انتظارك!</p>
           <table width="100%" cellpadding="0" cellspacing="0">
             ${[
               ["🤖","أكاديمية الذكاء الاصطناعي","دورات ومسارات AI شاملة",`${siteUrl}/ar/ai-academy`,"استكشف ←"],
@@ -154,7 +154,7 @@ function buildEmail(name: string, siteUrl: string): string {
       <tr>
         <td style="padding:32px;direction:ltr;text-align:left">
           <h2 style="color:#8ed5ff;font-size:20px;margin:0 0 12px">We miss you, ${displayNameEn}! 👋</h2>
-          <p style="color:#94a3b8;line-height:1.8;margin:0 0 20px;font-size:14px">We noticed you haven't visited Darhous in a few days — your learning journey is waiting!</p>
+          <p style="color:#94a3b8;line-height:1.8;margin:0 0 20px;font-size:14px">We noticed you haven't visited NexaLearn in a few days — your learning journey is waiting!</p>
           <table width="100%" cellpadding="0" cellspacing="0">
             ${[
               ["🤖","AI Academy","Comprehensive AI courses and paths",`${siteUrl}/en/ai-academy`,"Explore →"],
@@ -170,8 +170,8 @@ function buildEmail(name: string, siteUrl: string): string {
       <!-- Footer -->
       <tr>
         <td style="padding:20px 32px;border-top:1px solid rgba(255,255,255,0.05);text-align:center">
-          <p style="color:#475569;font-size:11px;margin:0">Darhous Smart Learning — <a href="${siteUrl}" style="color:#475569">${siteUrl}</a></p>
-          <p style="color:#374151;font-size:10px;margin:6px 0 0">You received this because you signed up for Darhous. This email is sent to encourage you to continue learning.</p>
+          <p style="color:#475569;font-size:11px;margin:0">NexaLearn by Ahmed Darhous — <a href="${siteUrl}" style="color:#475569">${siteUrl}</a></p>
+          <p style="color:#374151;font-size:10px;margin:6px 0 0">You received this because you signed up for NexaLearn. This email is sent to encourage you to continue learning.</p>
         </td>
       </tr>
     </table>

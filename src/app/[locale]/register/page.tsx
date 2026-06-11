@@ -14,8 +14,8 @@ export async function generateMetadata({
   return {
     title: isAr ? "إنشاء حساب" : "Create Account",
     description: isAr
-      ? "أنشئ حسابك في أكاديمية درهوس للذكاء الاصطناعي"
-      : "Create your account at Darhous AI Cloud Academy",
+      ? "أنشئ حسابك في منصة NexaLearn"
+      : "Create your account on NexaLearn by Ahmed Darhous",
     robots: { index: false },
   };
 }
@@ -38,15 +38,15 @@ export default async function RegisterPage({
         <div className="text-center mb-8">
           <Link href={`/${locale}`} className="inline-flex items-center gap-2 font-display font-bold text-xl mb-2" style={{ color: "var(--color-primary)" }}>
             <Bot size={26} style={{ color: "var(--color-tertiary)" }} />
-            {isAr ? "أكاديمية درهوس" : "Darhous AI"}
+            NexaLearn
           </Link>
           <h1 className="font-display font-bold text-2xl mt-4 mb-1" style={{ color: "var(--color-on-surface)" }}>
             {isAr ? "إنشاء حساب جديد" : "Create your account"}
           </h1>
           <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
             {isAr
-              ? "انضم لآلاف المتعلمين في أكاديمية درهوس"
-              : "Join thousands of learners at Darhous AI Academy"}
+              ? "انضم لآلاف المتعلمين في منصة NexaLearn"
+              : "Join thousands of learners on NexaLearn"}
           </p>
         </div>
 
