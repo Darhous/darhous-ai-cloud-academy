@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import MentorHero from "@/components/mentor/MentorHero";
 import MentorModeSelector from "@/components/mentor/MentorModeSelector";
 import MentorChat from "@/components/mentor/MentorChat";
+import MentorMission from "@/components/mentor/MentorMission";
 import type { MentorModeId } from "@/data/mentor";
 import { X, ChevronDown, ChevronUp } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
@@ -34,7 +35,7 @@ function buildContextString(ctx: UserCtxData, isAr: boolean): string {
       `الدورات المكتملة: ${ctx.completed_courses}`,
       `الاختبارات الرقمية المنجزة: ${ctx.exam_results}`,
       `سلسلة التعلم: ${ctx.learning_streak} أيام متواصلة`,
-      `البوابات المستخدمة: ${ctx.portals_used} من 6`,
+      `البوابات المستخدمة: ${ctx.portals_used} من 5`,
     ].join("\n");
   }
   return [
@@ -43,8 +44,47 @@ function buildContextString(ctx: UserCtxData, isAr: boolean): string {
     `Completed courses: ${ctx.completed_courses}`,
     `Digital exams completed: ${ctx.exam_results}`,
     `Learning streak: ${ctx.learning_streak} days`,
-    `Portals used: ${ctx.portals_used} of 6`,
+    `Portals used: ${ctx.portals_used} of 5`,
   ].join("\n");
+}
+
+function generateSmartGreeting(
+  ctx: UserCtxData | null,
+  isAr: boolean,
+  activeMode: MentorModeId
+): string {
+  if (!ctx) {
+    return isAr
+      ? "مرحباً! أنا مرشدك الذكي في NexaLearn. كيف أساعدك اليوم؟"
+      : "Hi! I'm your NexaLearn AI Mentor. How can I help you today?";
+  }
+
+  const parts: string[] = [];
+  const name = ctx.name.split(" ")[0]; // الاسم الأول فقط
+
+  // Streak hook
+  if (ctx.learning_streak >= 7) {
+    parts.push(isAr ? `🔥 ${name}، ${ctx.learning_streak} يوماً متواصلاً — مذهل!` : `🔥 ${name}, ${ctx.learning_streak}-day streak — incredible!`);
+  } else if (ctx.learning_streak >= 3) {
+    parts.push(isAr ? `💪 ${name}، سلسلتك ${ctx.learning_streak} أيام — استمر!` : `💪 ${name}, ${ctx.learning_streak}-day streak — keep it up!`);
+  } else if (ctx.completed_courses > 0) {
+    parts.push(isAr ? `أهلاً ${name}!` : `Welcome back, ${name}!`);
+  } else {
+    parts.push(isAr ? `أهلاً بك في NexaLearn، ${name}!` : `Welcome to NexaLearn, ${name}!`);
+  }
+
+  // Mode-specific continuation
+  const modeHints: Record<MentorModeId, { ar: string; en: string }> = {
+    ask: { ar: "ماذا تريد أن تتعلم اليوم؟", en: "What would you like to learn today?" },
+    prompt: { ar: "شاركني البرومبت الذي تريد تحسينه.", en: "Share the prompt you'd like to improve." },
+    claude_code: { ar: "صِف مهمة البرمجة وسأبني لك البرومبت.", en: "Describe your coding task and I'll build the prompt." },
+    path: { ar: "أخبرني عن هدفك وسأرسم لك خارطة طريق.", en: "Tell me your goal and I'll map out your roadmap." },
+    tools: { ar: "ماذا تريد أن تبني؟ سأقترح الأدوات الأنسب.", en: "What are you building? I'll suggest the right tools." },
+    project: { ar: "شاركني فكرة مشروعك وسأحوّلها لخطة قابلة للتنفيذ.", en: "Share your project idea and I'll turn it into an action plan." },
+  };
+
+  parts.push(modeHints[activeMode]?.[isAr ? "ar" : "en"] ?? "");
+  return parts.filter(Boolean).join(" ");
 }
 
 export default function MentorPageClient({ locale }: Props) {
@@ -76,12 +116,14 @@ export default function MentorPageClient({ locale }: Props) {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
 
-      const [profileRes, cpRes, lrRes, erRes, lpRes] = await Promise.all([
+      const [profileRes, cpRes, lrRes, erRes, lpRes, autoRes, nanoRes] = await Promise.all([
         supabase.from("profiles").select("full_name").eq("id", user.id).single(),
         supabase.from("course_progress").select("status").eq("user_id", user.id).eq("status", "completed"),
         supabase.from("language_results").select("level").eq("user_id", user.id).order("created_at", { ascending: false }).limit(1).maybeSingle(),
         supabase.from("digital_exam_results").select("id").eq("user_id", user.id),
         supabase.from("lesson_progress").select("completed_at").eq("user_id", user.id).eq("completed", true).not("completed_at", "is", null),
+        supabase.from("automation_lab_progress").select("id").eq("user_id", user.id).limit(1),
+        supabase.from("nano_banana_custom_prompts").select("id").eq("user_id", user.id).limit(1),
       ]);
 
       const name = profileRes.data?.full_name ?? user.email?.split("@")[0] ?? "Learner";
@@ -107,7 +149,13 @@ export default function MentorPageClient({ locale }: Props) {
         }
       }
 
-      const portalsUsed = [completedCourses > 0, !!languageLevel, examCount > 0].filter(Boolean).length;
+      const portalsUsed = [
+        completedCourses > 0,
+        !!languageLevel,
+        examCount > 0,
+        (autoRes.data?.length ?? 0) > 0,
+        (nanoRes.data?.length ?? 0) > 0,
+      ].filter(Boolean).length;
 
       const ctx: UserCtxData = {
         name,
@@ -194,7 +242,7 @@ export default function MentorPageClient({ locale }: Props) {
                 { l: isAr ? "دورات مكتملة" : "Courses done", v: String(ctxData.completed_courses), c: "#4ade80" },
                 { l: isAr ? "اختبارات رقمية" : "Exams done", v: String(ctxData.exam_results), c: "var(--color-tertiary)" },
                 { l: isAr ? "سلسلة التعلم" : "Streak", v: `${ctxData.learning_streak}d`, c: "#f97316" },
-                { l: isAr ? "بوابات مستخدمة" : "Portals used", v: `${ctxData.portals_used}/6`, c: "var(--color-secondary)" },
+                { l: isAr ? "بوابات مستخدمة" : "Portals used", v: `${ctxData.portals_used}/5`, c: "var(--color-secondary)" },
               ].map((item) => (
                 <div key={item.l} className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: item.c }} />
@@ -215,6 +263,16 @@ export default function MentorPageClient({ locale }: Props) {
         />
       </div>
 
+      {/* Mission of the Day — only shown to authenticated users */}
+      {userContext && (
+        <div className="px-4 mb-2 max-w-3xl mx-auto w-full">
+          <MentorMission
+            locale={locale}
+            userContext={userContext}
+          />
+        </div>
+      )}
+
       {/* key remounts MentorChat when mode changes, resetting conversation */}
       <div className="flex-1">
         <MentorChat
@@ -224,6 +282,12 @@ export default function MentorPageClient({ locale }: Props) {
           isAr={isAr}
           initialMessage={pageContext?.hint}
           userContext={userContext}
+          greeting={generateSmartGreeting(ctxData, isAr, activeMode)}
+          userCtxSummary={ctxData ? {
+            completed_courses: ctxData.completed_courses,
+            language_level: ctxData.language_level,
+            learning_streak: ctxData.learning_streak,
+          } : undefined}
         />
       </div>
     </section>

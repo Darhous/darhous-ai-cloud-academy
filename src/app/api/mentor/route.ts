@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { callGemini } from "@/lib/gemini";
+import { callAI } from "@/lib/openrouter";
 import { mentorModes } from "@/data/mentor";
 import type { MentorModeId } from "@/data/mentor";
 import type { MentorApiRequest } from "@/lib/mentor-context";
@@ -24,9 +24,9 @@ export async function POST(req: NextRequest) {
   const guard = await aiGuard(req);
   if (guard instanceof Response) return guard;
 
-  if (!process.env.GEMINI_API_KEY) {
+  if (!process.env.OPENROUTER_API_KEY && !process.env.GEMINI_API_KEY) {
     return NextResponse.json(
-      { error: "AI Mentor is not configured. Missing GEMINI_API_KEY.", missingKey: true },
+      { error: "AI Mentor is not configured.", missingKey: true },
       { status: 503 }
     );
   }
@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
       ? `${basePrompt}\n\n--- معلومات المتعلم ---\n${userContext}\n---`
       : basePrompt;
 
-    const reply = await callGemini(trimmedMessages, systemPrompt);
+    const reply = await callAI(trimmedMessages, systemPrompt);
 
     return NextResponse.json({ reply });
   } catch (error) {

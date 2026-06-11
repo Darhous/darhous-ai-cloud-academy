@@ -15,12 +15,20 @@ import type { MentorModeId } from "@/data/mentor";
 const MAX_INPUT_LENGTH = 4000;
 const COOLDOWN_MS = 3000;
 
+interface UserCtxSummary {
+  completed_courses: number;
+  language_level: string | null;
+  learning_streak: number;
+}
+
 interface Props {
   modeId: MentorModeId;
   locale: string;
   isAr: boolean;
   initialMessage?: string;
   userContext?: string;
+  greeting?: string;
+  userCtxSummary?: UserCtxSummary;
 }
 
 async function streamMentorReply(
@@ -76,7 +84,7 @@ async function streamMentorReply(
   }
 }
 
-export default function MentorChat({ modeId, locale, isAr, initialMessage, userContext }: Props) {
+export default function MentorChat({ modeId, locale, isAr, initialMessage, userContext, greeting, userCtxSummary }: Props) {
   const [messages, setMessages] = useState<MsgType[]>([]);
   const [input, setInput] = useState(initialMessage ?? "");
   const [loading, setLoading] = useState(false);
@@ -202,6 +210,8 @@ export default function MentorChat({ modeId, locale, isAr, initialMessage, userC
             modeId={modeId}
             isAr={isAr}
             onSelect={(text) => addAndSend(text, [])}
+            greeting={greeting}
+            userCtx={userCtxSummary}
           />
         ) : (
           <>

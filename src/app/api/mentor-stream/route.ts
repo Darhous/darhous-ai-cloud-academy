@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
   const guard = await aiGuard(req);
   if (guard instanceof Response) return guard;
 
-  if (!process.env.GEMINI_API_KEY) {
+  if (!process.env.OPENROUTER_API_KEY && !process.env.GEMINI_API_KEY) {
     return new Response(
       JSON.stringify({ error: "AI Mentor not configured", missingKey: true }),
       { status: 503, headers: { "Content-Type": "application/json" } }
@@ -60,11 +60,30 @@ export async function POST(req: NextRequest) {
     ? `${basePrompt}\n\n--- معلومات المتعلم ---\n${userContext}\n---`
     : basePrompt;
 
+  const trimmed = messages.slice(-20);
+
+  // OpenRouter path — used when OPENROUTER_API_KEY is set
+  if (process.env.OPENROUTER_API_KEY) {
+    try {
+      const { streamAI } = await import("@/lib/openrouter");
+      const stream = await streamAI(trimmed, systemPrompt);
+      return new Response(stream, {
+        headers: {
+          "Content-Type": "text/event-stream",
+          "Cache-Control": "no-cache",
+          "Connection": "keep-alive",
+          "X-Accel-Buffering": "no",
+        },
+      });
+    } catch {
+      // fall through to Gemini fallback
+    }
+  }
+
+  // Gemini fallback
   const apiKey = process.env.GEMINI_API_KEY;
   const modelId = process.env.GEMINI_MODEL ?? "gemini-2.5-flash";
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:streamGenerateContent?key=${apiKey}&alt=sse`;
-
-  const trimmed = messages.slice(-20);
   const contents = trimmed.map((msg) => ({
     role: msg.role,
     parts: [{ text: msg.content }],
