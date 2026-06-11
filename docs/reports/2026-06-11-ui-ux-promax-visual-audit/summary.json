@@ -1,0 +1,59 @@
+{
+  "audit_date": "2026-06-11",
+  "project_name": "NexaLearn by Darhous / Darhous AI Cloud Academy",
+  "audit_methodology": "UI/UX Pro Max Skill",
+  "local_path": "C:\\Users\\ahmed\\Desktop\\ai cources\\darhous-ai-cloud-academy",
+  "repo_url": "https://github.com/Darhous/darhous-ai-cloud-academy",
+  "live_url": "https://darhous-ai-cloud-academy.vercel.app",
+  "overall_status": "Needs visual upgrade",
+  "publish_readiness_score": 61,
+  "visual_quality_score": 72,
+  "ux_score": 67,
+  "mobile_score": 64,
+  "rtl_ltr_score": 55,
+  "top_issues": [
+    "Live Vercel experience does not reflect the audited local NexaLearn presentation",
+    "English Career, Automation, and IoT portal roots force RTL and retain Arabic-only content",
+    "Structural emoji remain in portal, navigation, feature, and trust surfaces",
+    "Navigation and homepage motion create excessive cognitive and visual load",
+    "Brand and Open Graph assets mix NexaLearn, Darhous Academy, and legacy identities",
+    "Cloud Academy exists but is absent from the central portal registry",
+    "Hero primary and secondary path CTAs execute the same action",
+    "Auth feedback and icon controls do not fully meet accessibility/touch rules",
+    "Global loading, error, and 404 states are not localized",
+    "Lint passes with 75 warnings and the build takes about 7 minutes 49 seconds"
+  ],
+  "top_recommendations": [
+    "Deploy and verify the intended NexaLearn SHA on the production Vercel domain",
+    "Create locale-pure portal shells and remove hard-coded RTL",
+    "Replace emoji with a typed Lucide or custom SVG icon registry",
+    "Simplify navigation into task-based groups and reduce homepage signature effects",
+    "Canonicalize product, issuer, metadata, dashboard, email, certificate, and OG branding",
+    "Add or intentionally de-list Cloud from all discovery surfaces",
+    "Give hero CTAs distinct actions and move verified proof near the hero",
+    "Enforce 44px controls, explicit labels, and announced form errors",
+    "Localize route-family loading, error, empty, and recovery states",
+    "Establish screenshot-based responsive and RTL/LTR acceptance gates"
+  ],
+  "phases": [
+    "Phase 1 Visual Foundation Fixes",
+    "Phase 2 Landing Page Upgrade",
+    "Phase 3 Portal Experience Upgrade",
+    "Phase 4 Mobile + RTL/LTR Polish",
+    "Phase 5 Motion & Interaction Polish",
+    "Phase 6 Production Polish",
+    "Phase 7 Final QA & Launch Readiness"
+  ],
+  "must_fix_before_publish": [
+    "Production deployment must match the approved local NexaLearn build",
+    "English portal direction and content must be corrected",
+    "Canonical brand and OG identity must be consistent",
+    "Cloud portal discovery must be resolved",
+    "Hero CTA behavior must be unambiguous",
+    "Navigation density must be reduced",
+    "Structural emoji must be replaced",
+    "Auth touch and error accessibility must be fixed",
+    "Global recovery states must preserve locale",
+    "Target-width visual QA must pass"
+  ]
+}
