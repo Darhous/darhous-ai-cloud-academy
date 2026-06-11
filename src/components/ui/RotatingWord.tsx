@@ -7,7 +7,10 @@ interface RotatingWordProps {
   words: string[];
   /** ms per word */
   interval?: number;
+  /** single fallback color */
   color?: string;
+  /** per-word colors — cycles with words */
+  colors?: string[];
   className?: string;
 }
 
@@ -15,6 +18,7 @@ export default function RotatingWord({
   words,
   interval = 2600,
   color = "var(--color-primary)",
+  colors,
   className = "",
 }: RotatingWordProps) {
   const [index, setIndex] = useState(0);
@@ -25,6 +29,8 @@ export default function RotatingWord({
     }, interval);
     return () => clearInterval(id);
   }, [words.length, interval]);
+
+  const activeColor = colors ? colors[index % colors.length] : color;
 
   return (
     <span
@@ -38,7 +44,7 @@ export default function RotatingWord({
           animate={{ y: 0,   opacity: 1 }}
           exit={{   y:  20,  opacity: 0 }}
           transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
-          style={{ display: "inline-block", color }}
+          style={{ display: "inline-block", color: activeColor }}
         >
           {words[index]}
         </motion.span>

@@ -6,6 +6,7 @@ import {
   Bot, Globe, Monitor, Briefcase, Settings2, Cpu, CheckCircle2, Play
 } from "lucide-react";
 import RotatingWord from "@/components/ui/RotatingWord";
+import TechMarquee from "@/components/ui/TechMarquee";
 
 interface Props {
   locale: string;
@@ -68,25 +69,23 @@ export default function HeroSection({ locale, scrollToPath, onStartTour }: Props
         >
           {isAr ? (
             <>
-              تعلّم{" "}
+              <span style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif", fontWeight: 300 }}>تعلّم</span>{" "}
               <RotatingWord
                 words={["بذكاء.", "بمهارة.", "بثقة.", "بسرعة."]}
                 interval={2400}
-                color="#8ed5ff"
-                className="text-gradient-premium"
+                colors={["#8ed5ff", "#d0bcff", "#3ce0fb", "#fbbf24"]}
               />
               <br className="hidden md:block"/>
-              ابنِ مستقبلك مع NexaLearn.
+              <span style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif", fontWeight: 300 }}>ابنِ مستقبلك مع NexaLearn.</span>
             </>
           ) : (
             <>
               <RotatingWord
                 words={["Learn.", "Build.", "Grow.", "Lead."]}
                 interval={2400}
-                color="#8ed5ff"
-                className="text-gradient-premium"
+                colors={["#8ed5ff", "#d0bcff", "#3ce0fb", "#fbbf24"]}
               />
-              {" "}Intelligently with NexaLearn.
+              {" "}<span style={{ fontFamily: "'IBM Plex Sans', 'Geist', sans-serif", fontWeight: 300 }}>Intelligently with NexaLearn.</span>
             </>
           )}
         </motion.h1>
@@ -257,6 +256,15 @@ export default function HeroSection({ locale, scrollToPath, onStartTour }: Props
               </div>
             </div>
           </div>
+        </motion.div>
+
+        {/* Tech Stack Marquee */}
+        <motion.div
+          variants={fadeUp} initial="hidden" animate="show"
+          transition={{ duration: shouldReduce ? 0.15 : 0.6, delay: shouldReduce ? 0 : 0.8 }}
+          className="w-full mt-6"
+        >
+          <TechMarquee />
         </motion.div>
       </div>
     </section>
