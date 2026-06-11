@@ -10625,6 +10625,45 @@ PHASE L1-V1 — Scroll-Stack Portal Cards (NexaLearn landing). الهدف: اس�
 
 ---
 
+## 2026-06-11 — Landing Page Enhancement: 5 أقسام جديدة + ترقية Marquee
+
+**اسم المرحلة:** Landing Page Upgrade — تطوير لا تغيير، تستوحي من مختبر التصميم المرجعي
+**التاريخ والوقت:** 2026-06-11
+
+### المبدأ
+تطوير (لا تغيير ولا حذف) — كل ما أعجب المالك في نسخ مختبر التصميم أُضيف للإنتاج مع الحفاظ على كل ما هو قائم.
+
+### ما تم إضافته / ترقيته
+
+#### ملفات جديدة
+| الملف | الوصف |
+|---|---|
+| `StudentJourney.tsx` | 6 مراحل بـ timeline رأسي + خط gradient ممتلئ + كروت تنزلق بالتناوب يمين/يسار |
+| `ImpactNumbers.tsx` | 4 أرقام count-up (5000+ / 300+ / 6 / 96%) مع glow ملون وpanel glassmorphism |
+| `Certifications.tsx` | 4 بطاقات شهادات مع أيقونات gradient، badge "موثقة"، hover glow ملون |
+| `Testimonials.tsx` | 3 قصص نجاح حقيقية مع avatar، نجوم، اقتباس، بطاقة وسطى featured |
+| `UrgencyStrip.tsx` | شريط amber "أول 30 يوماً مجاناً" قبل FinalCTA مع pulse dot و CTA |
+
+#### ملفات معدَّلة
+- **`MarqueeStrip.tsx`**: ترقية بـ `richItems?: RichItem[]` prop — أيقونات Lucide ملونة مع backward compat كامل
+- **`HomepageClient.tsx`**: إضافة الأقسام الخمسة + استبدال Stats بـ ImpactNumbers + Marquee بأيقونات
+
+#### ترتيب الصفحة بعد التعديل
+CinematicIntro → Hero → Marquee (أيقونات) → ScrollStack → 3DCarousel → PathSelector → EcosystemMap → MentorShowcase → HowItWorks → **StudentJourney** → **ImpactNumbers** → **Certifications** → **Testimonials** → WhyDarhous → **UrgencyStrip** → FinalCTA → CommunitySignup
+
+### ضمانات الأمان
+- `src/app/[locale]/page.tsx` — لم يُمس
+- CinematicIntro / SmartPlatformTour / Navbar / Footer — لم تُمس
+- ScrollStackSection / PathSelector / HowItWorks — لم تُمس
+- Stats.tsx — محفوظ (لا تُستخدم في landing بعد الآن لكن ليست محذوفة)
+
+### نتائج التحقق
+- **build:** نجح (exit code 0) — ✓ Compiled successfully in 66s
+- **lint:** 0 errors (إصلاح واحد: react-hooks/rules-of-hooks في ImpactNumbers)
+- **git diff --check:** اجتاز
+
+---
+
 ## 2026-06-11 — Design Lab: Reference Redesign (مبني على ahmedali.online)
 
 **اسم المرحلة:** Homepage Reference Redesign — رفض المفاهيم القديمة وإعادة البناء الكامل من صفر

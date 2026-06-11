@@ -1,12 +1,20 @@
 "use client";
 
 import { useReducedMotion } from "framer-motion";
+import type { LucideIcon } from "lucide-react";
+
+/* ─── Types ─────────────────────────────────────────────────────── */
+export interface RichItem {
+  label: string;
+  Icon: LucideIcon;
+  color: string;
+}
 
 interface MarqueeStripProps {
-  items: string[];
+  items?: string[];
+  richItems?: RichItem[];
   locale: string;
   speed?: "slow" | "normal" | "fast";
-  /** Color accent for pills. Defaults to primary. */
   accent?: string;
 }
 
@@ -16,15 +24,19 @@ const speedDuration = {
   fast:   "22s",
 } as const;
 
+/* ─── Component ─────────────────────────────────────────────────── */
 export default function MarqueeStrip({
   items,
+  richItems,
   locale,
   speed = "normal",
   accent,
 }: MarqueeStripProps) {
   const shouldReduceMotion = useReducedMotion();
-  const trackClass = locale === "ar" ? "marquee-track-rtl" : "marquee-track";
+  const isRtl = locale === "ar";
+  const trackClass = isRtl ? "marquee-track-rtl" : "marquee-track";
 
+  /* ── Plain text pills (legacy) ─────────────────────── */
   const pillStyle: React.CSSProperties = accent
     ? {
         background: `${accent}14`,
@@ -37,29 +49,50 @@ export default function MarqueeStrip({
         color: "var(--color-primary)",
       };
 
-  const renderItems = (set: "primary" | "duplicate") =>
-    items.map((item, index) => (
+  const renderTextItems = (set: "primary" | "duplicate") =>
+    (items ?? []).map((item, index) => (
       <span
         key={`${set}-${index}-${item}`}
         className="inline-flex items-center gap-3 shrink-0"
         aria-hidden={set === "duplicate" ? true : undefined}
       >
-        {/* Pill badge */}
         <span
           className="inline-block px-3.5 py-1.5 rounded-full font-mono text-[11px] tracking-wide whitespace-nowrap"
           style={pillStyle}
         >
           {item}
         </span>
-        {/* Separator */}
-        <span
-          className="text-[10px] opacity-30"
-          style={{ color: pillStyle.color as string }}
-        >
-          ✦
-        </span>
+        <span className="text-[10px] opacity-30" style={{ color: pillStyle.color as string }}>✦</span>
       </span>
     ));
+
+  /* ── Rich icon pills ────────────────────────────────── */
+  const renderRichItems = (set: "primary" | "duplicate") =>
+    (richItems ?? []).map((item, index) => (
+      <span
+        key={`${set}-${index}-${item.label}`}
+        className="inline-flex items-center gap-3 shrink-0"
+        aria-hidden={set === "duplicate" ? true : undefined}
+      >
+        <span
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-mono text-[11px] tracking-wide whitespace-nowrap transition-colors"
+          style={{
+            background: `${item.color}12`,
+            border: `1px solid ${item.color}28`,
+            color: item.color,
+          }}
+        >
+          <item.Icon size={11} style={{ color: item.color, flexShrink: 0 }} aria-hidden />
+          {item.label}
+        </span>
+        <span className="text-[10px] opacity-20" style={{ color: item.color }}>✦</span>
+      </span>
+    ));
+
+  const useRich = !!richItems?.length;
+  const allLabels = useRich
+    ? richItems!.map((r) => r.label).join(", ")
+    : (items ?? []).join(", ");
 
   return (
     <div
@@ -68,16 +101,16 @@ export default function MarqueeStrip({
     >
       {shouldReduceMotion ? (
         <div className="container-xl flex flex-wrap items-center justify-center gap-2">
-          {renderItems("primary")}
+          {useRich ? renderRichItems("primary") : renderTextItems("primary")}
         </div>
       ) : (
-        <div className="marquee-container w-full" aria-label={items.join(", ")}>
+        <div className="marquee-container w-full" aria-label={allLabels}>
           <div
             className={trackClass}
             style={{ animationDuration: speedDuration[speed] }}
           >
-            {renderItems("primary")}
-            {renderItems("duplicate")}
+            {useRich ? renderRichItems("primary") : renderTextItems("primary")}
+            {useRich ? renderRichItems("duplicate") : renderTextItems("duplicate")}
           </div>
         </div>
       )}
