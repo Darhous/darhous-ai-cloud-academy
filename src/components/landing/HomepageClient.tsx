@@ -23,6 +23,7 @@ import Testimonials from "./sections/Testimonials";
 import UrgencyStrip from "./sections/UrgencyStrip";
 
 // Lazy-loaded: dialog (never visible on initial load), uses browser APIs
+const CursorGlow    = dynamic(() => import("./CursorGlow"),    { ssr: false });
 const CinematicIntro = dynamic(() => import("./CinematicIntro"), { ssr: false });
 const SmartPlatformTour = dynamic(() => import("./SmartPlatformTour"), { ssr: false });
 const ScrollIndicator = dynamic(() => import("./ScrollIndicator"), { ssr: false });
@@ -78,6 +79,9 @@ export default function HomepageClient({ locale }: { locale: string }) {
 
   return (
     <div className="flex flex-col gap-16 md:gap-20 pb-16 md:pb-20" style={{ overflowX: "clip" }}>
+
+      {/* ── Global cursor glow ── */}
+      <CursorGlow />
 
       {/* ── Preserved: Intro + tour + scroll indicator ── */}
       <CinematicIntro locale={locale} />

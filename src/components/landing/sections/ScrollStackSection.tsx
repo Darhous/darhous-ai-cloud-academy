@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   motion,
   MotionValue,
@@ -37,6 +37,17 @@ function BigPortalCard({
     ? portal.features
     : (portal.featuresEn ?? portal.features);
 
+  /* ── Mouse-glow tracking ──────────────────── */
+  const [mouse, setMouse] = useState<{ x: number; y: number } | null>(null);
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const r = e.currentTarget.getBoundingClientRect();
+    setMouse({
+      x: ((e.clientX - r.left) / r.width) * 100,
+      y: ((e.clientY - r.top) / r.height) * 100,
+    });
+  }
+  function handleMouseLeave() { setMouse(null); }
+
   /* scroll-driven recede for previous cards */
   const seg0 = (index + 0.25) / Math.max(total - 1, 1);
   const seg1 = (index + 0.85) / Math.max(total - 1, 1);
@@ -46,15 +57,17 @@ function BigPortalCard({
   const stickyStyle: React.CSSProperties = sticky
     ? {
         position: "sticky",
-        top: 80 + index * 22,
+        top: 80 + index * 8,
         zIndex: index + 1,
-        marginTop: index === 0 ? 0 : "-110px",
+        marginTop: index === 0 ? 0 : "-80px",
         transformOrigin: "top center",
       }
     : { marginBottom: "1.25rem" };
 
   return (
     <motion.div
+      onMouseMove={sticky ? handleMouseMove : undefined}
+      onMouseLeave={sticky ? handleMouseLeave : undefined}
       style={{
         ...stickyStyle,
         scale: sticky && !isLast && !reduced ? scale : 1,
@@ -67,6 +80,16 @@ function BigPortalCard({
       <div
         className="absolute inset-0"
         style={{ background: portal.gradient, opacity: 0.55 }}
+      />
+      {/* ── Mouse-following glow ─────────────── */}
+      <div
+        className="absolute inset-0 pointer-events-none transition-opacity duration-300"
+        style={{
+          opacity: mouse ? 1 : 0,
+          background: mouse
+            ? `radial-gradient(circle 500px at ${mouse.x}% ${mouse.y}%, ${portal.color}28 0%, transparent 65%)`
+            : "none",
+        }}
       />
 
       {/* Side glow */}
@@ -100,8 +123,8 @@ function BigPortalCard({
 
       {/* ── Content ──────────────────────────── */}
       <div
-        className="relative z-10 flex flex-col md:flex-row items-start gap-6 md:gap-10 p-8 md:p-12"
-        style={{ minHeight: "clamp(320px, 58vh, 510px)" }}
+        className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-12 p-8 md:p-14"
+        style={{ minHeight: "calc(100svh - 80px)" }}
       >
         {/* Icon column */}
         <div className={`flex flex-col items-center gap-3 flex-shrink-0 ${isAr ? "" : ""}`}>
@@ -284,8 +307,8 @@ export default function ScrollStackSection({ locale }: { locale: string }) {
         ref={containerRef}
         className="relative hidden md:block"
         style={{
-          minHeight: `${total * 240 + 520}px`,
-          paddingBottom: "12vh",
+          minHeight: `calc(${total} * 55svh + 80svh)`,
+          paddingBottom: "8vh",
         }}
       >
         {STACK_PORTALS.map((portal, i) => (
