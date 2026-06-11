@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
-const STORAGE_KEY = "darhous-cinematic-intro-seen-v1";
 
 interface Props {
   locale: string;
@@ -18,31 +17,14 @@ export default function CinematicIntro({ locale }: Props) {
 
   const dismiss = useCallback(() => {
     setShow(false);
-    try {
-      window.sessionStorage.setItem(STORAGE_KEY, "1");
-    } catch (e) {
-      // ignore
-    }
   }, []);
 
   useEffect(() => {
     setMounted(true);
-    let seen = false;
-    try {
-      seen = window.sessionStorage.getItem(STORAGE_KEY) === "1";
-    } catch (e) {
-      seen = true; // safe fallback
-    }
-
-    if (seen || shouldReduce) {
-      setShow(false);
-      return;
-    }
-
-    // Auto-dismiss after the progress bar fills completely (3.6s) + brief pause
+    // Auto-dismiss: shorter delay if reduce-motion so the screen clears quickly
     const timer = setTimeout(() => {
       dismiss();
-    }, 4400);
+    }, shouldReduce ? 1200 : 4400);
 
     return () => clearTimeout(timer);
   }, [shouldReduce, dismiss]);

@@ -10,14 +10,14 @@ export async function generateMetadata({
   const isAr = locale === "ar";
   return {
     title: isAr
-      ? "منصة درهوس — نظام التعلم الذكي | ابدأ من الصفر"
-      : "Darhous Smart Learning OS — Start from Zero, Build Your Future",
+      ? "NexaLearn — تعلّم بذكاء. ابنِ بمهارة. تقدّم بثقة."
+      : "NexaLearn by Ahmed Darhous — Learn Smart. Build Skills. Grow With Confidence.",
     description: isAr
       ? "ابدأ من الصفر ودع الذكاء الاصطناعي يبني لك طريقك التعليمي والمهني خطوة بخطوة. 6 بوابات تعليمية متخصصة، مرشد AI شخصي، وشهادات معتمدة."
       : "Start from zero and let AI build your learning & career path step by step. 6 specialized portals, personal AI mentor, and verified certificates.",
     keywords: isAr
-      ? ["منصة تعليمية", "ذكاء اصطناعي", "مرشد AI", "بوابة اللغة", "اختبارات رقمية", "درهوس", "تعلم", "مسار مهني"]
-      : ["learning platform", "AI mentor", "AI academy", "language portal", "digital exams", "Darhous", "career hub"],
+      ? ["منصة تعليمية", "ذكاء اصطناعي", "مرشد AI", "بوابة اللغة", "اختبارات رقمية", "NexaLearn", "تعلم", "مسار مهني"]
+      : ["learning platform", "AI mentor", "AI academy", "language portal", "digital exams", "NexaLearn", "career hub"],
   };
 }
 

@@ -47,7 +47,7 @@ export default function EcosystemMap({ locale, portals }: Props) {
           style={{ background: "rgba(142,213,255,0.06)", borderColor: "rgba(142,213,255,0.2)", color: "var(--color-primary)" }}
         >
           <Globe size={12} />
-          {isAr ? "منظومة درهوس الذكية" : "Darhous Smart Ecosystem"}
+          {isAr ? "منظومة NexaLearn الذكية" : "NexaLearn Smart Ecosystem"}
         </div>
         <h2 className="font-display font-bold text-3xl md:text-5xl mb-4 text-gradient-premium">
           {isAr ? "خريطة المنظومة التعليمية" : "Learning Ecosystem Map"}
@@ -176,7 +176,7 @@ export default function EcosystemMap({ locale, portals }: Props) {
             <div className="relative z-10">
               <p className="text-xs font-mono mb-2 tracking-widest transition-colors duration-500" style={{ color: linkColor || "var(--color-primary)" }}>AI MENTOR</p>
               <h3 className="font-bold text-xl mb-1" style={{ color: "var(--color-on-surface)" }}>
-                {isAr ? "المرشد الذكي" : "Darhous AI Mentor"}
+                {isAr ? "المرشد الذكي" : "NexaLearn AI Mentor"}
               </h3>
               <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
                 {isAr ? "العقل المدبر لرحلتك التعليمية" : "The mastermind of your learning journey"}

@@ -113,7 +113,7 @@ export default function ScrollStackSection({ locale }: { locale: string }) {
           {isAr ? "بوابات المنصة" : "Platform Portals"}
         </div>
         <h2 className="font-display font-bold text-3xl md:text-5xl mb-4 text-gradient-premium">
-          {isAr ? "بوابات درهوس الذكية" : "Darhous Smart Portals"}
+          {isAr ? "بوابات NexaLearn الذكية" : "NexaLearn Smart Portals"}
         </h2>
         <p
           className="text-base md:text-lg"

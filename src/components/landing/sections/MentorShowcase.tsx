@@ -89,7 +89,7 @@ export default function MentorShowcase({ locale }: { locale: string }) {
               </div>
               <div>
                 <p className="text-sm font-bold" style={{ color: "var(--color-on-surface)" }}>
-                  {isAr ? "مرشد درهوس الذكي" : "Darhous AI Mentor"}
+                  {isAr ? "مرشد NexaLearn الذكي" : "NexaLearn AI Mentor"}
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />

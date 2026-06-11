@@ -101,8 +101,8 @@ export default function CommunitySignup({ locale, variant = "hero", source = "we
         <CheckCircle size={32} style={{ color: "#4ade80" }} />
         <p className="font-semibold text-base" style={{ color: "var(--color-on-surface)" }}>
           {isAr
-            ? "تم تسجيلك بنجاح في مجتمع درهوس."
-            : "You have joined the Darhous AI Community successfully."}
+            ? "تم تسجيلك بنجاح في مجتمع NexaLearn."
+            : "You have joined the NexaLearn AI Community successfully."}
         </p>
         <p className="text-sm" style={{ color: "var(--color-on-surface-variant)" }}>
           {isAr
@@ -117,7 +117,7 @@ export default function CommunitySignup({ locale, variant = "hero", source = "we
     return (
       <div className="flex flex-col gap-3">
         <p className="text-xs font-mono tracking-wide uppercase" style={{ color: "var(--color-tertiary)" }}>
-          {isAr ? "مجتمع درهوس" : "Darhous Community"}
+          {isAr ? "مجتمع NexaLearn" : "NexaLearn Community"}
         </p>
         <form onSubmit={handleSubmit} className="flex gap-2">
           <label htmlFor={`${uid}-email-footer`} className="sr-only">
@@ -168,7 +168,7 @@ export default function CommunitySignup({ locale, variant = "hero", source = "we
         <div className="flex items-center gap-2">
           <Mail size={16} style={{ color: "var(--color-tertiary)" }} />
           <span className="font-mono text-xs tracking-wider uppercase" style={{ color: "var(--color-tertiary)" }}>
-            {isAr ? "مجتمع درهوس للذكاء الاصطناعي" : "Darhous AI Community"}
+            {isAr ? "مجتمع NexaLearn للذكاء الاصطناعي" : "NexaLearn AI Community"}
           </span>
         </div>
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -247,13 +247,13 @@ export default function CommunitySignup({ locale, variant = "hero", source = "we
           </div>
           <div>
             <p className="font-mono text-[10px] tracking-widest uppercase" style={{ color: "var(--color-tertiary)" }}>
-              {isAr ? "مجتمع درهوس للذكاء الاصطناعي" : "Darhous AI Community"}
+              {isAr ? "مجتمع NexaLearn للذكاء الاصطناعي" : "NexaLearn AI Community"}
             </p>
           </div>
         </div>
 
         <h2 className="font-display font-bold text-2xl md:text-3xl mb-3" style={{ color: "var(--color-on-surface)" }}>
-          {isAr ? "مجتمع درهوس للذكاء الاصطناعي" : "Darhous AI Community"}
+          {isAr ? "مجتمع NexaLearn للذكاء الاصطناعي" : "NexaLearn AI Community"}
         </h2>
         <p className="text-sm leading-relaxed mb-6 max-w-xl" style={{ color: "var(--color-on-surface-variant)" }}>
           {isAr
