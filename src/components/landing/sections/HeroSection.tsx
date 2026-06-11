@@ -6,7 +6,6 @@ import {
   Bot, Globe, Monitor, Briefcase, Settings2, Cpu, CheckCircle2, Play
 } from "lucide-react";
 import RotatingWord from "@/components/ui/RotatingWord";
-import TechMarquee from "@/components/ui/TechMarquee";
 
 interface Props {
   locale: string;
@@ -258,14 +257,6 @@ export default function HeroSection({ locale, scrollToPath, onStartTour }: Props
           </div>
         </motion.div>
 
-        {/* Tech Stack Marquee */}
-        <motion.div
-          variants={fadeUp} initial="hidden" animate="show"
-          transition={{ duration: shouldReduce ? 0.15 : 0.6, delay: shouldReduce ? 0 : 0.8 }}
-          className="w-full mt-6"
-        >
-          <TechMarquee />
-        </motion.div>
       </div>
     </section>
   );
