@@ -10622,3 +10622,55 @@ PHASE L1-V1 — Scroll-Stack Portal Cards (NexaLearn landing). الهدف: اس�
 - **Push:** تم بنجاح → Vercel ينشر
 
 **الحالة:** جميع محطات الإصلاح البصري L1-V3 إلى L1-V7 مكتملة ومنشورة.
+
+---
+
+## 2026-06-11 — Design Lab: Reference Redesign (مبني على ahmedali.online)
+
+**اسم المرحلة:** Homepage Reference Redesign — رفض المفاهيم القديمة وإعادة البناء الكامل من صفر
+**التاريخ والوقت:** 2026-06-11
+
+### القرار
+رُفضت جميع المفاهيم الخمسة القديمة (AI Command Center, The Learning Journey, Silent Authority, Portal Constellation, Goal Gateway) بالكامل من قِبل المالك. تم حذفها بـ `git rm` وأُعيد بناء design lab من صفر.
+
+### تحليل الموقع المرجعي
+تم تحليل https://www.ahmedali.online/ بعمق — 40 نقطة موثّقة في `docs/reports/2026-06-11-ahmedali-reference-redesign/reference-analysis.md`:
+- هيكل 14 قسم: Navbar → Hero → Trusted By → Skills Marquee → About → Services → How I Work → Featured Projects → Impact Numbers → Timeline → Certifications → Contact → Footer
+- DNA بصري: glassmorphism داكن، شارة توافر، ثنائية الـ CTA، marquee لوجوهات الشركاء
+- لا نسخ للنصوص أو الهوية أو الصور — تكيّف فقط للبنية
+
+### الملفات المحذوفة (git rm)
+- `src/app/[locale]/design-lab/homepage-concept-{1-5}/page.tsx` (5 ملفات)
+- `src/components/design-lab/shared/` (7 مكوّنات مشتركة)
+- `src/components/design-lab/concept-*/`, `concepts/`, `homepage-concept-*/` (20+ مكوّن قديم)
+- `src/app/[locale]/design-lab/page.tsx` (index قديم)
+
+### الملفات الجديدة المنشأة
+
+#### مسارات جديدة (6 routes × 2 لغات = 12 صفحة)
+- `src/app/[locale]/design-lab/page.tsx` — index جديد بجدول مقارنة وكروت للنسخ الخمس
+- `src/app/[locale]/design-lab/reference-concept-{1-5}/page.tsx` — صفحات thin server
+
+#### مكوّنات جديدة (5 ملفات ضخمة)
+| المفهوم | الملف | الأسطر | المكتبات |
+|---|---|---|---|
+| C1: Reference Faithful | `Concept1.tsx` | ~700 | ShimmerButton + AnimatedGridPattern + BentoGrid + BackgroundBeams |
+| C2: Cinematic Enhanced | `Concept2.tsx` | ~1200 | BackgroundBeams + BentoGrid + HoverEffect + WordRotate + AnimatedGradientText |
+| C3: Arabic RTL Excellence | `Concept3.tsx` | ~1050 | ShimmerButton + WordRotate(AR) + AnimatedGradientText + BackgroundBeams + BentoGrid |
+| C4: SaaS Education Platform | `Concept4.tsx` | ~1550 | BentoGrid + HoverEffect + ShimmerButton + AnimatedGradientText + Card |
+| C5: High Conversion | `Concept5.tsx` | ~1564 | ShimmerButton(×3) + AnimatedGradientText + AnimatedGridPattern + BackgroundBeams + HoverEffect |
+
+#### تقارير (10 ملفات)
+جميعها في `docs/reports/2026-06-11-ahmedali-reference-redesign/`: README.md, reference-analysis.md, implementation-plan.md, library-usage-matrix.md, reference-feature-checklist.md, changed-files.md, validation-results.md, visual-review-notes.md, production-safety.md, summary.json
+
+### ضمانات الأمان
+- `src/app/[locale]/page.tsx` (الصفحة الرئيسية الإنتاجية): لم يُمسّ
+- Navbar وFooter الإنتاجيين: لم يُمسّا
+- جميع التقارير القديمة في docs/reports: محفوظة
+- كل نسخة: `robots: { index: false, follow: false }` + noindex في layout.tsx
+
+### نتائج التحقق
+- **build:** نجح (exit code 0) — 12 route جديدة مُولَّدة
+- **git diff --check:** اجتاز
+- **lint:** إصلاح خطأين react/no-unescaped-entities في Concept4 + إصلاح Math.random → قيمة ثابتة، 0 أخطاء بعد الإصلاح
+- **تأكيد TypeScript:** اجتاز (بناء نجح بالكامل)
