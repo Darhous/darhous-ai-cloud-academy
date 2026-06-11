@@ -6,6 +6,7 @@ import CommandPaletteProvider from "@/components/features/CommandPaletteProvider
 import MentorFloatingButton from "@/components/mentor/MentorFloatingButton";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import MotionProvider from "@/components/providers/MotionProvider";
+import { Analytics } from "@vercel/analytics/next";
 import { locales } from "@/lib/i18n";
 import { getDir } from "@/lib/utils";
 
@@ -174,6 +175,7 @@ export default async function LocaleLayout({
           </main>
           <Footer locale={locale} />
         </MotionProvider>
+        <Analytics />
       </body>
     </html>
   );
