@@ -33,8 +33,10 @@ import clientInvoiceGenerator from "./client-invoice-generator";
 import supportTicketAutoAssign from "./support-ticket-auto-assign";
 import employeeBirthdayReminder from "./employee-birthday-reminder";
 import ecommerceNewOrderNotify from "./ecommerce-new-order-notify";
+import aiVideoFactory from "./ai-video-factory";
 
 const ALL: WorkflowDetail[] = [
+  aiVideoFactory,
   studentWelcomeFlow,
   googleFormToCrm,
   dailyAiEmailBrief,

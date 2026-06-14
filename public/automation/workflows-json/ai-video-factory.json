@@ -1,0 +1,514 @@
+{
+  "name": "مصنع فيديوهات AI",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "node_trigger",
+      "name": "تشغيل يدوي",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "fields": {
+          "values": [
+            { "name": "topic", "stringValue": "={{ $json.topic || 'تعلم البرمجة بالذكاء الاصطناعي' }}" },
+            { "name": "language", "stringValue": "ar" },
+            { "name": "platform", "stringValue": "youtube,tiktok" },
+            { "name": "retry_count", "numberValue": 0 }
+          ]
+        }
+      },
+      "id": "node_set_init",
+      "name": "تهيئة الوظيفة",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/ai_video_jobs",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $env.SUPABASE_ANON_KEY }}" },
+            { "name": "Authorization", "value": "=Bearer {{ $env.SUPABASE_ANON_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "Prefer", "value": "return=representation" }
+          ]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={ \"topic\": \"{{ $json.topic }}\", \"language\": \"{{ $json.language }}\", \"status\": \"pending\", \"platform\": \"{{ $json.platform }}\", \"created_at\": \"{{ $now.toISO() }}\" }"
+      },
+      "id": "node_supabase_insert",
+      "name": "إنشاء وظيفة",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={{ $env.GEMINI_API_KEY }}",
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={ \"contents\": [{ \"parts\": [{ \"text\": \"أنت خبير محتوى تعليمي عربي. اكتب سكريبت فيديو تعليمي (60 ثانية) بالعربية الفصحى عن: {{ $('تهيئة الوظيفة').first().json.topic }}. أعد الرد بصيغة JSON فقط بدون أي نص إضافي: {\\\"title\\\": \\\"عنوان جذاب\\\", \\\"script\\\": \\\"نص السكريبت الكامل هنا\\\", \\\"hashtags\\\": [\\\"#هاشتاق1\\\", \\\"#هاشتاق2\\\", \\\"#هاشتاق3\\\", \\\"#هاشتاق4\\\", \\\"#هاشتاق5\\\"], \\\"search_keywords\\\": \\\"english keywords for stock video search\\\"}\" }] }] }"
+      },
+      "id": "node_gemini",
+      "name": "توليد السكريبت",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json.candidates[0].content.parts[0].text;\nlet parsed;\ntry {\n  const match = raw.match(/\\{[\\s\\S]*\\}/);\n  parsed = JSON.parse(match[0]);\n} catch(e) {\n  parsed = {\n    title: 'فيديو تعليمي',\n    script: raw.replace(/```json|```/g, '').trim().substring(0, 600),\n    hashtags: ['#تعلم', '#AI', '#تعليم', '#عربي', '#مهارات'],\n    search_keywords: 'education technology learning'\n  };\n}\nconst jobData = $('إنشاء وظيفة').first().json;\nreturn [{\n  json: {\n    ...parsed,\n    job_id: Array.isArray(jobData) ? jobData[0].id : jobData.id,\n    topic: $('تهيئة الوظيفة').first().json.topic\n  }\n}];"
+      },
+      "id": "node_parse_gemini",
+      "name": "تحليل رد Gemini",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "len-check",
+              "leftValue": "={{ $json.script.length }}",
+              "rightValue": 100,
+              "operator": { "type": "number", "operation": "gte" }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "node_if_quality",
+      "name": "فحص جودة السكريبت",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "xi-api-key", "value": "={{ $env.ELEVENLABS_API_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "Accept", "value": "audio/mpeg" }
+          ]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={ \"text\": \"{{ $json.script.substring(0, 500) }}\", \"model_id\": \"eleven_multilingual_v2\", \"voice_settings\": { \"stability\": 0.5, \"similarity_boost\": 0.75 } }",
+        "responseFormat": "file"
+      },
+      "id": "node_elevenlabs",
+      "name": "توليد الصوت ElevenLabs",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1560, 180]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "fields": {
+          "values": [
+            { "name": "tts_method", "stringValue": "edge-tts-fallback" },
+            { "name": "audio_url", "stringValue": "" },
+            { "name": "tts_note", "stringValue": "Script too short — use Edge TTS locally or fix the Gemini prompt" }
+          ]
+        }
+      },
+      "id": "node_tts_fallback",
+      "name": "Edge TTS Fallback",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [1560, 420]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "name": "=audio-{{ $('تحليل رد Gemini').first().json.job_id }}.mp3",
+        "driveId": { "mode": "list", "value": "MY_DRIVE" },
+        "folderId": { "mode": "id", "value": "={{ $env.GDRIVE_FOLDER_ID }}" },
+        "binaryPropertyName": "data"
+      },
+      "id": "node_drive_audio",
+      "name": "رفع الصوت Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [1780, 180],
+      "credentials": {
+        "googleDriveOAuth2Api": { "id": "GOOGLE_DRIVE_CRED_ID", "name": "Google Drive" }
+      }
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.pexels.com/videos/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "={{ $env.PEXELS_API_KEY }}" }
+          ]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "query", "value": "={{ $('تحليل رد Gemini').first().json.search_keywords || 'education learning technology' }}" },
+            { "name": "per_page", "value": "5" },
+            { "name": "orientation", "value": "portrait" }
+          ]
+        }
+      },
+      "id": "node_pexels",
+      "name": "بحث فيديوهات Pexels",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [2000, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const pexels = $input.first().json;\nconst scriptData = $('تحليل رد Gemini').first().json;\nconst videos = (pexels.videos || []).slice(0, 3);\n\nconst clips = videos.map((v, i) => {\n  const sdFile = v.video_files.find(f => f.quality === 'sd' || f.height <= 720) || v.video_files[0];\n  return {\n    asset: { type: 'video', src: sdFile.link, trim: 0 },\n    start: i * 5,\n    length: 5,\n    effect: i === 0 ? 'zoomIn' : 'slideLeft'\n  };\n});\n\nconst title = (scriptData.title || '').replace(/[<>\"]/g, '');\nconst hashtags = (scriptData.hashtags || []).slice(0, 3).join(' ');\n\nconst titleOverlay = {\n  asset: {\n    type: 'html',\n    html: `<div style=\"font-family:Arial;color:white;font-size:32px;text-align:center;direction:rtl;background:rgba(0,0,0,0.6);padding:16px;border-radius:8px\">${title}</div>`,\n    width: 720,\n    height: 160\n  },\n  start: 0,\n  length: 4,\n  position: 'bottom',\n  offset: { y: -0.15 }\n};\n\nconst hashtagOverlay = {\n  asset: {\n    type: 'html',\n    html: `<div style=\"font-family:Arial;color:#FFD700;font-size:20px;direction:rtl\">${hashtags}</div>`,\n    width: 720,\n    height: 80\n  },\n  start: 11,\n  length: 4,\n  position: 'bottom'\n};\n\nreturn [{\n  json: {\n    timeline: {\n      background: '#000000',\n      tracks: [\n        { clips },\n        { clips: [titleOverlay, hashtagOverlay] }\n      ]\n    },\n    output: { format: 'mp4', resolution: 'sd', aspectRatio: '9:16', fps: 25 },\n    job_id: scriptData.job_id,\n    title: scriptData.title\n  }\n}];"
+      },
+      "id": "node_build_shotstack",
+      "name": "بناء طلب Shotstack",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2220, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.shotstack.io/stage/render",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "={{ $env.SHOTSTACK_API_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={ \"timeline\": {{ JSON.stringify($json.timeline) }}, \"output\": {{ JSON.stringify($json.output) }} }"
+      },
+      "id": "node_shotstack_post",
+      "name": "إرسال طلب Render",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [2440, 300]
+    },
+    {
+      "parameters": {
+        "amount": 45,
+        "unit": "seconds"
+      },
+      "id": "node_wait_render",
+      "name": "انتظار المعالجة",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [2660, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.shotstack.io/stage/render/{{ $('إرسال طلب Render').first().json.response.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "={{ $env.SHOTSTACK_API_KEY }}" }
+          ]
+        }
+      },
+      "id": "node_shotstack_poll",
+      "name": "فحص حالة Render",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [2880, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "id": "done-check",
+              "leftValue": "={{ $json.response.status }}",
+              "rightValue": "done",
+              "operator": { "type": "string", "operation": "equals" }
+            }
+          ]
+        }
+      },
+      "id": "node_if_render_done",
+      "name": "هل اكتمل الرندر؟",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [3100, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $env.TELEGRAM_OPERATOR_CHAT_ID }}",
+        "text": "=🎬 *فيديو جاهز للمراجعة*\n\n📌 الموضوع: {{ $('تحليل رد Gemini').first().json.topic }}\n🎯 العنوان: {{ $('تحليل رد Gemini').first().json.title }}\n🔗 رابط المعاينة: {{ $json.response.url }}\n\nهل تعتمد النشر على YouTube و TikTok؟",
+        "additionalFields": {
+          "parse_mode": "Markdown",
+          "replyMarkup": "={\"inline_keyboard\":[[{\"text\":\"✅ اعتماد ونشر\",\"callback_data\":\"APPROVE_{{ $('تحليل رد Gemini').first().json.job_id }}\"},{\"text\":\"❌ رفض\",\"callback_data\":\"REJECT_{{ $('تحليل رد Gemini').first().json.job_id }}\"}]]}"
+        }
+      },
+      "id": "node_telegram_preview",
+      "name": "إرسال معاينة Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [3320, 180],
+      "credentials": {
+        "telegramApi": { "id": "TELEGRAM_CRED_ID", "name": "Telegram Bot" }
+      }
+    },
+    {
+      "parameters": {
+        "resume": "webhook",
+        "webhookSuffix": "=approval-{{ $('تحليل رد Gemini').first().json.job_id }}"
+      },
+      "id": "node_wait_approval",
+      "name": "انتظار قرار الاعتماد",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [3540, 180]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "id": "approve-check",
+              "leftValue": "={{ $json.body.callback_query.data }}",
+              "rightValue": "=APPROVE_{{ $('تحليل رد Gemini').first().json.job_id }}",
+              "operator": { "type": "string", "operation": "startsWith" }
+            }
+          ]
+        }
+      },
+      "id": "node_if_approved",
+      "name": "هل تم الاعتماد؟",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [3760, 180]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/ai_video_jobs?id=eq.{{ $('تحليل رد Gemini').first().json.job_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $env.SUPABASE_ANON_KEY }}" },
+            { "name": "Authorization", "value": "=Bearer {{ $env.SUPABASE_ANON_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={ \"status\": \"published\", \"video_url\": \"{{ $('فحص حالة Render').first().json.response.url }}\", \"title\": \"{{ $('تحليل رد Gemini').first().json.title }}\", \"script\": \"{{ $('تحليل رد Gemini').first().json.script }}\", \"published_at\": \"{{ $now.toISO() }}\" }"
+      },
+      "id": "node_supabase_published",
+      "name": "تحديث: منشور",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [3980, 60]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $env.TELEGRAM_OPERATOR_CHAT_ID }}",
+        "text": "=✅ *تم الاعتماد — جاهز للنشر!*\n\n🎬 العنوان: {{ $('تحليل رد Gemini').first().json.title }}\n🔗 رابط الفيديو: {{ $('فحص حالة Render').first().json.response.url }}\n☁️ Drive: تم الحفظ\n\n🏷 {{ $('تحليل رد Gemini').first().json.hashtags.join(' ') }}\n\n💡 ارفع الفيديو يدويًا أو أضف YouTube + TikTok nodes للنشر التلقائي.",
+        "additionalFields": { "parse_mode": "Markdown" }
+      },
+      "id": "node_telegram_success",
+      "name": "إشعار النجاح",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [4200, 60],
+      "credentials": {
+        "telegramApi": { "id": "TELEGRAM_CRED_ID", "name": "Telegram Bot" }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $env.TELEGRAM_OPERATOR_CHAT_ID }}",
+        "text": "=❌ تم رفض الفيديو.\n\nالوظيفة: {{ $('تحليل رد Gemini').first().json.job_id }}\nيمكنك إعادة التشغيل بموضوع مختلف أو تعديل السكريبت."
+      },
+      "id": "node_telegram_rejected",
+      "name": "إشعار الرفض",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [3980, 300],
+      "credentials": {
+        "telegramApi": { "id": "TELEGRAM_CRED_ID", "name": "Telegram Bot" }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/ai_video_jobs?id=eq.{{ $('تحليل رد Gemini').first().json.job_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $env.SUPABASE_ANON_KEY }}" },
+            { "name": "Authorization", "value": "=Bearer {{ $env.SUPABASE_ANON_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={ \"status\": \"rejected\", \"updated_at\": \"{{ $now.toISO() }}\" }"
+      },
+      "id": "node_supabase_rejected",
+      "name": "تحديث: مرفوض",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [4200, 300]
+    },
+    {
+      "parameters": {},
+      "id": "node_error_trigger",
+      "name": "خطأ في الـ Workflow",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [240, 600]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/ai_video_jobs?status=eq.pending",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $env.SUPABASE_ANON_KEY }}" },
+            { "name": "Authorization", "value": "=Bearer {{ $env.SUPABASE_ANON_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={ \"status\": \"failed\", \"error_message\": \"{{ $json.error.message }}\", \"updated_at\": \"{{ $now.toISO() }}\" }"
+      },
+      "id": "node_error_supabase",
+      "name": "تسجيل الخطأ",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [460, 600]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $env.TELEGRAM_OPERATOR_CHAT_ID }}",
+        "text": "=⚠️ *خطأ في مصنع الفيديو*\n\nالخطأ: {{ $json.error.message }}\nالوقت: {{ $now.toFormat('yyyy-MM-dd HH:mm') }}\n\nافحص n8n execution logs للتفاصيل.",
+        "additionalFields": { "parse_mode": "Markdown" }
+      },
+      "id": "node_error_telegram",
+      "name": "تنبيه الخطأ",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [680, 600],
+      "credentials": {
+        "telegramApi": { "id": "TELEGRAM_CRED_ID", "name": "Telegram Bot" }
+      }
+    }
+  ],
+  "connections": {
+    "تشغيل يدوي": {
+      "main": [[{ "node": "تهيئة الوظيفة", "type": "main", "index": 0 }]]
+    },
+    "تهيئة الوظيفة": {
+      "main": [[{ "node": "إنشاء وظيفة", "type": "main", "index": 0 }]]
+    },
+    "إنشاء وظيفة": {
+      "main": [[{ "node": "توليد السكريبت", "type": "main", "index": 0 }]]
+    },
+    "توليد السكريبت": {
+      "main": [[{ "node": "تحليل رد Gemini", "type": "main", "index": 0 }]]
+    },
+    "تحليل رد Gemini": {
+      "main": [[{ "node": "فحص جودة السكريبت", "type": "main", "index": 0 }]]
+    },
+    "فحص جودة السكريبت": {
+      "main": [
+        [{ "node": "توليد الصوت ElevenLabs", "type": "main", "index": 0 }],
+        [{ "node": "Edge TTS Fallback", "type": "main", "index": 0 }]
+      ]
+    },
+    "توليد الصوت ElevenLabs": {
+      "main": [[{ "node": "رفع الصوت Drive", "type": "main", "index": 0 }]]
+    },
+    "رفع الصوت Drive": {
+      "main": [[{ "node": "بحث فيديوهات Pexels", "type": "main", "index": 0 }]]
+    },
+    "Edge TTS Fallback": {
+      "main": [[{ "node": "بحث فيديوهات Pexels", "type": "main", "index": 0 }]]
+    },
+    "بحث فيديوهات Pexels": {
+      "main": [[{ "node": "بناء طلب Shotstack", "type": "main", "index": 0 }]]
+    },
+    "بناء طلب Shotstack": {
+      "main": [[{ "node": "إرسال طلب Render", "type": "main", "index": 0 }]]
+    },
+    "إرسال طلب Render": {
+      "main": [[{ "node": "انتظار المعالجة", "type": "main", "index": 0 }]]
+    },
+    "انتظار المعالجة": {
+      "main": [[{ "node": "فحص حالة Render", "type": "main", "index": 0 }]]
+    },
+    "فحص حالة Render": {
+      "main": [[{ "node": "هل اكتمل الرندر؟", "type": "main", "index": 0 }]]
+    },
+    "هل اكتمل الرندر؟": {
+      "main": [
+        [{ "node": "إرسال معاينة Telegram", "type": "main", "index": 0 }],
+        [{ "node": "انتظار المعالجة", "type": "main", "index": 0 }]
+      ]
+    },
+    "إرسال معاينة Telegram": {
+      "main": [[{ "node": "انتظار قرار الاعتماد", "type": "main", "index": 0 }]]
+    },
+    "انتظار قرار الاعتماد": {
+      "main": [[{ "node": "هل تم الاعتماد؟", "type": "main", "index": 0 }]]
+    },
+    "هل تم الاعتماد؟": {
+      "main": [
+        [{ "node": "تحديث: منشور", "type": "main", "index": 0 }],
+        [{ "node": "إشعار الرفض", "type": "main", "index": 0 }]
+      ]
+    },
+    "تحديث: منشور": {
+      "main": [[{ "node": "إشعار النجاح", "type": "main", "index": 0 }]]
+    },
+    "إشعار الرفض": {
+      "main": [[{ "node": "تحديث: مرفوض", "type": "main", "index": 0 }]]
+    },
+    "خطأ في الـ Workflow": {
+      "main": [[{ "node": "تسجيل الخطأ", "type": "main", "index": 0 }]]
+    },
+    "تسجيل الخطأ": {
+      "main": [[{ "node": "تنبيه الخطأ", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveManualExecutions": true
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "templateId": "ai-video-factory",
+    "instanceId": "darhous-academy"
+  }
+}
