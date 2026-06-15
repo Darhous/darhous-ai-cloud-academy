@@ -1,0 +1,30 @@
+{
+  "id": "mf-capstone-strategy-brief",
+  "portal_id": "marketing",
+  "content_type": "assignment",
+  "title_ar": "كابستون — ملخص استراتيجية «العلامة في صندوق»",
+  "title_en": "Capstone — \"Brand-in-a-Box\" Strategy Brief",
+  "status": "draft",
+  "featured": false,
+  "sort_order": 1,
+  "tags": ["capstone", "beginner", "strategy"],
+  "data": {
+    "track_id": "marketing-foundations",
+    "lesson_id": "mf-l5-1",
+    "level": "beginner",
+    "is_capstone": true,
+    "brief_ar": "اختر نشاطًا محليًا حقيقيًا وأنتج: العميل المثالي (ICP)، عرض القيمة، خطة القنوات، وأهداف المؤشرات (KPIs).",
+    "brief_en": "Pick a real local business and produce: ICP, value proposition, channel plan, and KPI targets.",
+    "deliverable": "1–2 page strategy brief (PDF or doc link)",
+    "rubric": {
+      "dimensions": [
+        { "key": "strategy", "label": "Strategy", "max": 25 },
+        { "key": "execution", "label": "Execution", "max": 25 },
+        { "key": "data", "label": "Data/Reasoning", "max": 25 },
+        { "key": "communication", "label": "Communication", "max": 25 }
+      ],
+      "pass": 70,
+      "distinction": 85
+    }
+  }
+}

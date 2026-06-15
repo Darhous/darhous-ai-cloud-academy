@@ -1327,6 +1327,75 @@ export default function AdminDashboardClient({ locale }: { locale: string }) {
         </div>
       )}
 
+      {/* ── MARKETING TAB ───────────────────────────────────── */}
+      {tab === "marketing" && (
+        <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {[
+              { label: isAr ? "مسارات التعلّم" : "Learning Tracks", value: "16", color: "#ec4899" },
+              { label: isAr ? "مستويات الشهادات" : "Certificate Levels", value: "4", color: "#a855f7" },
+              { label: isAr ? "مساعدو AI و MCP" : "AI & MCP Copilots", value: "6", color: "#3b82f6" },
+              { label: isAr ? "جداول قاعدة البيانات" : "DB Tables (v50)", value: "15", color: "#22c55e" },
+            ].map((s) => (
+              <div key={s.label} className="glass-card rounded-2xl p-5 flex flex-col gap-1" style={{ border: `1px solid ${s.color}20` }}>
+                <p className="font-mono font-bold text-2xl" style={{ color: s.color }}>{s.value}</p>
+                <p className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(236,72,153,0.12)" }}>
+            <h3 className="font-bold text-sm mb-4 flex items-center gap-2" style={{ color: "#ec4899" }}>
+              <Zap size={14} />{isAr ? "إدارة بوابة التسويق" : "Marketing Portal Management"}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {[
+                { label: isAr ? "عرض البوابة العامة" : "View Public Portal", href: `/${locale}/marketing`, color: "#ec4899" },
+                { label: isAr ? "إصدار شهادة تسويق" : "Issue Marketing Certificate", href: `/${locale}/admin?tab=certificates`, color: "#a855f7" },
+                { label: isAr ? "كتالوج المسارات (16)" : "Tracks Catalogue (16)", href: `/${locale}/marketing#tracks`, color: "#3b82f6" },
+                { label: isAr ? "سلّم الشهادات" : "Certificate Ladder", href: `/${locale}/certificates`, color: "#22c55e" },
+              ].map((tool) => (
+                <Link key={tool.label} href={tool.href} className="flex items-center gap-3 p-3 rounded-xl text-sm hover:opacity-80 transition-opacity" style={{ background: `${tool.color}08`, border: `1px solid ${tool.color}20`, color: tool.color }}>
+                  <ExternalLink size={13} />{tool.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="glass-card rounded-2xl p-5" style={{ border: "1px solid rgba(168,85,247,0.12)" }}>
+            <h3 className="font-bold text-sm mb-3" style={{ color: "#a855f7" }}>
+              {isAr ? "بنية البوابة (v50)" : "Portal Architecture (v50)"}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {[
+                isAr ? "✅ 16 مسارًا: من الأساسيات إلى MCP" : "✅ 16 tracks: Foundations → MCP",
+                isAr ? "✅ شهادات: مبتدئ ← محترف ← متخصص ← خبير" : "✅ Certs: Beginner → Pro → Specialist → Expert",
+                isAr ? "✅ تكامل لوحة الطالب والأدمن" : "✅ Student + Admin dashboard integration",
+                isAr ? "✅ مساعدو AI: معلّم، مدرّب، مُراجع حملات، نسخ، محتوى، فانل" : "✅ AI: Tutor, Coach, Reviewer, Copy, Content, Funnel",
+                isAr ? "✅ نظام XP وشارات وسلاسل ولوحات صدارة" : "✅ XP, badges, streaks, leaderboards",
+                isAr ? "✅ هجرة v50: 15 جدولًا + RLS + بذور" : "✅ v50 migration: 15 tables + RLS + seed",
+              ].map((f, i) => (
+                <p key={i} className="text-xs" style={{ color: "var(--color-on-surface-variant)" }}>{f}</p>
+              ))}
+            </div>
+            <p className="text-[11px] mt-3 font-mono" style={{ color: "var(--color-on-surface-variant)" }}>
+              {isAr ? "ملاحظة: شغّل supabase/v50_marketing_portal.sql لتفعيل الحفظ في قاعدة البيانات." : "Note: run supabase/v50_marketing_portal.sql to enable DB persistence."}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {[
+              { href: `/${locale}/marketing`, label: isAr ? "بوابة التسويق" : "Marketing Portal", color: "#ec4899" },
+              { href: `/${locale}/marketing#tracks`, label: isAr ? "المسارات" : "Tracks", color: "#a855f7" },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold" style={{ background: `${l.color}10`, color: l.color, border: `1px solid ${l.color}25` }}>
+                <ExternalLink size={13} />{l.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* ── IOT LAB TAB ─────────────────────────────────────── */}
       {tab === "iot-lab" && (
         <div className="flex flex-col gap-6">

@@ -8,7 +8,7 @@ export type AdminTab =
   | "overview" | "site-builder" | "portals" | "users"
   | "certificates" | "mentor-control" | "content" | "email"
   | "analytics" | "theme" | "audit" | "language" | "automation" | "digital-exams"
-  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms" | "ai-projects-cms" | "ai-paths-cms"
+  | "career" | "iot-lab" | "ai-academy" | "nano-banana" | "marketing" | "blog" | "ai-glossary" | "ai-tools-cms" | "ai-prompts-cms" | "ai-courses-cms" | "ai-projects-cms" | "ai-paths-cms"
   | "automation-cms" | "iot-cms" | "exams-cms" | "draft-preview";
 
 import React from "react";
@@ -73,6 +73,7 @@ export const adminNavGroups: NavGroup[] = [
       { id: "iot-lab", labelAr: "مختبر IoT", labelEn: "IoT Lab", icon: Wrench },
       { id: "career", labelAr: "بوابة المهنة", labelEn: "Career Hub", icon: Award },
       { id: "automation", labelAr: "بوابة الأتمتة", labelEn: "Automation Portal", icon: Zap },
+      { id: "marketing", labelAr: "بوابة التسويق", labelEn: "Marketing Portal", icon: TrendingUp },
       { id: "language", labelAr: "بوابة اللغة", labelEn: "Language Portal", icon: Globe },
       { id: "nano-banana", labelAr: "🍌 Nano Banana", labelEn: "Nano Banana", icon: Sparkles },
       { id: "digital-exams", labelAr: "الاختبارات الرقمية", labelEn: "Digital Exams", icon: BarChart2 }

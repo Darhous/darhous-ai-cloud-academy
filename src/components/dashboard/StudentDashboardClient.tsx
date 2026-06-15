@@ -294,6 +294,62 @@ function CareerHubSection({ locale, isAr }: { locale: string; isAr: boolean }) {
   );
 }
 
+/* ── Marketing Hub Section ───────────────────────────────────── */
+function MarketingHubSection({ locale, isAr }: { locale: string; isAr: boolean }) {
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="font-display font-bold text-xl flex items-center gap-2" style={{ color: "var(--color-on-surface)" }}>
+          <span style={{ fontSize: "18px" }}>📈</span>
+          {isAr ? "أكاديمية التسويق" : "Marketing Academy"}
+        </h2>
+        <span
+          className="text-xs font-mono px-2 py-0.5 rounded-full"
+          style={{ background: "rgba(236,72,153,0.15)", color: "#ec4899", border: "1px solid rgba(236,72,153,0.3)" }}
+        >
+          {isAr ? "16 مسار" : "16 tracks"}
+        </span>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+        {[
+          { label: isAr ? "الأساسيات" : "Foundations", icon: "🎯", href: `/${locale}/marketing#tracks`, color: "#22c55e" },
+          { label: isAr ? "الإعلانات" : "Ads", icon: "📘", href: `/${locale}/marketing#tracks`, color: "#3b82f6" },
+          { label: isAr ? "الفانلز" : "Funnels", icon: "🪜", href: `/${locale}/marketing#tracks`, color: "#a855f7" },
+          { label: isAr ? "AI و MCP" : "AI & MCP", icon: "🧩", href: `/${locale}/marketing#tracks`, color: "#ec4899" },
+        ].map((tool) => (
+          <Link
+            key={tool.label}
+            href={tool.href}
+            className="glass-card rounded-2xl p-4 flex flex-col gap-2 items-center text-center transition-all hover:scale-[1.02]"
+            style={{ border: `1px solid ${tool.color}15`, textDecoration: "none" }}
+          >
+            <span style={{ fontSize: "22px" }}>{tool.icon}</span>
+            <p className="text-xs font-semibold" style={{ color: tool.color }}>{tool.label}</p>
+          </Link>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href={`/${locale}/marketing`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(236,72,153,0.08)", color: "#ec4899", border: "1px solid rgba(236,72,153,0.2)" }}
+        >
+          📈 {isAr ? "دخول البوابة" : "Enter Portal"}
+        </Link>
+        <Link
+          href={`/${locale}/certificates`}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold"
+          style={{ background: "rgba(236,72,153,0.06)", color: "#ec4899", border: "1px solid rgba(236,72,153,0.18)" }}
+        >
+          🎓 {isAr ? "الشهادات" : "Certificates"}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 /* ── IoT Lab Hub Section ─────────────────────────────────────── */
 function IoTHubSection({ locale, isAr }: { locale: string; isAr: boolean }) {
   return (
@@ -899,6 +955,9 @@ export default function StudentDashboardClient({ locale }: Props) {
 
           {/* Career Hub section */}
           <CareerHubSection locale={locale} isAr={isAr} />
+
+          {/* Marketing Academy section */}
+          <MarketingHubSection locale={locale} isAr={isAr} />
 
           {/* IoT Lab section */}
           <IoTHubSection locale={locale} isAr={isAr} />

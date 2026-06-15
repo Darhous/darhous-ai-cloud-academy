@@ -1,0 +1,29 @@
+{
+  "id": "marketing-foundations",
+  "portal_id": "marketing",
+  "content_type": "track",
+  "title_ar": "أساسيات التسويق",
+  "title_en": "Marketing Foundations",
+  "status": "draft",
+  "featured": true,
+  "sort_order": 1,
+  "tags": ["foundations", "strategy", "funnel", "beginner"],
+  "data": {
+    "stage": "beginner",
+    "difficulty": 1,
+    "duration_hours": 8,
+    "description_ar": "النموذج الذهني للتسويق الحديث: العميل، القمع التسويقي، عرض القيمة، القنوات، ورياضيات التسويق.",
+    "description_en": "The mental model of modern marketing: customer, funnel, value proposition, channels, and marketing math.",
+    "skills_en": ["Market research", "Value proposition", "Funnel thinking", "Marketing math (CAC, LTV, ROAS)"],
+    "prereqs": [],
+    "final_project_ar": "ملخص استراتيجية «العلامة في صندوق» لنشاط محلي حقيقي.",
+    "final_project_en": "\"Brand-in-a-Box\" strategy brief for a real local business.",
+    "modules": [
+      { "id": "mf-m1", "title_en": "The Marketing Mindset", "lessons": ["mf-l1-1", "mf-l1-2", "mf-l1-3"] },
+      { "id": "mf-m2", "title_en": "Customer & Market Research", "lessons": ["mf-l2-1", "mf-l2-2", "mf-l2-3"] },
+      { "id": "mf-m3", "title_en": "Value Proposition & Offer", "lessons": ["mf-l3-1", "mf-l3-2", "mf-l3-3"] },
+      { "id": "mf-m4", "title_en": "The Channel Map", "lessons": ["mf-l4-1", "mf-l4-2", "mf-l4-3"] },
+      { "id": "mf-m5", "title_en": "Capstone — Strategy Brief", "lessons": ["mf-l5-1"] }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "marketing-glossary-roas",
+  "portal_id": "marketing",
+  "content_type": "glossary",
+  "title_ar": "العائد على الإنفاق الإعلاني (ROAS)",
+  "title_en": "Return on Ad Spend (ROAS)",
+  "status": "draft",
+  "featured": false,
+  "sort_order": 10,
+  "tags": ["metrics", "ads", "math"],
+  "data": {
+    "definition_ar": "الإيرادات المُحققة مقابل كل وحدة عملة تُنفق على الإعلانات. يُحسب: الإيراد ÷ الإنفاق الإعلاني.",
+    "definition_en": "Revenue generated per unit of currency spent on ads. Calculated as: Revenue ÷ Ad Spend.",
+    "example": "إنفاق 1000 ج.م ونتج عنه 4000 ج.م مبيعات = ROAS بقيمة 4.0 (أو 400%)."
+  }
+}

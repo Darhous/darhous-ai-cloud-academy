@@ -25,6 +25,20 @@ export interface PortalIntroEntry {
 }
 
 export const portalIntroData: Record<string, PortalIntroEntry> = {
+  marketing: {
+    stats: [
+      { value: "16",  numericValue: 16,  labelEn: "Learning Tracks",       labelAr: "مسار تعلم" },
+      { value: "4",   numericValue: 4,   labelEn: "Certificate Levels",    labelAr: "مستوى شهادة" },
+      { value: "AI",  numericValue: 6,   labelEn: "AI & MCP Copilots",     labelAr: "مساعد AI و MCP" },
+    ],
+    journey: [
+      { num: "01", titleEn: "Master the Fundamentals", titleAr: "أتقن الأساسيات" },
+      { num: "02", titleEn: "Run Real Campaigns",      titleAr: "أطلق حملات حقيقية" },
+      { num: "03", titleEn: "Build Funnels & Automation", titleAr: "ابنِ فانلز وأتمتة" },
+      { num: "04", titleEn: "Ship AI & MCP Systems",   titleAr: "اشحن أنظمة AI و MCP", isOutcome: true },
+    ],
+  },
+
   automation: {
     stats: [
       { value: "25",  numericValue: 25,  labelEn: "Automation Templates",  labelAr: "قالب أتمتة" },

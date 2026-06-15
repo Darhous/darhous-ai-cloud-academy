@@ -4,6 +4,25 @@ This log tracks **how** and **when** migrations in this repository were actually
 
 ---
 
+## Entry: 2026-06-15 — v50 Marketing Academy Portal (PENDING MANUAL RUN)
+
+**Date:** 2026-06-15
+**Execution method:** Manual, via **Supabase Dashboard → SQL Editor** (NOT via Supabase CLI)
+**Status:** ⏳ **Not yet run** — file added to the repo; run `supabase/v50_marketing_portal.sql` once before the Marketing portal's DB-backed features are used.
+
+### What it creates
+- **Content tables (9):** `marketing_tracks`, `marketing_modules`, `marketing_lessons`, `marketing_assignments`, `marketing_case_studies`, `marketing_simulations`, `marketing_audits`, `marketing_glossary`, `marketing_badges`.
+- **Student-state (2):** `marketing_submissions`, `marketing_lab_progress`.
+- **Gamification (4):** `marketing_xp`, `marketing_xp_events`, `marketing_user_badges`, `marketing_achievements`.
+- **RLS:** content tables get `public_read_published_*` + `admin_manage_*`; student-state/gamification get own-row policies; `marketing_submissions` additionally allows `admin/mentor/reviewer/instructor` to grade.
+- **Seed:** the 16 marketing tracks + a starter badge catalog (idempotent `ON CONFLICT DO NOTHING`).
+
+### Notes
+- Idempotent: `CREATE TABLE IF NOT EXISTS`, `DROP TRIGGER/POLICY IF EXISTS` patterns — safe to re-run.
+- The public `/marketing` route renders from `src/data/marketing/tracks.ts` (static fallback) and merges DB rows when present, so the portal is fully visible **before** this migration runs. Run v50 to enable persistence (progress, submissions, XP, DB-driven CMS).
+
+---
+
 ## Entry: 2026-06-08 — Core Content Schema Migrations
 
 **Date:** 2026-06-08

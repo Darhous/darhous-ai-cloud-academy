@@ -68,6 +68,14 @@ export const PORTAL_CERT_CONFIG: Record<string, PortalCertConfig> = {
     box1Label:       "PROJECTS", box1Value: "12/12",    box1Color: "#f97316",
     box2Label:       "STATUS",   box2Value: "CERTIFIED", box2Color: "#1a0900",
   },
+  marketing: {
+    academySubtitle: "M A R K E T I N G   A C A D E M Y",
+    certTypeLabel:   "CERTIFICATE OF COMPLETION",
+    bodyLine1:       "has successfully completed the NexaLearn Marketing Academy programme",
+    bodyLine2:       "Digital Marketing, Automation & AI/MCP Systems — Professional",
+    box1Label:       "LEVEL",  box1Value: "PROFESSIONAL", box1Color: "#ec4899",
+    box2Label:       "STATUS", box2Value: "CERTIFIED",    box2Color: "#3b0a23",
+  },
 };
 
 export function getPortalCertConfig(portal: string): PortalCertConfig {
@@ -260,6 +268,29 @@ export const PORTAL_SMART_CONFIG: Record<string, PortalSmartConfig> = {
           "Cloud Computing":      { box1Value: "CLOUD",     box2Value: "READY", bodyLine2: "Cloud Computing Career Readiness Programme" },
           "Product Management":   { box1Value: "PROD MGT",  box2Value: "READY", bodyLine2: "Product Management Career Readiness Programme" },
           "Business & Finance":   { box1Value: "BUS & FIN", box2Value: "READY", bodyLine2: "Business & Finance Career Readiness Programme" },
+        },
+      },
+    ],
+  },
+
+  // ── Marketing: certification-level dropdown → fills everything ────────────
+  marketing: {
+    dropdowns: [
+      {
+        key: "marketingLevel",
+        labelAr: "مستوى الشهادة",
+        labelEn: "Certificate Level",
+        options: [
+          { value: "BEGINNER",     label: "Beginner — Marketing Foundations (مبتدئ)" },
+          { value: "PROFESSIONAL", label: "Professional — Digital Marketing (محترف)" },
+          { value: "SPECIALIST",   label: "Specialist — Growth & Automation (متخصص)" },
+          { value: "EXPERT",       label: "Expert — AI & MCP Marketing (خبير)" },
+        ],
+        autoFills: {
+          BEGINNER:     { box1Value: "BEGINNER",     box2Value: "CERTIFIED", bodyLine2: "Marketing Foundations, Branding & Copywriting — Beginner" },
+          PROFESSIONAL: { box1Value: "PROFESSIONAL", box2Value: "CERTIFIED", bodyLine2: "Content, Social, SEO, Email & Paid Ads — Professional" },
+          SPECIALIST:   { box1Value: "SPECIALIST",   box2Value: "CERTIFIED", bodyLine2: "Funnels, CRO, Analytics & Marketing Automation — Specialist" },
+          EXPERT:       { box1Value: "EXPERT",       box2Value: "CERTIFIED", bodyLine2: "AI Marketing & MCP Agentic Systems — Expert" },
         },
       },
     ],
